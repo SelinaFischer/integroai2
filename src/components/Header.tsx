@@ -67,7 +67,7 @@ const Header = () => {
               asChild
             >
               <a href="https://tally.so/r/68jDMA" target="_blank" rel="noopener noreferrer">
-                Free Assessment
+                AI Readiness Audit
               </a>
             </Button>
             <Button 
@@ -110,7 +110,7 @@ const Header = () => {
               <div className="pt-4 mt-2 border-t border-border/50 space-y-3">
                 <Button variant="outline" className="w-full" asChild>
                   <a href="https://tally.so/r/68jDMA" target="_blank" rel="noopener noreferrer">
-                    Free Assessment
+                    AI Readiness Audit
                   </a>
                 </Button>
                 <Button variant="hero" className="w-full group" asChild>
