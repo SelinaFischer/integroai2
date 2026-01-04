@@ -1,16 +1,10 @@
-import { useState } from "react";
-import { Linkedin, Mail, ArrowRight, Send } from "lucide-react";
+import { Linkedin, Mail, ArrowRight } from "lucide-react";
 import logo from "@/assets/integroai-logo.png";
 import ContactFormModal from "./ContactFormModal";
 import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { useToast } from "@/hooks/use-toast";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const [email, setEmail] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
 
   const quickLinks = [
     { href: "#services", label: "Services" },
@@ -19,22 +13,6 @@ const Footer = () => {
     { href: "#faq", label: "FAQ" },
   ];
 
-  const handleNewsletterSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-    
-    setIsSubmitting(true);
-    // Simulate submission - replace with actual newsletter service integration
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast({
-      title: "Thanks for subscribing!",
-      description: "You'll receive our latest AI insights and updates.",
-    });
-    
-    setEmail("");
-    setIsSubmitting(false);
-  };
 
   return (
     <footer className="bg-primary relative overflow-hidden">
@@ -42,7 +20,7 @@ const Footer = () => {
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2" />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
@@ -78,33 +56,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Newsletter */}
-          <div>
-            <h4 className="font-bold text-primary-foreground mb-6 text-sm uppercase tracking-wider">Stay Updated</h4>
-            <p className="text-primary-foreground/70 text-sm mb-4">
-              Get AI insights and tips delivered to your inbox.
-            </p>
-            <form onSubmit={handleNewsletterSubmit} className="space-y-3">
-              <Input
-                type="email"
-                placeholder="Your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="bg-white/10 border-white/20 text-primary-foreground placeholder:text-primary-foreground/50 focus:border-accent-warm"
-              />
-              <Button 
-                type="submit" 
-                variant="heroOutline" 
-                size="sm" 
-                className="w-full group"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Subscribing..." : "Subscribe"}
-                <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </form>
-          </div>
 
           {/* Contact */}
           <div>
