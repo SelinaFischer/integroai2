@@ -45,9 +45,7 @@ const Header = () => {
               }`}>
                 IntegroAI Consulting
               </span>
-              <span className={`text-xs lg:text-sm font-medium tracking-wide transition-colors duration-300 ${
-                scrolled ? 'text-muted-foreground' : 'text-white/80'
-              }`}>
+              <span className="text-xs lg:text-sm font-medium tracking-wide text-amber-400">
                 Simplify · Amplify · Grow
               </span>
             </div>
