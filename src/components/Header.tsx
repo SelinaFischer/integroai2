@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
-import logo from "@/assets/integroai-logo-blue.png";
+import logo from "@/assets/logo-icon-new.png";
 import ContactFormModal from "./ContactFormModal";
 
 const Header = () => {

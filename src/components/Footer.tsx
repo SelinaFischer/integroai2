@@ -71,8 +71,8 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a
-                  href="https://linkedin.com/company/integroai"
+              <a
+                  href="https://www.linkedin.com/company/integroai-consulting/about/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm font-medium"
