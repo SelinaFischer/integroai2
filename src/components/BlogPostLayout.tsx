@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronRight, Calendar, Tag, Clock, Home, Share2, Check, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -21,7 +21,22 @@ interface BlogPostLayoutProps {
 const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, children }: BlogPostLayoutProps) => {
   const { toast } = useToast();
   const [copied, setCopied] = useState(false);
+  const [readingProgress, setReadingProgress] = useState(0);
   
+  // Track reading progress
+  useEffect(() => {
+    const updateProgress = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      setReadingProgress(Math.min(100, Math.max(0, progress)));
+    };
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress(); // Initial call
+    
+    return () => window.removeEventListener('scroll', updateProgress);
+  }, []);
   const articleUrl = `https://integroai.tech/blog/${slug}`;
   
   const handleCopyLink = async () => {
@@ -144,6 +159,17 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, child
           {JSON.stringify(articleSchema)}
         </script>
       </Helmet>
+      
+      {/* Reading Progress Bar */}
+      <div className="fixed top-0 left-0 right-0 z-50 h-1 bg-muted/30">
+        <motion.div
+          className="h-full bg-gradient-to-r from-accent-warm to-accent-warm/80"
+          style={{ width: `${readingProgress}%` }}
+          initial={{ width: 0 }}
+          transition={{ duration: 0.1 }}
+        />
+      </div>
+      
       <div className="min-h-screen bg-background">
         <Header />
         
