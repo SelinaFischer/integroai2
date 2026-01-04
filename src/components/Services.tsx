@@ -1,5 +1,6 @@
 import { Search, Route, GraduationCap, Cog, Users, ShieldCheck, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 const Services = () => {
   const services = [
@@ -50,77 +51,101 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 lg:py-28 bg-subtle">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="text-accent-warm font-semibold text-sm uppercase tracking-wider mb-4 block">
+    <section id="services" className="py-24 lg:py-32 bg-subtle relative overflow-hidden">
+      {/* Background accent */}
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent-warm/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl mx-auto text-center mb-16"
+        >
+          <span className="inline-block text-accent-warm font-semibold text-sm uppercase tracking-widest mb-4 px-4 py-1.5 bg-accent-warm/10 rounded-full">
             How We Help
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-foreground mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-6">
             Services That Drive Results
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-lg leading-relaxed">
             Clear structure. Practical support. Measurable outcomes. Everything you need to make AI work for your business.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {services.map((service) => (
-            <div
+          {services.map((service, index) => (
+            <motion.div
               key={service.title}
-              className="group bg-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 border border-border/50 flex flex-col"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group bg-card rounded-2xl p-7 shadow-card hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-border/50 flex flex-col relative overflow-hidden"
             >
-              <div className="flex items-start justify-between mb-4">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <service.icon className="w-6 h-6 text-primary" />
-                </div>
-                <span className="text-muted-foreground/40 font-serif text-2xl font-bold">
-                  {service.number}
-                </span>
-              </div>
+              {/* Hover gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
-              <h3 className="font-serif text-xl text-foreground mb-3">
-                {service.title}
-              </h3>
-              
-              <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">
-                {service.description}
-              </p>
-
-              <div className="flex flex-wrap gap-2 mb-4">
-                {service.outcomes.map((outcome) => (
-                  <span
-                    key={outcome}
-                    className="text-xs font-medium bg-secondary/50 text-foreground px-3 py-1 rounded-full"
-                  >
-                    {outcome}
+              <div className="relative z-10">
+                <div className="flex items-start justify-between mb-5">
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/15 group-hover:scale-110 transition-all duration-300">
+                    <service.icon className="w-7 h-7 text-primary" />
+                  </div>
+                  <span className="text-muted-foreground/30 text-3xl font-bold">
+                    {service.number}
                   </span>
-                ))}
-              </div>
+                </div>
+                
+                <h3 className="text-xl font-bold mb-3">
+                  {service.title}
+                </h3>
+                
+                <p className="text-muted-foreground text-sm leading-relaxed mb-5 flex-grow">
+                  {service.description}
+                </p>
 
-              {service.ctaLink && (
-                <a
-                  href={service.ctaLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors mt-auto"
-                >
-                  {service.ctaText}
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-              )}
-            </div>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {service.outcomes.map((outcome) => (
+                    <span
+                      key={outcome}
+                      className="text-xs font-medium bg-secondary text-foreground px-3 py-1.5 rounded-full"
+                    >
+                      {outcome}
+                    </span>
+                  ))}
+                </div>
+
+                {service.ctaLink && (
+                  <a
+                    href={service.ctaLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors mt-auto group/link"
+                  >
+                    {service.ctaText}
+                    <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                  </a>
+                )}
+              </div>
+            </motion.div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <Button variant="hero" size="lg" asChild>
+        <motion.div 
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="text-center mt-16"
+        >
+          <Button variant="hero" size="lg" className="group" asChild>
             <a href="https://calendly.com/integroai-consulting/30min" target="_blank" rel="noopener noreferrer">
               Discuss Your Needs
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
           </Button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
