@@ -119,15 +119,17 @@ const Founder = () => {
             </div>
 
             {/* LinkedIn Link */}
-            <a
-              href="https://www.linkedin.com/in/selinafischer8/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-accent-warm hover:text-accent-warm/80 transition-colors font-medium mt-4"
-            >
-              <Linkedin className="w-5 h-5" />
-              Connect on LinkedIn
-            </a>
+            <div className="pt-2">
+              <a
+                href="https://www.linkedin.com/in/selinafischer8/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-accent-warm hover:text-accent-warm/80 transition-colors font-medium"
+              >
+                <Linkedin className="w-5 h-5" />
+                Connect on LinkedIn
+              </a>
+            </div>
           </motion.div>
         </div>
       </div>
