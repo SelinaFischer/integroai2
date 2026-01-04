@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ChevronRight, Calendar, Tag, Clock, Home, Share2, Check, Linkedin } from "lucide-react";
+import { ChevronRight, Calendar, Tag, Clock, Home, Share2, Check, Linkedin, ArrowUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
@@ -22,6 +22,7 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, child
   const { toast } = useToast();
   const [copied, setCopied] = useState(false);
   const [readingProgress, setReadingProgress] = useState(0);
+  const [showScrollTop, setShowScrollTop] = useState(false);
   
   // Track reading progress
   useEffect(() => {
@@ -30,6 +31,7 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, child
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
       setReadingProgress(Math.min(100, Math.max(0, progress)));
+      setShowScrollTop(scrollTop > 400);
     };
 
     window.addEventListener('scroll', updateProgress, { passive: true });
@@ -37,6 +39,11 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, child
     
     return () => window.removeEventListener('scroll', updateProgress);
   }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const articleUrl = `https://integroai.tech/blog/${slug}`;
   
   const handleCopyLink = async () => {
@@ -376,6 +383,22 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, child
         </article>
         
         <Footer />
+        
+        {/* Scroll to Top Button */}
+        <motion.button
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ 
+            opacity: showScrollTop ? 1 : 0, 
+            scale: showScrollTop ? 1 : 0.8,
+            pointerEvents: showScrollTop ? 'auto' : 'none'
+          }}
+          transition={{ duration: 0.2 }}
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 z-50 h-12 w-12 rounded-full bg-accent-warm text-white shadow-lg hover:bg-accent-warm/90 hover:shadow-xl transition-all duration-300 flex items-center justify-center"
+          aria-label="Scroll to top"
+        >
+          <ArrowUp className="w-5 h-5" />
+        </motion.button>
       </div>
     </>
   );
