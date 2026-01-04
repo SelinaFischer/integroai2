@@ -39,6 +39,57 @@
     <meta name="theme-color" content="#1E3A5F" />
     <meta name="apple-mobile-web-app-title" content="IntegroAI" />
     
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://integroai.tech/#organization",
+          "name": "IntegroAI Consulting",
+          "url": "https://integroai.tech",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://integroai.tech/apple-touch-icon.png"
+          },
+          "description": "Turn AI confusion into confident action. IntegroAI helps SME leaders cut through the AI hype with clear strategy, solid foundations, and measurable outcomes.",
+          "sameAs": [
+            "https://twitter.com/IntegroAI",
+            "https://linkedin.com/company/integroai"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://integroai.tech/#website",
+          "url": "https://integroai.tech",
+          "name": "IntegroAI Consulting",
+          "publisher": {
+            "@id": "https://integroai.tech/#organization"
+          }
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://integroai.tech/#service",
+          "name": "IntegroAI Consulting",
+          "url": "https://integroai.tech",
+          "description": "AI Strategy and Consulting for SME Leaders",
+          "priceRange": "$$",
+          "areaServed": "Worldwide",
+          "serviceType": [
+            "AI Strategy Consulting",
+            "Data Strategy",
+            "AI Implementation",
+            "Business Transformation"
+          ],
+          "provider": {
+            "@id": "https://integroai.tech/#organization"
+          }
+        }
+      ]
+    }
+    </script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
