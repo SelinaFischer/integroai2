@@ -1,5 +1,5 @@
 import { Linkedin, Mail, ArrowRight, Instagram } from "lucide-react";
-import logo from "@/assets/integroai-logo.png";
+import logo from "@/assets/integroai-logo-icon-white.png";
 import ContactFormModal from "./ContactFormModal";
 import { Button } from "./ui/button";
 
