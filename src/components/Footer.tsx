@@ -1,9 +1,8 @@
-import { Mail, ArrowRight } from "lucide-react";
+import { Mail } from "lucide-react";
 import logo from "@/assets/integroai-logo-icon-white.png";
 import linkedinLogo from "@/assets/linkedin-logo.avif";
 import instagramLogo from "@/assets/instagram-logo.avif";
 import ContactFormModal from "./ContactFormModal";
-import { Button } from "./ui/button";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -62,18 +61,7 @@ const Footer = () => {
           {/* Contact */}
           <div>
             <h4 className="font-bold text-primary-foreground mb-6 text-sm uppercase tracking-wider">Get in Touch</h4>
-            <ul className="space-y-4 mb-6">
-              <li>
-                <a
-                  href="mailto:info@integroai.tech"
-                  className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm font-medium"
-                >
-                  <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
-                    <Mail className="w-4 h-4" />
-                  </div>
-                  info@integroai.tech
-                </a>
-              </li>
+            <ul className="space-y-4">
               <li>
                 <a
                   href="https://www.linkedin.com/company/integroai-consulting/about/"
@@ -96,15 +84,19 @@ const Footer = () => {
                   Instagram
                 </a>
               </li>
+              <li>
+                <ContactFormModal 
+                  trigger={
+                    <button className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm font-medium">
+                      <div className="w-6 h-6 rounded bg-white/10 flex items-center justify-center">
+                        <Mail className="w-4 h-4" />
+                      </div>
+                      Send a Message
+                    </button>
+                  }
+                />
+              </li>
             </ul>
-            <ContactFormModal 
-              trigger={
-                <Button variant="heroOutline" size="sm" className="group">
-                  Send a Message
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              }
-            />
           </div>
         </div>
 
