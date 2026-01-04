@@ -27,7 +27,7 @@ const Footer = () => {
               <img 
                 src={logo} 
                 alt="IntegroAI Consulting" 
-                className="h-14 w-auto"
+                className="h-20 w-auto"
               />
             </div>
             <p className="text-primary-foreground/70 text-base max-w-md mb-6 leading-relaxed">
