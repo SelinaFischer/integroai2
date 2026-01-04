@@ -58,11 +58,12 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Buttons - Always visible */}
+          {/* CTA Buttons - Always visible, matching Hero style */}
           <div className="flex items-center gap-2 lg:gap-3">
             <Button 
+              variant="heroOutline"
               size="sm"
-              className="border border-accent-warm/60 bg-transparent hover:bg-accent-warm/10 text-accent-warm font-medium transition-all duration-300 text-xs lg:text-sm px-3 lg:px-5 lg:h-10" 
+              className="text-xs lg:text-sm px-3 lg:px-5 h-9 lg:h-10" 
               asChild
             >
               <a href="https://tally.so/r/68jDMA" target="_blank" rel="noopener noreferrer">
@@ -70,13 +71,14 @@ const Header = () => {
               </a>
             </Button>
             <Button 
+              variant="hero"
               size="sm"
-              className="bg-accent-warm hover:bg-accent-warm/90 text-primary font-semibold shadow-md hover:shadow-lg transition-all duration-300 group text-xs lg:text-sm px-3 lg:px-5 lg:h-10" 
+              className="group text-xs lg:text-sm px-3 lg:px-5 h-9 lg:h-10" 
               asChild
             >
               <a href="https://calendly.com/integroai-consulting/30min" target="_blank" rel="noopener noreferrer">
                 Book a Call
-                <ArrowRight className="w-3 h-3 lg:w-4 lg:h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-3 h-3 lg:w-4 lg:h-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
             
@@ -106,12 +108,12 @@ const Header = () => {
                 </a>
               ))}
               <div className="pt-4 mt-2 border-t border-border/50 space-y-3">
-                <Button className="w-full border border-accent-warm bg-transparent hover:bg-accent-warm/10 text-accent-warm font-medium" asChild>
+                <Button variant="outline" className="w-full" asChild>
                   <a href="https://tally.so/r/68jDMA" target="_blank" rel="noopener noreferrer">
                     Free Assessment
                   </a>
                 </Button>
-                <Button className="w-full bg-accent-warm hover:bg-accent-warm/90 text-primary font-semibold group" asChild>
+                <Button variant="hero" className="w-full group" asChild>
                   <a href="https://calendly.com/integroai-consulting/30min" target="_blank" rel="noopener noreferrer">
                     Book a Call
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
