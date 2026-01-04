@@ -29,14 +29,14 @@ const Header = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 lg:h-24">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 relative z-10">
+          <Link to="/" className="flex items-center gap-2 lg:gap-3 relative z-10">
             <img 
               src={logo} 
               alt="IntegroAI Consulting" 
-              className="h-14 lg:h-16 w-auto transition-all duration-300"
+              className="h-10 sm:h-12 lg:h-16 w-auto transition-all duration-300"
             />
-            <div className="flex flex-col">
-              <span className="text-lg lg:text-xl font-bold tracking-tight text-white">
+            <div className="hidden sm:flex flex-col">
+              <span className="text-base lg:text-xl font-bold tracking-tight text-white">
                 IntegroAI Consulting
               </span>
               <span className="text-xs lg:text-sm font-medium tracking-wide text-amber-400">
@@ -58,37 +58,37 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Buttons - Prominent placement */}
-          <div className="hidden lg:flex items-center gap-4">
+          {/* CTA Buttons - Always visible */}
+          <div className="flex items-center gap-2 lg:gap-4">
             <Button 
-              size="lg" 
-              className="bg-amber-500 hover:bg-amber-400 text-primary font-bold shadow-lg shadow-amber-500/25 hover:shadow-amber-400/40 transition-all duration-300" 
+              size="sm"
+              className="bg-amber-500 hover:bg-amber-400 text-primary font-bold shadow-lg shadow-amber-500/25 hover:shadow-amber-400/40 transition-all duration-300 text-xs lg:text-sm px-3 lg:px-6 lg:h-11" 
               asChild
             >
               <a href="https://tally.so/r/68jDMA" target="_blank" rel="noopener noreferrer">
-                🎯 Take Free Assessment
+                <span className="hidden sm:inline">🎯 </span>Assessment
               </a>
             </Button>
             <Button 
-              size="lg" 
-              className="bg-white hover:bg-gray-100 text-primary font-bold shadow-lg hover:shadow-xl transition-all duration-300 group" 
+              size="sm"
+              className="bg-white hover:bg-gray-100 text-primary font-bold shadow-lg hover:shadow-xl transition-all duration-300 group text-xs lg:text-sm px-3 lg:px-6 lg:h-11" 
               asChild
             >
               <a href="https://calendly.com/integroai-consulting/30min" target="_blank" rel="noopener noreferrer">
-                📞 Book a Call
-                <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                <span className="hidden sm:inline">📞 </span>Book Call
+                <ArrowRight className="w-3 h-3 lg:w-4 lg:h-4 ml-1 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
+            
+            {/* Mobile Menu Toggle */}
+            <button
+              className="lg:hidden p-2 relative z-10 text-white"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
-
-          {/* Mobile Menu Toggle */}
-          <button
-            className="lg:hidden p-2 relative z-10 text-white"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
 
         {/* Mobile Menu */}
