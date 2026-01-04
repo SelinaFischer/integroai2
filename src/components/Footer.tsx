@@ -67,9 +67,9 @@ const Footer = () => {
                   href="https://www.linkedin.com/company/integroai-consulting/about/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm font-medium"
+                  className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-all text-sm font-medium group"
                 >
-                  <img src={linkedinLogo} alt="LinkedIn" className="w-6 h-6 rounded" />
+                  <img src={linkedinLogo} alt="LinkedIn" className="w-6 h-6 rounded transition-transform duration-200 group-hover:scale-110" />
                   LinkedIn
                 </a>
               </li>
@@ -78,17 +78,17 @@ const Footer = () => {
                   href="https://www.instagram.com/integroai.tech/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm font-medium"
+                  className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-all text-sm font-medium group"
                 >
-                  <img src={instagramLogo} alt="Instagram" className="w-6 h-6 rounded" />
+                  <img src={instagramLogo} alt="Instagram" className="w-6 h-6 rounded transition-transform duration-200 group-hover:scale-110" />
                   Instagram
                 </a>
               </li>
               <li>
                 <ContactFormModal 
                   trigger={
-                    <button className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm font-medium">
-                      <div className="w-6 h-6 rounded bg-white/10 flex items-center justify-center">
+                    <button className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-all text-sm font-medium group">
+                      <div className="w-6 h-6 rounded bg-white/10 flex items-center justify-center transition-transform duration-200 group-hover:scale-110 group-hover:bg-white/20">
                         <Mail className="w-4 h-4" />
                       </div>
                       Send a Message
