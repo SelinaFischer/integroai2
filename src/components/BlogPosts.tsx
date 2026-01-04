@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const blogPosts = [
   {
@@ -56,42 +57,46 @@ const BlogPosts = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group bg-card rounded-2xl border border-border/50 overflow-hidden hover:border-accent-warm/30 transition-all duration-300 hover:shadow-lg hover:shadow-accent-warm/5"
             >
-              {/* Card Header with gradient */}
-              <div className="h-2 bg-gradient-to-r from-primary via-primary/80 to-accent-warm" />
-              
-              <div className="p-6 space-y-4">
-                {/* Meta info */}
-                <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-1.5">
-                    <Calendar className="w-4 h-4" />
-                    {post.date}
-                  </span>
-                  <span className="flex items-center gap-1.5 text-accent-warm">
-                    <Tag className="w-4 h-4" />
-                    {post.category}
-                  </span>
+              <Link 
+                to={`/blog/${post.slug}`}
+                className="group block bg-card rounded-2xl border border-border/50 overflow-hidden hover:border-accent-warm/30 transition-all duration-300 hover:shadow-lg hover:shadow-accent-warm/5"
+              >
+                {/* Card Header with gradient */}
+                <div className="h-2 bg-gradient-to-r from-primary via-primary/80 to-accent-warm" />
+                
+                <div className="p-6 space-y-4">
+                  {/* Meta info */}
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                    <span className="flex items-center gap-1.5">
+                      <Calendar className="w-4 h-4" />
+                      {post.date}
+                    </span>
+                    <span className="flex items-center gap-1.5 text-accent-warm">
+                      <Tag className="w-4 h-4" />
+                      {post.category}
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-lg font-bold text-foreground group-hover:text-accent-warm transition-colors line-clamp-2">
+                    {post.title}
+                  </h3>
+
+                  {/* Excerpt */}
+                  <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
+                    {post.excerpt}
+                  </p>
+
+                  {/* Read more link */}
+                  <div className="pt-2">
+                    <span className="inline-flex items-center gap-2 text-accent-warm font-medium text-sm group-hover:gap-3 transition-all">
+                      Read Article
+                      <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </div>
                 </div>
-
-                {/* Title */}
-                <h3 className="text-lg font-bold text-foreground group-hover:text-accent-warm transition-colors line-clamp-2">
-                  {post.title}
-                </h3>
-
-                {/* Excerpt */}
-                <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
-                  {post.excerpt}
-                </p>
-
-                {/* Read more link */}
-                <div className="pt-2">
-                  <span className="inline-flex items-center gap-2 text-accent-warm font-medium text-sm group-hover:gap-3 transition-all">
-                    Read Article
-                    <ArrowRight className="w-4 h-4" />
-                  </span>
-                </div>
-              </div>
+              </Link>
             </motion.article>
           ))}
         </div>
