@@ -4,6 +4,8 @@ import PainPoints from "@/components/PainPoints";
 import Framework from "@/components/Framework";
 import Services from "@/components/Services";
 import Values from "@/components/Values";
+import Founder from "@/components/Founder";
+import BlogPosts from "@/components/BlogPosts";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
@@ -18,6 +20,8 @@ const Index = () => {
         <Framework />
         <Services />
         <Values />
+        <Founder />
+        <BlogPosts />
         <FAQ />
         <CTA />
       </main>

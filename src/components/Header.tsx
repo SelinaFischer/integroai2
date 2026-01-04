@@ -29,17 +29,17 @@ const Header = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 lg:h-24">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 lg:gap-3 relative z-10">
+          <Link to="/" className="flex items-center gap-3 lg:gap-4 relative z-10">
             <img 
               src={logo} 
               alt="IntegroAI Consulting" 
-              className="h-10 sm:h-12 lg:h-16 w-auto transition-all duration-300"
+              className="h-14 sm:h-16 lg:h-20 w-auto transition-all duration-300"
             />
             <div className="hidden sm:flex flex-col">
-              <span className="text-base lg:text-xl font-bold tracking-tight text-white">
+              <span className="text-lg lg:text-2xl font-bold tracking-tight text-white">
                 IntegroAI Consulting
               </span>
-              <span className="text-xs lg:text-sm font-medium tracking-wide text-amber-400">
+              <span className="text-xs lg:text-sm font-medium tracking-wide text-accent-warm">
                 Simplify · Amplify · Grow
               </span>
             </div>
