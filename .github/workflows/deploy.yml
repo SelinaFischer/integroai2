@@ -14,8 +14,7 @@ jobs:
           node-version: 20
       - run: npm ci
       - run: npm run build
-        env:
-          BASE_URL: /${{ github.event.repository.name }}/
+      - run: echo "integroai.tech" > dist/CNAME
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
