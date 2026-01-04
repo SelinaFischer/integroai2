@@ -37,8 +37,20 @@ const Header = () => {
             <img 
               src={logo} 
               alt="IntegroAI Consulting" 
-              className={`h-16 lg:h-20 w-auto transition-all duration-300 ${!scrolled ? 'brightness-0 invert' : ''}`}
+              className="h-12 lg:h-14 w-auto transition-all duration-300"
             />
+            <div className="flex flex-col">
+              <span className={`text-lg lg:text-xl font-bold tracking-tight transition-colors duration-300 ${
+                scrolled ? 'text-foreground' : 'text-white'
+              }`}>
+                IntegroAI Consulting
+              </span>
+              <span className={`text-xs lg:text-sm font-medium tracking-wide transition-colors duration-300 ${
+                scrolled ? 'text-muted-foreground' : 'text-white/80'
+              }`}>
+                Simplify · Amplify · Grow
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
