@@ -37,7 +37,7 @@ const FAQ = () => {
     <section id="faq" className="py-20 lg:py-28 bg-subtle">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="text-accent font-semibold text-sm uppercase tracking-wider mb-4 block">
+          <span className="text-accent-warm font-semibold text-sm uppercase tracking-wider mb-4 block">
             Common Questions
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-foreground mb-6">

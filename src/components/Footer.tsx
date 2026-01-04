@@ -1,4 +1,5 @@
 import { Linkedin, Mail } from "lucide-react";
+import logo from "@/assets/integroai-logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -17,17 +18,11 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center">
-                <span className="text-accent-foreground font-serif font-bold text-lg">I</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-serif font-semibold text-primary-foreground text-lg leading-tight">
-                  IntegroAI
-                </span>
-                <span className="text-xs text-primary-foreground/60 tracking-wide">
-                  Consulting
-                </span>
-              </div>
+              <img 
+                src={logo} 
+                alt="IntegroAI Consulting" 
+                className="h-14 w-auto brightness-0 invert"
+              />
             </div>
             <p className="text-primary-foreground/70 text-sm max-w-md mb-6">
               Helping SME leaders turn AI confusion into confident action with clear strategy, solid foundations, and measurable outcomes.

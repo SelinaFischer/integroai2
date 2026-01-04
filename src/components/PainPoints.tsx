@@ -33,7 +33,7 @@ const PainPoints = () => {
     <section className="py-20 lg:py-28 bg-subtle">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="text-accent font-semibold text-sm uppercase tracking-wider mb-4 block">
+          <span className="text-accent-warm font-semibold text-sm uppercase tracking-wider mb-4 block">
             The Reality
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-foreground mb-6">
@@ -65,8 +65,8 @@ const PainPoints = () => {
         </div>
 
         <div className="max-w-3xl mx-auto mt-12 text-center">
-          <p className="text-lg text-foreground font-medium bg-accent/10 border border-accent/20 rounded-xl p-6">
-            <span className="text-accent font-semibold">IntegroAI</span> provides the structure, discipline, and clarity required to make AI deliver measurable outcomes.
+          <p className="text-lg text-foreground font-medium bg-primary/5 border border-primary/20 rounded-xl p-6">
+            <span className="text-primary font-semibold">IntegroAI</span> provides the structure, discipline, and clarity required to make AI deliver measurable outcomes.
           </p>
         </div>
       </div>
