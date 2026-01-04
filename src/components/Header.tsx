@@ -58,28 +58,25 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Buttons */}
-          <div className="hidden lg:flex items-center gap-3">
-            <Button variant="outline" size="default" className="text-amber-400 border-amber-400/50 hover:bg-amber-400/10 hover:border-amber-400" asChild>
+          {/* CTA Buttons - Prominent placement */}
+          <div className="hidden lg:flex items-center gap-4">
+            <Button 
+              size="lg" 
+              className="bg-amber-500 hover:bg-amber-400 text-primary font-bold shadow-lg shadow-amber-500/25 hover:shadow-amber-400/40 transition-all duration-300" 
+              asChild
+            >
               <a href="https://tally.so/r/68jDMA" target="_blank" rel="noopener noreferrer">
-                Take Assessment
+                🎯 Take Free Assessment
               </a>
             </Button>
-            <ContactFormModal 
-              trigger={
-                <Button 
-                  variant="ghost" 
-                  size="default"
-                  className="text-white border-white/30 hover:bg-white/10"
-                >
-                  Get in Touch
-                </Button>
-              }
-            />
-            <Button variant="hero" size="default" className="group" asChild>
+            <Button 
+              size="lg" 
+              className="bg-white hover:bg-gray-100 text-primary font-bold shadow-lg hover:shadow-xl transition-all duration-300 group" 
+              asChild
+            >
               <a href="https://calendly.com/integroai-consulting/30min" target="_blank" rel="noopener noreferrer">
-                Book a Call
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                📞 Book a Call
+                <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
           </div>
@@ -109,16 +106,14 @@ const Header = () => {
                 </a>
               ))}
               <div className="pt-4 mt-2 border-t border-border/50 space-y-3">
-                <ContactFormModal 
-                  trigger={
-                    <Button variant="outline" size="default" className="w-full">
-                      Get in Touch
-                    </Button>
-                  }
-                />
-                <Button variant="hero" size="default" className="w-full group" asChild>
+                <Button className="w-full bg-amber-500 hover:bg-amber-400 text-primary font-bold" asChild>
+                  <a href="https://tally.so/r/68jDMA" target="_blank" rel="noopener noreferrer">
+                    🎯 Take Free Assessment
+                  </a>
+                </Button>
+                <Button className="w-full bg-primary hover:bg-primary/90 text-white font-bold group" asChild>
                   <a href="https://calendly.com/integroai-consulting/30min" target="_blank" rel="noopener noreferrer">
-                    Book a Call
+                    📞 Book a Call
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </a>
                 </Button>
