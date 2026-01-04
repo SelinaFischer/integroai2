@@ -51,7 +51,7 @@ const Services = () => {
     <section id="services" className="py-20 lg:py-28 bg-subtle">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="text-accent font-semibold text-sm uppercase tracking-wider mb-4 block">
+          <span className="text-accent-warm font-semibold text-sm uppercase tracking-wider mb-4 block">
             How We Help
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-foreground mb-6">
@@ -69,8 +69,8 @@ const Services = () => {
               className="group bg-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 border border-border/50 flex flex-col"
             >
               <div className="flex items-start justify-between mb-4">
-                <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                  <service.icon className="w-6 h-6 text-accent" />
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                  <service.icon className="w-6 h-6 text-primary" />
                 </div>
                 <span className="text-muted-foreground/40 font-serif text-2xl font-bold">
                   {service.number}
@@ -89,7 +89,7 @@ const Services = () => {
                 {service.outcomes.map((outcome) => (
                   <span
                     key={outcome}
-                    className="text-xs font-medium bg-secondary text-secondary-foreground px-3 py-1 rounded-full"
+                    className="text-xs font-medium bg-secondary/50 text-foreground px-3 py-1 rounded-full"
                   >
                     {outcome}
                   </span>

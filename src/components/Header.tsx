@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import logo from "@/assets/integroai-logo.png";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -19,17 +20,11 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-serif font-bold text-lg">I</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-serif font-semibold text-foreground text-lg leading-tight">
-                IntegroAI
-              </span>
-              <span className="text-xs text-muted-foreground tracking-wide">
-                Consulting
-              </span>
-            </div>
+            <img 
+              src={logo} 
+              alt="IntegroAI Consulting" 
+              className="h-12 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}

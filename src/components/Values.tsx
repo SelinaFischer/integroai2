@@ -31,7 +31,7 @@ const Values = () => {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left content */}
             <div>
-              <span className="text-accent font-semibold text-sm uppercase tracking-wider mb-4 block">
+              <span className="text-accent-warm font-semibold text-sm uppercase tracking-wider mb-4 block">
                 About IntegroAI
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-foreground mb-6">
@@ -40,7 +40,7 @@ const Values = () => {
               <p className="text-muted-foreground text-lg mb-6">
                 Most organisations fail because they rush into tools without clarity and purpose. IntegroAI applies a simple principle:
               </p>
-              <blockquote className="border-l-4 border-accent pl-6 py-2 mb-8">
+              <blockquote className="border-l-4 border-accent-warm pl-6 py-2 mb-8">
                 <p className="text-xl font-serif text-foreground italic">
                   "Clarity first. Solutions second. Results that can be measured."
                 </p>
@@ -57,8 +57,8 @@ const Values = () => {
                   key={value.title}
                   className="bg-card rounded-xl p-6 shadow-card border border-border/50 hover:shadow-card-hover transition-all duration-300"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
-                    <value.icon className="w-5 h-5 text-accent" />
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                    <value.icon className="w-5 h-5 text-primary" />
                   </div>
                   <h3 className="font-serif text-lg text-foreground mb-2">
                     {value.title}
