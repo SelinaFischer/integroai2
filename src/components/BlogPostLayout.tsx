@@ -26,13 +26,13 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, children }:
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Link 
-              to="/#blog" 
+            <a 
+              href="/#blog" 
               className="inline-flex items-center gap-2 text-primary-foreground/70 hover:text-primary-foreground transition-colors mb-8"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Articles
-            </Link>
+            </a>
             
             <div className="flex flex-wrap items-center gap-4 text-sm text-primary-foreground/70 mb-6">
               <span className="flex items-center gap-1.5">
@@ -88,13 +88,13 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, children }:
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mt-16 pt-8 border-t border-border"
           >
-            <Link 
-              to="/#blog" 
+            <a 
+              href="/#blog" 
               className="inline-flex items-center gap-2 text-accent-warm hover:text-accent-warm/80 transition-colors font-medium"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to All Articles
-            </Link>
+            </a>
           </motion.div>
         </div>
       </article>
