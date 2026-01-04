@@ -1,5 +1,7 @@
-import { Linkedin, Mail, ArrowRight, Instagram } from "lucide-react";
+import { Mail, ArrowRight } from "lucide-react";
 import logo from "@/assets/integroai-logo-icon-white.png";
+import linkedinLogo from "@/assets/linkedin-logo.avif";
+import instagramLogo from "@/assets/instagram-logo.avif";
 import ContactFormModal from "./ContactFormModal";
 import { Button } from "./ui/button";
 
@@ -79,9 +81,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm font-medium"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
-                    <Linkedin className="w-4 h-4" />
-                  </div>
+                  <img src={linkedinLogo} alt="LinkedIn" className="w-8 h-8 rounded-lg" />
                   LinkedIn
                 </a>
               </li>
@@ -92,9 +92,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm font-medium"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
-                    <Instagram className="w-4 h-4" />
-                  </div>
+                  <img src={instagramLogo} alt="Instagram" className="w-8 h-8 rounded-lg" />
                   Instagram
                 </a>
               </li>
