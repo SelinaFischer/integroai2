@@ -81,7 +81,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm font-medium"
                 >
-                  <img src={linkedinLogo} alt="LinkedIn" className="w-8 h-8 rounded-lg" />
+                  <img src={linkedinLogo} alt="LinkedIn" className="w-6 h-6 rounded" />
                   LinkedIn
                 </a>
               </li>
@@ -92,7 +92,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm font-medium"
                 >
-                  <img src={instagramLogo} alt="Instagram" className="w-8 h-8 rounded-lg" />
+                  <img src={instagramLogo} alt="Instagram" className="w-6 h-6 rounded" />
                   Instagram
                 </a>
               </li>
