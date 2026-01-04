@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { motion } from "framer-motion";
 
 const FAQ = () => {
   const faqs = [
@@ -34,38 +35,53 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="faq" className="py-20 lg:py-28 bg-subtle">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="text-accent-warm font-semibold text-sm uppercase tracking-wider mb-4 block">
+    <section id="faq" className="py-24 lg:py-32 bg-subtle relative overflow-hidden">
+      {/* Background accent */}
+      <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-primary/3 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2" />
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl mx-auto text-center mb-16"
+        >
+          <span className="inline-block text-accent-warm font-semibold text-sm uppercase tracking-widest mb-4 px-4 py-1.5 bg-accent-warm/10 rounded-full">
             Common Questions
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-foreground mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-6">
             Frequently Asked Questions
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-lg leading-relaxed">
             Quick answers to the questions we hear most often from SME leaders.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="max-w-3xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="max-w-3xl mx-auto"
+        >
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="bg-card rounded-xl border border-border/50 shadow-card px-6 data-[state=open]:shadow-card-hover transition-shadow"
+                className="bg-card rounded-2xl border border-border/50 shadow-card px-6 data-[state=open]:shadow-lg transition-all duration-300"
               >
-                <AccordionTrigger className="text-left font-serif text-lg text-foreground hover:no-underline py-5">
+                <AccordionTrigger className="text-left font-semibold text-lg hover:no-underline py-6">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-base leading-relaxed pb-5">
+                <AccordionContent className="text-muted-foreground text-base leading-relaxed pb-6">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
 import { AlertTriangle, Users, Database, GraduationCap, Target } from "lucide-react";
+import { motion } from "framer-motion";
 
 const PainPoints = () => {
   const painPoints = [
@@ -29,46 +30,97 @@ const PainPoints = () => {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 24 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
+  };
+
   return (
-    <section className="py-20 lg:py-28 bg-subtle">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="text-accent-warm font-semibold text-sm uppercase tracking-wider mb-4 block">
+    <section className="py-24 lg:py-32 bg-subtle relative overflow-hidden">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-[0.02]" style={{
+        backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--primary)) 1px, transparent 1px)`,
+        backgroundSize: '48px 48px'
+      }} />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl mx-auto text-center mb-16"
+        >
+          <span className="inline-block text-accent-warm font-semibold text-sm uppercase tracking-widest mb-4 px-4 py-1.5 bg-accent-warm/10 rounded-full">
             The Reality
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-foreground mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-6">
             Why AI Fails for Most SMEs
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-lg leading-relaxed">
             Most organisations push ahead with implementation without addressing the real problems. Sound familiar?
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {painPoints.map((point, index) => (
-            <div
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+        >
+          {painPoints.map((point) => (
+            <motion.div
               key={point.title}
-              className="group bg-card rounded-xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 border border-border/50"
-              style={{ animationDelay: `${index * 100}ms` }}
+              variants={itemVariants}
+              className="group bg-card rounded-2xl p-7 shadow-card hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-border/50 relative overflow-hidden"
             >
-              <div className="w-12 h-12 rounded-lg bg-destructive/10 flex items-center justify-center mb-4 group-hover:bg-destructive/20 transition-colors">
-                <point.icon className="w-6 h-6 text-destructive" />
+              {/* Hover gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-destructive/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10">
+                <div className="w-14 h-14 rounded-xl bg-destructive/10 flex items-center justify-center mb-5 group-hover:bg-destructive/15 group-hover:scale-110 transition-all duration-300">
+                  <point.icon className="w-7 h-7 text-destructive" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">
+                  {point.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {point.description}
+                </p>
               </div>
-              <h3 className="font-serif text-xl text-foreground mb-2">
-                {point.title}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {point.description}
-              </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="max-w-3xl mx-auto mt-12 text-center">
-          <p className="text-lg text-foreground font-medium bg-primary/5 border border-primary/20 rounded-xl p-6">
-            <span className="text-primary font-semibold">IntegroAI</span> provides the structure, discipline, and clarity required to make AI deliver measurable outcomes.
-          </p>
-        </div>
+        <motion.div 
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="max-w-3xl mx-auto mt-16 text-center"
+        >
+          <div className="relative inline-block">
+            <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-accent-warm/20 to-primary/20 rounded-2xl blur-lg" />
+            <p className="relative text-lg font-medium bg-card border border-border/50 rounded-2xl p-8 shadow-lg">
+              <span className="text-primary font-bold">IntegroAI</span> provides the structure, discipline, and clarity required to make AI deliver measurable outcomes.
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

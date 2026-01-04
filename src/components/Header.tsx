@@ -1,12 +1,21 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { Menu, X, ArrowRight } from "lucide-react";
+import { useState, useEffect } from "react";
 import logo from "@/assets/integroai-logo-blue.png";
 import ContactFormModal from "./ContactFormModal";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
     { href: "#services", label: "Services" },
@@ -16,15 +25,19 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      scrolled 
+        ? 'bg-background/95 backdrop-blur-md shadow-md border-b border-border/50' 
+        : 'bg-transparent'
+    }`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className="flex items-center justify-between h-18 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3 relative z-10">
             <img 
               src={logo} 
               alt="IntegroAI Consulting" 
-              className="h-12 w-auto"
+              className={`h-12 w-auto transition-all duration-300 ${!scrolled ? 'brightness-0 invert' : ''}`}
             />
           </Link>
 
@@ -34,7 +47,11 @@ const Header = () => {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium"
+                className={`transition-colors duration-200 text-sm font-semibold tracking-wide link-underline ${
+                  scrolled 
+                    ? 'text-muted-foreground hover:text-foreground' 
+                    : 'text-white/80 hover:text-white'
+                }`}
               >
                 {link.label}
               </a>
@@ -45,21 +62,26 @@ const Header = () => {
           <div className="hidden lg:flex items-center gap-3">
             <ContactFormModal 
               trigger={
-                <Button variant="outline" size="default">
+                <Button 
+                  variant={scrolled ? "outline" : "ghost"} 
+                  size="default"
+                  className={!scrolled ? 'text-white border-white/30 hover:bg-white/10' : ''}
+                >
                   Get in Touch
                 </Button>
               }
             />
-            <Button variant="hero" size="default" asChild>
+            <Button variant="hero" size="default" className="group" asChild>
               <a href="https://calendly.com/integroai-consulting/30min" target="_blank" rel="noopener noreferrer">
                 Book a Call
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
           </div>
 
           {/* Mobile Menu Toggle */}
           <button
-            className="lg:hidden p-2 text-foreground"
+            className={`lg:hidden p-2 relative z-10 ${scrolled ? 'text-foreground' : 'text-white'}`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -69,30 +91,33 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-border/50 animate-fade-up">
-            <nav className="flex flex-col gap-4">
+          <div className="lg:hidden py-6 border-t border-border/50 bg-background animate-fade-in">
+            <nav className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium py-2"
+                  className="text-foreground hover:text-primary transition-colors text-sm font-semibold py-3 px-4 rounded-lg hover:bg-muted"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.label}
                 </a>
               ))}
-              <ContactFormModal 
-                trigger={
-                  <Button variant="outline" size="default" className="mt-2 w-full">
-                    Get in Touch
-                  </Button>
-                }
-              />
-              <Button variant="hero" size="default" className="mt-2" asChild>
-                <a href="https://calendly.com/integroai-consulting/30min" target="_blank" rel="noopener noreferrer">
-                  Book a Call
-                </a>
-              </Button>
+              <div className="pt-4 mt-2 border-t border-border/50 space-y-3">
+                <ContactFormModal 
+                  trigger={
+                    <Button variant="outline" size="default" className="w-full">
+                      Get in Touch
+                    </Button>
+                  }
+                />
+                <Button variant="hero" size="default" className="w-full group" asChild>
+                  <a href="https://calendly.com/integroai-consulting/30min" target="_blank" rel="noopener noreferrer">
+                    Book a Call
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </Button>
+              </div>
             </nav>
           </div>
         )}
