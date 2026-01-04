@@ -60,6 +60,11 @@ const Header = () => {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-3">
+            <Button variant="outline" size="default" className="text-amber-400 border-amber-400/50 hover:bg-amber-400/10 hover:border-amber-400" asChild>
+              <a href="https://tally.so/r/68jDMA" target="_blank" rel="noopener noreferrer">
+                Take Assessment
+              </a>
+            </Button>
             <ContactFormModal 
               trigger={
                 <Button 

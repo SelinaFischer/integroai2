@@ -67,8 +67,8 @@ const Framework = () => {
         {/* Desktop Timeline */}
         <div className="hidden lg:block max-w-6xl mx-auto">
           <div className="relative">
-            {/* Connection line */}
-            <div className="absolute top-[52px] left-[10%] right-[10%] h-1 bg-gradient-to-r from-accent-warm via-primary via-50% to-accent-warm rounded-full" />
+            {/* Connection line - stops before last item */}
+            <div className="absolute top-[52px] left-[10%] right-[30%] h-1 bg-gradient-to-r from-accent-warm via-primary to-accent-warm rounded-full" />
             
             <div className="grid grid-cols-5 gap-6">
               {steps.map((step, index) => (
@@ -102,8 +102,8 @@ const Framework = () => {
         {/* Mobile/Tablet Timeline */}
         <div className="lg:hidden max-w-lg mx-auto">
           <div className="relative">
-            {/* Vertical line */}
-            <div className="absolute left-9 top-0 bottom-0 w-1 bg-gradient-to-b from-accent-warm via-primary to-accent-warm rounded-full" />
+            {/* Vertical line - stops at last item */}
+            <div className="absolute left-9 top-0 bottom-24 w-1 bg-gradient-to-b from-accent-warm via-primary to-accent-warm rounded-full" />
             
             <div className="space-y-10">
               {steps.map((step, index) => (
