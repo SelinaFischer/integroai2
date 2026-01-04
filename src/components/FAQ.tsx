@@ -5,6 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 
 const FAQ = () => {
   const faqs = [
@@ -34,8 +35,27 @@ const FAQ = () => {
     },
   ];
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
   return (
-    <section id="faq" className="py-24 lg:py-32 bg-subtle relative overflow-hidden">
+    <>
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(faqSchema)}
+        </script>
+      </Helmet>
+      <section id="faq" className="py-24 lg:py-32 bg-subtle relative overflow-hidden">
       {/* Background accent */}
       <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-primary/3 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2" />
       
@@ -83,7 +103,8 @@ const FAQ = () => {
           </Accordion>
         </motion.div>
       </div>
-    </section>
+      </section>
+    </>
   );
 };
 
