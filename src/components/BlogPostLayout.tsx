@@ -212,7 +212,57 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, child
         </section>
         
         {/* Article Content */}
-        <article className="py-16">
+        <article className="py-16 relative">
+          {/* Floating Share Bar - Desktop Only */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="hidden xl:flex fixed left-8 top-1/2 -translate-y-1/2 flex-col gap-3 z-40"
+          >
+            <div className="bg-card border border-border rounded-2xl shadow-lg p-3 flex flex-col gap-3">
+              <span className="text-xs text-muted-foreground text-center font-medium pb-2 border-b border-border">
+                Share
+              </span>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={shareOnTwitter}
+                className="h-10 w-10 rounded-xl hover:bg-primary/10 hover:text-primary transition-colors"
+                aria-label="Share on X (Twitter)"
+              >
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={shareOnLinkedIn}
+                className="h-10 w-10 rounded-xl hover:bg-primary/10 hover:text-primary transition-colors"
+                aria-label="Share on LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={handleCopyLink}
+                className="h-10 w-10 rounded-xl hover:bg-primary/10 hover:text-primary transition-colors"
+                aria-label="Copy link"
+              >
+                {copied ? (
+                  <Check className="w-5 h-5 text-green-500" />
+                ) : (
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                  </svg>
+                )}
+              </Button>
+            </div>
+          </motion.div>
+          
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
