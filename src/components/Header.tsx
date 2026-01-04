@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/integroai-logo-blue.png";
+import ContactFormModal from "./ContactFormModal";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -40,8 +41,15 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden lg:flex items-center gap-4">
+          {/* CTA Buttons */}
+          <div className="hidden lg:flex items-center gap-3">
+            <ContactFormModal 
+              trigger={
+                <Button variant="outline" size="default">
+                  Get in Touch
+                </Button>
+              }
+            />
             <Button variant="hero" size="default" asChild>
               <a href="https://calendly.com/integroai-consulting/30min" target="_blank" rel="noopener noreferrer">
                 Book a Call
@@ -73,6 +81,13 @@ const Header = () => {
                   {link.label}
                 </a>
               ))}
+              <ContactFormModal 
+                trigger={
+                  <Button variant="outline" size="default" className="mt-2 w-full">
+                    Get in Touch
+                  </Button>
+                }
+              />
               <Button variant="hero" size="default" className="mt-2" asChild>
                 <a href="https://calendly.com/integroai-consulting/30min" target="_blank" rel="noopener noreferrer">
                   Book a Call
