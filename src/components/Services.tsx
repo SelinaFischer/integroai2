@@ -117,15 +117,16 @@ const Services = () => {
                 </div>
 
                 {service.ctaLink && (
-                  <a
-                    href={service.ctaLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors mt-auto group/link"
-                  >
-                    {service.ctaText}
-                    <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                  </a>
+                  <Button variant="hero" size="sm" className="mt-auto group/link" asChild>
+                    <a
+                      href={service.ctaLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {service.ctaText}
+                      <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                    </a>
+                  </Button>
                 )}
               </div>
             </motion.div>
