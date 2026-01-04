@@ -27,7 +27,7 @@ const Header = () => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled 
-        ? 'bg-background/95 backdrop-blur-md shadow-md border-b border-border/50' 
+        ? 'bg-primary shadow-lg' 
         : 'bg-transparent'
     }`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,9 +40,7 @@ const Header = () => {
               className="h-12 lg:h-14 w-auto transition-all duration-300"
             />
             <div className="flex flex-col">
-              <span className={`text-lg lg:text-xl font-bold tracking-tight transition-colors duration-300 ${
-                scrolled ? 'text-foreground' : 'text-white'
-              }`}>
+              <span className="text-lg lg:text-xl font-bold tracking-tight text-white">
                 IntegroAI Consulting
               </span>
               <span className="text-xs lg:text-sm font-medium tracking-wide text-amber-400">
@@ -57,11 +55,7 @@ const Header = () => {
               <a
                 key={link.href}
                 href={link.href}
-                className={`transition-colors duration-200 text-sm font-semibold tracking-wide link-underline ${
-                  scrolled 
-                    ? 'text-muted-foreground hover:text-foreground' 
-                    : 'text-white/80 hover:text-white'
-                }`}
+                className="transition-colors duration-200 text-sm font-semibold tracking-wide link-underline text-white/80 hover:text-white"
               >
                 {link.label}
               </a>
@@ -73,9 +67,9 @@ const Header = () => {
             <ContactFormModal 
               trigger={
                 <Button 
-                  variant={scrolled ? "outline" : "ghost"} 
+                  variant="ghost" 
                   size="default"
-                  className={!scrolled ? 'text-white border-white/30 hover:bg-white/10' : ''}
+                  className="text-white border-white/30 hover:bg-white/10"
                 >
                   Get in Touch
                 </Button>
@@ -91,7 +85,7 @@ const Header = () => {
 
           {/* Mobile Menu Toggle */}
           <button
-            className={`lg:hidden p-2 relative z-10 ${scrolled ? 'text-foreground' : 'text-white'}`}
+            className="lg:hidden p-2 relative z-10 text-white"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
