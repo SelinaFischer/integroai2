@@ -59,23 +59,23 @@ const Header = () => {
           </nav>
 
           {/* CTA Buttons - Always visible */}
-          <div className="flex items-center gap-2 lg:gap-4">
+          <div className="flex items-center gap-2 lg:gap-3">
             <Button 
               size="sm"
-              className="bg-amber-500 hover:bg-amber-400 text-primary font-bold shadow-lg shadow-amber-500/25 hover:shadow-amber-400/40 transition-all duration-300 text-xs lg:text-sm px-3 lg:px-6 lg:h-11" 
+              className="border border-white/30 bg-transparent hover:bg-white/10 text-white font-medium transition-all duration-300 text-xs lg:text-sm px-3 lg:px-5 lg:h-10" 
               asChild
             >
               <a href="https://tally.so/r/68jDMA" target="_blank" rel="noopener noreferrer">
-                <span className="hidden sm:inline">🎯 </span>Assessment
+                Free Assessment
               </a>
             </Button>
             <Button 
               size="sm"
-              className="bg-white hover:bg-gray-100 text-primary font-bold shadow-lg hover:shadow-xl transition-all duration-300 group text-xs lg:text-sm px-3 lg:px-6 lg:h-11" 
+              className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-medium shadow-md shadow-cyan-500/20 hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 group text-xs lg:text-sm px-3 lg:px-5 lg:h-10" 
               asChild
             >
               <a href="https://calendly.com/integroai-consulting/30min" target="_blank" rel="noopener noreferrer">
-                <span className="hidden sm:inline">📞 </span>Book Call
+                Book a Call
                 <ArrowRight className="w-3 h-3 lg:w-4 lg:h-4 ml-1 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
@@ -106,14 +106,14 @@ const Header = () => {
                 </a>
               ))}
               <div className="pt-4 mt-2 border-t border-border/50 space-y-3">
-                <Button className="w-full bg-amber-500 hover:bg-amber-400 text-primary font-bold" asChild>
+                <Button className="w-full border border-primary bg-transparent hover:bg-primary/10 text-primary font-medium" asChild>
                   <a href="https://tally.so/r/68jDMA" target="_blank" rel="noopener noreferrer">
-                    🎯 Take Free Assessment
+                    Free Assessment
                   </a>
                 </Button>
-                <Button className="w-full bg-primary hover:bg-primary/90 text-white font-bold group" asChild>
+                <Button className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-medium group" asChild>
                   <a href="https://calendly.com/integroai-consulting/30min" target="_blank" rel="noopener noreferrer">
-                    📞 Book a Call
+                    Book a Call
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </a>
                 </Button>
