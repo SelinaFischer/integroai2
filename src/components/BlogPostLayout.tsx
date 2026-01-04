@@ -16,6 +16,21 @@ interface BlogPostLayoutProps {
 }
 
 const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, children }: BlogPostLayoutProps) => {
+  // Parse date string to ISO format (e.g., "December 6, 2025" -> "2025-12-06")
+  const parseDate = (dateStr: string): string => {
+    const parsed = new Date(dateStr);
+    return parsed.toISOString().split('T')[0];
+  };
+
+  // Extract minutes from readTime (e.g., "10 min read" -> 10)
+  const parseReadTime = (time: string): number => {
+    const match = time.match(/(\d+)/);
+    return match ? parseInt(match[1], 10) : 5;
+  };
+
+  const isoDate = parseDate(date);
+  const readMinutes = parseReadTime(readTime);
+
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -41,12 +56,56 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, child
     ]
   };
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": subtitle,
+    "datePublished": isoDate,
+    "dateModified": isoDate,
+    "author": {
+      "@type": "Person",
+      "name": "Selina Fischer",
+      "url": "https://integroai.tech/#founder",
+      "jobTitle": "Founder & AI Strategist"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "IntegroAI Consulting",
+      "url": "https://integroai.tech",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://integroai.tech/apple-touch-icon.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://integroai.tech/blog/${slug}`
+    },
+    "articleSection": category,
+    "wordCount": readMinutes * 200, // Approximate word count based on reading time
+    "timeRequired": `PT${readMinutes}M`,
+    "image": "https://integroai.tech/og-image.png"
+  };
 
   return (
     <>
       <Helmet>
+        <title>{title} | IntegroAI Consulting</title>
+        <meta name="description" content={subtitle} />
+        <link rel="canonical" href={`https://integroai.tech/blog/${slug}`} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={subtitle} />
+        <meta property="og:url" content={`https://integroai.tech/blog/${slug}`} />
+        <meta property="og:type" content="article" />
+        <meta property="article:published_time" content={isoDate} />
+        <meta property="article:author" content="Selina Fischer" />
+        <meta property="article:section" content={category} />
         <script type="application/ld+json">
           {JSON.stringify(breadcrumbSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(articleSchema)}
         </script>
       </Helmet>
       <div className="min-h-screen bg-background">
