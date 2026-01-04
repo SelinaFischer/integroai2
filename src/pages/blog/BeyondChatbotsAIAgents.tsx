@@ -8,6 +8,7 @@ const BeyondChatbotsAIAgents = () => {
       date="December 6, 2025"
       category="AI Strategy"
       readTime="10 min read"
+      slug="beyond-chatbots-ai-agents"
     >
       {/* Highlight Box */}
       <div className="bg-muted/50 border-l-4 border-accent-warm p-6 rounded-r-lg my-8">

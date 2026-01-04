@@ -8,6 +8,7 @@ const WhyAIFailsDataGap = () => {
       date="December 5, 2025"
       category="Data Strategy"
       readTime="10 min read"
+      slug="why-ai-fails-the-data-gap"
     >
       <p>Everyone wants to talk about AI models, algorithms, and cutting-edge technology. But here's the uncomfortable truth that most consultants won't tell you: <strong>your AI project will fail or succeed based on your data, not your technology.</strong></p>
 

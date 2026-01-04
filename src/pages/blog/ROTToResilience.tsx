@@ -8,6 +8,7 @@ const ROTToResilience = () => {
       date="November 28, 2025"
       category="Data Management"
       readTime="12 min read"
+      slug="rot-to-resilience-data-cleanup"
     >
       <p>Your organization's data contains a silent threat to AI success. It's not hackers, it's not budget constraints, and it's not technical complexity. It's ROT: <strong>Redundant, Obsolete, and Trivial</strong> data that accumulates in your systems year after year, degrading AI performance and multiplying risk.</p>
 
