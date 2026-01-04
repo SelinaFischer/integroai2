@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ChevronRight, Calendar, Tag, Clock, Home } from "lucide-react";
+import { ChevronRight, Calendar, Tag, Clock, Home, Share2, Check, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 import Header from "./Header";
 import Footer from "./Footer";
 
@@ -16,6 +19,39 @@ interface BlogPostLayoutProps {
 }
 
 const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, children }: BlogPostLayoutProps) => {
+  const { toast } = useToast();
+  const [copied, setCopied] = useState(false);
+  
+  const articleUrl = `https://integroai.tech/blog/${slug}`;
+  
+  const handleCopyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(articleUrl);
+      setCopied(true);
+      toast({
+        title: "Link copied!",
+        description: "Article link has been copied to clipboard.",
+      });
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      toast({
+        title: "Failed to copy",
+        description: "Please copy the URL manually.",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const shareOnTwitter = () => {
+    const text = encodeURIComponent(`${title} - Great insights from @IntegroAI`);
+    const url = encodeURIComponent(articleUrl);
+    window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank', 'noopener,noreferrer');
+  };
+
+  const shareOnLinkedIn = () => {
+    const url = encodeURIComponent(articleUrl);
+    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'noopener,noreferrer');
+  };
   // Parse date string to ISO format (e.g., "December 6, 2025" -> "2025-12-06")
   const parseDate = (dateStr: string): string => {
     const parsed = new Date(dateStr);
@@ -196,20 +232,69 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, child
               {children}
             </motion.div>
             
-            {/* Back to Blog */}
+            {/* Share & Back Section */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="mt-16 pt-8 border-t border-border"
             >
-              <a 
-                href="/#blog" 
-                className="inline-flex items-center gap-2 text-accent-warm hover:text-accent-warm/80 transition-colors font-medium"
-              >
-                <ChevronRight className="w-4 h-4 rotate-180" />
-                Back to All Articles
-              </a>
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+                <a 
+                  href="/#blog" 
+                  className="inline-flex items-center gap-2 text-accent-warm hover:text-accent-warm/80 transition-colors font-medium"
+                >
+                  <ChevronRight className="w-4 h-4 rotate-180" />
+                  Back to All Articles
+                </a>
+                
+                {/* Share Buttons */}
+                <div className="flex items-center gap-3">
+                  <span className="text-sm text-muted-foreground flex items-center gap-1.5">
+                    <Share2 className="w-4 h-4" />
+                    Share:
+                  </span>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={shareOnTwitter}
+                    className="gap-2"
+                    aria-label="Share on X (Twitter)"
+                  >
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                    <span className="hidden sm:inline">Twitter</span>
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={shareOnLinkedIn}
+                    className="gap-2"
+                    aria-label="Share on LinkedIn"
+                  >
+                    <Linkedin className="w-4 h-4" />
+                    <span className="hidden sm:inline">LinkedIn</span>
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={handleCopyLink}
+                    className="gap-2"
+                    aria-label="Copy link"
+                  >
+                    {copied ? (
+                      <Check className="w-4 h-4 text-green-500" />
+                    ) : (
+                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                      </svg>
+                    )}
+                    <span className="hidden sm:inline">{copied ? "Copied!" : "Copy Link"}</span>
+                  </Button>
+                </div>
+              </div>
             </motion.div>
           </div>
         </article>
