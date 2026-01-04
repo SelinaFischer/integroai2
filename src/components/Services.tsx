@@ -9,6 +9,8 @@ const Services = () => {
       title: "Assessment & Readiness",
       description: "Understand your current state, identify pain points, and evaluate realistic AI opportunities. Walk away with a clear picture of what's possible.",
       outcomes: ["Gap analysis", "Opportunity mapping", "Readiness score"],
+      ctaLink: "https://tally.so/r/68jDMA",
+      ctaText: "Take Assessment",
     },
     {
       icon: Route,
@@ -85,7 +87,7 @@ const Services = () => {
                 {service.description}
               </p>
 
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mb-4">
                 {service.outcomes.map((outcome) => (
                   <span
                     key={outcome}
@@ -95,6 +97,18 @@ const Services = () => {
                   </span>
                 ))}
               </div>
+
+              {service.ctaLink && (
+                <a
+                  href={service.ctaLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors mt-auto"
+                >
+                  {service.ctaText}
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              )}
             </div>
           ))}
         </div>
