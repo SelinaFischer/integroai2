@@ -103,7 +103,7 @@ const WhyAIFailsDataGap = () => {
         <p className="mb-0"><strong>Example:</strong> A recruitment firm trained AI on historical hiring data. The system learned to favor candidates similar to those previously hired—which meant replicating the lack of diversity in their existing workforce. The AI wasn't racist or sexist; it was accurately reflecting biased historical patterns. But the result was the same: perpetuating inequality.</p>
       </div>
 
-      <h2>The IntegroAI Data-First Approach</h2>
+      <h2>The IntegroAI Consulting Data-First Approach</h2>
       
       <p>Our methodology centers data readiness before technology selection. We believe—and our results prove—that proper data foundation is the difference between AI projects that fail and those that deliver transformative value.</p>
 
