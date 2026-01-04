@@ -39,20 +39,20 @@ const Founder = () => {
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-start max-w-6xl mx-auto">
           {/* Founder Image */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative"
+            className="relative lg:col-span-2"
           >
-            <div className="aspect-[4/5] rounded-2xl bg-gradient-to-br from-primary/20 to-accent-warm/20 overflow-hidden border border-white/10 shadow-2xl">
+            <div className="aspect-[3/4] max-w-sm mx-auto rounded-2xl bg-gradient-to-br from-primary/20 to-accent-warm/20 overflow-hidden border border-white/10 shadow-2xl">
               <img 
                 src={selinaPhoto} 
                 alt="Selina Fischer - Founder & CEO of IntegroAI Consulting" 
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover object-center"
               />
             </div>
             <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-accent-warm/20 rounded-full blur-2xl" />
@@ -64,7 +64,7 @@ const Founder = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-6"
+            className="space-y-5 lg:col-span-3"
           >
             <div>
               <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-2">
