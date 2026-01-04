@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, Calendar, Tag, Clock } from "lucide-react";
+import { ChevronRight, Calendar, Tag, Clock, Home } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Header from "./Header";
@@ -119,13 +119,35 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, child
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <a 
-                href="/#blog" 
-                className="inline-flex items-center gap-2 text-primary-foreground/70 hover:text-primary-foreground transition-colors mb-8"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                Back to Articles
-              </a>
+              {/* Breadcrumb Navigation */}
+              <nav aria-label="Breadcrumb" className="mb-8">
+                <ol className="flex items-center gap-1.5 text-sm text-primary-foreground/70">
+                  <li>
+                    <a 
+                      href="/" 
+                      className="flex items-center gap-1 hover:text-primary-foreground transition-colors"
+                    >
+                      <Home className="w-3.5 h-3.5" />
+                      <span>Home</span>
+                    </a>
+                  </li>
+                  <li className="flex items-center">
+                    <ChevronRight className="w-3.5 h-3.5 mx-1" />
+                    <a 
+                      href="/#blog" 
+                      className="hover:text-primary-foreground transition-colors"
+                    >
+                      Blog
+                    </a>
+                  </li>
+                  <li className="flex items-center">
+                    <ChevronRight className="w-3.5 h-3.5 mx-1" />
+                    <span className="text-primary-foreground font-medium truncate max-w-[200px] sm:max-w-[300px]">
+                      {title}
+                    </span>
+                  </li>
+                </ol>
+              </nav>
               
               <div className="flex flex-wrap items-center gap-4 text-sm text-primary-foreground/70 mb-6">
                 <span className="flex items-center gap-1.5">
@@ -185,7 +207,7 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, child
                 href="/#blog" 
                 className="inline-flex items-center gap-2 text-accent-warm hover:text-accent-warm/80 transition-colors font-medium"
               >
-                <ArrowLeft className="w-4 h-4" />
+                <ChevronRight className="w-4 h-4 rotate-180" />
                 Back to All Articles
               </a>
             </motion.div>
