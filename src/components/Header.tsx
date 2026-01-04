@@ -25,19 +25,15 @@ const Header = () => {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled 
-        ? 'bg-primary shadow-lg' 
-        : 'bg-transparent'
-    }`}>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a1628] shadow-lg border-b border-white/10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-18 lg:h-20">
+        <div className="flex items-center justify-between h-20 lg:h-24">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 relative z-10">
             <img 
               src={logo} 
               alt="IntegroAI Consulting" 
-              className="h-12 lg:h-14 w-auto transition-all duration-300"
+              className="h-14 lg:h-16 w-auto transition-all duration-300"
             />
             <div className="flex flex-col">
               <span className="text-lg lg:text-xl font-bold tracking-tight text-white">
