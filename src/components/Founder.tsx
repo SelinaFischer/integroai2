@@ -1,23 +1,28 @@
 import { motion } from "framer-motion";
-import { Linkedin, Award, Briefcase, GraduationCap } from "lucide-react";
+import { Linkedin, Target, Compass, CheckCircle, Rocket } from "lucide-react";
 import selinaPhoto from "@/assets/selina-fischer.jpg";
 
 const Founder = () => {
-  const credentials = [
+  const framework = [
     {
-      icon: Briefcase,
-      title: "20+ Years Experience",
-      description: "Enterprise technology & data strategy leadership"
+      icon: Compass,
+      title: "Discover",
+      description: "Identify where AI genuinely adds value and where it introduces risk"
     },
     {
-      icon: Award,
-      title: "Certified Expert",
-      description: "AI Strategy, Data Governance & Digital Transformation"
+      icon: Target,
+      title: "Design",
+      description: "Map the strategy to prioritize direction before tools"
     },
     {
-      icon: GraduationCap,
-      title: "Thought Leader",
-      description: "Published author on AI implementation for SMEs"
+      icon: CheckCircle,
+      title: "Validate",
+      description: "Confirm the solution solves a specific business pain with measurable ROI"
+    },
+    {
+      icon: Rocket,
+      title: "Deliver",
+      description: "Move from strategy to implementation with accountability"
     }
   ];
 
@@ -76,34 +81,38 @@ const Founder = () => {
             </div>
 
             <p className="text-muted-foreground text-lg leading-relaxed">
-              With over two decades of experience in enterprise technology and data strategy, 
-              Selina founded IntegroAI Consulting to bridge the gap between AI promise and 
-              business reality. Her mission is to help SME leaders navigate AI adoption with 
-              clarity, confidence, and measurable results.
+              Most AI failures are not technical—they are strategic. I provide the Decision Clarity 
+              leaders need to ensure AI is a business win, not a waste of budget.
+            </p>
+
+            <p className="text-muted-foreground leading-relaxed">
+              With 20 years of experience across product management, technology, and building 
+              commercial businesses, I collaborate with a network of certified AI consultants 
+              and implementation specialists to provide comprehensive support for SMEs.
             </p>
 
             <blockquote className="border-l-4 border-accent-warm pl-6 py-2 italic text-foreground/80">
-              "IntegroAI provides the structure, discipline, and clarity required to make AI 
-              deliver measurable outcomes."
+              "If you want clarity on where AI fits before committing time or budget, I help you 
+              determine if AI is your next big win or your next big waste of resources."
             </blockquote>
 
-            {/* Credentials */}
-            <div className="grid gap-4 pt-4">
-              {credentials.map((credential, index) => (
+            {/* Framework */}
+            <div className="grid sm:grid-cols-2 gap-3 pt-4">
+              {framework.map((item, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                  className="flex items-start gap-4 p-4 rounded-xl bg-background/50 border border-border/50"
+                  className="flex items-start gap-3 p-3 rounded-xl bg-background/50 border border-border/50"
                 >
-                  <div className="p-2 rounded-lg bg-accent-warm/10">
-                    <credential.icon className="w-5 h-5 text-accent-warm" />
+                  <div className="p-2 rounded-lg bg-accent-warm/10 shrink-0">
+                    <item.icon className="w-4 h-4 text-accent-warm" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground">{credential.title}</h4>
-                    <p className="text-sm text-muted-foreground">{credential.description}</p>
+                    <h4 className="font-semibold text-foreground text-sm">{item.title}</h4>
+                    <p className="text-xs text-muted-foreground">{item.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -111,7 +120,7 @@ const Founder = () => {
 
             {/* LinkedIn Link */}
             <a
-              href="https://www.linkedin.com/company/integroai-consulting"
+              href="https://www.linkedin.com/in/selinafischer8/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-accent-warm hover:text-accent-warm/80 transition-colors font-medium mt-4"
