@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Linkedin, Award, Briefcase, GraduationCap } from "lucide-react";
+import selinaPhoto from "@/assets/selina-fischer.jpg";
 
 const Founder = () => {
   const credentials = [
@@ -48,15 +49,11 @@ const Founder = () => {
             className="relative"
           >
             <div className="aspect-[4/5] rounded-2xl bg-gradient-to-br from-primary/20 to-accent-warm/20 overflow-hidden border border-white/10 shadow-2xl">
-              <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary to-primary/80">
-                <div className="text-center p-8">
-                  <div className="w-32 h-32 mx-auto rounded-full bg-accent-warm/20 flex items-center justify-center mb-6">
-                    <span className="text-5xl font-bold text-accent-warm">SC</span>
-                  </div>
-                  <h3 className="text-2xl font-bold text-white">Selina Cheng</h3>
-                  <p className="text-accent-warm mt-2">Founder & CEO</p>
-                </div>
-              </div>
+              <img 
+                src={selinaPhoto} 
+                alt="Selina Fischer - Founder & CEO of IntegroAI Consulting" 
+                className="w-full h-full object-cover object-top"
+              />
             </div>
             <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-accent-warm/20 rounded-full blur-2xl" />
           </motion.div>
@@ -71,7 +68,7 @@ const Founder = () => {
           >
             <div>
               <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-2">
-                Selina Cheng
+                Selina Fischer
               </h3>
               <p className="text-accent-warm font-semibold text-lg">
                 Founder & CEO, IntegroAI Consulting
