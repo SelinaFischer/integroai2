@@ -37,7 +37,7 @@ const Header = () => {
             <img 
               src={logo} 
               alt="IntegroAI Consulting" 
-              className={`h-12 w-auto transition-all duration-300 ${!scrolled ? 'brightness-0 invert' : ''}`}
+              className={`h-16 lg:h-20 w-auto transition-all duration-300 ${!scrolled ? 'brightness-0 invert' : ''}`}
             />
           </Link>
 
