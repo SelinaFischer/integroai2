@@ -26,13 +26,13 @@ const Values = () => {
   ];
 
   return (
-    <section id="about" className="py-24 lg:py-32 bg-background relative overflow-hidden">
+    <section id="about" className="py-20 lg:py-24 bg-background relative overflow-hidden">
       {/* Background accent */}
       <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-primary/3 rounded-full blur-[120px] -translate-y-1/2 -translate-x-1/2" />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
             {/* Left content */}
             <motion.div
               initial={{ opacity: 0, x: -24 }}
@@ -40,17 +40,17 @@ const Values = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <span className="inline-block text-accent-warm font-semibold text-sm uppercase tracking-widest mb-4 px-4 py-1.5 bg-accent-warm/10 rounded-full">
+              <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-3 px-3 py-1 bg-accent-warm/10 rounded-full">
                 About IntegroAI Consulting
               </span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-5">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-4">
                 AI Succeeds When Strategy, Data & People Align
               </h2>
-              <p className="text-muted-foreground text-base mb-5 leading-relaxed">
+              <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
                 Most organisations fail because they rush into tools without clarity and purpose. IntegroAI applies a simple principle:
               </p>
-              <blockquote className="border-l-4 border-accent-warm pl-5 py-3 mb-6 bg-accent-warm/5 rounded-r-xl">
-                <p className="text-lg font-semibold italic text-foreground">
+              <blockquote className="border-l-3 border-accent-warm pl-4 py-2 mb-4 bg-accent-warm/5 rounded-r-lg">
+                <p className="text-base font-semibold italic text-foreground">
                   "Clarity first. Solutions second. Results that can be measured."
                 </p>
               </blockquote>
