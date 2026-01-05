@@ -349,4 +349,32 @@
   html {
     scroll-behavior: smooth;
   }
+
+  /* Scroll offset for fixed header on anchor targets */
+  section[id],
+  [id="main-content"] {
+    scroll-margin-top: 6rem; /* 96px for header height + breathing room */
+  }
+
+  @media (max-width: 1023px) {
+    section[id],
+    [id="main-content"] {
+      scroll-margin-top: 5.5rem; /* 88px for mobile header */
+    }
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }
