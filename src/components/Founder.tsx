@@ -116,7 +116,7 @@ const Founder = () => {
             </div>
 
             {/* LinkedIn Link */}
-            <div className="pt-2 flex items-center gap-3 group">
+            <div className="pt-2 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 group">
               <a
                 href="https://www.linkedin.com/in/selinafischer8/"
                 target="_blank"
@@ -126,7 +126,7 @@ const Founder = () => {
                 <Linkedin className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
                 Connect on LinkedIn
               </a>
-              <span className="text-muted-foreground text-sm italic transition-opacity duration-300 group-hover:opacity-70">— Learn more about me</span>
+              <span className="text-muted-foreground text-sm italic transition-opacity duration-300 group-hover:opacity-70 sm:border-l sm:border-muted-foreground/30 sm:pl-3">Learn more about me</span>
             </div>
           </motion.div>
         </div>
