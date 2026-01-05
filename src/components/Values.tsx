@@ -60,7 +60,7 @@ const Values = () => {
             </motion.div>
 
             {/* Right - Values grid */}
-            <div className="grid sm:grid-cols-2 gap-5">
+            <div className="grid sm:grid-cols-2 gap-3">
               {values.map((value, index) => (
                 <motion.div
                   key={value.title}
@@ -68,19 +68,19 @@ const Values = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="group bg-card rounded-2xl p-6 shadow-card border border-border/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 relative overflow-hidden"
+                  className="group bg-card rounded-xl p-4 shadow-card border border-border/50 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-500 relative overflow-hidden"
                 >
                   {/* Hover gradient */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   <div className="relative z-10">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/15 group-hover:scale-110 transition-all duration-300">
-                      <value.icon className="w-6 h-6 text-primary" />
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary/15 group-hover:scale-110 transition-all duration-300">
+                      <value.icon className="w-5 h-5 text-primary" />
                     </div>
-                    <h3 className="text-lg font-bold mb-2">
+                    <h3 className="text-base font-bold mb-1.5">
                       {value.title}
                     </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
+                    <p className="text-muted-foreground text-xs leading-relaxed">
                       {value.description}
                     </p>
                   </div>
