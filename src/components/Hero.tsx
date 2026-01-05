@@ -12,11 +12,19 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Hero background image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      />
+      {/* Hero background image - preloaded for LCP */}
+      <div className="absolute inset-0 scale-105">
+        <img 
+          src={heroBg}
+          alt=""
+          role="presentation"
+          width={1920}
+          height={1080}
+          fetchPriority="high"
+          decoding="async"
+          className="w-full h-full object-cover object-center"
+        />
+      </div>
       
       {/* Gradient overlay for premium feel */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-primary/60 to-primary/40" />

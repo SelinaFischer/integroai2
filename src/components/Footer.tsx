@@ -36,6 +36,10 @@ const Footer = () => {
               <img 
                 src={logo} 
                 alt="IntegroAI Consulting" 
+                width={80}
+                height={80}
+                loading="lazy"
+                decoding="async"
                 className="h-20 w-auto"
               />
             </div>
@@ -77,7 +81,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-all text-sm font-medium group py-2 min-h-[44px]"
                 >
-                  <img src={linkedinLogo} alt="LinkedIn" className="w-6 h-6 rounded transition-all duration-200 group-hover:scale-110 group-hover:shadow-[0_0_12px_rgba(255,255,255,0.4)]" />
+                  <img src={linkedinLogo} alt="LinkedIn" width={24} height={24} loading="lazy" decoding="async" className="w-6 h-6 rounded transition-all duration-200 group-hover:scale-110 group-hover:shadow-[0_0_12px_rgba(255,255,255,0.4)]" />
                   LinkedIn
                 </a>
               </li>
@@ -88,7 +92,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-all text-sm font-medium group py-2 min-h-[44px]"
                 >
-                  <img src={instagramLogo} alt="Instagram" className="w-6 h-6 rounded transition-all duration-200 group-hover:scale-110 group-hover:shadow-[0_0_12px_rgba(255,255,255,0.4)]" />
+                  <img src={instagramLogo} alt="Instagram" width={24} height={24} loading="lazy" decoding="async" className="w-6 h-6 rounded transition-all duration-200 group-hover:scale-110 group-hover:shadow-[0_0_12px_rgba(255,255,255,0.4)]" />
                   Instagram
                 </a>
               </li>

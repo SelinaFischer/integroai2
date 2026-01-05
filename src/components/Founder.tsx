@@ -57,6 +57,10 @@ const Founder = () => {
               <img 
                 src={selinaPhoto} 
                 alt="Portrait of IntegroAI Founder and CEO" 
+                width={600}
+                height={450}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover object-top"
               />
             </div>
