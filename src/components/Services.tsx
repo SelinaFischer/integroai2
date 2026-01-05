@@ -93,7 +93,7 @@ const Services = () => {
               <div className="relative z-10">
                 <div className="flex items-start justify-between mb-5">
                   <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/15 group-hover:scale-110 transition-all duration-300">
-                    <service.icon className="w-7 h-7 text-primary" />
+                    <service.icon className="w-7 h-7 text-primary" aria-hidden="true" />
                   </div>
                   <span className="text-muted-foreground/30 text-3xl font-bold">
                     {service.number}

@@ -146,7 +146,7 @@ const Index = () => {
       </Helmet>
       <div className="min-h-screen">
         <Header />
-        <main>
+        <main id="main-content">
           <Hero />
           <PainPoints />
           <Framework />

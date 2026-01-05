@@ -112,12 +112,12 @@ const Footer = () => {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-primary-foreground/50">
             <p>© {currentYear} IntegroAI Consulting. All rights reserved.</p>
             <div className="flex items-center gap-4 sm:gap-6">
-              <a href="#" className="hover:text-primary-foreground/70 transition-colors py-2 min-h-[44px] flex items-center">
+              <span className="text-primary-foreground/50 py-2">
                 Privacy Policy
-              </a>
-              <a href="#" className="hover:text-primary-foreground/70 transition-colors py-2 min-h-[44px] flex items-center">
+              </span>
+              <span className="text-primary-foreground/50 py-2">
                 Terms of Service
-              </a>
+              </span>
             </div>
           </div>
         </div>

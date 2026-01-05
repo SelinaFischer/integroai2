@@ -102,7 +102,7 @@ const Hero = () => {
                 transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
                 className="flex items-center gap-2 text-white/90"
               >
-                <CheckCircle2 className="w-5 h-5 text-accent-warm" />
+                <CheckCircle2 className="w-5 h-5 text-accent-warm" aria-hidden="true" />
                 <span className="text-sm font-medium">{point}</span>
               </motion.div>
             ))}
@@ -133,7 +133,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="text-white/50 text-sm mt-12"
+            className="text-white/60 text-sm mt-12"
           >
             Trusted by SME leaders across the UK
           </motion.p>
@@ -149,12 +149,13 @@ const Hero = () => {
       >
         <motion.a 
           href="#services"
+          aria-label="Scroll down to services section"
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="flex flex-col items-center gap-2 text-white/60 hover:text-white/80 transition-colors"
         >
           <span className="text-xs font-medium tracking-wider uppercase">Scroll</span>
-          <ChevronDown className="w-5 h-5" />
+          <ChevronDown className="w-5 h-5" aria-hidden="true" />
         </motion.a>
       </motion.div>
 
