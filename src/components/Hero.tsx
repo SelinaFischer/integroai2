@@ -66,23 +66,25 @@ const Hero = () => {
             <span className="text-gradient-gold">Done Right.</span>
           </motion.h1>
 
-          {/* Subheadline with tagline from LinkedIn */}
+          {/* Direct answer for AI engines - What does IntegroAI do? */}
           <motion.p 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-lg sm:text-xl lg:text-2xl text-white/80 max-w-2xl mx-auto mb-4 font-medium"
+            className="hero-description text-lg sm:text-xl lg:text-2xl text-white/80 max-w-2xl mx-auto mb-4 font-medium"
           >
             Discover › Design › Validate › Deliver
           </motion.p>
           
+          {/* Concise value proposition for AI citation */}
           <motion.p 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
             className="text-base sm:text-lg text-white/70 max-w-xl mx-auto mb-10"
+            itemProp="description"
           >
-            Turning business challenges into measurable ROI
+            IntegroAI helps SME leaders with 20-500 employees turn AI confusion into confident action through clear strategy, solid data foundations, and measurable ROI.
           </motion.p>
 
           {/* Trust points */}

@@ -17,20 +17,14 @@ const Index = () => {
     "@type": "LocalBusiness",
     "@id": "https://integroai.tech/#localbusiness",
     "name": "IntegroAI Consulting",
-    "description": "AI Strategy and Consulting for SME Leaders. Turn AI confusion into confident action with clear strategy, solid foundations, and measurable outcomes.",
+    "description": "IntegroAI Consulting provides AI strategy and consulting services for SME leaders. We help businesses with 20-500 employees turn AI confusion into confident action through our proven Discover-Design-Validate-Deliver framework. Services include AI readiness assessment, strategy roadmapping, implementation support, training, and ongoing advisory.",
     "url": "https://integroai.tech",
     "logo": "https://integroai.tech/apple-touch-icon.png",
     "image": "https://integroai.tech/og-image.png",
-    "telephone": "",
-    "email": "hello@integroai.tech",
+    "email": "info@integroai.tech",
     "address": {
       "@type": "PostalAddress",
       "addressCountry": "DE"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "",
-      "longitude": ""
     },
     "areaServed": [
       {
@@ -54,52 +48,90 @@ const Index = () => {
       "closes": "18:00"
     },
     "sameAs": [
-      "https://twitter.com/IntegroAI",
-      "https://linkedin.com/company/integroai"
+      "https://www.linkedin.com/company/integroai-consulting/",
+      "https://www.instagram.com/integroai.tech/"
     ],
     "founder": {
       "@type": "Person",
       "name": "Selina Fischer",
-      "jobTitle": "Founder & AI Strategist"
+      "jobTitle": "Founder & AI Strategist",
+      "description": "AI strategist helping SME leaders implement practical AI solutions"
     },
     "knowsAbout": [
-      "Artificial Intelligence",
-      "AI Strategy",
+      "Artificial Intelligence Strategy",
+      "AI Implementation for SMEs",
+      "AI Readiness Assessment",
       "Data Strategy",
       "Business Transformation",
-      "AI Implementation",
-      "SME Consulting"
+      "Machine Learning Consulting",
+      "AI Governance and Ethics",
+      "Digital Transformation",
+      "Vendor-Agnostic AI Consulting"
     ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "AI Consulting Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "AI Discovery & Assessment",
-            "description": "Comprehensive assessment of your current state, opportunities, and AI readiness"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "AI Strategy & Roadmapping",
-            "description": "Clear, actionable AI strategy aligned with your business goals"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Ongoing AI Advisory",
-            "description": "Regular strategic guidance to keep AI initiatives on track"
-          }
+    "makesOffer": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AI Readiness Assessment",
+          "description": "Comprehensive assessment of your current state, opportunities, and AI readiness including gap analysis and opportunity mapping"
         }
-      ]
-    }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AI Strategy & Roadmapping",
+          "description": "Prioritised AI implementation roadmap with business case analysis and quick wins identification"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AI Training & Capability Building",
+          "description": "Hands-on workshops to upskill teams on AI tools, prompting, and workflow integration"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AI Implementation Support",
+          "description": "Hands-on guidance from pilot to production including vendor selection and change management"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Ongoing AI Advisory",
+          "description": "Monthly strategic reviews with KPI tracking to ensure continued AI success"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AI Governance & Ethics",
+          "description": "Responsible AI practices with policies, risk frameworks, and compliance guidance"
+        }
+      }
+    ]
+  };
+
+  // Breadcrumb schema for better navigation signals
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://integroai.tech"
+      }
+    ]
   };
 
   return (
@@ -107,6 +139,9 @@ const Index = () => {
       <Helmet>
         <script type="application/ld+json">
           {JSON.stringify(localBusinessSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
         </script>
       </Helmet>
       <div className="min-h-screen">

@@ -51,7 +51,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-24 lg:py-32 bg-subtle relative overflow-hidden">
+    <section id="services" className="py-24 lg:py-32 bg-subtle relative overflow-hidden" itemScope itemType="https://schema.org/ItemList">
       {/* Background accent */}
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent-warm/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
       
@@ -64,25 +64,28 @@ const Services = () => {
           className="max-w-3xl mx-auto text-center mb-16"
         >
           <span className="inline-block text-accent-warm font-semibold text-sm uppercase tracking-widest mb-4 px-4 py-1.5 bg-accent-warm/10 rounded-full">
-            How We Help
+            AI Consulting Services
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-6">
-            Services That Drive Results
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-6" itemProp="name">
+            AI Consulting Services for SMEs
           </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
-            Clear structure. Practical support. Measurable outcomes. Everything you need to make AI work for your business.
+          <p className="text-muted-foreground text-lg leading-relaxed" itemProp="description">
+            What does an AI consultant do? We provide end-to-end AI strategy and implementation support—from readiness assessment to ongoing advisory. Clear structure, practical guidance, and measurable outcomes for businesses with 20-500 employees.
           </p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {services.map((service, index) => (
-            <motion.div
+            <motion.article
               key={service.title}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group bg-card rounded-2xl p-7 shadow-card hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-border/50 flex flex-col relative overflow-hidden"
+              itemScope 
+              itemType="https://schema.org/Service"
+              itemProp="itemListElement"
             >
               {/* Hover gradient */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -97,11 +100,11 @@ const Services = () => {
                   </span>
                 </div>
                 
-                <h3 className="text-xl font-bold mb-3">
+                <h3 className="text-xl font-bold mb-3" itemProp="name">
                   {service.title}
                 </h3>
                 
-                <p className="text-muted-foreground text-sm leading-relaxed mb-5 flex-grow">
+                <p className="text-muted-foreground text-sm leading-relaxed mb-5 flex-grow" itemProp="description">
                   {service.description}
                 </p>
 
@@ -129,7 +132,7 @@ const Services = () => {
                   </Button>
                 )}
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
 
