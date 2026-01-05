@@ -98,7 +98,7 @@ const Header = () => {
             <Button 
               variant="heroOutline"
               size="sm"
-              className="hidden xs:inline-flex text-[10px] sm:text-xs lg:text-sm px-2 sm:px-3 lg:px-5 h-8 sm:h-9 lg:h-10" 
+              className="hidden sm:inline-flex text-xs lg:text-sm px-3 lg:px-5 h-9 lg:h-10" 
               asChild
             >
               <a href="https://tally.so/r/68jDMA" target="_blank" rel="noopener noreferrer">
