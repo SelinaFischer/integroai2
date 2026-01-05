@@ -116,7 +116,7 @@ const Founder = () => {
             </div>
 
             {/* LinkedIn Link */}
-            <div className="pt-2">
+            <div className="pt-2 flex items-center gap-3">
               <a
                 href="https://www.linkedin.com/in/selinafischer8/"
                 target="_blank"
@@ -126,6 +126,7 @@ const Founder = () => {
                 <Linkedin className="w-5 h-5" />
                 Connect on LinkedIn
               </a>
+              <span className="text-muted-foreground text-sm">— Learn more about me</span>
             </div>
           </motion.div>
         </div>
