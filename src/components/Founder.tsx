@@ -72,12 +72,9 @@ const Founder = () => {
             className="space-y-5"
           >
             <div>
-              <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-2">
-                Selina Fischer
-              </h3>
-              <p className="text-accent-warm font-semibold text-lg">
+              <h3 className="text-2xl lg:text-3xl font-bold text-foreground">
                 Founder & CEO
-              </p>
+              </h3>
             </div>
 
             <p className="text-muted-foreground text-lg leading-relaxed">
