@@ -10,6 +10,7 @@ import BlogPosts from "@/components/BlogPosts";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
 
 const Index = () => {
   const localBusinessSchema = {
@@ -158,6 +159,7 @@ const Index = () => {
           <CTA />
         </main>
         <Footer />
+        <BackToTop />
       </div>
     </>
   );
