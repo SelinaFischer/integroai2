@@ -27,24 +27,24 @@ const Founder = () => {
   ];
 
   return (
-    <section id="founder" className="py-20 lg:py-28 bg-muted/30">
+    <section id="founder" className="py-16 sm:py-20 lg:py-24 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-10 sm:mb-14"
         >
-          <span className="text-accent-warm font-semibold text-sm tracking-wider uppercase">
+          <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
             Leadership
           </span>
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mt-2">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">
             Meet the Founder - Selina
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-[1fr,1fr] gap-8 lg:gap-16 items-start max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-[1fr,1fr] gap-6 sm:gap-8 lg:gap-16 items-start max-w-7xl mx-auto">
           {/* Founder Image - Maximized and aligned to top */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -94,23 +94,23 @@ const Founder = () => {
             className="space-y-5 lg:pt-4"
           >
             <div>
-              <h3 className="text-2xl lg:text-3xl font-bold text-accent-warm">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-accent-warm">
                 Founder & CEO
               </h3>
             </div>
 
-            <p className="text-muted-foreground text-lg leading-relaxed">
+            <p className="text-muted-foreground text-sm sm:text-base lg:text-lg leading-relaxed">
               Most AI failures are not technical—they are strategic. I provide the Decision Clarity 
               leaders need to ensure AI is a business win, not a waste of budget.
             </p>
 
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
               With 20 years of experience across product management, technology, and building 
               commercial businesses, I collaborate with a network of certified AI consultants 
               and implementation specialists to provide comprehensive support for SMEs.
             </p>
 
-            <blockquote className="border-l-4 border-accent-warm pl-6 py-2 italic text-foreground/80">
+            <blockquote className="border-l-2 sm:border-l-4 border-accent-warm pl-3 sm:pl-6 py-2 italic text-foreground/80 text-sm sm:text-base">
               "If you want clarity on where AI fits before committing time or budget, I help you 
               determine if AI is your next big win or your next big waste of resources."
             </blockquote>
