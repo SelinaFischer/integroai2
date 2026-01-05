@@ -69,7 +69,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-all text-sm font-medium group"
                 >
-                  <img src={linkedinLogo} alt="LinkedIn" className="w-6 h-6 rounded transition-transform duration-200 group-hover:scale-110" />
+                  <img src={linkedinLogo} alt="LinkedIn" className="w-6 h-6 rounded transition-all duration-200 group-hover:scale-110 group-hover:shadow-[0_0_12px_rgba(255,255,255,0.4)]" />
                   LinkedIn
                 </a>
               </li>
@@ -80,7 +80,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-all text-sm font-medium group"
                 >
-                  <img src={instagramLogo} alt="Instagram" className="w-6 h-6 rounded transition-transform duration-200 group-hover:scale-110" />
+                  <img src={instagramLogo} alt="Instagram" className="w-6 h-6 rounded transition-all duration-200 group-hover:scale-110 group-hover:shadow-[0_0_12px_rgba(255,255,255,0.4)]" />
                   Instagram
                 </a>
               </li>
@@ -88,7 +88,7 @@ const Footer = () => {
                 <ContactFormModal 
                   trigger={
                     <button className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-all text-sm font-medium group">
-                      <div className="w-6 h-6 rounded bg-white/10 flex items-center justify-center transition-transform duration-200 group-hover:scale-110 group-hover:bg-white/20">
+                      <div className="w-6 h-6 rounded bg-white/10 flex items-center justify-center transition-all duration-200 group-hover:scale-110 group-hover:bg-white/20 group-hover:shadow-[0_0_12px_rgba(255,255,255,0.4)]">
                         <Mail className="w-4 h-4" />
                       </div>
                       Send a Message
