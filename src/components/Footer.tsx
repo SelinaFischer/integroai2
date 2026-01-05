@@ -119,13 +119,13 @@ const Footer = () => {
             <div className="flex items-center gap-4 sm:gap-6">
               <Link 
                 to="/privacy-policy" 
-                className="text-primary-foreground/50 hover:text-primary-foreground transition-colors py-2"
+                className="text-primary-foreground/80 hover:text-accent-warm transition-colors py-2 font-medium"
               >
                 Privacy Policy
               </Link>
               <Link 
                 to="/terms-of-service" 
-                className="text-primary-foreground/50 hover:text-primary-foreground transition-colors py-2"
+                className="text-primary-foreground/80 hover:text-accent-warm transition-colors py-2 font-medium"
               >
                 Terms of Service
               </Link>
