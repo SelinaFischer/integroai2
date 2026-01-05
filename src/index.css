@@ -119,6 +119,30 @@
     @apply border-border;
   }
 
+  /* Custom focus-visible styles for keyboard navigation */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-accent-warm ring-offset-2 ring-offset-background;
+  }
+
+  /* Remove default focus for mouse users */
+  *:focus:not(:focus-visible) {
+    @apply outline-none ring-0;
+  }
+
+  /* Enhanced focus styles for specific elements */
+  a:focus-visible,
+  button:focus-visible,
+  [role="button"]:focus-visible {
+    @apply outline-none ring-2 ring-accent-warm ring-offset-2 ring-offset-background rounded-sm;
+  }
+
+  /* Focus styles for form inputs */
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-1 ring-offset-background;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Montserrat', system-ui, sans-serif;
