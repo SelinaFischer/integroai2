@@ -70,9 +70,9 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a1628] shadow-lg border-b border-white/10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 lg:h-24">
+        <div className="flex items-center justify-between h-16 sm:h-20 lg:h-24">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 lg:gap-4 relative z-10">
+          <Link to="/" className="flex items-center gap-2 sm:gap-3 lg:gap-4 relative z-10">
             <img 
               src={logo} 
               alt="IntegroAI Consulting" 
@@ -80,13 +80,13 @@ const Header = () => {
               height={80}
               fetchPriority="high"
               decoding="async"
-              className="h-14 sm:h-16 lg:h-20 w-auto transition-all duration-300"
+              className="h-10 sm:h-14 lg:h-20 w-auto transition-all duration-300"
             />
             <div className="hidden sm:flex flex-col">
-              <span className="text-lg lg:text-2xl font-bold tracking-tight text-white">
+              <span className="text-base sm:text-lg lg:text-2xl font-bold tracking-tight text-white">
                 IntegroAI Consulting
               </span>
-              <span className="text-xs lg:text-sm font-medium tracking-wide text-accent-warm">
+              <span className="text-[10px] sm:text-xs lg:text-sm font-medium tracking-wide text-accent-warm">
                 Simplify · Amplify · Grow
               </span>
             </div>
@@ -94,11 +94,11 @@ const Header = () => {
 
 
           {/* CTA Buttons - Always visible, matching Hero style */}
-          <div className="flex items-center gap-2 lg:gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-2 lg:gap-3">
             <Button 
               variant="heroOutline"
               size="sm"
-              className="text-xs lg:text-sm px-3 lg:px-5 h-9 lg:h-10" 
+              className="hidden xs:inline-flex text-[10px] sm:text-xs lg:text-sm px-2 sm:px-3 lg:px-5 h-8 sm:h-9 lg:h-10" 
               asChild
             >
               <a href="https://tally.so/r/68jDMA" target="_blank" rel="noopener noreferrer">
@@ -108,11 +108,12 @@ const Header = () => {
             <Button 
               variant="hero"
               size="sm"
-              className="group text-xs lg:text-sm px-3 lg:px-5 h-9 lg:h-10" 
+              className="group text-[10px] sm:text-xs lg:text-sm px-2 sm:px-3 lg:px-5 h-8 sm:h-9 lg:h-10" 
               asChild
             >
               <a href="https://calendly.com/integroai-consulting/30min" target="_blank" rel="noopener noreferrer">
-                Book a Call
+                <span className="hidden sm:inline">Book a Call</span>
+                <span className="sm:hidden">Book</span>
                 <ArrowRight className="w-3 h-3 lg:w-4 lg:h-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
@@ -120,13 +121,13 @@ const Header = () => {
             {/* Menu Toggle - Always visible */}
             <button
               ref={menuButtonRef}
-              className="p-3 -mr-2 relative z-10 text-white min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-white/10 rounded-lg transition-colors"
+              className="p-2 sm:p-3 -mr-1 sm:-mr-2 relative z-10 text-white min-w-[40px] sm:min-w-[44px] min-h-[40px] sm:min-h-[44px] flex items-center justify-center hover:bg-white/10 rounded-lg transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-menu"
             >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {mobileMenuOpen ? <X size={20} className="sm:w-6 sm:h-6" /> : <Menu size={20} className="sm:w-6 sm:h-6" />}
             </button>
           </div>
         </div>
