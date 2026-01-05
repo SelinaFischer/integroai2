@@ -11,6 +11,7 @@ import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
+import CookieConsent from "@/components/CookieConsent";
 
 const Index = () => {
   const localBusinessSchema = {
@@ -160,6 +161,7 @@ const Index = () => {
         </main>
         <Footer />
         <BackToTop />
+        <CookieConsent />
       </div>
     </>
   );
