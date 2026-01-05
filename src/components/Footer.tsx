@@ -1,4 +1,5 @@
 import { Mail } from "lucide-react";
+import { motion } from "framer-motion";
 import logo from "@/assets/integroai-logo-icon-white.png";
 import linkedinLogo from "@/assets/linkedin-logo.avif";
 import instagramLogo from "@/assets/instagram-logo.avif";
@@ -20,7 +21,13 @@ const Footer = () => {
       {/* Background accent */}
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2" />
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+      <motion.div 
+        className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
@@ -114,7 +121,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </footer>
   );
 };
