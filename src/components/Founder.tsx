@@ -53,7 +53,14 @@ const Founder = () => {
             transition={{ duration: 0.6 }}
             className="relative flex justify-center lg:justify-end"
           >
-            <div className="w-full max-w-lg lg:max-w-none">
+            {/* Decorative background elements */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-[80%] h-[80%] bg-gradient-to-br from-primary/10 via-accent-warm/10 to-primary/5 rounded-full blur-3xl" />
+            </div>
+            <div className="absolute top-10 right-10 w-32 h-32 bg-accent-warm/20 rounded-full blur-2xl" />
+            <div className="absolute bottom-10 left-10 w-24 h-24 bg-primary/15 rounded-full blur-2xl" />
+            
+            <div className="relative w-full max-w-lg lg:max-w-none">
               <img 
                 src={selinaPhoto} 
                 alt="Selina Fischer - IntegroAI Founder and CEO" 
@@ -61,7 +68,7 @@ const Founder = () => {
                 height={600}
                 loading="lazy"
                 decoding="async"
-                className="w-full h-auto"
+                className="w-full h-auto relative z-10"
               />
             </div>
           </motion.div>
