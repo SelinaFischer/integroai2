@@ -94,7 +94,7 @@ const Founder = () => {
             </blockquote>
 
             {/* Framework */}
-            <div className="grid sm:grid-cols-2 gap-3 pt-4">
+            <div className="grid grid-cols-2 gap-2 sm:gap-3 pt-4">
               {framework.map((item, index) => (
                 <motion.div
                   key={index}
@@ -102,14 +102,14 @@ const Founder = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                  className="flex items-start gap-3 p-3 rounded-xl bg-background/50 border border-border/50"
+                  className="flex flex-col sm:flex-row items-start gap-2 sm:gap-3 p-3 sm:p-4 rounded-xl bg-background/50 border border-border/50"
                 >
                   <div className="p-2 rounded-lg bg-accent-warm/10 shrink-0">
                     <item.icon className="w-4 h-4 text-accent-warm" />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <h4 className="font-semibold text-foreground text-sm">{item.title}</h4>
-                    <p className="text-xs text-muted-foreground">{item.description}</p>
+                    <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3 sm:line-clamp-none">{item.description}</p>
                   </div>
                 </motion.div>
               ))}
