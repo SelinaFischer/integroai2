@@ -41,20 +41,20 @@ const Values = () => {
               transition={{ duration: 0.6 }}
             >
               <span className="inline-block text-accent-warm font-semibold text-sm uppercase tracking-widest mb-4 px-4 py-1.5 bg-accent-warm/10 rounded-full">
-                About IntegroAI
+                About IntegroAI Consulting
               </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-6">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-5">
                 AI Succeeds When Strategy, Data & People Align
               </h2>
-              <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
+              <p className="text-muted-foreground text-base mb-5 leading-relaxed">
                 Most organisations fail because they rush into tools without clarity and purpose. IntegroAI applies a simple principle:
               </p>
-              <blockquote className="border-l-4 border-accent-warm pl-6 py-4 mb-8 bg-accent-warm/5 rounded-r-xl">
-                <p className="text-xl font-semibold italic text-foreground">
+              <blockquote className="border-l-4 border-accent-warm pl-5 py-3 mb-6 bg-accent-warm/5 rounded-r-xl">
+                <p className="text-lg font-semibold italic text-foreground">
                   "Clarity first. Solutions second. Results that can be measured."
                 </p>
               </blockquote>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 Built on a commitment to help organisations use AI responsibly and effectively. Our mission is to simplify the complex, amplify what works, and help leaders and teams grow with confidence.
               </p>
             </motion.div>
