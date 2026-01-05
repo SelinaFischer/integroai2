@@ -41,7 +41,7 @@ const Framework = () => {
   ];
 
   return (
-    <section id="framework" className="py-24 lg:py-32 bg-background relative overflow-hidden">
+    <section id="framework" className="py-16 sm:py-20 lg:py-24 bg-background relative overflow-hidden">
       {/* Background accent */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/3 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
       
@@ -51,15 +51,15 @@ const Framework = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto text-center mb-20"
+          className="max-w-3xl mx-auto text-center mb-10 sm:mb-14"
         >
-          <span className="inline-block text-accent-warm font-semibold text-sm uppercase tracking-widest mb-4 px-4 py-1.5 bg-accent-warm/10 rounded-full">
+          <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
             Our Approach
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-6">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-4 sm:mb-6">
             A Clear Path to AI Success
           </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
+          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
             From uncertainty to confident execution—a proven framework that guides you every step of the way.
           </p>
         </motion.div>
