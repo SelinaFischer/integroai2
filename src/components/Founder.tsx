@@ -44,14 +44,14 @@ const Founder = () => {
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
-          {/* Founder Image - Maximized */}
+        <div className="grid lg:grid-cols-[1fr,1fr] gap-8 lg:gap-16 items-start max-w-7xl mx-auto">
+          {/* Founder Image - Maximized and aligned to top */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative flex justify-center lg:justify-end"
+            className="relative flex justify-center"
           >
             {/* Decorative background elements */}
             <motion.div 
@@ -59,25 +59,25 @@ const Founder = () => {
               animate={{ scale: [1, 1.05, 1], opacity: [0.8, 1, 0.8] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             >
-              <div className="w-[80%] h-[80%] bg-gradient-to-br from-primary/10 via-accent-warm/10 to-primary/5 rounded-full blur-3xl" />
+              <div className="w-[90%] h-[90%] bg-gradient-to-br from-primary/10 via-accent-warm/10 to-primary/5 rounded-full blur-3xl" />
             </motion.div>
             <motion.div 
-              className="absolute top-10 right-10 w-32 h-32 bg-accent-warm/20 rounded-full blur-2xl"
+              className="absolute top-10 right-10 w-40 h-40 bg-accent-warm/20 rounded-full blur-2xl"
               animate={{ y: [0, -15, 0], x: [0, 5, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.div 
-              className="absolute bottom-10 left-10 w-24 h-24 bg-primary/15 rounded-full blur-2xl"
+              className="absolute bottom-10 left-10 w-32 h-32 bg-primary/15 rounded-full blur-2xl"
               animate={{ y: [0, 10, 0], x: [0, -8, 0] }}
               transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             />
             
-            <div className="relative w-full max-w-lg lg:max-w-none">
+            <div className="relative w-full">
               <img 
                 src={selinaPhoto} 
                 alt="Selina Fischer - IntegroAI Founder and CEO" 
-                width={600}
-                height={600}
+                width={700}
+                height={700}
                 loading="lazy"
                 decoding="async"
                 className="w-full h-auto relative z-10"
@@ -85,13 +85,13 @@ const Founder = () => {
             </div>
           </motion.div>
 
-          {/* Founder Info */}
+          {/* Founder Info - Aligned to top */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-5"
+            className="space-y-5 lg:pt-4"
           >
             <div>
               <h3 className="text-2xl lg:text-3xl font-bold text-foreground">
