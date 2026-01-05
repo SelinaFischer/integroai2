@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ArrowRight } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import logo from "@/assets/logo-icon-new.png";
 import ContactFormModal from "./ContactFormModal";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +18,47 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Handle escape key to close mobile menu
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === 'Escape' && mobileMenuOpen) {
+      setMobileMenuOpen(false);
+      menuButtonRef.current?.focus();
+    }
+  }, [mobileMenuOpen]);
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [handleKeyDown]);
+
+  // Focus trap for mobile menu
+  useEffect(() => {
+    if (mobileMenuOpen && mobileMenuRef.current) {
+      const focusableElements = mobileMenuRef.current.querySelectorAll(
+        'a[href], button:not([disabled]), input:not([disabled])'
+      );
+      const firstElement = focusableElements[0] as HTMLElement;
+      const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+
+      const handleTabKey = (e: KeyboardEvent) => {
+        if (e.key !== 'Tab') return;
+        
+        if (e.shiftKey && document.activeElement === firstElement) {
+          e.preventDefault();
+          lastElement?.focus();
+        } else if (!e.shiftKey && document.activeElement === lastElement) {
+          e.preventDefault();
+          firstElement?.focus();
+        }
+      };
+
+      document.addEventListener('keydown', handleTabKey);
+      firstElement?.focus();
+      
+      return () => document.removeEventListener('keydown', handleTabKey);
+    }
+  }, [mobileMenuOpen]);
 
   const navLinks = [
     { href: "#services", label: "Services" },
@@ -84,9 +127,12 @@ const Header = () => {
             
             {/* Mobile Menu Toggle */}
             <button
+              ref={menuButtonRef}
               className="lg:hidden p-3 -mr-2 relative z-10 text-white min-w-[44px] min-h-[44px] flex items-center justify-center"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle menu"
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-menu"
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -95,8 +141,15 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden py-6 border-t border-border/50 bg-background animate-fade-in">
-            <nav className="flex flex-col gap-2">
+          <div 
+            ref={mobileMenuRef}
+            id="mobile-menu"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation menu"
+            className="lg:hidden py-6 border-t border-border/50 bg-background animate-fade-in"
+          >
+            <nav className="flex flex-col gap-2" role="navigation" aria-label="Mobile navigation">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
