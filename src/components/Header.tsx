@@ -51,7 +51,7 @@ const Header = () => {
               <a
                 key={link.href}
                 href={link.href}
-                className="transition-colors duration-200 text-sm font-semibold tracking-wide link-underline text-white/80 hover:text-white"
+                className="transition-colors duration-200 text-sm font-semibold tracking-wide link-underline text-white/80 hover:text-white py-2 px-1"
               >
                 {link.label}
               </a>
@@ -84,7 +84,7 @@ const Header = () => {
             
             {/* Mobile Menu Toggle */}
             <button
-              className="lg:hidden p-2 relative z-10 text-white"
+              className="lg:hidden p-3 -mr-2 relative z-10 text-white min-w-[44px] min-h-[44px] flex items-center justify-center"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >

@@ -49,12 +49,12 @@ const Footer = () => {
           {/* Quick Links */}
           <div>
             <h4 className="font-bold text-primary-foreground mb-6 text-sm uppercase tracking-wider">Navigate</h4>
-            <ul className="space-y-4">
+            <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm font-medium inline-flex items-center gap-2 group"
+                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm font-medium inline-flex items-center gap-2 group py-2 min-h-[44px]"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-accent-warm/50 group-hover:bg-accent-warm transition-colors" />
                     {link.label}
@@ -68,13 +68,13 @@ const Footer = () => {
           {/* Contact */}
           <div>
             <h4 className="font-bold text-primary-foreground mb-6 text-sm uppercase tracking-wider">Get in Touch</h4>
-            <ul className="space-y-4">
+            <ul className="space-y-2">
               <li>
                 <a
                   href="https://www.linkedin.com/company/integroai-consulting/about/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-all text-sm font-medium group"
+                  className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-all text-sm font-medium group py-2 min-h-[44px]"
                 >
                   <img src={linkedinLogo} alt="LinkedIn" className="w-6 h-6 rounded transition-all duration-200 group-hover:scale-110 group-hover:shadow-[0_0_12px_rgba(255,255,255,0.4)]" />
                   LinkedIn
@@ -85,7 +85,7 @@ const Footer = () => {
                   href="https://www.instagram.com/integroai.tech/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-all text-sm font-medium group"
+                  className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-all text-sm font-medium group py-2 min-h-[44px]"
                 >
                   <img src={instagramLogo} alt="Instagram" className="w-6 h-6 rounded transition-all duration-200 group-hover:scale-110 group-hover:shadow-[0_0_12px_rgba(255,255,255,0.4)]" />
                   Instagram
@@ -94,7 +94,7 @@ const Footer = () => {
               <li>
                 <ContactFormModal 
                   trigger={
-                    <button className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-all text-sm font-medium group">
+                    <button className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-all text-sm font-medium group py-2 min-h-[44px]">
                       <div className="w-6 h-6 rounded bg-white/10 flex items-center justify-center transition-all duration-200 group-hover:scale-110 group-hover:bg-white/20 group-hover:shadow-[0_0_12px_rgba(255,255,255,0.4)]">
                         <Mail className="w-4 h-4" />
                       </div>
@@ -111,11 +111,11 @@ const Footer = () => {
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-primary-foreground/50">
             <p>© {currentYear} IntegroAI Consulting. All rights reserved.</p>
-            <div className="flex items-center gap-6">
-              <a href="#" className="hover:text-primary-foreground/70 transition-colors">
+            <div className="flex items-center gap-4 sm:gap-6">
+              <a href="#" className="hover:text-primary-foreground/70 transition-colors py-2 min-h-[44px] flex items-center">
                 Privacy Policy
               </a>
-              <a href="#" className="hover:text-primary-foreground/70 transition-colors">
+              <a href="#" className="hover:text-primary-foreground/70 transition-colors py-2 min-h-[44px] flex items-center">
                 Terms of Service
               </a>
             </div>
