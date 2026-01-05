@@ -67,8 +67,8 @@ const Framework = () => {
         {/* Desktop Timeline */}
         <div className="hidden lg:block max-w-6xl mx-auto">
           <div className="relative">
-            {/* Connection line - extends through all items */}
-            <div className="absolute top-[52px] left-[10%] right-[10%] h-1 bg-gradient-to-r from-accent-warm via-primary to-accent-warm rounded-full" />
+            {/* Connection line - extends to center of last icon */}
+            <div className="absolute top-[52px] left-[calc(10%-12px)] right-[calc(10%-12px)] h-1 bg-gradient-to-r from-accent-warm via-primary to-accent-warm rounded-full" />
             
             <div className="grid grid-cols-5 gap-6">
               {steps.map((step, index) => (
