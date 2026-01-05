@@ -54,11 +54,23 @@ const Founder = () => {
             className="relative flex justify-center lg:justify-end"
           >
             {/* Decorative background elements */}
-            <div className="absolute inset-0 flex items-center justify-center">
+            <motion.div 
+              className="absolute inset-0 flex items-center justify-center"
+              animate={{ scale: [1, 1.05, 1], opacity: [0.8, 1, 0.8] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            >
               <div className="w-[80%] h-[80%] bg-gradient-to-br from-primary/10 via-accent-warm/10 to-primary/5 rounded-full blur-3xl" />
-            </div>
-            <div className="absolute top-10 right-10 w-32 h-32 bg-accent-warm/20 rounded-full blur-2xl" />
-            <div className="absolute bottom-10 left-10 w-24 h-24 bg-primary/15 rounded-full blur-2xl" />
+            </motion.div>
+            <motion.div 
+              className="absolute top-10 right-10 w-32 h-32 bg-accent-warm/20 rounded-full blur-2xl"
+              animate={{ y: [0, -15, 0], x: [0, 5, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.div 
+              className="absolute bottom-10 left-10 w-24 h-24 bg-primary/15 rounded-full blur-2xl"
+              animate={{ y: [0, 10, 0], x: [0, -8, 0] }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            />
             
             <div className="relative w-full max-w-lg lg:max-w-none">
               <img 
