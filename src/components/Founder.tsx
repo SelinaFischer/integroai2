@@ -40,7 +40,7 @@ const Founder = () => {
             Leadership
           </span>
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mt-2">
-            Meet the Founder
+            Meet the Founder - Selina
           </h2>
         </motion.div>
 
@@ -94,7 +94,7 @@ const Founder = () => {
             className="space-y-5 lg:pt-4"
           >
             <div>
-              <h3 className="text-2xl lg:text-3xl font-bold text-foreground">
+              <h3 className="text-2xl lg:text-3xl font-bold text-accent-warm">
                 Founder & CEO
               </h3>
             </div>
