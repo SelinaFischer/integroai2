@@ -80,6 +80,9 @@ const Framework = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="relative flex flex-col items-center text-center group"
                 >
+                  {/* Dot marker on line */}
+                  <div className={`absolute top-[48px] left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-gradient-to-br ${step.gradient} ring-4 ring-background z-10 shadow-md`} />
+                  
                   {/* Step circle with gradient */}
                   <div className={`relative z-10 w-[72px] h-[72px] rounded-2xl bg-gradient-to-br ${step.gradient} flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300`}>
                     <step.icon className="w-8 h-8 text-white" />
