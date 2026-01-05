@@ -70,7 +70,7 @@ const Services = () => {
             AI Consulting Services for SMEs
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed" itemProp="description">
-            What does an AI consultant do? We provide end-to-end AI strategy and implementation support—from readiness assessment to ongoing advisory. Clear structure, practical guidance, and measurable outcomes for businesses with 20-500 employees.
+            What does an AI consultant do? We provide end-to-end AI strategy and implementation support—from readiness assessment to ongoing advisory. Clear structure, practical guidance, and measurable outcomes for growing businesses.
           </p>
         </motion.div>
 
