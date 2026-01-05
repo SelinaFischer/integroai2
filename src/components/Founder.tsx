@@ -56,7 +56,7 @@ const Founder = () => {
             <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-primary/20 to-accent-warm/20 overflow-hidden border border-white/10 shadow-2xl">
               <img 
                 src={selinaPhoto} 
-                alt="Founder of IntegroAI Consulting" 
+                alt="Portrait of IntegroAI Founder and CEO" 
                 className="w-full h-full object-cover object-top"
               />
             </div>
