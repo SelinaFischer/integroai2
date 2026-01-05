@@ -46,7 +46,7 @@ const Footer = () => {
             <p className="text-primary-foreground/70 text-base max-w-md mb-6 leading-relaxed">
               Helping SME leaders turn AI confusion into confident action with clear strategy, solid foundations, and measurable outcomes.
             </p>
-            <p className="text-primary-foreground/40 text-sm font-medium tracking-wider">
+            <p className="text-accent-warm text-sm font-medium tracking-wider">
               Discover › Design › Validate › Deliver
             </p>
           </div>
