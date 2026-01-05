@@ -121,7 +121,7 @@ const Founder = () => {
                 href="https://www.linkedin.com/in/selinafischer8/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-accent-warm hover:text-accent-warm/80 transition-all duration-300 font-medium group-hover:translate-x-1"
+                className="inline-flex items-center gap-2 text-accent-warm hover:text-accent-warm/80 transition-all duration-300 font-medium group-hover:translate-x-1 py-2 min-h-[44px]"
               >
                 <Linkedin className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
                 Connect on LinkedIn
