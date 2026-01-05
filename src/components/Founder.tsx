@@ -102,9 +102,10 @@ const Founder = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                  className="flex flex-col sm:flex-row items-start gap-2 sm:gap-3 p-3 sm:p-4 rounded-xl bg-background/50 border border-border/50"
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  className="flex flex-col sm:flex-row items-start gap-2 sm:gap-3 p-3 sm:p-4 rounded-xl bg-background/50 border border-border/50 cursor-default transition-all duration-300 hover:bg-background/80 hover:border-accent-warm/30 hover:shadow-lg hover:shadow-accent-warm/5"
                 >
-                  <div className="p-2 rounded-lg bg-accent-warm/10 shrink-0">
+                  <div className="p-2 rounded-lg bg-accent-warm/10 shrink-0 transition-colors duration-300 group-hover:bg-accent-warm/20">
                     <item.icon className="w-4 h-4 text-accent-warm" />
                   </div>
                   <div className="min-w-0">
