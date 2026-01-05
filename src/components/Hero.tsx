@@ -48,17 +48,17 @@ const Hero = () => {
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-16 sm:pb-20 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2.5 mb-8"
+            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 sm:px-5 py-2 sm:py-2.5 mb-6 sm:mb-8"
           >
             <span className="w-2 h-2 bg-accent-warm rounded-full animate-pulse" />
-            <span className="text-white/90 text-sm font-medium tracking-wide">
+            <span className="text-white/90 text-xs sm:text-sm font-medium tracking-wide">
               AI Strategy for SME Leaders
             </span>
           </motion.div>
@@ -68,7 +68,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white leading-[1.1] mb-6 font-extrabold"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white leading-[1.1] mb-4 sm:mb-6 font-extrabold"
           >
             AI Strategy.{" "}
             <span className="text-gradient-gold">Done Right.</span>
@@ -79,7 +79,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="hero-description text-lg sm:text-xl lg:text-2xl text-white/80 max-w-2xl mx-auto mb-4 font-medium"
+            className="hero-description text-base sm:text-lg lg:text-xl xl:text-2xl text-white/80 max-w-2xl mx-auto mb-3 sm:mb-4 font-medium"
           >
             Discover › Design › Validate › Deliver
           </motion.p>
@@ -89,7 +89,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="text-base sm:text-lg text-white/70 max-w-xl mx-auto mb-10"
+            className="text-sm sm:text-base lg:text-lg text-white/70 max-w-xl mx-auto mb-8 sm:mb-10"
             itemProp="description"
           >
             IntegroAI helps SME leaders with 20-500 employees turn AI confusion into confident action through clear strategy, solid data foundations, and measurable ROI.
@@ -100,7 +100,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-wrap justify-center gap-x-8 gap-y-3 mb-12"
+            className="flex flex-wrap justify-center gap-x-4 sm:gap-x-8 gap-y-2 sm:gap-y-3 mb-8 sm:mb-12"
           >
             {trustPoints.map((point, index) => (
               <motion.div 
@@ -108,10 +108,10 @@ const Hero = () => {
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
-                className="flex items-center gap-2 text-white/90"
+                className="flex items-center gap-1.5 sm:gap-2 text-white/90"
               >
-                <CheckCircle2 className="w-5 h-5 text-accent-warm" aria-hidden="true" />
-                <span className="text-sm font-medium">{point}</span>
+                <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-accent-warm" aria-hidden="true" />
+                <span className="text-xs sm:text-sm font-medium">{point}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -141,7 +141,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="text-white/60 text-sm mt-12"
+            className="text-white/60 text-xs sm:text-sm mt-8 sm:mt-12"
           >
             Trusted by SME leaders across the UK
           </motion.p>
