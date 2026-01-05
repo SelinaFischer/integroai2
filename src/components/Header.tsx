@@ -76,6 +76,10 @@ const Header = () => {
             <img 
               src={logo} 
               alt="IntegroAI Consulting" 
+              width={80}
+              height={80}
+              fetchPriority="high"
+              decoding="async"
               className="h-14 sm:h-16 lg:h-20 w-auto transition-all duration-300"
             />
             <div className="hidden sm:flex flex-col">
