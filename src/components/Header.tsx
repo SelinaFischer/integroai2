@@ -92,18 +92,6 @@ const Header = () => {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="transition-colors duration-200 text-sm font-semibold tracking-wide link-underline text-white/80 hover:text-white py-2 px-1"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
 
           {/* CTA Buttons - Always visible, matching Hero style */}
           <div className="flex items-center gap-2 lg:gap-3">
@@ -129,10 +117,10 @@ const Header = () => {
               </a>
             </Button>
             
-            {/* Mobile Menu Toggle */}
+            {/* Menu Toggle - Always visible */}
             <button
               ref={menuButtonRef}
-              className="lg:hidden p-3 -mr-2 relative z-10 text-white min-w-[44px] min-h-[44px] flex items-center justify-center"
+              className="p-3 -mr-2 relative z-10 text-white min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-white/10 rounded-lg transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileMenuOpen}
@@ -143,7 +131,7 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Dropdown Menu */}
         {mobileMenuOpen && (
           <div 
             ref={mobileMenuRef}
@@ -151,9 +139,9 @@ const Header = () => {
             role="dialog"
             aria-modal="true"
             aria-label="Navigation menu"
-            className="lg:hidden py-6 border-t border-border/50 bg-background animate-fade-in"
+            className="absolute top-full right-4 w-56 py-3 bg-background border border-border/50 rounded-xl shadow-xl animate-fade-in"
           >
-            <nav className="flex flex-col gap-2" role="navigation" aria-label="Mobile navigation">
+            <nav className="flex flex-col gap-1 px-2" role="navigation" aria-label="Main navigation">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
@@ -164,19 +152,6 @@ const Header = () => {
                   {link.label}
                 </a>
               ))}
-              <div className="pt-4 mt-2 border-t border-border/50 space-y-3">
-                <Button variant="outline" className="w-full" asChild>
-                  <a href="https://tally.so/r/68jDMA" target="_blank" rel="noopener noreferrer">
-                    AI Readiness Audit
-                  </a>
-                </Button>
-                <Button variant="hero" className="w-full group" asChild>
-                  <a href="https://calendly.com/integroai-consulting/30min" target="_blank" rel="noopener noreferrer">
-                    Book a Call
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                </Button>
-              </div>
             </nav>
           </div>
         )}
