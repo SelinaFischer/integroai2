@@ -92,7 +92,7 @@ const Hero = () => {
             className="text-sm sm:text-base lg:text-lg text-white/70 max-w-xl mx-auto mb-8 sm:mb-10"
             itemProp="description"
           >
-            IntegroAI helps SME leaders with 20-500 employees turn AI confusion into confident action through clear strategy, solid data foundations, and measurable ROI.
+            IntegroAI helps SME leaders turn AI confusion into confident action through clear strategy, solid data foundations, and measurable ROI.
           </motion.p>
 
           {/* Trust points */}
