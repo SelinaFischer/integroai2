@@ -181,7 +181,7 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
 
               {/* Hidden fields for Formspree */}
               <input type="hidden" name="_subject" value="New Contact Form Submission - IntegroAI" />
-              <input type="hidden" name="_replyto" value="integroai.consulting@gmail.com" />
+              <input type="hidden" name="_replyto" value="info@integroai.tech" />
               {/* Honeypot for spam protection */}
               <input type="text" name="_gotcha" style={{ display: "none" }} />
 
