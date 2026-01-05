@@ -10,28 +10,28 @@ import { Helmet } from "react-helmet-async";
 const FAQ = () => {
   const faqs = [
     {
+      question: "What is AI consulting for SMEs?",
+      answer: "AI consulting for SMEs is a specialised service that helps small and medium-sized businesses (typically 20-500 employees) understand, plan, and implement artificial intelligence solutions. Unlike enterprise consulting, SME-focused AI consulting provides practical, achievable strategies tailored to smaller budgets and teams, focusing on quick wins and measurable ROI rather than complex, multi-year transformations.",
+    },
+    {
       question: "Who is IntegroAI best suited for?",
-      answer: "We work primarily with SME leaders and decision-makers who want to leverage AI strategically but feel overwhelmed by the options. If you're a business owner, managing director, or department head looking to cut through the AI hype and get practical results, we're a good fit.",
+      answer: "IntegroAI works primarily with SME leaders and decision-makers who want to leverage AI strategically but feel overwhelmed by the options. If you're a business owner, managing director, or department head at a company with 20-500 employees looking to cut through the AI hype and get practical results, we're a good fit. Our clients typically want vendor-agnostic guidance and a clear roadmap rather than being sold specific tools.",
     },
     {
-      question: "What size businesses do you typically work with?",
-      answer: "We specialise in SMEs with 20-500 employees. Large enough to benefit from AI transformation, small enough that we can make a real impact quickly. Our approach is tailored for organisations that need practical, achievable AI strategies—not enterprise-level complexity.",
-    },
-    {
-      question: "How long does a typical engagement last?",
-      answer: "It depends on your needs. A focused assessment can be completed in 2-4 weeks. Strategy and roadmapping typically takes 4-8 weeks. Implementation support can range from 3-12 months depending on scope. We always start with a discovery call to understand your situation.",
+      question: "How much does AI consulting cost for small businesses?",
+      answer: "AI consulting costs for SMEs vary based on scope. A focused AI readiness assessment typically takes 2-4 weeks. Strategy and roadmapping projects run 4-8 weeks. Implementation support can range from 3-12 months. We always start with a free discovery call to understand your situation and provide a tailored proposal. Our approach is designed to deliver measurable ROI, ensuring the investment pays for itself.",
     },
     {
       question: "Do you help with specific AI tool selection?",
-      answer: "Yes, vendor-agnostic guidance is part of our service. We help you evaluate options based on your specific needs, budget, and technical environment. We don't push any particular tools—our only interest is finding what works best for you.",
+      answer: "Yes, vendor-agnostic guidance is core to our service. We help you evaluate AI tools and platforms based on your specific needs, budget, and technical environment. We don't push any particular vendors or receive commissions—our only interest is finding what works best for your business. This includes comparing options for automation, analytics, generative AI, and industry-specific solutions.",
     },
     {
-      question: "What if we're not sure where to start?",
-      answer: "That's exactly why our Discovery service exists. Many clients come to us knowing they need to 'do something with AI' but aren't sure what. We'll help you understand your current state, identify opportunities, and create a clear starting point.",
+      question: "What if we're not sure where to start with AI?",
+      answer: "That's exactly why our Discovery service exists. Many clients come to us knowing they need to 'do something with AI' but aren't sure what. We'll help you understand your current state through our AI readiness assessment, identify high-impact opportunities, and create a clear starting point with prioritised use cases. No technical background required—we translate AI possibilities into business outcomes.",
     },
     {
-      question: "Do you provide ongoing support after implementation?",
-      answer: "Absolutely. Our Ongoing Advisory service provides regular strategic check-ins to ensure AI initiatives stay on track, adapt to change, and continue delivering value. Many clients find this invaluable as AI technology and their business needs evolve.",
+      question: "How long does it take to see ROI from AI implementation?",
+      answer: "With our Discover-Design-Validate-Deliver framework, most clients see initial ROI within 3-6 months through quick-win automation and efficiency gains. We focus on identifying high-impact, low-effort opportunities first, then build toward more transformative projects. Our ongoing advisory service includes monthly KPI tracking to ensure AI initiatives continue delivering measurable value.",
     },
   ];
 
