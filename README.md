@@ -1,4 +1,4 @@
-# Welcome to your Lovable project
+# Welcome to My AI Consulting Website project
 
 ## Project info
 
