@@ -40,7 +40,8 @@ const Founder = () => {
             Leadership
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">
-            Meet the Founder - Selina
+            Meet the Founder & CEO –{" "}
+            <span className="text-shimmer-gold">Selina</span>
           </h2>
         </motion.div>
 
@@ -91,14 +92,8 @@ const Founder = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-5 lg:pt-4"
+            className="space-y-5"
           >
-            <div>
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-accent-warm">
-                Founder & CEO
-              </h3>
-            </div>
-
             <p className="text-muted-foreground text-sm sm:text-base lg:text-lg leading-relaxed">
               Most AI failures are not technical—they are strategic. I provide the Decision Clarity 
               leaders need to ensure AI is a business win, not a waste of budget.
