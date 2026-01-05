@@ -126,7 +126,7 @@ const Founder = () => {
                 <Linkedin className="w-5 h-5" />
                 Connect on LinkedIn
               </a>
-              <span className="text-muted-foreground text-sm">— Learn more about me</span>
+              <span className="text-muted-foreground text-sm italic">— Learn more about me</span>
             </div>
           </motion.div>
         </div>
