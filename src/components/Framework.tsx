@@ -80,8 +80,27 @@ const Framework = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="relative flex flex-col items-center text-center group"
                 >
-                  {/* Dot marker on line */}
-                  <div className={`absolute top-[48px] left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-gradient-to-br ${step.gradient} ring-4 ring-background z-10 shadow-md`} />
+                  {/* Dot marker on line with pulse animation */}
+                  <motion.div 
+                    className={`absolute top-[48px] left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-gradient-to-br ${step.gradient} ring-4 ring-background z-10 shadow-md`}
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.15 + 0.3 }}
+                    animate={{ 
+                      boxShadow: [
+                        "0 0 0 0 rgba(var(--accent-warm-rgb), 0.4)",
+                        "0 0 0 8px rgba(var(--accent-warm-rgb), 0)",
+                        "0 0 0 0 rgba(var(--accent-warm-rgb), 0)"
+                      ]
+                    }}
+                  />
+                  <motion.div 
+                    className={`absolute top-[48px] left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-gradient-to-br ${step.gradient} z-5`}
+                    initial={{ scale: 1, opacity: 0.5 }}
+                    animate={{ scale: [1, 1.8, 1], opacity: [0.5, 0, 0.5] }}
+                    transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
+                  />
                   
                   {/* Step circle with gradient */}
                   <div className={`relative z-10 w-[72px] h-[72px] rounded-2xl bg-gradient-to-br ${step.gradient} flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300`}>
