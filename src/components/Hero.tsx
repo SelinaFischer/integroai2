@@ -79,7 +79,7 @@ const Hero = () => {
           >
             <Button variant="hero" size="xl" className="group shimmer" asChild>
               <a href="https://calendly.com/integroai-consulting/30min" target="_blank" rel="noopener noreferrer">
-                Book a Free Strategy Call
+                Book Your Free Discovery Call
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
