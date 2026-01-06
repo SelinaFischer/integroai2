@@ -3,9 +3,11 @@ import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from "recharts";
-import { MessageSquare, TrendingUp, Calendar, ArrowLeft } from "lucide-react";
+import { MessageSquare, TrendingUp, Calendar, ArrowLeft, Lock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 interface DailyUsage {
   date: string;
@@ -19,16 +21,64 @@ interface MonthlyUsage {
   total_input_messages: number;
 }
 
+const VERIFY_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/verify-admin`;
+
 export default function AdminStats() {
+  const [isAuthenticated, setIsAuthenticated] = useState(() => 
+    sessionStorage.getItem("adminAuthenticated") === "true"
+  );
+  const [password, setPassword] = useState("");
+  const [authError, setAuthError] = useState("");
+  const [authLoading, setAuthLoading] = useState(false);
+  
   const [dailyData, setDailyData] = useState<DailyUsage[]>([]);
   const [monthlyData, setMonthlyData] = useState<MonthlyUsage[]>([]);
   const [loading, setLoading] = useState(true);
   const [totals, setTotals] = useState({ requests: 0, messages: 0 });
 
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setAuthError("");
+    setAuthLoading(true);
+
+    try {
+      const resp = await fetch(VERIFY_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+        },
+        body: JSON.stringify({ password }),
+      });
+
+      const data = await resp.json();
+
+      if (resp.ok && data.success) {
+        setIsAuthenticated(true);
+        sessionStorage.setItem("adminAuthenticated", "true");
+      } else {
+        setAuthError(data.error || "Invalid password");
+      }
+    } catch (e) {
+      setAuthError("Failed to verify. Please try again.");
+    } finally {
+      setAuthLoading(false);
+    }
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    sessionStorage.removeItem("adminAuthenticated");
+  };
+
   useEffect(() => {
+    if (!isAuthenticated) {
+      setLoading(false);
+      return;
+    }
+
     async function fetchUsageData() {
       try {
-        // Fetch daily usage (last 30 days)
         const { data: daily, error: dailyError } = await supabase
           .from("chat_usage")
           .select("date, input_messages")
@@ -40,7 +90,6 @@ export default function AdminStats() {
         }
 
         if (daily) {
-          // Aggregate by date
           const dateMap = new Map<string, { requests: number; messages: number }>();
           
           daily.forEach((row) => {
@@ -59,11 +108,10 @@ export default function AdminStats() {
               total_input_messages: stats.messages,
             }))
             .reverse()
-            .slice(-14); // Last 14 days
+            .slice(-14);
 
           setDailyData(aggregatedDaily);
 
-          // Aggregate by month
           const monthMap = new Map<string, { requests: number; messages: number }>();
           
           daily.forEach((row) => {
@@ -86,7 +134,6 @@ export default function AdminStats() {
 
           setMonthlyData(aggregatedMonthly);
 
-          // Calculate totals
           const totalRequests = daily.length;
           const totalMessages = daily.reduce((sum, row) => sum + (row.input_messages || 0), 0);
           setTotals({ requests: totalRequests, messages: totalMessages });
@@ -99,7 +146,7 @@ export default function AdminStats() {
     }
 
     fetchUsageData();
-  }, []);
+  }, [isAuthenticated]);
 
   return (
     <>
@@ -108,19 +155,64 @@ export default function AdminStats() {
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
-      <div className="min-h-screen bg-background p-6">
+      {!isAuthenticated ? (
+        /* Login Form */
+        <div className="min-h-screen flex items-center justify-center p-6">
+          <Card className="w-full max-w-sm">
+            <CardHeader className="text-center">
+              <div className="mx-auto w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                <Lock className="w-6 h-6 text-primary" />
+              </div>
+              <CardTitle>Admin Access</CardTitle>
+              <CardDescription>Enter the admin password to view stats</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleLogin} className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="password">Password</Label>
+                  <Input
+                    id="password"
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Enter admin password"
+                    disabled={authLoading}
+                  />
+                </div>
+                {authError && (
+                  <p className="text-sm text-destructive">{authError}</p>
+                )}
+                <Button type="submit" className="w-full" disabled={authLoading || !password}>
+                  {authLoading ? "Verifying..." : "Access Stats"}
+                </Button>
+              </form>
+              <div className="mt-4 text-center">
+                <Link to="/" className="text-sm text-muted-foreground hover:text-foreground">
+                  ← Back to home
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      ) : (
+        /* Stats Dashboard */
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="flex items-center gap-4 mb-8">
-            <Link to="/">
-              <Button variant="ghost" size="icon">
-                <ArrowLeft className="w-5 h-5" />
-              </Button>
-            </Link>
-            <div>
-              <h1 className="text-2xl font-bold text-foreground">Chat Usage Statistics</h1>
-              <p className="text-muted-foreground">Monitor chatbot usage and costs</p>
+          <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center gap-4">
+              <Link to="/">
+                <Button variant="ghost" size="icon">
+                  <ArrowLeft className="w-5 h-5" />
+                </Button>
+              </Link>
+              <div>
+                <h1 className="text-2xl font-bold text-foreground">Chat Usage Statistics</h1>
+                <p className="text-muted-foreground">Monitor chatbot usage and costs</p>
+              </div>
             </div>
+            <Button variant="outline" size="sm" onClick={handleLogout}>
+              Logout
+            </Button>
           </div>
 
           {loading ? (
@@ -251,7 +343,7 @@ export default function AdminStats() {
             </>
           )}
         </div>
-      </div>
+      )}
     </>
   );
 }
