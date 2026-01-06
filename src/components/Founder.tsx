@@ -96,7 +96,7 @@ const Founder = () => {
                   className="inline-flex items-center gap-2.5 text-accent-warm hover:text-accent-warm/80 transition-all duration-300 font-medium hover:translate-x-1 py-2 min-h-[44px] group"
                 >
                   <Linkedin className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
-                  Connect on LinkedIn
+                  Connect with me on LinkedIn
                 </a>
               </div>
             </motion.div>
