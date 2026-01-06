@@ -117,7 +117,9 @@ const Header = () => {
               height={80}
               fetchPriority="high"
               decoding="async"
-              className="h-10 sm:h-14 lg:h-20 w-auto transition-all duration-300"
+              className={`w-auto transition-all duration-300 ${
+                scrolled ? 'h-8 sm:h-10 lg:h-14' : 'h-10 sm:h-14 lg:h-20'
+              }`}
             />
             <div className="hidden sm:flex flex-col">
               <span className="text-base sm:text-lg lg:text-2xl font-bold tracking-tight text-white">
