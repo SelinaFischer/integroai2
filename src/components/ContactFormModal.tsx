@@ -14,6 +14,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Send, CheckCircle2, Loader2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import confetti from "canvas-confetti";
+import { supabase } from "@/integrations/supabase/client";
 
 interface ContactFormModalProps {
   trigger?: React.ReactNode;
@@ -95,6 +96,19 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
       // Some providers return a 2xx but still include an error payload
       if (data && (data as any).error) {
         throw new Error((data as any).error);
+      }
+
+      // Save to database as backup (silent - don't affect UX if it fails)
+      try {
+        await supabase.from("contact_submissions").insert({
+          name: formData.get("name") as string,
+          company: formData.get("company") as string | null,
+          email: formData.get("email") as string,
+          telephone: formData.get("telephone") as string | null,
+          message: formData.get("message") as string,
+        });
+      } catch {
+        // Silent fail - Formspree succeeded, backup is just extra safety
       }
 
       setIsSubmitted(true);
