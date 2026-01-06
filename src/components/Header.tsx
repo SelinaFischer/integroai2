@@ -67,6 +67,7 @@ const Header = () => {
     { sectionId: "services", label: "Services" },
     { sectionId: "framework", label: "Framework" },
     { sectionId: "about", label: "About" },
+    { sectionId: "founder", label: "Founder" },
     { sectionId: "blog", label: "Blog" },
     { sectionId: "faq", label: "FAQ" },
   ];
