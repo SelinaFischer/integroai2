@@ -88,18 +88,22 @@ export function ChatWidget() {
   const [isLoading, setIsLoading] = useState(false);
   const [showQuickReplies, setShowQuickReplies] = useState(true);
   const [showBadge, setShowBadge] = useState(false);
+  const [badgeDismissed, setBadgeDismissed] = useState(() => 
+    sessionStorage.getItem('chatBadgeDismissed') === 'true'
+  );
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Show badge after 5 seconds if chat hasn't been opened
+  // Show badge after 5 seconds if chat hasn't been opened and not dismissed
   useEffect(() => {
+    if (badgeDismissed) return;
     const timer = setTimeout(() => {
       if (!isOpen) {
         setShowBadge(true);
       }
     }, 5000);
     return () => clearTimeout(timer);
-  }, []);
+  }, [badgeDismissed]);
 
   // Hide badge when chat is opened
   useEffect(() => {
@@ -107,6 +111,12 @@ export function ChatWidget() {
       setShowBadge(false);
     }
   }, [isOpen]);
+
+  const dismissBadge = () => {
+    setShowBadge(false);
+    setBadgeDismissed(true);
+    sessionStorage.setItem('chatBadgeDismissed', 'true');
+  };
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -264,8 +274,18 @@ export function ChatWidget() {
                   exit={{ opacity: 0, x: 10, scale: 0.9 }}
                   className="absolute bottom-full right-0 mb-2 whitespace-nowrap"
                 >
-                  <div className="bg-background text-foreground text-sm font-medium px-3 py-2 rounded-xl shadow-lg border border-border">
-                    Need help? 👋
+                  <div className="bg-background text-foreground text-sm font-medium pl-3 pr-2 py-2 rounded-xl shadow-lg border border-border flex items-center gap-2">
+                    <span>Need help? 👋</span>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        dismissBadge();
+                      }}
+                      className="text-muted-foreground hover:text-foreground transition-colors p-0.5 rounded-full hover:bg-muted"
+                      aria-label="Dismiss"
+                    >
+                      <X className="w-3.5 h-3.5" />
+                    </button>
                     <div className="absolute -bottom-1.5 right-5 w-3 h-3 bg-background border-r border-b border-border rotate-45" />
                   </div>
                 </motion.div>
