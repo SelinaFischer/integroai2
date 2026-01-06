@@ -7,6 +7,12 @@ type Message = { role: "user" | "assistant"; content: string };
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat`;
 
+const QUICK_REPLIES = [
+  { label: "What services do you offer?", message: "What services does IntegroAI offer?" },
+  { label: "Tell me about the framework", message: "Can you explain the IntegroAI framework?" },
+  { label: "Book a Discovery Call", message: "How can I book a Discovery Call?" },
+];
+
 export function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
@@ -17,6 +23,7 @@ export function ChatWidget() {
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [showQuickReplies, setShowQuickReplies] = useState(true);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -110,10 +117,12 @@ export function ChatWidget() {
     []
   );
 
-  const sendMessage = async () => {
-    if (!input.trim() || isLoading) return;
+  const sendMessage = async (messageText?: string) => {
+    const text = messageText || input.trim();
+    if (!text || isLoading) return;
 
-    const userMsg: Message = { role: "user", content: input.trim() };
+    setShowQuickReplies(false);
+    const userMsg: Message = { role: "user", content: text };
     const newMessages = [...messages, userMsg];
     setMessages(newMessages);
     setInput("");
@@ -153,6 +162,10 @@ export function ChatWidget() {
       e.preventDefault();
       sendMessage();
     }
+  };
+
+  const handleQuickReply = (message: string) => {
+    sendMessage(message);
   };
 
   return (
@@ -218,6 +231,26 @@ export function ChatWidget() {
                   </div>
                 </div>
               ))}
+              
+              {/* Quick Replies */}
+              {showQuickReplies && messages.length === 1 && !isLoading && (
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex flex-wrap gap-2 pt-2"
+                >
+                  {QUICK_REPLIES.map((qr, i) => (
+                    <button
+                      key={i}
+                      onClick={() => handleQuickReply(qr.message)}
+                      className="px-3 py-1.5 text-xs font-medium bg-secondary text-secondary-foreground rounded-full border border-border hover:bg-accent hover:text-accent-foreground transition-colors"
+                    >
+                      {qr.label}
+                    </button>
+                  ))}
+                </motion.div>
+              )}
+              
               {isLoading && messages[messages.length - 1]?.role === "user" && (
                 <div className="flex justify-start">
                   <div className="bg-muted text-muted-foreground px-4 py-2.5 rounded-2xl rounded-bl-md">
@@ -243,7 +276,7 @@ export function ChatWidget() {
                 />
                 <Button
                   size="icon"
-                  onClick={sendMessage}
+                  onClick={() => sendMessage()}
                   disabled={!input.trim() || isLoading}
                   className="rounded-full w-10 h-10 shrink-0"
                 >
