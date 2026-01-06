@@ -67,8 +67,8 @@ const Framework = () => {
         {/* Desktop Timeline */}
         <div className="hidden lg:block max-w-6xl mx-auto">
           <div className="relative">
-            {/* Connection line - extends to center of last icon */}
-            <div className="absolute top-[52px] left-[calc(10%-12px)] right-[calc(10%-12px)] h-1 bg-gradient-to-r from-accent-warm via-primary to-accent-warm rounded-full" />
+            {/* Connection line - centered on icons */}
+            <div className="absolute top-[34px] left-[10%] right-[10%] h-1 bg-gradient-to-r from-accent-warm via-primary to-accent-warm rounded-full" />
             
             <div className="grid grid-cols-5 gap-6">
               {steps.map((step, index) => (
@@ -80,9 +80,9 @@ const Framework = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="relative flex flex-col items-center text-center group"
                 >
-                  {/* Dot marker on line with pulse animation */}
+                  {/* Dot marker on line */}
                   <motion.div 
-                    className={`absolute top-[48px] left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-gradient-to-br ${step.gradient} ring-4 ring-background z-10 shadow-md`}
+                    className={`absolute top-[30px] left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-gradient-to-br ${step.gradient} ring-4 ring-background z-10 shadow-md`}
                     initial={{ scale: 0, opacity: 0 }}
                     whileInView={{ scale: 1, opacity: 1 }}
                     viewport={{ once: true }}
@@ -96,7 +96,7 @@ const Framework = () => {
                     }}
                   />
                   <motion.div 
-                    className={`absolute top-[48px] left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-gradient-to-br ${step.gradient} z-5`}
+                    className={`absolute top-[30px] left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-gradient-to-br ${step.gradient} z-5`}
                     initial={{ scale: 1, opacity: 0.5 }}
                     animate={{ scale: [1, 1.8, 1], opacity: [0.5, 0, 0.5] }}
                     transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
