@@ -80,6 +80,12 @@ Say things like:
 5. If asked about pricing, explain that it depends on scope and suggest a Discovery Call
 6. Never make up information about IntegroAI that isn't in this prompt`;
 
+// Cost control: Limit conversation history to last N messages
+const MAX_HISTORY_MESSAGES = 10;
+
+// Cost control: Cap output tokens
+const MAX_OUTPUT_TOKENS = 300;
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -93,6 +99,11 @@ serve(async (req) => {
       throw new Error("LOVABLE_API_KEY is not configured");
     }
 
+    // Cost control: Only send recent messages to reduce token usage
+    const recentMessages = messages.slice(-MAX_HISTORY_MESSAGES);
+    
+    console.log(`Chat request: ${recentMessages.length} messages (trimmed from ${messages.length})`);
+
     const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -103,8 +114,9 @@ serve(async (req) => {
         model: "google/gemini-2.5-flash",
         messages: [
           { role: "system", content: SYSTEM_PROMPT },
-          ...messages,
+          ...recentMessages,
         ],
+        max_tokens: MAX_OUTPUT_TOKENS,
         stream: true,
       }),
     });
