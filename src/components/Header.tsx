@@ -102,7 +102,7 @@ const Header = () => {
               asChild
             >
               <a href="https://tally.so/r/68jDMA" target="_blank" rel="noopener noreferrer">
-                AI Readiness Audit
+                Take AI Assessment
               </a>
             </Button>
             <Button 

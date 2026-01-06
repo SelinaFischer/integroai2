@@ -10,8 +10,6 @@ const Services = () => {
       title: "Assessment & Readiness",
       description: "Understand your current state, identify pain points, and evaluate realistic AI opportunities. Walk away with a clear picture of what's possible.",
       outcomes: ["Gap analysis", "Opportunity mapping", "Readiness score"],
-      ctaLink: "https://tally.so/r/68jDMA",
-      ctaText: "Take Assessment",
     },
     {
       icon: Route,
@@ -119,18 +117,6 @@ const Services = () => {
                   ))}
                 </div>
 
-                {service.ctaLink && (
-                  <Button variant="hero" size="sm" className="mt-auto group/link text-xs sm:text-sm" asChild>
-                    <a
-                      href={service.ctaLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {service.ctaText}
-                      <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover/link:translate-x-1 transition-transform" />
-                    </a>
-                  </Button>
-                )}
               </div>
             </motion.article>
           ))}
