@@ -18,7 +18,7 @@ const Footer = () => {
 
 
   return (
-    <footer className="bg-[#0a1628] relative overflow-hidden border-t border-white/10">
+    <footer className="bg-nav relative overflow-hidden border-t border-white/10">
       {/* Background accent */}
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2" />
       
