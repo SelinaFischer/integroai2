@@ -58,6 +58,19 @@ const Founder = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="space-y-6 text-center lg:text-left"
             >
+              {/* Credentials badges */}
+              <div className="flex flex-wrap justify-center lg:justify-start gap-2">
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
+                  20+ Years Experience
+                </span>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-accent-warm/10 text-accent-warm">
+                  Product & Tech Leader
+                </span>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
+                  AI Strategy Expert
+                </span>
+              </div>
+
               <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
                 Most AI failures are not technical—they are strategic. I provide the Decision Clarity 
                 leaders need to ensure AI is a business win, not a waste of budget.
