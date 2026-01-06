@@ -116,9 +116,9 @@ const Footer = () => {
 
         {/* Bottom bar */}
         <div className="pt-6 sm:pt-8 border-t border-white/10">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-xs sm:text-sm text-primary-foreground/50">
-            <p>© {currentYear} IntegroAI Consulting. All rights reserved.</p>
-            <div className="flex items-center gap-3 sm:gap-4 lg:gap-6">
+          <div className="flex flex-col items-center gap-4 text-xs sm:text-sm text-primary-foreground/50">
+            {/* Links - wrap on mobile */}
+            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 lg:gap-6">
               <Link 
                 to="/install" 
                 className="text-primary-foreground/80 hover:text-accent-warm transition-colors py-1.5 sm:py-2 font-medium inline-flex items-center gap-1.5"
@@ -139,6 +139,7 @@ const Footer = () => {
                 Terms of Service
               </Link>
             </div>
+            <p>© {currentYear} IntegroAI Consulting. All rights reserved.</p>
           </div>
         </div>
       </motion.div>

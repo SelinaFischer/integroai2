@@ -282,7 +282,7 @@ export function ChatWidget() {
       {/* Floating Button */}
       <AnimatePresence>
         {!isOpen && (
-          <div className="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-50">
+          <div className="fixed bottom-24 sm:bottom-6 right-4 sm:right-6 z-50">
             {/* Badge */}
             <AnimatePresence>
               {showBadge && (
