@@ -87,8 +87,26 @@ export function ChatWidget() {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [showQuickReplies, setShowQuickReplies] = useState(true);
+  const [showBadge, setShowBadge] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // Show badge after 5 seconds if chat hasn't been opened
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!isOpen) {
+        setShowBadge(true);
+      }
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Hide badge when chat is opened
+  useEffect(() => {
+    if (isOpen) {
+      setShowBadge(false);
+    }
+  }, [isOpen]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -236,18 +254,38 @@ export function ChatWidget() {
       {/* Floating Button */}
       <AnimatePresence>
         {!isOpen && (
-          <motion.button
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0, opacity: 0 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setIsOpen(true)}
-            className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-accent-warm text-accent-warm-foreground flex items-center justify-center shadow-glow hover:shadow-[0_0_60px_hsl(38_70%_50%_/_0.4)] transition-shadow duration-300"
-            aria-label="Open chat"
-          >
-            <MessageCircle className="w-6 h-6" />
-          </motion.button>
+          <div className="fixed bottom-6 right-6 z-50">
+            {/* Badge */}
+            <AnimatePresence>
+              {showBadge && (
+                <motion.div
+                  initial={{ opacity: 0, x: 10, scale: 0.9 }}
+                  animate={{ opacity: 1, x: 0, scale: 1 }}
+                  exit={{ opacity: 0, x: 10, scale: 0.9 }}
+                  className="absolute bottom-full right-0 mb-2 whitespace-nowrap"
+                >
+                  <div className="bg-background text-foreground text-sm font-medium px-3 py-2 rounded-xl shadow-lg border border-border">
+                    Need help? 👋
+                    <div className="absolute -bottom-1.5 right-5 w-3 h-3 bg-background border-r border-b border-border rotate-45" />
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+            
+            {/* Button */}
+            <motion.button
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0, opacity: 0 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setIsOpen(true)}
+              className="w-14 h-14 rounded-full bg-accent-warm text-accent-warm-foreground flex items-center justify-center shadow-glow hover:shadow-[0_0_60px_hsl(38_70%_50%_/_0.4)] transition-shadow duration-300"
+              aria-label="Open chat"
+            >
+              <MessageCircle className="w-6 h-6" />
+            </motion.button>
+          </div>
         )}
       </AnimatePresence>
 
