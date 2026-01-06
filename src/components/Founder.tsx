@@ -1,31 +1,8 @@
 import { motion } from "framer-motion";
-import { Linkedin, Target, Compass, CheckCircle, Rocket } from "lucide-react";
+import { Linkedin } from "lucide-react";
 import selinaPhoto from "@/assets/selina-founder.png";
 
 const Founder = () => {
-  const framework = [
-    {
-      icon: Compass,
-      title: "Discover",
-      description: "Identify where AI genuinely adds value and where it introduces risk"
-    },
-    {
-      icon: Target,
-      title: "Design",
-      description: "Map the strategy to prioritize direction before tools"
-    },
-    {
-      icon: CheckCircle,
-      title: "Validate",
-      description: "Confirm the solution solves a specific business pain with measurable ROI"
-    },
-    {
-      icon: Rocket,
-      title: "Deliver",
-      description: "Move from strategy to implementation with accountability"
-    }
-  ];
-
   return (
     <section id="founder" className="py-16 sm:py-20 lg:py-24 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,108 +22,72 @@ const Founder = () => {
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-[1fr,1fr] gap-6 sm:gap-8 lg:gap-16 items-start max-w-7xl mx-auto">
-          {/* Founder Image - Maximized and aligned to top */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative flex justify-center"
-          >
-            {/* Decorative background elements */}
-            <motion.div 
-              className="absolute inset-0 flex items-center justify-center"
-              animate={{ scale: [1, 1.05, 1], opacity: [0.8, 1, 0.8] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        <div className="max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-[auto,1fr] gap-10 lg:gap-16 items-center">
+            {/* Founder Image */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative flex justify-center lg:justify-start"
             >
-              <div className="w-[90%] h-[90%] bg-gradient-to-br from-primary/10 via-accent-warm/10 to-primary/5 rounded-full blur-3xl" />
+              {/* Decorative background */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-[90%] h-[90%] bg-gradient-to-br from-primary/10 via-accent-warm/10 to-primary/5 rounded-full blur-3xl" />
+              </div>
+              
+              <div className="relative w-64 sm:w-80 lg:w-96">
+                <img 
+                  src={selinaPhoto} 
+                  alt="Selina Fischer - IntegroAI Founder and CEO" 
+                  width={400}
+                  height={400}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-auto relative z-10"
+                />
+              </div>
             </motion.div>
-            <motion.div 
-              className="absolute top-10 right-10 w-40 h-40 bg-accent-warm/20 rounded-full blur-2xl"
-              animate={{ y: [0, -15, 0], x: [0, 5, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <motion.div 
-              className="absolute bottom-10 left-10 w-32 h-32 bg-primary/15 rounded-full blur-2xl"
-              animate={{ y: [0, 10, 0], x: [0, -8, 0] }}
-              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            />
-            
-            <div className="relative w-full">
-              <img 
-                src={selinaPhoto} 
-                alt="Selina Fischer - IntegroAI Founder and CEO" 
-                width={700}
-                height={700}
-                loading="lazy"
-                decoding="async"
-                className="w-full h-auto relative z-10"
-              />
-            </div>
-          </motion.div>
 
-          {/* Founder Info - Aligned to top */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-6 lg:space-y-8"
-          >
-            <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-              Most AI failures are not technical—they are strategic. I provide the Decision Clarity 
-              leaders need to ensure AI is a business win, not a waste of budget.
-            </p>
+            {/* Founder Info */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="space-y-6 text-center lg:text-left"
+            >
+              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
+                Most AI failures are not technical—they are strategic. I provide the Decision Clarity 
+                leaders need to ensure AI is a business win, not a waste of budget.
+              </p>
 
-            <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-              With 20 years of experience across product management, technology, and building 
-              commercial businesses, I collaborate with a network of certified AI consultants 
-              and implementation specialists to provide comprehensive support for SMEs.
-            </p>
+              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                With 20 years of experience across product management, technology, and building 
+                commercial businesses, I collaborate with a network of certified AI consultants 
+                and implementation specialists to provide comprehensive support for SMEs.
+              </p>
 
-            <blockquote className="border-l-4 border-accent-warm pl-4 sm:pl-6 py-3 italic text-foreground/80 text-base sm:text-lg bg-accent-warm/5 rounded-r-lg">
-              "If you want clarity on where AI fits before committing time or budget, I help you 
-              determine if AI is your next big win or your next big waste of resources."
-            </blockquote>
+              <blockquote className="border-l-4 border-accent-warm pl-4 sm:pl-6 py-3 italic text-foreground/80 text-base sm:text-lg bg-accent-warm/5 rounded-r-lg text-left">
+                "If you want clarity on where AI fits before committing time or budget, I help you 
+                determine if AI is your next big win or your next big waste of resources."
+              </blockquote>
 
-            {/* Framework */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              {framework.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  className="flex items-start gap-4 p-4 sm:p-5 rounded-xl bg-background/50 border border-border/50 cursor-default transition-all duration-300 hover:bg-background/80 hover:border-accent-warm/30 hover:shadow-lg hover:shadow-accent-warm/5"
+              {/* LinkedIn Link */}
+              <div className="flex justify-center lg:justify-start">
+                <a
+                  href="https://www.linkedin.com/in/selinafischer8/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 text-accent-warm hover:text-accent-warm/80 transition-all duration-300 font-medium hover:translate-x-1 py-2 min-h-[44px] group"
                 >
-                  <div className="p-2.5 rounded-lg bg-accent-warm/10 shrink-0">
-                    <item.icon className="w-5 h-5 text-accent-warm" />
-                  </div>
-                  <div className="min-w-0">
-                    <h4 className="font-semibold text-foreground text-base mb-1">{item.title}</h4>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* LinkedIn Link */}
-            <div className="pt-4 flex flex-col sm:flex-row sm:items-center gap-3 group">
-              <a
-                href="https://www.linkedin.com/in/selinafischer8/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 text-accent-warm hover:text-accent-warm/80 transition-all duration-300 font-medium group-hover:translate-x-1 py-2 min-h-[44px]"
-              >
-                <Linkedin className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
-                Connect on LinkedIn
-              </a>
-              <span className="text-muted-foreground text-sm italic sm:border-l sm:border-muted-foreground/30 sm:pl-4">Learn more about me</span>
-            </div>
-          </motion.div>
+                  <Linkedin className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
+                  Connect on LinkedIn
+                </a>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
