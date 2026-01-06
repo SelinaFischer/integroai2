@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { MessageCircle, X, Send, Loader2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { useIsMobile } from "@/hooks/use-mobile";
 import logoIcon from "@/assets/integroai-logo-icon-white.png";
 
 type Message = { role: "user" | "assistant"; content: string };
@@ -91,8 +92,25 @@ export function ChatWidget() {
   const [badgeDismissed, setBadgeDismissed] = useState(() => 
     sessionStorage.getItem('chatBadgeDismissed') === 'true'
   );
+  const [autoOpenTriggered, setAutoOpenTriggered] = useState(() =>
+    sessionStorage.getItem('chatAutoOpened') === 'true'
+  );
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const isMobile = useIsMobile();
+
+  // Auto-open chat on mobile after 30 seconds
+  useEffect(() => {
+    if (!isMobile || autoOpenTriggered || isOpen) return;
+    
+    const timer = setTimeout(() => {
+      setIsOpen(true);
+      setAutoOpenTriggered(true);
+      sessionStorage.setItem('chatAutoOpened', 'true');
+    }, 30000);
+    
+    return () => clearTimeout(timer);
+  }, [isMobile, autoOpenTriggered, isOpen]);
 
   // Show badge after 5 seconds if chat hasn't been opened and not dismissed
   useEffect(() => {
