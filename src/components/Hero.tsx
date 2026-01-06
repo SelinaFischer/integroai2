@@ -67,7 +67,7 @@ const Hero = () => {
             className="text-lg sm:text-xl lg:text-2xl text-white/80 max-w-2xl mx-auto mb-10 sm:mb-12 leading-relaxed"
             itemProp="description"
           >
-            I turn business challenges into measurable ROI — no jargon, no wasted budget, just results.
+            We turn business challenges into measurable ROI — no jargon, no wasted budget, just results.
           </motion.p>
 
           {/* Single prominent CTA */}
