@@ -9,6 +9,9 @@
     /* Brand Colors - Professional Deep Teal Palette */
     --background: 0 0% 100%;
     --foreground: 210 11% 15%;
+    
+    /* Navigation background - dark navy */
+    --nav-bg: 214 55% 10%;
 
     --card: 0 0% 100%;
     --card-foreground: 210 11% 15%;
