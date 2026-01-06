@@ -60,7 +60,7 @@ const Framework = () => {
             A Clear Path to AI Success
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-            From uncertainty to confident execution—a proven framework that guides you every step of the way.
+            From uncertainty to confident execution — a proven framework that guides you every step of the way.
           </p>
         </motion.div>
 
