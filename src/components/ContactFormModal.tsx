@@ -91,12 +91,14 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.1, type: "spring", stiffness: 200 }}
-                className="w-20 h-20 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-6"
+                className="w-20 h-20 bg-accent rounded-full flex items-center justify-center mx-auto mb-6"
               >
-                <CheckCircle2 className="w-10 h-10 text-accent" />
+                <CheckCircle2 className="w-10 h-10 text-primary" />
               </motion.div>
-              <h3 className="text-2xl font-heading font-semibold mb-3">Thank You! 🎉</h3>
-              <p className="text-primary-foreground/70 mb-8 max-w-xs mx-auto">
+              <h3 className="text-2xl font-heading font-semibold mb-3 text-white">
+                Thank You!
+              </h3>
+              <p className="text-white/80 mb-8 max-w-xs mx-auto">
                 Your message has been sent successfully. We'll get back to you within 24 hours.
               </p>
               <Button 
