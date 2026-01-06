@@ -46,7 +46,7 @@ const CTA = () => {
             <span className="text-gradient-gold">Take Advantage of AI?</span>
           </h2>
           <p className="text-white/70 text-sm sm:text-base mb-8 max-w-2xl mx-auto leading-relaxed">
-            Book a free 30-minute discovery call. We turn business challenges into measurable results — no pressure, no jargon, just a candid conversation about your AI opportunities.
+            Book a free 30-minute discovery call to explore where AI can make the biggest impact in your business. No pressure, no jargon — just honest advice tailored to your goals.
           </p>
 
           <motion.div 
