@@ -324,7 +324,15 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, child
             >
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
                 <Link 
-                  to="/#blog" 
+                  to="/"
+                  onClick={() => {
+                    setTimeout(() => {
+                      const blogSection = document.getElementById('blog');
+                      if (blogSection) {
+                        blogSection.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }, 100);
+                  }}
                   className="inline-flex items-center gap-2 text-accent-warm hover:text-accent-warm/80 transition-colors font-medium"
                 >
                   <ChevronRight className="w-4 h-4 rotate-180" />
