@@ -76,7 +76,7 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
           </Button>
         )}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-lg bg-primary text-primary-foreground border-primary max-h-[90vh] overflow-y-auto">
+      <DialogContent className="sm:max-w-md bg-gradient-to-b from-primary to-primary/95 text-primary-foreground border-0 shadow-2xl rounded-2xl p-0 overflow-hidden">
         <AnimatePresence mode="wait">
           {isSubmitted ? (
             <motion.div
@@ -85,23 +85,24 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: -20 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="py-8 text-center"
+              className="py-12 px-6 text-center"
             >
               <motion.div 
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.1, type: "spring", stiffness: 200 }}
-                className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4"
+                className="w-20 h-20 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-6"
               >
-                <CheckCircle2 className="w-8 h-8 text-accent" />
+                <CheckCircle2 className="w-10 h-10 text-accent" />
               </motion.div>
-              <h3 className="text-2xl font-heading font-semibold mb-2">Thank You! 🎉</h3>
-              <p className="text-primary-foreground/70 mb-6">
+              <h3 className="text-2xl font-heading font-semibold mb-3">Thank You! 🎉</h3>
+              <p className="text-primary-foreground/70 mb-8 max-w-xs mx-auto">
                 Your message has been sent successfully. We'll get back to you within 24 hours.
               </p>
               <Button 
                 variant="heroOutline" 
                 onClick={() => handleOpenChange(false)}
+                className="px-8"
               >
                 Close
               </Button>
@@ -113,89 +114,90 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
+              className="p-6"
             >
-              <DialogHeader>
-                <DialogTitle className="text-2xl font-heading text-primary-foreground">
-                  Send Us Your Enquiry
+              <DialogHeader className="pb-4 border-b border-primary-foreground/10">
+                <DialogTitle className="text-xl font-heading text-primary-foreground">
+                  Get in Touch
                 </DialogTitle>
-                <p className="text-primary-foreground/70 text-sm mt-2">
-                  Tell us about your needs and we'll get back to you shortly.
+                <p className="text-primary-foreground/60 text-sm">
+                  Tell us about your needs and we'll respond shortly.
                 </p>
               </DialogHeader>
               
-              <form onSubmit={handleSubmit} className="space-y-4 mt-4">
-                <p className="text-xs text-primary-foreground/60">
-                  <span className="text-destructive">*</span> Required fields
-                </p>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="name" className="text-primary-foreground">
-                    Full Name <span className="text-destructive">*</span>
-                  </Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    placeholder="Your name"
-                    required
-                    minLength={2}
-                    className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50"
-                  />
+              <form onSubmit={handleSubmit} className="space-y-4 pt-4">
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="space-y-1.5">
+                    <Label htmlFor="name" className="text-primary-foreground/80 text-sm font-medium">
+                      Full Name <span className="text-accent">*</span>
+                    </Label>
+                    <Input
+                      id="name"
+                      name="name"
+                      placeholder="John Smith"
+                      required
+                      minLength={2}
+                      className="bg-primary-foreground/5 border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/40 focus:border-accent/50 focus:ring-accent/20 h-10 rounded-lg transition-colors"
+                    />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <Label htmlFor="company" className="text-primary-foreground/80 text-sm font-medium">
+                      Company <span className="text-accent">*</span>
+                    </Label>
+                    <Input
+                      id="company"
+                      name="company"
+                      placeholder="Acme Inc."
+                      required
+                      minLength={2}
+                      className="bg-primary-foreground/5 border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/40 focus:border-accent/50 focus:ring-accent/20 h-10 rounded-lg transition-colors"
+                    />
+                  </div>
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="email" className="text-primary-foreground">
-                    Email Address <span className="text-destructive">*</span>
-                  </Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="you@example.com"
-                    required
-                    className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50"
-                  />
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="space-y-1.5">
+                    <Label htmlFor="email" className="text-primary-foreground/80 text-sm font-medium">
+                      Email <span className="text-accent">*</span>
+                    </Label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="you@company.com"
+                      required
+                      className="bg-primary-foreground/5 border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/40 focus:border-accent/50 focus:ring-accent/20 h-10 rounded-lg transition-colors"
+                    />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <Label htmlFor="telephone" className="text-primary-foreground/80 text-sm font-medium">
+                      Phone <span className="text-accent">*</span>
+                    </Label>
+                    <Input
+                      id="telephone"
+                      name="telephone"
+                      type="tel"
+                      placeholder="+44 20 1234 5678"
+                      required
+                      minLength={10}
+                      className="bg-primary-foreground/5 border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/40 focus:border-accent/50 focus:ring-accent/20 h-10 rounded-lg transition-colors"
+                    />
+                  </div>
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="telephone" className="text-primary-foreground">
-                    Telephone Number <span className="text-destructive">*</span>
-                  </Label>
-                  <Input
-                    id="telephone"
-                    name="telephone"
-                    type="tel"
-                    placeholder="+44 20 1234 5678"
-                    required
-                    minLength={10}
-                    className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="company" className="text-primary-foreground">
-                    Company Name <span className="text-destructive">*</span>
-                  </Label>
-                  <Input
-                    id="company"
-                    name="company"
-                    placeholder="Company"
-                    required
-                    minLength={2}
-                    className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="message" className="text-primary-foreground">
-                    What Are You Looking For? <span className="text-destructive">*</span>
+                <div className="space-y-1.5">
+                  <Label htmlFor="message" className="text-primary-foreground/80 text-sm font-medium">
+                    How can we help? <span className="text-accent">*</span>
                   </Label>
                   <Textarea
                     id="message"
                     name="message"
-                    placeholder="Describe your needs or ask a question..."
+                    placeholder="Tell us about your project or question..."
                     required
-                    rows={4}
-                    className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 resize-none"
+                    rows={3}
+                    className="bg-primary-foreground/5 border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/40 focus:border-accent/50 focus:ring-accent/20 rounded-lg resize-none transition-colors"
                   />
                 </div>
 
@@ -209,7 +211,7 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
                   type="submit"
                   variant="hero"
                   size="lg"
-                  className="w-full mt-6"
+                  className="w-full mt-2 h-11 rounded-lg font-medium"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
@@ -220,10 +222,14 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
                   ) : (
                     <>
                       <Send className="w-4 h-4 mr-2" />
-                      Submit Inquiry
+                      Send Message
                     </>
                   )}
                 </Button>
+
+                <p className="text-xs text-primary-foreground/40 text-center pt-1">
+                  We typically respond within 24 hours
+                </p>
               </form>
             </motion.div>
           )}
