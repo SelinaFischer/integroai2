@@ -133,11 +133,11 @@ const Header = () => {
 
 
           {/* CTA Buttons - Always visible, matching Hero style */}
-          <div className="flex items-center gap-1.5 sm:gap-2 lg:gap-3">
+          <div className="flex items-center gap-1 sm:gap-2 lg:gap-3">
             <Button 
               variant="heroOutline"
               size="sm"
-              className="text-[10px] sm:text-xs lg:text-sm px-2 sm:px-3 lg:px-5 h-8 sm:h-9 lg:h-10" 
+              className="text-[9px] sm:text-xs lg:text-sm px-1.5 sm:px-3 lg:px-5 h-7 sm:h-9 lg:h-10 whitespace-nowrap" 
               asChild
             >
               <a href="https://tally.so/r/68jDMA" target="_blank" rel="noopener noreferrer">
@@ -148,13 +148,13 @@ const Header = () => {
             <Button 
               variant="hero"
               size="sm"
-              className="group text-[10px] sm:text-xs lg:text-sm px-2 sm:px-3 lg:px-5 h-8 sm:h-9 lg:h-10" 
+              className="group text-[9px] sm:text-xs lg:text-sm px-1.5 sm:px-3 lg:px-5 h-7 sm:h-9 lg:h-10 whitespace-nowrap" 
               asChild
             >
               <a href="https://calendly.com/integroai-consulting/30min" target="_blank" rel="noopener noreferrer">
                 <span className="hidden sm:inline">Book a Call</span>
                 <span className="sm:hidden">Book Call</span>
-                <ArrowRight className="w-3 h-3 lg:w-4 lg:h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-2.5 h-2.5 sm:w-3 sm:h-3 lg:w-4 lg:h-4 ml-0.5 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
             
