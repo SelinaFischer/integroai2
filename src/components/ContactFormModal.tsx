@@ -64,7 +64,13 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
     setIsSubmitting(true);
 
     const formData = new FormData(e.currentTarget);
-    
+
+    // Ensure reply-to matches the visitor's email (if present)
+    const visitorEmail = formData.get("email");
+    if (typeof visitorEmail === "string" && visitorEmail.trim()) {
+      formData.set("_replyto", visitorEmail.trim());
+    }
+
     try {
       const response = await fetch("https://formspree.io/f/mnnezggg", {
         method: "POST",
@@ -74,19 +80,33 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
         },
       });
 
-      if (response.ok) {
-        setIsSubmitted(true);
-        toast({
-          title: "Message sent!",
-          description: "We'll get back to you within 24 hours.",
-        });
-      } else {
-        throw new Error("Failed to send message");
+      const data = await response
+        .json()
+        .catch(() => null as null | { error?: string; errors?: Array<{ message?: string }> });
+
+      if (!response.ok) {
+        const msg =
+          data?.error ||
+          data?.errors?.[0]?.message ||
+          `Form submit failed (status ${response.status}).`;
+        throw new Error(msg);
       }
+
+      // Some providers return a 2xx but still include an error payload
+      if (data && (data as any).error) {
+        throw new Error((data as any).error);
+      }
+
+      setIsSubmitted(true);
+      toast({
+        title: "Message sent!",
+        description: "We'll get back to you within 24 hours.",
+      });
     } catch (error) {
+      const message = error instanceof Error ? error.message : "Failed to send message.";
       toast({
         title: "Error",
-        description: "Failed to send message. Please try again.",
+        description: message,
         variant: "destructive",
       });
     } finally {
@@ -162,7 +182,12 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
                 </p>
               </DialogHeader>
               
-              <form onSubmit={handleSubmit} className="space-y-4 pt-4">
+              <form
+                onSubmit={handleSubmit}
+                action="https://formspree.io/f/mnnezggg"
+                method="POST"
+                className="space-y-4 pt-4"
+              >
                 <div className="grid grid-cols-2 gap-3">
                   <div className="space-y-1.5">
                     <Label htmlFor="name" className="text-primary-foreground/80 text-sm font-medium">
@@ -240,7 +265,6 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
 
                 {/* Hidden fields for Formspree */}
                 <input type="hidden" name="_subject" value="New Contact Form Submission - IntegroAI" />
-                <input type="hidden" name="_replyto" value="info@integroai.tech" />
                 {/* Honeypot for spam protection */}
                 <input type="text" name="_gotcha" style={{ display: "none" }} />
 
