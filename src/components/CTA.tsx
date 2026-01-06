@@ -59,7 +59,7 @@ const CTA = () => {
             <Button variant="hero" size="lg" className="group shimmer" asChild>
               <a href="https://calendly.com/integroai-consulting/30min" target="_blank" rel="noopener noreferrer">
                 <Calendar className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
-                Book Your Discovery Call
+                Book Your Discovery Call Today
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
               </a>
             </Button>
