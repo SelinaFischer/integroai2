@@ -323,13 +323,13 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, child
               className="mt-16 pt-8 border-t border-border"
             >
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-                <a 
-                  href="/#blog" 
+                <Link 
+                  to="/#blog" 
                   className="inline-flex items-center gap-2 text-accent-warm hover:text-accent-warm/80 transition-colors font-medium"
                 >
                   <ChevronRight className="w-4 h-4 rotate-180" />
                   Back to All Articles
-                </a>
+                </Link>
                 
                 {/* Share Buttons */}
                 <div className="flex items-center gap-3">
