@@ -40,13 +40,11 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 mb-8 sm:mb-10"
+            className="inline-flex items-center gap-3 mb-8 sm:mb-10"
           >
-            <span className="w-8 h-px bg-accent-warm" />
-            <span className="text-accent-warm text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase">
-              For SME Leaders
+            <span className="text-white/60 text-xs sm:text-sm font-medium tracking-[0.15em] uppercase">
+              AI Consulting for Growing Businesses
             </span>
-            <span className="w-8 h-px bg-accent-warm" />
           </motion.div>
 
           {/* Main headline - bold and clear */}
@@ -69,7 +67,7 @@ const Hero = () => {
             className="text-lg sm:text-xl lg:text-2xl text-white/80 max-w-2xl mx-auto mb-10 sm:mb-12 leading-relaxed"
             itemProp="description"
           >
-            Get the clarity you need to invest in AI with confidence—no jargon, no wasted budget, just results.
+            Get the clarity you need to invest in AI with confidence — no jargon, no wasted budget, just results.
           </motion.p>
 
           {/* Single prominent CTA */}
