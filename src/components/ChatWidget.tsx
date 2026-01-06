@@ -318,10 +318,14 @@ export function ChatWidget() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsOpen(true)}
-              className="w-14 h-14 rounded-full bg-accent-warm text-accent-warm-foreground flex items-center justify-center shadow-glow hover:shadow-[0_0_60px_hsl(38_70%_50%_/_0.4)] transition-shadow duration-300"
+              className="relative w-14 h-14 rounded-full bg-accent-warm text-accent-warm-foreground flex items-center justify-center shadow-glow hover:shadow-[0_0_60px_hsl(38_70%_50%_/_0.4)] transition-shadow duration-300"
               aria-label="Open chat"
             >
-              <MessageCircle className="w-6 h-6" />
+              {/* Pulse ring on mobile */}
+              {isMobile && (
+                <span className="absolute inset-0 rounded-full bg-accent-warm animate-ping opacity-30" />
+              )}
+              <MessageCircle className="w-6 h-6 relative z-10" />
             </motion.button>
           </div>
         )}
