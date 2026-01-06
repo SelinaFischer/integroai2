@@ -11,7 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Send, CheckCircle2 } from "lucide-react";
+import { Send, CheckCircle2, Loader2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface ContactFormModalProps {
@@ -213,7 +213,10 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
-                    "Sending..."
+                    <>
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      Sending...
+                    </>
                   ) : (
                     <>
                       <Send className="w-4 h-4 mr-2" />
