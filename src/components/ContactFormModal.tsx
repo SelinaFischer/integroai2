@@ -75,7 +75,7 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
           </Button>
         )}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-lg bg-primary text-primary-foreground border-primary">
+      <DialogContent className="sm:max-w-lg bg-primary text-primary-foreground border-primary max-h-[90vh] overflow-y-auto">
         {isSubmitted ? (
           <div className="py-8 text-center">
             <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
