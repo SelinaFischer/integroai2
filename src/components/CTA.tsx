@@ -42,8 +42,8 @@ const CTA = () => {
           </motion.div>
 
           <h2 className="text-2xl sm:text-3xl lg:text-4xl text-white mb-4 font-bold">
-            Ready for{" "}
-            <span className="text-gradient-gold">Measurable ROI?</span>
+            Ready to{" "}
+            <span className="text-gradient-gold">Take Advantage of AI?</span>
           </h2>
           <p className="text-white/70 text-sm sm:text-base mb-8 max-w-2xl mx-auto leading-relaxed">
             Book a free 30-minute discovery call. We turn business challenges into measurable results — no pressure, no jargon, just a candid conversation about your AI opportunities.
