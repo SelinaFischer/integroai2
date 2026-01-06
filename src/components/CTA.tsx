@@ -72,9 +72,9 @@ const CTA = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-wrap justify-center gap-x-4 sm:gap-x-6 gap-y-2 text-white/50 text-xs sm:text-sm mt-8"
           >
-            <span>✓ Free 30-minute consultation</span>
+            <span>✓ Identify high-impact opportunities</span>
+            <span>✓ Tailored to your business</span>
             <span>✓ No commitment required</span>
-            <span>✓ Actionable insights guaranteed</span>
           </motion.div>
         </motion.div>
       </div>
