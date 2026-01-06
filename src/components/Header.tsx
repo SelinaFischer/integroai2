@@ -101,7 +101,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background shadow-lg border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-nav shadow-lg border-b border-white/10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20 lg:h-24">
           {/* Logo */}
@@ -116,7 +116,7 @@ const Header = () => {
               className="h-10 sm:h-14 lg:h-20 w-auto transition-all duration-300"
             />
             <div className="hidden sm:flex flex-col">
-              <span className="text-base sm:text-lg lg:text-2xl font-bold tracking-tight text-foreground">
+              <span className="text-base sm:text-lg lg:text-2xl font-bold tracking-tight text-white">
                 IntegroAI Consulting
               </span>
               <span className="text-[10px] sm:text-xs lg:text-sm font-medium tracking-wide text-accent-warm">
@@ -154,7 +154,7 @@ const Header = () => {
             {/* Menu Toggle - Always visible */}
             <button
               ref={menuButtonRef}
-              className="p-2 sm:p-3 -mr-1 sm:-mr-2 relative z-10 text-foreground min-w-[40px] sm:min-w-[44px] min-h-[40px] sm:min-h-[44px] flex items-center justify-center hover:bg-muted rounded-lg transition-colors"
+              className="p-2 sm:p-3 -mr-1 sm:-mr-2 relative z-10 text-white min-w-[40px] sm:min-w-[44px] min-h-[40px] sm:min-h-[44px] flex items-center justify-center hover:bg-white/10 rounded-lg transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileMenuOpen}
