@@ -12,6 +12,7 @@ import TermsOfService from "./pages/TermsOfService";
 import BeyondChatbotsAIAgents from "./pages/blog/BeyondChatbotsAIAgents";
 import WhyAIFailsDataGap from "./pages/blog/WhyAIFailsDataGap";
 import ROTToResilience from "./pages/blog/ROTToResilience";
+import AdminStats from "./pages/AdminStats";
 import Install from "./pages/Install";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/blog/why-ai-fails-the-data-gap" element={<WhyAIFailsDataGap />} />
           <Route path="/blog/rot-to-resilience-data-cleanup" element={<ROTToResilience />} />
           <Route path="/install" element={<Install />} />
+          <Route path="/admin/stats" element={<AdminStats />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
