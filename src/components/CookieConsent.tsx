@@ -45,55 +45,40 @@ const CookieConsent = () => {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ type: "spring", damping: 25, stiffness: 300 }}
-          className="fixed bottom-0 left-0 right-0 z-50 p-4 sm:p-6"
+          className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:bottom-6 z-50 sm:max-w-md"
           role="dialog"
           aria-modal="true"
           aria-labelledby="cookie-consent-title"
         >
-          <div className="container mx-auto max-w-4xl">
-            <div className="bg-card border border-border rounded-2xl shadow-xl p-6 sm:p-8 relative">
-              <button
-                onClick={handleDecline}
-                className="absolute top-4 right-4 p-2 text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-muted"
-                aria-label="Decline cookies"
-              >
-                <X className="w-5 h-5" />
-              </button>
-
-              <div className="pr-8">
-                <h2 
+          <div className="bg-nav text-white rounded-xl shadow-2xl p-4 sm:p-5 border border-white/10">
+            <div className="flex items-start gap-4">
+              <div className="flex-1 min-w-0">
+                <p 
                   id="cookie-consent-title" 
-                  className="text-lg font-bold mb-2"
+                  className="text-sm leading-relaxed text-white/90"
                 >
-                  We value your privacy
-                </h2>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                  We use cookies to enhance your browsing experience and analyse site traffic. 
-                  By clicking &quot;Accept&quot;, you consent to our use of cookies as described in our{" "}
+                  We use cookies to improve your experience.{" "}
                   <Link 
                     to="/privacy-policy" 
-                    className="text-primary hover:underline font-medium"
+                    className="text-accent-warm hover:underline font-medium"
                   >
-                    Privacy Policy
-                  </Link>.
+                    Learn more
+                  </Link>
                 </p>
-
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <Button
-                    onClick={handleAccept}
-                    variant="hero"
-                    className="sm:w-auto"
-                  >
-                    Accept All
-                  </Button>
-                  <Button
-                    onClick={handleDecline}
-                    variant="outline"
-                    className="sm:w-auto"
-                  >
-                    Decline
-                  </Button>
-                </div>
+              </div>
+              <div className="flex items-center gap-2 flex-shrink-0">
+                <button
+                  onClick={handleDecline}
+                  className="text-xs font-medium text-white/60 hover:text-white transition-colors px-3 py-2"
+                >
+                  Decline
+                </button>
+                <button
+                  onClick={handleAccept}
+                  className="text-xs font-semibold bg-accent-warm hover:bg-accent-warm/90 text-white px-4 py-2 rounded-lg transition-colors"
+                >
+                  Accept
+                </button>
               </div>
             </div>
           </div>
