@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { useState, useEffect, useRef, useCallback } from "react";
+import { scrollToSection } from "@/lib/scrollToSection";
 import logo from "@/assets/logo-icon-new.png";
 import ContactFormModal from "./ContactFormModal";
 
@@ -10,6 +11,8 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,11 +64,21 @@ const Header = () => {
   }, [mobileMenuOpen]);
 
   const navLinks = [
-    { href: "#services", label: "Services" },
-    { href: "#framework", label: "Framework" },
-    { href: "#about", label: "About" },
-    { href: "#faq", label: "FAQ" },
+    { sectionId: "services", label: "Services" },
+    { sectionId: "framework", label: "Framework" },
+    { sectionId: "about", label: "About" },
+    { sectionId: "faq", label: "FAQ" },
   ];
+
+  const handleNavClick = (sectionId: string) => {
+    setMobileMenuOpen(false);
+    if (location.pathname !== '/') {
+      navigate('/');
+      scrollToSection(sectionId, 150);
+    } else {
+      scrollToSection(sectionId, 0);
+    }
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a1628] shadow-lg border-b border-white/10">
@@ -144,14 +157,13 @@ const Header = () => {
           >
             <nav className="flex flex-col gap-1 px-2" role="navigation" aria-label="Main navigation">
               {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-foreground hover:text-primary transition-colors text-sm font-semibold py-3 px-4 rounded-lg hover:bg-muted"
-                  onClick={() => setMobileMenuOpen(false)}
+                <button
+                  key={link.sectionId}
+                  className="text-foreground hover:text-primary transition-colors text-sm font-semibold py-3 px-4 rounded-lg hover:bg-muted text-left w-full"
+                  onClick={() => handleNavClick(link.sectionId)}
                 >
                   {link.label}
-                </a>
+                </button>
               ))}
             </nav>
           </div>
