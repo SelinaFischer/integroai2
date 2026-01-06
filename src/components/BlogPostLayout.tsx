@@ -202,12 +202,18 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, child
                   </li>
                   <li className="flex items-center">
                     <ChevronRight className="w-3.5 h-3.5 mx-1" />
-                    <a 
-                      href="/#blog" 
+                    <Link
+                      to="/"
+                      onClick={() => {
+                        setTimeout(() => {
+                          const blogSection = document.getElementById('blog');
+                          if (blogSection) blogSection.scrollIntoView({ behavior: 'smooth' });
+                        }, 100);
+                      }}
                       className="hover:text-primary-foreground transition-colors"
                     >
                       Blog
-                    </a>
+                    </Link>
                   </li>
                   <li className="flex items-center">
                     <ChevronRight className="w-3.5 h-3.5 mx-1" />
