@@ -147,7 +147,7 @@ const Index = () => {
           {JSON.stringify(breadcrumbSchema)}
         </script>
       </Helmet>
-      <div className="min-h-screen">
+      <div className="min-h-screen overflow-x-hidden">
         <Header />
         <main id="main-content">
           <Hero />
