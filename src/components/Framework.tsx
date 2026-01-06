@@ -1,4 +1,4 @@
-import { Compass, Map, Settings, TrendingUp, RefreshCw, ArrowRight } from "lucide-react";
+import { Compass, Map, Settings, TrendingUp, RefreshCw } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Framework = () => {
@@ -107,10 +107,6 @@ const Framework = () => {
                     <step.icon className="w-8 h-8 text-white" />
                   </div>
                   
-                  {/* Arrow (except last) */}
-                  {index < steps.length - 1 && (
-                    <ArrowRight className="absolute top-[30px] -right-3 w-5 h-5 text-muted-foreground/50 z-20" />
-                  )}
                   
                   <span className="text-accent-warm font-bold text-sm mb-2 tracking-wider">{step.step}</span>
                   <h3 className="text-xl font-bold mb-3">{step.title}</h3>
