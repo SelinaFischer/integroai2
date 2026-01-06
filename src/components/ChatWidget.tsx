@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { MessageCircle, X, Send, Loader2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import logoIcon from "@/assets/integroai-logo-icon-white.png";
 
 type Message = { role: "user" | "assistant"; content: string };
 
@@ -242,7 +243,7 @@ export function ChatWidget() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow"
+            className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-accent-warm text-accent-warm-foreground flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow"
             aria-label="Open chat"
           >
             <MessageCircle className="w-6 h-6" />
@@ -263,8 +264,9 @@ export function ChatWidget() {
             {/* Header */}
             <div className="flex items-center justify-between px-4 py-3 bg-primary text-primary-foreground">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                <img src={logoIcon} alt="IntegroAI" className="w-6 h-6 object-contain" />
                 <span className="font-semibold text-sm">IntegroAI Assistant</span>
+                <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
               </div>
               <button
                 onClick={() => setIsOpen(false)}
