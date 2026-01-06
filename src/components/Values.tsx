@@ -31,8 +31,8 @@ const Values = () => {
       <div className="absolute top-0 left-0 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-primary/3 rounded-full blur-[120px] -translate-y-1/2 -translate-x-1/2" />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 items-start">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-start">
             {/* Left content */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -41,27 +41,27 @@ const Values = () => {
               transition={{ duration: 0.6 }}
               className="text-center lg:text-left"
             >
-              <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-3 px-3 py-1 bg-accent-warm/10 rounded-full">
+              <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
                 About IntegroAI Consulting
               </span>
-              <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl mb-3 sm:mb-4">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-4 sm:mb-6">
                 AI Succeeds When Strategy, Data & People Align
               </h2>
-              <p className="text-muted-foreground text-sm mb-3 sm:mb-4 leading-relaxed">
+              <p className="text-muted-foreground text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed">
                 Most organisations fail because they rush into tools without clarity and purpose. IntegroAI applies a simple principle:
               </p>
-              <blockquote className="border-l-2 sm:border-l-3 border-accent-warm pl-3 sm:pl-4 py-2 mb-3 sm:mb-4 bg-accent-warm/5 rounded-r-lg text-left">
-                <p className="text-sm sm:text-base font-semibold italic text-foreground">
+              <blockquote className="border-l-4 border-accent-warm pl-4 sm:pl-6 py-3 mb-4 sm:mb-6 bg-accent-warm/5 rounded-r-lg text-left">
+                <p className="text-base sm:text-lg font-semibold italic text-foreground">
                   "Clarity first. Solutions second. Results that can be measured."
                 </p>
               </blockquote>
-              <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
+              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
                 Built on a commitment to help organisations use AI responsibly and effectively. Our mission is to simplify the complex, amplify what works, and help leaders and teams grow with confidence.
               </p>
             </motion.div>
 
             {/* Right - Values grid */}
-            <div className="grid grid-cols-2 gap-2 sm:gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
               {values.map((value, index) => (
                 <motion.div
                   key={value.title}
@@ -69,19 +69,19 @@ const Values = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="group bg-card rounded-lg sm:rounded-xl p-3 sm:p-4 shadow-card border border-border/50 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-500 relative overflow-hidden"
+                  className="group bg-card rounded-xl p-5 sm:p-6 shadow-card border border-border/50 hover:shadow-lg hover:-translate-y-1 transition-all duration-500 relative overflow-hidden"
                 >
                   {/* Hover gradient */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   <div className="relative z-10">
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-2 sm:mb-3 group-hover:bg-primary/15 group-hover:scale-110 transition-all duration-300">
-                      <value.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/15 group-hover:scale-110 transition-all duration-300">
+                      <value.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                     </div>
-                    <h3 className="text-sm sm:text-base font-bold mb-1 sm:mb-1.5">
+                    <h3 className="text-base sm:text-lg font-bold mb-2">
                       {value.title}
                     </h3>
-                    <p className="text-muted-foreground text-[11px] sm:text-xs leading-relaxed line-clamp-3 sm:line-clamp-none">
+                    <p className="text-muted-foreground text-sm leading-relaxed">
                       {value.description}
                     </p>
                   </div>
