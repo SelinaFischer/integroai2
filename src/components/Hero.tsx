@@ -54,9 +54,9 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.05] mb-6 sm:mb-8 font-semibold tracking-tight"
           >
-            Stop Guessing.
+            Stop Automating
             <br />
-            <span className="text-gradient-gold">Start Growing with AI.</span>
+            <span className="text-gradient-gold">Broken Processes.</span>
           </motion.h1>
 
           {/* Single clear value proposition */}
@@ -67,7 +67,7 @@ const Hero = () => {
             className="text-lg sm:text-xl lg:text-2xl text-white/80 max-w-2xl mx-auto mb-10 sm:mb-12 leading-relaxed"
             itemProp="description"
           >
-            Get the clarity you need to invest in AI with confidence — no jargon, no wasted budget, just results.
+            I turn business challenges into measurable ROI — no jargon, no wasted budget, just results.
           </motion.p>
 
           {/* Single prominent CTA */}

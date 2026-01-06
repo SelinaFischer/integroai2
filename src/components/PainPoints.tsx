@@ -72,7 +72,7 @@ const PainPoints = () => {
             Why AI Fails for Most SMEs
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-            Most organisations push ahead with implementation without addressing the real problems. Sound familiar?
+            Automating broken processes only scales the chaos. Most organisations rush to implement without fixing what's already broken.
           </p>
         </motion.div>
 
