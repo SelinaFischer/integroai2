@@ -140,6 +140,7 @@ const Footer = () => {
               </Link>
             </div>
             <p>© {currentYear} IntegroAI Consulting. All rights reserved.</p>
+            <p className="text-primary-foreground/30 text-[10px] font-mono">v2.0.6</p>
           </div>
         </div>
       </motion.div>
