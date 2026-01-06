@@ -37,7 +37,7 @@ const Founder = () => {
                 <div className="w-[90%] h-[90%] bg-gradient-to-br from-primary/10 via-accent-warm/10 to-primary/5 rounded-full blur-3xl" />
               </div>
               
-              <div className="relative w-64 sm:w-80 lg:w-96">
+              <div className="relative w-72 sm:w-96 lg:w-[28rem]">
                 <img 
                   src={selinaPhoto} 
                   alt="Selina Fischer - IntegroAI Founder and CEO" 
