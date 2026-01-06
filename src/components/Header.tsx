@@ -63,6 +63,24 @@ const Header = () => {
     }
   }, [mobileMenuOpen]);
 
+  // Close menu on outside click
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        mobileMenuOpen &&
+        mobileMenuRef.current &&
+        menuButtonRef.current &&
+        !mobileMenuRef.current.contains(e.target as Node) &&
+        !menuButtonRef.current.contains(e.target as Node)
+      ) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [mobileMenuOpen]);
+
   const navLinks = [
     { sectionId: "framework", label: "Framework" },
     { sectionId: "services", label: "Services" },
