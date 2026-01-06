@@ -92,9 +92,9 @@ const Founder = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-5"
+            className="space-y-6 lg:space-y-8"
           >
-            <p className="text-muted-foreground text-sm sm:text-base lg:text-lg leading-relaxed">
+            <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
               Most AI failures are not technical—they are strategic. I provide the Decision Clarity 
               leaders need to ensure AI is a business win, not a waste of budget.
             </p>
@@ -105,13 +105,13 @@ const Founder = () => {
               and implementation specialists to provide comprehensive support for SMEs.
             </p>
 
-            <blockquote className="border-l-2 sm:border-l-4 border-accent-warm pl-3 sm:pl-6 py-2 italic text-foreground/80 text-sm sm:text-base">
+            <blockquote className="border-l-4 border-accent-warm pl-4 sm:pl-6 py-3 italic text-foreground/80 text-base sm:text-lg bg-accent-warm/5 rounded-r-lg">
               "If you want clarity on where AI fits before committing time or budget, I help you 
               determine if AI is your next big win or your next big waste of resources."
             </blockquote>
 
             {/* Framework */}
-            <div className="grid grid-cols-2 gap-2 sm:gap-3 pt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               {framework.map((item, index) => (
                 <motion.div
                   key={index}
@@ -120,31 +120,31 @@ const Founder = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
                   whileHover={{ scale: 1.02, y: -2 }}
-                  className="flex flex-col sm:flex-row items-start gap-2 sm:gap-3 p-3 sm:p-4 rounded-xl bg-background/50 border border-border/50 cursor-default transition-all duration-300 hover:bg-background/80 hover:border-accent-warm/30 hover:shadow-lg hover:shadow-accent-warm/5"
+                  className="flex items-start gap-4 p-4 sm:p-5 rounded-xl bg-background/50 border border-border/50 cursor-default transition-all duration-300 hover:bg-background/80 hover:border-accent-warm/30 hover:shadow-lg hover:shadow-accent-warm/5"
                 >
-                  <div className="p-2 rounded-lg bg-accent-warm/10 shrink-0 transition-colors duration-300 group-hover:bg-accent-warm/20">
-                    <item.icon className="w-4 h-4 text-accent-warm" />
+                  <div className="p-2.5 rounded-lg bg-accent-warm/10 shrink-0">
+                    <item.icon className="w-5 h-5 text-accent-warm" />
                   </div>
                   <div className="min-w-0">
-                    <h4 className="font-semibold text-foreground text-sm">{item.title}</h4>
-                    <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3 sm:line-clamp-none">{item.description}</p>
+                    <h4 className="font-semibold text-foreground text-base mb-1">{item.title}</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
                   </div>
                 </motion.div>
               ))}
             </div>
 
             {/* LinkedIn Link */}
-            <div className="pt-2 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 group">
+            <div className="pt-4 flex flex-col sm:flex-row sm:items-center gap-3 group">
               <a
                 href="https://www.linkedin.com/in/selinafischer8/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-accent-warm hover:text-accent-warm/80 transition-all duration-300 font-medium group-hover:translate-x-1 py-2 min-h-[44px]"
+                className="inline-flex items-center gap-2.5 text-accent-warm hover:text-accent-warm/80 transition-all duration-300 font-medium group-hover:translate-x-1 py-2 min-h-[44px]"
               >
                 <Linkedin className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
                 Connect on LinkedIn
               </a>
-              <span className="text-muted-foreground text-sm italic transition-opacity duration-300 group-hover:opacity-70 sm:border-l sm:border-muted-foreground/30 sm:pl-3">Learn more about me</span>
+              <span className="text-muted-foreground text-sm italic sm:border-l sm:border-muted-foreground/30 sm:pl-4">Learn more about me</span>
             </div>
           </motion.div>
         </div>
