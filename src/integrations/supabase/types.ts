@@ -14,6 +14,27 @@ export type Database = {
   }
   public: {
     Tables: {
+      chat_usage: {
+        Row: {
+          created_at: string
+          date: string
+          id: string
+          input_messages: number
+        }
+        Insert: {
+          created_at?: string
+          date?: string
+          id?: string
+          input_messages?: number
+        }
+        Update: {
+          created_at?: string
+          date?: string
+          id?: string
+          input_messages?: number
+        }
+        Relationships: []
+      }
       contact_submissions: {
         Row: {
           company: string | null
@@ -46,7 +67,15 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      chat_usage_summary: {
+        Row: {
+          date: string | null
+          month: string | null
+          total_input_messages: number | null
+          total_requests: number | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       [_ in never]: never
