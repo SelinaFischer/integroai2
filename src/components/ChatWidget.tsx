@@ -7,11 +7,73 @@ type Message = { role: "user" | "assistant"; content: string };
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat`;
 
-const QUICK_REPLIES = [
+const INITIAL_QUICK_REPLIES = [
   { label: "What services do you offer?", message: "What services does IntegroAI offer?" },
   { label: "Tell me about the framework", message: "Can you explain the IntegroAI framework?" },
   { label: "Book a Discovery Call", message: "How can I book a Discovery Call?" },
 ];
+
+// Contextual follow-up suggestions based on AI response content
+const CONTEXTUAL_SUGGESTIONS: { keywords: string[]; suggestions: { label: string; message: string }[] }[] = [
+  {
+    keywords: ["service", "readiness", "strategy", "governance", "pilot", "vendor", "use case"],
+    suggestions: [
+      { label: "How much does it cost?", message: "What's the pricing for your services?" },
+      { label: "Book a Discovery Call", message: "I'd like to book a free Discovery Call" },
+    ],
+  },
+  {
+    keywords: ["framework", "discover", "design", "validate", "deliver", "iterate"],
+    suggestions: [
+      { label: "How long does it take?", message: "How long does the typical engagement take?" },
+      { label: "What's the first step?", message: "What's the first step to get started?" },
+    ],
+  },
+  {
+    keywords: ["selina", "founder", "experience", "years"],
+    suggestions: [
+      { label: "What makes you different?", message: "What makes IntegroAI different from other consultants?" },
+      { label: "Book a Discovery Call", message: "I'd like to book a free Discovery Call" },
+    ],
+  },
+  {
+    keywords: ["price", "cost", "pricing", "budget", "investment"],
+    suggestions: [
+      { label: "Book a Discovery Call", message: "I'd like to book a free Discovery Call to discuss pricing" },
+      { label: "What's included?", message: "What's typically included in an engagement?" },
+    ],
+  },
+  {
+    keywords: ["discovery call", "book", "calendly", "meeting", "schedule"],
+    suggestions: [
+      { label: "What happens on the call?", message: "What should I expect from the Discovery Call?" },
+      { label: "How do I prepare?", message: "How should I prepare for the Discovery Call?" },
+    ],
+  },
+  {
+    keywords: ["ready", "readiness", "assessment", "evaluate"],
+    suggestions: [
+      { label: "Is my business ready?", message: "How do I know if my business is ready for AI?" },
+      { label: "Book a Discovery Call", message: "I'd like to book a free Discovery Call" },
+    ],
+  },
+];
+
+function getContextualSuggestions(lastAssistantMessage: string): { label: string; message: string }[] {
+  const lowerContent = lastAssistantMessage.toLowerCase();
+  
+  for (const ctx of CONTEXTUAL_SUGGESTIONS) {
+    if (ctx.keywords.some((kw) => lowerContent.includes(kw))) {
+      return ctx.suggestions;
+    }
+  }
+  
+  // Default fallback suggestions
+  return [
+    { label: "Tell me more", message: "Can you tell me more about that?" },
+    { label: "Book a Discovery Call", message: "I'd like to book a free Discovery Call" },
+  ];
+}
 
 export function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
@@ -232,14 +294,34 @@ export function ChatWidget() {
                 </div>
               ))}
               
-              {/* Quick Replies */}
+              {/* Initial Quick Replies */}
               {showQuickReplies && messages.length === 1 && !isLoading && (
                 <motion.div 
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="flex flex-wrap gap-2 pt-2"
                 >
-                  {QUICK_REPLIES.map((qr, i) => (
+                  {INITIAL_QUICK_REPLIES.map((qr, i) => (
+                    <button
+                      key={i}
+                      onClick={() => handleQuickReply(qr.message)}
+                      className="px-3 py-1.5 text-xs font-medium bg-secondary text-secondary-foreground rounded-full border border-border hover:bg-accent hover:text-accent-foreground transition-colors"
+                    >
+                      {qr.label}
+                    </button>
+                  ))}
+                </motion.div>
+              )}
+
+              {/* Contextual Follow-up Suggestions */}
+              {!isLoading && messages.length > 1 && messages[messages.length - 1]?.role === "assistant" && (
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  className="flex flex-wrap gap-2 pt-2"
+                >
+                  {getContextualSuggestions(messages[messages.length - 1].content).map((qr, i) => (
                     <button
                       key={i}
                       onClick={() => handleQuickReply(qr.message)}
