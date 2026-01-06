@@ -30,6 +30,8 @@ export default function AdminStats() {
   const [password, setPassword] = useState("");
   const [authError, setAuthError] = useState("");
   const [authLoading, setAuthLoading] = useState(false);
+  const [isLocked, setIsLocked] = useState(false);
+  const [attemptsRemaining, setAttemptsRemaining] = useState<number | null>(null);
   
   const [dailyData, setDailyData] = useState<DailyUsage[]>([]);
   const [monthlyData, setMonthlyData] = useState<MonthlyUsage[]>([]);
@@ -56,8 +58,16 @@ export default function AdminStats() {
       if (resp.ok && data.success) {
         setIsAuthenticated(true);
         sessionStorage.setItem("adminAuthenticated", "true");
+        setIsLocked(false);
+        setAttemptsRemaining(null);
+      } else if (resp.status === 429) {
+        setIsLocked(true);
+        setAuthError(data.error || "Too many attempts. Please try again later.");
       } else {
         setAuthError(data.error || "Invalid password");
+        if (typeof data.attemptsRemaining === "number") {
+          setAttemptsRemaining(data.attemptsRemaining);
+        }
       }
     } catch (e) {
       setAuthError("Failed to verify. Please try again.");
@@ -176,14 +186,19 @@ export default function AdminStats() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Enter admin password"
-                    disabled={authLoading}
+                    disabled={authLoading || isLocked}
                   />
                 </div>
                 {authError && (
                   <p className="text-sm text-destructive">{authError}</p>
                 )}
-                <Button type="submit" className="w-full" disabled={authLoading || !password}>
-                  {authLoading ? "Verifying..." : "Access Stats"}
+                {attemptsRemaining !== null && attemptsRemaining <= 2 && !isLocked && (
+                  <p className="text-sm text-amber-600">
+                    {attemptsRemaining} attempt{attemptsRemaining !== 1 ? "s" : ""} remaining
+                  </p>
+                )}
+                <Button type="submit" className="w-full" disabled={authLoading || !password || isLocked}>
+                  {authLoading ? "Verifying..." : isLocked ? "Locked" : "Access Stats"}
                 </Button>
               </form>
               <div className="mt-4 text-center">
