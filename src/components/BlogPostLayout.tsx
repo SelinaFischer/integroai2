@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { createScrollHandler } from "@/lib/scrollToSection";
 import Header from "./Header";
 import Footer from "./Footer";
 
@@ -204,12 +205,7 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, child
                     <ChevronRight className="w-3.5 h-3.5 mx-1" />
                     <Link
                       to="/"
-                      onClick={() => {
-                        setTimeout(() => {
-                          const blogSection = document.getElementById('blog');
-                          if (blogSection) blogSection.scrollIntoView({ behavior: 'smooth' });
-                        }, 100);
-                      }}
+                      onClick={createScrollHandler('blog')}
                       className="hover:text-primary-foreground transition-colors"
                     >
                       Blog
@@ -331,14 +327,7 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, child
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
                 <Link 
                   to="/"
-                  onClick={() => {
-                    setTimeout(() => {
-                      const blogSection = document.getElementById('blog');
-                      if (blogSection) {
-                        blogSection.scrollIntoView({ behavior: 'smooth' });
-                      }
-                    }, 100);
-                  }}
+                  onClick={createScrollHandler('blog')}
                   className="inline-flex items-center gap-2 text-accent-warm hover:text-accent-warm/80 transition-colors font-medium"
                 >
                   <ChevronRight className="w-4 h-4 rotate-180" />
