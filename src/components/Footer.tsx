@@ -1,4 +1,4 @@
-import { Mail } from "lucide-react";
+import { Mail, Smartphone } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import logo from "@/assets/integroai-logo-icon-white.png";
@@ -119,6 +119,13 @@ const Footer = () => {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-xs sm:text-sm text-primary-foreground/50">
             <p>© {currentYear} IntegroAI Consulting. All rights reserved.</p>
             <div className="flex items-center gap-3 sm:gap-4 lg:gap-6">
+              <Link 
+                to="/install" 
+                className="text-primary-foreground/80 hover:text-accent-warm transition-colors py-1.5 sm:py-2 font-medium inline-flex items-center gap-1.5"
+              >
+                <Smartphone className="w-3.5 h-3.5" />
+                Install App
+              </Link>
               <Link 
                 to="/privacy-policy" 
                 className="text-primary-foreground/80 hover:text-accent-warm transition-colors py-1.5 sm:py-2 font-medium"
