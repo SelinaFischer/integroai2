@@ -192,13 +192,13 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, child
               <nav aria-label="Breadcrumb" className="mb-8">
                 <ol className="flex items-center gap-1.5 text-sm text-primary-foreground/70">
                   <li>
-                    <a 
-                      href="/" 
+                    <Link 
+                      to="/" 
                       className="flex items-center gap-1 hover:text-primary-foreground transition-colors"
                     >
                       <Home className="w-3.5 h-3.5" />
                       <span>Home</span>
-                    </a>
+                    </Link>
                   </li>
                   <li className="flex items-center">
                     <ChevronRight className="w-3.5 h-3.5 mx-1" />
