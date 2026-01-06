@@ -1,4 +1,8 @@
-# Welcome to My AI Consulting Website project
+# Welcome to IntegroAI Consulting Website
+
+## 📚 Brand Resources
+
+- **[Messaging Guide](docs/MESSAGING_GUIDE.md)** — Key phrases, tone, terminology, and CTA guidelines for consistent brand communication
 
 ## Project info
 
