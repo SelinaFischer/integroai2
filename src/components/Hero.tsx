@@ -43,7 +43,7 @@ const Hero = () => {
             className="inline-flex items-center gap-3 mb-8 sm:mb-10"
           >
             <span className="text-white/60 text-xs sm:text-sm font-medium tracking-[0.15em] uppercase">
-              AI Consulting for Growing Businesses
+              AI Strategy for Growing Businesses
             </span>
           </motion.div>
 
@@ -67,7 +67,7 @@ const Hero = () => {
             className="text-lg sm:text-xl lg:text-2xl text-white/80 max-w-2xl mx-auto mb-10 sm:mb-12 leading-relaxed"
             itemProp="description"
           >
-            We turn business challenges into measurable ROI — no jargon, no wasted budget, just results.
+            Decide what business problems are worth solving with AI before you spend.
           </motion.p>
 
           {/* Single prominent CTA */}
@@ -78,14 +78,14 @@ const Hero = () => {
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <Button variant="hero" size="xl" className="group shimmer" asChild>
-              <a href="https://calendly.com/integroai-consulting/30min" target="_blank" rel="noopener noreferrer">
-                Book Your Free Discovery Call
+              <a href="https://tally.so/r/68jDMA" target="_blank" rel="noopener noreferrer">
+                Take AI Readiness Assessment
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
             <Button variant="heroOutline" size="lg" className="backdrop-blur-sm" asChild>
-              <a href="#services">
-                See How We Help
+              <a href="https://calendly.com/integroai-consulting/30min" target="_blank" rel="noopener noreferrer">
+                AI Readiness Strategy Call
               </a>
             </Button>
           </motion.div>
