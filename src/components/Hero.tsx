@@ -79,13 +79,13 @@ const Hero = () => {
           >
             <Button variant="hero" size="xl" className="group shimmer" asChild>
               <a href="https://tally.so/r/68jDMA" target="_blank" rel="noopener noreferrer">
-                Take AI Readiness Assessment
+                AI Readiness Assessment
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
             <Button variant="heroOutline" size="lg" className="backdrop-blur-sm" asChild>
               <a href="https://calendly.com/integroai-consulting/30min" target="_blank" rel="noopener noreferrer">
-                AI Readiness Strategy Call
+                Book Strategy Call
               </a>
             </Button>
           </motion.div>
