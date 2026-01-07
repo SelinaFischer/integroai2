@@ -38,15 +38,16 @@ const CTA = () => {
             className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1.5 mb-6"
           >
             <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-accent-warm" aria-hidden="true" />
-            <span className="text-white/80 text-xs sm:text-sm font-medium">Start Your AI Journey</span>
+            <span className="text-white/80 text-xs sm:text-sm font-medium">Start with clarity</span>
           </motion.div>
 
           <h2 className="text-2xl sm:text-3xl lg:text-4xl text-white mb-4 font-bold">
-            Ready to{" "}
-            <span className="text-gradient-gold">Take Advantage of AI?</span>
+            Not sure if{" "}
+            <span className="text-gradient-gold">AI is worth investing in</span>{" "}
+            yet?
           </h2>
           <p className="text-white/70 text-sm sm:text-base mb-8 max-w-2xl mx-auto leading-relaxed">
-            Book a free 30-minute discovery call to explore where AI can make the biggest impact in your business. No pressure, no jargon — just honest advice tailored to your goals.
+            AI delivers ROI when the right business problem is chosen first. Start with the AI Readiness Assessment to decide what is worth solving before you spend.
           </p>
 
           <motion.div 
@@ -56,13 +57,21 @@ const CTA = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-3"
           >
+            {/* Primary CTA: Assessment */}
             <Button variant="hero" size="lg" className="group shimmer" asChild>
-              <a href="https://calendly.com/integroai-consulting/30min" target="_blank" rel="noopener noreferrer">
+              <a href="https://tally.so/r/68jDMA" target="_blank" rel="noopener noreferrer">
                 <Calendar className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
-                Book Your Discovery Call Today
+                Take AI Readiness Assessment
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
               </a>
             </Button>
+
+            {/* Secondary CTA: Call */}
+            <Button variant="heroOutline" size="lg" className="backdrop-blur-sm" asChild>
+              <a href="https://calendly.com/integroai-consulting/30min" target="_blank" rel="noopener noreferrer">
+                Book Strategy Call
+              </a>
+            </Button>            
           </motion.div>
 
           <motion.div 
@@ -72,9 +81,9 @@ const CTA = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-wrap justify-center gap-x-4 sm:gap-x-6 gap-y-2 text-white/50 text-xs sm:text-sm mt-8"
           >
-            <span>✓ Identify high-impact opportunities</span>
-            <span>✓ Tailored to your business</span>
-            <span>✓ No commitment required</span>
+            <span>✓ Decide what is worth solving</span>
+            <span>✓ Reduce risk before spend</span>
+            <span>✓ Clear next steps</span>
           </motion.div>
         </motion.div>
       </div>
