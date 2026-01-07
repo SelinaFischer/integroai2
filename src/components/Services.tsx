@@ -130,8 +130,8 @@ const Services = () => {
           className="text-center mt-10 sm:mt-14"
         >
           <Button variant="hero" size="lg" className="group" asChild>
-            <a href="https://calendly.com/integroai-consulting/30min" target="_blank" rel="noopener noreferrer">
-              Discuss Your Needs
+            <a href="https://tally.so/r/68jDMA" target="_blank" rel="noopener noreferrer">
+              Assess Your AI Readiness
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
           </Button>
