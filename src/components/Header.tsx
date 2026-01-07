@@ -142,7 +142,7 @@ const Header = () => {
             >
               <a href="https://tally.so/r/68jDMA" target="_blank" rel="noopener noreferrer">
                 <span className="hidden sm:inline">Take AI Assessment</span>
-                <span className="sm:hidden">AI Check</span>
+                <span className="sm:hidden">AI Readiness Check</span>
               </a>
             </Button>
             <Button 
@@ -152,8 +152,8 @@ const Header = () => {
               asChild
             >
               <a href="https://calendly.com/integroai-consulting/30min" target="_blank" rel="noopener noreferrer">
-                <span className="hidden sm:inline">Book a Call</span>
-                <span className="sm:hidden">Book a Call</span>
+                <span className="hidden sm:inline">Book AI Readiness Strategy Call</span>
+                <span className="sm:hidden">Book AI Readiness Call</span>
                 <ArrowRight className="w-3 h-3 sm:w-3 sm:h-3 lg:w-4 lg:h-4 ml-1 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
