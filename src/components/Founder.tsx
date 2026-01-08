@@ -72,19 +72,21 @@ const Founder = () => {
               </div>
 
               <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-                Most AI failures are not technical—they are strategic. I provide the Decision Clarity 
-                leaders need to ensure AI is a business win, not a waste of budget.
+                Most AI failures are not technical—they are strategic. I help SME leaders gain decision clarity before committing time, budget, or teams to AI initiatives.
+              </p>
+              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                My work focuses on understanding where AI genuinely fits in the business, what needs to be in place first, and where restraint is the smarter decision.
               </p>
 
               <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                With 20 years of experience across product management, technology, and building 
-                commercial businesses, I collaborate with a network of certified AI consultants 
-                and implementation specialists to provide comprehensive support for SMEs.
+                With a background across product management, technology, and commercial leadership, 
+                I bring a structured, business-led approach to AI decisions. When execution is justified, 
+                I work with trusted specialists to ensure delivery is aligned and accountable.
               </p>
 
               <blockquote className="border-l-4 border-accent-warm pl-4 sm:pl-6 py-3 italic text-foreground/80 text-base sm:text-lg bg-accent-warm/5 rounded-r-lg text-left">
-                "If you want clarity on where AI fits before committing time or budget, I help you 
-                determine if AI is your next big win or your next big waste of resources."
+                "If you want clarity on where AI fits before committing resources, I help you 
+                determine if AI is your next opportunity or a distraction best avoided."
               </blockquote>
 
               {/* LinkedIn Link */}
