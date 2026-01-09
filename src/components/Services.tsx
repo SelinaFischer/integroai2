@@ -7,44 +7,44 @@ const Services = () => {
     {
       icon: Search,
       number: "01",
-      title: "Assessment & Readiness",
-      description: "Understand your current state, identify pain points, and evaluate realistic AI opportunities. Walk away with a clear picture of what's possible.",
-      outcomes: ["Gap analysis", "Opportunity mapping", "Readiness score"],
+      title: "AI Readiness Assessment",
+      description: "Clarify the business problem, assess readiness across leadership, process, and data, and identify where AI is worth pursuing before any tools are chosen.",
+      outcomes: ["Readiness snapshot", "Risk and gap view", "Priority areas"],
     },
     {
       icon: Route,
       number: "02",
-      title: "Strategy & Roadmapping",
-      description: "Prioritise use cases, analyse impact vs effort, and build a focused plan that moves your organisation forward with confidence.",
-      outcomes: ["Prioritised roadmap", "Business case", "Quick wins"],
-    },
-    {
-      icon: GraduationCap,
-      number: "03",
-      title: "Training & Capability",
-      description: "Upskill your team to use AI effectively, covering tools, prompting, governance and integration into daily workflows.",
-      outcomes: ["Hands-on workshops", "Best practices", "Team confidence"],
-    },
-    {
-      icon: Cog,
-      number: "04",
-      title: "Implementation Support",
-      description: "Hands-on guidance through your first AI projects. From pilot to production with practical support at every stage.",
-      outcomes: ["Vendor selection", "Pilot programs", "Change management"],
-    },
-    {
-      icon: Users,
-      number: "05",
-      title: "Ongoing Advisory",
-      description: "Regular strategic check-ins to ensure AI initiatives stay on track, adapt to change, and continue delivering value.",
-      outcomes: ["Monthly reviews", "KPI tracking", "Strategic pivots"],
+      title: "Transformation Strategy & Roadmap",
+      description: "Define success measures, prioritise initiatives by value and feasibility, and build a commercially grounded sequence of action.",
+      outcomes: ["Prioritised roadmap", "Success measures", "Sequenced plan"],
     },
     {
       icon: ShieldCheck,
+      number: "03",
+      title: "Governance & Responsible AI",
+      description: "Establish decision guardrails, risk frameworks, and governance practices so AI use stays accountable, compliant, and aligned to business goals.",
+      outcomes: ["Governance guardrails", "Risk framework", "Policy checklist"],
+    },
+    {
+      icon: Users,
+      number: "04",
+      title: "Leadership & Team Enablement",
+      description: "Build alignment and confidence across leadership and teams so AI decisions translate into consistent action and adoption.",
+      outcomes: ["Leadership alignment", "Decision playbooks", "Team capability"],
+    },
+    {
+      icon: Cog,
+      number: "05",
+      title: "Structured Implementation Oversight",
+      description: "Support delivery through trusted specialists when execution is justified, providing independent oversight to keep initiatives focused, measurable, and on track.",
+      outcomes: ["Delivery oversight", "Vendor coordination", "Value tracking"],
+    },
+    {
+      icon: GraduationCap,
       number: "06",
-      title: "Governance & Ethics",
-      description: "Establish responsible AI practices with clear policies, risk frameworks, and compliance guidance.",
-      outcomes: ["AI policy", "Risk framework", "Compliance checklist"],
+      title: "Ongoing Advisory",
+      description: "Regular check-ins to review progress, adapt priorities, and keep AI initiatives aligned to changing business needs and constraints.",
+      outcomes: ["Decision reviews", "Priority updates", "Course correction"],
     },
   ];
 
@@ -68,7 +68,7 @@ const Services = () => {
             AI Consulting Services for SMEs
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed" itemProp="description">
-            What does an AI consultant do? We provide end-to-end AI strategy and implementation support—from readiness assessment to ongoing advisory.
+            What does an AI consultant do? IntegroAI Consulting provides AI readiness and transformation advisory for SME leaders who want decision clarity before investing in AI. We define priorities, surface readiness gaps, and provide structured oversight when execution is justified.          
           </p>
         </motion.div>
 
