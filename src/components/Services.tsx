@@ -68,7 +68,11 @@ const Services = () => {
             AI Consulting Services for SMEs
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed" itemProp="description">
-            What does an AI consultant do? IntegroAI Consulting provides AI readiness and transformation advisory for SME leaders who want decision clarity before investing in AI. We define priorities, surface readiness gaps, and provide structured oversight when execution is justified.          
+            What does an AI consultant do? IntegroAI Consulting provides AI readiness and transformation advisory for SME leaders who want decision clarity before investing in AI.
+          </p>
+          
+          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+            In practice, we define priorities, surface readiness gaps, and offer structured oversight when execution is justified.          
           </p>
         </motion.div>
 
