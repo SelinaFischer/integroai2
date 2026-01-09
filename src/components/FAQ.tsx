@@ -11,29 +11,39 @@ const FAQ = () => {
   const faqs = [
     {
       question: "What is AI consulting for SMEs?",
-      answer: "AI consulting for SMEs is a specialised service that helps small and medium-sized businesses (typically 20-500 employees) understand, plan, and implement artificial intelligence solutions. Unlike enterprise consulting, SME-focused AI consulting provides practical, achievable strategies tailored to smaller budgets and teams, focusing on quick wins and measurable ROI rather than complex, multi-year transformations.",
+      answer: "AI consulting for SMEs helps leaders decide where AI fits in the business before committing budget, tools, or teams. It focuses on decision clarity, readiness, and commercially grounded prioritisation. Typical work includes defining the business problem, assessing process and data foundations, and mapping a realistic sequence of initiatives. The goal is to avoid wasted spend and pursue AI only where it can deliver measurable value.",
     },
     {
-      question: "Who is IntegroAI best suited for?",
-      answer: "IntegroAI works primarily with SME leaders and decision-makers who want to leverage AI strategically but feel overwhelmed by the options. If you're a business owner, managing director, or department head at a company with 20-500 employees looking to cut through the AI hype and get practical results, we're a good fit. Our clients typically want vendor-agnostic guidance and a clear roadmap rather than being sold specific tools.",
+      question: "Who is IntegroAI Consulting best suited for?",
+      answer: "IntegroAI Consulting is best suited for SME leaders who want clear judgement before investing in AI initiatives. This includes founders, managing directors, and functional leaders who need clarity on priorities, risks, and readiness. If you want vendor-agnostic advice and a structured decision path, you will fit well. A good starting point is the AI Readiness Assessment.",
     },
     {
       question: "How much does AI consulting cost for small businesses?",
-      answer: "AI consulting costs for SMEs vary based on scope. A focused AI readiness assessment typically takes 2-4 weeks. Strategy and roadmapping projects run 4-8 weeks. Implementation support can range from 3-12 months. We always start with a free discovery call to understand your situation and provide a tailored proposal. Our approach is designed to deliver measurable ROI, ensuring the investment pays for itself.",
+      answer: "Costs depend on scope, complexity, and how much decision clarity already exists. Most SME engagements begin with an AI Readiness Assessment to establish priorities, gaps, and risks before any roadmap or delivery work. Strategy and roadmapping typically follows once the decision to proceed is justified. This approach helps ensure investment decisions are proportionate and grounded.",
     },
     {
-      question: "Do you help with specific AI tool selection?",
-      answer: "Yes, vendor-agnostic guidance is core to our service. We help you evaluate AI tools and platforms based on your specific needs, budget, and technical environment. We don't push any particular vendors or receive commissions—our only interest is finding what works best for your business. This includes comparing options for automation, analytics, generative AI, and industry-specific solutions.",
+      question: "Do you help with AI tool selection?",
+      answer: "Yes, when tool selection is the right step. We stay vendor-agnostic and evaluate tools against your business needs, constraints, and risk profile. Tool selection comes after problem clarity, readiness, and success measures are defined. This keeps decisions grounded and reduces the chance of automating the wrong process.",
     },
     {
       question: "What if we're not sure where to start with AI?",
-      answer: "That's exactly why our Discovery service exists. Many clients come to us knowing they need to 'do something with AI' but aren't sure what. We'll help you understand your current state through our AI readiness assessment, identify high-impact opportunities, and create a clear starting point with prioritised use cases. No technical background required—we translate AI possibilities into business outcomes.",
+      answer: "Start by clarifying the business problem and whether AI is worth pursuing right now. The AI Readiness Assessment helps you identify readiness gaps across leadership, process, and data, and highlights where clarity is still missing. From there, you can prioritise a small number of initiatives based on value, risk, and feasibility. This approach protects budget and avoids rushed decisions.",
     },
     {
-      question: "How long does it take to see ROI from AI implementation?",
-      answer: "With our Discover-Design-Validate-Deliver framework, most clients see initial ROI within 3-6 months through quick-win automation and efficiency gains. We focus on identifying high-impact, low-effort opportunities first, then build toward more transformative projects. Our ongoing advisory service includes monthly KPI tracking to ensure AI initiatives continue delivering measurable value.",
+      question: "How long does it take to see value from AI?",
+      answer: "Timelines vary because value depends on problem clarity, foundations, and adoption. Some organisations see early value from narrow, well-defined use cases, while others need to address process or data gaps first. The fastest route to value is choosing the right problem and defining success measures before tools are selected. The AI Readiness Assessment is designed to establish that starting point.",
     },
-  ];
+    {
+    question: "What is an AI Readiness Assessment?",
+    answer:
+      "An AI Readiness Assessment helps SME leaders understand whether their business is prepared to invest in AI. It examines the clarity of the business problem, current processes, data foundations, and organisational readiness before any tools or platforms are considered. The assessment highlights risks, gaps, and priority areas so decisions are made with confidence rather than assumption.",
+    },
+    {
+    question: "When should a business not invest in AI?",
+    answer:
+      "A business should pause AI investment when the underlying problem is unclear, processes are broken, or data foundations are weak. If success measures are undefined or leadership alignment is missing, AI often adds complexity rather than value. In these situations, restraint is the smarter decision until fundamentals are addressed.",
+    },
+    ];
 
   const faqSchema = {
     "@context": "https://schema.org",
