@@ -25,7 +25,10 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+
+        <main id="main-content" tabIndex={-1}>
         <Routes>
+          {/* your existing routes stay exactly the same */}
           <Route path="/" element={<Index />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
@@ -37,6 +40,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </main>
       </BrowserRouter>
     </TooltipProvider>
     </QueryClientProvider>
