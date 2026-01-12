@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KQCJ7DCJ');</script>
-   <!-- End Google Tag Manager -->
-        
+<!-- Google Tag Manager (delay 2s after window load) -->
+<script>
+  (function () {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        var f = document.getElementsByTagName("script")[0];
+        var j = document.createElement("script");
+        j.async = true;
+       j.src = "https://www.googletagmanager.com/gtm.js?id=GTM-KQCJ7DCJ&l=dataLayer";
+       f.parentNode.insertBefore(j, f);
+      }, 2000);
+    });
+  })();
+</script>
+<!-- End Google Tag Manager -->
+
+     
     <meta charset="UTF-8" />
     <meta name="google-site-verification" content="z8olSDLUsufOQ4UZ5KSVJU4J4QL3njGTedmP5rOgYQY" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
