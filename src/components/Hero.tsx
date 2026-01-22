@@ -21,8 +21,8 @@ const Hero = () => {
       </div>
       
       {/* Premium gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/70 to-primary/50" />
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-primary/20" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-primary/25 to-primary/15" />
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/35 via-transparent to-primary/10" />
       
       {/* Subtle animated accent */}
       <motion.div 
