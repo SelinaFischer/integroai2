@@ -16,7 +16,7 @@ const Hero = () => {
           height={1080}
           fetchPriority="high"
           decoding="async"
-          className="w-full h-full object-cover object-center brightness-72 contrast-90 saturate-65"
+          className="w-full h-full object-cover object-center brightness-68 contrast-95 saturate-60"
         />
       </div>
       
@@ -24,17 +24,25 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-[#012f46]/55 via-[#012f46]/38 to-[#012f46]/22" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#012f46]/45 via-transparent to-[#012f46]/18" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/32 to-black/48" />
+
+     {/* Center focus panel (quiet background behind text) */}
+     <div
+       className="absolute inset-0 z-10 pointer-events-none flex items-center justify-center"
+       aria-hidden="true"
+     >
+       <div className="w-[min(900px,92%)] h-[min(520px,62vh)] rounded-3xl bg-black/28 backdrop-blur-md ring-1 ring-white/10" />
+     </div>
       
       {/* Subtle animated accent */}
       <motion.div 
-        className="absolute top-1/3 right-0 w-[600px] h-[600px] bg-accent-warm/10 rounded-full blur-[150px]"
+        className="absolute top-1/3 right-0 w-[600px] h-[600px] bg-accent-warm/10 rounded-full blur-[150px] z-0"
         animate={{ 
           opacity: [0.1, 0.15, 0.1]
         }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-36 pb-24 sm:pb-32 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-36 pb-24 sm:pb-32 relative z-20">
         <div className="max-w-3xl mx-auto text-center">
           {/* Minimal badge */}
           <motion.div 
@@ -98,7 +106,7 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.6 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30"
       >
         <motion.a 
           href="#services"
