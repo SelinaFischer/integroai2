@@ -16,13 +16,14 @@ const Hero = () => {
           height={1080}
           fetchPriority="high"
           decoding="async"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-center brightness-72 contrast-90 saturate-65"
         />
       </div>
       
       {/* Premium gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/55 via-primary/40 to-primary/25" />
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/50 via-transparent to-primary/20" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#012f46]/55 via-[#012f46]/38 to-[#012f46]/22" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#012f46]/45 via-transparent to-[#012f46]/18" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/32 to-black/48" />
       
       {/* Subtle animated accent */}
       <motion.div 
