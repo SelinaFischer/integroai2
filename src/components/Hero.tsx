@@ -30,7 +30,7 @@ const Hero = () => {
        className="absolute inset-0 z-10 pointer-events-none flex items-center justify-center"
        aria-hidden="true"
      >
-       <div className="w-[min(900px,92%)] h-[min(520px,62vh)] rounded-3xl bg-black/28 backdrop-blur-md ring-1 ring-white/10" />
+       <div className="w-[min(900px,92%)] h-[min(520px,62vh)] rounded-3xl bg-[#012f46]/45 ring-1 ring-white/10 shadow-[0_10px_40px_#00000059]" />
      </div>
       
       {/* Subtle animated accent */}
