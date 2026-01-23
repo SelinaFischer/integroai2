@@ -121,17 +121,17 @@ const Hero = () => {
       </motion.div>
 
       {/* Bottom wave */}
-      <div className="absolute bottom-0 left-0 w-full opacity-30 sm:opacity-45 pointer-events-none blur-[1px]">
+      <div className="absolute bottom-0 left-0 w-full pointer-events-none leading-none overflow-hidden">
         <svg
           viewBox="0 0 1440 80"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-full"
+          className="block w-full"
           preserveAspectRatio="none"
       >
          <path
            d="M0 80L60 74C120 68 240 56 360 52C480 48 600 52 720 56C840 60 960 64 1080 62C1200 60 1320 52 1380 48L1440 44V80H1380C1320 80 1200 80 1080 80C960 80 840 80 720 80C600 80 480 80 360 80C240 80 120 80 60 80H0Z"
-           fill="hsl(0 0% 100%)"
+           fill="#FFFFFF"
         />
       </svg>
     </div>
