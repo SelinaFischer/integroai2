@@ -116,9 +116,9 @@ const PainPoints = () => {
         >
           <div className="relative inline-block">
             <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-accent-warm/20 to-primary/20 rounded-xl blur-lg" />
-            <p className="relative text-sm sm:text-base font-medium bg-card border border-border/50 rounded-xl p-5 sm:p-6 shadow-lg">
-             AI tends to amplify what already exists. When foundations are unclear, it amplifies inefficiency rather than value.
-            </p>
+            <p className="relative text-base sm:text-lg font-semibold bg-card border border-border/50 rounded-xl p-5 sm:p-6 shadow-lg text-primary">
+               AI tends to amplify what already exists. When foundations are unclear, it amplifies inefficiency rather than value.
+           </p>
           </div>
         </motion.div>
       </div>
