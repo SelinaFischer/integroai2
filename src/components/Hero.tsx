@@ -121,7 +121,7 @@ const Hero = () => {
       </motion.div>
 
       {/* Bottom wave */}
-      <div className="absolute bottom-0 left-0 w-full opacity-40 sm:opacity-60 pointer-events-none blur-[0.5px]">
+      <div className="absolute bottom-0 left-0 w-full opacity-40 sm:opacity-60 pointer-events-none blur-[1px]">
         <svg
           viewBox="0 0 1440 80"
           fill="none"
