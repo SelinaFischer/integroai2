@@ -16,7 +16,7 @@ const Hero = () => {
           height={1080}
           fetchPriority="high"
           decoding="async"
-          className="w-full h-full object-cover object-[center_85%] brightness-68 contrast-95 saturate-60"
+          className="w-full h-full object-cover object-[center_80%] brightness-68 contrast-95 saturate-60"
         />
       </div>
       
