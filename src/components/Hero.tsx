@@ -95,7 +95,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.55 }}
-            className="mt-4 text-sm sm:text-base text-white/60 max-w-xl mx-auto"
+            className="mt-4 text-sm sm:text-base text-[#bacbcb] max-w-xl mx-auto"
          >
            For leadership teams evaluating AI adoption and automation
            </motion.p>          
