@@ -17,7 +17,7 @@ const Founder = () => {
             Leadership
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">
-            Meet the Founder & CEO –{" "}
+            Meet the Founder &amp; CEO –{" "}
             <span className="text-shimmer-gold">Selina</span>
           </h2>
         </motion.div>
@@ -61,32 +61,42 @@ const Founder = () => {
               {/* Credentials badges */}
               <div className="flex flex-wrap justify-center lg:justify-start gap-2">
                 <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                  20+ Years Experience
+                  20+ Years Product & Tech Leadership 
                 </span>
                 <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-accent-warm/10 text-accent-warm">
-                  Product & Tech Leader
+                  Business-Led AI Strategy
                 </span>
                 <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                  AI Strategy Expert
+                   AI & Data Strategy Focus
                 </span>
               </div>
 
               <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-                Most AI failures are not technical—they are strategic. I help SME leaders gain decision clarity before committing time, budget, or teams to AI initiatives.
+               Most AI initiatives fail not because the technology is inadequate, but because the underlying
+               decisions are rushed or misaligned. My work focuses on helping leaders gain clarity before
+               committing time, budget, or teams to AI initiatives.
               </p>
               <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                My work focuses on understanding where AI genuinely fits in the business, what needs to be in place first, and where restraint is the smarter decision.
+                My background combines deep technical understanding with a strong focus on business outcomes.
+                While I have explored AI at a technical level, my priority has always been its practical
+                application: where AI genuinely adds value, what needs to be in place first, and when restraint
+                is the smarter decision.
               </p>
 
               <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                With a background across product management, technology, and commercial leadership, 
-                I bring a structured, business-led approach to AI decisions. When execution is justified, 
-                I work with trusted specialists to ensure delivery is aligned and accountable.
+               This perspective has shaped a disciplined, business-led approach to AI adoption that prioritises
+               readiness, governance, and measurable results over experimentation or hype.
               </p>
+
+              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                 Through IntegroAI Consulting, I work with leadership teams to make confident AI decisions,
+                 guiding them through a structured process that clarifies priorities, reduces risk, and ensures
+                 AI initiatives are aligned with real business needs.
+             </p>              
 
               <blockquote className="border-l-4 border-accent-warm pl-4 sm:pl-6 py-3 italic text-foreground/80 text-base sm:text-lg bg-accent-warm/5 rounded-r-lg text-left">
-                "If you want clarity on where AI fits before committing resources, I help you 
-                determine if AI is your next opportunity or a distraction best avoided."
+                "If you want clarity on where AI fits before committing resources, I help you
+                 determine whether AI is a genuine opportunity or a distraction best avoided."
               </blockquote>
 
               {/* LinkedIn Link */}
