@@ -5,28 +5,28 @@ const PainPoints = () => {
   const painPoints = [
     {
       icon: Users,
-      title: "Leadership not driving AI",
-      description: "AI initiatives stall without executive sponsorship and clear ownership",
+      title: "Unclear leadership ownership",
+      description: "AI initiatives lose momentum when sponsorship, accountability, and decision ownership are not clearly defined.",
     },
     {
       icon: Target,
-      title: "No clear priorities",
-      description: "Too many ideas, not enough focus on what will actually move the needle",
+      title: "Competing priorities",
+      description: "Too many potential use cases, without a clear view of which initiatives will genuinely create value.",
     },
     {
       icon: Database,
-      title: "Weak data foundations",
-      description: "Rushing to implement AI tools before your data is ready to support them",
+      title: "Data foundations not ready",
+      description: "AI tools introduced before data quality, access, or consistency are sufficient to support them.",
     },
     {
       icon: GraduationCap,
-      title: "Team knowledge gaps",
-      description: "Staff unsure how to use AI effectively or integrate it into their work",
+      title: "Limited organisational readiness",
+      description: "Teams unsure how AI fits into existing workflows or how to use it responsibly in their roles.",
     },
     {
       icon: AlertTriangle,
-      title: "No success metrics",
-      description: "Can't prove ROI because there's no baseline or measurement framework",
+      title: "No clear success metrics",
+      description: "Outcomes are difficult to validate when there is no agreed baseline or way to measure impact.",
     },
   ];
 
@@ -69,10 +69,10 @@ const PainPoints = () => {
             The Reality
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-4">
-            Why AI Fails for Most SMEs
+             Why AI Initiatives Stall
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-            Automating broken processes only scales the chaos. Most organisations rush to implement without fixing what's already broken.
+             In many SMEs, AI initiatives struggle not because the technology is flawed, but because the conditions for success were never clearly established.
           </p>
         </motion.div>
 
