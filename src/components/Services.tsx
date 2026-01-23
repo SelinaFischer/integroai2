@@ -67,13 +67,20 @@ const Services = () => {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-4" itemProp="name">
             AI Consulting Services for SMEs
           </h2>
-          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed" itemProp="description">
-            What does an AI consultant do? IntegroAI Consulting provides AI readiness and transformation advisory for SME leaders who want decision clarity before investing in AI.
+          <p className="text-sm sm:text-base font-medium mb-1">
+              What is the role of an AI consultant?
+         </p>
+         <p className="text-muted-foreground text-sm sm:text-base leading-relaxed" itemProp="description">
+            IntegroAI Consulting provides AI readiness and transformation advisory for SME leaders who want decision clarity before investing in AI.
           </p>
           
           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
             In practice, we define priorities, surface readiness gaps, and offer structured oversight when execution is justified.          
           </p>
+
+          <p className="mt-3 text-muted-foreground text-sm sm:text-base leading-relaxed font-medium">
+             Most organisations do not need every service at once. The goal is to engage at the point that matches your readiness and business context.
+         </p>          
         </motion.div>
 
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 max-w-7xl mx-auto">
