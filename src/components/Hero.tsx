@@ -25,13 +25,8 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-[#012f46]/45 via-transparent to-[#012f46]/18" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/32 to-black/48" />
 
-     {/* Center focus panel (quiet background behind text) */}
-     <div
-       className="absolute inset-0 z-10 pointer-events-none flex items-center justify-center"
-       aria-hidden="true"
-     >
-       <div className="w-[min(900px,92%)] h-[min(520px,62vh)] rounded-3xl bg-[#012f46]/45 ring-1 ring-white/10 shadow-[0_10px_40px_#00000059]" />
-     </div>
+      {/* Text spotlight (no box, blends naturally) */}
+      <div className="absolute inset-0 z-10 pointer-events-none bg-[radial-gradient(ellipse_at_center,_#00000099_0%,_#00000066_35%,_#00000000_70%)]" aria-hidden="true" />
       
       {/* Subtle animated accent */}
       <motion.div 
@@ -61,7 +56,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.05] mb-6 sm:mb-8 font-semibold tracking-tight"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.05] mb-6 sm:mb-8 font-semibold tracking-tight drop-shadow-[0_12px_30px_#00000080]"
           >
             Stop Automating
             <br />
