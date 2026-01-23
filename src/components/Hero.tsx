@@ -21,8 +21,8 @@ const Hero = () => {
       </div>
       
       {/* Premium gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/70 to-primary/50" />
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-primary/20" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/55 via-primary/35 to-primary/20" />
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/45 via-transparent to-primary/15" />
       
       {/* Subtle animated accent */}
       <motion.div 
@@ -52,7 +52,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.05] mb-6 sm:mb-8 font-semibold tracking-tight"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.05] mb-6 sm:mb-8 font-semibold tracking-tight drop-shadow-[0_10px_30px_#00000080]"
           >
             Stop Automating
             <br />
