@@ -61,42 +61,29 @@ const Founder = () => {
               {/* Credentials badges */}
               <div className="flex flex-wrap justify-center lg:justify-start gap-2">
                 <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                  20+ Years Product & Tech Leadership 
+                  20+ Years in Product & Tech  
                 </span>
                 <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-accent-warm/10 text-accent-warm">
-                  Business-Led AI Strategy
+                  Business-First AI Perspective
                 </span>
                 <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                   AI & Data Strategy Focus
+                   AI & Data Strategy 
                 </span>
               </div>
 
               <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-               Most AI initiatives fail not because the technology is inadequate, but because the underlying
-               decisions are rushed or misaligned. My work focuses on helping leaders gain clarity before
-               committing time, budget, or teams to AI initiatives.
+               I’ve spent over 20 years working at the point where technology meets business reality. Over that time, I’ve seen multiple waves of innovation promise growth and efficiency, and I’ve also seen how easily those promises turn into added complexity when organisational context and human factors are overlooked.
               </p>
               <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                My background combines deep technical understanding with a strong focus on business outcomes.
-                While I have explored AI at a technical level, my priority has always been its practical
-                application: where AI genuinely adds value, what needs to be in place first, and when restraint
-                is the smarter decision.
+                That experience shapes how I approach AI today. I am less focused on the tools themselves and more focused on how leaders decide what is genuinely worth investing in when time, attention, and resources are constrained. My work centres on evaluating AI opportunities with discipline, context, and a clear understanding of how organisations actually operate.
               </p>
 
               <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-               This perspective has shaped a disciplined, business-led approach to AI adoption that prioritises
-               readiness, governance, and measurable results over experimentation or hype.
-              </p>
-
-              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                 Through IntegroAI Consulting, I work with leadership teams to make confident AI decisions,
-                 guiding them through a structured process that clarifies priorities, reduces risk, and ensures
-                 AI initiatives are aligned with real business needs.
-             </p>              
+               To support this work, I have invested in formal training across AI consulting, AI implementation, data foundations, and leadership-led technology adoption. This informs a structured, human-first approach that helps leaders focus on the AI decisions that matter most, while avoiding unnecessary experimentation or misaligned initiatives.
+              </p>                  
 
               <blockquote className="border-l-4 border-accent-warm pl-4 sm:pl-6 py-3 italic text-foreground/80 text-base sm:text-lg bg-accent-warm/5 rounded-r-lg text-left">
-                "If you want clarity on where AI fits before committing resources, I help you
-                 determine whether AI is a genuine opportunity or a distraction best avoided."
+                "Experience teaches you that the right decision is often the simplest one."
               </blockquote>
 
               {/* LinkedIn Link */}
