@@ -67,7 +67,7 @@ const Hero = () => {
             className="text-lg sm:text-xl lg:text-2xl text-white/80 max-w-2xl mx-auto mb-10 sm:mb-12 leading-relaxed"
             itemProp="description"
           >
-            Decide what business problems are worth solving with AI before you invest time, money, or trust.
+            Decide which business problems are worth solving with AI before you invest time, money, or trust.
           </motion.p>
 
           {/* Single prominent CTA */}
@@ -97,7 +97,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.55 }}
             className="mt-4 text-sm sm:text-base text-[#bacbcb] max-w-xl mx-auto"
          >
-           For leadership teams evaluating AI adoption and automation
+           For leadership teams evaluating AI adoption and automation as a first, low-risk step.
            </motion.p>          
         </div>
       </div>
