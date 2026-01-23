@@ -16,28 +16,24 @@ const Hero = () => {
           height={1080}
           fetchPriority="high"
           decoding="async"
-          className="w-full h-full object-cover object-[center_80%] brightness-68 contrast-95 saturate-60"
+          className="w-full h-full object-cover object-center"
         />
       </div>
       
       {/* Premium gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#012f46]/55 via-[#012f46]/38 to-[#012f46]/22" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#012f46]/45 via-transparent to-[#012f46]/18" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/32 to-black/48" />
-
-      {/* Text spotlight (no box, blends naturally) */}
-      <div className="absolute inset-0 z-10 pointer-events-none bg-[radial-gradient(ellipse_at_center,_#00000099_0%,_#00000066_35%,_#00000000_70%)]" aria-hidden="true" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/70 to-primary/50" />
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-primary/20" />
       
       {/* Subtle animated accent */}
       <motion.div 
-        className="absolute top-1/3 right-0 w-[600px] h-[600px] bg-accent-warm/10 rounded-full blur-[150px] z-0"
+        className="absolute top-1/3 right-0 w-[600px] h-[600px] bg-accent-warm/10 rounded-full blur-[150px]"
         animate={{ 
           opacity: [0.1, 0.15, 0.1]
         }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-36 pb-24 sm:pb-32 relative z-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-36 pb-24 sm:pb-32 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           {/* Minimal badge */}
           <motion.div 
@@ -56,7 +52,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.05] mb-6 sm:mb-8 font-semibold tracking-tight drop-shadow-[0_12px_30px_#00000080]"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.05] mb-6 sm:mb-8 font-semibold tracking-tight"
           >
             Stop Automating
             <br />
@@ -101,7 +97,7 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.6 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10"
       >
         <motion.a 
           href="#services"
