@@ -57,10 +57,10 @@ const Framework = () => {
             Our Approach
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-4 sm:mb-6">
-            A Clear Path to AI Success
+            The IntegroAI Method
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-            From uncertainty to confident execution — a proven framework that guides you every step of the way.
+           A disciplined framework for making the right AI decisions and executing them responsibly.
           </p>
         </motion.div>
 
