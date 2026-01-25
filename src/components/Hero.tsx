@@ -35,18 +35,7 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-36 pb-24 sm:pb-32 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          {/* Minimal badge */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-3 mb-8 sm:mb-10"
-          >
-            <span className="text-white/60 text-xs sm:text-sm font-medium tracking-[0.15em] uppercase">
-              AI Strategy for Growing Businesses
-            </span>
-          </motion.div>
-
+        
           {/* Main headline - bold and clear */}
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
