@@ -77,11 +77,11 @@ const Founder = () => {
 
               <div className="mt-6 space-y-4">
                 <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                  I’ve worked in technology for over 20 years, driven by curiosity and a genuine interest in how things work. Much of my career has been in product management and delivery, turning ideas into real solutions.
+                  I’ve worked in technology for over 20 years, driven by curiosity and a genuine interest in how things work. Much of my career has been spent in product management and delivery, turning ideas into practical, working solutions.
                </p>
 
                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                That experience shaped how I think about technology. Whatever you build needs a clear purpose. You need to understand the problem you’re solving and why it matters. Without that clarity, even good technology struggles to deliver value.
+                That experience shaped how I think about technology. Whatever you build needs a clear purpose. You need to understand the problem you’re solving and why it matters. Without that clarity, even good technology struggles to deliver real value.
               </p>
 
               <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
@@ -92,7 +92,7 @@ const Founder = () => {
              </p>
 
             <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-              I started IntegroAI Consulting to bring that product-led thinking to AI adoption, helping leaders approach AI with clarity, practicality, and purpose, supported by hands-on experience and formal training in AI consulting, implementation, data foundations, and leadership-led technology adoption.
+              I started IntegroAI Consulting to bring that product-led thinking to AI adoption, helping leaders approach AI with clarity, practicality, and purpose. My work is supported by hands-on delivery experience and formal training in AI consulting, implementation, data foundations, and leadership-led technology adoption.
            </p>
         </div>                        
                                                            
