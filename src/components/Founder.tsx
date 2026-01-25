@@ -75,14 +75,56 @@ const Founder = () => {
               </div>
 
               <p className="text-muted-foreground text-base sm:text-base leading-relaxed">
-                 I help growing businesses and leadership teams avoid costly AI mistakes and invest only in initiatives that deliver real business value.
+                I’m Selina, founder of IntegroAI Consulting. I help SME leaders make
+                sound AI decisions before investing time, budget, or organisational trust.
               </p>
+              
               <p className="text-muted-foreground text-base sm:text-base leading-relaxed">
-                 With over 20 years of experience across product management, commercial analysis, and technology delivery, I bring a business-first approach to AI that focuses on clarity, adoption, and measurable outcomes. My work spans AI readiness and strategy through to responsible implementation across operations, marketing, and customer workflows, grounded in real operational context.
+                 With 20+ years across product management, commercial analysis, and technology
+                 delivery, I’ve seen how quickly new technology can create complexity when
+                 organisations lack clarity, readiness, or alignment. That experience shapes my
+                 business-first approach to AI. Value and execution come before tools.
               </p>
-              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                 My work is supported by formal training in AI consulting, implementation, data foundations, and leadership-led adoption, enabling a structured, human-centred approach to AI decisions that matter.
+
+              <p className="text-muted-foreground text-base sm:text-base leading-relaxed mt-4">
+                 IntegroAI Consulting supports leadership teams through three core pillars:
               </p>
+
+              <ul className="mt-4 space-y-4 text-muted-foreground text-base leading-relaxed">
+                <li>
+                  <strong className="text-foreground">
+                    AI Readiness and Strategic Direction
+                  </strong>
+                  <br />
+                  Clarify where AI adds value, prioritise the right initiatives, and define a
+                  practical roadmap.
+                </li>
+
+                <li>
+                  <strong className="text-foreground">
+                    Responsible Implementation and Workflow Integration
+                  </strong>
+                  <br />
+                  Embed AI into real operations and customer workflows with discipline,
+                  governance, and measurable outcomes.
+                </li>
+
+                <li>
+                  <strong className="text-foreground">
+                    Advisory, Enablement, and Adoption Support
+                  </strong>
+                  <br />
+                  Provide ongoing guidance, training, and accountability so progress is
+                  sustainable, not experimental.
+               </li>
+             </ul>                                  
+
+             <p className="text-muted-foreground text-base sm:text-base leading-relaxed mt-6">
+                My work combines hands-on delivery experience with formal training in AI
+                consulting, implementation, data foundations, and leadership-led technology
+                adoption.
+             </p>
+              
               <blockquote
                 className="border-l-4 border-accent-warm pl-4 sm:pl-6 py-3 italic text-foreground/80 text-base sm:text-lg bg-accent-warm/5 rounded-r-lg text-left"
                 style={{ color: "#012f46", borderColor: "#f5a302" }}
