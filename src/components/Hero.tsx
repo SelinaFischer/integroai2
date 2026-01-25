@@ -89,6 +89,16 @@ const Hero = () => {
               </a>
             </Button>
           </motion.div>
+
+          {/* Process clarity line */}
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="mt-4 text-sm sm:text-base text-[#e5eded] max-w-xl mx-auto"
+         >
+           Assessment → Strategy Call → Clear AI Priorities
+         </motion.p>          
           
           {/* Micro-trust line */}
           <motion.p
