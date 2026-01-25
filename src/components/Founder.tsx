@@ -77,26 +77,25 @@ const Founder = () => {
 
               <div className="mt-6 space-y-4">
                 <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                  I’ve worked in technology for over 20 years. I’ve always been curious about how things work, and most of my career has been spent in product management and delivery, where I was responsible for turning ideas into working solutions.
-                </p>
+                  I’ve worked in technology for over 20 years, driven by curiosity and a genuine interest in how things work. Much of my career has been in product management and delivery, turning ideas into real solutions.
+               </p>
 
-                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                  That experience shaped how I think about technology. Whatever you build needs a clear purpose. You need to understand the problem you’re solving, why it matters, and what success looks like. Without that clarity, even well-designed systems struggle to deliver real value.
-                </p>
+               <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                That experience shaped how I think about technology. Whatever you build needs a clear purpose. You need to understand the problem you’re solving and why it matters. Without that clarity, even good technology struggles to deliver value.
+              </p>
 
-                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                  The name IntegroAI reflects that belief. AI should integrate into how a business already operates and help it grow with purpose, rather than sit on top as another disconnected initiative.
-                </p>
+              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                <span className="font-semibold text-foreground">
+                  IntegroAI means integration and growth.
+               </span>{" "}
+              AI should integrate into how a business already operates and help it grow with intent, rather than sit on top as another disconnected layer.
+             </p>
 
-                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                  That’s why I started IntegroAI Consulting. As AI tools became more widely available, I wanted to apply the same product-led thinking to AI adoption. For me, AI should integrate into how a business already operates and support growth, not create more complexity.
-                </p>
-
-                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                  IntegroAI Consulting focuses on helping leaders approach AI with clarity and intent. The work spans AI readiness assessments, strategy and roadmap definition, workflow optimisation and automation, generative AI enablement, and advisory support. My approach is informed by hands-on delivery experience and formal training in AI consulting, implementation, data foundations, and leadership-led technology adoption.
-                </p>
-              </div>
-
+            <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+              I started IntegroAI Consulting to bring that product-led thinking to AI adoption, helping leaders approach AI with clarity, practicality, and purpose, supported by hands-on experience and formal training in AI consulting, implementation, data foundations, and leadership-led technology adoption.
+           </p>
+        </div>                        
+                                                           
               {/* LinkedIn Link */}
               <div className="flex justify-center lg:justify-start">
                 <a
