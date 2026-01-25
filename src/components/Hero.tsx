@@ -64,7 +64,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 sm:mb-10"
           >
             <Button variant="hero" size="xl" className="group shimmer" asChild>
               <a href="https://tally.so/r/68jDMA" target="_blank" rel="noopener noreferrer">
