@@ -23,14 +23,14 @@ const Founder = () => {
         </motion.div>
 
         <div className="max-w-5xl mx-auto">
-          <div className="grid lg:grid-cols-[auto,1fr] gap-10 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-[auto,1fr] gap-10 lg:gap-16 items-start">
             {/* Founder Image */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="relative flex justify-center lg:justify-start"
+              className="relative flex justify-center lg:justify-start self-start"
             >
               {/* Decorative background */}
               <div className="absolute inset-0 flex items-center justify-center">
@@ -56,7 +56,7 @@ const Founder = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-6 text-center lg:text-left"
+              className="space-y-6 text-center lg:text-left self-start"
             >
               {/* Credentials badges */}
               <div className="flex flex-wrap justify-center lg:justify-start gap-2">
@@ -95,27 +95,16 @@ const Founder = () => {
                   <strong className="text-foreground">
                     AI Readiness and Strategic Direction
                   </strong>
-                  <br />
-                  Clarify where AI adds value, prioritise the right initiatives, and define a
-                  practical roadmap.
                 </li>
-
                 <li>
                   <strong className="text-foreground">
                     Responsible Implementation and Workflow Integration
-                  </strong>
-                  <br />
-                  Embed AI into real operations and customer workflows with discipline,
-                  governance, and measurable outcomes.
+                  </strong>                
                 </li>
-
                 <li>
                   <strong className="text-foreground">
                     Advisory, Enablement, and Adoption Support
-                  </strong>
-                  <br />
-                  Provide ongoing guidance, training, and accountability so progress is
-                  sustainable, not experimental.
+                  </strong>                  
                </li>
              </ul>                                  
 
