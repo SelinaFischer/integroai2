@@ -73,6 +73,7 @@ const PainPoints = () => {
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
              In many SMEs, AI initiatives struggle not because the technology is flawed, but because the conditions for success were never clearly established.
+             That’s why we start with clarity before any tools, automation, or implementation.
           </p>
         </motion.div>
 
