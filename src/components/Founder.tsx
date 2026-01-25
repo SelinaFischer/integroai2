@@ -85,6 +85,10 @@ const Founder = () => {
                 </p>
 
                 <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                  The name IntegroAI reflects that belief. AI should integrate into how a business already operates and help it grow with purpose, rather than sit on top as another disconnected initiative.
+                </p>
+
+                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
                   That’s why I started IntegroAI Consulting. As AI tools became more widely available, I wanted to apply the same product-led thinking to AI adoption. For me, AI should integrate into how a business already operates and support growth, not create more complexity.
                 </p>
 
