@@ -109,9 +109,8 @@ const Founder = () => {
              </ul>                                  
 
              <p className="text-muted-foreground text-base sm:text-base leading-relaxed mt-6">
-                My work combines hands-on delivery experience with formal training in AI
-                consulting, implementation, data foundations, and leadership-led technology
-                adoption.
+                I combine hands-on delivery experience with formal training in AI consulting,
+                implementation, data foundations, and leadership-led technology adoption.
              </p>
               
               <blockquote
