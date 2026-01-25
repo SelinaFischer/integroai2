@@ -69,23 +69,26 @@ const Founder = () => {
                 <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
                    AI & Data Strategy Focus 
                 </span>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
+                  Practical AI for SMEs 
+                </span>                
               </div>
 
               <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-               I’ve spent over 20 years working at the point where technology meets business reality. Over that time, I’ve seen multiple waves of innovation promise growth and efficiency, and I’ve also seen how easily those promises turn into added complexity when organisational context and human factors are overlooked.
+                 I help growing businesses and leadership teams avoid costly AI mistakes and invest only in initiatives that deliver real business value.
+              </p>
+              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
+                 With over 20 years of experience across product management, commercial analysis, and technology delivery, I bring a business-first approach to AI that focuses on clarity, adoption, and measurable outcomes. My work spans AI readiness and strategy through to responsible implementation across operations, marketing, and customer workflows, grounded in real operational context.
               </p>
               <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                That experience shapes how I approach AI today. I am less focused on the tools themselves and more focused on how leaders decide what is genuinely worth investing in when time, attention, and resources are constrained. My work centres on evaluating AI opportunities with discipline, context, and a clear understanding of how organisations actually operate.
+                 My work is supported by formal training in AI consulting, implementation, data foundations, and leadership-led adoption, enabling a structured, human-centred approach to AI decisions that matter.
               </p>
-
-              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-               To support this work, I have invested in formal training across AI consulting, AI implementation, data foundations, and leadership-led technology adoption. This informs a structured, human-first approach that helps leaders focus on the AI decisions that matter most, while avoiding unnecessary experimentation or misaligned initiatives.
-              </p>                  
-
               <blockquote className="border-l-4 border-accent-warm pl-4 sm:pl-6 py-3 italic text-foreground/80 text-base sm:text-lg bg-accent-warm/5 rounded-r-lg text-left">
-                "Experience teaches you that the right decision is often the simplest one."
+                          style={{ color: "#012f46" }}
+              >
+                "Clarity is the real competitive advantage in AI."
               </blockquote>
-
+              
               {/* LinkedIn Link */}
               <div className="flex justify-center lg:justify-start">
                 <a
