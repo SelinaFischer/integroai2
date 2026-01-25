@@ -84,7 +84,8 @@ const Founder = () => {
                  My work is supported by formal training in AI consulting, implementation, data foundations, and leadership-led adoption, enabling a structured, human-centred approach to AI decisions that matter.
               </p>
               <blockquote className="border-l-4 border-accent-warm pl-4 sm:pl-6 py-3 italic text-foreground/80 text-base sm:text-lg bg-accent-warm/5 rounded-r-lg text-left">
-                          style={{ color: "#012f46", borderColor: "#012f46" }}              
+                          style={{ color: "#012f46", borderColor: "#012f46" }} 
+              >
                 "Clarity is the real competitive advantage in AI."
               </blockquote>
               
