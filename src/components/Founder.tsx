@@ -16,6 +16,7 @@ const Founder = () => {
           <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
             Leadership
           </span>
+
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">
             Meet the Founder &amp; CEO –{" "}
             <span className="text-shimmer-gold">Selina</span>
@@ -36,11 +37,11 @@ const Founder = () => {
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-[90%] h-[90%] bg-gradient-to-br from-primary/10 via-accent-warm/10 to-primary/5 rounded-full blur-3xl" />
               </div>
-              
+
               <div className="relative w-72 sm:w-96 lg:w-[28rem] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border/20">
-                <img 
-                  src={selinaPhoto} 
-                  alt="Selina Fischer - IntegroAI Founder and CEO" 
+                <img
+                  src={selinaPhoto}
+                  alt="Selina Fischer - IntegroAI Founder and CEO"
                   width={400}
                   height={400}
                   loading="lazy"
@@ -61,65 +62,37 @@ const Founder = () => {
               {/* Credentials badges */}
               <div className="flex flex-wrap justify-center lg:justify-start gap-2">
                 <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                  20+ Years in Product & Tech  
-                </span>
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-accent-warm/10 text-accent-warm">
-                  Business-First AI Perspective
+                  20+ Years in Product & Tech
                 </span>
                 <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                   AI & Data Strategy Focus 
+                  AI & Data Strategy
                 </span>
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-accent-warm/10 text-accent-warm">
-                  Practical AI for SMEs 
-                </span>                
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
+                  Leadership-Led Adoption
+                </span>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
+                  Applied AI for SMEs
+                </span>
               </div>
 
-              <p className="text-muted-foreground text-base sm:text-base leading-relaxed">
-                I’m Selina, founder of IntegroAI Consulting. I help SME leaders make
-                sound AI decisions before investing time, budget, or organisational trust.
-              </p>
-              
-              <p className="text-muted-foreground text-base sm:text-base leading-relaxed">
-                 With 20+ years across product management, commercial analysis, and technology
-                 delivery, I’ve seen how quickly new technology can create complexity when
-                 organisations lack clarity, readiness, or alignment. That experience shapes my
-                 business-first approach to AI. Value and execution come before tools.
-              </p>
+              <div className="mt-6 space-y-4">
+                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                  I’ve worked in technology for over 20 years. I’ve always been curious about how things work, and most of my career has been spent in product management and delivery, where I was responsible for turning ideas into working solutions.
+                </p>
 
-              <p className="text-muted-foreground text-base sm:text-base leading-relaxed mt-4">
-                 IntegroAI Consulting supports leadership teams through three core pillars:
-              </p>
+                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                  That experience shaped how I think about technology. Whatever you build needs a clear purpose. You need to understand the problem you’re solving, why it matters, and what success looks like. Without that clarity, even well-designed systems struggle to deliver real value.
+                </p>
 
-              <ul className="mt-4 space-y-4 text-muted-foreground text-base leading-relaxed">
-                <li>
-                  <strong className="text-foreground">
-                    AI Readiness and Strategic Direction
-                  </strong>
-                </li>
-                <li>
-                  <strong className="text-foreground">
-                    Responsible Implementation and Workflow Integration
-                  </strong>                
-                </li>
-                <li>
-                  <strong className="text-foreground">
-                    Advisory, Enablement, and Adoption Support
-                  </strong>                  
-               </li>
-             </ul>                                  
+                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                  That’s why I started IntegroAI Consulting. As AI tools became more widely available, I wanted to apply the same product-led thinking to AI adoption. For me, AI should integrate into how a business already operates and support growth, not create more complexity.
+                </p>
 
-             <p className="text-muted-foreground text-base sm:text-base leading-relaxed mt-6">
-                I combine hands-on delivery experience with formal training in AI consulting,
-                implementation, data foundations, and leadership-led technology adoption.
-             </p>
-              
-              <blockquote
-                className="border-l-4 border-accent-warm pl-4 sm:pl-6 py-3 italic text-foreground/80 text-base sm:text-lg bg-accent-warm/5 rounded-r-lg text-left"
-                style={{ color: "#012f46", borderColor: "#f5a302" }}
-              >
-                “Clarity is the real competitive advantage in AI.”
-              </blockquote>            
-              
+                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                  IntegroAI Consulting focuses on helping leaders approach AI with clarity and intent. The work spans AI readiness assessments, strategy and roadmap definition, workflow optimisation and automation, generative AI enablement, and advisory support. My approach is informed by hands-on delivery experience and formal training in AI consulting, implementation, data foundations, and leadership-led technology adoption.
+                </p>
+              </div>
+
               {/* LinkedIn Link */}
               <div className="flex justify-center lg:justify-start">
                 <a
