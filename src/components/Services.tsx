@@ -67,20 +67,34 @@ const Services = () => {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-4" itemProp="name">
             AI Consulting Services for SMEs
           </h2>
-          <p className="text-sm sm:text-base font-medium mb-1">
-              What is the role of an AI consultant?
-         </p>
-         <p className="text-muted-foreground text-sm sm:text-base leading-relaxed" itemProp="description">
-            IntegroAI Consulting provides AI readiness and transformation advisory for SME leaders who want decision clarity before investing in AI.
+
+          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed" itemProp="description">
+            IntegroAI Consulting helps SME leadership teams adopt AI through three core pillars: clarity, execution, and
+            accountability.
           </p>
-          
-          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-            In practice, we define priorities, surface readiness gaps, and offer structured oversight when execution is justified.          
+
+          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mt-3">
+            <span className="font-medium text-foreground">Clarity</span> starts with an AI Readiness and Transformation
+            Assessment that defines priority use cases, exposes material risks, and sets clear decision boundaries for AI
+            investment.
+          </p>
+
+          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mt-2">
+            <span className="font-medium text-foreground">Execution</span> focuses on end to end delivery when
+            justified. This includes implementation assessments, AI automation and workflow optimisation, generative AI
+            enablement for marketing and content, and chatbot integration across customer workflows.
+          </p>
+
+          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mt-2">
+            <span className="font-medium text-foreground">Accountability</span> ensures AI adoption delivers measurable
+            outcomes through ongoing advisory retainers, governance, prioritisation, and executive oversight.
           </p>
 
           <p className="mt-3 text-muted-foreground text-sm sm:text-base leading-relaxed font-medium">
-             Most organisations do not need every service at once. The goal is to engage at the point that matches your readiness and business context.
-         </p>          
+            Services are phased and selective by design. The goal is not more AI, but better decisions, lower risk, and
+            outcomes leadership teams can confidently stand behind.
+          </p>        
+                  
         </motion.div>
 
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 max-w-7xl mx-auto">
