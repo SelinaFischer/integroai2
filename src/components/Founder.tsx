@@ -69,15 +69,15 @@ const Founder = () => {
                 <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
                    AI & Data Strategy Focus 
                 </span>
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-accent-warm/10 text-accent-warm">
                   Practical AI for SMEs 
                 </span>                
               </div>
 
-              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
+              <p className="text-muted-foreground text-base sm:text-base leading-relaxed">
                  I help growing businesses and leadership teams avoid costly AI mistakes and invest only in initiatives that deliver real business value.
               </p>
-              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
+              <p className="text-muted-foreground text-base sm:text-base leading-relaxed">
                  With over 20 years of experience across product management, commercial analysis, and technology delivery, I bring a business-first approach to AI that focuses on clarity, adoption, and measurable outcomes. My work spans AI readiness and strategy through to responsible implementation across operations, marketing, and customer workflows, grounded in real operational context.
               </p>
               <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
@@ -85,7 +85,7 @@ const Founder = () => {
               </p>
               <blockquote
                 className="border-l-4 border-accent-warm pl-4 sm:pl-6 py-3 italic text-foreground/80 text-base sm:text-lg bg-accent-warm/5 rounded-r-lg text-left"
-                style={{ color: "#012f46", borderColor: "#012f46" }}
+                style={{ color: "#012f46", borderColor: "#f5a302" }}
               >
                 “Clarity is the real competitive advantage in AI.”
               </blockquote>            
