@@ -61,7 +61,7 @@ const CTA = () => {
             <Button variant="hero" size="lg" className="group shimmer" asChild>
               <a href="https://tally.so/r/68jDMA" target="_blank" rel="noopener noreferrer">
                 <Calendar className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
-                Take AI Readiness Assessment
+                Begin Your Assessment
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
               </a>
             </Button>
