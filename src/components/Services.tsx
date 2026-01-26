@@ -88,7 +88,7 @@ const Services = () => {
           </p>
 
           <p className="text-sm sm:text-base font-semibold text-foreground mb-4">
-            Three core pillars
+            Three Core Pillars
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-left">
