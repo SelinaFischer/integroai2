@@ -53,7 +53,7 @@ const Values = () => {
 
             <div className="space-y-4 max-w-3xl mx-auto text-left">
               <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                IntegroAI Consulting applies structured assessment and delivery discipline to AI adoption, helping organisations make informed, business-led decisions.
+                IntegroAI Consulting applies structured assessment and delivery discipline to AI adoption, enabling informed, business-led decisions.
               </p>
 
               <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
