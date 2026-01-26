@@ -11,37 +11,37 @@ const FAQ = () => {
   const faqs = [
     {
       question: "What is AI consulting for SMEs?",
-      answer: "AI consulting for SMEs helps leaders decide where AI fits in the business before committing budget, tools, or teams. It focuses on decision clarity, readiness, and commercially grounded prioritisation. Typical work includes defining the business problem, assessing process and data foundations, and mapping a realistic sequence of initiatives. The goal is to avoid wasted spend and pursue AI only where it can deliver measurable value.",
+      answer: "AI consulting for SMEs focuses on helping leaders decide where AI is worth pursuing before committing budget, tools, or teams. The work centres on readiness, prioritisation, and commercially grounded decision-making. The goal is to avoid wasted spend and apply AI only where it can deliver measurable value.",
     },
     {
       question: "Who is IntegroAI Consulting best suited for?",
-      answer: "IntegroAI Consulting is best suited for SME leaders who want clear judgement before investing in AI initiatives. This includes founders, managing directors, and functional leaders who need clarity on priorities, risks, and readiness. If you want vendor-agnostic advice and a structured decision path, you will fit well. A good starting point is the AI Readiness Assessment.",
+      answer: "IntegroAI Consulting is best suited for SME leaders who want clear judgement before investing in AI. This includes founders and senior leaders responsible for priorities, risk, and outcomes. If you value structured, vendor-agnostic decision support, the approach is a strong fit.",
     },
     {
       question: "How much does AI consulting cost for small businesses?",
-      answer: "Costs depend on scope, complexity, and how much decision clarity already exists. Most SME engagements begin with an AI Readiness Assessment to establish priorities, gaps, and risks before any roadmap or delivery work. Strategy and roadmapping typically follows once the decision to proceed is justified. This approach helps ensure investment decisions are proportionate and grounded.",
+      answer: "Costs depend on scope, complexity, and the level of clarity already in place. Engagements are scoped per project and anchored in the value created, not hours. Most work begins with an AI Readiness Assessment to clarify priorities, risks, and potential return.",
     },
     {
       question: "Do you help with AI tool selection?",
-      answer: "Yes, when tool selection is the right step. We stay vendor-agnostic and evaluate tools against your business needs, constraints, and risk profile. Tool selection comes after problem clarity, readiness, and success measures are defined. This keeps decisions grounded and reduces the chance of automating the wrong process.",
+      answer: "Yes, when tool selection is the right step. All recommendations are vendor-agnostic and assessed against business needs, constraints, and risk. Tool decisions come after problem clarity and readiness are established, not before.",
     },
     {
       question: "What if we're not sure where to start with AI?",
-      answer: "Start by clarifying the business problem and whether AI is worth pursuing right now. The AI Readiness Assessment helps you identify readiness gaps across leadership, process, and data, and highlights where clarity is still missing. From there, you can prioritise a small number of initiatives based on value, risk, and feasibility. This approach protects budget and avoids rushed decisions.",
+      answer: "Uncertainty is a common starting point. The AI Readiness Assessment helps clarify whether AI is appropriate now, where gaps exist, and which problems are worth addressing first. This prevents rushed decisions and protects budget.",
     },
     {
       question: "How long does it take to see value from AI?",
-      answer: "Timelines vary because value depends on problem clarity, foundations, and adoption. Some organisations see early value from narrow, well-defined use cases, while others need to address process or data gaps first. The fastest route to value is choosing the right problem and defining success measures before tools are selected. The AI Readiness Assessment is designed to establish that starting point.",
+      answer: "Timelines vary based on readiness, problem definition, and adoption. Some organisations see early value from focused use cases, while others need to address foundations first. Choosing the right problem is the fastest route to value.",
     },
     {
     question: "What is an AI Readiness Assessment?",
     answer:
-      "An AI Readiness Assessment helps SME leaders understand whether their business is prepared to invest in AI. It examines the clarity of the business problem, current processes, data foundations, and organisational readiness before any tools or platforms are considered. The assessment highlights risks, gaps, and priority areas so decisions are made with confidence rather than assumption.",
+      "An AI Readiness Assessment evaluates whether a business is prepared to invest in AI. It looks at problem clarity, processes, data foundations, and organisational readiness before tools are considered. The outcome is clearer priorities, risks, and next steps.",
     },
     {
     question: "When should a business not invest in AI?",
     answer:
-      "A business should pause AI investment when the underlying problem is unclear, processes are broken, or data foundations are weak. If success measures are undefined or leadership alignment is missing, AI often adds complexity rather than value. In these situations, restraint is the smarter decision until fundamentals are addressed.",
+      "AI investment should pause when problems are unclear, processes are broken, or data foundations are weak. Without leadership alignment and defined success measures, AI often adds complexity rather than value. In these cases, restraint is the better decision.",
     },
     ];
 
