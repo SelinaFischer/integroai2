@@ -48,6 +48,16 @@ const Hero = () => {
             <span className="text-gradient-gold">Broken Processes.</span>
           </motion.h1>
 
+          {/* Destination outcome line */}
+         <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.18 }}
+          className="text-xl sm:text-2xl text-white/90 max-w-2xl mx-auto mb-4 sm:mb-6 leading-relaxed font-medium"
+        >
+          Make AI decisions with clarity, confidence, and control.
+        </motion.p>          
+
           {/* Single clear value proposition */}
           <motion.p 
             initial={{ opacity: 0, y: 30 }}
@@ -58,6 +68,11 @@ const Hero = () => {
           >
             Decide which business problems are worth solving with AI before you invest time, money, or trust.
           </motion.p>
+
+          {/* SEO context line. INSERT HERE */}
+          <p className="sr-only">
+            AI consulting for SME leaders focused on AI readiness, decision clarity, and responsible AI investment.
+          </p>
 
           {/* Single prominent CTA */}
           <motion.div 
