@@ -49,26 +49,25 @@ const Hero = () => {
           </motion.h1>
 
           {/* Destination outcome line */}
-         <motion.p
-          initial={{ opacity: 0, y: 30 }}
+          <motion.p
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.18 }}
-          className="text-xl sm:text-2xl text-white/90 max-w-2xl mx-auto mb-4 sm:mb-6 leading-relaxed font-medium"
-        >
+          className="text-xl sm:text-2xl md:text-3xl text-white/95 max-w-2xl mx-auto mb-3 sm:mb-4 leading-snug font-medium"
+         >
           Make AI decisions with clarity, confidence, and control.
-        </motion.p>          
+        </motion.p>         
 
           {/* Single clear value proposition */}
-          <motion.p 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-lg sm:text-xl lg:text-2xl text-white/80 max-w-2xl mx-auto mb-10 sm:mb-12 leading-relaxed"
-            itemProp="description"
-          >
-            Decide which business problems are worth solving with AI before you invest time, money, or trust.
+          <motion.p
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.24 }}
+          className="text-sm sm:text-base text-white/65 max-w-xl mx-auto mb-10 sm:mb-12 leading-relaxed"
+        >
+          A business ready for AI. Structured before you invest.
           </motion.p>
-
+         
           {/* SEO context line. INSERT HERE */}
           <p className="sr-only">
             AI consulting for SME leaders focused on AI readiness, decision clarity, and responsible AI investment.
