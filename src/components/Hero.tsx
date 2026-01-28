@@ -63,7 +63,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.24 }}
-          className="text-xs sm:text-sm md:text-sm text-white/60 max-w-xl mx-auto mb-10 sm:mb-12 lg:mb-14 leading-relaxed italic"
+          className="text-sm sm:text-base text-white/60 max-w-xl mx-auto mb-10 sm:mb-12 lg:mb-14 leading-relaxed italic"
         >
           Ready for AI. Structured before you invest.
           </motion.p>
