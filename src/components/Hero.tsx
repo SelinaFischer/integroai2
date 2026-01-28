@@ -41,7 +41,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.05] mb-6 sm:mb-8 font-semibold tracking-tight drop-shadow-[0_6px_18px_#00000070]"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.05] mb-10 sm:mb-12 md:mb-14 font-semibold tracking-tight"
           >
             Stop Automating
             <br />
@@ -53,7 +53,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.18 }}
-          className="text-xl sm:text-2xl md:text-3xl text-white/95 max-w-2xl mx-auto mb-3 sm:mb-4 leading-snug font-medium"
+          className="text-xl sm:text-2xl md:text-3xl text-white/95 max-w-2xl mx-auto mb-6 sm:mb-8 leading-snug font-medium"
          >
           Make AI decisions with clarity, confidence, and control.
         </motion.p>         
