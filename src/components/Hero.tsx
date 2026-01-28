@@ -63,11 +63,12 @@ const Hero = () => {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.24 }}
-          className="text-sm sm:text-base text-white/65 max-w-xl mx-auto mb-10 sm:mb-12 leading-relaxed"
+          className="text-sm sm:text-base text-white/60 max-w-xl mx-auto mb-10 sm:mb-12 leading-relaxed italic"
         >
-          A business ready for AI. Structured before you invest.
+          Ready for AI. Structured before you invest.
           </motion.p>
-         
+
+      
           {/* SEO context line. INSERT HERE */}
           <p className="sr-only">
             AI consulting for SME leaders focused on AI readiness, decision clarity, and responsible AI investment.
