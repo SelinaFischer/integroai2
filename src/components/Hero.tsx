@@ -53,7 +53,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.18 }}
-          className="text-xl sm:text-2xl md:text-3xl text-white/95 max-w-2xl mx-auto mb-6 sm:mb-8 leading-snug font-medium"
+          className="text-xl sm:text-2xl md:text-3xl text-white/90 max-w-2xl mx-auto mb-6 sm:mb-8 leading-snug font-medium"
          >
           Make AI decisions with clarity, confidence, and control.
         </motion.p>         
@@ -63,7 +63,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.24 }}
-          className="text-sm sm:text-base text-white/60 max-w-xl mx-auto mb-10 sm:mb-12 leading-relaxed italic"
+          className="text-sm sm:text-base text-white/60 max-w-xl mx-auto mb-10 sm:mb-12 lg:mb-14 leading-relaxed italic"
         >
           Ready for AI. Structured before you invest.
           </motion.p>
