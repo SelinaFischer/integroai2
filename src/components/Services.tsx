@@ -84,7 +84,7 @@ const Services = () => {
             className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-5"
             itemProp="description"
           >
-            IntegroAI Consulting helps SMEs assess readiness for AI, uncover operational bottlenecks, and prioritise the opportunities that deliver the greatest business value..
+            We help SMEs assess readiness for AI, uncover operational bottlenecks, and prioritise the opportunities that deliver the greatest business value..
           </p>
 
           <p className="text-sm sm:text-base font-semibold text-foreground mb-4">
