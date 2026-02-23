@@ -71,7 +71,7 @@ const Hero = () => {
       
           {/* SEO context line. INSERT HERE */}
           <p className="sr-only">
-            AI consulting for SME leaders focused on AI readiness, decision clarity, and responsible AI investment.
+            AI consulting for SME leaders focused on driving operational efficiency & ROI for SMEs. AI Readiness & Strategic Adoption.
           </p>
 
           {/* Single prominent CTA */}
