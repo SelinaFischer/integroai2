@@ -186,7 +186,7 @@ const Services = () => {
         >
           <Button variant="hero" size="lg" className="group" asChild>
             <a href="https://tally.so/r/68jDMA" target="_blank" rel="noopener noreferrer">
-              Assess Your AI Readiness
+              Start with AI Readiness Assessment
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
           </Button>
