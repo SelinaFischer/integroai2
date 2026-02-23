@@ -55,7 +55,7 @@ const Hero = () => {
           transition={{ duration: 0.7, delay: 0.18 }}
           className="text-xl sm:text-2xl md:text-3xl text-white/90 max-w-2xl mx-auto mb-6 sm:mb-8 leading-snug font-medium"
          >
-          Make AI decisions with clarity, confidence, and control.
+           Drive Operational Efficiency &amp; ROI with Structured AI Adoption.
         </motion.p>         
 
           {/* Single clear value proposition */}
@@ -65,7 +65,7 @@ const Hero = () => {
           transition={{ duration: 0.7, delay: 0.24 }}
           className="text-sm sm:text-base text-white/60 max-w-xl mx-auto mb-10 sm:mb-12 lg:mb-14 leading-relaxed italic"
         >
-          Ready for AI. Structured before you invest.
+          Apply AI with operational clarity and measurable impact.
           </motion.p>
 
       
@@ -83,7 +83,7 @@ const Hero = () => {
           >
             <Button variant="hero" size="xl" className="group shimmer" asChild>
               <a href="https://tally.so/r/68jDMA" target="_blank" rel="noopener noreferrer">
-                AI Readiness Assessment
+                Start with AI Readiness
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
