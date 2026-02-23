@@ -57,7 +57,7 @@ const Framework = () => {
             Our Approach
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-4 sm:mb-6">
-            The IntegroAI Method
+            The IntegroAI Operating Framework
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
            A disciplined framework for making the right AI decisions and executing them responsibly.
