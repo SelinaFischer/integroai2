@@ -57,7 +57,7 @@ const Values = () => {
               </p>
 
               <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                AI adoption is an organisational change spanning strategy, operations, data, governance, leadership, and culture. Progress depends on readiness across these areas, not tools alone.
+                AI adoption is an organisational change spanning strategy, operations, data, governance, leadership, and culture. Operational clarity drives results. AI is the accelerator.
               </p>
 
               <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
