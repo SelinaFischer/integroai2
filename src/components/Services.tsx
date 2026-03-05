@@ -76,7 +76,7 @@ const Services = () => {
             AI Consulting Services
           </span>
 
-          <h2 className="text-xl sm:text-2xl lg:text-4xl mb-4 lg:whitespace-nowrap">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-4 text-center">
             AI Readiness Consulting Services for Business Leaders
           </h2>
 
