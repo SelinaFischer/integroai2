@@ -70,7 +70,7 @@ const Services = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto text-center mb-10 sm:mb-14"
+          className="max-w-6xl mx-auto text-center mb-10 sm:mb-14"
         >
           <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-3 px-3 py-1 bg-accent-warm/10 rounded-full">
             AI Consulting Services
@@ -84,7 +84,7 @@ const Services = () => {
             className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-5"
             itemProp="description"
           >
-            We help SMEs assess readiness for AI, uncover operational bottlenecks, and prioritise the initiatives that improve operational efficiency and ROI.
+            We help business leaders assess readiness for AI, uncover operational bottlenecks, and prioritise the initiatives that deliver measurable business value.
           </p>
 
           <p className="text-sm sm:text-base font-semibold text-foreground mb-4">
