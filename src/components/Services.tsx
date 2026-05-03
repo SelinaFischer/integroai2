@@ -84,7 +84,7 @@ const Services = () => {
             className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-5"
             itemProp="description"
           >
-            We help business leaders assess readiness for AI, uncover operational bottlenecks, and prioritise the initiatives that deliver measurable business value.
+            Make smarter AI decisions from operational clarity. We help business leaders save time, reduce costs, lower implementation risk, and prioritise AI investments that deliver measurable ROI.
           </p>
 
           <p className="text-sm sm:text-base font-semibold text-foreground mb-4">
