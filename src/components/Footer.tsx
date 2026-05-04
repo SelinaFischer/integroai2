@@ -89,7 +89,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="https://www.instagram.com/integroai.tech/"
+                  href="https://www.instagram.com/integroaiuk/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 sm:gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-all text-xs sm:text-sm font-medium group py-1.5 sm:py-2 min-h-[40px] sm:min-h-[44px]"
