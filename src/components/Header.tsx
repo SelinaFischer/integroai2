@@ -152,8 +152,8 @@ const Header = () => {
               asChild
             >
               <a href="https://calendly.com/integroai-tech/30min" target="_blank" rel="noopener noreferrer">
-                <span className="hidden sm:inline">Book Strategy Call</span>
-                <span className="sm:hidden">Book Strategy Call</span>
+                <span className="hidden sm:inline">Book Free Discovery Call</span>
+                <span className="sm:hidden">Book Free Discovery Call</span>
                 <ArrowRight className="w-3 h-3 sm:w-3 sm:h-3 lg:w-4 lg:h-4 ml-1 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
