@@ -65,7 +65,7 @@ const Hero = () => {
           transition={{ duration: 0.7, delay: 0.24 }}
           className="text-sm sm:text-base text-white/60 max-w-xl mx-auto mb-10 sm:mb-12 lg:mb-14 leading-relaxed italic"
         >
-          Built around your operations, your priorities, and measurable business results.
+          Built around your operations, your priorities, and ROI you can measure.
           </motion.p>
 
       
