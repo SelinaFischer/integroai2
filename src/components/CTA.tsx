@@ -69,7 +69,7 @@ const CTA = () => {
             {/* Secondary CTA: Call */}
             <Button variant="heroOutline" size="lg" className="backdrop-blur-sm" asChild>
               <a href="https://calendly.com/integroai-tech/30min" target="_blank" rel="noopener noreferrer">
-                Book Strategy Call
+                Book Free Discovery Call
               </a>
             </Button>            
           </motion.div>
