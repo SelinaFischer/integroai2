@@ -141,8 +141,8 @@ const Header = () => {
               asChild
             >
               <a href="https://tally.so/r/68jDMA" target="_blank" rel="noopener noreferrer">
-                <span className="hidden sm:inline">Start with AI Readiness</span>
-                <span className="sm:hidden">Start with AI Readiness</span>
+                <span className="hidden sm:inline">AI Readiness Audit</span>
+                <span className="sm:hidden">AI Readiness Audit</span>
               </a>
             </Button>
             <Button 
