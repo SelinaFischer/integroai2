@@ -55,7 +55,7 @@ const Hero = () => {
           transition={{ duration: 0.7, delay: 0.18 }}
           className="text-xl sm:text-2xl md:text-3xl text-white/90 max-w-2xl mx-auto mb-6 sm:mb-8 leading-snug font-medium"
          >
-           Drive Operational Efficiency &amp; ROI with Structured AI Adoption.
+           Save Time, Reduce Cost, and Improve ROI With Bespoke AI Solutions.
         </motion.p>         
 
           {/* Single clear value proposition */}
@@ -65,7 +65,7 @@ const Hero = () => {
           transition={{ duration: 0.7, delay: 0.24 }}
           className="text-sm sm:text-base text-white/60 max-w-xl mx-auto mb-10 sm:mb-12 lg:mb-14 leading-relaxed italic"
         >
-          Apply AI with operational clarity and measurable impact.
+          Built around your operations, your priorities, and measurable business results.
           </motion.p>
 
       
