@@ -88,7 +88,7 @@ const Hero = () => {
               </a>
             </Button>
             <Button variant="heroOutline" size="lg" className="backdrop-blur-sm" asChild>
-              <a href="https://calendly.com/integroai-consulting/30min" target="_blank" rel="noopener noreferrer">
+              <a href="https://calendly.com/integroai-tech/30min" target="_blank" rel="noopener noreferrer">
                 Book Strategy Call
               </a>
             </Button>
