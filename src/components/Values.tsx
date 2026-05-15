@@ -56,23 +56,29 @@ const Values = () => {
                 IntegroAI Consulting helps business leaders make better AI decisions by starting with operational clarity, not tool selection.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="bg-card border border-border/50 rounded-xl p-5 shadow-card">
-                  <h3 className="text-base sm:text-lg font-bold mb-2 text-foreground">
-                    Our Mission
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    To help business leaders identify workflow, data, and process bottlenecks before investing in AI, so they can reduce wasted manual work, free up team capacity, protect margin, and make better technology decisions.
-                  </p>
-                </div>
+              <div>
+                <p className="text-primary text-xs sm:text-sm font-semibold uppercase tracking-wide mb-4">
+                  Mission & Vision
+                </p>
 
-                <div className="bg-card border border-border/50 rounded-xl p-5 shadow-card">
-                  <h3 className="text-base sm:text-lg font-bold mb-2 text-foreground">
-                    Our Vision
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    To make AI adoption practical, commercially sound, and human-first by helping businesses fix operational friction before adding new technology.
-                  </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="bg-card border border-border/50 rounded-xl p-5 shadow-card">
+                    <h3 className="text-base sm:text-lg font-bold mb-2 text-foreground">
+                      Our Mission
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      To help business leaders identify workflow, data, and process bottlenecks before investing in AI, so they can reduce wasted manual work, free up team capacity, protect margin, and make better technology decisions.
+                    </p>
+                  </div>
+
+                  <div className="bg-card border border-border/50 rounded-xl p-5 shadow-card">
+                    <h3 className="text-base sm:text-lg font-bold mb-2 text-foreground">
+                      Our Vision
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      To make AI adoption practical, commercially sound, and human-first by helping businesses fix operational friction before adding new technology.
+                    </p>
+                  </div>
                 </div>
               </div>
 
