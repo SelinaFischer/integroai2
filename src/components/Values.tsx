@@ -7,7 +7,7 @@ const Values = () => {
       icon: Lightbulb,
       title: "Clarity",
       description:
-        "Clear problem definition, decision boundaries, and outcomes are established before any AI work begins.",
+        "Clear problem definition, decision boundaries, and outcome measures are established before any AI work begins.",
     },
     {
       icon: Shield,
@@ -17,15 +17,15 @@ const Values = () => {
     },
     {
       icon: Award,
-      title: "Capability",
+      title: "Practicality",
       description:
-        "Practical, delivery-led expertise grounded in real-world implementation and operational context.",
+        "Recommendations are grounded in real workflows, business priorities, and implementation reality.",
     },
     {
       icon: BarChart3,
-      title: "Results",
+      title: "Accountability",
       description:
-        "Progress is measured through accountable delivery and tangible business outcomes, not activity for its own sake.",
+        "Progress is measured through clear ownership, responsible delivery, and tangible business outcomes.",
     },
   ];
 
@@ -51,13 +51,37 @@ const Values = () => {
               About IntegroAI Consulting
             </h2>
 
-            <div className="space-y-4 max-w-3xl mx-auto text-left">
+            <div className="space-y-6 max-w-3xl mx-auto text-left">
               <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                IntegroAI Consulting applies structured assessment and delivery discipline to AI adoption, enabling informed, business-led decisions.
+                IntegroAI Consulting helps business leaders make better AI decisions by starting with operational clarity, not tool selection.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="bg-card border border-border/50 rounded-xl p-5 shadow-card">
+                  <h3 className="text-base sm:text-lg font-bold mb-2 text-foreground">
+                    Our Mission
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    To help business leaders identify workflow, data, and process bottlenecks before investing in AI, so they can reduce wasted manual work, free up team capacity, protect margin, and make better technology decisions.
+                  </p>
+                </div>
+
+                <div className="bg-card border border-border/50 rounded-xl p-5 shadow-card">
+                  <h3 className="text-base sm:text-lg font-bold mb-2 text-foreground">
+                    Our Vision
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    To make AI adoption practical, commercially sound, and human-first by helping businesses fix operational friction before adding new technology.
+                  </p>
+                </div>
+              </div>
+
+              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                AI adoption is not just a technology decision. It is an organisational change spanning strategy, operations, data, governance, leadership, and culture.
               </p>
 
               <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                AI adoption is an organisational change spanning strategy, operations, data, governance, leadership, and culture. Operational clarity drives results. AI is the accelerator.
+                That is why IntegroAI starts by assessing how the business actually works before recommending any AI solution. Operational clarity drives results. AI is the accelerator, not the starting point.
               </p>
 
               <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
@@ -66,7 +90,7 @@ const Values = () => {
             </div>
           </motion.div>
 
-          {/* Values grid - below content */}
+          {/* Values grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {values.map((value, index) => (
               <motion.div
