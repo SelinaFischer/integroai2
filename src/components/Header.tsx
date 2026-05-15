@@ -126,7 +126,7 @@ const Header = () => {
                 IntegroAI Consulting
               </span>
               <span className="text-[10px] sm:text-xs lg:text-sm font-medium tracking-wide text-accent-warm">
-                Simplify · Amplify · Grow
+                Simplify · Prioritise · Grow
               </span>
             </div>
           </Link>
