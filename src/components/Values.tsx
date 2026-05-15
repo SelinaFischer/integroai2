@@ -57,7 +57,7 @@ const Values = () => {
               </p>
 
               <div>
-                <p className="text-primary text-xs sm:text-sm font-semibold uppercase tracking-wide mb-4">
+                <p className="text-primary text-xs sm:text-sm font-semibold uppercase tracking-wide mb-5">
                   Mission & Vision
                 </p>
 
