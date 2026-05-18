@@ -140,7 +140,7 @@ const Header = () => {
               className="text-[10px] sm:text-xs lg:text-sm px-2 sm:px-3 lg:px-5 h-8 sm:h-9 lg:h-10 whitespace-nowrap" 
               asChild
             >
-              <a href="https://tally.so/r/68jDMA" target="_blank" rel="noopener noreferrer">
+              <a href="https://assessment.integroai.tech" target="_blank" rel="noopener noreferrer">
                 <span className="hidden sm:inline">AI Readiness Audit</span>
                 <span className="sm:hidden">AI Readiness Audit</span>
               </a>
