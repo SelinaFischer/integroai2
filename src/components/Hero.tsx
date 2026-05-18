@@ -83,7 +83,7 @@ const Hero = () => {
           >
             <Button variant="hero" size="xl" className="group shimmer" asChild>
               <a href="https://assessment.integroai.tech" target="_blank" rel="noopener noreferrer">
-                AI Readiness Audit
+                Start the Assessment
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
