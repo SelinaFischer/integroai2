@@ -186,7 +186,7 @@ const Services = () => {
         >
           <Button variant="hero" size="lg" className="group" asChild>
             <a href="https://assessment.integroai.tech" target="_blank" rel="noopener noreferrer">
-              Start with AI Readiness Audit
+              Start the Assessment
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
           </Button>
