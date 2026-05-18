@@ -141,8 +141,8 @@ const Header = () => {
               asChild
             >
               <a href="https://assessment.integroai.tech" target="_blank" rel="noopener noreferrer">
-                <span className="hidden sm:inline">AI Readiness Audit</span>
-                <span className="sm:hidden">AI Readiness Audit</span>
+                <span className="hidden sm:inline">AI Readiness Assessment</span>
+                <span className="sm:hidden">AI Readiness Assessment</span>
               </a>
             </Button>
             <Button 
