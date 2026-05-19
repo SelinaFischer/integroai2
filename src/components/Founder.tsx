@@ -4,7 +4,7 @@ import selinaPhoto from "@/assets/selina-founder.jpg";
 
 const Founder = () => {
   return (
-    <section id="founder" className="py-16 sm:py-20 lg:py-24 bg-muted/30 overflow-hidden">
+  <section id="founder" className="py-16 sm:py-20 lg:py-24 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
