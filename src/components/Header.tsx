@@ -121,7 +121,7 @@ const Header = () => {
                 scrolled ? 'h-8 sm:h-10 lg:h-14' : 'h-10 sm:h-14 lg:h-20'
               }`}
             />
-           <div className="flex flex-col">
+           <div className="hidden sm:flex flex-col">
               <span className="text-base sm:text-lg lg:text-2xl font-bold tracking-tight text-white">
                 IntegroAI Consulting
               </span>
