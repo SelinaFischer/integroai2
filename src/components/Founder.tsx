@@ -4,7 +4,7 @@ import selinaPhoto from "@/assets/selina-founder.jpg";
 
 const Founder = () => {
   return (
-    <section id="founder" className="py-16 sm:py-20 lg:py-24 bg-muted/30">
+    <section id="founder" className="py-16 sm:py-20 lg:py-24 bg-muted/30 overflow-hidden"
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -57,10 +57,10 @@ const Founder = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-6 text-center lg:text-left self-start"
+              className="space-y-6 text-left self-start"
             >
               {/* Credentials badges */}
-              <div className="flex flex-wrap justify-center lg:justify-start gap-2">
+              <div className="flex flex-wrap justify-start gap-2">
                 <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
                   20+ Years in Product & Tech
                 </span>
