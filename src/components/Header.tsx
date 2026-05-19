@@ -121,7 +121,7 @@ const Header = () => {
                 scrolled ? 'h-8 sm:h-10 lg:h-14' : 'h-10 sm:h-14 lg:h-20'
               }`}
             />
-            <div className="hidden sm:flex flex-col">
+           <div className="flex flex-col">
               <span className="text-base sm:text-lg lg:text-2xl font-bold tracking-tight text-white">
                 IntegroAI Consulting
               </span>
@@ -142,7 +142,7 @@ const Header = () => {
             >
               <a href="https://assessment.integroai.tech" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1">
                 <span className="hidden sm:inline">AI Readiness Assessment</span>
-                <span className="sm:hidden">AI Readiness Assessment</span>
+             <span className="sm:hidden">Assessment</span>
                 <ArrowRight className="w-3 h-3 sm:w-3 sm:h-3 lg:w-4 lg:h-4 ml-1 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
@@ -154,7 +154,7 @@ const Header = () => {
             >
               <a href="https://calendly.com/integroai-tech/30min" target="_blank" rel="noopener noreferrer">
                 <span className="hidden sm:inline">Book Free Discovery Call</span>
-                <span className="sm:hidden">Book Free Discovery Call</span>
+               <span className="sm:hidden">Book Call</span>
               </a>
             </Button>
             
