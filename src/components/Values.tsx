@@ -38,7 +38,7 @@ const Values = () => {
       <div className="absolute top-0 left-0 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-primary/3 rounded-full blur-[120px] -translate-y-1/2 -translate-x-1/2" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {/* Header content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -97,7 +97,7 @@ const Values = () => {
           </motion.div>
 
           {/* Values grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 max-w-7xl mx-auto">
             {values.map((value, index) => (
               <motion.div
                 key={value.title}
