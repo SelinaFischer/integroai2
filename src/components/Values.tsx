@@ -51,7 +51,7 @@ const Values = () => {
               About IntegroAI Consulting
             </h2>
 
-            <div className="space-y-6 max-w-3xl mx-auto text-left">
+           <div className="space-y-6 text-left">
               <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
                 IntegroAI Consulting helps business leaders make better AI decisions by starting with operational clarity, not tool selection.
               </p>
