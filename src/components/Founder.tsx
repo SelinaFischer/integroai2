@@ -28,7 +28,7 @@ const Founder = () => {
             {/* Founder Image */}
             <motion.div
               initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              whileInView={{ opacity: 1}}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
               className="relative flex justify-center lg:justify-start self-start"
@@ -38,7 +38,7 @@ const Founder = () => {
                 <div className="w-[90%] h-[90%] bg-gradient-to-br from-primary/10 via-accent-warm/10 to-primary/5 rounded-full blur-3xl" />
               </div>
 
-              <div className="relative w-80 sm:w-96 lg:w-[28rem] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border/20">
+              <div className="relative w-80 sm:w-96 lg:w-[29rem] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border/20">
                 <img
                   src={selinaPhoto}
                   alt="Selina Fischer - IntegroAI Founder and CEO"
@@ -54,7 +54,7 @@ const Founder = () => {
             {/* Founder Info */}
             <motion.div
               initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              whileInView={{ opacity: 1}}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="space-y-6 text-left self-start"
