@@ -27,7 +27,7 @@ const Founder = () => {
           <div className="grid lg:grid-cols-[auto,1fr] gap-10 lg:gap-16 items-start">
             {/* Founder Image */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
@@ -53,7 +53,7 @@ const Founder = () => {
 
             {/* Founder Info */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
