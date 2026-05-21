@@ -18,7 +18,7 @@ const Founder = () => {
           </span>
 
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">
-            Meet the Founder &amp; CEO –{" "}
+            Meet the Founder –{" "}
             <span className="text-shimmer-gold">Selina</span>
           </h2>
         </motion.div>
