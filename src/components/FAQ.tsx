@@ -10,109 +10,137 @@ import { Helmet } from "react-helmet-async";
 const FAQ = () => {
   const faqs = [
     {
-      question: "What is AI consulting for SMEs?",
-      answer: "AI consulting for SMEs focuses on helping leaders decide where AI is worth pursuing before committing budget, tools, or teams. The work centres on readiness, prioritisation, and commercially grounded decision-making. The goal is to avoid wasted spend and apply AI only where it can deliver measurable value.",
+      question: "What makes IntegroAI Consulting different from other AI consultants?",
+      answer:
+        "IntegroAI starts with Operational Clarity before recommending any AI tool. The focus is on people, processes, and commercial outcomes first. Technology decisions come after clarity is established.",
     },
     {
       question: "Who is IntegroAI Consulting best suited for?",
-      answer: "IntegroAI Consulting is best suited for SME leaders who want clear judgement before investing in AI. This includes founders and senior leaders responsible for priorities, risk, and outcomes. If you value structured, vendor-agnostic decision support, the approach is a strong fit.",
+      answer:
+        "IntegroAI is best suited for service-based, founder-led and growing businesses where manual work, fragmented processes, and capacity pressure are affecting performance. It is a strong fit for leaders who want clear guidance before making any AI investment.",
     },
     {
-      question: "How much does AI consulting cost for small businesses?",
-      answer: "Costs depend on scope, complexity, and the level of clarity already in place. Engagements are scoped per project and anchored in the value created, not hours. Most work begins with an AI Readiness Assessment to clarify priorities, risks, and potential return.",
+      question: "What is an AI Readiness Assessment and what does IntegroAI cover?",
+      answer:
+        "Our free AI Readiness Assessment is a short online questionnaire that helps you understand whether your business is ready to invest in AI, and where AI may or may not be relevant. It looks at leadership alignment, process quality, data foundations, team capacity, and AI fit.",
     },
     {
-      question: "Do you help with AI tool selection?",
-      answer: "Yes, when tool selection is the right step. All recommendations are vendor-agnostic and assessed against business needs, constraints, and risk. Tool decisions come after problem clarity and readiness are established, not before.",
+      question: "How long does the AI Readiness Assessment take and how much does it cost?",
+      answer:
+        "The assessment takes around five minutes to complete and is free. You receive an initial score and a clear view of your operational readiness for AI without any obligation.",
     },
     {
-      question: "What if we're not sure where to start with AI?",
-      answer: "Uncertainty is a common starting point. The AI Readiness Assessment helps clarify whether AI is appropriate now, where gaps exist, and which problems are worth addressing first. This prevents rushed decisions and protects budget.",
+      question: "What happens after I complete the AI Readiness Assessment?",
+      answer:
+        "You receive your AI readiness score and summary on screen and by email. Based on the results, you can then book a free 30-minute discovery call to walk through the analysis and define practical next steps for your business.",
     },
     {
-      question: "How long does it take to see value from AI?",
-      answer: "Timelines vary based on readiness, problem definition, and adoption. Some organisations see early value from focused use cases, while others need to address foundations first. Choosing the right problem is the fastest route to value.",
+      question: "When should a business not invest in AI?",
+      answer:
+        "A business should hold off on AI when the core problem is unclear, processes are inconsistent, or data is unreliable. AI scales what already exists, so introducing it on top of broken workflows or poor data can add cost and complexity without delivering value.",
     },
     {
-    question: "What is an AI Readiness Assessment?",
-    answer:
-      "An AI Readiness Assessment evaluates whether a business is prepared to invest in AI. It looks at problem clarity, processes, data foundations, and organisational readiness before tools are considered. The outcome is clearer priorities, risks, and next steps.",
+      question: "If our internal processes are already broken, can AI still help?",
+      answer:
+        "AI can help, but not as the first step. The priority is to understand the workflow bottlenecks, data issues, and ownership gaps first. Once those foundations are clearer, AI can be applied selectively where it genuinely removes friction and saves time.",
     },
     {
-    question: "When should a business not invest in AI?",
-    answer:
-      "AI investment should pause when problems are unclear, processes are broken, or data foundations are weak. Without leadership alignment and defined success measures, AI often adds complexity rather than value. In these cases, restraint is the better decision.",
+      question: "Can you help us choose between AI, automation, and workflow improvement?",
+      answer:
+        "Yes. IntegroAI helps you decide whether the right solution is AI, automation, workflow redesign, clearer data structure, or better process ownership. Not every operational problem needs AI.",
     },
-    ];
+    {
+      question: "Do we need technical staff or a data team to work with IntegroAI?",
+      answer:
+        "No. You do not need a data team or in-house technical staff to get started. The work begins with understanding your operations, goals, and constraints. Specialist technical support can be introduced later if it is genuinely needed.",
+    },
+    {
+      question: "What does a typical engagement with IntegroAI look like from start to finish?",
+      answer:
+        "Most engagements begin with the free AI Readiness Assessment, followed by a discovery session to interpret your score and operational context. From there, IntegroAI identifies key bottlenecks, builds clarity around how work actually gets done, and prioritises where AI may or may not add value.",
+    },
+  ];
 
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": faqs.map(faq => ({
+    mainEntity: faqs.map((faq) => ({
       "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
+      name: faq.question,
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": faq.answer
-      }
-    }))
+        text: faq.answer,
+      },
+    })),
   };
 
   return (
     <>
       <Helmet>
+        <title>
+          IntegroAI Consulting FAQ | AI Readiness Assessment & Operational Clarity
+        </title>
+        <meta
+          name="description"
+          content="Answers to common questions about IntegroAI Consulting, AI readiness assessment, operational clarity, and practical AI adoption for service-based SMEs."
+        />
         <script type="application/ld+json">
           {JSON.stringify(faqSchema)}
         </script>
       </Helmet>
-      <section id="faq" className="py-16 sm:py-20 lg:py-24 bg-subtle relative overflow-hidden">
-      {/* Background accent */}
-      <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-primary/3 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2" />
-      
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto text-center mb-10 sm:mb-14"
-        >
-          <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-3 px-3 py-1 bg-accent-warm/10 rounded-full">
-            Common Questions
-          </span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-4">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-            Quick answers to the questions we hear most often from SME leaders.
-          </p>
-        </motion.div>
 
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="max-w-3xl mx-auto"
-        >
-          <Accordion type="single" collapsible className="space-y-3">
-            {faqs.map((faq, index) => (
-              <AccordionItem
-                key={index}
-                value={`item-${index}`}
-                className="bg-card rounded-lg sm:rounded-xl border border-border/50 shadow-card px-4 sm:px-5 data-[state=open]:shadow-lg transition-all duration-300"
-              >
-                <AccordionTrigger className="text-left font-semibold text-sm sm:text-base hover:no-underline py-4 sm:py-5">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-xs sm:text-sm leading-relaxed pb-4 sm:pb-5">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </motion.div>
-      </div>
+      <section className="relative overflow-hidden bg-background py-24">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10" />
+
+        <div className="container relative z-10 mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mx-auto mb-16 max-w-3xl text-center"
+          >
+            <span className="mb-4 inline-block text-sm font-medium uppercase tracking-[0.2em] text-primary">
+              Common Questions
+            </span>
+            <h2 className="mb-6 text-4xl font-light tracking-tight text-foreground md:text-5xl">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg leading-relaxed text-muted-foreground">
+              Quick answers to the questions we hear most often from SME leaders.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mx-auto max-w-4xl"
+          >
+            <Accordion type="single" collapsible className="space-y-4">
+              {faqs.map((faq, index) => (
+                <AccordionItem
+                  key={index}
+                  value={`item-${index}`}
+                  className="rounded-2xl border border-border/50 bg-card/50 px-6 backdrop-blur-sm"
+                >
+                  <AccordionTrigger className="py-6 text-left text-lg font-medium hover:no-underline">
+                    <div className="flex items-start gap-4 pr-4">
+                      <span className="min-w-[2rem] text-sm font-medium text-primary/70 md:text-base">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <span className="flex-1">{faq.question}</span>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-6 pl-12 text-base leading-relaxed text-muted-foreground">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </motion.div>
+        </div>
       </section>
     </>
   );
