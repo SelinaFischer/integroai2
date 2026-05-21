@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Linkedin } from "lucide-react";
-import selinaPhoto from "@/assets/selina-founder.jpg";
+import selinaPhoto from "@/assets/selina-founder.png";
 
 const Founder = () => {
   return (
