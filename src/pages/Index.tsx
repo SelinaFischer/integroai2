@@ -12,7 +12,7 @@ import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import CookieConsent from "@/components/CookieConsent";
-import { ChatWidget } from "@/components/ChatWidget";
+
 
 const Index = () => {
   const localBusinessSchema = {
@@ -163,8 +163,7 @@ const Index = () => {
         <Footer />
         <BackToTop />
         <CookieConsent />
-        <ChatWidget />
-      </div>
+        </div>
     </>
   );
 };
