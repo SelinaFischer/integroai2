@@ -82,7 +82,7 @@ const Hero = () => {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 sm:mb-10"
           >
             <Button variant="hero" size="xl" className="group shimmer" asChild>
-              <a href="https://assessment.integroai.tech" target="_blank" rel="noopener noreferrer">
+              <a href="https://integroai.tech/assessment" target="_blank" rel="noopener noreferrer">
                 Start the Assessment
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
