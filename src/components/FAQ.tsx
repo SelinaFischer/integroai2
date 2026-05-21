@@ -82,61 +82,65 @@ const FAQ = () => {
         </title>
         <meta
           name="description"
-          content="Answers to common questions about IntegroAI Consulting, AI readiness assessment, operational clarity, and practical AI adoption for service-based SMEs."
+          content="Answers to common questions about IntegroAI Consulting, AI readiness assessment, Operational Clarity, and practical AI adoption for business leaders."
         />
         <script type="application/ld+json">
           {JSON.stringify(faqSchema)}
         </script>
       </Helmet>
 
-      <section className="relative overflow-hidden bg-background py-24">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10" />
+      <section
+        id="faq"
+        className="py-16 sm:py-20 lg:py-24 bg-subtle relative overflow-hidden"
+      >
+        <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-primary/3 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2" />
 
-        <div className="container relative z-10 mx-auto px-6">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6 }}
-            className="mx-auto mb-16 max-w-4xl text-center"
+            className="max-w-3xl mx-auto text-center mb-10 sm:mb-14"
           >
-            <span className="mb-4 inline-block rounded-full bg-primary/10 px-5 py-2 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+            <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-3 px-3 py-1 bg-accent-warm/10 rounded-full">
               Common Questions
             </span>
 
-            <h2 className="mb-6 text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-4">
               Frequently Asked Questions
             </h2>
 
-            <p className="text-xl leading-relaxed text-muted-foreground">
-              Quick answers to the questions we hear most often from business leaders.
+            <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+              Quick answers to the questions we hear most often from business
+              leaders.
             </p>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mx-auto max-w-4xl"
+            className="max-w-3xl mx-auto"
           >
-            <Accordion type="single" collapsible className="space-y-4">
+            <Accordion type="single" collapsible className="space-y-3">
               {faqs.map((faq, index) => (
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
-                  className="rounded-2xl border border-border/50 bg-card/50 px-6 backdrop-blur-sm"
+                  className="bg-card rounded-lg sm:rounded-xl border border-border/50 shadow-card px-4 sm:px-5 data-[state=open]:shadow-lg transition-all duration-300"
                 >
-                  <AccordionTrigger className="py-6 text-left text-lg font-medium hover:no-underline">
-                    <div className="flex items-start gap-4 pr-4">
-                      <span className="min-w-[2rem] text-sm font-medium text-primary/70 md:text-base">
+                  <AccordionTrigger className="text-left font-semibold text-sm sm:text-base hover:no-underline py-4 sm:py-5">
+                    <div className="flex items-start gap-3">
+                      <span className="min-w-[1.5rem] text-xs sm:text-sm font-semibold text-accent-warm/80">
                         {String(index + 1).padStart(2, "0")}
                       </span>
                       <span className="flex-1">{faq.question}</span>
                     </div>
                   </AccordionTrigger>
 
-                  <AccordionContent className="pb-6 pl-12 text-base leading-relaxed text-muted-foreground">
+                  <AccordionContent className="text-muted-foreground text-xs sm:text-sm leading-relaxed pb-4 sm:pb-5 pl-9">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
