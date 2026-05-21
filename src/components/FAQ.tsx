@@ -40,7 +40,7 @@ const FAQ = () => {
         "A business should hold off on AI when the core problem is unclear, processes are inconsistent, or data is unreliable. AI scales what already exists, so introducing it on top of broken workflows or poor data can add cost and complexity without delivering value.",
     },
     {
-      question: "If our internal processes are already broken, can AI still help?",
+      question: "Do we need perfect processes before using AI?",
       answer:
         "AI can help, but not as the first step. The priority is to understand the workflow bottlenecks, data issues, and ownership gaps first. Once those foundations are clearer, AI can be applied selectively where it genuinely removes friction and saves time.",
     },
