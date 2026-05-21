@@ -82,7 +82,7 @@ const Services = () => {
           </h2>
 
           <p
-            className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-5"
+            className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-5 max-w-2xl mx-auto"
             itemProp="description"
           >
             Make smarter AI decisions from operational clarity. We help business leaders save time, reduce costs, lower implementation risk, and prioritise AI investments that deliver measurable ROI.
@@ -92,7 +92,7 @@ const Services = () => {
             Three Core Pillars
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-left">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-left max-w-4xl mx-auto">
             <div className="bg-card border border-border/60 rounded-xl p-4 shadow-sm">
               <p className="text-sm font-semibold text-foreground mb-1">Clarity</p>
               <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
@@ -117,7 +117,7 @@ const Services = () => {
             </div>
           </div>
 
-          <p className="mt-5 text-muted-foreground text-sm sm:text-base leading-relaxed font-medium">
+          <p className="mt-5 text-muted-foreground text-sm sm:text-base leading-relaxed font-medium max-w-2xl mx-auto">
             Services are phased and selective by design. The goal is not more AI, but better decisions, lower risk, and outcomes leadership teams can confidently stand behind.
           </p>
         </motion.div>
