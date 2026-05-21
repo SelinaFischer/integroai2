@@ -142,20 +142,20 @@ body{min-height:100vh;font-family:'Open Sans',-apple-system,Helvetica Neue,Arial
 
 /* headline */
 .hero-eyebrow{font-size:clamp(17px,2vw,26px);font-weight:600;color:#ffffff;letter-spacing:.2px;margin-bottom:clamp(16px,2.5vh,28px);position:relative;text-align:center}
-.hero-title{font-size:clamp(20px,4vw,48px);font-family:'Open Sans',-apple-system,Helvetica Neue,Arial,sans-serif;font-weight:700;line-height:1.1;letter-spacing:-.5px;margin-bottom:clamp(14px,2.5vh,28px);color:var(--text);position:relative;text-align:center}
+.hero-title{font-size:clamp(18px,3.6vw,43px);font-family:'Open Sans',-apple-system,Helvetica Neue,Arial,sans-serif;font-weight:700;line-height:1.1;letter-spacing:-.5px;margin-bottom:clamp(14px,2.5vh,28px);color:var(--text);position:relative;text-align:center}
 .hero-title em{color:var(--gold);font-style:italic}
 
 .hero-sub{color:var(--text-2);max-width:min(600px,90%);font-size:clamp(14px,3vw,18px);font-weight:400;line-height:1.5;margin:0 auto clamp(10px,2vh,24px);position:relative;text-align:center}
 
 /* stats — tight, elegant, controlled */
-.meta-row{display:flex;align-items:center;justify-content:center;margin:0 auto 36px;width:fit-content;max-width:min(520px,92vw);border:1px solid var(--border);border-radius:3px;overflow:hidden;position:relative}
-.meta-item{display:flex;flex-direction:column;align-items:center;padding:clamp(12px,2vh,18px) clamp(10px,4.5vw,52px);flex:1;min-width:0;overflow:hidden}
+.meta-row{display:flex;align-items:center;justify-content:center;margin:clamp(20px,3vh,36px) auto 28px;width:fit-content;max-width:min(420px,86vw);border:1px solid rgba(186,203,203,.10);border-radius:6px;overflow:hidden;position:relative}
+.meta-item{display:flex;flex-direction:column;align-items:center;padding:clamp(10px,1.8vh,16px) clamp(10px,3.5vw,36px);flex:1;min-width:0;overflow:hidden}
 
 .meta-n{font-size:clamp(16px,4vw,26px);font-family:'Open Sans',-apple-system,Helvetica Neue,Arial,sans-serif;font-weight:800;color:var(--gold);line-height:1;white-space:nowrap}
 .meta-l{font-size:clamp(7px,1.8vw,11px);font-weight:600;letter-spacing:clamp(0px,0.2vw,1.8px);text-transform:uppercase;color:var(--text-3);margin-top:4px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .meta-sep{width:1px;height:clamp(24px,4vh,40px);background:var(--border);flex-shrink:0;opacity:0.8}
 
-.w-note{margin-top:clamp(12px,2vh,18px);font-size:clamp(13px,2.5vw,16px);color:rgba(237,241,247,.55);position:relative;text-align:center}
+.w-note{margin-top:clamp(8px,1.2vh,12px);font-size:clamp(12px,2vw,14px);color:rgba(237,241,247,.55);position:relative;text-align:center}
 
 /* ============================================================
    BUTTONS
@@ -424,9 +424,9 @@ a.btn, a.btn-gold, a.btn-outline-inv{cursor:pointer !important;display:inline-fl
     
 
     <p class="hero-eyebrow">Is Your Business Ready for AI?</p>
-    <h1 class="hero-title">The <em>AI Readiness</em><br>Assessment</h1>
-    <p class="hero-sub" style="font-size:clamp(16px,1.6vw,20px);color:var(--text);font-weight:500;margin-bottom:16px;">Before automating your processes, find out whether your business is actually ready for AI.</p>
-    <p class="hero-sub">Answer 10 questions about your business and receive a personalised readiness score, a five-dimension diagnosis, and a clear next step.</p>
+    <h1 class="hero-title"><em>AI Readiness</em><br>Assessment</h1>
+    <p class="hero-sub" style="font-size:clamp(16px,1.6vw,20px);color:var(--text);font-weight:500;margin-bottom:16px;">Before investing in AI, find out whether your workflows, data and teams are ready to make it work.</p>
+    <p class="hero-sub">Answer 10 questions to get your AI Readiness score, a diagnosis across five key areas, and a clear next step.</p>
 
     <div class="meta-row">
       <div class="meta-item">
@@ -446,10 +446,10 @@ a.btn, a.btn-gold, a.btn-outline-inv{cursor:pointer !important;display:inline-fl
     </div>
 
     <button class="btn btn-gold btn-full" onclick="startAssessment()">
-      Begin Assessment
+      Start Free Assessment
       <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
-    <p class="w-note">Results delivered instantly on screen and sent to your email.</p>
+    <p class="w-note">Get your score instantly on screen and by email.</p>
 
   </div><!-- /w-hero-content -->
 </div><!-- /w-inner -->
