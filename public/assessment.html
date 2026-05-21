@@ -92,11 +92,27 @@ body{min-height:100vh;font-family:'Open Sans',-apple-system,Helvetica Neue,Arial
   min-height:100vh;
   padding:clamp(64px,10vh,96px) 0 clamp(32px,5vh,60px);
   display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+  overflow:hidden;
+}
+/* hero background image */
+.w-bg-img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  z-index:0;transform:scale(1.05);
+}
+/* gradient overlays — mirrors website hero */
+.w-overlay-1{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to bottom right,rgba(8,14,26,.55),rgba(8,14,26,.35),rgba(8,14,26,.18));
+}
+.w-overlay-2{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to top,rgba(8,14,26,.45),transparent,rgba(8,14,26,.18));
 }
 .w-hero-content{
   max-width:min(1060px,92vw);width:100%;
   padding:clamp(12px,2vh,40px) clamp(16px,5vw,60px) clamp(36px,7vh,80px);
-  position:relative;z-index:1;text-align:center;box-sizing:border-box;
+  position:relative;z-index:2;text-align:center;box-sizing:border-box;
 }
 /* decorative concentric rings */
 .w-wrapper{width:100%;display:flex;flex-direction:column;min-height:100vh}
@@ -398,6 +414,10 @@ a.btn, a.btn-gold, a.btn-outline-inv{cursor:pointer !important;display:inline-fl
     <div class="w-wrapper">
   
 <div class="w-inner">
+  <!-- Hero background image — matches integroai.tech hero -->
+  <img src="https://integroai.tech/hero-bg.webp" alt="" role="presentation" class="w-bg-img" fetchpriority="high" decoding="async">
+  <div class="w-overlay-1"></div>
+  <div class="w-overlay-2"></div>
   <div class="w-hero-content">
 
     
