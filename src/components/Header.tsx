@@ -140,7 +140,7 @@ const Header = () => {
               className="text-[10px] sm:text-xs lg:text-sm px-2 sm:px-3 lg:px-5 h-8 sm:h-9 lg:h-10 whitespace-nowrap"
               asChild
             >
-              <a href="https://assessment.integroai.tech" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1">
+              <a href="https://integroai.tech/assessment" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1">
                 <span className="hidden sm:inline">AI Readiness Assessment</span>
              <span className="sm:hidden">Assessment</span>
                 <ArrowRight className="w-3 h-3 sm:w-3 sm:h-3 lg:w-4 lg:h-4 ml-1 group-hover:translate-x-1 transition-transform" />
