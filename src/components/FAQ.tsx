@@ -12,7 +12,7 @@ const FAQ = () => {
     {
       question: "What makes IntegroAI Consulting different from other AI consultants?",
       answer:
-        "IntegroAI starts with Operational Clarity before recommending any AI tool. The focus is on people, processes, and commercial outcomes first. Technology decisions come after clarity is established.",
+        "IntegroAI starts with Operational Clarity before investing in any AI tool. The focus is on people, processes, and commercial outcomes first.",
     },
     {
       question: "Who is IntegroAI Consulting best suited for?",
@@ -22,7 +22,7 @@ const FAQ = () => {
     {
       question: "What is an AI Readiness Assessment and what does IntegroAI cover?",
       answer:
-        "Our free AI Readiness Assessment is a short online questionnaire that helps you understand whether your business is ready to invest in AI, and where AI may or may not be relevant. It looks at leadership alignment, process quality, data foundations, team capacity, and AI fit.",
+        "Our free AI Readiness Assessment is a short online questionnaire that helps you understand whether your business is ready to invest in AI at all. It looks at leadership alignment, process quality, data foundations, team capacity, and where AI is actually relevant, so you can see where AI is worth pursuing and where it is not.",
     },
     {
       question: "How long does the AI Readiness Assessment take and how much does it cost?",
@@ -57,7 +57,7 @@ const FAQ = () => {
     {
       question: "What does a typical engagement with IntegroAI look like from start to finish?",
       answer:
-        "Most engagements begin with the free AI Readiness Assessment, followed by a discovery session to interpret your score and operational context. From there, IntegroAI identifies key bottlenecks, builds clarity around how work actually gets done, and prioritises where AI may or may not add value.",
+        "Most engagements begin with the free AI Readiness Assessment, followed by a discovery session to interpret your score and operational context. From there, IntegroAI identifies key bottlenecks, builds Operational Clarity around how work actually gets done, and prioritises where AI may or may not add value.",
     },
   ];
 
@@ -98,15 +98,17 @@ const FAQ = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mx-auto mb-16 max-w-3xl text-center"
+            className="mx-auto mb-16 max-w-4xl text-center"
           >
-            <span className="mb-4 inline-block text-sm font-medium uppercase tracking-[0.2em] text-primary">
+            <span className="mb-4 inline-block rounded-full bg-primary/10 px-5 py-2 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
               Common Questions
             </span>
-            <h2 className="mb-6 text-4xl font-light tracking-tight text-foreground md:text-5xl">
+
+            <h2 className="mb-6 text-4xl font-bold tracking-tight text-foreground md:text-5xl">
               Frequently Asked Questions
             </h2>
-            <p className="text-lg leading-relaxed text-muted-foreground">
+
+            <p className="text-xl leading-relaxed text-muted-foreground">
               Quick answers to the questions we hear most often from SME leaders.
             </p>
           </motion.div>
@@ -133,6 +135,7 @@ const FAQ = () => {
                       <span className="flex-1">{faq.question}</span>
                     </div>
                   </AccordionTrigger>
+
                   <AccordionContent className="pb-6 pl-12 text-base leading-relaxed text-muted-foreground">
                     {faq.answer}
                   </AccordionContent>
