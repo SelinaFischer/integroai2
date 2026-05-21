@@ -109,7 +109,7 @@ const FAQ = () => {
             </h2>
 
             <p className="text-xl leading-relaxed text-muted-foreground">
-              Quick answers to the questions we hear most often from SME leaders.
+              Quick answers to the questions we hear most often from business leaders.
             </p>
           </motion.div>
 
