@@ -91,34 +91,21 @@ body{min-height:100vh;font-family:'Open Sans',-apple-system,Helvetica Neue,Arial
   display:flex;flex-direction:column;align-items:stretch;
   overflow:hidden;
 }
-/* hero background photo */
-.w-bg-img{
+/* wave background image — screen blend removes its dark bg, leaves only the bright dots */
+.w-wave-img{
   position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;object-position:center;
-  z-index:0;transform:scale(1.05);
+  object-fit:cover;object-position:center bottom;
+  z-index:0;pointer-events:none;
+  mix-blend-mode:screen;opacity:.90;
 }
-/* directional overlay: left stays dark for text, right opens up for wave */
-.w-overlay-1{
-  position:absolute;inset:0;z-index:1;
+/* left-side gradient — keeps text readable against the wave */
+.w-text-guard{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
   background:linear-gradient(to right,
     rgba(8,14,26,.88) 0%,
-    rgba(8,14,26,.80) 32%,
-    rgba(8,14,26,.50) 62%,
-    rgba(8,14,26,.20) 100%);
-}
-/* vertical gradient: bottom stays light to reveal wave, top darker for nav contrast */
-.w-overlay-2{
-  position:absolute;inset:0;z-index:1;
-  background:linear-gradient(to top,
-    rgba(8,14,26,.08) 0%,
-    rgba(8,14,26,.16) 30%,
-    rgba(8,14,26,.28) 58%,
-    rgba(8,14,26,.68) 100%);
-}
-/* subtle gold warmth upper-left only */
-.w-overlay-3{
-  position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:radial-gradient(ellipse 45% 38% at 0% 0%,rgba(224,154,16,.07) 0%,transparent 52%);
+    rgba(8,14,26,.65) 40%,
+    rgba(8,14,26,.20) 68%,
+    transparent 100%);
 }
 /* single-column hero content block */
 .w-hero-content{
@@ -127,19 +114,13 @@ body{min-height:100vh;font-family:'Open Sans',-apple-system,Helvetica Neue,Arial
   position:relative;z-index:2;box-sizing:border-box;min-height:100vh;
   display:flex;flex-direction:column;justify-content:center;
 }
-/* blue dot wave — canvas positioned right/lower of hero */
-.w-wave{
-  position:absolute;right:0;bottom:0;
-  width:68%;height:90%;
-  z-index:1;pointer-events:none;display:block;
-}
 @media(max-width:900px){
   .w-hero-content{max-width:min(600px,88vw);padding-top:clamp(100px,14vh,130px)}
-  .w-wave{width:100%;height:55%;opacity:.65}
+  .w-wave-img{opacity:.75}
 }
 @media(max-width:600px){
   .w-hero-content{max-width:92vw;padding:clamp(96px,13vh,120px) clamp(16px,4vw,24px) clamp(40px,6vh,60px)}
-  .w-wave{height:45%;opacity:.5}
+  .w-wave-img{opacity:.60}
 }
 /* badge pill — dark navy, subtle border, white text, gold star accents */
 .hero-badge{
@@ -484,14 +465,9 @@ a.btn, a.btn-gold, a.btn-outline-inv{cursor:pointer !important;display:inline-fl
   <div class="w-wrapper">
     <div class="w-inner">
 
-      <!-- Hero background photo — darkened to match website -->
-      <img src="https://integroai.tech/hero-bg.webp" alt="" role="presentation" class="w-bg-img" fetchpriority="high" decoding="async">
-      <div class="w-overlay-1"></div>
-      <div class="w-overlay-2"></div>
-      <div class="w-overlay-3"></div>
-
-      <!-- Blue dot wave canvas — right/lower hero area -->
-      <canvas class="w-wave" id="w-wave" aria-hidden="true"></canvas>
+      <!-- Wave image — plain navy base, wave at opacity -->
+      <img src="/hero-wave.png" alt="" role="presentation" class="w-wave-img" fetchpriority="high" decoding="async">
+      <div class="w-text-guard"></div>
 
       <!-- Single-column left-aligned hero content -->
       <div class="w-hero-content">
@@ -1420,34 +1396,7 @@ function buildResults(){
   show('s-results');
 }
 
-// ── Blue dot wave ───────────────────────────────────────────────────────────
-function initWave(){
-  var c=document.getElementById('w-wave');
-  if(!c)return;
-  var W=c.offsetWidth||900, H=c.offsetHeight||520;
-  c.width=W; c.height=H;
-  var ctx=c.getContext('2d');
-  var ROWS=18, STEP=16, rowH=H/(ROWS+2);
-  for(var r=0;r<ROWS;r++){
-    var yBase=30+r*rowH;
-    var phase=r*(Math.PI/3.5);
-    var amp=28+Math.sin(r*0.6)*12;
-    for(var x=0;x<W;x+=STEP){
-      var t=x/W;
-      var y=yBase+Math.sin(t*Math.PI*3+phase)*amp;
-      var xFade=t<0.25?(t/0.25)*(t/0.25):1.0;
-      var waveMass=Math.exp(-Math.pow((r-ROWS*0.55)/(ROWS*0.35),2));
-      var op=(0.12+0.52*xFade*waveMass).toFixed(3);
-      var rad=1.4+waveMass*0.6;
-      ctx.beginPath();
-      ctx.arc(x,y,rad,0,Math.PI*2);
-      ctx.fillStyle='rgba(80,140,255,'+op+')';
-      ctx.fill();
-    }
-  }
-}
-if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initWave);}
-else{initWave();}
+
 </script>
 </body>
 </html>
