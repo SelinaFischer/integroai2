@@ -47,7 +47,7 @@ const CTA = () => {
             yet?
           </h2>
           <p className="text-white/70 text-sm sm:text-base mb-8 max-w-2xl mx-auto leading-relaxed">
-            AI delivers ROI when the right business problem is chosen first. Start with the AI Readiness Assessment to decide what is worth solving before you spend.
+           AI delivers ROI when the right business problem is addressed before any solution is chosen. Start with the AI Readiness Assessment to decide what is worth solving before you spend.
           </p>
 
           <motion.div 
