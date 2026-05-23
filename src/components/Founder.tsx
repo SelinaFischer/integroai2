@@ -38,21 +38,15 @@ const Founder = () => {
                 <div className="w-[90%] h-[90%] bg-gradient-to-br from-primary/10 via-accent-warm/10 to-primary/5 rounded-full blur-3xl" />
               </div>
 
-              <a
-  href="/assessment"
-  aria-label="Take the AI Readiness Assessment"
-  className="relative block w-80 sm:w-96 lg:w-[30rem] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border/20 transition-transform duration-300 hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-accent-warm focus:ring-offset-4"
->
-  <img
-    src={selinaPhoto}
-    alt="Selina Fischer - IntegroAI Founder and CEO"
-    width={400}
-    height={400}
-    loading="lazy"
-    decoding="async"
-    className="w-full h-auto relative z-10"
-  />
-</a>
+              <img
+                src={selinaPhoto}
+                alt="Selina Fischer - IntegroAI Founder and CEO"
+                width={400}
+                height={400}
+                loading="lazy"
+                decoding="async"
+                className="relative w-80 sm:w-96 lg:w-[30rem] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border/20 z-10 h-auto"
+              />
             </motion.div>
 
             {/* Founder Info */}
