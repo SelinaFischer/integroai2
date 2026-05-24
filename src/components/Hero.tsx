@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
-import heroBg from "@/assets/hero-bg.webp";
+import heroBg from "@/assets/hero-bg";
 
 const Hero = () => {
   return (
