@@ -109,7 +109,7 @@ const Header = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20 lg:h-24">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 sm:gap-3 lg:gap-4 relative z-10">
+          <Link to="/" aria-label="Go to IntegroAI homepage" className="flex items-center gap-2 sm:gap-3 lg:gap-4 relative z-10">
             <img 
               src={logo} 
               alt="IntegroAI Consulting" 
@@ -121,7 +121,7 @@ const Header = () => {
                 scrolled ? 'h-8 sm:h-10 lg:h-14' : 'h-10 sm:h-14 lg:h-20'
               }`}
             />
-           <div className="hidden sm:flex flex-col">
+            <div className="hidden sm:flex flex-col">
               <span className="text-base sm:text-lg lg:text-2xl font-bold tracking-tight text-white">
                 IntegroAI Consulting
               </span>
@@ -142,19 +142,19 @@ const Header = () => {
             >
               <a href="https://integroai.tech/assessment" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1">
                 <span className="hidden sm:inline">AI Readiness Assessment</span>
-             <span className="sm:hidden">Assessment</span>
+                <span className="sm:hidden">AI Readiness Assessment</span>
                 <ArrowRight className="w-3 h-3 sm:w-3 sm:h-3 lg:w-4 lg:h-4 ml-1 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
             <Button
               variant="heroOutline"
               size="sm"
-              className="group text-[10px] sm:text-xs lg:text-sm px-2 sm:px-3 lg:px-5 h-8 sm:h-9 lg:h-10 whitespace-nowrap"
+              className="text-[10px] sm:text-xs lg:text-sm px-2 sm:px-3 lg:px-5 h-8 sm:h-9 lg:h-10 whitespace-nowrap"
               asChild
             >
               <a href="https://calendly.com/integroai-tech/30min" target="_blank" rel="noopener noreferrer">
                 <span className="hidden sm:inline">Book Free Discovery Call</span>
-               <span className="sm:hidden">Book Call</span>
+                <span className="sm:hidden">Book Free Discovery Call</span>
               </a>
             </Button>
             
