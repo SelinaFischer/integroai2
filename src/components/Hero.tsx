@@ -6,9 +6,9 @@ import heroBg from "@/assets/hero-bg.webp";
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Hero background image */}
-      <div className="absolute inset-0 scale-105">
-        <img 
+      {/* Hero background image — reduced opacity, slight blur, shifted right */}
+      <div className="absolute inset-0">
+        <img
           src={heroBg}
           alt=""
           role="presentation"
@@ -16,13 +16,18 @@ const Hero = () => {
           height={1080}
           fetchPriority="high"
           decoding="async"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-right opacity-[0.58] blur-[2px] scale-[1.02] brightness-[0.85] saturate-[0.88]"
         />
       </div>
-      
-      {/* Premium gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/24 via-primary/14 to-primary/6" />
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/18 via-transparent to-primary/6" />
+
+      {/* Dark navy base — softens the image and aligns with brand tone */}
+      <div className="absolute inset-0 bg-[#01121e]/55" />
+
+      {/* Left-to-right gradient — darkens behind text, opens toward the graphic */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#012F46]/85 via-[#012F46]/55 to-[#012F46]/20" />
+
+      {/* Vignette — top and bottom edge refinement */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#01121e]/40 via-transparent to-[#01121e]/25" />
       
       {/* Subtle animated accent */}
       <motion.div 
