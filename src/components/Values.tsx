@@ -1,5 +1,6 @@
 import { Lightbulb, Shield, Award, BarChart3 } from "lucide-react";
 import { motion } from "framer-motion";
+import selinaOfficePhoto from "@/assets/selina-office.png";
 
 const Values = () => {
   const values = [
@@ -38,55 +39,83 @@ const Values = () => {
       <div className="absolute top-0 left-0 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-primary/3 rounded-full blur-[120px] -translate-y-1/2 -translate-x-1/2" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-14 sm:mb-16"
-          >
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-6 text-foreground text-center">
-              About IntegroAI Consulting
-            </h2>
+        <div className="max-w-6xl mx-auto">
 
-            <div className="space-y-6 max-w-3xl mx-auto text-left">
-              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                IntegroAI helps business leaders cut duplicated manual effort, free up team capacity, and protect margin through human-first AI adoption.
-              </p>
+          {/* ── About: two-column layout ── */}
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-10 lg:gap-16 items-start mb-14 sm:mb-16">
 
-              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                We diagnose gaps in workflow, data, process and ownership before recommending any AI solution, so leaders know exactly what the next steps are, where AI fits, and where it does not.
-              </p>
+            {/* Left column: heading + copy + Mission + Vision stacked */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-6 text-foreground">
+                About IntegroAI Consulting
+              </h2>
 
-              <div>
-                <p className="text-primary text-xs sm:text-sm font-semibold uppercase tracking-wide mb-5">
-                  Mission & Vision
+              <div className="space-y-6">
+                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                  IntegroAI helps business leaders cut duplicated manual effort, free up team capacity, and protect margin through human-first AI adoption.
                 </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="bg-card border border-border/50 rounded-xl p-5 shadow-card">
-                    <h3 className="text-base sm:text-lg font-bold mb-2 text-foreground">
-                      Mission
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      To help business leaders turn operational clarity into confident AI decisions that save time, protect margin, and free teams to focus on growth.
-                    </p>
-                  </div>
+                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                  We diagnose gaps in workflow, data, process and ownership before recommending any AI solution, so leaders know exactly what the next steps are, where AI fits, and where it does not.
+                </p>
 
-                  <div className="bg-card border border-border/50 rounded-xl p-5 shadow-card">
-                    <h3 className="text-base sm:text-lg font-bold mb-2 text-foreground">
-                      Vision
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      To help business leaders future-proof their operations for AI readiness, so technology amplifies team capability and reduces operational friction.
-                    </p>
+                <div>
+                  <p className="text-primary text-xs sm:text-sm font-semibold uppercase tracking-wide mb-4">
+                    Mission & Vision
+                  </p>
+
+                  <div className="space-y-4">
+                    <div className="bg-card border border-border/50 rounded-xl p-5 shadow-card">
+                      <h3 className="text-base sm:text-lg font-bold mb-2 text-foreground">
+                        Mission
+                      </h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        To help business leaders turn operational clarity into confident AI decisions that save time, protect margin, and free teams to focus on growth.
+                      </p>
+                    </div>
+
+                    <div className="bg-card border border-border/50 rounded-xl p-5 shadow-card">
+                      <h3 className="text-base sm:text-lg font-bold mb-2 text-foreground">
+                        Vision
+                      </h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        To help business leaders future-proof their operations for AI readiness, so technology amplifies team capability and reduces operational friction.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
 
+            {/* Right column: image + caption */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="self-start lg:sticky lg:top-24"
+            >
+              <div className="rounded-2xl overflow-hidden shadow-card border border-border/50 aspect-[4/5]">
+                <img
+                  src={selinaOfficePhoto}
+                  alt="Professional workspace — IntegroAI Consulting"
+                  className="w-full h-full object-cover object-center"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <p className="mt-4 text-xs text-muted-foreground leading-relaxed text-center lg:text-left">
+                Helping business leaders turn operational complexity into confident AI decisions.
+              </p>
+            </motion.div>
+          </div>
+
+          {/* ── Values grid — unchanged ── */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {values.map((value, index) => (
               <motion.div
