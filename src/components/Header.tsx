@@ -46,7 +46,7 @@ const Header = () => {
 
       const handleTabKey = (e: KeyboardEvent) => {
         if (e.key !== 'Tab') return;
-        
+
         if (e.shiftKey && document.activeElement === firstElement) {
           e.preventDefault();
           lastElement?.focus();
@@ -58,7 +58,7 @@ const Header = () => {
 
       document.addEventListener('keydown', handleTabKey);
       firstElement?.focus();
-      
+
       return () => document.removeEventListener('keydown', handleTabKey);
     }
   }, [mobileMenuOpen]);
@@ -102,17 +102,17 @@ const Header = () => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled 
-        ? 'bg-nav shadow-lg border-b border-white/10' 
+      scrolled
+        ? 'bg-nav shadow-lg border-b border-white/10'
         : 'bg-nav/70 backdrop-blur-md border-b border-transparent'
     }`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20 lg:h-24">
           {/* Logo */}
           <Link to="/" aria-label="Go to IntegroAI homepage" className="flex items-center gap-2 sm:gap-3 lg:gap-4 relative z-10">
-            <img 
-              src={logo} 
-              alt="IntegroAI Consulting" 
+            <img
+              src={logo}
+              alt="IntegroAI Consulting"
               width={80}
               height={80}
               fetchPriority="high"
@@ -131,8 +131,7 @@ const Header = () => {
             </div>
           </Link>
 
-
-          {/* CTA Buttons - Always visible, matching Hero style */}
+          {/* CTA Button + Menu Toggle */}
           <div className="flex items-center gap-1.5 sm:gap-2 lg:gap-3">
             <Button
               variant="hero"
@@ -146,7 +145,8 @@ const Header = () => {
                 <ArrowRight className="w-3 h-3 sm:w-3 sm:h-3 lg:w-4 lg:h-4 ml-1 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
-            {/* Menu Toggle - Always visible */}
+
+            {/* Menu Toggle */}
             <button
               ref={menuButtonRef}
               className="p-2 sm:p-3 -mr-1 sm:-mr-2 relative z-10 text-white min-w-[40px] sm:min-w-[44px] min-h-[40px] sm:min-h-[44px] flex items-center justify-center hover:bg-white/10 rounded-lg transition-colors"
@@ -162,7 +162,7 @@ const Header = () => {
 
         {/* Dropdown Menu */}
         {mobileMenuOpen && (
-          <div 
+          <div
             ref={mobileMenuRef}
             id="mobile-menu"
             role="dialog"
@@ -184,4 +184,8 @@ const Header = () => {
           </div>
         )}
       </div>
-    </he
+    </header>
+  );
+};
+
+export default Header;
