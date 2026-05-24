@@ -6,8 +6,7 @@ import heroBg from "@/assets/hero-bg.webp";
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-[#012F46]">
-
-      {/* Layer 1 — Hero background image */}
+      {/* Hero background image — reduced opacity, slight blur, shifted right */}
       <div className="absolute inset-0">
         <img
           src={heroBg}
@@ -21,17 +20,20 @@ const Hero = () => {
         />
       </div>
 
-      {/* Layer 2 — Navy depth */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#020B14] via-[#012F46]/80 to-[#031523]" />
+      {/* Navy gradient overlay — pure brand navy, no grey or teal */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#031523]/92 via-[#012F46]/76 to-[#031523]/30" />
 
-      {/* Layer 3 — Subtle right-side blue glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_45%,rgba(11,78,138,0.28)_0%,rgba(1,47,70,0.12)_32%,rgba(2,11,20,0)_62%)]" />
+      {/* Bottom depth */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#031523]/45" />
 
-      {/* Layer 4 — Left-to-right readability overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#020B14]/88 via-[#012F46]/58 to-[#020B14]/22" />
-
-      {/* Layer 5 — Bottom depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#020B14]/45" />
+      {/* Subtle animated accent */}
+      <motion.div
+        className="absolute top-1/3 right-0 w-[600px] h-[600px] bg-accent-warm/10 rounded-full blur-[150px]"
+        animate={{
+          opacity: [0.1, 0.15, 0.1],
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-36 pb-24 sm:pb-32 relative z-10">
         <div className="max-w-[660px] text-left lg:mt-8">
