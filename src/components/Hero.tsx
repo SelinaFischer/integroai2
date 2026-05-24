@@ -83,13 +83,13 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-4 mb-8 sm:mb-10"
           >
-            <Button variant="hero" size="xl" className="group shimmer" asChild>
+            <Button variant="hero" size="xl" className="group shimmer h-[52px] px-8 text-[17px]" asChild>
               <a href="https://integroai.tech/assessment" target="_blank" rel="noopener noreferrer">
                 Start the Assessment
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
-            <Button variant="heroOutline" size="lg" className="backdrop-blur-sm" asChild>
+            <Button variant="heroOutline" size="lg" className="backdrop-blur-sm h-[52px] px-7 text-[17px]" asChild>
               <a href="https://calendly.com/integroai-tech/30min" target="_blank" rel="noopener noreferrer">
                 Book Free Discovery Call
               </a>
