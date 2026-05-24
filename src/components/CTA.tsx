@@ -60,9 +60,11 @@ const CTA = () => {
               className="flex flex-col justify-center p-8 sm:p-10 lg:p-12"
             >
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1.5 mb-6 w-fit">
-                <Sparkles className="w-3.5 h-3.5 text-accent-warm" aria-hidden="true" />
-                <span className="text-white/80 text-xs sm:text-sm font-medium">Start with clarity</span>
+              <div className="flex justify-center mb-6">
+                <div className="inline-flex items-center gap-2 bg-white/8 border border-[#F5A302]/30 rounded-full px-5 py-2.5">
+                  <Sparkles className="w-4 h-4 text-[#F5A302]" aria-hidden="true" />
+                  <span className="text-white text-sm font-semibold">Start with clarity</span>
+                </div>
               </div>
 
               {/* Headline */}
