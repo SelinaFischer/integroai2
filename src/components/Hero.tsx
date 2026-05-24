@@ -16,15 +16,15 @@ const Hero = () => {
           height={1080}
           fetchPriority="high"
           decoding="async"
-          className="w-full h-full object-cover object-right opacity-[0.58] blur-[2px] scale-[1.02] brightness-[0.85] saturate-[0.88]"
+          className="w-full h-full object-cover object-[85%_center] opacity-[0.75] blur-[1px] scale-[1.01] brightness-[0.90] contrast-[0.95] saturate-[0.92]"
         />
       </div>
 
-      {/* Dark navy base — softens the image and aligns with brand tone */}
-      <div className="absolute inset-0 bg-[#01121e]/55" />
+      {/* Dark navy base — keeps the brand tone grounded */}
+      <div className="absolute inset-0 bg-[#031523]/40" />
 
       {/* Left-to-right gradient — darkens behind text, opens toward the graphic */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#012F46]/85 via-[#012F46]/55 to-[#012F46]/20" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#031523]/84 via-[#07263A]/72 to-[#012F46]/52" />
 
       {/* Vignette — top and bottom edge refinement */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#01121e]/40 via-transparent to-[#01121e]/25" />
