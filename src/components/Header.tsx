@@ -124,7 +124,7 @@ const Header = () => {
               <span className="text-base sm:text-lg lg:text-2xl font-bold tracking-tight text-white">
                 IntegroAI Consulting
               </span>
-              <span className="text-[10px] sm:text-xs lg:text-sm font-medium tracking-wide text-accent-warm">
+              <span className="text-[10px] sm:text-xs lg:text-sm font-medium tracking-wide text-[#F5A302]">
                 Simplify · Prioritise · Grow
               </span>
             </div>
@@ -138,12 +138,12 @@ const Header = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 whitespace-nowrap font-medium transition-all duration-200
                 border border-[#F5A302]/65 hover:border-[#F5A302]
-                bg-[rgba(245,163,2,0.06)] hover:bg-[rgba(245,163,2,0.12)]
-                text-[#F5A302]
+                bg-[#F5A302]/5 hover:bg-[#F5A302]/10
+                text-[#F5A302] hover:text-[#F5A302]
                 rounded-[10px]
-                text-[10px] sm:text-xs lg:text-[14px]
-                px-2.5 sm:px-3.5 lg:px-6
-                h-8 sm:h-9 lg:h-[42px]"
+                text-[10px] sm:text-xs lg:text-[13px]
+                px-2 sm:px-3 lg:px-[20px]
+                h-7 sm:h-8 lg:h-[38px]"
             >
               <span className="hidden sm:inline">AI Readiness Assessment</span>
               <span className="sm:hidden">AI Readiness Assessment</span>
