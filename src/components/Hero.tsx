@@ -34,7 +34,7 @@ const Hero = () => {
       />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-36 pb-24 sm:pb-32 relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-[660px] text-left">
         
           {/* Main headline - bold and clear */}
           <motion.h1 
@@ -53,7 +53,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.18 }}
-          className="text-xl sm:text-2xl md:text-3xl text-white/90 max-w-2xl mx-auto mb-6 sm:mb-8 leading-snug font-medium"
+          className="text-xl sm:text-2xl md:text-3xl text-white/90 max-w-2xl mb-6 sm:mb-8 leading-snug font-medium"
          >
            Save Time, Reduce Cost, and Improve ROI With Bespoke AI Solutions.
         </motion.p>         
@@ -63,7 +63,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.24 }}
-          className="text-sm sm:text-base text-white/60 max-w-xl mx-auto mb-10 sm:mb-12 lg:mb-14 leading-relaxed italic"
+          className="text-sm sm:text-base text-white/60 max-w-xl mb-10 sm:mb-12 lg:mb-14 leading-relaxed italic"
         >
           Built around your operations, your priorities, and ROI you can measure.
           </motion.p>
@@ -79,7 +79,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 sm:mb-10"
+            className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-4 mb-8 sm:mb-10"
           >
             <Button variant="hero" size="xl" className="group shimmer" asChild>
               <a href="https://integroai.tech/assessment" target="_blank" rel="noopener noreferrer">
@@ -99,7 +99,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-4 text-sm sm:text-base text-[#e5eded] max-w-xl mx-auto"
+            className="mt-4 text-sm sm:text-base text-[#e5eded] max-w-xl"
          >
            5-minute Assessment → Strategy Call → Clear AI Priorities
          </motion.p>       
