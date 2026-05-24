@@ -16,15 +16,15 @@ const Hero = () => {
           height={1080}
           fetchPriority="high"
           decoding="async"
-          className="w-full h-full object-cover object-[right_8%_center] opacity-[0.62] blur-[1px] scale-[1.01] brightness-[0.82] saturate-[0.90]"
+          className="w-full h-full object-cover object-right opacity-[0.70] brightness-[0.72] saturate-[0.95] contrast-[0.95] scale-[1.01]"
         />
       </div>
 
-      {/* Left-to-right dark navy gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#031523]/78 via-[#07263A]/58 to-[#012F46]/28" />
+      {/* Navy gradient overlay — brand-aligned, no grey or teal */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#031523]/88 via-[#012F46]/72 to-[#012F46]/48" />
 
       {/* Bottom depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#020F1C]/35" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#031523]/45" />
       
       {/* Subtle animated accent */}
       <motion.div 
