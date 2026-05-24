@@ -5,7 +5,7 @@ import heroBg from "@/assets/hero-bg.webp";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#012F46]">
       {/* Hero background image — reduced opacity, slight blur, shifted right */}
       <div className="absolute inset-0">
         <img
@@ -16,15 +16,15 @@ const Hero = () => {
           height={1080}
           fetchPriority="high"
           decoding="async"
-          className="w-full h-full object-cover object-right opacity-[0.70] brightness-[0.72] saturate-[0.95] contrast-[0.95] scale-[1.01]"
+          className="w-full h-full object-cover object-right opacity-[0.68] brightness-[0.82] saturate-[0.92] contrast-[0.96] scale-[1.01]"
         />
       </div>
 
-      {/* Navy gradient overlay — brand-aligned, no grey or teal */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#031523]/88 via-[#012F46]/72 to-[#012F46]/48" />
+      {/* Navy gradient overlay — pure brand navy, no grey or teal */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#031523]/88 via-[#012F46]/72 to-[#012F46]/42" />
 
       {/* Bottom depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#031523]/45" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#031523]/35" />
       
       {/* Subtle animated accent */}
       <motion.div 
