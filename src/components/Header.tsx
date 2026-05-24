@@ -1,5 +1,4 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { scrollToSection } from "@/lib/scrollToSection";
@@ -133,18 +132,23 @@ const Header = () => {
 
           {/* CTA Button + Menu Toggle */}
           <div className="flex items-center gap-1.5 sm:gap-2 lg:gap-3">
-            <Button
-              variant="hero"
-              size="sm"
-              className="text-[10px] sm:text-xs lg:text-sm px-2 sm:px-3 lg:px-5 h-8 sm:h-9 lg:h-10 whitespace-nowrap"
-              asChild
+            <a
+              href="https://integroai.tech/assessment"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 whitespace-nowrap font-medium transition-all duration-200
+                border border-[#F5A302]/65 hover:border-[#F5A302]
+                bg-[rgba(245,163,2,0.06)] hover:bg-[rgba(245,163,2,0.12)]
+                text-[#F5A302]
+                rounded-[10px]
+                text-[10px] sm:text-xs lg:text-[14px]
+                px-2.5 sm:px-3.5 lg:px-6
+                h-8 sm:h-9 lg:h-[42px]"
             >
-              <a href="https://integroai.tech/assessment" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1">
-                <span className="hidden sm:inline">AI Readiness Assessment</span>
-                <span className="sm:hidden">AI Readiness Assessment</span>
-                <ArrowRight className="w-3 h-3 sm:w-3 sm:h-3 lg:w-4 lg:h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </Button>
+              <span className="hidden sm:inline">AI Readiness Assessment</span>
+              <span className="sm:hidden">AI Readiness Assessment</span>
+              <ArrowRight className="w-3 h-3 sm:w-3 sm:h-3 lg:w-4 lg:h-4 ml-1" />
+            </a>
 
             {/* Menu Toggle */}
             <button
