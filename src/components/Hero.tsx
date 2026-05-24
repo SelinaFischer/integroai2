@@ -25,21 +25,21 @@ const Hero = () => {
 
       {/* Bottom depth */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#031523]/35" />
-      
+
       {/* Subtle animated accent */}
-      <motion.div 
+      <motion.div
         className="absolute top-1/3 right-0 w-[600px] h-[600px] bg-accent-warm/10 rounded-full blur-[150px]"
-        animate={{ 
-          opacity: [0.1, 0.15, 0.1]
+        animate={{
+          opacity: [0.1, 0.15, 0.1],
         }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-36 pb-24 sm:pb-32 relative z-10">
         <div className="max-w-[660px] text-left lg:mt-8">
-        
-          {/* Main headline - bold and clear */}
-          <motion.h1 
+
+          {/* Main headline */}
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
@@ -52,32 +52,31 @@ const Hero = () => {
 
           {/* Destination outcome line */}
           <motion.p
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.18 }}
-          className="text-xl sm:text-2xl md:text-3xl text-white/90 max-w-2xl mb-6 sm:mb-8 leading-snug font-medium"
-         >
-           Find where AI can save time, reduce cost and protect margin before you invest.
-        </motion.p>         
-
-          {/* Single clear value proposition */}
-          <motion.p
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.24 }}
-          className="text-sm sm:text-base text-white/60 max-w-xl mb-10 sm:mb-12 lg:mb-14 leading-relaxed italic"
-        >
-          Built around your operations, your priorities and measurable ROI.
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.18 }}
+            className="text-xl sm:text-2xl md:text-3xl text-white/90 max-w-2xl mb-6 sm:mb-8 leading-snug font-medium"
+          >
+            Find where AI can save time, reduce cost and protect margin before you invest.
           </motion.p>
 
-      
-          {/* SEO context line. INSERT HERE */}
+          {/* Supporting value proposition */}
+          <motion.p
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.24 }}
+            className="text-sm sm:text-base text-white/60 max-w-xl mb-10 sm:mb-12 lg:mb-14 leading-relaxed italic"
+          >
+            Built around your operations, your priorities and measurable ROI.
+          </motion.p>
+
+          {/* SEO context line */}
           <p className="sr-only">
-            AI consulting for SME leaders focused on driving operational efficiency & ROI for SMEs. AI Readiness & Strategic Adoption.
+            AI consulting for SME leaders focused on driving operational efficiency &amp; ROI for SMEs. AI Readiness &amp; Strategic Adoption.
           </p>
 
-          {/* Single prominent CTA */}
-          <motion.div 
+          {/* CTA buttons */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -95,28 +94,28 @@ const Hero = () => {
               </a>
             </Button>
           </motion.div>
-          
+
           {/* Process clarity line */}
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
             className="mt-4 text-sm sm:text-base text-[#e5eded] max-w-xl"
-         >
-           5-minute Assessment → Strategy Call → Clear Next Steps
-         </motion.p>       
-                    
+          >
+            5-minute Assessment → Strategy Call → Clear Next Steps
+          </motion.p>
+
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.6 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10"
       >
-        <motion.a 
+        <motion.a
           href="#services"
           aria-label="Scroll to learn more"
           animate={{ y: [0, 6, 0] }}
@@ -135,6 +134,15 @@ const Hero = () => {
           xmlns="http://www.w3.org/2000/svg"
           className="block w-full"
           preserveAspectRatio="none"
-      >
-         <path
-           d="M0 80L60 74C120 68 240 56 360 52C480 48 600 52 720 56C840 60 960 64 1080 62C1200 60
+        >
+          <path
+            d="M0 80L60 74C120 68 240 56 360 52C480 48 600 52 720 56C840 60 960 64 1080 62C1200 60 1320 52 1380 48L1440 44V80H1380C1320 80 1200 80 1080 80C960 80 840 80 720 80C600 80 480 80 360 80C240 80 120 80 60 80H0Z"
+            fill="#FFFFFF"
+          />
+        </svg>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
