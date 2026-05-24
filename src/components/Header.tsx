@@ -124,7 +124,7 @@ const Header = () => {
               <span className="text-base sm:text-lg lg:text-2xl font-bold tracking-tight text-white">
                 IntegroAI Consulting
               </span>
-              <span className="text-[10px] sm:text-xs lg:text-sm font-semibold tracking-wide text-[#F5A302]">
+              <span className="text-[10px] sm:text-xs lg:text-sm font-semibold tracking-wide text-[#F6C35B]">
                 Simplify · Prioritise · Grow
               </span>
             </div>
@@ -137,9 +137,9 @@ const Header = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 whitespace-nowrap font-medium transition-all duration-200
-                border border-[#F5A302] hover:border-[#F5A302]
-                bg-transparent hover:bg-[#F5A302]/[0.08]
-                text-[#F5A302] hover:text-[#F5A302]
+                border border-[#F6C35B] hover:border-[#F6C35B]
+                bg-transparent hover:bg-[#F6C35B]/[0.08]
+                text-[#F6C35B] hover:text-[#F6C35B]
                 rounded-[10px]
                 text-[10px] sm:text-xs lg:text-[13px]
                 px-2 sm:px-3 lg:px-[20px]
