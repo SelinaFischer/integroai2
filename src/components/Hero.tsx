@@ -16,18 +16,15 @@ const Hero = () => {
           height={1080}
           fetchPriority="high"
           decoding="async"
-          className="w-full h-full object-cover object-[85%_center] opacity-[0.75] blur-[1px] scale-[1.01] brightness-[0.90] contrast-[0.95] saturate-[0.92]"
+          className="w-full h-full object-cover object-[right_8%_center] opacity-[0.62] blur-[1px] scale-[1.01] brightness-[0.82] saturate-[0.90]"
         />
       </div>
 
-      {/* Dark navy base — keeps the brand tone grounded */}
-      <div className="absolute inset-0 bg-[#031523]/40" />
+      {/* Left-to-right dark navy gradient */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#031523]/78 via-[#07263A]/58 to-[#012F46]/28" />
 
-      {/* Left-to-right gradient — darkens behind text, opens toward the graphic */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#031523]/84 via-[#07263A]/72 to-[#012F46]/52" />
-
-      {/* Vignette — top and bottom edge refinement */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#01121e]/40 via-transparent to-[#01121e]/25" />
+      {/* Bottom depth */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#020F1C]/35" />
       
       {/* Subtle animated accent */}
       <motion.div 
