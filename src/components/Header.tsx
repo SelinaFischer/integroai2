@@ -146,18 +146,6 @@ const Header = () => {
                 <ArrowRight className="w-3 h-3 sm:w-3 sm:h-3 lg:w-4 lg:h-4 ml-1 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
-            <Button
-              variant="heroOutline"
-              size="sm"
-              className="text-[10px] sm:text-xs lg:text-sm px-2 sm:px-3 lg:px-5 h-8 sm:h-9 lg:h-10 whitespace-nowrap"
-              asChild
-            >
-              <a href="https://calendly.com/integroai-tech/30min" target="_blank" rel="noopener noreferrer">
-                <span className="hidden sm:inline">Book Free Discovery Call</span>
-                <span className="sm:hidden">Book Free Discovery Call</span>
-              </a>
-            </Button>
-            
             {/* Menu Toggle - Always visible */}
             <button
               ref={menuButtonRef}
@@ -196,8 +184,4 @@ const Header = () => {
           </div>
         )}
       </div>
-    </header>
-  );
-};
-
-export default Header;
+    </he
