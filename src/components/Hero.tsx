@@ -16,25 +16,25 @@ const Hero = () => {
           height={1080}
           fetchPriority="high"
           decoding="async"
-          className="w-full h-full object-cover object-right opacity-[0.78] brightness-[0.78] contrast-[1.14] saturate-[0.98]"
+          className="w-full h-full object-cover object-right opacity-[0.82] brightness-[0.80] contrast-[1.16] saturate-[1.02]"
         />
       </div>
 
-      {/* Navy gradient overlay — deep premium 4-stop */}
+      {/* Navy gradient overlay — dense left for readability, opens up sharply to the right */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'linear-gradient(90deg, rgba(1,47,70,0.95) 0%, rgba(1,47,70,0.88) 32%, rgba(1,47,70,0.66) 64%, rgba(3,21,35,0.42) 100%)',
+            'linear-gradient(90deg, rgba(1,47,70,0.92) 0%, rgba(1,47,70,0.80) 32%, rgba(1,47,70,0.42) 64%, rgba(3,21,35,0.18) 100%)',
         }}
       />
 
-      {/* Bottom depth — navy richness, fading upward */}
+      {/* Bottom depth — subtle navy fade, not black */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'linear-gradient(to bottom, transparent 0%, transparent 55%, rgba(1,47,70,0.58) 100%)',
+            'linear-gradient(to bottom, transparent 0%, transparent 62%, rgba(1,47,70,0.40) 100%)',
         }}
       />
 
