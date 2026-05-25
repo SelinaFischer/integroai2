@@ -16,12 +16,12 @@ const Hero = () => {
           height={1080}
           fetchPriority="high"
           decoding="async"
-          className="w-full h-full object-cover object-right opacity-[0.78] brightness-[0.72] contrast-[1.08] saturate-[0.95] scale-[1.01]"
+          className="w-full h-full object-cover object-right opacity-[0.82] brightness-[0.74] contrast-[1.14] saturate-[1.02] scale-[1.005]"
         />
       </div>
 
       {/* Navy gradient overlay — pure brand navy, no grey or teal */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#031523]/92 via-[#012F46]/76 to-[#031523]/30" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#031523]/92 via-[#012F46]/70 to-[#031523]/24" />
 
       {/* Bottom depth */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#031523]/45" />
