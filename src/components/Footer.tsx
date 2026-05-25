@@ -44,11 +44,11 @@ const Footer = () => {
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12 lg:gap-8 xl:gap-12 mb-10 sm:mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.25fr_1.55fr_0.85fr_1.25fr] gap-10 sm:gap-12 lg:gap-10 xl:gap-14 mb-10 sm:mb-12">
 
           {/* Column 1 — Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <div className="flex items-center gap-3 mb-5">
+            <div className="mb-6">
               <img
                 src={footerLogo}
                 alt="IntegroAI Consulting"
@@ -60,9 +60,10 @@ const Footer = () => {
             <p className="text-white/75 text-xs sm:text-sm max-w-xs mb-5 leading-relaxed">
               Helping business leaders find where AI can save time, reduce cost and protect margin before they invest.
             </p>
-            <p className="text-[#F6C35B] text-xs sm:text-sm font-semibold tracking-wider">
-              Discover › Design › Validate › Deliver › Iterate
-            </p>
+            <div className="text-[#F6C35B] text-xs sm:text-sm font-semibold tracking-wider leading-relaxed">
+              <div>Discover › Design › Validate</div>
+              <div>Deliver › Iterate</div>
+            </div>
           </div>
 
           {/* Column 2 — Solutions We Offer */}
