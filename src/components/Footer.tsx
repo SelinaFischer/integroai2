@@ -1,4 +1,4 @@
-import { Mail } from "lucide-react";
+import { Mail, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import logo from "@/assets/integroai-logo-icon-white.png";
@@ -9,61 +9,99 @@ import ContactFormModal from "./ContactFormModal";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const quickLinks = [
+  const solutionsLinks = [
+    { href: "https://integroai.tech/assessment", label: "AI Readiness Assessment", external: true },
+    { href: "#services", label: "Workflow & Process Diagnosis", external: false },
+    { href: "#services", label: "Data Readiness & Structuring", external: false },
+    { href: "#services", label: "AI Strategy & Roadmap", external: false },
+    { href: "#services", label: "Implementation Oversight", external: false },
+    { href: "#services", label: "Leadership & Adoption Alignment", external: false },
+  ];
+
+  const companyLinks = [
     { href: "#framework", label: "Framework" },
-    { href: "#services", label: "Services" },
     { href: "#about", label: "About" },
     { href: "#founder", label: "Founder" },
-    { href: "#blog", label: "Blog" },
+    { href: "#blog", label: "Insights" },
     { href: "#faq", label: "FAQ" },
   ];
 
+  const linkClass =
+    "text-white/70 hover:text-[#F6C35B] transition-colors duration-200 text-xs sm:text-sm py-1.5 block leading-relaxed";
 
   return (
-    <footer className="bg-nav relative overflow-hidden border-t border-white/10">
-      {/* Background accent */}
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2" />
-      
-      <motion.div 
-        className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-14 lg:py-16 relative z-10"
+    <footer className="bg-gradient-to-b from-[#012F46] to-[#031523] relative overflow-hidden">
+      {/* Top accent line */}
+      <div className="absolute top-0 left-0 w-full h-px bg-[#F6C35B]/20" />
+      {/* Top border */}
+      <div className="absolute top-0 left-0 w-full h-px bg-white/10" />
+
+      <motion.div
+        className="container mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16 relative z-10"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-10 sm:mb-12">
-          {/* Brand */}
-          <div className="col-span-2 lg:col-span-2">
-            <div className="flex items-center gap-3 mb-4 sm:mb-6">
-              <img 
-                src={logo} 
-                alt="IntegroAI Consulting" 
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12 lg:gap-8 xl:gap-12 mb-10 sm:mb-12">
+
+          {/* Column 1 — Brand */}
+          <div className="sm:col-span-2 lg:col-span-1">
+            <div className="flex items-center gap-3 mb-5">
+              <img
+                src={logo}
+                alt="IntegroAI Consulting"
                 width={80}
                 height={80}
                 loading="lazy"
                 decoding="async"
-                className="h-14 sm:h-16 lg:h-20 w-auto"
+                className="h-12 sm:h-14 w-auto"
               />
             </div>
-            <p className="text-primary-foreground/70 text-sm sm:text-base max-w-md mb-4 sm:mb-6 leading-relaxed">
-              Helping business leaders turn AI confusion into confident decisions with clear strategy, solid foundations, and measurable outcomes.
+            <p className="text-white/75 text-xs sm:text-sm max-w-xs mb-5 leading-relaxed">
+              Helping business leaders find where AI can save time, reduce cost and protect margin before they invest.
             </p>
-            <p className="text-accent-warm text-xs sm:text-sm font-medium tracking-wider">
+            <p className="text-[#F6C35B] text-xs sm:text-sm font-semibold tracking-wider">
               Discover › Design › Validate › Deliver › Iterate
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Column 2 — Solutions We Offer */}
           <div>
-            <h4 className="font-bold text-primary-foreground mb-4 sm:mb-6 text-xs sm:text-sm uppercase tracking-wider">Navigate</h4>
-            <ul className="space-y-1 sm:space-y-2">
-              {quickLinks.map((link) => (
+            <h4 className="font-semibold text-white mb-4 sm:mb-5 text-xs sm:text-sm uppercase tracking-wider">
+              Solutions We Offer
+            </h4>
+            <ul className="space-y-0.5">
+              {solutionsLinks.map((link) => (
+                <li key={link.label}>
+                  {link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={linkClass}
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <a href={link.href} className={linkClass}>
+                      {link.label}
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 3 — Company */}
+          <div>
+            <h4 className="font-semibold text-white mb-4 sm:mb-5 text-xs sm:text-sm uppercase tracking-wider">
+              Company
+            </h4>
+            <ul className="space-y-0.5">
+              {companyLinks.map((link) => (
                 <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-xs sm:text-sm font-medium inline-flex items-center gap-2 group py-1.5 sm:py-2 min-h-[40px] sm:min-h-[44px]"
-                  >
-                    <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-accent-warm/50 group-hover:bg-accent-warm transition-colors" />
+                  <a href={link.href} className={linkClass}>
                     {link.label}
                   </a>
                 </li>
@@ -71,19 +109,22 @@ const Footer = () => {
             </ul>
           </div>
 
-
-          {/* Contact */}
+          {/* Column 4 — Get in Touch + Footer CTA */}
           <div>
-            <h4 className="font-bold text-primary-foreground mb-4 sm:mb-6 text-xs sm:text-sm uppercase tracking-wider">Get in Touch</h4>
-            <ul className="space-y-1 sm:space-y-2">
+            <h4 className="font-semibold text-white mb-4 sm:mb-5 text-xs sm:text-sm uppercase tracking-wider">
+              Get in Touch
+            </h4>
+            <ul className="space-y-2 mb-8">
               <li>
                 <a
                   href="https://www.linkedin.com/company/integroai-consulting/about/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 sm:gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-all text-xs sm:text-sm font-medium group py-1.5 sm:py-2 min-h-[40px] sm:min-h-[44px]"
+                  className="flex items-center gap-3 text-white/70 hover:text-[#F6C35B] transition-colors duration-200 text-xs sm:text-sm group py-1"
                 >
-                  <img src={linkedinLogo} alt="LinkedIn" width={24} height={24} loading="lazy" decoding="async" className="w-5 h-5 sm:w-6 sm:h-6 rounded transition-all duration-200 group-hover:scale-110 group-hover:shadow-[0_0_12px_rgba(255,255,255,0.4)]" />
+                  <div className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 transition-colors duration-200 group-hover:border-[#F6C35B]/50">
+                    <img src={linkedinLogo} alt="" width={16} height={16} loading="lazy" decoding="async" className="w-4 h-4 rounded-sm" />
+                  </div>
                   LinkedIn
                 </a>
               </li>
@@ -92,18 +133,20 @@ const Footer = () => {
                   href="https://www.instagram.com/integroai_tech/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 sm:gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-all text-xs sm:text-sm font-medium group py-1.5 sm:py-2 min-h-[40px] sm:min-h-[44px]"
+                  className="flex items-center gap-3 text-white/70 hover:text-[#F6C35B] transition-colors duration-200 text-xs sm:text-sm group py-1"
                 >
-                  <img src={instagramLogo} alt="Instagram" width={24} height={24} loading="lazy" decoding="async" className="w-5 h-5 sm:w-6 sm:h-6 rounded transition-all duration-200 group-hover:scale-110 group-hover:shadow-[0_0_12px_rgba(255,255,255,0.4)]" />
+                  <div className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 transition-colors duration-200 group-hover:border-[#F6C35B]/50">
+                    <img src={instagramLogo} alt="" width={16} height={16} loading="lazy" decoding="async" className="w-4 h-4 rounded-sm" />
+                  </div>
                   Instagram
                 </a>
               </li>
               <li>
-                <ContactFormModal 
+                <ContactFormModal
                   trigger={
-                    <button className="flex items-center gap-2 sm:gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-all text-xs sm:text-sm font-medium group py-1.5 sm:py-2 min-h-[40px] sm:min-h-[44px]">
-                      <div className="w-5 h-5 sm:w-6 sm:h-6 rounded bg-white/10 flex items-center justify-center transition-all duration-200 group-hover:scale-110 group-hover:bg-white/20 group-hover:shadow-[0_0_12px_rgba(255,255,255,0.4)]">
-                        <Mail className="w-3 h-3 sm:w-4 sm:h-4" />
+                    <button className="flex items-center gap-3 text-white/70 hover:text-[#F6C35B] transition-colors duration-200 text-xs sm:text-sm group py-1 w-full">
+                      <div className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 transition-colors duration-200 group-hover:border-[#F6C35B]/50">
+                        <Mail className="w-3.5 h-3.5" />
                       </div>
                       Send a Message
                     </button>
@@ -111,29 +154,47 @@ const Footer = () => {
                 />
               </li>
             </ul>
+
+            {/* Footer CTA */}
+            <div className="border-t border-white/10 pt-6">
+              <p className="text-white text-xs sm:text-sm font-semibold mb-1.5">
+                Start with clarity
+              </p>
+              <p className="text-white/60 text-xs leading-relaxed mb-3">
+                Take the free AI Readiness Assessment before you invest.
+              </p>
+              <a
+                href="https://integroai.tech/assessment"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 border border-[#F6C35B]/50 text-[#F6C35B] hover:bg-[#F6C35B]/10 hover:border-[#F6C35B] transition-all duration-200 rounded-lg px-3.5 py-2 text-xs font-medium"
+              >
+                Start the Assessment
+                <ArrowRight className="w-3 h-3" aria-hidden="true" />
+              </a>
+            </div>
           </div>
+
         </div>
 
-        {/* Bottom bar */}
-        <div className="pt-6 sm:pt-8 border-t border-white/10">
-          <div className="flex flex-col items-center gap-4 text-xs sm:text-sm text-primary-foreground/50">
-            {/* Links - wrap on mobile */}
-            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 lg:gap-6">
+        {/* Bottom legal bar */}
+        <div className="pt-6 border-t border-white/10">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/55">
+            <p>© {currentYear} IntegroAI Consulting. All rights reserved.</p>
+            <div className="flex items-center gap-4 sm:gap-6">
               <Link
-                to="/privacy-policy" 
-                className="text-primary-foreground/80 hover:text-accent-warm transition-colors py-1.5 sm:py-2 font-medium"
+                to="/privacy-policy"
+                className="text-white/55 hover:text-[#F6C35B] transition-colors duration-200 font-medium"
               >
                 Privacy Policy
               </Link>
-              <Link 
-                to="/terms-of-service" 
-                className="text-primary-foreground/80 hover:text-accent-warm transition-colors py-1.5 sm:py-2 font-medium"
+              <Link
+                to="/terms-of-service"
+                className="text-white/55 hover:text-[#F6C35B] transition-colors duration-200 font-medium"
               >
                 Terms of Service
               </Link>
             </div>
-            <p>© {currentYear} IntegroAI Consulting. All rights reserved.</p>
-            <p className="text-primary-foreground/30 text-[10px] font-mono">v2.0.6</p>
           </div>
         </div>
       </motion.div>
