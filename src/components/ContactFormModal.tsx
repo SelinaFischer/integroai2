@@ -36,14 +36,14 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
         angle: 60,
         spread: 55,
         origin: { x: 0, y: 0.7 },
-        colors: ['#22D3EE', '#A855F7', '#F59E0B', '#10B981'],
+        colors: ['#F5A302', '#F6C35B', '#012F46', '#BACBCB'],
       });
       confetti({
         particleCount: 3,
         angle: 120,
         spread: 55,
         origin: { x: 1, y: 0.7 },
-        colors: ['#22D3EE', '#A855F7', '#F59E0B', '#10B981'],
+        colors: ['#F5A302', '#F6C35B', '#012F46', '#BACBCB'],
       });
 
       if (Date.now() < end) {
@@ -93,7 +93,6 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
         throw new Error(msg);
       }
 
-      // Some providers return a 2xx but still include an error payload
       if (data && (data as any).error) {
         throw new Error((data as any).error);
       }
@@ -131,10 +130,13 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
   const handleOpenChange = (newOpen: boolean) => {
     setOpen(newOpen);
     if (!newOpen) {
-      // Reset form state when closing
       setTimeout(() => setIsSubmitted(false), 300);
     }
   };
+
+  // Shared input styling — white background, navy text, gold focus
+  const inputClass =
+    "bg-[#F8FAFC] border-[#BACBCB] text-[#012F46] placeholder:text-[#89898E] focus:border-[#F5A302] focus:ring-[#F5A302]/20 h-10 rounded-lg transition-colors";
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
@@ -145,7 +147,8 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
           </Button>
         )}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-md bg-gradient-to-b from-primary to-primary/95 text-primary-foreground border-0 shadow-2xl rounded-2xl p-0 overflow-hidden">
+
+      <DialogContent className="sm:max-w-md bg-white text-[#012F46] border border-[#012F46]/10 shadow-[0_24px_64px_rgba(1,47,70,0.16)] rounded-2xl p-0 overflow-hidden [&>button]:text-[#012F46]/60 [&>button]:hover:text-[#012F46]">
         <AnimatePresence mode="wait">
           {isSubmitted ? (
             <motion.div
@@ -156,27 +159,26 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
               transition={{ duration: 0.3, ease: "easeOut" }}
               className="py-12 px-6 text-center"
             >
-              <motion.div 
+              <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.1, type: "spring", stiffness: 200 }}
-                className="w-20 h-20 bg-accent rounded-full flex items-center justify-center mx-auto mb-6"
+                className="w-20 h-20 bg-[#F5A302]/10 rounded-full flex items-center justify-center mx-auto mb-6"
               >
-                <CheckCircle2 className="w-10 h-10 text-primary" />
+                <CheckCircle2 className="w-10 h-10 text-[#F5A302]" />
               </motion.div>
-              <h3 className="text-2xl font-heading font-semibold mb-3 text-white">
+              <h3 className="text-2xl font-heading font-semibold mb-3 text-[#012F46]">
                 Thank You!
               </h3>
-              <p className="text-white/80 mb-8 max-w-xs mx-auto">
+              <p className="text-[#012F46]/65 mb-8 max-w-xs mx-auto">
                 Your message has been sent successfully. We'll get back to you within 24 hours.
               </p>
-              <Button 
-                variant="heroOutline" 
+              <button
                 onClick={() => handleOpenChange(false)}
-                className="px-8"
+                className="text-sm text-[#012F46]/55 hover:text-[#012F46] transition-colors underline underline-offset-2"
               >
                 Close
-              </Button>
+              </button>
             </motion.div>
           ) : (
             <motion.div
@@ -187,15 +189,15 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
               transition={{ duration: 0.3, ease: "easeOut" }}
               className="p-6"
             >
-              <DialogHeader className="pb-4 border-b border-primary-foreground/10">
-                <DialogTitle className="text-xl font-heading text-primary-foreground">
+              <DialogHeader className="pb-4 border-b border-[#012F46]/10">
+                <DialogTitle className="text-xl font-heading font-bold text-[#012F46]">
                   Get in Touch
                 </DialogTitle>
-                <p className="text-primary-foreground/60 text-sm">
-                  Tell us about your needs and we'll respond shortly.
+                <p className="text-[#012F46]/65 text-sm">
+                  Tell us what you're exploring and we'll respond shortly.
                 </p>
               </DialogHeader>
-              
+
               <form
                 onSubmit={handleSubmit}
                 action="https://formspree.io/f/mnnezggg"
@@ -203,23 +205,23 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
                 className="space-y-4 pt-4"
               >
                 <div className="grid grid-cols-2 gap-3">
+                  {/* Full Name — not required */}
                   <div className="space-y-1.5">
-                    <Label htmlFor="name" className="text-primary-foreground/80 text-sm font-medium">
-                      Full Name <span className="text-accent">*</span>
+                    <Label htmlFor="name" className="text-[#012F46] text-sm font-medium">
+                      Full Name
                     </Label>
                     <Input
                       id="name"
                       name="name"
                       placeholder="John Smith"
-                      required
-                      minLength={2}
-                      className="bg-primary-foreground/5 border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/40 focus:border-accent/50 focus:ring-accent/20 h-10 rounded-lg transition-colors"
+                      className={inputClass}
                     />
                   </div>
 
+                  {/* Company — required */}
                   <div className="space-y-1.5">
-                    <Label htmlFor="company" className="text-primary-foreground/80 text-sm font-medium">
-                      Company <span className="text-accent">*</span>
+                    <Label htmlFor="company" className="text-[#012F46] text-sm font-medium">
+                      Company <span className="text-[#F5A302]">*</span>
                     </Label>
                     <Input
                       id="company"
@@ -227,15 +229,16 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
                       placeholder="Acme Inc."
                       required
                       minLength={2}
-                      className="bg-primary-foreground/5 border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/40 focus:border-accent/50 focus:ring-accent/20 h-10 rounded-lg transition-colors"
+                      className={inputClass}
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
+                  {/* Email — required */}
                   <div className="space-y-1.5">
-                    <Label htmlFor="email" className="text-primary-foreground/80 text-sm font-medium">
-                      Email <span className="text-accent">*</span>
+                    <Label htmlFor="email" className="text-[#012F46] text-sm font-medium">
+                      Email <span className="text-[#F5A302]">*</span>
                     </Label>
                     <Input
                       id="email"
@@ -243,66 +246,62 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
                       type="email"
                       placeholder="you@company.com"
                       required
-                      className="bg-primary-foreground/5 border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/40 focus:border-accent/50 focus:ring-accent/20 h-10 rounded-lg transition-colors"
+                      className={inputClass}
                     />
                   </div>
 
+                  {/* Phone — not required */}
                   <div className="space-y-1.5">
-                    <Label htmlFor="telephone" className="text-primary-foreground/80 text-sm font-medium">
-                      Phone <span className="text-accent">*</span>
+                    <Label htmlFor="telephone" className="text-[#012F46] text-sm font-medium">
+                      Phone
                     </Label>
                     <Input
                       id="telephone"
                       name="telephone"
                       type="tel"
                       placeholder="+44 20 1234 5678"
-                      required
-                      minLength={10}
-                      className="bg-primary-foreground/5 border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/40 focus:border-accent/50 focus:ring-accent/20 h-10 rounded-lg transition-colors"
+                      className={inputClass}
                     />
                   </div>
                 </div>
 
+                {/* How can we help — not required */}
                 <div className="space-y-1.5">
-                  <Label htmlFor="message" className="text-primary-foreground/80 text-sm font-medium">
-                    How can we help? <span className="text-accent">*</span>
+                  <Label htmlFor="message" className="text-[#012F46] text-sm font-medium">
+                    How can we help?
                   </Label>
                   <Textarea
                     id="message"
                     name="message"
                     placeholder="Tell us about your project or question..."
-                    required
                     rows={3}
-                    className="bg-primary-foreground/5 border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/40 focus:border-accent/50 focus:ring-accent/20 rounded-lg resize-none transition-colors"
+                    className={`${inputClass} h-auto resize-none`}
                   />
                 </div>
 
-                {/* Hidden fields for Formspree */}
+                {/* Hidden fields */}
                 <input type="hidden" name="_subject" value="New Contact Form Submission - IntegroAI" />
-                {/* Honeypot for spam protection */}
                 <input type="text" name="_gotcha" style={{ display: "none" }} />
 
-                <Button
+                <button
                   type="submit"
-                  variant="hero"
-                  size="lg"
-                  className="w-full mt-2 h-11 rounded-lg font-medium"
                   disabled={isSubmitting}
+                  className="w-full flex items-center justify-center gap-2 bg-[#F5A302] hover:bg-[#E09A10] disabled:opacity-70 text-white font-semibold rounded-lg h-11 text-sm transition-colors duration-200 mt-2"
                 >
                   {isSubmitting ? (
                     <>
-                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      <Loader2 className="w-4 h-4 animate-spin" />
                       Sending...
                     </>
                   ) : (
                     <>
-                      <Send className="w-4 h-4 mr-2" />
+                      <Send className="w-4 h-4" />
                       Send Message
                     </>
                   )}
-                </Button>
+                </button>
 
-                <p className="text-xs text-primary-foreground/40 text-center pt-1">
+                <p className="text-xs text-[#012F46]/55 text-center pt-1">
                   We typically respond within 24 hours
                 </p>
               </form>
