@@ -10,19 +10,20 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const solutionsLinks = [
-    { href: "https://integroai.tech/assessment", label: "AI Readiness Assessment", external: true },
-    { href: "#services", label: "Workflow & Process Diagnosis", external: false },
-    { href: "#services", label: "Data Readiness & Structuring", external: false },
-    { href: "#services", label: "AI Strategy & Roadmap", external: false },
-    { href: "#services", label: "Implementation Oversight", external: false },
-    { href: "#services", label: "Leadership & Adoption Alignment", external: false },
+    "AI Readiness Assessments",
+    "Workflow & Process Analysis",
+    "AI Opportunity Mapping & Roadmap",
+    "AI Governance & Responsible Adoption",
+    "Custom GPTs & Workflow Automations",
+    "Prompt & Context Engineering",
+    "AI Training & Adoption Support",
   ];
 
   const companyLinks = [
-    { href: "#framework", label: "Framework" },
     { href: "#about", label: "About" },
     { href: "#founder", label: "Founder" },
-    { href: "#blog", label: "Insights" },
+    { href: "#framework", label: "Framework" },
+    { href: "#blog", label: "Blog" },
     { href: "#faq", label: "FAQ" },
   ];
 
@@ -72,22 +73,9 @@ const Footer = () => {
               Solutions We Offer
             </h4>
             <ul className="space-y-0.5">
-              {solutionsLinks.map((link) => (
-                <li key={link.label}>
-                  {link.external ? (
-                    <a
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={linkClass}
-                    >
-                      {link.label}
-                    </a>
-                  ) : (
-                    <a href={link.href} className={linkClass}>
-                      {link.label}
-                    </a>
-                  )}
+              {solutionsLinks.map((label) => (
+                <li key={label}>
+                  <span className={linkClass}>{label}</span>
                 </li>
               ))}
             </ul>
@@ -161,7 +149,7 @@ const Footer = () => {
                 Start with clarity
               </p>
               <p className="text-white/60 text-xs leading-relaxed mb-3">
-                Take the free AI Readiness Assessment before you invest.
+                Find where AI can save time, reduce cost and protect margin before you invest.
               </p>
               <a
                 href="https://integroai.tech/assessment"
@@ -179,8 +167,7 @@ const Footer = () => {
 
         {/* Bottom legal bar */}
         <div className="pt-6 border-t border-white/10">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/55">
-            <p>© {currentYear} IntegroAI Consulting. All rights reserved.</p>
+          <div className="flex flex-col items-center gap-3 text-xs text-white/55">
             <div className="flex items-center gap-4 sm:gap-6">
               <Link
                 to="/privacy-policy"
@@ -195,6 +182,7 @@ const Footer = () => {
                 Terms of Service
               </Link>
             </div>
+            <p>© {currentYear} IntegroAI Consulting. All rights reserved.</p>
           </div>
         </div>
       </motion.div>
