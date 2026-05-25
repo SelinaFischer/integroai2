@@ -67,7 +67,7 @@ const CTA = () => {
                   href="https://integroai.tech/assessment"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-[#F5A302] hover:bg-[#e09502] text-[#031523] font-semibold rounded-[10px] h-[54px] px-8 text-[15px] transition-colors duration-200 group"
+                  className="inline-flex items-center gap-2 bg-[#F5A302] hover:bg-[#e09502] text-white hover:text-white font-semibold rounded-[10px] h-[54px] px-8 text-[15px] transition-colors duration-200 group"
                 >
                   Start the AI Readiness Assessment
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
