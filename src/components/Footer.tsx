@@ -1,7 +1,7 @@
 import { Mail, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import logo from "@/assets/integroai-logo-icon-white.png";
+import footerLogo from "@/assets/integroai-footer-logo.png";
 import linkedinLogo from "@/assets/linkedin-logo.avif";
 import instagramLogo from "@/assets/instagram-logo.avif";
 import ContactFormModal from "./ContactFormModal";
@@ -50,13 +50,11 @@ const Footer = () => {
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-3 mb-5">
               <img
-                src={logo}
+                src={footerLogo}
                 alt="IntegroAI Consulting"
-                width={80}
-                height={80}
                 loading="lazy"
                 decoding="async"
-                className="h-12 sm:h-14 w-auto"
+                className="w-32 sm:w-36 h-auto object-contain"
               />
             </div>
             <p className="text-white/75 text-xs sm:text-sm max-w-xs mb-5 leading-relaxed">
