@@ -73,7 +73,7 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
     }
 
     try {
-      const response = await fetch("https://formspree.io/f/mnnezggg", {
+      const response = await fetch("https://formspree.io/f/xgoqlpdy", {
         method: "POST",
         body: formData,
         headers: {
@@ -200,7 +200,7 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
 
               <form
                 onSubmit={handleSubmit}
-                action="https://formspree.io/f/mnnezggg"
+                action="https://formspree.io/f/xgoqlpdy"
                 method="POST"
                 className="space-y-4 pt-4"
               >
