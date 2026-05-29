@@ -1137,7 +1137,7 @@ function buildSummaryLine(dims){
   var parts=[];
   if(high.length)parts.push('Strong '+ls(high)+'.');
   if(med.length&&!low.length)parts.push(ls(med)+' is developing well.');
-  if(low.length)parts.push(ls(low)+' needs the most attention.');
+  if(low.length)parts.push(ls(low)+' need the most attention.');
   return parts.join(' ')||'Review your dimension scores below.';
 }
 
