@@ -475,22 +475,22 @@ a.btn, a.btn-gold, a.btn-outline-inv{cursor:pointer !important;display:inline-fl
       <div class="w-hero-content">
         <span class="hero-badge">
           <span class="badge-star">✦</span>
-          AI Readiness Scorecard
+          AI Readiness Assessment
           <span class="badge-star">✦</span>
         </span>
         <h1 class="hero-h1">Is your business<br>ready for AI?</h1>
         <p class="hero-tagline">Operational clarity before AI investment.</p>
-        <p class="hero-body">Identify where manual effort, fragmented workflows and unclear ownership may be limiting AI readiness. Complete the five-minute scorecard to see where gaps could be holding back ROI before you invest.</p>
+        <p class="hero-body">Identify where manual effort, fragmented workflows and unclear ownership are costing time and margin. Complete the five-minute assessment to see where your business is ready for AI, and where gaps need attention first.</p>
         <button class="btn-hero" onclick="startAssessment()">
-          Get My AI Readiness Score
+          Start Free Assessment
           <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="w-stats-row">
           <div class="w-stat"><span class="w-stat-n">10</span><span class="w-stat-l">Questions</span></div>
           <div class="w-stat-sep"></div>
-          <div class="w-stat"><span class="w-stat-n">5</span><span class="w-stat-l">Minutes</span></div>
+          <div class="w-stat"><span class="w-stat-n">5 min</span><span class="w-stat-l">Duration</span></div>
           <div class="w-stat-sep"></div>
-          <div class="w-stat"><span class="w-stat-n">Instant</span><span class="w-stat-l">Score</span></div>
+          <div class="w-stat"><span class="w-stat-n">Free</span><span class="w-stat-l">Diagnosis</span></div>
         </div>
         <p class="w-note" style="margin-top:14px">Get your score instantly on screen and by email.</p>
       </div><!-- /w-hero-content -->
@@ -1361,15 +1361,21 @@ function sendToSheets(score,tier,diag){
   .catch(function(e){console.error('Sheets webhook:',e);});
 }
 
-function sendEmail(score,tier,diag,opp){
+function sendEmail(score,tier,diag,opp,dims){
   if(!ejsReady||EJS_KEY==='YOUR_PUBLIC_KEY_HERE')return;
+  var bands=dims.map(function(v){return getScoreBand(v)});
   emailjs.send(EJS_SERVICE,EJS_TEMPLATE,{
     to_name:contact.firstName,to_email:contact.email,
     score:score,tier:tier,diagnosis:diag,next_opportunity:opp,
     company:contact.company||'',phone:contact.phone||'',
     org_size:contact.size||'',industry:contact.industry||'',
     motivation:contact.motivation||'',
-    notify_email:NOTIFY_EMAIL
+    notify_email:NOTIFY_EMAIL,
+    strategic_clarity_score:dims[0]+'/6',       strategic_clarity_band:bands[0],
+    leadership_ownership_score:dims[1]+'/6',     leadership_ownership_band:bands[1],
+    process_maturity_score:dims[2]+'/6',         process_maturity_band:bands[2],
+    operational_visibility_score:dims[3]+'/6',   operational_visibility_band:bands[3],
+    data_readiness_score:dims[4]+'/6',           data_readiness_band:bands[4]
   }).then(function(){showToast('Results sent to '+contact.email,true)}).catch(function(err){console.error('EmailJS:',err)});
 }
 
@@ -1394,7 +1400,7 @@ function buildResults(){
   }
   sendToFormspree(sc.total,tier,sc.dims);
   sendToSheets(sc.total,tier,diag.diag);
-  sendEmail(sc.total,tier,diag.diag,diag.opp);
+  sendEmail(sc.total,tier,diag.diag,diag.opp,sc.dims);
   show('s-results');
 }
 
