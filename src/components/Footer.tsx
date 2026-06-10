@@ -65,26 +65,6 @@ const Footer = () => {
               <div>Deliver › Iterate</div>
             </div>
 
-            {/* AIBL Verified Partner badge */}
-            <div className="mt-6">
-              <a
-                href="https://aiblmedia.com/ai-enablement-directory/integroai-consulting/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="IntegroAI Consulting — aibl Verified AI Enablement Partner. View our directory listing."
-                className="inline-flex flex-col items-center gap-1.5 border border-[#00d4c8]/40 hover:border-[#00d4c8]/80 rounded-xl px-4 py-3 transition-all duration-200 group bg-white/[0.03] hover:bg-white/[0.06] w-fit"
-              >
-                <span className="text-[#00d4c8] text-[10px] font-bold uppercase tracking-widest leading-none">
-                  aibl
-                </span>
-                <span className="text-white/80 text-[10px] font-medium leading-none group-hover:text-white transition-colors">
-                  Verified Partner
-                </span>
-                <span className="text-white/40 text-[9px] leading-none">
-                  AI Enablement Directory
-                </span>
-              </a>
-            </div>
           </div>
 
           {/* Column 2 — Solutions We Offer */}
@@ -187,7 +167,24 @@ const Footer = () => {
 
         {/* Bottom legal bar */}
         <div className="pt-6 border-t border-white/10">
-          <div className="flex flex-col items-center gap-3 text-xs text-white/55">
+          <div className="flex flex-col items-center gap-4 text-xs text-white/55">
+
+            {/* AIBL Verified Partner badge — centred */}
+            <a
+              href="https://aiblmedia.com/ai-enablement-directory/integroai-consulting/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="IntegroAI Consulting — aibl Verified AI Enablement Partner. View our directory listing."
+              className="inline-flex flex-col items-center gap-1.5 border border-[#00d4c8]/40 hover:border-[#00d4c8]/80 rounded-xl px-4 py-2.5 transition-all duration-200 group bg-white/[0.03] hover:bg-white/[0.06]"
+            >
+              <span className="text-[#00d4c8] text-[10px] font-bold uppercase tracking-widest leading-none">
+                aibl
+              </span>
+              <span className="text-white/80 text-[10px] font-medium leading-none group-hover:text-white transition-colors">
+                Verified Partner
+              </span>
+            </a>
+
             <div className="flex items-center gap-4 sm:gap-6">
               <Link
                 to="/privacy-policy"
