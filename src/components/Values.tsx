@@ -57,6 +57,10 @@ const Values = () => {
 
               <div className="space-y-6">
                 <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                  IntegroAI Consulting is a boutique UK-based AI consultancy helping business owners and leaders make clearer AI decisions before investing in AI tools. We identify where time is being wasted, where manual work is duplicated, and where AI can reduce operational friction. Our work starts with workflow and process analysis so leaders understand where capacity and margin are being lost before committing budget.
+                </p>
+
+                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
                   IntegroAI helps business leaders cut duplicated manual effort, free up team capacity, and protect margin through human-first AI adoption.
                 </p>
 
