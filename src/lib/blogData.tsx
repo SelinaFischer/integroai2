@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // BLOG DATA FILE
@@ -16,6 +17,33 @@ export interface BlogArticle {
   excerpt: string;
   Content: React.FC;
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// RELATED ARTICLES COMPONENT
+// Used at the bottom of each article content component.
+// ─────────────────────────────────────────────────────────────────────────────
+
+const RelatedArticles = ({ items }: { items: { slug: string; title: string }[] }) => (
+  <div className="mt-10 border-t border-border/50 pt-8">
+    <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4">
+      Related Articles
+    </p>
+    <div className="space-y-3">
+      {items.map((a) => (
+        <Link
+          key={a.slug}
+          to={`/blog/${a.slug}`}
+          className="flex items-start gap-3 group"
+        >
+          <span className="mt-1 w-1.5 h-1.5 rounded-full bg-accent-warm shrink-0" />
+          <span className="text-sm text-foreground group-hover:text-accent-warm transition-colors leading-snug">
+            {a.title}
+          </span>
+        </Link>
+      ))}
+    </div>
+  </div>
+);
 
 // ─────────────────────────────────────────────────────────────────────────────
 // ARTICLE 1 — What is an AI Readiness Assessment?
@@ -114,6 +142,10 @@ const WhatIsAiReadinessAssessmentContent: React.FC = () => (
         Start the Free Assessment
       </a>
     </div>
+    <RelatedArticles items={[
+      { slug: "5-signs-your-business-is-not-ready-for-ai", title: "5 Signs Your Business Is Not Ready for AI" },
+      { slug: "how-to-measure-roi-from-ai-investment", title: "How to Measure ROI from an AI Investment" },
+    ]} />
   </>
 );
 
@@ -207,6 +239,10 @@ const FiveSignsContent: React.FC = () => (
         Start the Free Assessment
       </a>
     </div>
+    <RelatedArticles items={[
+      { slug: "what-is-an-ai-readiness-assessment", title: "What is an AI Readiness Assessment? A Plain-English Guide for Business Leaders" },
+      { slug: "how-to-measure-roi-from-ai-investment", title: "How to Measure ROI from an AI Investment" },
+    ]} />
   </>
 );
 
@@ -331,8 +367,511 @@ const HowToMeasureAiROIContent: React.FC = () => (
         Start the Free Assessment
       </a>
     </div>
+    <RelatedArticles items={[
+      { slug: "what-is-an-ai-readiness-assessment", title: "What is an AI Readiness Assessment? A Plain-English Guide for Business Leaders" },
+      { slug: "5-signs-your-business-is-not-ready-for-ai", title: "5 Signs Your Business Is Not Ready for AI" },
+    ]} />
   </>
 );
+
+// ─────────────────────────────────────────────────────────────────────────────
+// LEGACY: ROTToResilienceContent
+// ─────────────────────────────────────────────────────────────────────────────
+
+const ROTToResilienceContent: React.FC = () => (
+  <>
+<p>Your organization's data contains a silent threat to AI success. It's not hackers, it's not budget constraints, and it's not technical complexity. It's ROT: <strong>Redundant, Obsolete, and Trivial</strong> data that accumulates in your systems year after year, degrading AI performance and multiplying risk.</p>
+
+      {/* Stats Box */}
+      <div className="bg-primary text-primary-foreground p-8 rounded-xl text-center my-8">
+        <h3 className="text-4xl font-bold text-accent-warm mb-2">30-40%</h3>
+        <p className="text-primary-foreground/90 mb-0">of enterprise data is ROT—costing money, creating risk, and sabotaging AI initiatives</p>
+      </div>
+
+      <p>The uncomfortable truth? Most organizations don't even know how much ROT they have. They've spent years accumulating duplicate files, outdated versions, and trivial information with no business purpose. This data clutter hides in old folders, shared drives, inboxes, and legacy systems—growing without checks or review.</p>
+
+      <p>And when you implement AI, all that ROT becomes your AI's training data.</p>
+
+      <h2>What ROT Actually Means</h2>
+      
+      <p>ROT isn't a technical term. It's a business reality that every organization faces. Let's break down what each component means:</p>
+
+      <div className="grid md:grid-cols-3 gap-6 my-8">
+        <div className="bg-muted/30 p-6 rounded-xl text-center">
+          <h4 className="font-bold text-foreground mb-2">Redundant</h4>
+          <p className="text-muted-foreground text-sm mb-0">Duplicate copies stored across multiple locations—the same document saved in three different folders, five people's inboxes, and two shared drives.</p>
+        </div>
+        <div className="bg-muted/30 p-6 rounded-xl text-center">
+          <h4 className="font-bold text-foreground mb-2">Obsolete</h4>
+          <p className="text-muted-foreground text-sm mb-0">Outdated versions that no longer reflect current reality—last year's pricing, old org charts, superseded policies, archived projects.</p>
+        </div>
+        <div className="bg-muted/30 p-6 rounded-xl text-center">
+          <h4 className="font-bold text-foreground mb-2">Trivial</h4>
+          <p className="text-muted-foreground text-sm mb-0">Low-value items with no business or legal purpose—lunch order confirmations, meeting scheduler emails, random screenshots, duplicated drafts.</p>
+        </div>
+      </div>
+
+      <p>This clutter disrupts operations, privacy work, and critically—future AI initiatives.</p>
+
+      <h2>The AI Connection: Garbage In, Garbage Out</h2>
+      
+      <p>AI quality depends entirely on information quality. Clean input creates clear output. Unclear input creates unclear results. When AI receives outdated versions, duplicate records, or irrelevant material, the effects spread across every output and decision.</p>
+
+      <div className="bg-muted/50 border-l-4 border-accent-warm p-6 rounded-r-lg my-8">
+        <p className="mb-0"><strong>Real Example:</strong> A professional services firm implemented AI to analyze project profitability patterns. The system produced confusing recommendations that contradicted actual performance. The issue? Their project database contained ROT: old pricing structures marked as current, duplicate client records with conflicting information, and archived projects mixed with active ones. The AI couldn't distinguish signal from noise.</p>
+      </div>
+
+      <p>Here's exactly how ROT sabotages AI:</p>
+
+      <h3>1. Data Quality Degrades</h3>
+      <p>ROT introduces noise that obscures genuine patterns. AI models trained on data containing duplicates learn the wrong signals. Obsolete information creates patterns that no longer exist. Trivial data dilutes the meaningful information AI needs to identify real insights.</p>
+
+      <h3>2. Processing Slows</h3>
+      <p>Models waste computational resources analyzing irrelevant or duplicate information. What should take minutes takes hours. What should cost hundreds costs thousands. Your AI infrastructure processes garbage instead of value.</p>
+
+      <h3>3. Accuracy Drops</h3>
+      <p>Outdated training data produces recommendations misaligned with current reality. Your AI makes decisions based on how things were, not how things are. Historical bias becomes baked into every prediction.</p>
+
+      <h3>4. Trust Erodes</h3>
+      <p>Users lose confidence when AI outputs reflect garbage inputs. Teams stop using AI tools when results don't make sense. Leadership questions AI investments when outcomes contradict known realities. Your AI initiative fails not because of technology, but because of data hygiene.</p>
+
+      <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg my-8">
+        <p className="text-amber-900 mb-0"><strong>Critical Point:</strong> You cannot train reliable AI on data polluted with ROT. Every duplicate file, outdated record, and trivial item degrades model performance. ROT isn't just clutter—it's poison for AI systems.</p>
+      </div>
+
+      <h2>Why ROT Creates Serious Business Risk</h2>
+      
+      <p>Beyond AI performance, ROT multiplies organizational risk in ways most leaders don't recognize until it's too late.</p>
+
+      <h3>Breach Exposure Multiplies</h3>
+      <p>Every piece of data is a potential exposure point in a security breach. More data surfaces mean more vulnerability points. When you maintain 10 duplicate copies of sensitive customer information instead of one, you've created 10 breach opportunities instead of one.</p>
+
+      <p>Obsolete data is particularly dangerous because nobody's actively protecting it. Old customer records sit in archived folders without current security controls. Historical financial data remains accessible to people who've changed roles. Outdated personal information creates GDPR compliance nightmares.</p>
+
+      <h3>Legal and Compliance Work Expands</h3>
+      <p>During legal discovery or regulatory audits, every file must be reviewed. ROT doesn't get a free pass. Your legal team must examine duplicate versions, assess obsolete records, and process trivial items—all billable hours spent on data that provides zero business value.</p>
+
+      <div className="bg-muted/50 border-l-4 border-accent-warm p-6 rounded-r-lg my-8">
+        <p className="mb-0"><strong>Example:</strong> During a regulatory investigation, a financial institution spent £500,000 in legal fees reviewing documents. An estimated 40% of those documents were ROT—duplicates, outdated versions, and trivial items with no relevance to the investigation. That's £200,000 spent reviewing data that should never have been retained.</p>
+      </div>
+
+      <h3>Investigation Delays</h3>
+      <p>Duplicate or irrelevant material slows critical analysis. When you're investigating a compliance issue or security incident, ROT hides the signals you need in noise you don't. What should take days takes weeks. What should be straightforward becomes complicated.</p>
+
+      <h3>Storage Costs Increase</h3>
+      <p>Infrastructure costs grow as unnecessary data accumulates. You're paying to store, backup, and secure information that provides no value. Cloud storage fees compound annually. Backup systems run longer. Archive infrastructure scales to accommodate garbage.</p>
+
+      <p><strong>ROT is not neutral. It multiplies risk and cost while providing zero benefit.</strong></p>
+
+      <h2>Defensible Disposition: The Solution</h2>
+      
+      <p>Defensible disposition is the practice of removing items with clarity, evidence, and confidence. It turns deletion into protection—but only when supported by the right structure.</p>
+
+      <p>This isn't just "delete old files." That's how organizations create legal liability and compliance disasters. Defensible disposition means having documented, auditable, policy-driven processes for data retention and removal.</p>
+
+      <h3>The Four Pillars of Defensible Disposition</h3>
+
+      <ol>
+        <li><strong>What You Kept:</strong> Document the business, legal, or regulatory justification for retention. Every piece of data you maintain should have a clear retention reason linked to policy.</li>
+        <li><strong>What You Removed:</strong> Maintain detailed records of items approved for deletion. Create logs showing what was disposed of, when, and under which policy provision.</li>
+        <li><strong>Why It Was Removed:</strong> Link each disposition decision to your retention policy and schedule. Demonstrate that removal followed approved processes, not arbitrary decisions.</li>
+        <li><strong>How It Was Recorded:</strong> Create audit trails that withstand regulatory scrutiny and legal discovery. Implement logging that captures who acted, what was done, when it happened, and why.</li>
+      </ol>
+
+      <p>This creates an auditable trail showing consistent and accountable decisions. When regulators ask "How do you know this should have been deleted?" you have documented evidence.</p>
+
+      <h2>The ROT Cleanup Framework</h2>
+
+      <p>Addressing ROT requires systematic approach, not occasional cleanup efforts. Here's how to build sustainable data hygiene:</p>
+
+      <h3>Step 1: Assess Your ROT Exposure</h3>
+      <p>Before you can clean, you need to understand the scope. Conduct a data discovery exercise to identify where ROT accumulates in your organization. Map storage locations, estimate duplication rates, and identify obsolete data sources.</p>
+
+      <h3>Step 2: Establish Retention Policies</h3>
+      <p>Create clear, documented policies that define how long different data types should be retained. Base these on legal requirements, regulatory obligations, and genuine business needs—not "we might need it someday."</p>
+
+      <h3>Step 3: Implement Systematic Cleanup</h3>
+      <p>Design processes for regular, documented disposition. This isn't a one-time project—it's an ongoing operational capability. Build ROT removal into normal business operations.</p>
+
+      <h3>Step 4: Prevent Future Accumulation</h3>
+      <p>Fix the systems that create ROT in the first place. Implement automatic retention enforcement, reduce unnecessary duplication, and establish data hygiene as an organizational value.</p>
+
+      <h2>The AI Readiness Connection</h2>
+
+      <p>Every AI initiative should begin with ROT assessment. Before you invest in sophisticated AI technology, ask:</p>
+
+      <ul>
+        <li>How much of our training data is duplicated?</li>
+        <li>What percentage of our data is obsolete or outdated?</li>
+        <li>How much trivial information will our AI systems need to process?</li>
+        <li>Do we have documented retention policies that AI systems can respect?</li>
+      </ul>
+
+      <p>Organizations that clean before they train achieve better AI outcomes with lower costs. The investment in data hygiene pays dividends in AI performance.</p>
+
+      {/* CTA */}
+      <div className="bg-muted/30 p-8 rounded-xl text-center my-8">
+        <h3 className="text-2xl font-bold text-foreground mt-0 mb-4">Ready to Transform ROT into Resilience?</h3>
+        <p className="text-muted-foreground mb-6">Book a free 30-minute discovery call to assess your data hygiene and build AI-ready foundations.</p>
+        <a 
+          href="https://calendly.com/integroai-tech/30min" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="inline-block bg-accent-warm hover:bg-accent-warm/90 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
+        >
+          Book Your Discovery Call
+        </a>
+      </div>
+  </>
+);
+
+// ─────────────────────────────────────────────────────────────────────────────
+// LEGACY: WhyAIFailsContent
+// ─────────────────────────────────────────────────────────────────────────────
+
+const WhyAIFailsContent: React.FC = () => (
+  <>
+<p>Everyone wants to talk about AI models, algorithms, and cutting-edge technology. But here's the uncomfortable truth that most consultants won't tell you: <strong>your AI project will fail or succeed based on your data, not your technology.</strong></p>
+
+      {/* Stats Box */}
+      <div className="bg-primary text-primary-foreground p-8 rounded-xl text-center my-8">
+        <h3 className="text-4xl font-bold text-accent-warm mb-2">85%</h3>
+        <p className="text-primary-foreground/90 mb-0">of AI project failures are caused by data quality issues, not algorithmic problems</p>
+      </div>
+
+      <p>I've watched organizations invest hundreds of thousands of pounds in sophisticated AI systems, only to discover their data wasn't ready. The technology worked perfectly. The data didn't. The project failed.</p>
+
+      <h2>The Inconvenient Reality: AI is Only as Good as Your Data</h2>
+      
+      <p>Here's what happens in a typical failed AI project: A company hears about AI's transformative potential. Leadership gets excited. They purchase enterprise AI software. A vendor promises incredible results. Three months later, the system produces nonsensical outputs, the team has lost confidence, and the project is quietly shelved.</p>
+
+      <p>The vendor blames the organization. The organization blames the vendor. Nobody blames the actual culprit: inadequate data preparation.</p>
+
+      <h2>The Five Critical Data Gaps</h2>
+
+      <h3>Gap 1: Data Quality — Garbage In, Garbage Out</h3>
+      
+      <p>Most organizations vastly overestimate their data quality. They believe their data is "pretty good" when the reality is far different.</p>
+
+      <div className="bg-muted/50 border-l-4 border-accent-warm p-6 rounded-r-lg my-8">
+        <p className="mb-0"><strong>Real Example:</strong> A UK financial services firm implemented AI for fraud detection. Six months and £200,000 later, the system was flagging legitimate transactions as fraud while missing actual fraud cases. The problem? Their historical transaction data had inconsistent formatting, missing fields, and outdated customer information. The AI learned from flawed data and produced flawed results.</p>
+      </div>
+
+      <p>Common data quality issues include:</p>
+      <ul>
+        <li><strong>Inconsistent formats:</strong> Dates stored as "DD/MM/YYYY" in one system and "MM-DD-YY" in another</li>
+        <li><strong>Missing values:</strong> Critical fields left blank or filled with placeholder text like "N/A" or "TBD"</li>
+        <li><strong>Duplicate records:</strong> The same customer appearing multiple times with slight variations in spelling</li>
+        <li><strong>Outdated information:</strong> Historical data that no longer reflects current reality</li>
+        <li><strong>Human error:</strong> Manual data entry mistakes accumulated over years</li>
+      </ul>
+
+      <p>The solution isn't just cleaning data once. It's establishing data quality processes that maintain accuracy over time.</p>
+
+      <h3>Gap 2: Data Availability — The Information You Need Doesn't Exist</h3>
+      
+      <p>Sometimes organizations simply don't have the data their AI project requires. This is more common than you'd think.</p>
+
+      <p>A retailer wants to predict customer churn but has never tracked customer engagement metrics. A manufacturer wants to predict equipment failure but lacks maintenance history. A professional services firm wants to optimize pricing but doesn't have detailed project profitability data.</p>
+
+      <p>You cannot train AI on data you don't have. This sounds obvious, yet I regularly encounter projects that assume needed data exists when it doesn't.</p>
+
+      <div className="bg-muted/50 border-l-4 border-accent-warm p-6 rounded-r-lg my-8">
+        <p className="mb-0"><strong>Critical Question:</strong> Before starting any AI project, ask: "Do we currently collect all the data this system needs to function?" If the answer is no, you need data collection infrastructure before AI implementation.</p>
+      </div>
+
+      <h3>Gap 3: Data Accessibility — The Data Exists, But You Can't Get To It</h3>
+      
+      <p>Data trapped in legacy systems, locked in departmental silos, or buried in incompatible formats is useless for AI, regardless of its quality.</p>
+
+      <p>I've seen organizations where:</p>
+      <ul>
+        <li>Sales data sits in Salesforce, financial data in an ERP system, and customer service data in separate ticketing software</li>
+        <li>Critical information exists only in PDF reports or scanned documents</li>
+        <li>Different departments use different systems with no integration</li>
+        <li>Historical data is archived on tapes or obsolete storage systems</li>
+        <li>API access is restricted or prohibitively expensive</li>
+      </ul>
+
+      <p>Effective AI requires bringing data together. If your data integration strategy is "we'll figure it out during implementation," your project will likely fail.</p>
+
+      <h3>Gap 4: Data Volume — You Don't Have Enough</h3>
+      
+      <p>AI models need substantial data to learn patterns effectively. How much data depends on the specific use case, but "we have some data" is rarely sufficient.</p>
+
+      {/* Stats Box */}
+      <div className="bg-primary text-primary-foreground p-8 rounded-xl text-center my-8">
+        <h3 className="text-4xl font-bold text-accent-warm mb-2">10,000+</h3>
+        <p className="text-primary-foreground/90 mb-0">Minimum data points typically needed for reliable AI pattern recognition</p>
+      </div>
+
+      <p>A startup with six months of transaction history wants to predict customer behavior. An SME with 50 customer records wants personalization AI. A new product line wants demand forecasting with three months of sales data.</p>
+
+      <p>These scenarios lack sufficient data volume for reliable AI. The technology might work, but the predictions will be unreliable because there isn't enough historical information to identify meaningful patterns.</p>
+
+      <h3>Gap 5: Data Bias — Your Historical Data Reflects Historical Problems</h3>
+      
+      <p>AI learns from historical data. If that data reflects biased decisions or non-representative samples, the AI will perpetuate and amplify those biases.</p>
+
+      <p>This isn't just an ethical concern—it's a business risk. Biased training data leads to AI systems that:</p>
+      <ul>
+        <li>Make poor decisions that don't reflect current reality</li>
+        <li>Exclude potential opportunities by replicating past limitations</li>
+        <li>Create compliance and legal risks</li>
+        <li>Damage customer relationships and brand reputation</li>
+      </ul>
+
+      <div className="bg-muted/50 border-l-4 border-accent-warm p-6 rounded-r-lg my-8">
+        <p className="mb-0"><strong>Example:</strong> A recruitment firm trained AI on historical hiring data. The system learned to favor candidates similar to those previously hired—which meant replicating the lack of diversity in their existing workforce. The AI wasn't racist or sexist; it was accurately reflecting biased historical patterns. But the result was the same: perpetuating inequality.</p>
+      </div>
+
+      <h2>The IntegroAI Consulting Data-First Approach</h2>
+      
+      <p>Our methodology centers data readiness before technology selection. We believe—and our results prove—that proper data foundation is the difference between AI projects that fail and those that deliver transformative value.</p>
+
+      <p>Here's how we approach it:</p>
+
+      <h3>Phase 1: Data Discovery & Assessment</h3>
+      <p>Before discussing AI tools, we audit your data landscape. We identify what data you have, where it lives, its quality level, and what gaps exist. This prevents months of wasted effort building AI on inadequate foundations.</p>
+
+      <h3>Phase 2: Data Quality Improvement</h3>
+      <p>We establish data cleaning processes, address missing values, resolve inconsistencies, and create ongoing quality monitoring. This isn't glamorous work, but it's essential work.</p>
+
+      <h3>Phase 3: Data Architecture Design</h3>
+      <p>We design systems to collect, integrate, and access data effectively. This might mean new data pipelines, integration platforms, or collection processes—whatever infrastructure your AI needs.</p>
+
+      <h3>Phase 4: Bias Identification & Mitigation</h3>
+      <p>We analyze historical data for bias patterns and develop strategies to address them. This protects both business performance and ethical standards.</p>
+
+      <h3>Only Then: AI Implementation</h3>
+      <p>With data foundations solid, AI implementation becomes straightforward. The technology works because it has quality fuel.</p>
+
+      <h2>How to Assess Your Data Readiness</h2>
+
+      <p>Before starting any AI project, honestly answer these questions:</p>
+
+      <ol>
+        <li><strong>Data Quality:</strong> Can you demonstrate that your data is accurate, complete, and consistent? When was it last audited?</li>
+        <li><strong>Data Availability:</strong> Do you currently collect all data points your proposed AI system requires?</li>
+        <li><strong>Data Accessibility:</strong> Can you easily extract and combine data from all relevant sources?</li>
+        <li><strong>Data Volume:</strong> Do you have sufficient historical data to train reliable models?</li>
+        <li><strong>Data Bias:</strong> Have you assessed whether your historical data reflects patterns you want to perpetuate?</li>
+      </ol>
+
+      <p>If you can't confidently answer "yes" to all five questions, you need data preparation before AI implementation. This isn't failure—it's smart planning that prevents expensive project failures.</p>
+
+      <h2>The Bottom Line</h2>
+
+      <p>AI technology has never been more accessible or powerful. But technology alone doesn't create business value. <strong>Quality data, properly prepared and accessible, determines whether your AI investment succeeds or fails.</strong></p>
+
+      <p>Don't let the excitement of AI distract you from the fundamentals. Start with data. Build solid foundations. Then implement AI that actually works.</p>
+
+      {/* CTA */}
+      <div className="bg-muted/30 p-8 rounded-xl text-center my-8">
+        <h3 className="text-2xl font-bold text-foreground mt-0 mb-4">Is Your Data AI-Ready?</h3>
+        <p className="text-muted-foreground mb-6">Book a free 30-minute discovery call to assess your data readiness and identify the gaps that could derail your AI project.</p>
+        <a 
+          href="https://calendly.com/integroai-tech/30min" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="inline-block bg-accent-warm hover:bg-accent-warm/90 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
+        >
+          Book Your Discovery Call
+        </a>
+      </div>
+  </>
+);
+
+// ─────────────────────────────────────────────────────────────────────────────
+// LEGACY: BeyondChatbotsContent
+// ─────────────────────────────────────────────────────────────────────────────
+
+const BeyondChatbotsContent: React.FC = () => (
+  <>
+{/* Highlight Box */}
+      <div className="bg-muted/50 border-l-4 border-accent-warm p-6 rounded-r-lg my-8">
+        <h3 className="text-foreground font-bold mt-0 mb-2">The Big Question</h3>
+        <p className="mb-2"><strong>Automation saved time. But does autonomy create value?</strong></p>
+        <p className="mb-0">For years, businesses automated tasks to save time. But today's environment demands more than rule-following — it needs reasoning and adaptability. The future isn't about doing more tasks faster. It's about building systems that can <strong>think</strong>.</p>
+      </div>
+
+      <h2>The Big Shift: From Automation to Intelligent Autonomy</h2>
+      
+      <p>For years, automation helped teams save time by following rules. Workflows became faster. Manual errors decreased. Productivity metrics improved.</p>
+
+      <p>But today's business environment demands more than rule-following — <strong>it needs reasoning and adaptability</strong>.</p>
+
+      <p>Businesses don't just need to automate tasks — they need systems that can think. From finance to supply chain, static automations struggle when conditions change. <strong>AI Agents bring adaptability and context-awareness into business logic.</strong></p>
+
+      {/* Stats Box */}
+      <div className="bg-primary text-primary-foreground p-8 rounded-xl text-center my-8">
+        <h3 className="text-3xl font-bold text-accent-warm mb-2">The Automation Plateau</h3>
+        <p className="text-primary-foreground/90 mb-0">Most automation projects plateau after 12 months, delivering speed but not strategic intelligence</p>
+      </div>
+
+      <h2>Why Businesses Get Stuck with Automation</h2>
+
+      <p>Automation delivers three clear benefits:</p>
+
+      <ul>
+        <li><strong>Faster execution:</strong> Tasks complete in seconds instead of hours</li>
+        <li><strong>Fewer errors:</strong> Consistency improves accuracy across operations</li>
+        <li><strong>Predictable workflows:</strong> Standardized processes reduce variability</li>
+      </ul>
+
+      <p>So why do most automation projects plateau after 12 months?</p>
+
+      <h3>The Problem: Faster Execution ≠ Smarter Operations</h3>
+
+      <p>Traditional automation excels at <strong>executing predefined tasks</strong>, but it fails when:</p>
+
+      <ul>
+        <li>Conditions change unexpectedly</li>
+        <li>Context matters more than rules</li>
+        <li>Decisions require judgment, not just speed</li>
+      </ul>
+
+      <div className="bg-muted/50 border-l-4 border-accent-warm p-6 rounded-r-lg my-8">
+        <p className="mb-2"><strong>Critical Gap:</strong> No visibility into <em>why</em> decisions are made.</p>
+        <p className="mb-2">Automation gives you speed. But it doesn't give you insight, adaptability, or strategic intelligence.</p>
+        <p className="mb-0"><strong>The result? More output, same bottlenecks.</strong></p>
+      </div>
+
+      <h2>What Intelligent Autonomy Looks Like in Practice</h2>
+
+      <p>AI Agents bridge the gap between automation and strategic intelligence — detecting anomalies, rerouting workflows, and prioritizing decisions by business impact <strong>in real time</strong>.</p>
+
+      <h3>Real-World Examples:</h3>
+
+      <p><strong>Finance Operations:</strong></p>
+      <ul>
+        <li><strong>Automation:</strong> Processes invoices based on predefined rules</li>
+        <li><strong>AI Agent:</strong> Detects unusual payment patterns, flags potential fraud, suggests optimal payment timing based on cash flow analysis</li>
+      </ul>
+
+      <p><strong>Supply Chain Management:</strong></p>
+      <ul>
+        <li><strong>Automation:</strong> Reorders inventory when stock hits threshold</li>
+        <li><strong>AI Agent:</strong> Analyzes demand forecasts, supplier lead times, market trends, and dynamically adjusts purchasing decisions</li>
+      </ul>
+
+      <p><strong>Customer Service:</strong></p>
+      <ul>
+        <li><strong>Automation:</strong> Routes tickets based on keywords</li>
+        <li><strong>AI Agent:</strong> Understands customer intent, escalates complex issues intelligently, learns from resolution patterns to improve future routing</li>
+      </ul>
+
+      <div className="bg-muted/50 border-l-4 border-accent-warm p-6 rounded-r-lg my-8">
+        <h3 className="text-foreground font-bold mt-0 mb-2">The Difference</h3>
+        <p className="mb-0">Automation follows instructions.<br/>
+        <strong>AI Agents understand objectives and adapt to achieve them.</strong></p>
+      </div>
+
+      <h2>Readiness Self-Check: Is Your Business Ready to Evolve?</h2>
+
+      <p>Before moving beyond automation, assess your organization's readiness across these three critical dimensions:</p>
+
+      <div className="bg-muted/30 p-6 rounded-xl my-8">
+        <h3 className="text-foreground font-bold mt-0 mb-6">AI Agent Readiness Assessment</h3>
+        
+        <div className="space-y-6">
+          <div className="flex gap-4">
+            <div className="w-10 h-10 rounded-full bg-accent-warm text-white flex items-center justify-center font-bold shrink-0">1</div>
+            <div>
+              <h4 className="font-semibold text-foreground mb-1">Measurable KPIs</h4>
+              <p className="text-muted-foreground mb-0">Are outcomes tracked beyond completion rates? Do you measure business impact, not just task completion?</p>
+            </div>
+          </div>
+          
+          <div className="flex gap-4">
+            <div className="w-10 h-10 rounded-full bg-accent-warm text-white flex items-center justify-center font-bold shrink-0">2</div>
+            <div>
+              <h4 className="font-semibold text-foreground mb-1">Adaptive Systems</h4>
+              <p className="text-muted-foreground mb-0">Can your automation learn from feedback? Do your systems improve over time, or do they repeat the same patterns?</p>
+            </div>
+          </div>
+          
+          <div className="flex gap-4">
+            <div className="w-10 h-10 rounded-full bg-accent-warm text-white flex items-center justify-center font-bold shrink-0">3</div>
+            <div>
+              <h4 className="font-semibold text-foreground mb-1">Trust & Insights</h4>
+              <p className="text-muted-foreground mb-0">Do teams understand and trust AI decisions? Can you explain <em>why</em> a decision was made, not just <em>what</em> was executed?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p><strong>If you answered "no" to any of these questions, you're still automating — not evolving.</strong></p>
+
+      <h2>The Strategic Evolution</h2>
+
+      <p>The next competitive advantage isn't about speed — it's about systems that think alongside your business.</p>
+
+      <p>AI Agents don't just complete tasks. They:</p>
+      <ul>
+        <li><strong>Reason:</strong> Interpret objectives and assess context</li>
+        <li><strong>Act:</strong> Execute decisions autonomously through connected tools and APIs</li>
+        <li><strong>Learn:</strong> Improve performance based on outcomes and feedback</li>
+      </ul>
+
+      <p>This shift transforms operations from <strong>reactive execution</strong> to <strong>proactive intelligence</strong>.</p>
+
+      {/* Key Takeaways */}
+      <div className="bg-primary text-primary-foreground p-8 rounded-xl my-8">
+        <h3 className="text-2xl font-bold text-white mt-0 mb-6">Key Takeaways: How to Evolve from Automation to Intelligence</h3>
+        
+        <div className="space-y-4">
+          <div className="flex gap-4">
+            <div className="w-9 h-9 rounded-full bg-accent-warm text-white flex items-center justify-center font-bold shrink-0 text-sm">01</div>
+            <p className="text-primary-foreground/95 mb-0"><strong>Stop measuring actions — start measuring outcomes.</strong> Track business impact, not task completion rates.</p>
+          </div>
+          
+          <div className="flex gap-4">
+            <div className="w-9 h-9 rounded-full bg-accent-warm text-white flex items-center justify-center font-bold shrink-0 text-sm">02</div>
+            <p className="text-primary-foreground/95 mb-0"><strong>Redesign workflows around business goals.</strong> Build systems that understand intent, not just instructions.</p>
+          </div>
+          
+          <div className="flex gap-4">
+            <div className="w-9 h-9 rounded-full bg-accent-warm text-white flex items-center justify-center font-bold shrink-0 text-sm">03</div>
+            <p className="text-primary-foreground/95 mb-0"><strong>Build adaptive systems that learn, not just execute.</strong> Implement feedback loops that drive continuous improvement.</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-muted/50 border-l-4 border-accent-warm p-6 rounded-r-lg my-8">
+        <h3 className="text-foreground font-bold mt-0 mb-2">The Future Isn't About Doing More</h3>
+        <p className="mb-0"><strong>It's about thinking smarter.</strong> Every business will automate. The leaders will make it autonomous.</p>
+      </div>
+
+      <h2>Ready to Evolve? Start Your AI Agent Journey</h2>
+
+      <p>The transition from automation to intelligent autonomy doesn't happen overnight. It requires:</p>
+
+      <ul>
+        <li>Strategic clarity on where AI agents create the most value</li>
+        <li>Robust data foundations (clean, accessible, bias-free)</li>
+        <li>Clear frameworks for measuring business impact</li>
+        <li>Organizational readiness and trust in AI decision-making</li>
+      </ul>
+
+      <p>At <strong>IntegroAI Consulting</strong>, we guide leaders, startups, and SMEs through this evolution — from discovery to strategy to implementation — with clarity, confidence, and measurable outcomes.</p>
+
+      {/* CTA */}
+      <div className="bg-muted/30 p-8 rounded-xl text-center my-8">
+        <h3 className="text-2xl font-bold text-foreground mt-0 mb-4">Ready to Move Beyond Automation?</h3>
+        <p className="text-muted-foreground mb-6">Book a free 30-minute discovery call to assess your AI Agent readiness and identify high-impact opportunities.</p>
+        <a 
+          href="https://calendly.com/integroai-tech/30min" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="inline-block bg-accent-warm hover:bg-accent-warm/90 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
+        >
+          Book Your Discovery Call
+        </a>
+      </div>
+  </>
+);
+
 
 // ─────────────────────────────────────────────────────────────────────────────
 // MASTER ARTICLES ARRAY
@@ -369,6 +908,36 @@ export const articles: BlogArticle[] = [
     readTime: "8 min read",
     excerpt: "Most businesses cannot measure the return on their AI investments because they never defined what they were trying to improve. Here is how to approach it properly.",
     Content: HowToMeasureAiROIContent,
+  },
+  {
+    slug: "rot-to-resilience-data-cleanup",
+    title: "ROT to Resilience: The Data Cleanup Your AI Needs",
+    subtitle: "Redundant, Obsolete, and Trivial data silently sabotages AI projects. Here's how to transform data clutter into competitive advantage through defensible disposition.",
+    date: "November 2025",
+    category: "Data Management",
+    readTime: "12 min read",
+    excerpt: "30-40% of enterprise data is Redundant, Obsolete, and Trivial — costing money, creating risk, and sabotaging AI initiatives. Learn how to transform data clutter into competitive advantage.",
+    Content: ROTToResilienceContent,
+  },
+  {
+    slug: "why-ai-fails-the-data-gap",
+    title: "Why AI Projects Fail: The Data Gap Nobody Talks About",
+    subtitle: "The most advanced AI in the world is worthless without quality data. Here's why 70% of AI projects fail at the data layer — and how to fix it.",
+    date: "December 2025",
+    category: "Data Strategy",
+    readTime: "10 min read",
+    excerpt: "The most advanced AI in the world is worthless without quality data. Learn why 85% of AI project failures are caused by data issues, not technology problems.",
+    Content: WhyAIFailsContent,
+  },
+  {
+    slug: "beyond-chatbots-ai-agents",
+    title: "Beyond Chatbots: How AI Agents Redefine Efficiency, Decision-Making & Growth",
+    subtitle: "Automation saved time. But does autonomy create value? Today's environment demands more than rule-following — it needs reasoning and adaptability.",
+    date: "December 2025",
+    category: "AI Strategy",
+    readTime: "10 min read",
+    excerpt: "Automation saved time. But does autonomy create value? Discover how AI Agents move beyond rule-following to bring reasoning, adaptability, and strategic intelligence into business operations.",
+    Content: BeyondChatbotsContent,
   },
   // ── ADD NEW ARTICLES ABOVE THIS LINE ──────────────────────────────────────
   // Copy this template:
