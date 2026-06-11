@@ -12,6 +12,7 @@ import TermsOfService from "./pages/TermsOfService";
 import BeyondChatbotsAIAgents from "./pages/blog/BeyondChatbotsAIAgents";
 import WhyAIFailsDataGap from "./pages/blog/WhyAIFailsDataGap";
 import ROTToResilience from "./pages/blog/ROTToResilience";
+import BlogPostPage from "./pages/blog/BlogPostPage";
 import AdminStats from "./pages/AdminStats";
 import Install from "./pages/Install";
 
@@ -37,6 +38,8 @@ const App = () => (
           <Route path="/blog/rot-to-resilience-data-cleanup" element={<ROTToResilience />} />
           <Route path="/install" element={<Install />} />
           <Route path="/admin/stats" element={<AdminStats />} />
+          {/* Data-driven blog — handles all articles in blogData.tsx automatically */}
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
