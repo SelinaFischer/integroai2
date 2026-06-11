@@ -3,47 +3,18 @@ import { ArrowRight, Tag, Clock, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { articles } from "@/lib/blogData";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
-// Legacy posts (individual TSX files — kept for backwards compatibility)
-const legacyPosts = [
-  {
-    slug: "beyond-chatbots-ai-agents",
-    title: "Beyond Chatbots: How AI Agents Redefine Efficiency, Decision-Making & Growth",
-    excerpt: "Automation saved time. But does autonomy create value? Discover how AI Agents move beyond rule-following to bring reasoning, adaptability, and strategic intelligence into business operations.",
-    category: "AI Strategy",
-    date: "December 2025",
-    readTime: "10 min read",
-  },
-  {
-    slug: "why-ai-fails-the-data-gap",
-    title: "Why AI Projects Fail: The Data Gap Nobody Talks About",
-    excerpt: "The most advanced AI in the world is worthless without quality data. Learn why 85% of AI project failures are caused by data issues, not technology problems.",
-    category: "Data Strategy",
-    date: "December 2025",
-    readTime: "10 min read",
-  },
-  {
-    slug: "rot-to-resilience-data-cleanup",
-    title: "ROT to Resilience: The Data Cleanup Your AI Needs",
-    excerpt: "30-40% of enterprise data is Redundant, Obsolete, and Trivial — costing money, creating risk, and sabotaging AI initiatives. Learn how to transform data clutter into competitive advantage.",
-    category: "Data Management",
-    date: "November 2025",
-    readTime: "12 min read",
-  },
-];
-
-// Combine data-driven articles + legacy posts (newest first)
-const allPosts = [
-  ...articles.map(({ slug, title, excerpt, category, date, readTime }) => ({
-    slug,
-    title,
-    excerpt,
-    category,
-    date,
-    readTime,
-  })),
-  ...legacyPosts,
-];
+// All posts from blogData.tsx — single source of truth
+const allPosts = articles.map(({ slug, title, excerpt, category, date, readTime }) => ({
+  slug,
+  title,
+  excerpt,
+  category,
+  date,
+  readTime,
+}));
 
 const BlogPage = () => {
   return (
@@ -62,7 +33,7 @@ const BlogPage = () => {
             name: "IntegroAI Consulting — AI Strategy Insights",
             url: "https://integroai.tech/blog",
             description:
-              "Practical guidance for business leaders making clearer AI decisions before investing in tools, automation or new systems.",
+              "Practical guidance for business leaders navigating AI adoption. Operations first. AI second. ROI always.",
             publisher: {
               "@type": "Organization",
               name: "IntegroAI Consulting",
@@ -73,7 +44,8 @@ const BlogPage = () => {
       </Helmet>
 
       <main className="min-h-screen bg-background">
-        {/* Header */}
+        <Header />
+        {/* Hero */}
         <section className="py-20 lg:py-28 bg-primary text-primary-foreground">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div
@@ -153,6 +125,7 @@ const BlogPage = () => {
             </div>
           </div>
         </section>
+        <Footer />
       </main>
     </>
   );
