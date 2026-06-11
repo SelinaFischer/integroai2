@@ -140,14 +140,14 @@ const ROTToResilience = () => {
       <p>Organisations that clean before they train achieve better AI outcomes with lower costs. The investment in data hygiene pays dividends in AI performance.</p>
 
       {/* CTA */}
-      <div className="bg-muted/30 p-8 rounded-xl text-center my-8">
-        <h3 className="text-2xl font-bold text-foreground mt-0 mb-4">Ready to Transform ROT into Resilience?</h3>
-        <p className="text-muted-foreground mb-6">IntegroAI's free AI Readiness Assessment identifies where data issues, duplicated work, and operational friction are limiting your AI potential. Takes five minutes. No obligation.</p>
+      <div className="mt-10 p-6 bg-primary/5 border border-primary/20 rounded-xl">
+        <p className="text-foreground font-semibold mb-2">Ready to Transform ROT into Resilience?</p>
+        <p className="text-muted-foreground text-sm mb-4">IntegroAI's free AI Readiness Assessment identifies where data issues, duplicated work, and operational friction are limiting your AI potential. Takes five minutes. No obligation.</p>
         <a
           href="https://integroai.tech/assessment"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block bg-accent-warm hover:bg-accent-warm/90 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
+          className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold px-5 py-2.5 rounded-lg text-sm hover:bg-primary/90 transition-colors"
         >
           Start the Free Assessment
         </a>

@@ -146,14 +146,14 @@ const WhyAIFailsDataGap = () => {
       <p>Don't let the excitement of AI distract you from the fundamentals. Start with data. Build solid foundations. Then implement AI that actually works.</p>
 
       {/* CTA */}
-      <div className="bg-muted/30 p-8 rounded-xl text-center my-8">
-        <h3 className="text-2xl font-bold text-foreground mt-0 mb-4">Is Your Data AI-Ready?</h3>
-        <p className="text-muted-foreground mb-6">IntegroAI's free AI Readiness Assessment shows you exactly where your data foundations stand — and what to fix before you invest in AI. Takes five minutes. No obligation.</p>
+      <div className="mt-10 p-6 bg-primary/5 border border-primary/20 rounded-xl">
+        <p className="text-foreground font-semibold mb-2">Is Your Data AI-Ready?</p>
+        <p className="text-muted-foreground text-sm mb-4">IntegroAI's free AI Readiness Assessment shows you exactly where your data foundations stand — and what to fix before you invest in AI. Takes five minutes. No obligation.</p>
         <a
           href="https://integroai.tech/assessment"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block bg-accent-warm hover:bg-accent-warm/90 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
+          className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold px-5 py-2.5 rounded-lg text-sm hover:bg-primary/90 transition-colors"
         >
           Start the Free Assessment
         </a>
