@@ -194,17 +194,20 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="IntegroAI Consulting — Member of Hillingdon Chamber of Commerce"
-                className="inline-flex items-center justify-center border border-white/15 hover:border-white/35 rounded-xl px-5 py-3 transition-all duration-200 bg-white/[0.03] hover:bg-white/[0.06]"
+                className="inline-flex flex-col items-center gap-2 border border-white/20 hover:border-white/40 rounded-xl px-7 py-4 transition-all duration-200 group bg-white/[0.03] hover:bg-white/[0.06]"
               >
                 <img
                   src="https://hillingdonchamber.co.uk/wp-content/uploads/2025/01/footer-new-logo.png"
-                  alt="Hillingdon Chamber of Commerce Member"
+                  alt="Hillingdon Chamber of Commerce"
                   width={120}
-                  height={40}
+                  height={20}
                   loading="lazy"
                   decoding="async"
-                  className="h-8 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
+                  className="h-[14px] w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity"
                 />
+                <span className="text-white/80 text-xs font-medium leading-none group-hover:text-white transition-colors">
+                  HCC Member
+                </span>
               </a>
 
             </div>
