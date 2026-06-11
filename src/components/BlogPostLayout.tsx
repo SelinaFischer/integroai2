@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ChevronRight, Calendar, Tag, Clock, Home, Share2, Check, Linkedin, ArrowUp } from "lucide-react";
+import { ChevronRight, Calendar, Tag, Clock, Home, Share2, Check, Linkedin, ArrowUp, User } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
@@ -204,8 +204,7 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, child
                   <li className="flex items-center">
                     <ChevronRight className="w-3.5 h-3.5 mx-1" />
                     <Link
-                      to="/"
-                      onClick={createScrollHandler('blog')}
+                      to="/blog"
                       className="hover:text-primary-foreground transition-colors"
                     >
                       Blog
@@ -232,6 +231,10 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, child
                 <span className="flex items-center gap-1.5">
                   <Clock className="w-4 h-4" />
                   {readTime}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <User className="w-4 h-4" />
+                  Selina Fischer
                 </span>
               </div>
               
@@ -326,8 +329,7 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, child
             >
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
                 <Link 
-                  to="/"
-                  onClick={createScrollHandler('blog')}
+                  to="/blog"
                   className="inline-flex items-center gap-2 text-accent-warm hover:text-accent-warm/80 transition-colors font-medium"
                 >
                   <ChevronRight className="w-4 h-4 rotate-180" />
