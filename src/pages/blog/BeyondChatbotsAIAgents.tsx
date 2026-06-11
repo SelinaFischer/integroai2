@@ -38,7 +38,7 @@ const BeyondChatbotsAIAgents = () => {
       <ul>
         <li><strong>Faster execution:</strong> Tasks complete in seconds instead of hours</li>
         <li><strong>Fewer errors:</strong> Consistency improves accuracy across operations</li>
-        <li><strong>Predictable workflows:</strong> Standardized processes reduce variability</li>
+        <li><strong>Predictable workflows:</strong> Standardised processes reduce variability</li>
       </ul>
 
       <p>So why do most automation projects plateau after 12 months?</p>
@@ -61,7 +61,7 @@ const BeyondChatbotsAIAgents = () => {
 
       <h2>What Intelligent Autonomy Looks Like in Practice</h2>
 
-      <p>AI Agents bridge the gap between automation and strategic intelligence — detecting anomalies, rerouting workflows, and prioritizing decisions by business impact <strong>in real time</strong>.</p>
+      <p>AI Agents bridge the gap between automation and strategic intelligence — detecting anomalies, rerouting workflows, and prioritising decisions by business impact <strong>in real time</strong>.</p>
 
       <h3>Real-World Examples:</h3>
 
@@ -74,7 +74,7 @@ const BeyondChatbotsAIAgents = () => {
       <p><strong>Supply Chain Management:</strong></p>
       <ul>
         <li><strong>Automation:</strong> Reorders inventory when stock hits threshold</li>
-        <li><strong>AI Agent:</strong> Analyzes demand forecasts, supplier lead times, market trends, and dynamically adjusts purchasing decisions</li>
+        <li><strong>AI Agent:</strong> Analyses demand forecasts, supplier lead times, market trends, and dynamically adjusts purchasing decisions</li>
       </ul>
 
       <p><strong>Customer Service:</strong></p>
@@ -91,7 +91,7 @@ const BeyondChatbotsAIAgents = () => {
 
       <h2>Readiness Self-Check: Is Your Business Ready to Evolve?</h2>
 
-      <p>Before moving beyond automation, assess your organization's readiness across these three critical dimensions:</p>
+      <p>Before moving beyond automation, assess your organisation's readiness across these three critical dimensions:</p>
 
       <div className="bg-muted/30 p-6 rounded-xl my-8">
         <h3 className="text-foreground font-bold mt-0 mb-6">AI Agent Readiness Assessment</h3>
@@ -173,7 +173,7 @@ const BeyondChatbotsAIAgents = () => {
         <li>Strategic clarity on where AI agents create the most value</li>
         <li>Robust data foundations (clean, accessible, bias-free)</li>
         <li>Clear frameworks for measuring business impact</li>
-        <li>Organizational readiness and trust in AI decision-making</li>
+        <li>Organisational readiness and trust in AI decision-making</li>
       </ul>
 
       <p>At <strong>IntegroAI Consulting</strong>, we guide leaders, startups, and SMEs through this evolution — from discovery to strategy to implementation — with clarity, confidence, and measurable outcomes.</p>
@@ -181,14 +181,14 @@ const BeyondChatbotsAIAgents = () => {
       {/* CTA */}
       <div className="bg-muted/30 p-8 rounded-xl text-center my-8">
         <h3 className="text-2xl font-bold text-foreground mt-0 mb-4">Ready to Move Beyond Automation?</h3>
-        <p className="text-muted-foreground mb-6">Book a free 30-minute discovery call to assess your AI Agent readiness and identify high-impact opportunities.</p>
-        <a 
-          href="https://calendly.com/integroai-tech/30min" 
-          target="_blank" 
+        <p className="text-muted-foreground mb-6">IntegroAI's free AI Readiness Assessment tells you whether your operations, data, and team are ready to move from automation to AI agents. Takes five minutes. No obligation.</p>
+        <a
+          href="https://integroai.tech/assessment"
+          target="_blank"
           rel="noopener noreferrer"
           className="inline-block bg-accent-warm hover:bg-accent-warm/90 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
         >
-          Book Your Discovery Call
+          Start the Free Assessment
         </a>
       </div>
     </BlogPostLayout>

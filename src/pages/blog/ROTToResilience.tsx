@@ -124,7 +124,7 @@ const ROTToResilience = () => {
       <p>Design processes for regular, documented disposition. This isn't a one-time project—it's an ongoing operational capability. Build ROT removal into normal business operations.</p>
 
       <h3>Step 4: Prevent Future Accumulation</h3>
-      <p>Fix the systems that create ROT in the first place. Implement automatic retention enforcement, reduce unnecessary duplication, and establish data hygiene as an organizational value.</p>
+      <p>Fix the systems that create ROT in the first place. Implement automatic retention enforcement, reduce unnecessary duplication, and establish data hygiene as an organisational value.</p>
 
       <h2>The AI Readiness Connection</h2>
 
@@ -137,19 +137,19 @@ const ROTToResilience = () => {
         <li>Do we have documented retention policies that AI systems can respect?</li>
       </ul>
 
-      <p>Organizations that clean before they train achieve better AI outcomes with lower costs. The investment in data hygiene pays dividends in AI performance.</p>
+      <p>Organisations that clean before they train achieve better AI outcomes with lower costs. The investment in data hygiene pays dividends in AI performance.</p>
 
       {/* CTA */}
       <div className="bg-muted/30 p-8 rounded-xl text-center my-8">
         <h3 className="text-2xl font-bold text-foreground mt-0 mb-4">Ready to Transform ROT into Resilience?</h3>
-        <p className="text-muted-foreground mb-6">Book a free 30-minute discovery call to assess your data hygiene and build AI-ready foundations.</p>
-        <a 
-          href="https://calendly.com/integroai-tech/30min" 
-          target="_blank" 
+        <p className="text-muted-foreground mb-6">IntegroAI's free AI Readiness Assessment identifies where data issues, duplicated work, and operational friction are limiting your AI potential. Takes five minutes. No obligation.</p>
+        <a
+          href="https://integroai.tech/assessment"
+          target="_blank"
           rel="noopener noreferrer"
           className="inline-block bg-accent-warm hover:bg-accent-warm/90 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
         >
-          Book Your Discovery Call
+          Start the Free Assessment
         </a>
       </div>
     </BlogPostLayout>
