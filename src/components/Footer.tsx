@@ -169,21 +169,45 @@ const Footer = () => {
         <div className="pt-6 border-t border-white/10">
           <div className="flex flex-col items-center gap-4 text-xs text-white/55">
 
-            {/* AIBL Verified Partner badge — centred */}
-            <a
-              href="https://aiblmedia.com/ai-enablement-directory/integroai-consulting/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="IntegroAI Consulting — aibl Verified AI Enablement Partner. View our directory listing."
-              className="inline-flex flex-col items-center gap-1.5 border border-[#00d4c8]/40 hover:border-[#00d4c8]/80 rounded-xl px-4 py-2.5 transition-all duration-200 group bg-white/[0.03] hover:bg-white/[0.06]"
-            >
-              <span className="text-[#00d4c8] text-[10px] font-bold uppercase tracking-widest leading-none">
-                aibl
-              </span>
-              <span className="text-white/80 text-[10px] font-medium leading-none group-hover:text-white transition-colors">
-                Verified Partner
-              </span>
-            </a>
+            {/* Trust badges row — centred */}
+            <div className="flex items-center justify-center gap-4 flex-wrap">
+
+              {/* AIBL Verified Partner */}
+              <a
+                href="https://aiblmedia.com/ai-enablement-directory/integroai-consulting/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="IntegroAI Consulting — aibl Verified AI Enablement Partner. View our directory listing."
+                className="inline-flex flex-col items-center gap-2 border border-[#00d4c8]/40 hover:border-[#00d4c8]/80 rounded-xl px-7 py-4 transition-all duration-200 group bg-white/[0.03] hover:bg-white/[0.06]"
+              >
+                <span className="text-[#00d4c8] text-sm font-bold uppercase tracking-widest leading-none">
+                  aibl
+                </span>
+                <span className="text-white/80 text-xs font-medium leading-none group-hover:text-white transition-colors">
+                  Verified Partner
+                </span>
+              </a>
+
+              {/* Hillingdon Chamber of Commerce */}
+              <a
+                href="https://hillingdonchamber.co.uk/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="IntegroAI Consulting — Member of Hillingdon Chamber of Commerce"
+                className="inline-flex items-center justify-center border border-white/15 hover:border-white/35 rounded-xl px-5 py-3 transition-all duration-200 bg-white/[0.03] hover:bg-white/[0.06]"
+              >
+                <img
+                  src="https://hillingdonchamber.co.uk/wp-content/uploads/2025/01/footer-new-logo.png"
+                  alt="Hillingdon Chamber of Commerce Member"
+                  width={120}
+                  height={40}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-8 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
+                />
+              </a>
+
+            </div>
 
             <div className="flex items-center gap-4 sm:gap-6">
               <Link
