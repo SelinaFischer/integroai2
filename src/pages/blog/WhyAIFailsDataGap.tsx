@@ -150,7 +150,7 @@ const WhyAIFailsDataGap = () => {
         <h3 className="text-2xl font-bold text-foreground mt-0 mb-4">Is Your Data AI-Ready?</h3>
         <p className="text-muted-foreground mb-6">Book a free 30-minute discovery call to assess your data readiness and identify the gaps that could derail your AI project.</p>
         <a 
-          href="https://calendly.com/integroai-consulting/30min" 
+          href="https://calendly.com/integroai-tech/30min" 
           target="_blank" 
           rel="noopener noreferrer"
           className="inline-block bg-accent-warm hover:bg-accent-warm/90 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
