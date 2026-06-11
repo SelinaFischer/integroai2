@@ -12,33 +12,13 @@ type BlogPost = {
   url?: string;
 };
 
-// Legacy posts (hosted as individual TSX files)
-const legacyPosts: BlogPost[] = [
-  {
-    title: "Beyond Chatbots: How AI Agents Redefine Efficiency, Decision-Making & Growth",
-    excerpt: "Automation saved time. But does autonomy create value? Discover how AI Agents move beyond rule-following to bring reasoning, adaptability, and strategic intelligence into business operations.",
-    category: "AI Strategy",
-    slug: "beyond-chatbots-ai-agents"
-  },
-  {
-    title: "Why AI Projects Fail: The Data Gap Nobody Talks About",
-    excerpt: "The most advanced AI in the world is worthless without quality data. Learn why 85% of AI project failures are caused by data issues, not technology problems, and how to build solid data foundations for AI success.",
-    category: "Data Strategy",
-    slug: "why-ai-fails-the-data-gap"
-  },
-  {
-    title: "ROT to Resilience: The Data Cleanup Your AI Needs",
-    excerpt: "30-40% of enterprise data is Redundant, Obsolete, and Trivial—costing money, creating risk, and sabotaging AI initiatives. Learn how to transform data clutter into competitive advantage.",
-    category: "Data Management",
-    slug: "rot-to-resilience-data-cleanup"
-  }
-];
-
-// All posts combined — legacy + data-driven (from blogData.tsx)
-const blogPosts: BlogPost[] = [
-  ...legacyPosts,
-  ...articles.map(({ slug, title, excerpt, category }) => ({ slug, title, excerpt, category })),
-];
+// All posts from blogData.tsx — single source of truth
+const blogPosts: BlogPost[] = articles.map(({ slug, title, excerpt, category }) => ({
+  slug,
+  title,
+  excerpt,
+  category,
+}));
 
 const CardContent = ({ post }: { post: BlogPost }) => (
   <>
