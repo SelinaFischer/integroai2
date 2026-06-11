@@ -59,6 +59,11 @@ const FAQ = () => {
       answer:
         "Most engagements begin with the free AI Readiness Assessment, followed by a discovery session to interpret your score and operational context. From there, IntegroAI identifies key bottlenecks, builds Operational Clarity around how work actually gets done, and prioritises where AI may or may not add value.",
     },
+    {
+      question: "How much does AI consulting with IntegroAI cost?",
+      answer:
+        "Pricing is scoped individually based on your industry, business size, and the nature of the engagement. Every project begins with the free AI Readiness Assessment, which gives both of us a clear picture of your situation before any investment is discussed. There is no obligation at that stage.",
+    },
   ];
 
   const faqSchema = {
