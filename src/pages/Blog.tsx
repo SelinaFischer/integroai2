@@ -88,8 +88,7 @@ const BlogPage = () => {
                 AI Strategy Insights
               </h1>
               <p className="text-primary-foreground/70 text-lg max-w-2xl mx-auto">
-                Practical guidance for business leaders navigating AI adoption.
-                Operations first. AI second. ROI always.
+                Practical guidance for business leaders making clearer AI decisions before investing in tools, automation or new systems.
               </p>
             </motion.div>
           </div>
