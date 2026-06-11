@@ -104,7 +104,7 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, child
         "@type": "ListItem",
         "position": 2,
         "name": "Blog",
-        "item": "https://integroai.tech/#blog"
+        "item": "https://integroai.tech/blog"
       },
       {
         "@type": "ListItem",
