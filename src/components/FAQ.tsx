@@ -140,7 +140,7 @@ const FAQ = () => {
                     </div>
                   </AccordionTrigger>
 
-                  <AccordionContent className="text-muted-foreground text-xs sm:text-sm leading-relaxed pb-4 sm:pb-5 pl-9">
+                  <AccordionContent forceMount className="text-muted-foreground text-xs sm:text-sm leading-relaxed pb-4 sm:pb-5 pl-9">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
