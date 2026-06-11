@@ -9,10 +9,8 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
-import BeyondChatbotsAIAgents from "./pages/blog/BeyondChatbotsAIAgents";
-import WhyAIFailsDataGap from "./pages/blog/WhyAIFailsDataGap";
-import ROTToResilience from "./pages/blog/ROTToResilience";
 import BlogPostPage from "./pages/blog/BlogPostPage";
+import BlogPage from "./pages/Blog";
 import AdminStats from "./pages/AdminStats";
 import Install from "./pages/Install";
 
@@ -33,11 +31,10 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
-          <Route path="/blog/beyond-chatbots-ai-agents" element={<BeyondChatbotsAIAgents />} />
-          <Route path="/blog/why-ai-fails-the-data-gap" element={<WhyAIFailsDataGap />} />
-          <Route path="/blog/rot-to-resilience-data-cleanup" element={<ROTToResilience />} />
           <Route path="/install" element={<Install />} />
           <Route path="/admin/stats" element={<AdminStats />} />
+          {/* Blog index page */}
+          <Route path="/blog" element={<BlogPage />} />
           {/* Data-driven blog — handles all articles in blogData.tsx automatically */}
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
