@@ -183,7 +183,7 @@ const Footer = () => {
                 <span className="text-[#00d4c8] text-sm font-bold uppercase tracking-widest leading-none">
                   aibl
                 </span>
-                <span className="text-white/80 text-xs font-medium leading-none group-hover:text-white transition-colors">
+                <span className="text-white/80 text-[11px] font-medium leading-none group-hover:text-white transition-colors">
                   Verified Partner
                 </span>
               </a>
@@ -196,16 +196,18 @@ const Footer = () => {
                 aria-label="IntegroAI Consulting — Member of Hillingdon Chamber of Commerce"
                 className="inline-flex flex-col items-center gap-2 border border-white/20 hover:border-white/40 rounded-xl px-7 py-4 transition-all duration-200 group bg-white/[0.03] hover:bg-white/[0.06]"
               >
-                <img
-                  src="https://hillingdonchamber.co.uk/wp-content/uploads/2025/01/footer-new-logo.png"
-                  alt="Hillingdon Chamber of Commerce"
-                  width={120}
-                  height={20}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-[14px] w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity"
-                />
-                <span className="text-white/80 text-xs font-medium leading-none group-hover:text-white transition-colors">
+                <div className="bg-white rounded-md px-2 py-0.5">
+                  <img
+                    src="https://hillingdonchamber.co.uk/wp-content/uploads/2025/01/hcc-new-logo-300x101.png"
+                    alt="Hillingdon Chamber of Commerce"
+                    width={90}
+                    height={30}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-[18px] w-auto object-contain"
+                  />
+                </div>
+                <span className="text-white/80 text-[11px] font-medium leading-none group-hover:text-white transition-colors">
                   HCC Member
                 </span>
               </a>
