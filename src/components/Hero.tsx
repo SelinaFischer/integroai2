@@ -34,7 +34,7 @@ const Hero = () => {
         className="absolute inset-0"
         style={{
           background:
-            'linear-gradient(to bottom, transparent 0%, transparent 65%, rgba(1,47,70,0.27) 100%)',
+            'linear-gradient(to bottom, transparent 0%, transparent 65%, rgba(1,47,70,0.34) 100%)',
         }}
       />
 
@@ -82,10 +82,15 @@ const Hero = () => {
             Built around your operations, your priorities and measurable ROI.
           </motion.p>
 
-          {/* SEO context line */}
-          <p className="sr-only">
-            AI consulting for SME leaders focused on driving operational efficiency &amp; ROI for SMEs. AI Readiness &amp; Strategic Adoption.
-          </p>
+          {/* SEO context paragraph — visible to Google and AI search systems */}
+          <motion.p
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.30 }}
+            className="text-sm text-white/40 max-w-xl mb-8 sm:mb-10 leading-relaxed italic"
+          >
+            IntegroAI Consulting is a boutique UK-based AI consultancy helping business owners and leaders make clearer AI decisions before investing in AI tools. We identify where time is being wasted, where manual work is duplicated, and where AI can reduce operational friction. Our work starts with workflow and process analysis so leaders understand where capacity and margin are being lost before committing budget.
+          </motion.p>
 
           {/* CTA buttons */}
           <motion.div
