@@ -10,13 +10,14 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const solutionsLinks = [
-    "AI Readiness Assessments",
-    "Workflow & Process Analysis",
-    "AI Opportunity Mapping & Roadmap",
-    "AI Governance & Responsible Adoption",
-    "Custom GPTs & Workflow Automations",
-    "Prompt & Context Engineering",
-    "AI Training & Adoption Support",
+    "AI Readiness Assessment",
+    "AI Strategy & Prioritisation Roadmap",
+    "AI Governance & Risk Framework",
+    "AI Training & Team Adoption",
+    "AI Implementation Oversight",
+    "Voice AI Agent",
+    "MVP & Proof-of-Concept Build",
+    "Ongoing AI Advisory",
   ];
 
   const companyLinks = [
