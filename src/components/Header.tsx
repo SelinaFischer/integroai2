@@ -81,8 +81,8 @@ const Header = () => {
   }, [mobileMenuOpen]);
 
   const navLinks = [
-    { sectionId: "framework", label: "Framework" },
     { sectionId: "services", label: "Services" },
+    { sectionId: "framework", label: "Framework" },
     { sectionId: "about", label: "About" },
     { sectionId: "founder", label: "Founder" },
     { sectionId: "blog", label: "Blog" },
