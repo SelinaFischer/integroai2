@@ -152,8 +152,8 @@ const Index = () => {
         <main id="main-content">
           <Hero />
           <PainPoints />
-          <Framework />
           <Services />
+          <Framework />
           <Values />
           <Founder />
           <BlogPosts />
