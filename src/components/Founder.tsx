@@ -69,7 +69,7 @@ const Founder = () => {
                   Leadership-Led Adoption
                 </span>
                 <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                  Applied AI for SMEs
+                  AI for Founder-Led Service Firms
                 </span>
               </div>
 
