@@ -9,7 +9,7 @@ import ContactFormModal from "./ContactFormModal";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const servicesLinks = [
+  const solutionsLinks = [
     "AI Readiness Assessment",
     "AI Strategy & Prioritisation Roadmap",
     "AI Governance & Risk Framework",
