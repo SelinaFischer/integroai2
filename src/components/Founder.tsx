@@ -71,6 +71,9 @@ const Founder = () => {
                 <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
                   AI for Founder-Led Service Firms
                 </span>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
+                  Tech Practitioner
+                </span>
               </div>
 
               <div className="mt-6 space-y-4">
