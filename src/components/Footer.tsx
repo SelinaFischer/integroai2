@@ -69,10 +69,10 @@ const Footer = () => {
 
           </div>
 
-          {/* Column 2 — Services We Offer */}
+          {/* Column 2 — Services */}
           <div>
             <h4 className="font-semibold text-white mb-4 sm:mb-5 text-xs sm:text-sm uppercase tracking-wider">
-              Solutions We Offer
+              Services
             </h4>
             <ul className="space-y-0.5">
               {solutionsLinks.map((label) => (
