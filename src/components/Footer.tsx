@@ -21,9 +21,10 @@ const Footer = () => {
   ];
 
   const companyLinks = [
+    { href: "#services", label: "Services" },
+    { href: "#framework", label: "Framework" },
     { href: "#about", label: "About" },
     { href: "#founder", label: "Founder" },
-    { href: "#framework", label: "Framework" },
     { href: "#blog", label: "Blog" },
     { href: "#faq", label: "FAQ" },
   ];
