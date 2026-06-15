@@ -10,21 +10,19 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const solutionsLinks = [
-    "AI Readiness Assessment",
-    "AI Strategy & Prioritisation Roadmap",
-    "AI Governance & Risk Framework",
-    "AI Training & Team Adoption",
-    "AI Implementation Oversight",
-    "Voice AI Agent",
-    "MVP & Proof-of-Concept Build",
-    "Ongoing AI Advisory",
+    "AI Readiness Assessments",
+    "Workflow & Process Analysis",
+    "AI Opportunity Mapping & Roadmap",
+    "AI Governance & Responsible Adoption",
+    "Custom GPTs & Workflow Automations",
+    "Prompt & Context Engineering",
+    "AI Training & Adoption Support",
   ];
 
   const companyLinks = [
-    { href: "#services", label: "Services" },
-    { href: "#framework", label: "Framework" },
     { href: "#about", label: "About" },
     { href: "#founder", label: "Founder" },
+    { href: "#framework", label: "Framework" },
     { href: "#blog", label: "Blog" },
     { href: "#faq", label: "FAQ" },
   ];
@@ -69,10 +67,10 @@ const Footer = () => {
 
           </div>
 
-          {/* Column 2 — Services*/}
+          {/* Column 2 — Solutions We Offer */}
           <div>
             <h4 className="font-semibold text-white mb-4 sm:mb-5 text-xs sm:text-sm uppercase tracking-wider">
-              Services We Offer
+              Solutions We Offer
             </h4>
             <ul className="space-y-0.5">
               {solutionsLinks.map((label) => (
@@ -174,20 +172,43 @@ const Footer = () => {
             {/* Trust badges row — centred */}
             <div className="flex items-center justify-center gap-4 flex-wrap">
 
-              {/* AIBL Verified Partner */}
+              {/* AIBL Verified Partner Badge */}
               <a
                 href="https://aiblmedia.com/ai-enablement-directory/integroai-consulting/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="IntegroAI Consulting — aibl Verified AI Enablement Partner. View our directory listing."
-                className="inline-flex flex-col items-center gap-2 border border-[#00d4c8]/40 hover:border-[#00d4c8]/80 rounded-xl px-7 py-4 transition-all duration-200 group bg-white/[0.03] hover:bg-white/[0.06]"
+                aria-label="IntegroAI Consulting — aibl Verified AI Enablement Partner 2026. View our directory listing."
+                className="transition-opacity duration-200 hover:opacity-90 flex-shrink-0"
               >
-                <span className="text-[#00d4c8] text-sm font-bold uppercase tracking-widest leading-none">
-                  aibl
-                </span>
-                <span className="text-white/80 text-[11px] font-medium leading-none group-hover:text-white transition-colors">
-                  Verified Partner
-                </span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 340 110"
+                  width="170"
+                  height="55"
+                  role="img"
+                  aria-hidden="true"
+                >
+                  <defs>
+                    <clipPath id="badge-clip">
+                      <rect width="340" height="110" rx="10" ry="10" />
+                    </clipPath>
+                  </defs>
+                  {/* Background */}
+                  <rect width="340" height="110" rx="10" ry="10" fill="#0B1829" />
+                  {/* Bottom teal stripe */}
+                  <rect y="96" width="340" height="14" fill="#00D4C8" clipPath="url(#badge-clip)" />
+                  {/* aibl logo text */}
+                  <text x="38" y="54" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="26" fill="#FFFFFF">aibl</text>
+                  {/* Teal underline */}
+                  <rect x="38" y="60" width="44" height="3" fill="#00D4C8" />
+                  {/* Vertical divider */}
+                  <rect x="100" y="18" width="1.5" height="64" fill="#00D4C8" opacity="0.7" />
+                  {/* AI Enablement Directory */}
+                  <text x="118" y="45" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="18" fill="#C8F000">AI Enablement</text>
+                  <text x="118" y="67" fontFamily="Arial, sans-serif" fontWeight="700" fontSize="18" fill="#C8F000">Directory</text>
+                  {/* Verified partner 2026 */}
+                  <text x="118" y="86" fontFamily="Arial, sans-serif" fontWeight="400" fontSize="11" fill="#FFFFFF" opacity="0.9">Verified partner 2026</text>
+                </svg>
               </a>
 
               {/* Hillingdon Chamber of Commerce */}
