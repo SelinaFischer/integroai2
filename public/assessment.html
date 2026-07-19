@@ -553,7 +553,7 @@ a.btn, a.btn-gold, a.btn-outline-inv{cursor:pointer !important;display:inline-fl
     <div class="fld"><label>Business Email Address *</label><input type="email" id="f-email" placeholder="jane@yourcompany.com" autocomplete="email"><span id="email-inline-err" style="display:none;color:#e05;font-size:clamp(11px,2.5vw,13px);margin-top:4px;display:none;"></span></div>
     <div class="form-2">
       <div class="fld"><label>Company Name *</label><input type="text" id="f-company" placeholder="Your Company Ltd" autocomplete="organization"></div>
-      <div class="fld"><label>Phone *</label><input type="tel" id="f-phone" placeholder="+44 7700 000000" autocomplete="tel"><span id="phone-inline-err" style="display:none;color:#e05;font-size:clamp(11px,2.5vw,13px);margin-top:4px;"></span></div>
+      <div class="fld"><label>Phone <span style="color:var(--text-3);font-weight:normal;">(optional)</span></label><input type="tel" id="f-phone" placeholder="+44 7700 000000" autocomplete="tel"><span id="phone-inline-err" style="display:none;color:#e05;font-size:clamp(11px,2.5vw,13px);margin-top:4px;"></span></div>
     </div>
     <div class="form-2">
       <div class="fld">
@@ -766,7 +766,7 @@ var FREE_DOMAINS = new Set([
 function isBusinessEmail(e){var d=(e.split('@')[1]||'').toLowerCase();return d.length>0&&!FREE_DOMAINS.has(d)}
 function validatePhone(p){
   /* Returns empty string if valid, or a specific error message */
-  if(!p) return 'Please enter your phone number.';
+  if(!p) return ''; /* phone is optional — blank is allowed; format is only checked when a value is entered */
   var d=p.replace(/[\s\-\(\)\.]/g,''); /* strip spaces, dashes, brackets, dots */
   /* --- UK with country code: +44 then exactly 10 digits, NO leading zero after +44 --- */
   if(d.startsWith('+44')){
@@ -1407,4 +1407,4 @@ function buildResults(){
 
 </script>
 </body>
-</html> 
+</html> 
