@@ -179,7 +179,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="IntegroAI Consulting — aibl Verified AI Enablement Partner 2026. View our directory listing."
-                className="transition-opacity duration-200 hover:opacity-90 flex-shrink-0"
+                className="inline-flex flex-col items-center justify-center border border-white/20 hover:border-white/40 rounded-xl px-5 py-4 transition-all duration-200 group bg-white/[0.03] hover:bg-white/[0.06]"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
