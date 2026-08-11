@@ -257,22 +257,7 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image
           </div>
         </section>
         
-
-        {image && (
-          <section className="bg-background pt-10">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-              <motion.img
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                src={image}
-                alt={title}
-                className="w-full h-auto rounded-2xl border border-border/40 shadow-sm"
-              />
-            </div>
-          </section>
-        )}
-
+      
         {/* Article Content */}
         <article className="py-16 relative">
           {/* Floating Share Bar - Desktop Only */}
