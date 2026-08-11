@@ -316,14 +316,23 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="prose prose-lg max-w-none
-                prose-headings:text-foreground prose-headings:font-bold
-                prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-6
-                prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4
-                prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-6
-                prose-strong:text-foreground prose-strong:font-semibold
-                prose-ul:text-muted-foreground prose-ul:my-6
-                prose-ol:text-muted-foreground prose-ol:my-6
-                prose-li:mb-3
+  prose-headings:text-foreground prose-headings:font-bold
+  prose-h2:text-2xl prose-h2:mt-16 prose-h2:mb-7 prose-h2:leading-tight
+  prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-5 prose-h3:leading-snug
+  prose-p:text-muted-foreground prose-p:leading-8 prose-p:mb-8
+  prose-strong:text-foreground prose-strong:font-semibold
+  prose-ul:text-muted-foreground prose-ul:my-8
+  prose-ol:text-muted-foreground prose-ol:my-8
+  prose-li:mb-4 prose-li:leading-7
+
+  [&>p]:mb-8
+  [&>p]:leading-8
+  [&>h2]:mt-16
+  [&>h2]:mb-7
+  [&>h3]:mt-10
+  [&>h3]:mb-5
+  [&>ul]:my-8
+  [&>ol]:my-8
               "
             >
               {children}
