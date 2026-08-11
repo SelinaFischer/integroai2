@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import footerLogo from "@/assets/integroai-footer-logo.png";
 import linkedinLogo from "@/assets/linkedin-logo.avif";
 import instagramLogo from "@/assets/instagram-logo.avif";
+import hccLogo from "@/assets/hillingdon-chamber-logo.png";
 import ContactFormModal from "./ContactFormModal";
 
 const Footer = () => {
@@ -218,16 +219,16 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="IntegroAI Consulting — Member of Hillingdon Chamber of Commerce"
-                className="inline-flex flex-col items-center gap-2 border border-white/20 hover:border-white/40 rounded-xl px-7 py-4 transition-all duration-200 group bg-white/[0.03] hover:bg-white/[0.06]"
+                className="inline-flex flex-col items-center gap-2 border border-white/20 hover:border-white/40 rounded-xl px-5 py-4 transition-all duration-200 group bg-white/[0.03] hover:bg-white/[0.06]"
               >
                 <img
-                  src="https://hillingdonchamber.co.uk/wp-content/uploads/2026/04/footer-new-logo-scaled.png"
+                  src={hccLogo}
                   alt="Hillingdon Chamber of Commerce"
                   width={120}
                   height={40}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-[36px] w-auto object-contain"
+                  loading="lazy"
+                  decoding="async"
+                  className="h-[36px] w-auto object-contain"
                 />
                 <span className="text-white/80 text-[11px] font-medium leading-none group-hover:text-white transition-colors">
                   HCC Member
