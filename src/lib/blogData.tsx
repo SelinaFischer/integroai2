@@ -15,6 +15,7 @@ export interface BlogArticle {
   category: string;
   readTime: string;
   excerpt: string;
+  image?: string;
   Content: React.FC;
 }
 
@@ -873,12 +874,275 @@ const BeyondChatbotsContent: React.FC = () => (
 );
 
 
+
+// ─────────────────────────────────────────────────────────────────────────────
+// NEW ARTICLE — AI Is Making Organisational Ambiguity Expensive
+// ─────────────────────────────────────────────────────────────────────────────
+
+const AiOrganisationalAmbiguityContent: React.FC = () => (
+  <>
+    <p>
+      One framework from my recent <strong>Leadership &amp; Cultural Tech Adoption training</strong>,
+      shared by our speaker <strong>Dr Lisa Hale</strong>, sparked a question that has stayed with me:
+    </p>
+
+    <div className="bg-muted/50 border-l-4 border-accent-warm p-6 rounded-r-lg my-8">
+      <p className="mb-0 text-lg">
+        <strong>When AI becomes part of the work, where exactly does judgement belong?</strong>
+      </p>
+    </div>
+
+    <p>
+      For years, organisations have operated with more ambiguity than we tend to admit.
+      What constitutes a good result? When should something be escalated? Who can make an exception?
+      How much uncertainty is acceptable? Who actually owns the final decision?
+    </p>
+
+    <p>
+      Often, the answers are not completely documented. Yet the business still functions because people fill the gaps.
+      Experienced employees interpret context, managers make judgement calls, and teams recognise when something
+      technically meets the process but still does not look right.
+    </p>
+
+    <p><strong>Humans are remarkably good at absorbing ambiguity.</strong></p>
+
+    <p>
+      AI changes that. Once AI starts participating in operational work, many assumptions and judgement calls
+      can no longer remain invisible. AI may not create organisational weakness, but it can make undefined work,
+      unclear boundaries, inconsistent expectations and unclear ownership much harder to work around.
+    </p>
+
+    <h2>“Humans and AI working together” is not enough</h2>
+
+    <p>
+      The future of work increasingly depends on humans and machines working together. That makes AI literacy important,
+      but it also increases the value of adaptability, curiosity, critical thinking, human-centred thinking and judgement.
+    </p>
+
+    <p>
+      But <strong>“humans and AI working together” still leaves the hardest question unanswered.</strong>
+      Working together how?
+    </p>
+
+    <p>
+      Can AI recommend? Can it infer? Can it act? When does someone need to verify the result?
+      What level of uncertainty is acceptable? And if both a human and an AI system contribute to an outcome,
+      <strong> who is accountable for the decision?</strong>
+    </p>
+
+    <p>
+      This is why I increasingly see AI adoption as a <strong>decision-design problem</strong>,
+      not simply a technology or skills problem.
+    </p>
+
+    <h2>AI forces judgement to become explicit</h2>
+
+    <p>Once AI starts participating in decisions, organisations need answers to questions such as:</p>
+
+    <ul>
+      <li>What constitutes a valid result?</li>
+      <li>What uncertainty is acceptable?</li>
+      <li>What may the system infer?</li>
+      <li>What requires corroboration?</li>
+      <li>When must a human intervene?</li>
+      <li>Who owns the final judgement?</li>
+    </ul>
+
+    <p>
+      These are not primarily questions about models, prompting or tools. They are questions about
+      <strong> how judgement operates inside the organisation.</strong>
+    </p>
+
+    <p>
+      That suggests a different starting point for AI transformation. Instead of only asking
+      <strong> “Where can we use AI?”</strong>, we should also ask:
+      <strong> “What decisions exist inside this work?”</strong>
+    </p>
+
+    <p>
+      Almost every workflow contains hidden decisions. Is this information complete? Is this risk significant?
+      Is this exception acceptable? Is this answer accurate enough to send? Does this situation need escalation?
+      These decisions can become so routine that nobody thinks of them as decisions anymore.
+    </p>
+
+    <h2>Three levels of judgement</h2>
+
+    <div className="grid md:grid-cols-3 gap-6 my-8">
+      <div className="bg-muted/30 p-6 rounded-xl">
+        <p className="text-accent-warm font-bold text-sm uppercase tracking-wider mb-2">01</p>
+        <h3 className="font-bold text-foreground mt-0">Team Discretion</h3>
+        <p className="text-muted-foreground text-sm mb-0">
+          Low-risk work where people can experiment with AI within clearly defined boundaries.
+        </p>
+      </div>
+
+      <div className="bg-muted/30 p-6 rounded-xl">
+        <p className="text-accent-warm font-bold text-sm uppercase tracking-wider mb-2">02</p>
+        <h3 className="font-bold text-foreground mt-0">Accountable Review</h3>
+        <p className="text-muted-foreground text-sm mb-0">
+          AI can assist, but a named human verifies the result and owns the review.
+        </p>
+      </div>
+
+      <div className="bg-muted/30 p-6 rounded-xl">
+        <p className="text-accent-warm font-bold text-sm uppercase tracking-wider mb-2">03</p>
+        <h3 className="font-bold text-foreground mt-0">Human Decision</h3>
+        <p className="text-muted-foreground text-sm mb-0">
+          For consequential work, AI may support the decision, but authority and accountability remain human.
+        </p>
+      </div>
+    </div>
+
+    <p>
+      The appropriate level of human involvement should reflect the consequence of the decision,
+      the uncertainty of the output and the risk of getting it wrong.
+    </p>
+
+    <h2>AI governance cannot stop at “Which tools are allowed?”</h2>
+
+    <p>
+      Many organisations begin AI governance with sensible questions: Which AI tools are approved?
+      What data can employees enter? What information is restricted?
+    </p>
+
+    <p>
+      Those controls matter, but they do not answer who can act on an AI recommendation,
+      which outputs require verification, when an AI-generated conclusion should be challenged,
+      or who is accountable if the output is wrong.
+    </p>
+
+    <p>
+      Responsible AI therefore requires more than permission and prohibition. It requires
+      <strong> decision boundaries inside the work itself.</strong>
+    </p>
+
+    <h2>This becomes a leadership issue</h2>
+
+    <p>
+      Technology understands the system. Operations understands the workflow. Risk understands exposure.
+      Employees understand practical reality. Customers experience the consequences.
+      Each perspective can be valid, but someone still has to own the integrity of the whole.
+    </p>
+
+    <p>Leadership therefore needs to make three things clear:</p>
+
+    <ul>
+      <li><strong>What outcome are we trying to achieve?</strong></li>
+      <li><strong>Where does judgement belong?</strong></li>
+      <li><strong>Who owns the result?</strong></li>
+    </ul>
+
+    <p>
+      Leaders do not need to become AI engineers, but they do need to become much clearer about
+      <strong> decision rights, acceptable uncertainty, review, escalation and accountability.</strong>
+    </p>
+
+    <h2>Judgement may become one of the most valuable human capabilities</h2>
+
+    <p>
+      We hear a lot about “human skills” becoming more important as AI advances. I think we need to be more specific.
+      One of the most valuable human capabilities may be <strong>judgement</strong>.
+    </p>
+
+    <p>
+      Knowing when to trust an AI output, when to question it, when more evidence is required,
+      when context changes the answer, when to escalate, and when the final decision must remain human.
+    </p>
+
+    <p>
+      That is a deeper form of AI literacy than simply knowing how to use an AI tool.
+      The differentiator may not simply be who can use AI most effectively.
+      It may be <strong>who knows when AI should not have the final say.</strong>
+    </p>
+
+    <h2>The real AI design question</h2>
+
+    <p>The question is no longer simply <strong>“Can AI do this?”</strong> We also need to ask:</p>
+
+    <ul>
+      <li>Should AI do this?</li>
+      <li>Under what conditions?</li>
+      <li>With what level of autonomy?</li>
+      <li>Who reviews the result?</li>
+      <li>Who decides?</li>
+      <li>Who owns the outcome?</li>
+    </ul>
+
+    <div className="bg-primary text-primary-foreground p-8 rounded-xl my-8">
+      <h3 className="text-2xl font-bold text-accent-warm mt-0 mb-4">
+        AI is making organisational ambiguity expensive.
+      </h3>
+      <p className="text-primary-foreground/90 mb-0">
+        For years, organisations could rely on people to compensate for unclear boundaries and tacit decision-making.
+        As AI becomes involved in more operational and consequential work, that ambiguity becomes harder to sustain.
+      </p>
+    </div>
+
+    <p>
+      The organisations that adapt best may not be those using the most AI. They may be the ones that become
+      <strong> more precise about outcomes, clearer about accountability and more deliberate about where judgement belongs.</strong>
+    </p>
+
+    <p>
+      The future of work will not simply be defined by humans working with AI. It will be defined by organisations that know
+      <strong> where the machine assists, where the human decides, and who owns the outcome.</strong>
+    </p>
+
+    <p>
+      <strong>
+        AI is forcing organisations to redesign the boundary between machine capability and human judgement.
+      </strong>
+    </p>
+
+    <div className="mt-10 p-6 bg-primary/5 border border-primary/20 rounded-xl">
+      <p className="text-foreground font-semibold mb-2">
+        How clear are your organisation&apos;s AI decision boundaries?
+      </p>
+      <p className="text-muted-foreground text-sm mb-4">
+        IntegroAI&apos;s free AI Readiness Assessment helps identify where your workflows, leadership,
+        systems and adoption foundations are ready for AI, and where greater clarity is needed first.
+      </p>
+      <a
+        href="https://integroai.tech/assessment"
+        className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold px-5 py-2.5 rounded-lg text-sm hover:bg-primary/90 transition-colors"
+      >
+        Take the AI Readiness Assessment
+      </a>
+    </div>
+
+    <RelatedArticles
+      items={[
+        {
+          slug: "what-is-an-ai-readiness-assessment",
+          title: "What is an AI Readiness Assessment? A Plain-English Guide for Business Leaders",
+        },
+        {
+          slug: "5-signs-your-business-is-not-ready-for-ai",
+          title: "5 Signs Your Business Is Not Ready for AI",
+        },
+      ]}
+    />
+  </>
+);
+
+
 // ─────────────────────────────────────────────────────────────────────────────
 // MASTER ARTICLES ARRAY
 // Add new articles here. Everything else is automatic.
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const articles: BlogArticle[] = [
+  {
+    slug: "ai-organisational-ambiguity-human-judgement",
+    title: "AI Is Making Organisational Ambiguity Expensive",
+    subtitle: "As AI enters operational decision-making, organisations need clearer boundaries around judgement, human review and accountability.",
+    date: "August 11, 2026",
+    category: "AI Adoption & Leadership",
+    readTime: "7 min read",
+    excerpt: "AI is forcing organisations to make judgement, decision rights and accountability explicit. The real challenge is not simply what AI can do, but where machine capability ends and human responsibility begins.",
+    image: "/blog/ai-organisational-ambiguity-human-judgement.png",
+    Content: AiOrganisationalAmbiguityContent,
+  },
   {
     slug: "what-is-an-ai-readiness-assessment",
     title: "What is an AI Readiness Assessment? A Plain-English Guide for Business Leaders",
