@@ -220,17 +220,15 @@ const Footer = () => {
                 aria-label="IntegroAI Consulting — Member of Hillingdon Chamber of Commerce"
                 className="inline-flex flex-col items-center gap-2 border border-white/20 hover:border-white/40 rounded-xl px-7 py-4 transition-all duration-200 group bg-white/[0.03] hover:bg-white/[0.06]"
               >
-                <div className="bg-white rounded-md px-2 py-0.5">
-                  <img
-                    src="https://hillingdonchamber.co.uk/wp-content/uploads/2025/01/hcc-new-logo-300x101.png"
-                    alt="Hillingdon Chamber of Commerce"
-                    width={90}
-                    height={30}
+                <img
+                  src="https://hillingdonchamber.co.uk/wp-content/uploads/2026/04/footer-new-logo-scaled.png"
+                  alt="Hillingdon Chamber of Commerce"
+                  width={120}
+                  height={40}
                     loading="lazy"
                     decoding="async"
-                    className="h-[18px] w-auto object-contain"
-                  />
-                </div>
+                    className="h-[36px] w-auto object-contain"
+                />
                 <span className="text-white/80 text-[11px] font-medium leading-none group-hover:text-white transition-colors">
                   HCC Member
                 </span>
