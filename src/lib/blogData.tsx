@@ -1140,7 +1140,7 @@ export const articles: BlogArticle[] = [
     category: "AI Adoption & Leadership",
     readTime: "7 min read",
     excerpt: "AI is forcing organisations to make judgement, decision rights and accountability explicit. The real challenge is not simply what AI can do, but where machine capability ends and human responsibility begins.",
-    image: "/blog/ai-organisational-ambiguity-human-judgement.png",
+    image: "/ai-organisational-ambiguity-human-judgement.png",
     Content: AiOrganisationalAmbiguityContent,
   },
   {
