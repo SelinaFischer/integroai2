@@ -180,7 +180,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="IntegroAI Consulting — aibl Verified AI Enablement Partner 2026. View our directory listing."
-                className="inline-flex flex-col items-center justify-center border border-white/20 hover:border-white/40 rounded-xl px-5 py-4 transition-all duration-200 group bg-white/[0.03] hover:bg-white/[0.06]"
+                className="inline-flex flex-shrink-0 rounded-xl overflow-hidden transition-transform duration-200 hover:scale-[1.03]"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -219,17 +219,19 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="IntegroAI Consulting — Member of Hillingdon Chamber of Commerce"
-                className="inline-flex flex-col items-center gap-2 border border-white/20 hover:border-white/40 rounded-xl px-5 py-4 transition-all duration-200 group bg-white/[0.03] hover:bg-white/[0.06]"
+                className="inline-flex flex-col items-center gap-2 flex-shrink-0 group"
               >
-                <img
-                  src={hccLogo}
-                  alt="Hillingdon Chamber of Commerce"
-                  width={120}
-                  height={40}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-[36px] w-auto object-contain"
-                />
+                <div className="rounded-xl overflow-hidden transition-transform duration-200 group-hover:scale-[1.03]">
+                  <img
+                    src={hccLogo}
+                    alt="Hillingdon Chamber of Commerce"
+                    width={140}
+                    height={45}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-[55px] w-auto object-contain block"
+                  />
+                </div>
                 <span className="text-white/80 text-[11px] font-medium leading-none group-hover:text-white transition-colors">
                   HCC Member
                 </span>
