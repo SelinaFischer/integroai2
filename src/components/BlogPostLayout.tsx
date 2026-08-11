@@ -16,10 +16,11 @@ interface BlogPostLayoutProps {
   category: string;
   readTime: string;
   slug: string;
+  image?: string;
   children: React.ReactNode;
 }
 
-const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, children }: BlogPostLayoutProps) => {
+const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image, children }: BlogPostLayoutProps) => {
   const { toast } = useToast();
   const [copied, setCopied] = useState(false);
   const [readingProgress, setReadingProgress] = useState(0);
@@ -46,6 +47,7 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, child
   };
 
   const articleUrl = `https://integroai.tech/blog/${slug}`;
+  const articleImage = image ? `https://integroai.tech${image}` : "https://integroai.tech/og-image.png";
   
   const handleCopyLink = async () => {
     try {
@@ -144,7 +146,7 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, child
     "articleSection": category,
     "wordCount": readMinutes * 200, // Approximate word count based on reading time
     "timeRequired": `PT${readMinutes}M`,
-    "image": "https://integroai.tech/og-image.png"
+    "image": articleImage
   };
 
   return (
@@ -157,6 +159,12 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, child
         <meta property="og:description" content={subtitle} />
         <meta property="og:url" content={`https://integroai.tech/blog/${slug}`} />
         <meta property="og:type" content="article" />
+        <meta property="og:image" content={articleImage} />
+        <meta property="og:image:alt" content={title} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={subtitle} />
+        <meta name="twitter:image" content={articleImage} />
         <meta property="article:published_time" content={isoDate} />
         <meta property="article:author" content="Selina Fischer" />
         <meta property="article:section" content={category} />
@@ -249,6 +257,22 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, child
           </div>
         </section>
         
+
+        {image && (
+          <section className="bg-background pt-10">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+              <motion.img
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                src={image}
+                alt={title}
+                className="w-full h-auto rounded-2xl border border-border/40 shadow-sm"
+              />
+            </div>
+          </section>
+        )}
+
         {/* Article Content */}
         <article className="py-16 relative">
           {/* Floating Share Bar - Desktop Only */}
