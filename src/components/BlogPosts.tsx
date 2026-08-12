@@ -12,8 +12,16 @@ type BlogPost = {
   url?: string;
 };
 
-// All posts from blogData.tsx — single source of truth
-const blogPosts: BlogPost[] = articles.map(({ slug, title, excerpt, category }) => ({
+// Homepage shows only the latest 3 published articles, newest first.
+// Source of truth is articles in blogData.tsx — there is no separate
+// draft/published flag in the data model, so every article in that file
+// is treated as published (matching the existing "add one object, it's
+// live" architecture documented in blogData.tsx).
+const latestArticles = [...articles].sort(
+  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+);
+
+const blogPosts: BlogPost[] = latestArticles.slice(0, 3).map(({ slug, title, excerpt, category }) => ({
   slug,
   title,
   excerpt,
@@ -70,7 +78,7 @@ const BlogPosts = () => {
             Insights
           </span>
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mt-2">
-            AI Strategy Insights
+            Latest Insights
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
             Practical guidance for leaders navigating AI adoption
@@ -117,7 +125,7 @@ const BlogPosts = () => {
         >
           <Link to="/blog">
             <Button variant="heroOutline" size="lg" className="group">
-              View All Articles
+              View All Insights
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>

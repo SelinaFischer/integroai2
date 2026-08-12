@@ -11,22 +11,18 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const solutionsLinks = [
-    "AI Readiness Assessments",
-    "Workflow & Process Analysis",
-    "AI Opportunity Mapping & Roadmap",
-    "AI Governance & Responsible Adoption",
-    "Custom GPTs & Workflow Automations",
-    "Prompt & Context Engineering",
-    "AI Training & Adoption Support",
+    "AI & Operations Diagnostic",
+    "AI Opportunity & Strategy Roadmap",
+    "AI Foundations & Responsible Adoption",
+    "AI & Automation Implementation",
+    "Ongoing AI & Operations Advisory",
   ];
 
   const companyLinks = [
-    { href: "#services", label: "Services" },
-    { href: "#framework", label: "Framework" },
-    { href: "#about", label: "About" },
-    { href: "#founder", label: "Founder" },
-    { href: "#blog", label: "Blog" },
-    { href: "#faq", label: "FAQ" },
+    { to: "/", label: "Home" },
+    { to: "/work-with-me", label: "Work With Me" },
+    { to: "/about", label: "About" },
+    { to: "/blog", label: "Insights" },
   ];
 
   const linkClass =
@@ -90,12 +86,27 @@ const Footer = () => {
             </h4>
             <ul className="space-y-0.5">
               {companyLinks.map((link) => (
-                <li key={link.href}>
-                  <a href={link.href} className={linkClass}>
+                <li key={link.to}>
+                  <Link to={link.to} className={linkClass}>
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
+              <li>
+                <a
+                  href="https://integroai.tech/assessment"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={linkClass}
+                >
+                  AI Assessment
+                </a>
+              </li>
+              <li>
+                <ContactFormModal
+                  trigger={<button className={`${linkClass} text-left w-full`}>Contact</button>}
+                />
+              </li>
             </ul>
           </div>
 

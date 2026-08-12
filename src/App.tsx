@@ -11,6 +11,8 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import BlogPostPage from "./pages/blog/BlogPostPage";
 import BlogPage from "./pages/Blog";
+import WorkWithMe from "./pages/WorkWithMe";
+import About from "./pages/About";
 import AdminStats from "./pages/AdminStats";
 import Install from "./pages/Install";
 
@@ -29,6 +31,8 @@ const App = () => (
         <Routes>
           {/* your existing routes stay exactly the same */}
           <Route path="/" element={<Index />} />
+          <Route path="/work-with-me" element={<WorkWithMe />} />
+          <Route path="/about" element={<About />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/install" element={<Install />} />

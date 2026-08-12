@@ -84,8 +84,8 @@ const PainPoints = () => {
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-4">Why AI Initiatives Stall</h2>
           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-            In many SMEs, AI initiatives struggle not because the technology is flawed, but because the conditions for success were never clearly
-            established. That’s why we start with clarity before any tools, automation, or implementation. The IntegroAI Method exists to establish
+            In many founder-led service businesses, AI initiatives struggle not because the technology is flawed, but because the conditions for success were never clearly
+            established. That’s why we start with operational clarity before any tools, automation, or implementation. The IntegroAI Operating Framework exists to establish
             those conditions before execution begins.
           </p>
         </motion.div>

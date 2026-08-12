@@ -69,7 +69,7 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.18 }}
             className="text-xl sm:text-2xl md:text-3xl text-white/90 max-w-2xl mb-6 sm:mb-8 leading-snug font-medium"
           >
-            Find where AI can save time, reduce cost and protect margin before you invest.
+            Find where repetitive work, operational friction and inefficient processes are costing your business time and capacity, then identify where AI can create meaningful value.
           </motion.p>
 
           {/* Supporting value proposition */}
@@ -79,12 +79,12 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.24 }}
             className="text-sm sm:text-base text-white/60 max-w-xl mb-10 sm:mb-12 lg:mb-14 leading-relaxed italic"
           >
-            Built around your operations, your priorities and measurable ROI.
+            Independent AI consultancy for founder-led service businesses.
           </motion.p>
 
           {/* SEO context line */}
           <p className="sr-only">
-            AI consulting for SME leaders focused on driving operational efficiency &amp; ROI for SMEs. AI Readiness &amp; Strategic Adoption.
+            Independent AI consultancy for founder-led service businesses, focused on reducing operational friction and identifying where AI can create measurable business value.
           </p>
 
           {/* CTA buttons */}
@@ -102,7 +102,7 @@ const Hero = () => {
             </Button>
             <Button variant="heroOutline" size="lg" className="backdrop-blur-sm h-[46px] px-5 text-[16px]" asChild>
               <a href="https://calendly.com/integroai-tech/30min" target="_blank" rel="noopener noreferrer">
-                Book a Free Discovery Call
+                Book a Discovery Call
               </a>
             </Button>
           </motion.div>
@@ -114,7 +114,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="mt-4 text-sm sm:text-base text-[#e5eded] max-w-xl"
           >
-            5-minute Assessment → Strategy Call → Clear Next Steps
+            5-Minute Assessment → Discovery Call → Clear Next Steps
           </motion.p>
 
         </div>
