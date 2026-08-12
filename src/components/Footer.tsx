@@ -6,6 +6,7 @@ import linkedinLogo from "@/assets/linkedin-logo.avif";
 import instagramLogo from "@/assets/instagram-logo.avif";
 import hccLogo from "@/assets/hillingdon-chamber-logo.png";
 import ContactFormModal from "./ContactFormModal";
+import { scrollToSection } from "@/lib/scrollToSection";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -20,6 +21,7 @@ const Footer = () => {
 
   const companyLinks = [
     { to: "/", label: "Home" },
+    { to: "/", label: "Our Service", sectionId: "services" },
     { to: "/work-with-me", label: "Work With Me" },
     { to: "/about", label: "About" },
     { to: "/blog", label: "Insights" },
@@ -86,8 +88,12 @@ const Footer = () => {
             </h4>
             <ul className="space-y-0.5">
               {companyLinks.map((link) => (
-                <li key={link.to}>
-                  <Link to={link.to} className={linkClass}>
+                <li key={link.label}>
+                  <Link
+                    to={link.to}
+                    className={linkClass}
+                    onClick={link.sectionId ? () => scrollToSection(link.sectionId) : undefined}
+                  >
                     {link.label}
                   </Link>
                 </li>

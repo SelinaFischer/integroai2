@@ -3,6 +3,7 @@ import { Menu, X, ArrowRight } from "lucide-react";
 import { useState, useEffect, useRef, useCallback } from "react";
 import logo from "@/assets/logo-icon-new.png";
 import ContactFormModal from "./ContactFormModal";
+import { scrollToSection } from "@/lib/scrollToSection";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -80,6 +81,7 @@ const Header = () => {
 
   const navLinks = [
     { to: "/", label: "Home" },
+    { to: "/", label: "Our Service", sectionId: "services" },
     { to: "/work-with-me", label: "Work With Me" },
     { to: "/about", label: "About" },
     { to: "/blog", label: "Insights" },
@@ -173,12 +175,15 @@ const Header = () => {
             <nav className="flex flex-col gap-1 px-2" role="navigation" aria-label="Main navigation">
               {navLinks.map((link) => (
                 <Link
-                  key={link.to}
+                  key={link.label}
                   to={link.to}
-                  onClick={() => setMobileMenuOpen(false)}
-                  aria-current={isActive(link.to) ? "page" : undefined}
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    if (link.sectionId) scrollToSection(link.sectionId);
+                  }}
+                  aria-current={!link.sectionId && isActive(link.to) ? "page" : undefined}
                   className={`text-sm font-semibold py-3 px-4 rounded-lg hover:bg-muted text-left w-full transition-colors ${
-                    isActive(link.to) ? "text-primary" : "text-foreground hover:text-primary"
+                    !link.sectionId && isActive(link.to) ? "text-primary" : "text-foreground hover:text-primary"
                   }`}
                 >
                   {link.label}
@@ -193,15 +198,17 @@ const Header = () => {
               >
                 AI Readiness Assessment
               </a>
-              <div onClick={() => setMobileMenuOpen(false)}>
-                <ContactFormModal
-                  trigger={
-                    <button className="text-foreground hover:text-primary transition-colors text-sm font-semibold py-3 px-4 rounded-lg hover:bg-muted text-left w-full">
-                      Contact
-                    </button>
-                  }
-                />
-              </div>
+              {/* Contact opens a modal that lives inside ContactFormModal's own state.
+                  It must stay mounted while the dialog is open, so this item does NOT
+                  close the mobile menu on click (that would unmount the dialog before
+                  it can show). The dialog's own overlay covers the menu once it opens. */}
+              <ContactFormModal
+                trigger={
+                  <button className="text-foreground hover:text-primary transition-colors text-sm font-semibold py-3 px-4 rounded-lg hover:bg-muted text-left w-full">
+                    Contact
+                  </button>
+                }
+              />
             </nav>
           </div>
         )}

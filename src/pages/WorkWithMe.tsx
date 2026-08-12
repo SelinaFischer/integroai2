@@ -181,14 +181,17 @@ const WorkWithMe = () => {
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-[85%] h-[85%] bg-gradient-to-br from-primary/10 via-accent-warm/10 to-primary/5 rounded-full blur-3xl" />
                   </div>
+                  {/* Source photo is portrait (4:5). Matching that aspect ratio here
+                      (rather than forcing a square) keeps the full head in frame
+                      instead of cropping it off. */}
                   <img
                     src={selinaOffice}
                     alt="Selina Fischer, Founder of IntegroAI Consulting"
-                    width={220}
-                    height={220}
+                    width={288}
+                    height={360}
                     loading="lazy"
                     decoding="async"
-                    className="relative w-40 h-40 sm:w-52 sm:h-52 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border/20 z-10 object-cover"
+                    className="relative w-56 sm:w-72 lg:w-80 aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border/20 z-10 object-cover object-top"
                   />
                 </div>
 
