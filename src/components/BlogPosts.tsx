@@ -1,6 +1,5 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Tag, ChevronDown, ChevronUp } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { articles } from "@/lib/blogData";
@@ -13,12 +12,9 @@ type BlogPost = {
   url?: string;
 };
 
-// Homepage shows the latest 3 articles by default, newest first, with the
-// rest available via "Show More" without leaving the page. Source of truth
-// is articles in blogData.tsx — there is no separate draft/published flag
-// in the data model, so every article in that file is treated as published
-// (matching the existing "add one object, it's live" architecture
-// documented in blogData.tsx).
+// Homepage shows only the latest 3 articles, newest first. The full list
+// lives on /blog via "View All Insights" below, so there is no separate
+// expand/collapse control here. Source of truth is articles in blogData.tsx.
 const sortedArticles = [...articles].sort(
   (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
 );
@@ -95,10 +91,7 @@ const BlogCard = ({ post, index }: { post: BlogPost; index: number }) => (
 );
 
 const BlogPosts = () => {
-  const [expanded, setExpanded] = useState(false);
   const visiblePosts = allPosts.slice(0, VISIBLE_COUNT);
-  const remainingPosts = allPosts.slice(VISIBLE_COUNT);
-  const hasMore = remainingPosts.length > 0;
 
   return (
     <section id="blog" className="py-20 lg:py-28 bg-background">
@@ -125,41 +118,18 @@ const BlogPosts = () => {
           {visiblePosts.map((post, index) => (
             <BlogCard key={post.slug ?? post.url ?? index} post={post} index={index} />
           ))}
-
-          <AnimatePresence>
-            {expanded &&
-              remainingPosts.map((post, index) => (
-                <BlogCard key={post.slug ?? post.url ?? `more-${index}`} post={post} index={index} />
-              ))}
-          </AnimatePresence>
         </div>
 
-        {/* Show more / View all */}
+        {/* View all */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-center mt-12 flex flex-col sm:flex-row items-center justify-center gap-3"
+          className="text-center mt-12"
         >
-          {hasMore && (
-            <Button
-              variant="outline"
-              size="lg"
-              className="group w-full sm:w-auto"
-              onClick={() => setExpanded((prev) => !prev)}
-              aria-expanded={expanded}
-            >
-              {expanded ? "Show Fewer Insights" : "Show More Insights"}
-              {expanded ? (
-                <ChevronUp className="w-4 h-4 transition-transform" />
-              ) : (
-                <ChevronDown className="w-4 h-4 transition-transform" />
-              )}
-            </Button>
-          )}
-          <Link to="/blog" className="w-full sm:w-auto">
-            <Button variant="subtle" size="lg" className="group w-full sm:w-auto">
+          <Link to="/blog">
+            <Button variant="subtle" size="lg" className="group">
               View All Insights
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>

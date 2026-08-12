@@ -1,4 +1,4 @@
-import { Search, Target, ShieldCheck, Cog, TrendingUp, ArrowRight } from "lucide-react";
+import { ClipboardCheck, Search, Target, ShieldCheck, Cog, TrendingUp, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -6,13 +6,25 @@ import { motion } from "framer-motion";
 // Prospect-facing consulting journey. This is intentionally distinct from the
 // IntegroAI Operating Framework (Discover → Design → Validate → Deliver → Iterate),
 // which describes how IntegroAI executes work rather than the stages a client can engage.
+// The free assessment is shown first as a "Start Here" card, deliberately unnumbered
+// so it stays visually and contractually distinct from the five paid consulting stages.
 const stages = [
+  {
+    icon: ClipboardCheck,
+    number: "Free",
+    stage: "Start Here",
+    title: "AI Readiness Assessment",
+    description: "See where you stand in under 5 minutes, at no cost.",
+    areas: ["5 minutes", "No cost", "Instant results"],
+    ctaLabel: "Start now",
+    ctaHref: "https://integroai.tech/assessment",
+  },
   {
     icon: Search,
     number: "01",
     stage: "Understand",
     title: "AI & Operations Diagnostic",
-    description: "See clearly where friction is costing you time, capacity or control.",
+    description: "Identify the workflow bottlenecks costing you time, capacity or control.",
     areas: ["Workflows", "Systems & data", "Existing AI use"],
   },
   {
@@ -83,7 +95,7 @@ const Services = () => {
               className="text-muted-foreground text-sm sm:text-base leading-relaxed max-w-2xl mx-auto"
               itemProp="description"
             >
-              Five stages, from understanding the business to evolving with it.
+              Start with a free assessment, then draw on five stages as the business needs them.
             </p>
           </motion.div>
 
@@ -138,6 +150,18 @@ const Services = () => {
                       </span>
                     ))}
                   </div>
+
+                  {item.ctaHref && (
+                    <a
+                      href={item.ctaHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-accent-warm font-medium text-sm mt-4 hover:gap-3 transition-all"
+                    >
+                      {item.ctaLabel}
+                      <ArrowRight className="w-4 h-4" />
+                    </a>
+                  )}
                 </div>
               </motion.article>
             ))}
