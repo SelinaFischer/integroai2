@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { Search, Target, ShieldCheck, Cog, TrendingUp, ArrowRight, CheckCircle2 } from "lucide-react";
+import { ClipboardCheck, Search, Target, ShieldCheck, Cog, TrendingUp, ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -8,21 +8,35 @@ import BackToTop from "@/components/BackToTop";
 import { Button } from "@/components/ui/button";
 import selinaOffice from "@/assets/selina-office.png";
 
+// The free assessment is Stage 01: the entry point into the six-stage
+// journey, not something separate from it. It uses a simplified card
+// (isAssessment: true) since "what we review / what you receive" doesn't
+// apply to a free self-serve tool the way it does to the paid stages.
 const stages = [
   {
-    icon: Search,
+    icon: ClipboardCheck,
     number: "01",
+    stage: "Assess",
+    service: "5-Minute AI Readiness Assessment",
+    purpose: "A free self-assessment to see where you stand before you invest in AI.",
+    isAssessment: true,
+    ctaLabel: "Start the Assessment",
+    ctaHref: "https://integroai.tech/assessment",
+  },
+  {
+    icon: Search,
+    number: "02",
     stage: "Understand",
     service: "AI & Operations Diagnostic",
     purpose: "A clear, evidence-based view of how the business runs today, and where the real priorities sit.",
     review: ["Workflows & processes", "Systems & data", "Ownership & accountability", "Existing AI use", "Business priorities"],
     receive: ["Priority operational issues", "Readiness gaps", "Recommended next steps"],
     next: "Take the findings forward yourself, or continue with IntegroAI for the next stage.",
-    note: "A paid, consultant-led engagement, separate from the free 5-Minute AI Readiness Assessment, which is only an introductory self-check.",
+    note: "This paid, consultant-led diagnostic builds on the initial AI Readiness Assessment with a deeper, evidence-based review of your operations, priorities and readiness.",
   },
   {
     icon: Target,
-    number: "02",
+    number: "03",
     stage: "Prioritise",
     service: "AI Opportunity & Strategy Roadmap",
     purpose: "Decide what's worth solving, and which opportunities to prioritise first.",
@@ -32,10 +46,10 @@ const stages = [
   },
   {
     icon: ShieldCheck,
-    number: "03",
+    number: "04",
     stage: "Prepare",
     service: "AI Foundations & Responsible Adoption",
-    purpose: "The conditions needed for AI to be adopted responsibly and sustainably.",
+    purpose: "Put the right foundations in place for AI to work safely, responsibly and sustainably.",
     review: ["Data readiness", "Governance & policy", "Accountability", "Team readiness", "Adoption planning"],
     receive: ["Governance recommendations", "Accountability framework", "Adoption readiness actions"],
     next: "Carry these foundations forward yourself, or move straight into implementation with IntegroAI.",
@@ -43,18 +57,18 @@ const stages = [
   },
   {
     icon: Cog,
-    number: "04",
+    number: "05",
     stage: "Implement",
     service: "AI & Automation Implementation",
     purpose: "Turn validated opportunities into working solutions with a clear business case.",
     review: ["Workflow automation", "Custom GPTs & AI agents", "Proof-of-concept & MVP", "Implementation oversight", "Integration support"],
-    receive: ["Clearly defined scope", "Delivery oversight", "Appropriate human oversight"],
-    next: "Review outcomes yourself, or continue with IntegroAI into ongoing advisory.",
+    receive: ["Clearly defined scope", "Delivery oversight", "Human oversight built into the solution"],
+    next: "Take the solution forward internally, or continue with IntegroAI for ongoing review and advisory support.",
     note: "Technology follows the business requirement, not the other way round, so what gets built is grounded in a genuine business case.",
   },
   {
     icon: TrendingUp,
-    number: "05",
+    number: "06",
     stage: "Evolve",
     service: "Ongoing AI & Operations Advisory",
     purpose: "Keep implemented changes delivering value as the business and technology evolve.",
@@ -71,7 +85,7 @@ const WorkWithMe = () => {
         <title>Work With Me | AI Consulting &amp; Operations Advisory | IntegroAI Consulting</title>
         <meta
           name="description"
-          content="How engagements with IntegroAI work: AI & Operations Diagnostic, Opportunity & Strategy Roadmap, Foundations & Responsible Adoption, Implementation and ongoing advisory. Independent, technology-agnostic, tailored to your business."
+          content="How engagements with IntegroAI work: a free AI Readiness Assessment, AI & Operations Diagnostic, Opportunity & Strategy Roadmap, Foundations & Responsible Adoption, Implementation and ongoing advisory. Independent, technology-agnostic, tailored to your business."
         />
         <link rel="canonical" href="https://integroai.tech/work-with-me" />
       </Helmet>
@@ -114,19 +128,20 @@ const WorkWithMe = () => {
                   <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
                     Work With Me
                   </h1>
-                  <p className="text-base sm:text-lg text-accent-warm font-medium mb-8">
+                  <p className="text-base sm:text-lg text-accent-warm font-medium mb-4">
                     AI Consulting &amp; Business Operations Advisory for Founder-Led Service Businesses
+                  </p>
+
+                  <p className="text-foreground text-base sm:text-lg font-semibold leading-snug mb-6">
+                    Identify what is slowing the business down, determine where AI can genuinely help, and turn the right opportunities into practical improvements.
                   </p>
 
                   <div className="space-y-4">
                     <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                      IntegroAI works with founders and business leaders to understand how their operations function today, identify where meaningful improvement is possible, and determine where AI can contribute to better business outcomes.
+                      IntegroAI works with founders and business leaders to understand how their operations work today, identify where time, cost or control is being lost, and determine where AI can create measurable business value.
                     </p>
                     <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
                       Every engagement begins with clarity on the business need. From there, the work is scoped around the priorities, complexity and level of support required.
-                    </p>
-                    <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                      There is no fixed technology stack or predetermined solution. Each engagement is tailored to the operational reality of the business.
                     </p>
                   </div>
                 </div>
@@ -146,7 +161,7 @@ const WorkWithMe = () => {
                     className="relative text-sm sm:text-base font-semibold bg-card border border-border/50 rounded-xl p-5 sm:p-6 shadow-lg text-center leading-relaxed"
                     style={{ color: "#012f46" }}
                   >
-                    Each engagement is scoped around what your business needs. You can engage IntegroAI for a specific piece of work, take the outputs forward independently, or continue working together where further support adds value.
+                    Work can be scoped around a specific business need or across several stages. Take the outputs forward independently, or continue with IntegroAI where further support adds value.
                   </p>
                 </div>
               </motion.div>
@@ -157,9 +172,9 @@ const WorkWithMe = () => {
           <section className="py-12 sm:py-16 bg-subtle">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-4xl mx-auto text-center mb-10 sm:mb-14">
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-4">A Potential Consulting Journey</h2>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-4">How We Can Work Together</h2>
                 <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                  Five stages to draw on as your business needs them, not a mandatory package. Engage one piece at a time, or together.
+                  Six stages of support, from initial assessment through implementation and ongoing advisory. Use the stages your business needs, without committing to the entire journey.
                 </p>
               </div>
 
@@ -187,48 +202,60 @@ const WorkWithMe = () => {
                       </div>
                     </div>
 
-                    <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
-                      <div className="sm:col-span-2">
-                        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">Purpose</p>
-                        <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">{item.purpose}</p>
-                      </div>
-
+                    {item.isAssessment ? (
                       <div>
-                        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">What we review</p>
-                        <div className="flex flex-wrap gap-2">
-                          {item.review.map((r) => (
-                            <span key={r} className="text-xs sm:text-sm font-medium bg-secondary text-foreground px-2.5 py-1 rounded-full">
-                              {r}
-                            </span>
-                          ))}
+                        <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-4">{item.purpose}</p>
+                        <Button variant="outline" size="default" className="group" asChild>
+                          <a href={item.ctaHref} target="_blank" rel="noopener noreferrer">
+                            {item.ctaLabel}
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                          </a>
+                        </Button>
+                      </div>
+                    ) : (
+                      <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
+                        <div className="sm:col-span-2">
+                          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">Purpose</p>
+                          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">{item.purpose}</p>
+                        </div>
+
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">What we review</p>
+                          <div className="flex flex-wrap gap-2">
+                            {item.review.map((r) => (
+                              <span key={r} className="text-xs sm:text-sm font-medium bg-secondary text-foreground px-2.5 py-1 rounded-full">
+                                {r}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">What you receive</p>
+                          <ul className="space-y-1.5">
+                            {item.receive.map((r) => (
+                              <li key={r} className="flex items-start gap-2 text-sm sm:text-base text-muted-foreground leading-relaxed">
+                                <CheckCircle2 className="w-4 h-4 text-accent-warm flex-shrink-0 mt-0.5" aria-hidden="true" />
+                                {r}
+                              </li>
+                            ))}
+                          </ul>
+                          {item.receiveNote && (
+                            <p className="text-xs text-muted-foreground/80 italic mt-2">{item.receiveNote}</p>
+                          )}
+                        </div>
+
+                        <div className="sm:col-span-2 pt-2 border-t border-border/50">
+                          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5 mt-4">What happens next</p>
+                          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">{item.next}</p>
+                          {item.note && (
+                            <p className="text-xs sm:text-sm text-muted-foreground/80 leading-relaxed mt-3 bg-muted/50 rounded-lg p-3">
+                              {item.note}
+                            </p>
+                          )}
                         </div>
                       </div>
-
-                      <div>
-                        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">What you receive</p>
-                        <ul className="space-y-1.5">
-                          {item.receive.map((r) => (
-                            <li key={r} className="flex items-start gap-2 text-sm sm:text-base text-muted-foreground leading-relaxed">
-                              <CheckCircle2 className="w-4 h-4 text-accent-warm flex-shrink-0 mt-0.5" aria-hidden="true" />
-                              {r}
-                            </li>
-                          ))}
-                        </ul>
-                        {item.receiveNote && (
-                          <p className="text-xs text-muted-foreground/80 italic mt-2">{item.receiveNote}</p>
-                        )}
-                      </div>
-
-                      <div className="sm:col-span-2 pt-2 border-t border-border/50">
-                        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5 mt-4">What happens next</p>
-                        <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">{item.next}</p>
-                        {item.note && (
-                          <p className="text-xs sm:text-sm text-muted-foreground/80 leading-relaxed mt-3 bg-muted/50 rounded-lg p-3">
-                            {item.note}
-                          </p>
-                        )}
-                      </div>
-                    </div>
+                    )}
                   </motion.article>
                 ))}
               </div>
