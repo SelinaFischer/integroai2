@@ -33,7 +33,7 @@ const stages = [
   {
     icon: Target,
     number: "03",
-    title: "AI Opportunity & Strategy Roadmap",
+    title: "AI Strategy & Prioritisation Roadmap",
     description: "Identify which opportunities are worth pursuing first.",
     gradient: "from-accent-warm to-amber-400",
   },
@@ -114,13 +114,6 @@ const Services = () => {
                 itemType="https://schema.org/Service"
                 itemProp="itemListElement"
               >
-                <span
-                  className="absolute -top-3 -right-2 text-7xl sm:text-8xl font-black text-foreground/[0.04] select-none pointer-events-none leading-none"
-                  aria-hidden="true"
-                >
-                  {item.number}
-                </span>
-
                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-4 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300 relative z-10`}>
                   <item.icon className="w-6 h-6 text-white" aria-hidden="true" />
                 </div>

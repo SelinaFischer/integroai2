@@ -13,7 +13,7 @@ const Footer = () => {
 
   const solutionsLinks = [
     "AI & Operations Diagnostic",
-    "AI Opportunity & Strategy Roadmap",
+    "AI Strategy & Prioritisation Roadmap",
     "AI Foundations & Responsible Adoption",
     "AI & Automation Implementation",
     "Ongoing AI & Operations Advisory",
@@ -92,7 +92,20 @@ const Footer = () => {
                   <Link
                     to={link.to}
                     className={linkClass}
-                    onClick={link.sectionId ? () => scrollToSection(link.sectionId) : undefined}
+                    onClick={
+                      link.sectionId
+                        ? () => scrollToSection(link.sectionId)
+                        : link.to === "/"
+                        ? () => {
+                            // Same fix as Header.tsx: React Router won't
+                            // re-navigate to the path we're already on, so
+                            // "Home" needs an explicit scroll-to-top here.
+                            if (window.location.pathname === "/") {
+                              window.scrollTo({ top: 0, behavior: "smooth" });
+                            }
+                          }
+                        : undefined
+                    }
                   >
                     {link.label}
                   </Link>

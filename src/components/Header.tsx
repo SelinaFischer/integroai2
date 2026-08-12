@@ -189,7 +189,14 @@ const Header = () => {
                 to={link.to}
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  if (link.sectionId) scrollToSection(link.sectionId);
+                  if (link.sectionId) {
+                    scrollToSection(link.sectionId);
+                  } else if (link.to === "/" && location.pathname === "/") {
+                    // React Router doesn't re-navigate (or re-trigger ScrollToTop)
+                    // when the target path matches the current one, so clicking
+                    // "Home" while already on "/" otherwise does nothing visible.
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }
                 }}
                 aria-current={!link.sectionId && isActive(link.to) ? "page" : undefined}
                 className={`text-sm font-semibold py-3 px-4 rounded-lg hover:bg-muted text-left w-full transition-colors ${
