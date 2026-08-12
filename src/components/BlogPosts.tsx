@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
-import { ArrowRight, Tag } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Tag, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { articles } from "@/lib/blogData";
@@ -12,21 +13,24 @@ type BlogPost = {
   url?: string;
 };
 
-// Homepage shows only the latest 3 published articles, newest first.
-// Source of truth is articles in blogData.tsx — there is no separate
-// draft/published flag in the data model, so every article in that file
-// is treated as published (matching the existing "add one object, it's
-// live" architecture documented in blogData.tsx).
-const latestArticles = [...articles].sort(
+// Homepage shows the latest 3 articles by default, newest first, with the
+// rest available via "Show More" without leaving the page. Source of truth
+// is articles in blogData.tsx — there is no separate draft/published flag
+// in the data model, so every article in that file is treated as published
+// (matching the existing "add one object, it's live" architecture
+// documented in blogData.tsx).
+const sortedArticles = [...articles].sort(
   (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
 );
 
-const blogPosts: BlogPost[] = latestArticles.slice(0, 3).map(({ slug, title, excerpt, category }) => ({
+const allPosts: BlogPost[] = sortedArticles.map(({ slug, title, excerpt, category }) => ({
   slug,
   title,
   excerpt,
   category,
 }));
+
+const VISIBLE_COUNT = 3;
 
 const CardContent = ({ post }: { post: BlogPost }) => (
   <>
@@ -63,7 +67,39 @@ const CardContent = ({ post }: { post: BlogPost }) => (
   </>
 );
 
+const BlogCard = ({ post, index }: { post: BlogPost; index: number }) => (
+  <motion.article
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -10 }}
+    transition={{ duration: 0.4, delay: index * 0.06 }}
+  >
+    {post.slug ? (
+      <Link
+        to={`/blog/${post.slug}`}
+        className="group block bg-card rounded-2xl border border-border/50 overflow-hidden hover:border-accent-warm/30 transition-all duration-300 hover:shadow-lg hover:shadow-accent-warm/5"
+      >
+        <CardContent post={post} />
+      </Link>
+    ) : (
+      <a
+        href={post.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group block bg-card rounded-2xl border border-border/50 overflow-hidden hover:border-accent-warm/30 transition-all duration-300 hover:shadow-lg hover:shadow-accent-warm/5"
+      >
+        <CardContent post={post} />
+      </a>
+    )}
+  </motion.article>
+);
+
 const BlogPosts = () => {
+  const [expanded, setExpanded] = useState(false);
+  const visiblePosts = allPosts.slice(0, VISIBLE_COUNT);
+  const remainingPosts = allPosts.slice(VISIBLE_COUNT);
+  const hasMore = remainingPosts.length > 0;
+
   return (
     <section id="blog" className="py-20 lg:py-28 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -86,45 +122,44 @@ const BlogPosts = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {blogPosts.map((post, index) => (
-            <motion.article
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              {post.slug ? (
-                <Link
-                  to={`/blog/${post.slug}`}
-                  className="group block bg-card rounded-2xl border border-border/50 overflow-hidden hover:border-accent-warm/30 transition-all duration-300 hover:shadow-lg hover:shadow-accent-warm/5"
-                >
-                  <CardContent post={post} />
-                </Link>
-              ) : (
-                <a
-                  href={post.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block bg-card rounded-2xl border border-border/50 overflow-hidden hover:border-accent-warm/30 transition-all duration-300 hover:shadow-lg hover:shadow-accent-warm/5"
-                >
-                  <CardContent post={post} />
-                </a>
-              )}
-            </motion.article>
+          {visiblePosts.map((post, index) => (
+            <BlogCard key={post.slug ?? post.url ?? index} post={post} index={index} />
           ))}
+
+          <AnimatePresence>
+            {expanded &&
+              remainingPosts.map((post, index) => (
+                <BlogCard key={post.slug ?? post.url ?? `more-${index}`} post={post} index={index} />
+              ))}
+          </AnimatePresence>
         </div>
 
-        {/* View All Button */}
+        {/* Show more / View all */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-center mt-12"
+          className="text-center mt-12 flex flex-col sm:flex-row items-center justify-center gap-3"
         >
+          {hasMore && (
+            <Button
+              variant="heroOutline"
+              size="lg"
+              className="group"
+              onClick={() => setExpanded((prev) => !prev)}
+              aria-expanded={expanded}
+            >
+              {expanded ? "Show Fewer Insights" : "Show More Insights"}
+              {expanded ? (
+                <ChevronUp className="w-4 h-4 transition-transform" />
+              ) : (
+                <ChevronDown className="w-4 h-4 transition-transform" />
+              )}
+            </Button>
+          )}
           <Link to="/blog">
-            <Button variant="heroOutline" size="lg" className="group">
+            <Button variant="subtle" size="lg" className="group">
               View All Insights
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>

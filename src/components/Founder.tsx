@@ -58,20 +58,17 @@ const Founder = () => {
 
               <div className="space-y-4">
                 <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                  I help business leaders understand where AI can genuinely improve how their business operates, before they invest in tools, platforms or automation.
+                  I help business leaders see where AI can genuinely improve how their business runs, before they invest in tools or automation.
                 </p>
                 <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                  My approach combines practical AI consulting with more than 20 years of experience across operations, product, technology and data. I focus on understanding how work actually gets done, where operational friction exists and where technology can create measurable value.
-                </p>
-                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                  Successful AI adoption requires more than selecting the right technology. It depends on clear priorities, appropriate foundations, responsible implementation and the ability of the organisation to adopt new ways of working.
+                  My approach draws on more than 20 years across operations, product, technology and data. Successful AI adoption isn&apos;t about picking the right tool. It depends on clear priorities, the right foundations and an organisation ready to adopt new ways of working.
                 </p>
               </div>
 
               <div className="pt-2">
                 <Button variant="outline" size="default" className="group" asChild>
                   <Link to="/about">
-                    More About Selina
+                    Read Her Story
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>

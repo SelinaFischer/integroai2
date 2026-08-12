@@ -187,7 +187,7 @@ const About = () => {
                   Leadership
                 </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">
-                  About Selina
+                  Selina&apos;s Story
                 </h2>
               </motion.div>
 

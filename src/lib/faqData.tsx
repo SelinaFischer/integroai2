@@ -45,7 +45,7 @@ export const homepageFaqs: FaqItem[] = [
   {
     question: "Do we need technical staff or a data team to work with IntegroAI?",
     answer:
-      "No. You do not need a data team or in-house technical staff to get started. Engagements begin with understanding your operations, goals and constraints. Specialist technical support can be introduced later, through IntegroAI or a delivery partner, if it is genuinely needed.",
+      "No. You do not need a data team or in-house technical staff to get started. Engagements begin with understanding your operations, goals and constraints. Specialist technical support can be introduced later if it is genuinely needed.",
   },
   {
     question: "What does a typical engagement with IntegroAI look like, and how is consulting priced?",

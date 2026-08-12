@@ -41,7 +41,7 @@ const stages = [
     title: "AI & Automation Implementation",
     description:
       "Support validated AI and automation opportunities through appropriate implementation, proof of concept, integration and delivery oversight.",
-    areas: ["Workflow automation", "Custom GPTs", "AI agents", "Voice AI", "MVP development", "Proof-of-concept development", "Implementation oversight", "Technology evaluation", "Integration support", "Specialist delivery partners where appropriate"],
+    areas: ["Workflow automation", "Custom GPTs", "AI agents", "Voice AI", "MVP development", "Proof-of-concept development", "Implementation oversight", "Technology evaluation", "Integration support"],
   },
   {
     icon: TrendingUp,

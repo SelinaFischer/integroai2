@@ -62,7 +62,7 @@ const stages = [
       "Sequencing",
       "Practical roadmap",
     ],
-    next: "The client can use the roadmap internally, engage other delivery partners, or continue working with IntegroAI.",
+    next: "The client can use the roadmap internally or continue working with IntegroAI on the next stage.",
   },
   {
     icon: ShieldCheck,
@@ -111,7 +111,6 @@ const stages = [
       "Implementation oversight",
       "Technology/tool evaluation",
       "Integration support",
-      "Coordination with specialist partners where appropriate",
     ],
     receive: [
       "Clearly defined implementation scope",
@@ -123,7 +122,7 @@ const stages = [
       "Measurement approach",
     ],
     next: "The client can review outcomes independently or continue with IntegroAI into ongoing advisory.",
-    note: "Technology selection follows the business requirement, not the other way round. Implementation follows validation, and IntegroAI does not need to personally build every technical component; specialist partners can be brought in where appropriate.",
+    note: "Technology selection follows the business requirement, not the other way round. Implementation only happens after validation, so what gets built is grounded in a genuine business case rather than a predetermined solution.",
   },
   {
     icon: TrendingUp,
@@ -338,7 +337,7 @@ const WorkWithMe = () => {
                   </Button>
                   <Button variant="heroOutline" size="lg" className="w-full sm:w-auto" asChild>
                     <a href="https://integroai.tech/assessment" target="_blank" rel="noopener noreferrer">
-                      Start With the 5-Minute AI Readiness Assessment
+                      Start AI Readiness Assessment
                     </a>
                   </Button>
                 </div>

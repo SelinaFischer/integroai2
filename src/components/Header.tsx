@@ -142,8 +142,7 @@ const Header = () => {
                 px-2 sm:px-3 lg:px-[20px]
                 h-7 sm:h-8 lg:h-[38px]"
             >
-              <span className="hidden sm:inline">AI Readiness Assessment</span>
-              <span className="sm:hidden">AI Assessment</span>
+              <span>AI Readiness Assessment</span>
               <ArrowRight className="w-3 h-3 sm:w-3 sm:h-3 lg:w-4 lg:h-4 ml-1" />
             </a>
 
