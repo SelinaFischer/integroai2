@@ -1400,7 +1400,7 @@ function buildResults(){
   }
   sendToFormspree(sc.total,tier,sc.dims);
   sendToSheets(sc.total,tier,diag.diag);
-  sendEmail(sc.total,tier,diag.diag,diag.opp,sc.dims);
+  sendEmail(scoreStr,tier,diag.diag,diag.opp,sc.dims);
   show('s-results');
 }
 
