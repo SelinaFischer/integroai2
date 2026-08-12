@@ -162,56 +162,61 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Dropdown Menu */}
-        {mobileMenuOpen && (
-          <div
-            ref={mobileMenuRef}
-            id="mobile-menu"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Navigation menu"
-            className="absolute top-full right-4 w-56 py-3 bg-background border border-border/50 rounded-xl shadow-xl animate-fade-in"
-          >
-            <nav className="flex flex-col gap-1 px-2" role="navigation" aria-label="Main navigation">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  to={link.to}
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    if (link.sectionId) scrollToSection(link.sectionId);
-                  }}
-                  aria-current={!link.sectionId && isActive(link.to) ? "page" : undefined}
-                  className={`text-sm font-semibold py-3 px-4 rounded-lg hover:bg-muted text-left w-full transition-colors ${
-                    !link.sectionId && isActive(link.to) ? "text-primary" : "text-foreground hover:text-primary"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <a
-                href="https://integroai.tech/assessment"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-foreground hover:text-primary transition-colors text-sm font-semibold py-3 px-4 rounded-lg hover:bg-muted text-left w-full"
+        {/* Dropdown Menu — always mounted (never unmounted via `mobileMenuOpen &&`)
+            and toggled with CSS instead. ContactFormModal lives inside this tree and
+            owns its own Dialog/Portal; if this block were conditionally unmounted,
+            clicking into the Contact form (which renders in a Portal outside
+            mobileMenuRef) would trip the outside-click handler below, set
+            mobileMenuOpen to false, and destroy the form mid-fill. Keeping it always
+            mounted means the form survives regardless of the hamburger's open state. */}
+        <div
+          ref={mobileMenuRef}
+          id="mobile-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Navigation menu"
+          aria-hidden={!mobileMenuOpen}
+          className={`absolute top-full right-4 w-56 py-3 bg-background border border-border/50 rounded-xl shadow-xl transition-all duration-200 ${
+            mobileMenuOpen
+              ? "opacity-100 visible translate-y-0 pointer-events-auto"
+              : "opacity-0 invisible -translate-y-2 pointer-events-none"
+          }`}
+        >
+          <nav className="flex flex-col gap-1 px-2" role="navigation" aria-label="Main navigation">
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                to={link.to}
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  if (link.sectionId) scrollToSection(link.sectionId);
+                }}
+                aria-current={!link.sectionId && isActive(link.to) ? "page" : undefined}
+                className={`text-sm font-semibold py-3 px-4 rounded-lg hover:bg-muted text-left w-full transition-colors ${
+                  !link.sectionId && isActive(link.to) ? "text-primary" : "text-foreground hover:text-primary"
+                }`}
               >
-                AI Readiness Assessment
-              </a>
-              {/* Contact opens a modal that lives inside ContactFormModal's own state.
-                  It must stay mounted while the dialog is open, so this item does NOT
-                  close the mobile menu on click (that would unmount the dialog before
-                  it can show). The dialog's own overlay covers the menu once it opens. */}
-              <ContactFormModal
-                trigger={
-                  <button className="text-foreground hover:text-primary transition-colors text-sm font-semibold py-3 px-4 rounded-lg hover:bg-muted text-left w-full">
-                    Contact
-                  </button>
-                }
-              />
-            </nav>
-          </div>
-        )}
+                {link.label}
+              </Link>
+            ))}
+            <a
+              href="https://integroai.tech/assessment"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-foreground hover:text-primary transition-colors text-sm font-semibold py-3 px-4 rounded-lg hover:bg-muted text-left w-full"
+            >
+              AI Readiness Assessment
+            </a>
+            <ContactFormModal
+              trigger={
+                <button className="text-foreground hover:text-primary transition-colors text-sm font-semibold py-3 px-4 rounded-lg hover:bg-muted text-left w-full">
+                  Contact
+                </button>
+              }
+            />
+          </nav>
+        </div>
       </div>
     </header>
   );

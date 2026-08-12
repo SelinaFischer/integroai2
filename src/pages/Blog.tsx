@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Tag, Clock, Calendar } from "lucide-react";
+import { ArrowRight, Tag, Clock, Calendar, Home, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { articles } from "@/lib/blogData";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
 
 // All posts from blogData.tsx — single source of truth
 const allPosts = articles.map(({ slug, title, excerpt, category, date, readTime }) => ({
@@ -53,6 +54,25 @@ const BlogPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
+              {/* Breadcrumb Navigation */}
+              <nav aria-label="Breadcrumb" className="mb-6">
+                <ol className="flex items-center justify-center gap-1.5 text-sm text-primary-foreground/70">
+                  <li>
+                    <Link
+                      to="/"
+                      className="flex items-center gap-1 hover:text-primary-foreground transition-colors"
+                    >
+                      <Home className="w-3.5 h-3.5" />
+                      <span>Home</span>
+                    </Link>
+                  </li>
+                  <li className="flex items-center">
+                    <ChevronRight className="w-3.5 h-3.5 mx-1" />
+                    <span className="text-primary-foreground font-medium">Insights</span>
+                  </li>
+                </ol>
+              </nav>
+
               <span className="text-accent-warm font-semibold text-sm tracking-wider uppercase">
                 Insights
               </span>
@@ -123,6 +143,22 @@ const BlogPage = () => {
                 </motion.article>
               ))}
             </div>
+
+            {/* Back to Home */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-center mt-14"
+            >
+              <Link to="/">
+                <Button variant="outline" size="lg" className="gap-2">
+                  <Home className="w-4 h-4" />
+                  Back to Home
+                </Button>
+              </Link>
+            </motion.div>
           </div>
         </section>
         <Footer />
