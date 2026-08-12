@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ClipboardCheck, Search, Target, ShieldCheck, Cog, TrendingUp, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -6,45 +6,58 @@ import { motion } from "framer-motion";
 // Prospect-facing consulting journey. This is intentionally distinct from the
 // IntegroAI Operating Framework (Discover → Design → Validate → Deliver → Iterate),
 // which describes how IntegroAI executes work rather than the stages a client can engage.
-// Cards are deliberately minimal (number + title only) — full detail on each
-// stage lives on /work-with-me, one click away via the button below. The
-// `description` field isn't rendered; it only feeds the hidden schema.org
-// microdata so search engines still see a full description per service.
+// Visual language (gradient icon tiles, gold step numbers) intentionally matches
+// the Operating Framework section for a consistent look across the homepage.
+// Full detail on each stage lives on /work-with-me, one click away via the
+// button below. `description` isn't rendered on screen — it only feeds the
+// hidden schema.org microdata so search engines still see a full description.
 // Numbering (01–06) matches the stage numbers on /work-with-me, where the
 // free assessment is Stage 01 rather than a separate, unnumbered item.
 const stages = [
   {
+    icon: ClipboardCheck,
     number: "01",
     title: "AI Readiness Assessment",
     description: "A free, 5-minute self-assessment to see where you stand before you invest in AI.",
+    gradient: "from-accent-warm to-amber-400",
     tag: "Free",
     ctaLabel: "Start now",
     ctaHref: "https://integroai.tech/assessment",
   },
   {
+    icon: Search,
     number: "02",
     title: "AI & Operations Diagnostic",
     description: "Identify the workflow bottlenecks costing you time, capacity or control.",
+    gradient: "from-primary to-cyan-600",
   },
   {
+    icon: Target,
     number: "03",
     title: "AI Opportunity & Strategy Roadmap",
     description: "Identify which opportunities are worth pursuing first.",
+    gradient: "from-accent-warm to-amber-400",
   },
   {
+    icon: ShieldCheck,
     number: "04",
     title: "AI Foundations & Responsible Adoption",
     description: "Get the foundations right before you adopt AI.",
+    gradient: "from-primary to-cyan-600",
   },
   {
+    icon: Cog,
     number: "05",
     title: "AI & Automation Implementation",
     description: "Turn validated opportunities into working solutions.",
+    gradient: "from-accent-warm to-amber-400",
   },
   {
+    icon: TrendingUp,
     number: "06",
     title: "Ongoing AI & Operations Advisory",
     description: "Review what's working, and refine what's next.",
+    gradient: "from-primary to-cyan-600",
   },
 ];
 
@@ -52,7 +65,7 @@ const Services = () => {
   return (
     <section
       id="services"
-      className="py-20 sm:py-24 lg:py-28 bg-subtle relative overflow-hidden"
+      className="py-16 sm:py-20 lg:py-24 bg-background relative overflow-hidden"
       itemScope
       itemType="https://schema.org/ItemList"
     >
@@ -68,9 +81,9 @@ const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-14 sm:mb-16"
+            className="text-center mb-10 sm:mb-14"
           >
-            <span className="inline-block text-accent-warm font-semibold text-[11px] uppercase tracking-[0.2em] mb-4">
+            <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-3 px-3 py-1 bg-accent-warm/10 rounded-full">
               Our Approach
             </span>
 
@@ -83,8 +96,11 @@ const Services = () => {
             </p>
           </motion.div>
 
-          {/* Stage cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border/40 rounded-2xl overflow-hidden border border-border/40">
+          {/* Stage cards — every card shares the same icon/number/title rows so
+              they align across the grid; only the free assessment card (01)
+              has trailing content (tag + link), added after those shared rows
+              so it never throws off the alignment of the others. */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {stages.map((item, index) => (
               <motion.article
                 key={item.title}
@@ -92,7 +108,7 @@ const Services = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.06 }}
-                className="group bg-card p-9 sm:p-10 transition-colors duration-500 hover:bg-background flex flex-col items-center text-center relative"
+                className="group bg-card rounded-2xl border border-border/40 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-500 p-6 sm:p-7 flex flex-col items-center text-center relative"
                 itemScope
                 itemType="https://schema.org/Service"
                 itemProp="itemListElement"
@@ -100,35 +116,35 @@ const Services = () => {
                 {/* Visible summary for search engines; not shown on screen */}
                 <meta itemProp="description" content={item.description} />
 
-                <div className="relative z-10 flex flex-col items-center">
-                  {item.tag && (
-                    <span className="text-accent-warm text-[10px] font-semibold uppercase tracking-[0.2em] mb-3">
-                      {item.tag}
-                    </span>
-                  )}
-
-                  <div className="w-14 h-14 rounded-full border border-primary/25 flex items-center justify-center mb-6 group-hover:border-accent-warm/60 transition-colors duration-500">
-                    <span className="text-primary text-base font-semibold tracking-wide">
-                      {item.number}
-                    </span>
-                  </div>
-
-                  <h3 className="text-base sm:text-lg font-bold tracking-tight leading-snug" itemProp="name">
-                    {item.title}
-                  </h3>
-
-                  {item.ctaHref && (
-                    <a
-                      href={item.ctaHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-accent-warm font-medium text-sm mt-4 hover:gap-2.5 transition-all"
-                    >
-                      {item.ctaLabel}
-                      <ArrowRight className="w-4 h-4" />
-                    </a>
-                  )}
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-4 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
+                  <item.icon className="w-6 h-6 text-white" aria-hidden="true" />
                 </div>
+
+                <span className="text-accent-warm font-bold text-xs tracking-wider mb-1.5">
+                  {item.number}
+                </span>
+
+                <h3 className="text-base sm:text-lg font-bold tracking-tight leading-snug" itemProp="name">
+                  {item.title}
+                </h3>
+
+                {item.tag && (
+                  <span className="text-accent-warm text-[11px] font-semibold uppercase tracking-[0.15em] mt-2">
+                    {item.tag}
+                  </span>
+                )}
+
+                {item.ctaHref && (
+                  <a
+                    href={item.ctaHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-accent-warm font-medium text-sm mt-3 hover:gap-2.5 transition-all"
+                  >
+                    {item.ctaLabel}
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                )}
               </motion.article>
             ))}
           </div>
@@ -139,7 +155,7 @@ const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-center mt-12 sm:mt-16"
+            className="text-center mt-10 sm:mt-14"
           >
             <Button variant="hero" size="lg" className="group" asChild>
               <Link to="/work-with-me">

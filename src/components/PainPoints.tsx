@@ -8,36 +8,42 @@ const PainPoints = () => {
       title: "Unclear leadership ownership",
       description:
         "AI initiatives lose momentum when sponsorship, accountability, and decision ownership are not clearly defined.",
+      gradient: "from-accent-warm to-amber-400",
     },
     {
       icon: Target,
       title: "Competing priorities",
       description:
         "Too many potential use cases, without a clear view of which initiatives will genuinely create value.",
+      gradient: "from-primary to-cyan-600",
     },
     {
       icon: Database,
       title: "Data foundations not ready",
       description:
         "AI tools introduced before data quality, access, or consistency are sufficient to support them.",
+      gradient: "from-accent-warm to-amber-400",
     },
     {
       icon: GraduationCap,
       title: "Limited organisational readiness",
       description:
         "Teams unsure how AI fits into existing workflows or how to use it responsibly in their roles.",
+      gradient: "from-primary to-cyan-600",
     },
     {
       icon: AlertTriangle,
       title: "No clear success metrics",
       description:
         "Outcomes are difficult to validate when there is no agreed baseline or way to measure impact.",
+      gradient: "from-accent-warm to-amber-400",
     },
     {
       icon: Lightbulb,
       title: "Lack of practical AI understanding",
       description:
         "Teams struggle to see how AI applies to day to day work. Without clear examples tied to real tasks, it is hard to identify where AI can create value.",
+      gradient: "from-primary to-cyan-600",
     },
   ];
 
@@ -103,12 +109,9 @@ const PainPoints = () => {
               variants={itemVariants}
               className="group bg-card rounded-xl sm:rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-md transition-all duration-500 hover:-translate-y-1 border border-border/40 hover:border-primary/15 relative overflow-hidden min-h-[160px]"
             >
-              {/* Hover gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
               <div className="relative z-10">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-primary/15 group-hover:scale-110 transition-all duration-300">
-                  <point.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${point.gradient} flex items-center justify-center mb-3 sm:mb-4 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
+                  <point.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
                 <h3 className="text-sm sm:text-base font-bold mb-1.5 sm:mb-2">{point.title}</h3>
                 <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed line-clamp-3 sm:line-clamp-none">

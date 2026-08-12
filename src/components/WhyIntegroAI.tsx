@@ -7,36 +7,42 @@ const differentiators = [
     title: "AI decisions grounded in business priorities",
     description:
       "We begin by understanding your operational priorities, workflows and constraints before determining where AI or automation can create meaningful value.",
+    gradient: "from-accent-warm to-amber-400",
   },
   {
     icon: ShieldCheck,
     title: "Independent, technology-agnostic advice",
     description:
       "Recommendations are shaped around what is right for your business, without preference for a particular vendor, platform or predefined solution.",
+    gradient: "from-primary to-cyan-600",
   },
   {
     icon: SlidersHorizontal,
     title: "Flexible, tailored engagements",
     description:
       "Every engagement reflects your priorities, operational maturity, existing systems and pace of change.",
+    gradient: "from-accent-warm to-amber-400",
   },
   {
     icon: Layers,
     title: "An integrated business and AI perspective",
     description:
       "We consider workflows, processes, data, systems, people and accountability together, rather than treating AI as a standalone technology initiative.",
+    gradient: "from-primary to-cyan-600",
   },
   {
     icon: Users,
     title: "Human-led adoption",
     description:
       "AI should strengthen capability and decision-making while preserving appropriate human oversight, accountability and control.",
+    gradient: "from-accent-warm to-amber-400",
   },
   {
     icon: Target,
     title: "Focused on measurable business value",
     description:
       "The objective is not AI adoption for its own sake. It is to reduce unnecessary work, strengthen operational control and improve business performance.",
+    gradient: "from-primary to-cyan-600",
   },
 ];
 
@@ -67,10 +73,9 @@ const WhyIntegroAI = () => {
               transition={{ duration: 0.5, delay: index * 0.08 }}
               className="group bg-card rounded-2xl p-6 sm:p-7 shadow-sm border border-border/40 hover:shadow-md hover:border-primary/15 hover:-translate-y-1 transition-all duration-500 relative overflow-hidden"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative z-10">
-                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/15 group-hover:scale-110 transition-all duration-300">
-                  <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" aria-hidden="true" />
+                <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-4 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
+                  <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" aria-hidden="true" />
                 </div>
                 <h3 className="text-base sm:text-lg font-bold mb-2">{item.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>

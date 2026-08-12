@@ -7,24 +7,28 @@ const audiences = [
     title: "Founder-Led Service Businesses",
     description:
       "Businesses where growth has increased operational complexity, manual work or coordination across teams and systems.",
+    gradient: "from-accent-warm to-amber-400",
   },
   {
     icon: UserRound,
     title: "Founders & Managing Directors",
     description:
       "Leaders seeking greater clarity on where operational improvement and AI investment can create meaningful value.",
+    gradient: "from-primary to-cyan-600",
   },
   {
     icon: Users,
     title: "Operations Leaders",
     description:
       "COOs and operational teams looking to reduce repetitive work, improve visibility and strengthen process ownership.",
+    gradient: "from-accent-warm to-amber-400",
   },
   {
     icon: TrendingUp,
     title: "Growing Teams",
     description:
       "Businesses reaching the point where manual processes, workarounds or people-dependent ways of working are becoming difficult to scale.",
+    gradient: "from-primary to-cyan-600",
   },
 ];
 
@@ -55,10 +59,9 @@ const WhoWeWorkWith = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group bg-card rounded-2xl p-6 sm:p-7 shadow-sm border border-border/40 hover:shadow-md hover:border-primary/15 hover:-translate-y-1 transition-all duration-500 relative overflow-hidden"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative z-10">
-                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/15 group-hover:scale-110 transition-all duration-300">
-                  <audience.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" aria-hidden="true" />
+                <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br ${audience.gradient} flex items-center justify-center mb-4 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
+                  <audience.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" aria-hidden="true" />
                 </div>
                 <h3 className="text-base sm:text-lg font-bold mb-2">{audience.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{audience.description}</p>

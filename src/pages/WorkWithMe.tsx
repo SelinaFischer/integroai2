@@ -19,6 +19,7 @@ const stages = [
     stage: "Assess",
     service: "5-Minute AI Readiness Assessment",
     purpose: "A free self-assessment to see where you stand before you invest in AI.",
+    gradient: "from-accent-warm to-amber-400",
     isAssessment: true,
     ctaLabel: "Start the Assessment",
     ctaHref: "https://integroai.tech/assessment",
@@ -29,6 +30,7 @@ const stages = [
     stage: "Understand",
     service: "AI & Operations Diagnostic",
     purpose: "A clear, evidence-based view of how the business runs today, and where the real priorities sit.",
+    gradient: "from-primary to-cyan-600",
     review: ["Workflows & processes", "Systems & data", "Ownership & accountability", "Existing AI use", "Business priorities"],
     receive: ["Priority operational issues", "Readiness gaps", "Recommended next steps"],
     next: "Take the findings forward yourself, or continue with IntegroAI for the next stage.",
@@ -40,6 +42,7 @@ const stages = [
     stage: "Prioritise",
     service: "AI Opportunity & Strategy Roadmap",
     purpose: "Decide what's worth solving, and which opportunities to prioritise first.",
+    gradient: "from-accent-warm to-amber-400",
     review: ["Business value", "Feasibility & risk", "Operational readiness", "Success measures", "Sequencing"],
     receive: ["Prioritised opportunity map", "Recommended initiatives", "A practical roadmap"],
     next: "Use the roadmap yourself, or continue with IntegroAI on the next stage.",
@@ -50,6 +53,7 @@ const stages = [
     stage: "Prepare",
     service: "AI Foundations & Responsible Adoption",
     purpose: "Put the right foundations in place for AI to work safely, responsibly and sustainably.",
+    gradient: "from-primary to-cyan-600",
     review: ["Data readiness", "Governance & policy", "Accountability", "Team readiness", "Adoption planning"],
     receive: ["Governance recommendations", "Accountability framework", "Adoption readiness actions"],
     next: "Carry these foundations forward yourself, or move straight into implementation with IntegroAI.",
@@ -61,6 +65,7 @@ const stages = [
     stage: "Implement",
     service: "AI & Automation Implementation",
     purpose: "Turn validated opportunities into working solutions with a clear business case.",
+    gradient: "from-accent-warm to-amber-400",
     review: ["Workflow automation", "Custom GPTs & AI agents", "Proof-of-concept & MVP", "Implementation oversight", "Integration support"],
     receive: ["Clearly defined scope", "Delivery oversight", "Human oversight built into the solution"],
     next: "Take the solution forward internally, or continue with IntegroAI for ongoing review and advisory support.",
@@ -72,6 +77,7 @@ const stages = [
     stage: "Evolve",
     service: "Ongoing AI & Operations Advisory",
     purpose: "Keep implemented changes delivering value as the business and technology evolve.",
+    gradient: "from-primary to-cyan-600",
     review: ["Performance reviews", "Adoption & governance review", "Course correction", "Roadmap updates", "Ongoing leadership advisory"],
     receive: ["Evidence-based review", "Recommendations", "Ongoing advisory support"],
     next: "Support scales up, down or pauses as priorities change.",
@@ -189,8 +195,8 @@ const WorkWithMe = () => {
                     className="bg-card rounded-2xl border border-border/40 shadow-sm hover:shadow-md hover:border-primary/15 transition-all duration-500 p-8 sm:p-10"
                   >
                     <div className="flex items-start gap-5 mb-6">
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-primary/25 flex items-center justify-center flex-shrink-0">
-                        <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" aria-hidden="true" />
+                      <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center flex-shrink-0 shadow-md`}>
+                        <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" aria-hidden="true" />
                       </div>
                       <div>
                         <span className="text-accent-warm font-semibold text-xs uppercase tracking-[0.15em]">

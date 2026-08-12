@@ -15,23 +15,27 @@ const values = [
     title: "Clarity",
     description:
       "We define the problem clearly, set decision boundaries, and agree what success looks like before any AI work begins.",
+    gradient: "from-accent-warm to-amber-400",
   },
   {
     icon: Shield,
     title: "Integrity",
     description: "We give honest guidance, including when AI is not the right solution.",
+    gradient: "from-primary to-cyan-600",
   },
   {
     icon: Award,
     title: "Practicality",
     description:
       "Our recommendations are grounded in real workflows, business priorities, and what it will actually take to implement them.",
+    gradient: "from-accent-warm to-amber-400",
   },
   {
     icon: BarChart3,
     title: "Accountability",
     description:
       "Progress is measured through clear ownership, responsible delivery, and tangible business outcomes.",
+    gradient: "from-primary to-cyan-600",
   },
 ];
 
@@ -158,10 +162,9 @@ const About = () => {
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       className="group bg-card rounded-2xl p-6 sm:p-7 shadow-sm border border-border/40 hover:shadow-md hover:border-primary/15 hover:-translate-y-1 transition-all duration-500 relative overflow-hidden"
                     >
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       <div className="relative z-10">
-                        <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/15 group-hover:scale-110 transition-all duration-300">
-                          <value.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" aria-hidden="true" />
+                        <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br ${value.gradient} flex items-center justify-center mb-4 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
+                          <value.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" aria-hidden="true" />
                         </div>
                         <h3 className="text-base sm:text-lg font-bold mb-2">{value.title}</h3>
                         <p className="text-muted-foreground text-sm leading-relaxed">{value.description}</p>
