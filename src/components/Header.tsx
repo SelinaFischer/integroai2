@@ -88,9 +88,16 @@ const Header = () => {
   const isActive = (to: string) =>
     to === "/" ? location.pathname === "/" : location.pathname.startsWith(to);
 
+  // Only the homepage has a full-bleed dark hero behind the header, so only
+  // the homepage gets the transparent-until-scrolled treatment. Every other
+  // page sits on a light background, so the header stays solid there —
+  // otherwise the translucent navy reads as a different, washed-out colour.
+  const isHome = location.pathname === "/";
+  const solidHeader = scrolled || !isHome;
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled
+      solidHeader
         ? 'bg-nav shadow-lg border-b border-white/10'
         : 'bg-nav/70 backdrop-blur-md border-b border-transparent'
     }`}>
@@ -125,7 +132,7 @@ const Header = () => {
               href="https://integroai.tech/assessment"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="AI Assessment — 5-Minute AI Readiness Assessment (opens in a new tab)"
+              aria-label="AI Readiness Assessment (opens in a new tab)"
               className="inline-flex items-center gap-1 whitespace-nowrap font-medium transition-all duration-200
                 border border-[#F6C35B] hover:border-[#F6C35B]
                 bg-transparent hover:bg-[#F6C35B]/[0.08]
@@ -135,7 +142,8 @@ const Header = () => {
                 px-2 sm:px-3 lg:px-[20px]
                 h-7 sm:h-8 lg:h-[38px]"
             >
-              <span>AI Assessment</span>
+              <span className="hidden sm:inline">AI Readiness Assessment</span>
+              <span className="sm:hidden">AI Assessment</span>
               <ArrowRight className="w-3 h-3 sm:w-3 sm:h-3 lg:w-4 lg:h-4 ml-1" />
             </a>
 
@@ -184,7 +192,7 @@ const Header = () => {
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-foreground hover:text-primary transition-colors text-sm font-semibold py-3 px-4 rounded-lg hover:bg-muted text-left w-full"
               >
-                AI Assessment
+                AI Readiness Assessment
               </a>
               <div onClick={() => setMobileMenuOpen(false)}>
                 <ContactFormModal

@@ -99,7 +99,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className={linkClass}
                 >
-                  AI Assessment
+                  AI Readiness Assessment
                 </a>
               </li>
               <li>

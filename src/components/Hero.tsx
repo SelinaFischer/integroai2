@@ -67,9 +67,9 @@ const Hero = () => {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.18 }}
-            className="text-xl sm:text-2xl md:text-3xl text-white/90 max-w-2xl mb-6 sm:mb-8 leading-snug font-medium"
+            className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-xl mb-6 sm:mb-8 leading-snug font-medium"
           >
-            Find where repetitive work, operational friction and inefficient processes are costing your business time and capacity, then identify where AI can create meaningful value.
+            Find where operational friction is costing your business time and capacity, then see where AI can create real value.
           </motion.p>
 
           {/* Supporting value proposition */}
