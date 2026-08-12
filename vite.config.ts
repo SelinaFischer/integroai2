@@ -56,8 +56,30 @@ export default defineConfig(({ mode }) => ({
         cleanupOutdatedCaches: true,
         clientsClaim: true,
         skipWaiting: true,
-        globPatterns: ["**/*.{js,css,html,ico,png,svg,woff2}"],
+        // HTML is deliberately excluded from the precache manifest (and from
+        // navigateFallback below). JS/CSS/image filenames are content-hashed
+        // by Vite, so precaching THEM is genuinely free speed: a new deploy
+        // gets a new hash, so there's no staleness risk and repeat visits
+        // load instantly from cache. HTML has no hash in its filename, so
+        // precaching it was the actual bug: visitors could get served an
+        // old index.html referencing old routes/copy until the new service
+        // worker fully took over. The navigateFallback + NetworkFirst rule
+        // below makes every page load fetch the latest HTML from the network
+        // first (near-instant on GitHub Pages' CDN), falling back to the
+        // last-seen cached copy only if the network is unreachable.
+        globPatterns: ["**/*.{js,css,ico,png,svg,woff2}"],
+        navigateFallback: null,
         runtimeCaching: [
+          {
+            urlPattern: ({ request }) => request.mode === "navigate",
+            handler: "NetworkFirst",
+            options: {
+              cacheName: "html-cache",
+              networkTimeoutSeconds: 3,
+              expiration: { maxEntries: 20, maxAgeSeconds: 60 * 60 * 24 },
+              cacheableResponse: { statuses: [0, 200] },
+            },
+          },
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
             handler: "CacheFirst",
