@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import { Button } from "@/components/ui/button";
+import selinaOffice from "@/assets/selina-office.png";
 
 const stages = [
   {
@@ -174,28 +175,45 @@ const WorkWithMe = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="max-w-3xl mx-auto text-center"
+                className="max-w-4xl mx-auto grid sm:grid-cols-[auto,1fr] gap-8 sm:gap-10 items-center text-center sm:text-left"
               >
-                <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
-                  How Engagements Work
-                </span>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-                  Work With Me
-                </h1>
-                <p className="text-base sm:text-lg text-accent-warm font-medium mb-8">
-                  AI Consulting &amp; Business Operations Advisory for Founder-Led Service Businesses
-                </p>
+                <div className="relative flex justify-center sm:justify-start">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-[85%] h-[85%] bg-gradient-to-br from-primary/10 via-accent-warm/10 to-primary/5 rounded-full blur-3xl" />
+                  </div>
+                  <img
+                    src={selinaOffice}
+                    alt="Selina Fischer, Founder of IntegroAI Consulting"
+                    width={220}
+                    height={220}
+                    loading="lazy"
+                    decoding="async"
+                    className="relative w-40 h-40 sm:w-52 sm:h-52 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border/20 z-10 object-cover"
+                  />
+                </div>
 
-                <div className="space-y-4 text-left sm:text-center">
-                  <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                    IntegroAI works with founders and business leaders to understand how their operations function today, identify where meaningful improvement is possible, and determine where AI can contribute to better business outcomes.
+                <div>
+                  <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
+                    How Engagements Work
+                  </span>
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+                    Work With Me
+                  </h1>
+                  <p className="text-base sm:text-lg text-accent-warm font-medium mb-8">
+                    AI Consulting &amp; Business Operations Advisory for Founder-Led Service Businesses
                   </p>
-                  <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                    Every engagement begins with clarity on the business need. From there, the work is scoped around the priorities, complexity and level of support required.
-                  </p>
-                  <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                    There is no fixed technology stack or predetermined solution. Each engagement is tailored to the operational reality of the business.
-                  </p>
+
+                  <div className="space-y-4">
+                    <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                      IntegroAI works with founders and business leaders to understand how their operations function today, identify where meaningful improvement is possible, and determine where AI can contribute to better business outcomes.
+                    </p>
+                    <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                      Every engagement begins with clarity on the business need. From there, the work is scoped around the priorities, complexity and level of support required.
+                    </p>
+                    <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                      There is no fixed technology stack or predetermined solution. Each engagement is tailored to the operational reality of the business.
+                    </p>
+                  </div>
                 </div>
               </motion.div>
 
@@ -330,14 +348,14 @@ const WorkWithMe = () => {
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <Button variant="hero" size="lg" className="group w-full sm:w-auto" asChild>
-                    <a href="https://calendly.com/integroai-tech/30min" target="_blank" rel="noopener noreferrer">
-                      Book a Discovery Call
+                    <a href="https://integroai.tech/assessment" target="_blank" rel="noopener noreferrer">
+                      Start AI Readiness Assessment
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </a>
                   </Button>
                   <Button variant="heroOutline" size="lg" className="w-full sm:w-auto" asChild>
-                    <a href="https://integroai.tech/assessment" target="_blank" rel="noopener noreferrer">
-                      Start AI Readiness Assessment
+                    <a href="https://calendly.com/integroai-tech/30min" target="_blank" rel="noopener noreferrer">
+                      Book a Discovery Call
                     </a>
                   </Button>
                 </div>
