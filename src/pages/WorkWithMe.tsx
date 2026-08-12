@@ -66,7 +66,7 @@ const stages = [
     service: "AI & Automation Implementation",
     purpose: "Turn validated opportunities into working solutions with a clear business case.",
     gradient: "from-accent-warm to-amber-400",
-    review: ["Workflow automation", "Custom GPTs & AI agents", "Proof-of-concept & MVP", "Implementation oversight", "Integration support"],
+    review: ["Workflow automation", "Integration support", "Custom GPTs & AI agents", "Proof-of-concept & MVP", "Implementation oversight"],
     receive: ["Clearly defined scope", "Delivery oversight", "Human oversight built into the solution"],
     next: "Take the solution forward internally, or continue with IntegroAI for ongoing review and advisory support.",
     note: "Technology follows the business requirement, not the other way round, so what gets built is grounded in a genuine business case.",

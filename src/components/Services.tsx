@@ -18,10 +18,9 @@ const stages = [
     icon: ClipboardCheck,
     number: "01",
     title: "AI Readiness Assessment",
-    description: "A free, 5-minute self-assessment to see where you stand before you invest in AI.",
+    description: "A 5-minute self-assessment to see where you stand before you invest in AI.",
     gradient: "from-accent-warm to-amber-400",
-    tag: "Free",
-    ctaLabel: "Start now",
+    ctaLabel: "Start free assessment",
     ctaHref: "https://integroai.tech/assessment",
   },
   {
@@ -98,8 +97,10 @@ const Services = () => {
 
           {/* Stage cards — every card shares the same icon/number/title rows so
               they align across the grid; only the free assessment card (01)
-              has trailing content (tag + link), added after those shared rows
-              so it never throws off the alignment of the others. */}
+              has a trailing CTA, added after those shared rows so it never
+              throws off the alignment of the others. A faint numeral
+              watermark plus a visible one-line description give each card
+              enough visual weight that the grid doesn't read as empty. */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {stages.map((item, index) => (
               <motion.article
@@ -108,38 +109,40 @@ const Services = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.06 }}
-                className="group bg-card rounded-2xl border border-border/40 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-500 p-6 sm:p-7 flex flex-col items-center text-center relative"
+                className="group bg-card rounded-2xl border border-border/40 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-500 p-7 sm:p-8 flex flex-col items-center text-center relative overflow-hidden"
                 itemScope
                 itemType="https://schema.org/Service"
                 itemProp="itemListElement"
               >
-                {/* Visible summary for search engines; not shown on screen */}
-                <meta itemProp="description" content={item.description} />
-
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-4 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
-                  <item.icon className="w-6 h-6 text-white" aria-hidden="true" />
-                </div>
-
-                <span className="text-accent-warm font-bold text-xs tracking-wider mb-1.5">
+                <span
+                  className="absolute -top-3 -right-2 text-7xl sm:text-8xl font-black text-foreground/[0.04] select-none pointer-events-none leading-none"
+                  aria-hidden="true"
+                >
                   {item.number}
                 </span>
 
-                <h3 className="text-base sm:text-lg font-bold tracking-tight leading-snug" itemProp="name">
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-4 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300 relative z-10`}>
+                  <item.icon className="w-6 h-6 text-white" aria-hidden="true" />
+                </div>
+
+                <span className="text-accent-warm font-bold text-xs tracking-wider mb-1.5 relative z-10">
+                  {item.number}
+                </span>
+
+                <h3 className="text-base sm:text-lg font-bold tracking-tight leading-snug relative z-10" itemProp="name">
                   {item.title}
                 </h3>
 
-                {item.tag && (
-                  <span className="text-accent-warm text-[11px] font-semibold uppercase tracking-[0.15em] mt-2">
-                    {item.tag}
-                  </span>
-                )}
+                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed mt-2 relative z-10" itemProp="description">
+                  {item.description}
+                </p>
 
                 {item.ctaHref && (
                   <a
                     href={item.ctaHref}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-accent-warm font-medium text-sm mt-3 hover:gap-2.5 transition-all"
+                    className="inline-flex items-center gap-1.5 mt-4 px-4 py-2 rounded-full bg-accent-warm/10 text-accent-warm font-semibold text-sm hover:bg-accent-warm/15 hover:gap-2.5 transition-all relative z-10"
                   >
                     {item.ctaLabel}
                     <ArrowRight className="w-4 h-4" />
