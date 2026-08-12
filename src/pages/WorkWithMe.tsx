@@ -186,17 +186,17 @@ const WorkWithMe = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.5, delay: index * 0.05 }}
-                    className="bg-card rounded-xl sm:rounded-2xl border border-border/50 shadow-card p-6 sm:p-8"
+                    className="bg-card rounded-2xl border border-border/40 shadow-sm hover:shadow-md hover:border-primary/15 transition-all duration-500 p-8 sm:p-10"
                   >
-                    <div className="flex items-start gap-4 mb-5">
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <item.icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary" aria-hidden="true" />
+                    <div className="flex items-start gap-5 mb-6">
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-primary/25 flex items-center justify-center flex-shrink-0">
+                        <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" aria-hidden="true" />
                       </div>
                       <div>
-                        <span className="text-accent-warm font-bold text-xs uppercase tracking-widest">
+                        <span className="text-accent-warm font-semibold text-xs uppercase tracking-[0.15em]">
                           Stage {item.number} — {item.stage}
                         </span>
-                        <h3 className="text-lg sm:text-xl font-bold text-foreground mt-1">
+                        <h3 className="text-lg sm:text-xl font-bold text-foreground mt-1 tracking-tight">
                           {item.service}
                         </h3>
                       </div>
@@ -223,7 +223,7 @@ const WorkWithMe = () => {
                           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">What we review</p>
                           <div className="flex flex-wrap gap-2">
                             {item.review.map((r) => (
-                              <span key={r} className="text-xs sm:text-sm font-medium bg-secondary text-foreground px-2.5 py-1 rounded-full">
+                              <span key={r} className="text-xs sm:text-sm font-medium text-foreground border border-border/70 px-3 py-1 rounded-full">
                                 {r}
                               </span>
                             ))}

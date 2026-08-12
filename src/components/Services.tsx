@@ -10,36 +10,39 @@ import { motion } from "framer-motion";
 // stage lives on /work-with-me, one click away via the button below. The
 // `description` field isn't rendered; it only feeds the hidden schema.org
 // microdata so search engines still see a full description per service.
+// Numbering (01–06) matches the stage numbers on /work-with-me, where the
+// free assessment is Stage 01 rather than a separate, unnumbered item.
 const stages = [
   {
-    number: "Free",
+    number: "01",
     title: "AI Readiness Assessment",
     description: "A free, 5-minute self-assessment to see where you stand before you invest in AI.",
+    tag: "Free",
     ctaLabel: "Start now",
     ctaHref: "https://integroai.tech/assessment",
   },
   {
-    number: "01",
+    number: "02",
     title: "AI & Operations Diagnostic",
     description: "Identify the workflow bottlenecks costing you time, capacity or control.",
   },
   {
-    number: "02",
+    number: "03",
     title: "AI Opportunity & Strategy Roadmap",
     description: "Identify which opportunities are worth pursuing first.",
   },
   {
-    number: "03",
+    number: "04",
     title: "AI Foundations & Responsible Adoption",
     description: "Get the foundations right before you adopt AI.",
   },
   {
-    number: "04",
+    number: "05",
     title: "AI & Automation Implementation",
     description: "Turn validated opportunities into working solutions.",
   },
   {
-    number: "05",
+    number: "06",
     title: "Ongoing AI & Operations Advisory",
     description: "Review what's working, and refine what's next.",
   },
@@ -49,7 +52,7 @@ const Services = () => {
   return (
     <section
       id="services"
-      className="py-16 sm:py-20 lg:py-24 bg-subtle relative overflow-hidden"
+      className="py-20 sm:py-24 lg:py-28 bg-subtle relative overflow-hidden"
       itemScope
       itemType="https://schema.org/ItemList"
     >
@@ -65,9 +68,9 @@ const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-10 sm:mb-14"
+            className="text-center mb-14 sm:mb-16"
           >
-            <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-3 px-3 py-1 bg-accent-warm/10 rounded-full">
+            <span className="inline-block text-accent-warm font-semibold text-[11px] uppercase tracking-[0.2em] mb-4">
               Our Approach
             </span>
 
@@ -81,32 +84,36 @@ const Services = () => {
           </motion.div>
 
           {/* Stage cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border/40 rounded-2xl overflow-hidden border border-border/40">
             {stages.map((item, index) => (
               <motion.article
                 key={item.title}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="group bg-card rounded-2xl p-8 shadow-card hover:shadow-lg transition-all duration-500 hover:-translate-y-1 border border-border/50 flex flex-col items-center text-center relative overflow-hidden"
+                transition={{ duration: 0.5, delay: index * 0.06 }}
+                className="group bg-card p-9 sm:p-10 transition-colors duration-500 hover:bg-background flex flex-col items-center text-center relative"
                 itemScope
                 itemType="https://schema.org/Service"
                 itemProp="itemListElement"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
                 {/* Visible summary for search engines; not shown on screen */}
                 <meta itemProp="description" content={item.description} />
 
                 <div className="relative z-10 flex flex-col items-center">
-                  <div className="w-16 h-16 rounded-xl bg-primary flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300">
-                    <span className="text-primary-foreground text-xl font-bold">
+                  {item.tag && (
+                    <span className="text-accent-warm text-[10px] font-semibold uppercase tracking-[0.2em] mb-3">
+                      {item.tag}
+                    </span>
+                  )}
+
+                  <div className="w-14 h-14 rounded-full border border-primary/25 flex items-center justify-center mb-6 group-hover:border-accent-warm/60 transition-colors duration-500">
+                    <span className="text-primary text-base font-semibold tracking-wide">
                       {item.number}
                     </span>
                   </div>
 
-                  <h3 className="text-base sm:text-lg font-bold" itemProp="name">
+                  <h3 className="text-base sm:text-lg font-bold tracking-tight leading-snug" itemProp="name">
                     {item.title}
                   </h3>
 
@@ -115,7 +122,7 @@ const Services = () => {
                       href={item.ctaHref}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-accent-warm font-medium text-sm mt-3 hover:gap-2.5 transition-all"
+                      className="inline-flex items-center gap-1.5 text-accent-warm font-medium text-sm mt-4 hover:gap-2.5 transition-all"
                     >
                       {item.ctaLabel}
                       <ArrowRight className="w-4 h-4" />
@@ -132,7 +139,7 @@ const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-center mt-10 sm:mt-14"
+            className="text-center mt-12 sm:mt-16"
           >
             <Button variant="hero" size="lg" className="group" asChild>
               <Link to="/work-with-me">

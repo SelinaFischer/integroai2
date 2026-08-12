@@ -101,7 +101,7 @@ const PainPoints = () => {
             <motion.div
               key={point.title}
               variants={itemVariants}
-              className="group bg-card rounded-lg sm:rounded-xl p-4 sm:p-5 shadow-card hover:shadow-lg transition-all duration-500 hover:-translate-y-1 border border-border/50 relative overflow-hidden min-h-[160px]"
+              className="group bg-card rounded-xl sm:rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-md transition-all duration-500 hover:-translate-y-1 border border-border/40 hover:border-primary/15 relative overflow-hidden min-h-[160px]"
             >
               {/* Hover gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

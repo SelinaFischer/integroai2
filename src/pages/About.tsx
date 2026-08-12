@@ -90,7 +90,7 @@ const About = () => {
                     transition={{ duration: 0.6, delay: 0.15 }}
                     className="self-start lg:sticky lg:top-24"
                   >
-                    <div className="rounded-2xl overflow-hidden shadow-card border border-border/50 aspect-[4/5]">
+                    <div className="rounded-2xl overflow-hidden shadow-sm border border-border/40 aspect-[4/5]">
                       <img
                         src={selinaOfficePhoto}
                         alt="Professional workspace — IntegroAI Consulting"
@@ -117,7 +117,7 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
-                  className="bg-card border border-border/50 rounded-xl p-6 sm:p-7 shadow-card"
+                  className="bg-card border border-border/40 rounded-2xl p-7 sm:p-8 shadow-sm"
                 >
                   <h2 className="text-lg sm:text-xl font-bold mb-3 text-foreground">Mission</h2>
                   <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
@@ -130,7 +130,7 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  className="bg-card border border-border/50 rounded-xl p-6 sm:p-7 shadow-card"
+                  className="bg-card border border-border/40 rounded-2xl p-7 sm:p-8 shadow-sm"
                 >
                   <h2 className="text-lg sm:text-xl font-bold mb-3 text-foreground">Vision</h2>
                   <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
@@ -156,7 +156,7 @@ const About = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="group bg-card rounded-xl p-5 sm:p-6 shadow-card border border-border/50 hover:shadow-lg hover:-translate-y-1 transition-all duration-500 relative overflow-hidden"
+                      className="group bg-card rounded-2xl p-6 sm:p-7 shadow-sm border border-border/40 hover:shadow-md hover:border-primary/15 hover:-translate-y-1 transition-all duration-500 relative overflow-hidden"
                     >
                       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       <div className="relative z-10">
