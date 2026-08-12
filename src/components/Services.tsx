@@ -12,45 +12,40 @@ const stages = [
     number: "01",
     stage: "Understand",
     title: "AI & Operations Diagnostic",
-    description:
-      "Establish a clear view of how the business operates today, where friction exists, and where time, capacity or operational control may be being lost.",
-    areas: ["Workflows", "Processes", "Repetitive/manual work", "Systems", "Data", "Ownership", "Accountability", "Existing AI use", "Organisational readiness"],
+    description: "See clearly where friction is costing you time, capacity or control.",
+    areas: ["Workflows", "Systems & data", "Existing AI use"],
   },
   {
     icon: Target,
     number: "02",
     stage: "Prioritise",
     title: "AI Opportunity & Strategy Roadmap",
-    description:
-      "Evaluate where AI, automation or process improvement could create meaningful business value, and determine which opportunities should be addressed first.",
-    areas: ["Expected business value", "Feasibility", "Readiness", "Risk", "Strategic relevance", "Success measures", "Sequencing"],
+    description: "Identify which opportunities are worth pursuing first.",
+    areas: ["Business value", "Feasibility & risk", "Sequencing"],
   },
   {
     icon: ShieldCheck,
     number: "03",
     stage: "Prepare",
     title: "AI Foundations & Responsible Adoption",
-    description:
-      "Put the organisational and operational conditions in place for AI to be introduced responsibly and effectively.",
-    areas: ["Data readiness", "Governance", "Ownership", "Accountability", "Decision boundaries", "Leadership alignment", "Team readiness", "Training", "Adoption planning"],
+    description: "Get the foundations right before you adopt AI.",
+    areas: ["Governance", "Accountability", "Team readiness"],
   },
   {
     icon: Cog,
     number: "04",
     stage: "Implement",
     title: "AI & Automation Implementation",
-    description:
-      "Support validated AI and automation opportunities through appropriate implementation, proof of concept, integration and delivery oversight.",
-    areas: ["Workflow automation", "Custom GPTs", "AI agents", "Voice AI", "MVP development", "Proof-of-concept development", "Implementation oversight", "Technology evaluation", "Integration support"],
+    description: "Turn validated opportunities into working solutions.",
+    areas: ["Workflow automation", "AI agents", "Integration support"],
   },
   {
     icon: TrendingUp,
     number: "05",
     stage: "Evolve",
     title: "Ongoing AI & Operations Advisory",
-    description:
-      "Review performance, strengthen adoption, refine priorities and identify where further operational or AI improvements can create value.",
-    areas: ["Performance review", "Outcome measurement", "Adoption review", "Governance review", "Course correction", "Roadmap refinement", "Identification of further opportunities", "Ongoing leadership advisory"],
+    description: "Review what's working, and refine what's next.",
+    areas: ["Performance review", "Adoption review", "Ongoing advisory"],
   },
 ];
 
@@ -88,12 +83,12 @@ const Services = () => {
               className="text-muted-foreground text-sm sm:text-base leading-relaxed max-w-2xl mx-auto"
               itemProp="description"
             >
-              IntegroAI combines business and operations advisory with practical AI expertise to help leaders understand what is worth changing, where AI can create value, and what needs to be in place for it to work effectively.
+              Five stages, from understanding the business to evolving with it.
             </p>
           </motion.div>
 
           {/* Stage cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {stages.map((item, index) => (
               <motion.article
                 key={item.stage}
@@ -101,7 +96,7 @@ const Services = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="group bg-card rounded-lg sm:rounded-xl p-4 sm:p-5 shadow-card hover:shadow-lg transition-all duration-500 hover:-translate-y-1 border border-border/50 flex flex-col relative overflow-hidden"
+                className="group bg-card rounded-lg sm:rounded-xl p-5 sm:p-6 shadow-card hover:shadow-lg transition-all duration-500 hover:-translate-y-1 border border-border/50 flex flex-col relative overflow-hidden"
                 itemScope
                 itemType="https://schema.org/Service"
                 itemProp="itemListElement"
@@ -109,35 +104,35 @@ const Services = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                 <div className="relative z-10 flex flex-col h-full">
-                  <div className="flex items-start justify-between mb-3 sm:mb-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/15 group-hover:scale-110 transition-all duration-300">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/15 group-hover:scale-110 transition-all duration-300">
                       <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" aria-hidden="true" />
                     </div>
-                    <span className="text-muted-foreground/30 text-xl sm:text-2xl font-bold">
+                    <span className="text-muted-foreground/30 text-2xl font-bold">
                       {item.number}
                     </span>
                   </div>
 
-                  <span className="text-accent-warm font-bold text-[11px] uppercase tracking-widest mb-1.5">
+                  <span className="text-accent-warm font-bold text-xs uppercase tracking-widest mb-1.5">
                     {item.stage}
                   </span>
 
-                  <h3 className="text-sm sm:text-base font-bold mb-1.5 sm:mb-2" itemProp="name">
+                  <h3 className="text-base sm:text-lg font-bold mb-2" itemProp="name">
                     {item.title}
                   </h3>
 
                   <p
-                    className="text-muted-foreground text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 flex-grow"
+                    className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-4 flex-grow"
                     itemProp="description"
                   >
                     {item.description}
                   </p>
 
                   <div className="flex flex-wrap gap-1.5">
-                    {item.areas.slice(0, 4).map((area) => (
+                    {item.areas.map((area) => (
                       <span
                         key={area}
-                        className="text-[10px] font-medium bg-secondary text-foreground px-2 py-1 rounded-full"
+                        className="text-xs font-medium bg-secondary text-foreground px-2.5 py-1 rounded-full"
                       >
                         {area}
                       </span>

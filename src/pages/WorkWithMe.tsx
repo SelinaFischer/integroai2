@@ -14,141 +14,53 @@ const stages = [
     number: "01",
     stage: "Understand",
     service: "AI & Operations Diagnostic",
-    purpose:
-      "Establish a clear and evidence-based view of how the business operates today and where the most important operational issues or opportunities sit.",
-    review: [
-      "Workflows",
-      "Processes",
-      "Repetitive/manual work",
-      "Operational bottlenecks",
-      "Systems",
-      "Data",
-      "Ownership",
-      "Accountability",
-      "Existing AI use",
-      "Organisational readiness",
-      "Business priorities",
-    ],
-    receive: [
-      "Current-state findings",
-      "Priority operational issues",
-      "Readiness gaps",
-      "Potential AI/automation opportunities",
-      "Recommendations for what should be explored next",
-    ],
-    next: "The client can take the findings forward independently or engage IntegroAI for prioritisation, preparation, implementation or another appropriate next step.",
-    note: "This is a paid, consultant-led engagement and is separate from the free 5-Minute AI Readiness Assessment, which is an introductory self-assessment rather than a full operational diagnostic.",
+    purpose: "A clear, evidence-based view of how the business runs today, and where the real priorities sit.",
+    review: ["Workflows & processes", "Systems & data", "Ownership & accountability", "Existing AI use", "Business priorities"],
+    receive: ["Priority operational issues", "Readiness gaps", "Recommended next steps"],
+    next: "Take the findings forward yourself, or continue with IntegroAI for the next stage.",
+    note: "A paid, consultant-led engagement, separate from the free 5-Minute AI Readiness Assessment, which is only an introductory self-check.",
   },
   {
     icon: Target,
     number: "02",
     stage: "Prioritise",
     service: "AI Opportunity & Strategy Roadmap",
-    purpose:
-      "Determine what is worth solving, where AI is appropriate and which opportunities should take priority.",
-    review: [
-      "Expected business value",
-      "Feasibility",
-      "Operational readiness",
-      "Data requirements",
-      "Risk",
-      "Strategic relevance",
-      "Success measures",
-      "Sequencing",
-    ],
-    receive: [
-      "Prioritised opportunity map",
-      "Recommended initiatives",
-      "Success measures",
-      "Sequencing",
-      "Practical roadmap",
-    ],
-    next: "The client can use the roadmap internally or continue working with IntegroAI on the next stage.",
+    purpose: "Decide what's worth solving, and which opportunities to prioritise first.",
+    review: ["Business value", "Feasibility & risk", "Operational readiness", "Success measures", "Sequencing"],
+    receive: ["Prioritised opportunity map", "Recommended initiatives", "A practical roadmap"],
+    next: "Use the roadmap yourself, or continue with IntegroAI on the next stage.",
   },
   {
     icon: ShieldCheck,
     number: "03",
     stage: "Prepare",
     service: "AI Foundations & Responsible Adoption",
-    purpose:
-      "Establish the conditions required for AI to be introduced responsibly, effectively and sustainably.",
-    review: [
-      "Data readiness",
-      "Governance",
-      "Policies",
-      "Ownership",
-      "Accountability",
-      "Decision boundaries",
-      "Leadership alignment",
-      "Team readiness",
-      "Training",
-      "Adoption planning",
-    ],
-    receive: [
-      "Governance recommendations",
-      "Accountability framework",
-      "Decision boundaries",
-      "Adoption requirements",
-      "Capability recommendations",
-      "Implementation readiness actions",
-    ],
-    next: "The client can carry these foundations forward independently or move directly into implementation with IntegroAI.",
-    receiveNote: "Outputs reflect the agreed scope of the engagement; not every client receives every item listed above.",
+    purpose: "The conditions needed for AI to be adopted responsibly and sustainably.",
+    review: ["Data readiness", "Governance & policy", "Accountability", "Team readiness", "Adoption planning"],
+    receive: ["Governance recommendations", "Accountability framework", "Adoption readiness actions"],
+    next: "Carry these foundations forward yourself, or move straight into implementation with IntegroAI.",
+    receiveNote: "Outputs reflect the agreed scope of the engagement.",
   },
   {
     icon: Cog,
     number: "04",
     stage: "Implement",
     service: "AI & Automation Implementation",
-    purpose:
-      "Turn validated opportunities into practical solutions where there is a clear business case.",
-    review: [
-      "Workflow automation",
-      "Custom GPTs",
-      "AI agents",
-      "Voice AI",
-      "Proof-of-concept development",
-      "MVP development",
-      "Implementation oversight",
-      "Technology/tool evaluation",
-      "Integration support",
-    ],
-    receive: [
-      "Clearly defined implementation scope",
-      "Agreed outcomes",
-      "Solution recommendations",
-      "Delivery oversight",
-      "Ownership definition",
-      "Appropriate human oversight",
-      "Measurement approach",
-    ],
-    next: "The client can review outcomes independently or continue with IntegroAI into ongoing advisory.",
-    note: "Technology selection follows the business requirement, not the other way round. Implementation only happens after validation, so what gets built is grounded in a genuine business case rather than a predetermined solution.",
+    purpose: "Turn validated opportunities into working solutions with a clear business case.",
+    review: ["Workflow automation", "Custom GPTs & AI agents", "Proof-of-concept & MVP", "Implementation oversight", "Integration support"],
+    receive: ["Clearly defined scope", "Delivery oversight", "Appropriate human oversight"],
+    next: "Review outcomes yourself, or continue with IntegroAI into ongoing advisory.",
+    note: "Technology follows the business requirement, not the other way round, so what gets built is grounded in a genuine business case.",
   },
   {
     icon: TrendingUp,
     number: "05",
     stage: "Evolve",
     service: "Ongoing AI & Operations Advisory",
-    purpose:
-      "Ensure implemented changes continue to deliver value as the business, technology and operating environment evolve.",
-    review: [
-      "Performance reviews",
-      "Outcome measurement",
-      "Adoption review",
-      "Governance review",
-      "Course correction",
-      "Roadmap updates",
-      "Identification of further opportunities",
-      "Ongoing leadership advisory",
-    ],
-    receive: [
-      "Evidence-based review",
-      "Recommendations",
-      "Revised priorities where required",
-      "Ongoing advisory support appropriate to the engagement",
-    ],
-    next: "Support continues for as long as it adds value, and can be scaled up, scaled down or paused as priorities change.",
+    purpose: "Keep implemented changes delivering value as the business and technology evolve.",
+    review: ["Performance reviews", "Adoption & governance review", "Course correction", "Roadmap updates", "Ongoing leadership advisory"],
+    receive: ["Evidence-based review", "Recommendations", "Ongoing advisory support"],
+    next: "Support scales up, down or pauses as priorities change.",
   },
 ];
 
@@ -247,7 +159,7 @@ const WorkWithMe = () => {
               <div className="max-w-4xl mx-auto text-center mb-10 sm:mb-14">
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-4">A Potential Consulting Journey</h2>
                 <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                  Five stages you can draw on as your business needs them. This is not a mandatory package, a subscription, or a fixed methodology; it is a map of the ways IntegroAI can help, engaged one piece at a time or together.
+                  Five stages to draw on as your business needs them, not a mandatory package. Engage one piece at a time, or together.
                 </p>
               </div>
 
@@ -282,10 +194,10 @@ const WorkWithMe = () => {
                       </div>
 
                       <div>
-                        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">What we may review</p>
-                        <div className="flex flex-wrap gap-1.5">
+                        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">What we review</p>
+                        <div className="flex flex-wrap gap-2">
                           {item.review.map((r) => (
-                            <span key={r} className="text-[11px] font-medium bg-secondary text-foreground px-2.5 py-1 rounded-full">
+                            <span key={r} className="text-xs sm:text-sm font-medium bg-secondary text-foreground px-2.5 py-1 rounded-full">
                               {r}
                             </span>
                           ))}
@@ -293,10 +205,10 @@ const WorkWithMe = () => {
                       </div>
 
                       <div>
-                        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">What you can expect to receive</p>
+                        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">What you receive</p>
                         <ul className="space-y-1.5">
                           {item.receive.map((r) => (
-                            <li key={r} className="flex items-start gap-2 text-sm text-muted-foreground leading-relaxed">
+                            <li key={r} className="flex items-start gap-2 text-sm sm:text-base text-muted-foreground leading-relaxed">
                               <CheckCircle2 className="w-4 h-4 text-accent-warm flex-shrink-0 mt-0.5" aria-hidden="true" />
                               {r}
                             </li>
@@ -308,10 +220,10 @@ const WorkWithMe = () => {
                       </div>
 
                       <div className="sm:col-span-2 pt-2 border-t border-border/50">
-                        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5 mt-4">What can happen next</p>
-                        <p className="text-muted-foreground text-sm leading-relaxed">{item.next}</p>
+                        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5 mt-4">What happens next</p>
+                        <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">{item.next}</p>
                         {item.note && (
-                          <p className="text-xs text-muted-foreground/80 leading-relaxed mt-3 bg-muted/50 rounded-lg p-3">
+                          <p className="text-xs sm:text-sm text-muted-foreground/80 leading-relaxed mt-3 bg-muted/50 rounded-lg p-3">
                             {item.note}
                           </p>
                         )}
