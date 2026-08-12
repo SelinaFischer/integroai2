@@ -1,7 +1,6 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { useState, useEffect, useRef, useCallback } from "react";
-import { scrollToSection } from "@/lib/scrollToSection";
 import logo from "@/assets/logo-icon-new.png";
 import ContactFormModal from "./ContactFormModal";
 
@@ -11,7 +10,6 @@ const Header = () => {
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const location = useLocation();
-  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -81,23 +79,14 @@ const Header = () => {
   }, [mobileMenuOpen]);
 
   const navLinks = [
-    { sectionId: "services", label: "Services" },
-    { sectionId: "framework", label: "Framework" },
-    { sectionId: "about", label: "About" },
-    { sectionId: "founder", label: "Founder" },
-    { sectionId: "blog", label: "Blog" },
-    { sectionId: "faq", label: "FAQ" },
+    { to: "/", label: "Home" },
+    { to: "/work-with-me", label: "Work With Me" },
+    { to: "/about", label: "About" },
+    { to: "/blog", label: "Insights" },
   ];
 
-  const handleNavClick = (sectionId: string) => {
-    setMobileMenuOpen(false);
-    if (location.pathname !== '/') {
-      navigate('/');
-      scrollToSection(sectionId, 150);
-    } else {
-      scrollToSection(sectionId, 0);
-    }
-  };
+  const isActive = (to: string) =>
+    to === "/" ? location.pathname === "/" : location.pathname.startsWith(to);
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -136,6 +125,7 @@ const Header = () => {
               href="https://integroai.tech/assessment"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="AI Assessment — 5-Minute AI Readiness Assessment (opens in a new tab)"
               className="inline-flex items-center gap-1 whitespace-nowrap font-medium transition-all duration-200
                 border border-[#F6C35B] hover:border-[#F6C35B]
                 bg-transparent hover:bg-[#F6C35B]/[0.08]
@@ -145,8 +135,7 @@ const Header = () => {
                 px-2 sm:px-3 lg:px-[20px]
                 h-7 sm:h-8 lg:h-[38px]"
             >
-              <span className="hidden sm:inline">AI Readiness Assessment</span>
-              <span className="sm:hidden">AI Readiness Assessment</span>
+              <span>AI Assessment</span>
               <ArrowRight className="w-3 h-3 sm:w-3 sm:h-3 lg:w-4 lg:h-4 ml-1" />
             </a>
 
@@ -176,14 +165,36 @@ const Header = () => {
           >
             <nav className="flex flex-col gap-1 px-2" role="navigation" aria-label="Main navigation">
               {navLinks.map((link) => (
-                <button
-                  key={link.sectionId}
-                  className="text-foreground hover:text-primary transition-colors text-sm font-semibold py-3 px-4 rounded-lg hover:bg-muted text-left w-full"
-                  onClick={() => handleNavClick(link.sectionId)}
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  onClick={() => setMobileMenuOpen(false)}
+                  aria-current={isActive(link.to) ? "page" : undefined}
+                  className={`text-sm font-semibold py-3 px-4 rounded-lg hover:bg-muted text-left w-full transition-colors ${
+                    isActive(link.to) ? "text-primary" : "text-foreground hover:text-primary"
+                  }`}
                 >
                   {link.label}
-                </button>
+                </Link>
               ))}
+              <a
+                href="https://integroai.tech/assessment"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-foreground hover:text-primary transition-colors text-sm font-semibold py-3 px-4 rounded-lg hover:bg-muted text-left w-full"
+              >
+                AI Assessment
+              </a>
+              <div onClick={() => setMobileMenuOpen(false)}>
+                <ContactFormModal
+                  trigger={
+                    <button className="text-foreground hover:text-primary transition-colors text-sm font-semibold py-3 px-4 rounded-lg hover:bg-muted text-left w-full">
+                      Contact
+                    </button>
+                  }
+                />
+              </div>
             </nav>
           </div>
         )}

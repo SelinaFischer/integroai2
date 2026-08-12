@@ -1,113 +1,80 @@
 import { motion } from "framer-motion";
-import { Linkedin } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import selinaPhoto from "@/assets/selina-founder.png";
 
+// Short homepage introduction. Selina's fuller professional story lives on the About page.
 const Founder = () => {
   return (
-  <section id="founder" className="py-16 sm:py-20 lg:py-24 bg-muted/30">
+    <section id="founder" className="py-16 sm:py-20 lg:py-24 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-10 sm:mb-14"
-        >
-          <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
-            Leadership
-          </span>
-
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">
-            Meet the Founder –{" "}
-            <span className="text-[#C9972B]">Selina</span>
-          </h2>
-        </motion.div>
-
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-[auto,1fr] gap-10 lg:gap-16 items-start">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-[auto,1fr] gap-10 lg:gap-14 items-center">
             {/* Founder Image */}
             <motion.div
               initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1}}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="relative flex justify-center lg:justify-start self-start"
+              className="relative flex justify-center lg:justify-start"
             >
-              {/* Decorative background */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-[90%] h-[90%] bg-gradient-to-br from-primary/10 via-accent-warm/10 to-primary/5 rounded-full blur-3xl" />
+                <div className="w-[85%] h-[85%] bg-gradient-to-br from-primary/10 via-accent-warm/10 to-primary/5 rounded-full blur-3xl" />
               </div>
-
               <img
                 src={selinaPhoto}
-                alt="Selina Fischer - IntegroAI Founder and CEO"
-                width={400}
-                height={400}
+                alt="Selina Fischer, Founder of IntegroAI Consulting"
+                width={320}
+                height={320}
                 loading="lazy"
                 decoding="async"
-                className="relative w-80 sm:w-96 lg:w-[30rem] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border/20 z-10 h-auto"
+                className="relative w-64 sm:w-72 lg:w-80 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border/20 z-10 h-auto"
               />
             </motion.div>
 
             {/* Founder Info */}
             <motion.div
               initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1}}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-6 text-left self-start"
+              className="space-y-4 text-left"
             >
-              {/* Credentials badges */}
-              <div className="flex flex-wrap justify-start gap-2">
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                  20+ Years in Product & Tech
+              <div>
+                <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-3 px-3 py-1 bg-accent-warm/10 rounded-full">
+                  Leadership
                 </span>
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                  AI & Data Strategy
-                </span>
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                  Leadership-Led Adoption
-                </span>
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                  AI for Founder-Led Service Firms
-                </span>
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                  Tech Practitioner
-                </span>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-2">
+                  Meet Selina
+                </h2>
+                <p className="text-sm sm:text-base font-semibold text-foreground">
+                  Founder of IntegroAI Consulting
+                </p>
+                <p className="text-sm sm:text-base text-accent-warm font-medium mb-4">
+                  AI Consultant | Business &amp; Operations Advisor
+                </p>
               </div>
 
-              <div className="mt-6 space-y-4">
+              <div className="space-y-4">
                 <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                  I’ve worked in technology for over 20 years, driven by curiosity and a genuine interest in how things work. Much of my career has been spent in product management and delivery, turning ideas into practical, working solutions.
-               </p>
+                  I help business leaders understand where AI can genuinely improve how their business operates, before they invest in tools, platforms or automation.
+                </p>
+                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                  My approach combines practical AI consulting with more than 20 years of experience across operations, product, technology and data. I focus on understanding how work actually gets done, where operational friction exists and where technology can create measurable value.
+                </p>
+                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                  Successful AI adoption requires more than selecting the right technology. It depends on clear priorities, appropriate foundations, responsible implementation and the ability of the organisation to adopt new ways of working.
+                </p>
+              </div>
 
-               <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                That experience shaped how I think about technology. Whatever you build needs a clear purpose. You need to understand the problem you’re solving and why it matters. Without that clarity, even good technology struggles to deliver real value.
-              </p>
-
-              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                <span className="font-semibold text-foreground">
-                  IntegroAI means integration and growth.
-               </span>{" "}
-              AI should integrate into how a business already operates and help it grow with intent, rather than sit on top as another disconnected layer.
-             </p>
-
-            <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-              I started IntegroAI Consulting to bring that product-led thinking to AI adoption, helping leaders approach AI with clarity, practicality, and purpose. My work is supported by hands-on delivery experience and formal training in AI consulting, implementation, data foundations, and leadership-led technology adoption.
-           </p>
-        </div>                        
-                                                           
-              {/* LinkedIn Link */}
-              <div className="flex justify-center lg:justify-start">
-                <a
-                  href="https://www.linkedin.com/in/selinafischer8/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 text-accent-warm hover:text-accent-warm/80 transition-all duration-300 font-medium hover:translate-x-1 py-2 min-h-[44px] group"
-                >
-                  <Linkedin className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
-                  Connect with me on LinkedIn
-                </a>
+              <div className="pt-2">
+                <Button variant="outline" size="default" className="group" asChild>
+                  <Link to="/about">
+                    More About Selina
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
               </div>
             </motion.div>
           </div>

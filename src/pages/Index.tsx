@@ -2,13 +2,15 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import PainPoints from "@/components/PainPoints";
-import Framework from "@/components/Framework";
 import Services from "@/components/Services";
-import Values from "@/components/Values";
+import WhoWeWorkWith from "@/components/WhoWeWorkWith";
+import Framework from "@/components/Framework";
+import WhyIntegroAI from "@/components/WhyIntegroAI";
 import Founder from "@/components/Founder";
-import BlogPosts from "@/components/BlogPosts";
+import AssessmentSection from "@/components/AssessmentSection";
 import FAQ from "@/components/FAQ";
-import CTA from "@/components/CTA";
+import BlogPosts from "@/components/BlogPosts";
+import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import CookieConsent from "@/components/CookieConsent";
@@ -20,7 +22,7 @@ const Index = () => {
     "@type": "LocalBusiness",
     "@id": "https://integroai.tech/#localbusiness",
     "name": "IntegroAI Consulting",
-    "description": "IntegroAI Consulting provides AI strategy and consulting services for SME leaders. We help businesses with 20-500 employees turn AI confusion into confident action through our proven Discover-Design-Validate-Deliver framework. Services include AI readiness assessment, strategy roadmapping, implementation support, training, and ongoing advisory.",
+    "description": "IntegroAI Consulting is an independent AI consultancy for founder-led service businesses. We help leaders reduce repetitive work, strengthen operational control and identify where AI can create measurable business value, through our Discover-Design-Validate-Deliver-Iterate operating framework. Services include the AI & Operations Diagnostic, opportunity and strategy roadmapping, foundations and responsible adoption, implementation, and ongoing advisory.",
     "url": "https://integroai.tech",
     "logo": "https://integroai.tech/apple-touch-icon.png",
     "image": "https://integroai.tech/og-image.png",
@@ -62,62 +64,54 @@ const Index = () => {
     },
     "knowsAbout": [
       "Artificial Intelligence Strategy",
-      "AI Implementation for SMEs",
+      "AI Implementation for Founder-Led Service Businesses",
       "AI Readiness Assessment",
+      "Business & Operations Advisory",
       "Data Strategy",
-      "Business Transformation",
       "Machine Learning Consulting",
       "AI Governance and Ethics",
-      "Digital Transformation",
-      "Vendor-Agnostic AI Consulting"
+      "Workflow Automation",
+      "Technology-Agnostic AI Consulting"
     ],
     "makesOffer": [
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "AI Readiness Assessment",
-          "description": "Comprehensive assessment of your current state, opportunities, and AI readiness including gap analysis and opportunity mapping"
+          "name": "AI & Operations Diagnostic",
+          "description": "Establish a clear view of how the business operates today, where friction exists, and where time, capacity or operational control may be being lost."
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "AI Strategy & Roadmapping",
-          "description": "Prioritised AI implementation roadmap with business case analysis and quick wins identification"
+          "name": "AI Opportunity & Strategy Roadmap",
+          "description": "Evaluate where AI, automation or process improvement could create meaningful business value, and determine which opportunities should be addressed first."
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "AI Training & Capability Building",
-          "description": "Hands-on workshops to upskill teams on AI tools, prompting, and workflow integration"
+          "name": "AI Foundations & Responsible Adoption",
+          "description": "Put the organisational and operational conditions in place for AI to be introduced responsibly and effectively."
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "AI Implementation Support",
-          "description": "Hands-on guidance from pilot to production including vendor selection and change management"
+          "name": "AI & Automation Implementation",
+          "description": "Support validated AI and automation opportunities through appropriate implementation, proof of concept, integration and delivery oversight."
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Ongoing AI Advisory",
-          "description": "Monthly strategic reviews with KPI tracking to ensure continued AI success"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "AI Governance & Ethics",
-          "description": "Responsible AI practices with policies, risk frameworks, and compliance guidance"
+          "name": "Ongoing AI & Operations Advisory",
+          "description": "Review performance, strengthen adoption, refine priorities and identify where further operational or AI improvements can create value."
         }
       }
     ]
@@ -153,12 +147,14 @@ const Index = () => {
           <Hero />
           <PainPoints />
           <Services />
+          <WhoWeWorkWith />
           <Framework />
-          <Values />
+          <WhyIntegroAI />
           <Founder />
-          <BlogPosts />
+          <AssessmentSection />
           <FAQ />
-          <CTA />
+          <BlogPosts />
+          <FinalCTA />
         </main>
         <Footer />
         <BackToTop />

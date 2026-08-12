@@ -6,65 +6,12 @@ import {
 } from "@/components/ui/accordion";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
+import { homepageFaqs } from "@/lib/faqData";
 
 const FAQ = () => {
-  const faqs = [
-    {
-      question: "What makes IntegroAI Consulting different from other AI consultants?",
-      answer:
-        "IntegroAI starts with Operational Clarity before investing in any AI tool. The focus is on people, processes, and commercial outcomes first.",
-    },
-    {
-      question: "Who is IntegroAI Consulting best suited for?",
-      answer:
-        "IntegroAI is best suited for service-based, founder-led and growing businesses where manual work, fragmented processes, and capacity pressure are affecting performance. It is a strong fit for leaders who want clear guidance before making any AI investment.",
-    },
-    {
-      question: "What is an AI Readiness Assessment and what does IntegroAI cover?",
-      answer:
-        "Our free AI Readiness Assessment is a short online questionnaire that helps you understand whether your business is ready to invest in AI at all. It looks at leadership alignment, process quality, data foundations, team capacity, and where AI is actually relevant, so you can see where AI is worth pursuing and where it is not.",
-    },
-    {
-      question: "How long does the AI Readiness Assessment take and how much does it cost?",
-      answer:
-        "The assessment takes around five minutes to complete and is free. You receive an initial score and a clear view of your operational readiness for AI without any obligation.",
-    },
-    {
-      question: "What happens after I complete the AI Readiness Assessment?",
-      answer:
-        "You receive your AI readiness score and summary on screen and by email. Based on the results, you can then book a free 30-minute discovery call to walk through the analysis and define practical next steps for your business.",
-    },
-    {
-      question: "When should a business not invest in AI?",
-      answer:
-        "A business should hold off on AI when the core problem is unclear, processes are inconsistent, or data is unreliable. AI scales what already exists, so introducing it on top of broken workflows or poor data can add cost and complexity without delivering value.",
-    },
-    {
-      question: "Do we need perfect processes before using AI?",
-      answer:
-        "AI can help, but not as the first step. The priority is to understand the workflow bottlenecks, data issues, and ownership gaps first. Once those foundations are clearer, AI can be applied selectively where it genuinely removes friction and saves time.",
-    },
-    {
-      question: "Can you help us choose between AI, automation, and workflow improvement?",
-      answer:
-        "Yes. IntegroAI helps you decide whether the right solution is AI, automation, workflow redesign, clearer data structure, or better process ownership. Not every operational problem needs AI.",
-    },
-    {
-      question: "Do we need technical staff or a data team to work with IntegroAI?",
-      answer:
-        "No. You do not need a data team or in-house technical staff to get started. The work begins with understanding your operations, goals, and constraints. Specialist technical support can be introduced later if it is genuinely needed.",
-    },
-    {
-      question: "What does a typical engagement with IntegroAI look like from start to finish?",
-      answer:
-        "Most engagements begin with the free AI Readiness Assessment, followed by a discovery session to interpret your score and operational context. From there, IntegroAI identifies key bottlenecks, builds Operational Clarity around how work actually gets done, and prioritises where AI may or may not add value.",
-    },
-    {
-      question: "How much does AI consulting with IntegroAI cost?",
-      answer:
-        "Pricing is scoped individually based on your industry, business size, and the nature of the engagement. Every project begins with the free AI Readiness Assessment, which gives both of us a clear picture of your situation before any investment is discussed. There is no obligation at that stage.",
-    },
-  ];
+  // Homepage shows a maximum of 8 questions. The fuller question set is
+  // preserved in src/lib/faqData.tsx (extendedFaqs) for future use.
+  const faqs = homepageFaqs;
 
   const faqSchema = {
     "@context": "https://schema.org",
