@@ -144,9 +144,9 @@ const BlogPosts = () => {
         >
           {hasMore && (
             <Button
-              variant="heroOutline"
+              variant="outline"
               size="lg"
-              className="group"
+              className="group w-full sm:w-auto"
               onClick={() => setExpanded((prev) => !prev)}
               aria-expanded={expanded}
             >
@@ -158,8 +158,8 @@ const BlogPosts = () => {
               )}
             </Button>
           )}
-          <Link to="/blog">
-            <Button variant="subtle" size="lg" className="group">
+          <Link to="/blog" className="w-full sm:w-auto">
+            <Button variant="subtle" size="lg" className="group w-full sm:w-auto">
               View All Insights
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
