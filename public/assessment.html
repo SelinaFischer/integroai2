@@ -563,7 +563,7 @@ a.btn, a.btn-gold, a.btn-outline-inv{cursor:pointer !important;display:inline-fl
     <div class="fld"><label>Business Email Address *</label><input type="email" id="f-email" placeholder="jane@yourcompany.com" autocomplete="email"><span id="email-inline-err" style="display:none;color:#e05;font-size:clamp(11px,2.5vw,13px);margin-top:4px;display:none;"></span></div>
     <div class="form-2">
       <div class="fld"><label>Company Name *</label><input type="text" id="f-company" placeholder="Your Company Ltd" autocomplete="organization"></div>
-      <div class="fld"><label>Phone *</label><input type="tel" id="f-phone" placeholder="+44 7700 000000" autocomplete="tel"><span id="phone-inline-err" style="display:none;color:#e05;font-size:clamp(11px,2.5vw,13px);margin-top:4px;"></span></div>
+      <div class="fld"><label>Phone</label><input type="tel" id="f-phone" placeholder="+44 7700 000000" autocomplete="tel"><span id="phone-inline-err" style="display:none;color:#e05;font-size:clamp(11px,2.5vw,13px);margin-top:4px;"></span></div>
     </div>
     <div class="form-2">
       <div class="fld">
@@ -780,7 +780,7 @@ var FREE_DOMAINS = new Set([
 function isBusinessEmail(e){var d=(e.split('@')[1]||'').toLowerCase();return d.length>0&&!FREE_DOMAINS.has(d)}
 function validatePhone(p){
   /* Returns empty string if valid, or a specific error message */
-  if(!p) return 'Please enter your phone number.';
+  if(!p) return ''; /* phone is optional — blank is valid */
   var d=p.replace(/[\s\-\(\)\.]/g,''); /* strip spaces, dashes, brackets, dots */
   /* --- UK with country code: +44 then exactly 10 digits, NO leading zero after +44 --- */
   if(d.startsWith('+44')){
@@ -1200,12 +1200,12 @@ function drawRadar(dims){
   ang.forEach(function(a,i){
     var lx=cx+labR*Math.cos(a),ly=cy+labR*Math.sin(a),cfg=labCfg[i];
     var band=getScoreBand(dims[i]),bandCol=getBandColor(band);
-    var lCount=cfg.lines.length,totalH=(lCount+1)*13,startY=ly-(totalH/2)+7;
+    var lCount=cfg.lines.length,totalH=(lCount+1)*15,startY=ly-(totalH/2)+8;
     cfg.lines.forEach(function(line,li){
-      html+='<text x="'+lx+'" y="'+(startY+li*13)+'" text-anchor="'+cfg.anchor+'" fill="rgba(237,241,247,0.80)" font-size="11" font-weight="600" font-family="Inter,-apple-system,sans-serif">'+line+'</text>';
+      html+='<text x="'+lx+'" y="'+(startY+li*15)+'" text-anchor="'+cfg.anchor+'" fill="rgba(237,241,247,0.80)" font-size="12.5" font-weight="600" font-family="Inter,-apple-system,sans-serif">'+line+'</text>';
     });
     /* score band label */
-    html+='<text x="'+lx+'" y="'+(startY+lCount*13+2)+'" text-anchor="'+cfg.anchor+'" fill="'+bandCol+'" font-size="9.5" font-weight="700" font-family="Inter,-apple-system,sans-serif">('+band+')</text>';
+    html+='<text x="'+lx+'" y="'+(startY+lCount*15+3)+'" text-anchor="'+cfg.anchor+'" fill="'+bandCol+'" font-size="12" font-weight="700" font-family="Inter,-apple-system,sans-serif">('+band+')</text>';
   });
   html='<defs>'
     +'<filter id="glow" x="-50%" y="-50%" width="200%" height="200%">'
