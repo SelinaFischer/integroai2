@@ -9,17 +9,27 @@
 <link rel="apple-touch-icon" href="https://integroai.tech/apple-touch-icon.png">
 <!--
   ================================================================
-  IntegroAI AI Readiness Assessment  v5.0
+  IntegroAI AI Readiness Assessment / Scorecard  v5.0
   ================================================================
   EMAIL SETUP — required before going live:
   1. Sign up free at emailjs.com
   2. Add Email Service  3. Create Template with variables:
      {{to_name}} {{to_email}} {{score}} {{tier}}
-     {{diagnosis}} {{next_opportunity}} {{company}}
-     {{phone}} {{notify_email}}
+     {{diagnosis}} {{next_opportunity}} {{company}} {{phone}}
+     {{org_size}} {{industry}} {{motivation}} {{notify_email}}
+     {{strategic_clarity_score}} {{strategic_clarity_band}}
+     {{leadership_ownership_score}} {{leadership_ownership_band}}
+     {{process_maturity_score}} {{process_maturity_band}}
+     {{operational_visibility_score}} {{operational_visibility_band}}
+     {{data_readiness_score}} {{data_readiness_band}}
   4. Paste Public Key / Service ID / Template ID below
+  5. In the EmailJS template settings, confirm "To Email" is set
+     to {{to_email}}. If you want an internal copy, add
+     {{notify_email}} to the CC/BCC field — the JS only passes
+     the variable, it does not control template-side routing.
 
-  HOSTING: netlify.com — drag-drop this file, free HTTPS.
+  HOSTING: GitHub repo (integroai2) — see project notes for
+  current deploy process.
   LINKS: search CALENDLY_LINK and PRIVACY_LINK to update.
   ================================================================
 -->
@@ -553,7 +563,7 @@ a.btn, a.btn-gold, a.btn-outline-inv{cursor:pointer !important;display:inline-fl
     <div class="fld"><label>Business Email Address *</label><input type="email" id="f-email" placeholder="jane@yourcompany.com" autocomplete="email"><span id="email-inline-err" style="display:none;color:#e05;font-size:clamp(11px,2.5vw,13px);margin-top:4px;display:none;"></span></div>
     <div class="form-2">
       <div class="fld"><label>Company Name *</label><input type="text" id="f-company" placeholder="Your Company Ltd" autocomplete="organization"></div>
-      <div class="fld"><label>Phone <span style="color:var(--text-3);font-weight:normal;">(optional)</span></label><input type="tel" id="f-phone" placeholder="+44 7700 000000" autocomplete="tel"><span id="phone-inline-err" style="display:none;color:#e05;font-size:clamp(11px,2.5vw,13px);margin-top:4px;"></span></div>
+      <div class="fld"><label>Phone *</label><input type="tel" id="f-phone" placeholder="+44 7700 000000" autocomplete="tel"><span id="phone-inline-err" style="display:none;color:#e05;font-size:clamp(11px,2.5vw,13px);margin-top:4px;"></span></div>
     </div>
     <div class="form-2">
       <div class="fld">
@@ -567,9 +577,12 @@ a.btn, a.btn-gold, a.btn-outline-inv{cursor:pointer !important;display:inline-fl
         </select>
       </div>
       <div class="fld">
-        <label>Industry *</label>
+        <label>Industry / Business Type *</label>
         <select id="f-industry">
           <option value="">Select industry...</option>
+          <option>Serviced accommodation / short-term rentals</option>
+          <option>Property management / multi-property operations</option>
+          <option>Hotels / aparthotels</option>
           <option>Professional services / consulting</option>
           <option>Creative / marketing / agencies</option>
           <option>Technology / software / digital products</option>
@@ -578,6 +591,7 @@ a.btn, a.btn-gold, a.btn-outline-inv{cursor:pointer !important;display:inline-fl
           <option>Education / training / coaching</option>
           <option>Retail / eCommerce</option>
           <option>Other services</option>
+          <option>Other</option>
         </select>
       </div>
     </div>
@@ -766,7 +780,7 @@ var FREE_DOMAINS = new Set([
 function isBusinessEmail(e){var d=(e.split('@')[1]||'').toLowerCase();return d.length>0&&!FREE_DOMAINS.has(d)}
 function validatePhone(p){
   /* Returns empty string if valid, or a specific error message */
-  if(!p) return ''; /* phone is optional — blank is allowed; format is only checked when a value is entered */
+  if(!p) return 'Please enter your phone number.';
   var d=p.replace(/[\s\-\(\)\.]/g,''); /* strip spaces, dashes, brackets, dots */
   /* --- UK with country code: +44 then exactly 10 digits, NO leading zero after +44 --- */
   if(d.startsWith('+44')){
@@ -792,7 +806,7 @@ var QS=[
   /* ── DIRECTION ─────────────────────────────────────── */
   {sec:'Section 1 of 3: Direction',
    title:'How clear is your main goal for using AI in the next 6–12 months?',
-   hint:'A goal linked to a specific outcome — reclaiming hours from guest messaging, cutting maintenance response times, or protecting revenue through fewer missed compliance deadlines — is the single strongest predictor of whether AI delivers a return.',
+   hint:'A goal linked to a specific outcome (time saved, cost reduced, or revenue grown) is the single strongest predictor of whether AI delivers a return.',
    opts:[
      {t:'Clearly defined',    s:'We have a written goal linked to specific outcomes: time, cost, or revenue',v:3},
      {t:'Broadly stated',     s:'We have 1–2 written goals but they are still fairly general',               v:2},
@@ -801,7 +815,7 @@ var QS=[
    ]},
   {sec:'Section 1 of 3: Direction',
    title:'When you come across a new AI tool or solution, what is your instinct?',
-   hint:'How a business approaches AI tools reveals whether it is solution-led or problem-led. In a market full of point solutions for guest messaging, cleaning or channel management, the strongest AI investments always start from the operational problem, not the tool.',
+   hint:'How a business approaches AI tools reveals whether it is solution-led or problem-led. The strongest AI investments always start from the problem.',
    opts:[
      {t:'Problem-led',        s:'We check whether it solves a specific problem we have and fits how we work', v:3},
      {t:'Business-case first', s:'We assess whether the time, cost, and operational case justify exploring it', v:2},
@@ -810,7 +824,7 @@ var QS=[
    ]},
   {sec:'Section 1 of 3: Direction',
    title:'Who is responsible for making decisions about AI in your organisation?',
-   hint:'Without a named owner with decision authority across guest operations, maintenance and compliance, AI initiatives stall before they deliver results.',
+   hint:'Without a named owner with decision authority, AI initiatives stall before they deliver results.',
    opts:[
      {t:'Named owner with authority', s:'A specific person owns AI decisions, priorities, and budget approval',    v:3},
      {t:'Named owner, limited capacity',s:'One person owns AI decisions alongside other significant responsibilities',v:2},
@@ -819,8 +833,8 @@ var QS=[
    ]},
   /* ── OPERATIONS ─────────────────────────────────────── */
   {sec:'Section 2 of 3: Operations',
-   title:'How clearly are your key repeatable processes — check-in, turnover, maintenance triage, compliance renewals — documented and followed?',
-   hint:'AI cannot improve a process that has not been defined. Undocumented processes produce unpredictable results across a portfolio, especially as you add more properties.',
+   title:'How clearly are your key repeatable processes documented and followed?',
+   hint:'AI cannot improve a process that has not been defined. Undocumented processes produce unpredictable results at scale.',
    opts:[
      {t:'Documented and used',   s:'Key processes are written down, shared, and followed in daily work',         v:3},
      {t:'Written but variable',  s:'Most processes are written down but not always followed consistently',        v:2},
@@ -828,17 +842,17 @@ var QS=[
      {t:'Not documented',        s:'We mostly rely on people\'s experience and memory',                           v:0}
    ]},
   {sec:'Section 2 of 3: Operations',
-   title:'How clearly do you know where your team spends the most repetitive manual time each week — guest messaging, maintenance follow-ups, turnover coordination, compliance chasing?',
-   hint:'The highest-value AI opportunities are almost always hiding in the work people repeat most often — across guest communication, maintenance scheduling and cross-property admin.',
+   title:'How clearly do you know where your team spends the most repetitive manual time each week?',
+   hint:'The highest-value AI opportunities are almost always hiding in the work people repeat most often.',
    opts:[
      {t:'Clearly mapped',     s:'We have mapped where time goes across key workflows and know our main bottlenecks',v:3},
-     {t:'Broadly understood', s:'We have a good sense of 1–2 high-friction areas, like maintenance requests or turnover scheduling',v:2},
+     {t:'Broadly understood', s:'We have a good sense of 1–2 high-friction areas',                                 v:2},
      {t:'Anecdotal view',     s:'We have a general sense based on feedback, but it has not been measured',          v:1},
-     {t:'Not measured',       s:'We have not looked at where repetitive time is spent across our properties',      v:0}
+     {t:'Not measured',       s:'We have not looked at where repetitive time is spent',                            v:0}
    ]},
   {sec:'Section 2 of 3: Operations',
    title:'How consistent is the way work is actually done compared to how it is meant to be done?',
-   hint:'Inconsistency in how work is done — one property or one team member handled differently to the next — is one of the clearest signals that a process is not ready for automation.',
+   hint:'Inconsistency in how work is done is one of the clearest signals that a process is not ready for automation.',
    opts:[
      {t:'Highly consistent', s:'Work follows agreed steps most of the time across the team',        v:3},
      {t:'Mostly consistent', s:'Most people follow a similar approach with some variation',          v:2},
@@ -846,27 +860,27 @@ var QS=[
      {t:'Highly variable',   s:'Each person has their own way of doing things',                      v:0}
    ]},
   {sec:'Section 2 of 3: Operations',
-   title:'If a process were automated or AI-assisted, how much authority would your business be comfortable granting it today?',
-   hint:'Where you are willing to let AI act, not just suggest — replying to a guest, dispatching a contractor, flagging a compliance risk — determines how much value it can actually deliver. Operators who have already drawn this line implement faster and with far less rework.',
+   title:'When a recurring problem in your operations keeps surfacing, how do you usually identify it?',
+   hint:'The ability to spot patterns early shows that feedback loops are working. Without this, operational problems scale silently.',
    opts:[
-     {t:'Act within clear limits', s:'Comfortable letting it act on its own within tightly defined rules, and tell us after', v:3},
-     {t:'Draft for approval',      s:'Comfortable having it prepare or recommend, as long as a person signs off first',       v:2},
-     {t:'Recommend only',          s:'We would want it to suggest only — a person still does the work',                      v:1},
-     {t:'Not yet decided',         s:'We have not thought about what we would and would not let it do',                      v:0}
+     {t:'Systematic review', s:'We review data or reports regularly and catch patterns before they escalate',     v:3},
+     {t:'Periodic check-in', s:'We review operational feedback from time to time and usually catch issues early', v:2},
+     {t:'Reactive review',   s:'We look into it when we find time to go through feedback or notes',               v:1},
+     {t:'Only when urgent',  s:'Usually when it becomes too visible or costly to ignore',                       v:0}
    ]},
   /* ── READINESS ─────────────────────────────────────── */
   {sec:'Section 3 of 3: Readiness',
-   title:'How clearly can you say which parts of a process should stay human versus be handled by AI or automation?',
-   hint:'AI works best when the line between human judgement and automated action — such as a guest complaint versus a routine booking confirmation — is drawn before implementation starts. Operators who skip this step usually rebuild the process later, at greater cost.',
+   title:'Which best describes your current use of digital tools for everyday work?',
+   hint:'AI works best when it connects to tools already in use. A fragmented or manual toolset significantly increases implementation risk.',
    opts:[
-     {t:'Clearly separated', s:'We can point to specific steps that should stay human and specific steps that should not', v:3},
-     {t:'Mostly clear',      s:'We have a rough sense but have not mapped it out step by step',                            v:2},
-     {t:'Unclear',           s:'We know AI could help somewhere but have not worked out where the line sits',              v:1},
-     {t:'Not considered',    s:'We have not thought about this yet',                                                       v:0}
+     {t:'Well-defined toolset', s:'A clear set of tools is used consistently, with ownership and agreed ways of working', v:3},
+     {t:'Consistently used',    s:'Several core tools used consistently by most of the team',                 v:2},
+     {t:'Partially adopted',    s:'A few core tools in place but not fully used across the team',             v:1},
+     {t:'Manual and ad hoc',    s:'Mostly email, spreadsheets, and tools individuals choose for themselves',  v:0}
    ]},
   {sec:'Section 3 of 3: Readiness',
    title:'How ready is your data for use in AI or automation projects?',
-   hint:'AI is only as reliable as the data it works with. Scattered or incomplete data — property details in one system, certificates in another, guest history in a third — produces scattered results.',
+   hint:'AI is only as reliable as the data it works with. Scattered or incomplete data produces scattered results.',
    opts:[
      {t:'Accessible and reliable',s:'Key data is easy to access, reasonably clean, and trusted for reporting or decision-making',v:3},
      {t:'Mostly captured',       s:'Key data is in one or two main systems but some gaps exist',               v:2},
@@ -875,7 +889,7 @@ var QS=[
    ]},
   {sec:'Section 3 of 3: Readiness',
    title:'How open is your team to piloting AI on one specific process before rolling it out more widely?',
-   hint:'A focused pilot — on one property or one workflow, such as compliance tracking or maintenance triage — is the lowest-risk way to prove value and build confidence before rolling it out across the portfolio.',
+   hint:'A focused, contained pilot is the lowest-risk way to prove value and build confidence before broader investment.',
    opts:[
      {t:'Ready to pilot',          s:'We are ready to run a focused pilot with clear boundaries and a review process',v:3},
      {t:'Informally experimenting', s:'We have tried one or two tools informally',                                    v:2},
@@ -1400,11 +1414,11 @@ function buildResults(){
   }
   sendToFormspree(sc.total,tier,sc.dims);
   sendToSheets(sc.total,tier,diag.diag);
-  sendEmail(scoreStr,tier,diag.diag,diag.opp,sc.dims);
+  sendEmail(sc.total,tier,diag.diag,diag.opp,sc.dims);
   show('s-results');
 }
 
 
 </script>
 </body>
-</html> 
+</html> 
