@@ -69,7 +69,7 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.18 }}
             className="text-sm sm:text-base md:text-lg text-white/90 max-w-md mb-5 sm:mb-6 leading-snug font-medium"
           >
-            Find where operational firefighting is draining your team's time and capacity across guest requests, maintenance and compliance. Then prioritise where AI can create real value.
+            Find where operational firefighting is draining time and capacity. Then prioritise where AI can create real value.
           </motion.p>
 
           {/* Supporting value proposition */}
