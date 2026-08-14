@@ -20,7 +20,7 @@ export const homepageFaqs: FaqItem[] = [
   {
     question: "Who is IntegroAI best suited for?",
     answer:
-      "IntegroAI is best suited to founder-led service businesses, and the leaders and operations teams within them, where manual work, fragmented processes or capacity pressure are affecting performance and where clarity is needed before any AI investment.",
+      "IntegroAI is best suited to serviced accommodation and multi-property operators — including lettings and property management portfolios — and the leaders and operations teams within them, where manual work, fragmented processes or capacity pressure are affecting performance and where clarity is needed before any AI investment.",
   },
   {
     question: "What is the 5-Minute AI Readiness Assessment, and what happens after I complete it?",

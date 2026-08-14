@@ -1,33 +1,33 @@
-import { Building2, UserRound, Users, TrendingUp } from "lucide-react";
+import { Building2, Layers, UserRound, TrendingUp } from "lucide-react";
 import { motion } from "framer-motion";
 
 const audiences = [
   {
     icon: Building2,
-    title: "Founder-Led Service Businesses",
+    title: "Serviced Accommodation Operators",
     description:
-      "Businesses where growth has increased operational complexity, manual work or coordination across teams and systems.",
+      "Short-term let and serviced apartment businesses where growth has outpaced systems — guest ops, maintenance and compliance increasingly managed through manual workarounds.",
     gradient: "from-accent-warm to-amber-400",
   },
   {
-    icon: UserRound,
-    title: "Founders & Managing Directors",
+    icon: Layers,
+    title: "Multi-Property & Lettings Portfolios",
     description:
-      "Leaders seeking greater clarity on where operational improvement and AI investment can create meaningful value.",
+      "Property management and multi-unit operators coordinating across properties, owners and teams, where visibility and control get harder as the portfolio grows.",
     gradient: "from-primary to-cyan-600",
   },
   {
-    icon: Users,
-    title: "Operations Leaders",
+    icon: UserRound,
+    title: "Operators & Portfolio Managers",
     description:
-      "COOs and operational teams looking to reduce repetitive work, improve visibility and strengthen process ownership.",
+      "Owners and operations leads looking to reduce firefighting, strengthen oversight and know where AI can genuinely help.",
     gradient: "from-accent-warm to-amber-400",
   },
   {
     icon: TrendingUp,
-    title: "Growing Teams",
+    title: "Growing Operator Teams",
     description:
-      "Businesses reaching the point where manual processes, workarounds or people-dependent ways of working are becoming difficult to scale.",
+      "Businesses reaching the point where manual processes, spreadsheets or people-dependent workflows are becoming difficult to scale across more properties.",
     gradient: "from-primary to-cyan-600",
   },
 ];

@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { Lightbulb, Shield, Award, BarChart3, ArrowRight, Linkedin } from "lucide-react";
+import { Lightbulb, Shield, Award, BarChart3, ArrowRight, Linkedin, Home } from "lucide-react";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -46,7 +46,7 @@ const About = () => {
         <title>About | IntegroAI Consulting</title>
         <meta
           name="description"
-          content="IntegroAI Consulting is an independent UK-based AI consultancy helping founder-led service businesses reduce repetitive work, strengthen operational control and turn AI into measurable business value."
+          content="IntegroAI Consulting is an independent UK-based AI consultancy helping serviced accommodation and multi-property operators reduce operational firefighting, repetitive work and turn AI into measurable business value."
         />
         <link rel="canonical" href="https://integroai.tech/about" />
       </Helmet>
@@ -74,7 +74,7 @@ const About = () => {
 
                     <div className="space-y-5">
                       <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                        IntegroAI Consulting is an independent UK-based AI consultancy helping founder-led service businesses reduce repetitive work, strengthen operational control and turn AI into measurable business value.
+                        IntegroAI Consulting is an independent UK-based AI consultancy helping serviced accommodation and multi-property operators reduce operational firefighting, repetitive work and turn AI into measurable business value.
                       </p>
                       <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
                         We combine AI consulting with business and operations advisory, starting with a clear understanding of how the business operates before determining where technology can add value.
@@ -235,7 +235,7 @@ const About = () => {
                         Leadership-Led Adoption
                       </span>
                       <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                        AI for Founder-Led Service Businesses
+                        AI for Serviced Accommodation &amp; Multi-Property Operators
                       </span>
                       <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
                         Tech Practitioner
@@ -275,6 +275,41 @@ const About = () => {
                   </motion.div>
                 </div>
               </div>
+            </div>
+          </section>
+
+          {/* HostIntel — supporting proof point of sector focus, secondary to consulting */}
+          <section className="py-14 sm:py-16 bg-background">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="max-w-3xl mx-auto"
+              >
+                <div className="bg-card border border-border/40 rounded-2xl p-7 sm:p-9 shadow-sm">
+                  <div className="flex items-start gap-4 sm:gap-5">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-primary to-cyan-600 flex items-center justify-center flex-shrink-0 shadow-md">
+                      <Home className="w-5 h-5 sm:w-6 sm:h-6 text-white" aria-hidden="true" />
+                    </div>
+                    <div>
+                      <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-2">
+                        Also Building
+                      </span>
+                      <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-3">
+                        HostIntel — Practical AI in Production
+                      </h2>
+                      <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-3">
+                        Alongside consulting, I&apos;m building HostIntel: an AI-powered operations platform for short-term and serviced accommodation operators, focused on maintenance, compliance and guest operations. It&apos;s the same philosophy IntegroAI brings to every engagement &mdash; human oversight, practical automation &mdash; built into software for the sector I know best.
+                      </p>
+                      <p className="text-primary text-xs sm:text-sm font-semibold tracking-wide">
+                        Powered by AI. Approved by Humans.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </section>
 

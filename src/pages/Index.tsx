@@ -22,22 +22,18 @@ const Index = () => {
     "@type": "LocalBusiness",
     "@id": "https://integroai.tech/#localbusiness",
     "name": "IntegroAI Consulting",
-    "description": "IntegroAI Consulting is an independent AI consultancy for founder-led service businesses. We help leaders reduce repetitive work, strengthen operational control and identify where AI can create measurable business value, through our Discover-Design-Validate-Deliver-Iterate operating framework. Services include the AI & Operations Diagnostic, opportunity and strategy roadmapping, foundations and responsible adoption, implementation, and ongoing advisory.",
+    "description": "IntegroAI Consulting is an independent AI consultancy for serviced accommodation and multi-property operators. We help leaders reduce operational firefighting and repetitive work, strengthen operational control and identify where AI can create measurable business value, through our Discover-Design-Validate-Deliver-Iterate operating framework. Services include the AI & Operations Diagnostic, opportunity and strategy roadmapping, foundations and responsible adoption, implementation, and ongoing advisory.",
     "url": "https://integroai.tech",
     "logo": "https://integroai.tech/apple-touch-icon.png",
     "image": "https://integroai.tech/og-image.png",
     "email": "info@integroai.tech",
     "address": {
       "@type": "PostalAddress",
-      "addressCountry": "DE"
+      "addressCountry": "GB"
     },
     "areaServed": [
       {
         "@type": "Country",
-        "name": "Germany"
-      },
-      {
-        "@type": "Country", 
         "name": "United Kingdom"
       },
       {
@@ -64,7 +60,7 @@ const Index = () => {
     },
     "knowsAbout": [
       "Artificial Intelligence Strategy",
-      "AI Implementation for Founder-Led Service Businesses",
+      "AI Implementation for Serviced Accommodation & Multi-Property Operators",
       "AI Readiness Assessment",
       "Business & Operations Advisory",
       "Data Strategy",

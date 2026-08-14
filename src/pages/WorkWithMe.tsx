@@ -135,7 +135,7 @@ const WorkWithMe = () => {
                     Work With Me
                   </h1>
                   <p className="text-base sm:text-lg text-accent-warm font-medium mb-4">
-                    AI Consulting &amp; Business Operations Advisory for Founder-Led Service Businesses
+                    AI Consulting &amp; Business Operations Advisory for Serviced Accommodation &amp; Multi-Property Operators
                   </p>
 
                   <p className="text-foreground text-base sm:text-lg font-semibold leading-snug mb-6">
