@@ -107,7 +107,7 @@ const WhatIsAiReadinessAssessmentContent: React.FC = () => (
 
     <h2>Who Should Do an AI Readiness Assessment</h2>
     <p>
-      Any business considering an AI investment benefits from an assessment before committing budget. It is particularly valuable for service-based businesses and founder-led organisations where operational processes have grown organically, decisions are often informal, and there has been limited previous exposure to structured technology implementation.
+      Any business considering an AI investment benefits from an assessment before committing budget. It is particularly valuable for serviced accommodation and multi-property operators where operational processes have grown organically, decisions are often informal, and there has been limited previous exposure to structured technology implementation.
     </p>
     <p>
       It is also useful for businesses that have already tried AI tools and found they did not deliver the expected results. In most cases, an honest readiness review reveals that the tools were not the problem.
@@ -179,7 +179,7 @@ const FiveSignsContent: React.FC = () => (
       AI works by finding patterns and applying them at scale. If the underlying process is performed differently by different people, or if it depends on informal knowledge that lives in someone's head rather than in a documented system, there is no reliable pattern for AI to learn from or augment.
     </p>
     <p>
-      This is one of the most common blockers we see. A service business will try to automate a client onboarding process, only to discover that onboarding looks different for every client and every account manager. The inconsistency is the root problem. AI cannot fix it — it will just replicate the inconsistency faster.
+      This is one of the most common blockers we see. An operator will try to automate guest check-in messaging, only to discover that the process looks different for every property and every team member handling it. The inconsistency is the root problem. AI cannot fix it — it will just replicate the inconsistency faster.
     </p>
     <p>
       What to do first: map the process as it actually happens, identify the points of inconsistency, and standardise before any automation or AI layer is introduced.
@@ -209,7 +209,7 @@ const FiveSignsContent: React.FC = () => (
 
     <h2>Sign 5: Your Team Does Not Have Capacity to Adopt Something New</h2>
     <p>
-      This is the sign that gets overlooked most often, particularly in founder-led and growing businesses where teams are already running close to capacity. AI tools do not reduce workload on day one. In the early stages, they typically add to it. Someone needs to configure the system, test its outputs, correct errors, train the model where applicable, and manage the change across the team.
+      This is the sign that gets overlooked most often, particularly in growing operators where teams are already running close to capacity. AI tools do not reduce workload on day one. In the early stages, they typically add to it. Someone needs to configure the system, test its outputs, correct errors, train the model where applicable, and manage the change across the team.
     </p>
     <p>
       If your team is already stretched, adding a new system without first creating capacity tends to result in the tool being used minimally or abandoned when the initial enthusiasm fades. The benefit of AI — time saved — only materialises once the system is properly embedded and the team has changed how they work. That transition requires time and attention that a stretched team often cannot provide.
@@ -293,7 +293,7 @@ const HowToMeasureAiROIContent: React.FC = () => (
       Once your baseline is established, the post-implementation measurement should track the same variables — not different ones. This is where many businesses go wrong. They measure something before and something different after, which makes comparison meaningless.
     </p>
     <p>
-      The most commercially relevant measures of AI ROI for service businesses fall into five categories.
+      The most commercially relevant measures of AI ROI for serviced accommodation and multi-property operators fall into five categories.
     </p>
 
     <h3>Time Saved</h3>
@@ -323,7 +323,7 @@ const HowToMeasureAiROIContent: React.FC = () => (
 
     <h2>A Simple Framework for AI ROI Measurement</h2>
     <p>
-      For most service businesses, a straightforward four-step approach is sufficient.
+      For most serviced accommodation and multi-property operators, a straightforward four-step approach is sufficient.
     </p>
     <p>
       Step one: define the specific problem. Identify one process or decision you want AI to improve and write down exactly what the problem is in measurable terms.
