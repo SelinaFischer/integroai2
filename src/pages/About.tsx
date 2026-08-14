@@ -46,7 +46,7 @@ const About = () => {
         <title>About | IntegroAI Consulting</title>
         <meta
           name="description"
-          content="IntegroAI Consulting is an independent UK-based AI consultancy helping serviced accommodation and multi-property operators reduce operational firefighting, repetitive work and turn AI into measurable business value."
+          content="IntegroAI Consulting is an independent UK-based AI consultancy helping serviced accommodation and multi-property operators reduce operational firefighting, eliminate repetitive work and apply AI where it can create measurable business value."
         />
         <link rel="canonical" href="https://integroai.tech/about" />
       </Helmet>
@@ -74,7 +74,7 @@ const About = () => {
 
                     <div className="space-y-5">
                       <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                        IntegroAI Consulting is an independent UK-based AI consultancy helping serviced accommodation and multi-property operators reduce operational firefighting, repetitive work and turn AI into measurable business value.
+                        IntegroAI Consulting is an independent UK-based AI consultancy helping serviced accommodation and multi-property operators reduce operational firefighting, eliminate repetitive work and apply AI where it can create measurable business value.
                       </p>
                       <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
                         We combine AI consulting with business and operations advisory, starting with a clear understanding of how the business operates before determining where technology can add value.
@@ -125,7 +125,7 @@ const About = () => {
                 >
                   <h2 className="text-lg sm:text-xl font-bold mb-3 text-foreground">Mission</h2>
                   <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                    To help business leaders make confident AI decisions that reduce repetitive work, strengthen operational control and create measurable business value.
+                    To help business leaders make confident AI decisions, reduce repetitive work and build stronger operational control.
                   </p>
                 </motion.div>
 
@@ -244,7 +244,7 @@ const About = () => {
 
                     <div className="space-y-4">
                       <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                        I've worked in technology for over 20 years, driven by curiosity and a genuine interest in how things work. Much of my career has been spent in product management and delivery, turning ideas into practical, working solutions.
+                        I have spent more than 20 years across product, technology and operations, turning business needs into practical, working solutions.
                       </p>
                       <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
                         That experience shaped how I think about technology. Whatever you build needs a clear purpose. You need to understand the problem you're solving and why it matters. Without that clarity, even good technology struggles to deliver real value.
@@ -298,10 +298,10 @@ const About = () => {
                         Also Building
                       </span>
                       <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-3">
-                        HostIntel — Practical AI in Production
+                        HostIntel — Practical AI for Hospitality Operations
                       </h2>
                       <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-3">
-                        Alongside consulting, I&apos;m building HostIntel: an AI-powered operations platform for short-term and serviced accommodation operators, focused on maintenance, compliance and guest operations. It&apos;s the same philosophy IntegroAI brings to every engagement &mdash; human oversight, practical automation &mdash; built into software for the sector I know best.
+                        Alongside consulting, I am building HostIntel, an AI-powered operations platform for serviced accommodation and multi-property operators, focused on maintenance, compliance and guest operations. HostIntel applies the same operations-first, human-led philosophy as IntegroAI. It is designed to reduce repetitive coordination and operational firefighting while keeping people in control of important decisions.
                       </p>
                       <p className="text-primary text-xs sm:text-sm font-semibold tracking-wide">
                         Powered by AI. Approved by Humans.
