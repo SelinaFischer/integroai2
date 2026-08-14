@@ -67,9 +67,9 @@ const Hero = () => {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.18 }}
-            className="text-base sm:text-lg md:text-xl text-white/90 max-w-md mb-5 sm:mb-6 leading-snug font-medium"
+            className="text-sm sm:text-base md:text-lg text-white/90 max-w-md mb-5 sm:mb-6 leading-snug font-medium"
           >
-            Find where operational firefighting is draining your team's time and capacity across guest requests, maintenance and compliance. Then prioritise where AI can create real value.
+            Find where operational friction is costing you time and capacity. Then see where AI can create real value.
           </motion.p>
 
           {/* Supporting value proposition */}
@@ -79,12 +79,12 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.24 }}
             className="text-sm sm:text-base text-white/60 max-w-xl mb-10 sm:mb-12 lg:mb-14 leading-relaxed italic"
           >
-            Operations-first AI consultancy for serviced accommodation and multi-property operators.
+            Independent AI consultancy for founder-led service businesses.
           </motion.p>
 
           {/* SEO context line */}
           <p className="sr-only">
-            Operations-first AI consultancy for serviced accommodation and multi-property operators, focused on reducing operational firefighting and identifying where AI can create measurable business value.
+            Independent AI consultancy for founder-led service businesses, focused on reducing operational friction and identifying where AI can create measurable business value.
           </p>
 
           {/* CTA buttons */}
