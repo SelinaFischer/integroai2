@@ -52,7 +52,7 @@ const Founder = () => {
                   Founder of IntegroAI Consulting
                 </p>
                 <p className="text-sm sm:text-base text-accent-warm font-medium mb-4">
-                  AI Consultant | Business &amp; Operations Advisor
+                  AI Adoption & Transformation Consultant | Business &amp; Operations Advisor
                 </p>
               </div>
 
