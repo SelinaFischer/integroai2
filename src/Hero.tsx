@@ -84,7 +84,10 @@ const Hero = () => {
 
           {/* SEO context line */}
           <p className="sr-only">
-            AI consulting for SME leaders focused on driving operational efficiency &amp; ROI for SMEs. AI Readiness &amp; Strategic Adoption.
+            IntegroAI Consulting helps founder-led service businesses, including
+  serviced accommodation and multi-property operators, assess AI readiness,
+  develop AI adoption strategies and improve operational efficiency
+  and return on investment.
           </p>
 
           {/* CTA buttons */}
