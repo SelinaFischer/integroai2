@@ -46,7 +46,7 @@ const About = () => {
         <title>About | IntegroAI Consulting</title>
         <meta
           name="description"
-          content="IntegroAI Consulting is an independent UK-based AI consultancy helping serviced accommodation and multi-property operators reduce operational firefighting, eliminate repetitive work and apply AI where it can create measurable business value."
+          content="IntegroAI Consulting is an independent UK-based AI consultancy helping founder-led service businesses, serviced accommodation and multi-property operators reduce operational firefighting, eliminate repetitive work and apply AI where it can create measurable business value."
         />
         <link rel="canonical" href="https://integroai.tech/about" />
       </Helmet>
