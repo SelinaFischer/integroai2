@@ -117,7 +117,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="mt-4 text-sm sm:text-base text-[#e5eded] max-w-xl"
           >
-            5-minute Assessment → Strategy Call → Clear Next Steps
+            5-minute Assessment → Free Consultation → Clear Next Steps
           </motion.p>
 
         </div>
