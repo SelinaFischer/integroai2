@@ -91,7 +91,7 @@ const Services = () => {
             </h2>
 
             <p className="text-muted-foreground text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-              Start with the free assessment. Then focus on the areas your business needs most.
+              Start with the complementary consultation. Then focus on the areas your business needs most.
             </p>
           </motion.div>
 
