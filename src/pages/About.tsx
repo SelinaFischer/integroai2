@@ -234,7 +234,8 @@ const About = () => {
                         Those questions now guide my approach to AI. The possibilities are extensive, but business owners need clarity about where to focus, what to invest in and how to make changes work in practice.
                       </p>
                       <p className="text-muted-foreground text-base sm:text-[17px] leading-relaxed">
-                        IntegroAI brings together the ideas of integration and growth. I founded the consultancy to help businesses make AI a useful part of how they work, improving everyday operations and creating capacity for growth.
+                        <span className="font-semibold text-foreground">IntegroAI means integration and growth.</span>{" "}
+                        AI should integrate into how a business already operates and help it grow with intent, rather than sit on top as another disconnected layer. I founded the consultancy to help businesses make AI a useful part of how they work, improving everyday operations and creating capacity for growth.
                       </p>
                       <p className="text-muted-foreground text-base sm:text-[17px] leading-relaxed">
                         My approach combines product-led thinking and practical technology experience with formal training in AI consulting, data and leadership-led adoption.

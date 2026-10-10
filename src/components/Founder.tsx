@@ -11,7 +11,7 @@ const Founder = () => {
       <div className="wrap grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
         <motion.div {...fadeUp} className="flex flex-col items-start gap-4">
           <p className="eyebrow">The founder</p>
-          <h2 className="section-title">Meet Selina Fischer, independent AI consultant</h2>
+          <h2 className="section-title">Meet Selina, independent AI consultant</h2>
           <p className="text-base leading-relaxed text-[#42566A] sm:text-lg">
             My approach draws on more than 20 years across operations, product, technology and data. Successful AI adoption needs more than the right technology: a strategy aligned with business goals, leadership commitment, reliable data, clear processes and a team ready for change, with agreed KPIs to measure results.
           </p>

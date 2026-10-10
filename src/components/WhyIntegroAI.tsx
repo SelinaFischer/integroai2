@@ -11,10 +11,10 @@ const wrongApproach = [
 ];
 
 const whatWeDo = [
-  "Find where time, capacity and margin are being lost",
-  "Decide where AI or automation helps, and where it doesn't",
-  "Apply AI only where it pays back",
-  "Keep people in control of the decisions that matter",
+  "Clarity before you spend, so your budget goes on the right problem",
+  "A plan built with the people who do the work",
+  "Ready before launch, supported after",
+  "People stay in control of the decisions that matter",
 ];
 
 const WhyIntegroAI = () => {
@@ -24,7 +24,7 @@ const WhyIntegroAI = () => {
         <SectionHeader
           eyebrow="Why IntegroAI"
           title="Why choose an independent AI consultant?"
-          intro="Most AI advice starts with tools. Ours starts with your business."
+          intro="Most AI advice starts with tools. We find the right problem before you pay for the solution."
         />
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
