@@ -21,15 +21,10 @@ const Founder = () => {
             </blockquote>
             <span aria-hidden="true" className="h-[3px] w-14 rounded-full bg-brand-amber" />
             <p className="text-base leading-relaxed text-[#42566A] sm:text-lg">
-              My approach draws on more than 20 years across operations,
-              product, technology and data. Successful AI adoption needs more
-              than the right technology: a strategy aligned with business goals,
-              leadership commitment, reliable data, clear processes and a team
-              ready for change, with agreed KPIs to measure results.
+              I bring more than 20 years of experience across operations, product, technology and data. Having also built and run my own business, I understand the pressure of balancing everyday demands with plans for growth.
             </p>
             <p className="text-base leading-relaxed text-[#42566A] sm:text-lg">
-              I lead every IntegroAI engagement personally, from initial
-              diagnosis through to recommendations and delivery support.
+              I lead every IntegroAI engagement personally, from understanding your challenges through to recommendations and delivery support.
             </p>
             <Link to="/about" className="btn-outline-navy mt-2">
               Read Her Story
