@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import { ClipboardCheck, Search, Target, ShieldCheck, Cog, TrendingUp, ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
@@ -7,6 +8,7 @@ import BackToTop from "@/components/BackToTop";
 import { Button } from "@/components/ui/button";
 import selinaOffice from "@/assets/selina-work-portrait.webp";
 import { EXTRA_SERVICES_SECTION_ID, extraServices } from "@/lib/extraServices";
+import { trackGuideClick } from "@/lib/guide";
 
 // The free assessment is Stage 01: the entry point into the six-stage
 // journey, not something separate from it. It uses a simplified card
@@ -334,6 +336,16 @@ const WorkWithMe = () => {
                     >
                       <h3 className="text-2xl leading-[1.15]">{service.title}</h3>
                       <p className="text-base leading-relaxed text-brand-slate">{service.description}</p>
+                      {service.link && (
+                        <Link
+                          to={service.link.to}
+                          onClick={() => trackGuideClick("websites-card")}
+                          className="mt-1 flex w-fit items-center gap-1.5 text-[15px] font-bold text-brand-navy underline decoration-brand-amber decoration-2 underline-offset-4"
+                        >
+                          {service.link.label}
+                          <ArrowRight className="h-4 w-4 flex-none" strokeWidth={2.6} aria-hidden="true" />
+                        </Link>
+                      )}
                     </div>
                   ))}
                 </div>

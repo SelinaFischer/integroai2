@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import SectionHeader from "./SectionHeader";
 import { fadeUp, fadeUpDelayed } from "@/lib/motion";
 import { extraServices } from "@/lib/extraServices";
+import { trackGuideClick } from "@/lib/guide";
 
 // The six stages a client can engage, grouped into three service areas.
 // Stage numbers (01 to 06) match /work-with-me, where each stage is covered
@@ -127,6 +128,16 @@ const Services = () => {
                 <p className="text-base leading-relaxed text-brand-slate" itemProp="description">
                   {service.description}
                 </p>
+                {service.link && (
+                  <Link
+                    to={service.link.to}
+                    onClick={() => trackGuideClick("websites-card")}
+                    className="mt-1 flex w-fit items-center gap-1.5 text-[15px] font-bold text-brand-navy underline decoration-brand-amber decoration-2 underline-offset-4"
+                  >
+                    {service.link.label}
+                    <ArrowRight className="h-4 w-4 flex-none" strokeWidth={2.6} aria-hidden="true" />
+                  </Link>
+                )}
               </div>
             ))}
           </div>

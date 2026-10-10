@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet-async";
 import { articles } from "@/lib/blogData";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import GuideBanner from "@/components/GuideBanner";
 import { Button } from "@/components/ui/button";
 
 // All posts from blogData.tsx — single source of truth
@@ -161,6 +162,7 @@ const BlogPage = () => {
             </motion.div>
           </div>
         </section>
+        <GuideBanner location="blog" className="bg-background pb-16 lg:pb-24" />
         <Footer />
       </main>
     </>

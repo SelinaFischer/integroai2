@@ -10,6 +10,7 @@ import RealityBand from "@/components/RealityBand";
 import Founder from "@/components/Founder";
 import AssessmentSection from "@/components/AssessmentSection";
 import FAQ from "@/components/FAQ";
+import GuideBanner from "@/components/GuideBanner";
 import BlogPosts from "@/components/BlogPosts";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
@@ -167,6 +168,7 @@ const Index = () => {
           <WhyIntegroAI />
           <Framework />
           <FAQ />
+          <GuideBanner location="homepage" className="bg-brand-ivory pb-14 sm:pb-16" />
           <BlogPosts />
           <FinalCTA />
         </main>

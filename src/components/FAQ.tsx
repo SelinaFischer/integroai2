@@ -1,10 +1,12 @@
 import * as Accordion from "@radix-ui/react-accordion";
-import { Minus, Plus } from "lucide-react";
+import { ArrowRight, Minus, Plus } from "lucide-react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import SectionHeader from "./SectionHeader";
 import { homepageFaqs } from "@/lib/faqData";
 import { fadeUp } from "@/lib/motion";
+import { trackGuideClick } from "@/lib/guide";
 
 const FAQ = () => {
   // Homepage shows a short set of questions. The fuller question set is
@@ -51,6 +53,16 @@ const FAQ = () => {
             className="px-5 pb-5 text-[15px] leading-relaxed text-brand-slate data-[state=closed]:hidden sm:px-6 sm:text-base"
           >
             {faq.answer}
+            {faq.link && (
+              <Link
+                to={faq.link.to}
+                onClick={() => trackGuideClick("faq")}
+                className="mt-3 flex w-fit items-center gap-1.5 font-bold text-brand-navy underline decoration-brand-amber decoration-2 underline-offset-4 hover:text-brand-ink"
+              >
+                {faq.link.label}
+                <ArrowRight className="h-4 w-4 flex-none" strokeWidth={2.6} aria-hidden="true" />
+              </Link>
+            )}
           </Accordion.Content>
         </Accordion.Item>
   );

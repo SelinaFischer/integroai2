@@ -1,6 +1,8 @@
 export interface FaqItem {
   question: string;
   answer: string;
+  /** Optional link shown under the answer. */
+  link?: { label: string; to: string };
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -55,7 +57,8 @@ export const homepageFaqs: FaqItem[] = [
   {
     question: "What do SEO, AEO and GEO mean?",
     answer:
-      "They are three ways of helping customers find your business online. SEO (search engine optimisation) helps your website appear in search results on Google and Bing. AEO (answer engine optimisation) structures your content so it can be given as the direct answer to a question, for example in featured snippets and voice assistants. GEO (generative engine optimisation) helps AI tools such as ChatGPT, Gemini and Perplexity understand, mention and cite your business in the answers they generate. Together, they make it easier for customers to find you, however they search.",
+      "Three simple things to remember: find me, answer me, recommend me. SEO (search engine optimisation): can Google find your website and understand what you offer? AEO (answer engine optimisation): does your content clearly answer the questions your customers are asking? GEO (generative engine optimisation): can your business appear in an AI-generated answer or recommendation? You don’t need three different strategies. They work together.",
+    link: { label: "Get the free guide: Does AI know your business exists?", to: "/ai-visibility-guide" },
   },
 ];
 
