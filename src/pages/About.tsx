@@ -229,17 +229,18 @@ const About = () => {
                   >
                     <div className="space-y-4">
                       <p className="text-muted-foreground text-base sm:text-[17px] leading-relaxed">
-                        Throughout my career in product, technology and operations, I have worked on turning business needs into practical solutions. That taught me to start with three questions: What problem are we solving? Why does it matter? What would a better outcome look like?
+                        Throughout my career in product, technology and operations, I have turned business needs into practical, working solutions. That experience taught me to start with three questions: What problem are we solving? Why does it matter? What would a better outcome look like?
                       </p>
                       <p className="text-muted-foreground text-base sm:text-[17px] leading-relaxed">
-                        Those questions now guide my approach to AI. The possibilities are extensive, but business owners need clarity about where to focus, what to invest in and how to make changes work in practice.
+                        Those questions now guide my approach to AI. Business owners need clarity about where to focus, what to invest in and how to make changes work in practice.
                       </p>
                       <p className="text-muted-foreground text-base sm:text-[17px] leading-relaxed">
+                        I founded IntegroAI Consulting to bring that thinking to AI adoption.{" "}
                         <span className="font-semibold text-foreground">IntegroAI means integration and growth.</span>{" "}
-                        AI should integrate into how a business already operates and help it grow with intent, rather than sit on top as another disconnected layer. I founded the consultancy to help businesses make AI a useful part of how they work, improving everyday operations and creating capacity for growth.
+                        The name reflects my belief that AI should become a useful part of how a business works, improving everyday operations and supporting growth.
                       </p>
                       <p className="text-muted-foreground text-base sm:text-[17px] leading-relaxed">
-                        My approach combines product-led thinking and practical technology experience with formal training in AI consulting, data and leadership-led adoption.
+                        My approach combines experience of delivering technology with formal training in AI consulting, data analytics and leadership-led technology adoption.
                       </p>
                     </div>
 
