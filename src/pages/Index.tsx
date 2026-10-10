@@ -110,6 +110,14 @@ const Index = () => {
           "name": "Ongoing AI & Operations Advisory",
           "description": "Review performance, strengthen adoption, refine priorities and identify where further operational or AI improvements can create value."
         }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AI Voice Receptionist",
+          "description": "A custom-built AI phone assistant that answers business calls 24/7, books appointments, takes messages and hands over to the team when a person is needed."
+        }
       }
     ]
   };
