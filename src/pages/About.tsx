@@ -237,7 +237,7 @@ const About = () => {
                         IntegroAI brings together the ideas of integration and growth. I founded the consultancy to help businesses make AI a useful part of how they work, improving everyday operations and creating capacity for growth.
                       </p>
                       <p className="text-muted-foreground text-base sm:text-[17px] leading-relaxed">
-                        My approach combines product-led thinking and practical technology experience with formal training in AI consulting, data and leadership-led adoption. The aim is straightforward: help founders cut firefighting and repetitive work, and reclaim time for the work they love.
+                        My approach combines product-led thinking and practical technology experience with formal training in AI consulting, data and leadership-led adoption.
                       </p>
                     </div>
 
