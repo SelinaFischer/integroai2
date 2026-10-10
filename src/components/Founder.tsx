@@ -29,7 +29,7 @@ const Founder = () => {
         >
           <div className="flex flex-col gap-0.5">
             <p className="display text-[28px] font-bold leading-[1.1] text-brand-navy sm:text-[32px]">Selina Fischer</p>
-            <p className="text-[15px] font-semibold text-brand-slate">Founder of IntegroAI Consulting</p>
+            <p className="text-[15px] font-semibold text-brand-slate">Founder | AI Adoption &amp; Transformation Consultant</p>
           </div>
 
           <ul className="flex list-none flex-wrap gap-2">
