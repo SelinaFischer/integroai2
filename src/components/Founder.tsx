@@ -16,6 +16,10 @@ const Founder = () => {
             <h2 className="section-title">
               Meet Selina, independent AI consultant
             </h2>
+            <blockquote className="display max-w-[620px] text-2xl font-semibold italic leading-tight text-brand-navy sm:text-[29px] sm:leading-[1.25]">
+              I help founders cut firefighting and repetitive work, and reclaim time for the work they love.
+            </blockquote>
+            <span aria-hidden="true" className="h-[3px] w-14 rounded-full bg-brand-amber" />
             <p className="text-base leading-relaxed text-[#42566A] sm:text-lg">
               My approach draws on more than 20 years across operations,
               product, technology and data. Successful AI adoption needs more
