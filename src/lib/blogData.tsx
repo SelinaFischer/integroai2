@@ -293,7 +293,7 @@ const HowToMeasureAiROIContent: React.FC = () => (
       Once your baseline is established, the post-implementation measurement should track the same variables — not different ones. This is where many businesses go wrong. They measure something before and something different after, which makes comparison meaningless.
     </p>
     <p>
-      The most commercially relevant measures of AI ROI for serviced accommodation and multi-property operators fall into five categories.
+      The most commercially relevant measures of AI ROI for founder-led service businesses fall into five categories.
     </p>
 
     <h3>Time Saved</h3>
@@ -323,7 +323,7 @@ const HowToMeasureAiROIContent: React.FC = () => (
 
     <h2>A Simple Framework for AI ROI Measurement</h2>
     <p>
-      For most serviced accommodation and multi-property operators, a straightforward four-step approach is sufficient.
+      For most founder-led service businesses, a straightforward four-step approach is sufficient.
     </p>
     <p>
       Step one: define the specific problem. Identify one process or decision you want AI to improve and write down exactly what the problem is in measurable terms.
