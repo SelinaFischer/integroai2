@@ -4,17 +4,17 @@ import { fadeUpDelayed } from "@/lib/motion";
 
 const audiences = [
   {
-    title: "The founder in every decision",
+    title: "Every decision comes back to you",
     description:
       "Approvals, fixes and client issues still run through you. The business can't move faster than your inbox.",
   },
   {
     title: "The team stuck in admin",
     description:
-      "Good people losing hours to reports, chasing and re-keying data. Not the work clients pay for.",
+      "Your team spends hours preparing reports, chasing updates and entering the same data across different systems. That leaves less time to serve clients.",
   },
   {
-    title: "Growth without margin",
+    title: "More clients, less profit",
     description: "Revenue is up. So is headcount. Each new client adds workload faster than profit.",
   },
   {
@@ -35,7 +35,7 @@ const WhoWeWorkWith = () => {
               AI consulting for <span className="whitespace-nowrap">founder-led</span> service businesses
             </>
           }
-          intro="Your business has grown. Your systems haven't. IntegroAI works with founders of service firms where growth has outpaced systems."
+          intro="Your business has grown. Your ways of working haven't kept pace. We help founders reduce repetitive work, improve operational control and create capacity for growth."
         />
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
