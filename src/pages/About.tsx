@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import { Button } from "@/components/ui/button";
 import selinaAboutPhoto from "@/assets/selina-about-portrait.webp";
-import selinaPhoto from "@/assets/selina-founder.png";
+import selinaPhoto from "@/assets/selina-story-portrait.webp";
 
 const values = [
   {
@@ -98,8 +98,8 @@ const About = () => {
                       <img
                         src={selinaAboutPhoto}
                         alt="Selina Fischer, founder of IntegroAI Consulting"
-                        width={585}
-                        height={731}
+                        width={900}
+                        height={1125}
                         className="w-full h-full object-cover object-top"
                         loading="lazy"
                         decoding="async"
@@ -210,9 +210,9 @@ const About = () => {
                     </div>
                     <img
                       src={selinaPhoto}
-                      alt="Selina Fischer - IntegroAI Founder"
-                      width={400}
-                      height={400}
+                      alt="Selina Fischer, founder of IntegroAI Consulting"
+                      width={960}
+                      height={1200}
                       loading="lazy"
                       decoding="async"
                       className="relative w-80 sm:w-96 lg:w-[30rem] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border/20 z-10 h-auto"

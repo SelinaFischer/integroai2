@@ -76,7 +76,7 @@ const WhyIntegroAI = () => {
             Measurable business value from AI.
           </p>
           <p className="text-base text-brand-mist lg:flex-1">
-            Clarity your team can act on. Less firefighting. Time back for the work clients pay for.
+            Less firefighting. Less manual work. More operational control. Time and capacity to grow.
           </p>
         </motion.div>
 

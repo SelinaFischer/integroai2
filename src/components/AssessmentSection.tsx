@@ -22,7 +22,6 @@ const AssessmentSection = () => {
     <section id="assessment" className="bg-brand-cream py-14 sm:py-16">
       <div className="wrap grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
         <motion.div {...fadeUp} className="flex flex-col items-start gap-[18px]">
-          <p className="eyebrow tracking-[0.16em]">Free tool</p>
           <h2 className="section-title !text-brand-navy">
             Is your business <span className="italic text-brand-amber">ready for AI?</span>
           </h2>

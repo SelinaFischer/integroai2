@@ -59,15 +59,13 @@ const Hero = () => {
               src={portrait}
               alt="Selina Fischer, founder of IntegroAI Consulting"
               width={680}
-              height={840}
+              height={850}
               fetchPriority="high"
               decoding="async"
-              className="block h-full w-full object-cover opacity-90"
+              className="block h-full w-full object-cover object-top opacity-90"
             />
           </div>
-          <p className="display text-2xl font-semibold italic text-white sm:text-[27px]">
-            Selina Fischer, Founder
-          </p>
+          <p className="text-lg font-bold text-white">Selina Fischer, Founder</p>
         </motion.div>
       </div>
     </section>

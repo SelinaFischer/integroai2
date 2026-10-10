@@ -15,6 +15,7 @@ const Footer = () => {
     "AI Strategy & Prioritisation Roadmap",
     "AI Foundations & Responsible Adoption",
     "AI & Automation Implementation",
+    "AI Voice Receptionist",
     "Ongoing AI & Operations Advisory",
   ];
 

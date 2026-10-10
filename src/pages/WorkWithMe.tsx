@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import { Button } from "@/components/ui/button";
-import selinaOffice from "@/assets/selina-office.png";
+import selinaOffice from "@/assets/selina-work-portrait.webp";
 
 // The free assessment is Stage 01: the entry point into the six-stage
 // journey, not something separate from it. It uses a simplified card

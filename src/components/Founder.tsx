@@ -40,7 +40,7 @@ const Founder = () => {
             />
             <div className="flex flex-col gap-0.5">
               <p className="display text-[28px] font-bold leading-[1.1] text-brand-navy sm:text-[32px]">Selina Fischer</p>
-              <p className="text-[15px] font-semibold text-brand-slate">Founder of IntegroAI Consulting, UK</p>
+              <p className="text-[15px] font-semibold text-brand-slate">Founder of IntegroAI Consulting</p>
             </div>
           </div>
 
