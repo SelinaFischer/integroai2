@@ -1,42 +1,55 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { ASSESSMENT_URL, DISCOVERY_CALL_URL, fadeUp } from "@/lib/motion";
 
 const FinalCTA = () => {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-[#012F46] relative overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-accent-warm/10 rounded-full blur-[150px]" />
+    <section
+      id="start"
+      className="py-16 sm:py-[84px]"
+      style={{
+        background:
+          "radial-gradient(60% 55% at 50% 22%, rgba(30,74,110,0.5), rgba(30,74,110,0) 70%), #050F1B",
+      }}
+    >
+      <motion.div
+        {...fadeUp}
+        className="mx-auto flex max-w-[980px] flex-col items-center gap-[22px] px-5 text-center sm:px-8"
+      >
+        <p className="eyebrow">Free AI Readiness Assessment</p>
+        <h2 className="display text-[40px] font-semibold leading-[1.03] text-white sm:text-[58px] lg:text-[76px]">
+          Make clearer AI decisions
+          <br />
+          <span className="italic text-brand-amber">before you invest.</span>
+        </h2>
+        <p className="max-w-[720px] text-[17px] leading-relaxed text-brand-mist sm:text-[19px]">
+          Identify where operational friction is limiting performance, where AI can create business value, and what the most appropriate next step should be.
+        </p>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6 }}
-          className="max-w-2xl mx-auto text-center"
-        >
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight">
-            Make Clearer AI Decisions Before You Invest.
-          </h2>
-          <p className="text-white/75 text-sm sm:text-base leading-relaxed mb-8 max-w-xl mx-auto">
-            Identify where operational friction is limiting performance, where AI may create value, and what the most appropriate next step should be.
-          </p>
+        <div className="mt-1.5 flex w-full flex-col justify-center gap-3.5 sm:w-auto sm:flex-row">
+          <a
+            href={ASSESSMENT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-amber group px-[30px] py-[18px] text-lg"
+          >
+            Start the free assessment
+            <ArrowRight className="h-[18px] w-[18px] transition-transform group-hover:translate-x-1" strokeWidth={2.6} aria-hidden="true" />
+          </a>
+          <a
+            href={DISCOVERY_CALL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-outline-light px-7 py-4 text-lg"
+          >
+            Book a Discovery Call
+          </a>
+        </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button variant="hero" size="lg" className="group w-full sm:w-auto" asChild>
-              <a href="https://integroai.tech/assessment" target="_blank" rel="noopener noreferrer">
-                Start the AI Readiness Assessment
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </Button>
-            <Button variant="heroOutline" size="lg" className="w-full sm:w-auto" asChild>
-              <a href="https://calendly.com/integroai-tech/30min" target="_blank" rel="noopener noreferrer">
-                Book a Discovery Call
-              </a>
-            </Button>
-          </div>
-        </motion.div>
-      </div>
+        <p className="text-[15px] font-medium text-[#94A3B8]">
+          5-Minute AI Readiness Assessment → Discovery Call → Clear Next Steps
+        </p>
+      </motion.div>
     </section>
   );
 };

@@ -30,7 +30,7 @@ const stages = [
     stage: "Understand",
     service: "AI & Operations Diagnostic",
     purpose: "A clear, evidence-based view of how the business runs today, and where the real priorities sit.",
-    gradient: "from-primary to-cyan-600",
+    gradient: "from-primary to-[#1E4A6E]",
     review: ["Workflows & processes", "Systems & data", "Ownership & accountability", "Existing AI use", "Business priorities"],
     receive: ["Priority operational issues", "Readiness gaps", "Recommended next steps"],
     next: "Take the findings forward yourself, or continue with IntegroAI for the next stage.",
@@ -53,7 +53,7 @@ const stages = [
     stage: "Prepare",
     service: "AI Foundations & Responsible Adoption",
     purpose: "Put the right foundations in place for AI to work safely, responsibly and sustainably.",
-    gradient: "from-primary to-cyan-600",
+    gradient: "from-primary to-[#1E4A6E]",
     review: ["Data readiness", "Governance & risk framework", "Accountability", "Training & team adoption", "Responsible adoption planning"],
     receive: ["Governance recommendations", "Accountability framework", "Adoption readiness actions"],
     next: "Carry these foundations forward yourself, or move straight into implementation with IntegroAI.",
@@ -77,7 +77,7 @@ const stages = [
     stage: "Evolve",
     service: "Ongoing AI & Operations Advisory",
     purpose: "Keep implemented changes delivering value as the business and technology evolve.",
-    gradient: "from-primary to-cyan-600",
+    gradient: "from-primary to-[#1E4A6E]",
     review: ["Performance reviews", "Adoption & governance review", "Course correction", "Roadmap updates", "Ongoing leadership advisory"],
     receive: ["Evidence-based review", "Recommendations", "Ongoing advisory support"],
     next: "Support scales up, down or pauses as priorities change.",
@@ -165,7 +165,7 @@ const WorkWithMe = () => {
                   <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-accent-warm/20 to-primary/20 rounded-xl blur-lg" />
                   <p
                     className="relative text-sm sm:text-base font-semibold bg-card border border-border/50 rounded-xl p-5 sm:p-6 shadow-lg text-center leading-relaxed"
-                    style={{ color: "#012f46" }}
+                    style={{ color: "#041B2B" }}
                   >
                     Work can be scoped around a specific business need or across several stages. Take the outputs forward independently, or continue with IntegroAI where further support adds value.
                   </p>
@@ -178,7 +178,7 @@ const WorkWithMe = () => {
           <section className="py-12 sm:py-16 bg-subtle">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-4xl mx-auto text-center mb-10 sm:mb-14">
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-4">How We Can Work Together</h2>
+                <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] mb-4">How We Can Work Together</h2>
                 <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
                   Six stages of support, from initial assessment through implementation and ongoing advisory. Use the stages your business needs, without committing to the entire journey.
                 </p>
@@ -269,7 +269,7 @@ const WorkWithMe = () => {
           </section>
 
           {/* What You Can Expect */}
-          <section className="py-16 sm:py-20 lg:py-24 bg-[#012F46] relative overflow-hidden">
+          <section className="py-16 sm:py-20 lg:py-24 bg-[#041B2B] relative overflow-hidden">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-accent-warm/10 rounded-full blur-[150px]" />
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
               <motion.div
@@ -279,7 +279,7 @@ const WorkWithMe = () => {
                 transition={{ duration: 0.6 }}
                 className="max-w-2xl mx-auto text-center"
               >
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6">
+                <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-semibold text-white mb-6">
                   What You Can Expect
                 </h2>
                 <div className="space-y-4 mb-10 text-left sm:text-center">

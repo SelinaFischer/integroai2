@@ -1,12 +1,10 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import * as Accordion from "@radix-ui/react-accordion";
+import { Minus, Plus } from "lucide-react";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
+import SectionHeader from "./SectionHeader";
 import { homepageFaqs } from "@/lib/faqData";
+import { fadeUp } from "@/lib/motion";
 
 const FAQ = () => {
   // Homepage shows a maximum of 8 questions. The fuller question set is
@@ -26,78 +24,65 @@ const FAQ = () => {
     })),
   };
 
+  const half = Math.ceil(faqs.length / 2);
+  const columns = [faqs.slice(0, half), faqs.slice(half)];
+
+  const renderItem = (faq: (typeof faqs)[number], index: number) => (
+                <Accordion.Item
+          key={faq.question}
+          value={`item-${index}`}
+          className="group rounded-[14px] border border-brand-sand bg-white transition-colors data-[state=open]:border-brand-amber data-[state=open]:ring-1 data-[state=open]:ring-brand-amber"
+        >
+          <Accordion.Header asChild>
+            <h3 className="m-0">
+              <Accordion.Trigger className="flex w-full items-center gap-4 rounded-[14px] px-5 py-5 text-left text-base font-semibold text-brand-navy sm:px-6 sm:text-[17px]">
+                <span className="flex-1">{faq.question}</span>
+                <Plus className="h-5 w-5 flex-none group-data-[state=open]:hidden" strokeWidth={2.4} aria-hidden="true" />
+                <Minus className="hidden h-5 w-5 flex-none group-data-[state=open]:block" strokeWidth={2.4} aria-hidden="true" />
+              </Accordion.Trigger>
+            </h3>
+          </Accordion.Header>
+
+          {/* forceMount keeps every answer in the page HTML, so search
+              engines and AI assistants can read answers that are
+              collapsed on screen. */}
+          <Accordion.Content
+            forceMount
+            className="px-5 pb-5 text-[15px] leading-relaxed text-brand-slate data-[state=closed]:hidden sm:px-6 sm:text-base"
+          >
+            {faq.answer}
+          </Accordion.Content>
+        </Accordion.Item>
+  );
+
   return (
     <>
+      {/* Structured data only. This section must not set <title> or the meta
+          description: it sits on the homepage, and a title here replaces the
+          homepage's own title in search results. */}
       <Helmet>
-        <title>
-          IntegroAI Consulting FAQ | AI Readiness Assessment & Operational Clarity
-        </title>
-        <meta
-          name="description"
-          content="Answers to common questions about IntegroAI Consulting, AI readiness assessment, Operational Clarity, and practical AI adoption for business leaders."
-        />
-        <script type="application/ld+json">
-          {JSON.stringify(faqSchema)}
-        </script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
-      <section
-        id="faq"
-        className="py-16 sm:py-20 lg:py-24 bg-subtle relative overflow-hidden"
-      >
-        <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-primary/3 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2" />
+      <section id="faq" className="bg-brand-ivory py-14 sm:py-16">
+        <div className="wrap flex flex-col gap-8">
+          <SectionHeader eyebrow="Frequently asked questions" title="AI consulting questions, answered" />
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl mx-auto text-center mb-10 sm:mb-14"
-          >
-            <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-3 px-3 py-1 bg-accent-warm/10 rounded-full">
-              Common Questions
-            </span>
-
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-4">
-              Frequently Asked Questions
-            </h2>
-
-            <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-              Quick answers to the questions we hear most often from business
-              leaders.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="max-w-3xl mx-auto"
-          >
-            <Accordion type="single" collapsible className="space-y-3">
-              {faqs.map((faq, index) => (
-                <AccordionItem
-                  key={index}
-                  value={`item-${index}`}
-                  className="bg-card rounded-xl border border-border/40 shadow-sm px-5 sm:px-6 hover:border-primary/15 data-[state=open]:border-primary/20 data-[state=open]:shadow-md transition-all duration-300"
-                >
-                  <AccordionTrigger className="text-left font-semibold text-sm sm:text-base hover:no-underline py-4 sm:py-5">
-                    <div className="flex items-start gap-3">
-                      <span className="min-w-[1.5rem] text-xs sm:text-sm font-semibold text-accent-warm/80">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                      <span className="flex-1">{faq.question}</span>
-                    </div>
-                  </AccordionTrigger>
-
-                  <AccordionContent className="text-muted-foreground text-xs sm:text-sm leading-relaxed pb-4 sm:pb-5 pl-9">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
+          <motion.div {...fadeUp}>
+            <Accordion.Root
+              type="single"
+              collapsible
+              defaultValue="item-0"
+              className="grid grid-cols-1 items-start gap-3 lg:grid-cols-2"
+            >
+              {/* Two independent columns, so opening an answer on one side
+                  never leaves a gap on the other. */}
+              {columns.map((column, columnIndex) => (
+                <div key={columnIndex} className="flex flex-col gap-3">
+                  {column.map((faq, index) => renderItem(faq, columnIndex * half + index))}
+                </div>
               ))}
-            </Accordion>
+            </Accordion.Root>
           </motion.div>
         </div>
       </section>

@@ -21,7 +21,7 @@ const values = [
     icon: Shield,
     title: "Integrity",
     description: "We give honest guidance, including when AI is not the right solution.",
-    gradient: "from-primary to-cyan-600",
+    gradient: "from-primary to-[#1E4A6E]",
   },
   {
     icon: Award,
@@ -35,7 +35,7 @@ const values = [
     title: "Accountability",
     description:
       "Progress is measured through clear ownership, responsible delivery, and tangible business outcomes.",
-    gradient: "from-primary to-cyan-600",
+    gradient: "from-primary to-[#1E4A6E]",
   },
 ];
 
@@ -149,7 +149,7 @@ const About = () => {
           <section className="py-12 sm:py-16 bg-background">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-5xl mx-auto">
-                <h2 className="text-2xl sm:text-3xl font-bold text-foreground text-center mb-8 sm:mb-10">
+                <h2 className="font-heading text-3xl sm:text-4xl font-semibold text-foreground text-center mb-8 sm:mb-10">
                   Values
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
@@ -189,7 +189,7 @@ const About = () => {
                 <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
                   Leadership
                 </span>
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">
+                <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-semibold text-foreground">
                   Selina&apos;s Story
                 </h2>
               </motion.div>
@@ -290,7 +290,7 @@ const About = () => {
               >
                 <div className="bg-card border border-border/40 rounded-2xl p-7 sm:p-9 shadow-sm">
                   <div className="flex items-start gap-4 sm:gap-5">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-primary to-cyan-600 flex items-center justify-center flex-shrink-0 shadow-md">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-primary to-[#1E4A6E] flex items-center justify-center flex-shrink-0 shadow-md">
                       <Home className="w-5 h-5 sm:w-6 sm:h-6 text-white" aria-hidden="true" />
                     </div>
                     <div>

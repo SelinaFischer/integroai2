@@ -1,81 +1,64 @@
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import selinaPhoto from "@/assets/selina-founder.png";
+import headshot from "@/assets/selina-headshot.webp";
+import { fadeUp } from "@/lib/motion";
+
+const credentials = ["20+ years in product & tech", "AI & data strategy", "Tech practitioner"];
 
 // Short homepage introduction. Selina's fuller professional story lives on the About page.
 const Founder = () => {
   return (
-    <section id="founder" className="py-16 sm:py-20 lg:py-24 bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid lg:grid-cols-[auto,1fr] gap-10 lg:gap-14 items-center">
-            {/* Founder Image */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative flex justify-center lg:justify-start"
-            >
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-[85%] h-[85%] bg-gradient-to-br from-primary/10 via-accent-warm/10 to-primary/5 rounded-full blur-3xl" />
-              </div>
-              <img
-                src={selinaPhoto}
-                alt="Selina Fischer, Founder of IntegroAI Consulting"
-                width={320}
-                height={320}
-                loading="lazy"
-                decoding="async"
-                className="relative w-64 sm:w-72 lg:w-80 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border/20 z-10 h-auto"
-              />
-            </motion.div>
+    <section id="founder" className="bg-white py-14 sm:py-16">
+      <div className="wrap grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
+        <motion.div {...fadeUp} className="flex flex-col items-start gap-4">
+          <p className="eyebrow">The founder</p>
+          <h2 className="section-title">Meet Selina Fischer, independent AI consultant</h2>
+          <p className="text-base leading-relaxed text-[#42566A] sm:text-lg">
+            My approach draws on more than 20 years across operations, product, technology and data. Successful AI adoption isn&apos;t about picking the right tool. It depends on clear priorities, the right foundations and an organisation ready to adopt new ways of working.
+          </p>
+          <p className="text-base leading-relaxed text-[#42566A] sm:text-lg">
+            I lead every IntegroAI engagement personally, from initial diagnosis through to recommendations and delivery support.
+          </p>
+          <Link to="/about" className="btn-outline-navy">
+            Read Her Story
+          </Link>
+        </motion.div>
 
-            {/* Founder Info */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-4 text-left"
-            >
-              <div>
-                <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-3 px-3 py-1 bg-accent-warm/10 rounded-full">
-                  Leadership
-                </span>
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-2">
-                  Meet Selina
-                </h2>
-                <p className="text-sm sm:text-base font-semibold text-foreground">
-                  Founder of IntegroAI Consulting
-                </p>
-                <p className="text-sm sm:text-base text-accent-warm font-medium mb-4">
-                  AI Adoption & Transformation Consultant | Business &amp; Operations Advisor
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                  I help business leaders see where AI can genuinely improve how their business runs, before they invest in tools or automation.
-                </p>
-                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                  My approach draws on more than 20 years across operations, product, technology and data. Successful AI adoption isn&apos;t about picking the right tool. It depends on clear priorities, the right foundations and an organisation ready to adopt new ways of working.
-                </p>
-              </div>
-
-              <div className="pt-2">
-                <Button variant="outline" size="default" className="group" asChild>
-                  <Link to="/about">
-                    Read Her Story
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </Button>
-              </div>
-            </motion.div>
+        <motion.div
+          {...fadeUp}
+          className="flex flex-col gap-[18px] rounded-[20px] border border-brand-sand bg-brand-ivory p-6 sm:p-7"
+        >
+          <div className="flex items-center gap-[18px]">
+            <img
+              src={headshot}
+              alt="Selina Fischer, founder of IntegroAI Consulting"
+              width={112}
+              height={112}
+              loading="lazy"
+              decoding="async"
+              className="h-24 w-24 flex-none rounded-full object-cover sm:h-28 sm:w-28"
+            />
+            <div className="flex flex-col gap-0.5">
+              <p className="display text-[28px] font-bold leading-[1.1] text-brand-navy sm:text-[32px]">Selina Fischer</p>
+              <p className="text-[15px] font-semibold text-brand-slate">Founder of IntegroAI Consulting, UK</p>
+            </div>
           </div>
-        </div>
+
+          <ul className="flex list-none flex-wrap gap-2">
+            {credentials.map((item) => (
+              <li
+                key={item}
+                className="rounded-full bg-brand-chip px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.1em] text-brand-navy"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <blockquote className="display border-l-4 border-brand-amber pl-[18px] text-2xl font-semibold italic leading-tight text-brand-navy sm:text-[29px] sm:leading-[1.25]">
+            I help business leaders see where AI can genuinely improve how their business runs, before they invest in tools or automation.
+          </blockquote>
+        </motion.div>
       </div>
     </section>
   );

@@ -68,13 +68,13 @@ const BlogPage = () => {
                   </li>
                   <li className="flex items-center">
                     <ChevronRight className="w-3.5 h-3.5 mx-1" />
-                    <span className="text-primary-foreground font-medium">Insights</span>
+                    <span className="text-primary-foreground font-medium">Blog</span>
                   </li>
                 </ol>
               </nav>
 
               <span className="text-accent-warm font-semibold text-sm tracking-wider uppercase">
-                Insights
+                Blog
               </span>
               <h1 className="text-4xl lg:text-5xl font-bold text-white mt-3 mb-4">
                 AI Strategy Insights

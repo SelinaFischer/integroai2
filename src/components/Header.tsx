@@ -1,9 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState, useEffect, useRef, useCallback } from "react";
-import logo from "@/assets/logo-icon-new.png";
+import logo from "@/assets/integroai-logo-mark.webp";
 import ContactFormModal from "./ContactFormModal";
-import { scrollToSection } from "@/lib/scrollToSection";
+import { ASSESSMENT_URL } from "@/lib/motion";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -79,85 +79,96 @@ const Header = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [mobileMenuOpen]);
 
-  const navLinks = [
-    { to: "/", label: "Home" },
-    { to: "/", label: "Our Service", sectionId: "services" },
+  // Desktop shows the three main pages plus the assessment button. The
+  // mobile menu adds Home, the assessment link and Contact.
+  const primaryLinks = [
     { to: "/work-with-me", label: "Work With Me" },
     { to: "/about", label: "About" },
-    { to: "/blog", label: "Insights" },
+    { to: "/blog", label: "Blog" },
   ];
+
+  const menuLinks = [{ to: "/", label: "Home" }, ...primaryLinks];
 
   const isActive = (to: string) =>
     to === "/" ? location.pathname === "/" : location.pathname.startsWith(to);
 
-  // Only the homepage has a full-bleed dark hero behind the header, so only
-  // the homepage gets the transparent-until-scrolled treatment. Every other
-  // page sits on a light background, so the header stays solid there —
-  // otherwise the translucent navy reads as a different, washed-out colour.
-  const isHome = location.pathname === "/";
-  const solidHeader = scrolled || !isHome;
+  const scrollTopIfHome = () => {
+    // React Router doesn't re-navigate (or re-trigger ScrollToTop) when the
+    // target path matches the current one, so clicking the logo or "Home"
+    // while already on "/" otherwise does nothing visible.
+    if (location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      solidHeader
-        ? 'bg-nav shadow-lg border-b border-white/10'
-        : 'bg-nav/70 backdrop-blur-md border-b border-transparent'
-    }`}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20 lg:h-24">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 border-b border-brand-sand bg-white transition-shadow duration-300 ${
+        scrolled ? "shadow-[0_4px_16px_rgba(4,27,43,0.08)]" : ""
+      }`}
+    >
+      <div className="wrap relative">
+        <div className="flex h-16 items-center justify-between gap-4 lg:h-[78px]">
           {/* Logo */}
-          <Link to="/" aria-label="Go to IntegroAI homepage" className="flex items-center gap-2 sm:gap-3 lg:gap-4 relative z-10">
+          <Link
+            to="/"
+            onClick={scrollTopIfHome}
+            aria-label="IntegroAI Consulting, go to homepage"
+            className="flex items-center gap-3 rounded-lg text-brand-navy"
+          >
             <img
               src={logo}
-              alt="IntegroAI Consulting"
-              width={80}
-              height={80}
+              alt=""
+              width={50}
+              height={50}
               fetchPriority="high"
               decoding="async"
-              className={`w-auto transition-all duration-300 ${
-                scrolled ? 'h-8 sm:h-10 lg:h-14' : 'h-10 sm:h-14 lg:h-20'
-              }`}
+              className="h-10 w-10 object-contain lg:h-[50px] lg:w-[50px]"
             />
-            <div className="hidden sm:flex flex-col">
-              <span className="text-base sm:text-lg lg:text-2xl font-bold tracking-tight text-white">
-                IntegroAI Consulting
-              </span>
-              <span className="text-[10px] sm:text-xs lg:text-sm font-semibold tracking-wide text-[#F6C35B]">
-                Simplify · Prioritise · Grow
-              </span>
-            </div>
+            <span className="flex flex-col gap-px">
+              <span className="text-lg font-bold leading-[1.1] tracking-[0.01em] lg:text-xl">IntegroAI</span>
+              <span className="text-[9px] font-bold leading-tight tracking-[0.22em] lg:text-[10px]">CONSULTING</span>
+            </span>
           </Link>
 
-          {/* CTA Button + Menu Toggle */}
-          <div className="flex items-center gap-1.5 sm:gap-2 lg:gap-3">
+          <div className="flex items-center gap-2 lg:gap-9">
+            {/* Desktop navigation */}
+            <nav aria-label="Main" className="hidden items-center gap-9 lg:flex">
+              {primaryLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  to={link.to}
+                  aria-current={isActive(link.to) ? "page" : undefined}
+                  className={`rounded py-3 text-base font-semibold text-brand-navy underline-offset-8 decoration-brand-amber decoration-2 hover:underline ${
+                    isActive(link.to) ? "underline" : ""
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+
             <a
-              href="https://integroai.tech/assessment"
+              href={ASSESSMENT_URL}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="AI Readiness Assessment (opens in a new tab)"
-              className="inline-flex items-center gap-1 whitespace-nowrap font-medium transition-all duration-200
-                border border-[#F6C35B] hover:border-[#F6C35B]
-                bg-transparent hover:bg-[#F6C35B]/[0.08]
-                text-[#F6C35B] hover:text-[#F6C35B]
-                rounded-[10px]
-                text-[10px] sm:text-xs lg:text-[13px]
-                px-2 sm:px-3 lg:px-[20px]
-                h-7 sm:h-8 lg:h-[38px]"
+              aria-label="Start the free AI Readiness Assessment (opens in a new tab)"
+              className="inline-flex items-center whitespace-nowrap rounded-full bg-brand-amber px-3.5 py-2.5 text-[13px] font-bold leading-tight text-brand-navy transition-colors duration-200 hover:bg-[#FFAA2B] sm:px-5 sm:text-sm lg:px-6 lg:py-[13px] lg:text-base"
             >
-              <span>AI Readiness Assessment</span>
-              <ArrowRight className="w-3 h-3 sm:w-3 sm:h-3 lg:w-4 lg:h-4 ml-1" />
+              <span className="sm:hidden">Free assessment</span>
+              <span className="hidden sm:inline">Start the free assessment</span>
             </a>
 
-            {/* Menu Toggle */}
+            {/* Menu toggle (mobile and tablet) */}
             <button
               ref={menuButtonRef}
-              className="p-2 sm:p-3 -mr-1 sm:-mr-2 relative z-10 text-white min-w-[40px] sm:min-w-[44px] min-h-[40px] sm:min-h-[44px] flex items-center justify-center hover:bg-white/10 rounded-lg transition-colors"
+              className="-mr-2 flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg text-brand-navy transition-colors hover:bg-brand-ivory lg:hidden"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-menu"
             >
-              {mobileMenuOpen ? <X size={20} className="sm:w-6 sm:h-6" /> : <Menu size={20} className="sm:w-6 sm:h-6" />}
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
@@ -176,48 +187,41 @@ const Header = () => {
           aria-modal="true"
           aria-label="Navigation menu"
           aria-hidden={!mobileMenuOpen}
-          className={`absolute top-full right-4 w-56 py-3 bg-background border border-border/50 rounded-xl shadow-xl transition-all duration-200 ${
+          className={`absolute top-full right-4 w-60 rounded-2xl border border-brand-sand bg-white py-3 shadow-xl transition-all duration-200 lg:hidden ${
             mobileMenuOpen
               ? "opacity-100 visible translate-y-0 pointer-events-auto"
               : "opacity-0 invisible -translate-y-2 pointer-events-none"
           }`}
         >
-          <nav className="flex flex-col gap-1 px-2" role="navigation" aria-label="Main navigation">
-            {navLinks.map((link) => (
+          <nav className="flex flex-col gap-1 px-2" aria-label="Mobile navigation">
+            {menuLinks.map((link) => (
               <Link
                 key={link.label}
                 to={link.to}
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  if (link.sectionId) {
-                    scrollToSection(link.sectionId);
-                  } else if (link.to === "/" && location.pathname === "/") {
-                    // React Router doesn't re-navigate (or re-trigger ScrollToTop)
-                    // when the target path matches the current one, so clicking
-                    // "Home" while already on "/" otherwise does nothing visible.
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }
+                  if (link.to === "/") scrollTopIfHome();
                 }}
-                aria-current={!link.sectionId && isActive(link.to) ? "page" : undefined}
-                className={`text-sm font-semibold py-3 px-4 rounded-lg hover:bg-muted text-left w-full transition-colors ${
-                  !link.sectionId && isActive(link.to) ? "text-primary" : "text-foreground hover:text-primary"
+                aria-current={isActive(link.to) ? "page" : undefined}
+                className={`w-full rounded-lg px-4 py-3 text-left text-[15px] font-semibold text-brand-navy transition-colors hover:bg-brand-ivory ${
+                  isActive(link.to) ? "bg-brand-ivory" : ""
                 }`}
               >
                 {link.label}
               </Link>
             ))}
             <a
-              href="https://integroai.tech/assessment"
+              href={ASSESSMENT_URL}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-foreground hover:text-primary transition-colors text-sm font-semibold py-3 px-4 rounded-lg hover:bg-muted text-left w-full"
+              className="w-full rounded-lg px-4 py-3 text-left text-[15px] font-semibold text-brand-navy transition-colors hover:bg-brand-ivory"
             >
               AI Readiness Assessment
             </a>
             <ContactFormModal
               trigger={
-                <button className="text-foreground hover:text-primary transition-colors text-sm font-semibold py-3 px-4 rounded-lg hover:bg-muted text-left w-full">
+                <button className="w-full rounded-lg px-4 py-3 text-left text-[15px] font-semibold text-brand-navy transition-colors hover:bg-brand-ivory">
                   Contact
                 </button>
               }

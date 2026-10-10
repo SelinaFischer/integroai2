@@ -36,14 +36,14 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
         angle: 60,
         spread: 55,
         origin: { x: 0, y: 0.7 },
-        colors: ['#F5A302', '#F6C35B', '#012F46', '#BACBCB'],
+        colors: ['#FF9900', '#FFB13D', '#041B2B', '#EDE5D8'],
       });
       confetti({
         particleCount: 3,
         angle: 120,
         spread: 55,
         origin: { x: 1, y: 0.7 },
-        colors: ['#F5A302', '#F6C35B', '#012F46', '#BACBCB'],
+        colors: ['#FF9900', '#FFB13D', '#041B2B', '#EDE5D8'],
       });
 
       if (Date.now() < end) {
@@ -136,7 +136,7 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
 
   // Shared input styling — white background, near-black text, gold focus
   const inputClass =
-    "bg-[#F8FAFC] border-[#BACBCB] text-[#111827] placeholder:text-[#89898E] focus:border-[#F5A302] focus:ring-[#F5A302]/20 h-10 rounded-lg transition-colors";
+    "bg-[#F8FAFC] border-[#EDE5D8] text-[#041B2B] placeholder:text-[#89898E] focus:border-[#FF9900] focus:ring-[#FF9900]/20 h-10 rounded-lg transition-colors";
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
@@ -148,7 +148,7 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
         )}
       </DialogTrigger>
 
-      <DialogContent className="sm:max-w-md bg-white text-[#111827] border border-[#012F46]/10 shadow-[0_24px_64px_rgba(1,47,70,0.16)] rounded-2xl p-0 overflow-hidden [&>button]:text-[#4A4A4A] [&>button]:hover:text-[#111827]">
+      <DialogContent className="sm:max-w-md bg-white text-[#041B2B] border border-[#041B2B]/10 shadow-[0_24px_64px_rgba(4,27,43,0.16)] rounded-2xl p-0 overflow-hidden [&>button]:text-[#4A6080] [&>button]:hover:text-[#041B2B]">
         <AnimatePresence mode="wait">
           {isSubmitted ? (
             <motion.div
@@ -163,19 +163,19 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.1, type: "spring", stiffness: 200 }}
-                className="w-20 h-20 bg-[#F5A302]/10 rounded-full flex items-center justify-center mx-auto mb-6"
+                className="w-20 h-20 bg-[#FF9900]/10 rounded-full flex items-center justify-center mx-auto mb-6"
               >
-                <CheckCircle2 className="w-10 h-10 text-[#F5A302]" />
+                <CheckCircle2 className="w-10 h-10 text-[#FF9900]" />
               </motion.div>
               <h3 className="text-2xl font-heading font-semibold mb-3 text-[#0F172A]">
                 Thank You!
               </h3>
-              <p className="text-[#4A4A4A] mb-8 max-w-xs mx-auto">
+              <p className="text-[#4A6080] mb-8 max-w-xs mx-auto">
                 Your message has been sent successfully. We'll get back to you within 24 hours.
               </p>
               <button
                 onClick={() => handleOpenChange(false)}
-                className="text-sm text-[#4A4A4A] hover:text-[#111827] transition-colors underline underline-offset-2"
+                className="text-sm text-[#4A6080] hover:text-[#041B2B] transition-colors underline underline-offset-2"
               >
                 Close
               </button>
@@ -189,11 +189,11 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
               transition={{ duration: 0.3, ease: "easeOut" }}
               className="p-6"
             >
-              <DialogHeader className="pb-4 border-b border-[#012F46]/10">
+              <DialogHeader className="pb-4 border-b border-[#041B2B]/10">
                 <DialogTitle className="text-xl font-heading font-bold text-[#0F172A]">
                   Get in Touch
                 </DialogTitle>
-                <p className="text-[#4A4A4A] text-sm">
+                <p className="text-[#4A6080] text-sm">
                   Tell us what you're exploring and we'll respond shortly.
                 </p>
               </DialogHeader>
@@ -207,7 +207,7 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
                 <div className="grid grid-cols-2 gap-3">
                   {/* Full Name — not required */}
                   <div className="space-y-1.5">
-                    <Label htmlFor="name" className="text-[#111827] text-sm font-medium">
+                    <Label htmlFor="name" className="text-[#041B2B] text-sm font-medium">
                       Full Name
                     </Label>
                     <Input
@@ -220,8 +220,8 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
 
                   {/* Company — required */}
                   <div className="space-y-1.5">
-                    <Label htmlFor="company" className="text-[#111827] text-sm font-medium">
-                      Company <span className="text-[#F5A302]">*</span>
+                    <Label htmlFor="company" className="text-[#041B2B] text-sm font-medium">
+                      Company <span className="text-[#FF9900]">*</span>
                     </Label>
                     <Input
                       id="company"
@@ -237,8 +237,8 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
                 <div className="grid grid-cols-2 gap-3">
                   {/* Email — required */}
                   <div className="space-y-1.5">
-                    <Label htmlFor="email" className="text-[#111827] text-sm font-medium">
-                      Email <span className="text-[#F5A302]">*</span>
+                    <Label htmlFor="email" className="text-[#041B2B] text-sm font-medium">
+                      Email <span className="text-[#FF9900]">*</span>
                     </Label>
                     <Input
                       id="email"
@@ -252,7 +252,7 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
 
                   {/* Phone — not required */}
                   <div className="space-y-1.5">
-                    <Label htmlFor="telephone" className="text-[#111827] text-sm font-medium">
+                    <Label htmlFor="telephone" className="text-[#041B2B] text-sm font-medium">
                       Phone
                     </Label>
                     <Input
@@ -267,7 +267,7 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
 
                 {/* How can we help — not required */}
                 <div className="space-y-1.5">
-                  <Label htmlFor="message" className="text-[#111827] text-sm font-medium">
+                  <Label htmlFor="message" className="text-[#041B2B] text-sm font-medium">
                     How can we help?
                   </Label>
                   <Textarea
@@ -286,7 +286,7 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full flex items-center justify-center gap-2 bg-[#F5A302] hover:bg-[#E09A10] disabled:opacity-70 text-white font-semibold rounded-lg h-11 text-sm transition-colors duration-200 mt-2"
+                  className="w-full flex items-center justify-center gap-2 bg-[#FF9900] hover:bg-[#FFAA2B] disabled:opacity-70 text-[#041B2B] font-bold rounded-full h-11 text-sm transition-colors duration-200 mt-2"
                 >
                   {isSubmitting ? (
                     <>
@@ -301,7 +301,7 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
                   )}
                 </button>
 
-                <p className="text-xs text-[#4A4A4A] text-center pt-1">
+                <p className="text-xs text-[#4A6080] text-center pt-1">
                   We typically respond within 24 hours
                 </p>
               </form>
