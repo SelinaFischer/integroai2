@@ -4,7 +4,7 @@ export interface FaqItem {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// HOMEPAGE FAQ — exactly 8 questions, shown on the homepage and used to build
+// HOMEPAGE FAQ: 9 questions, shown on the homepage and used to build
 // the visible FAQPage structured data. Do not add further questions here
 // without also updating the schema and the acceptance criteria in the brief.
 // The three former assessment-related questions (what it is / how long and
@@ -51,6 +51,11 @@ export const homepageFaqs: FaqItem[] = [
     question: "What does a typical engagement with IntegroAI look like, and how is consulting priced?",
     answer:
       "Most engagements begin with the free 5-Minute AI Readiness Assessment, followed where appropriate by a Discovery Call and, if needed, an AI & Operations Diagnostic to build a clear, evidence-based view of the business. From there, IntegroAI can support prioritisation, preparation, implementation or ongoing advisory, depending on what adds value. Pricing is scoped individually based on the nature and depth of the engagement, and there is no obligation until scope and cost are agreed.",
+  },
+  {
+    question: "What do SEO, AEO and GEO mean?",
+    answer:
+      "They are three ways of helping customers find your business online. SEO (search engine optimisation) helps your website appear in search results on Google and Bing. AEO (answer engine optimisation) structures your content so it can be given as the direct answer to a question, for example in featured snippets and voice assistants. GEO (generative engine optimisation) helps AI tools such as ChatGPT, Gemini and Perplexity understand, mention and cite your business in the answers they generate. Together, they make it easier for customers to find you, however they search.",
   },
 ];
 

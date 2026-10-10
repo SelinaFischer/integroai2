@@ -7,7 +7,7 @@ import { homepageFaqs } from "@/lib/faqData";
 import { fadeUp } from "@/lib/motion";
 
 const FAQ = () => {
-  // Homepage shows a maximum of 8 questions. The fuller question set is
+  // Homepage shows a short set of questions. The fuller question set is
   // preserved in src/lib/faqData.tsx (extendedFaqs) for future use.
   const faqs = homepageFaqs;
 
