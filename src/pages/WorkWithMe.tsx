@@ -1,5 +1,4 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
 import { ClipboardCheck, Search, Target, ShieldCheck, Cog, TrendingUp, ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
@@ -389,13 +388,6 @@ const WorkWithMe = () => {
                     </a>
                   </Button>
                 </div>
-
-                <p className="mt-8 text-white/60 text-xs sm:text-sm">
-                  Prefer to read about the person leading the work first?{" "}
-                  <Link to="/about" className="text-accent-warm hover:underline font-medium">
-                    More About Selina
-                  </Link>
-                </p>
               </motion.div>
             </div>
           </section>
