@@ -87,7 +87,7 @@ const stages = [
       "Deploy with human oversight built in",
     ],
     gradient: "from-accent-warm to-amber-400",
-    review: ["Workflow automation", "Integration support", "Custom GPTs & AI agents", "Voice AI agent", "Proof-of-concept & MVP", "Implementation oversight"],
+    review: ["Workflow automation", "Integration support", "AI skills, plugins & agents", "Voice AI agent", "Proof-of-concept & MVP", "Implementation oversight"],
     receive: ["Clearly defined scope", "Delivery oversight", "Human oversight built into the solution"],
     next: "Take the solution forward internally, or continue with IntegroAI for ongoing review and advisory support.",
     note: "Technology follows the business requirement, not the other way round, so what gets built is grounded in a genuine business case.",
