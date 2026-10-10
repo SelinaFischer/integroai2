@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import { Button } from "@/components/ui/button";
-import selinaOfficePhoto from "@/assets/selina-office.png";
+import selinaAboutPhoto from "@/assets/selina-about-portrait.webp";
 import selinaPhoto from "@/assets/selina-founder.png";
 
 const values = [
@@ -96,9 +96,11 @@ const About = () => {
                   >
                     <div className="rounded-2xl overflow-hidden shadow-sm border border-border/40 aspect-[4/5]">
                       <img
-                        src={selinaOfficePhoto}
-                        alt="Professional workspace — IntegroAI Consulting"
-                        className="w-full h-full object-cover object-center"
+                        src={selinaAboutPhoto}
+                        alt="Selina Fischer, founder of IntegroAI Consulting"
+                        width={585}
+                        height={731}
+                        className="w-full h-full object-cover object-top"
                         loading="lazy"
                         decoding="async"
                       />
