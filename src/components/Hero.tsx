@@ -65,7 +65,7 @@ const Hero = () => {
               className="block h-full w-full object-cover object-top opacity-90"
             />
           </div>
-          <p className="text-lg font-bold text-white">Selina Fischer, Founder</p>
+          <p className="text-sm font-normal text-brand-mist">Selina Fischer, Founder</p>
         </motion.div>
       </div>
     </section>
