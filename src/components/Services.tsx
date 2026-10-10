@@ -76,20 +76,23 @@ const Services = () => {
           intro="IntegroAI provides AI strategy consulting, AI implementation and ongoing AI advisory. Use the stages your business needs, without committing to the entire journey."
         />
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        {/* On desktop every card shares the same four rows (title, summary,
+            stage, stage) through CSS subgrid, so the divider lines sit at the
+            same height across all three cards however the text wraps. */}
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-y-0">
           {serviceGroups.map((group, index) => (
             <motion.article
               key={group.title}
               {...fadeUpDelayed(index)}
-              className="card-soft flex flex-col gap-3 p-7"
+              className="card-soft flex flex-col p-7 md:row-span-4 md:grid md:grid-rows-subgrid md:gap-y-0"
             >
               <h3 className="text-2xl leading-[1.15]">{group.title}</h3>
-              <p className="text-base leading-relaxed text-brand-slate">{group.summary}</p>
-              <ul className="mt-1 flex list-none flex-col">
+              <p className="mt-3 pb-5 text-base leading-relaxed text-brand-slate">{group.summary}</p>
+              <ul className="flex list-none flex-col md:contents" role="list">
                 {group.stages.map((stage) => (
                   <li
                     key={stage.number}
-                    className="flex items-baseline gap-3.5 border-t border-brand-sand py-3 text-base font-semibold text-brand-navy"
+                    className="flex items-baseline gap-3.5 border-t border-brand-sand py-3.5 text-base font-semibold text-brand-navy"
                     itemScope
                     itemType="https://schema.org/Service"
                     itemProp="itemListElement"
