@@ -6,17 +6,19 @@ import instagramLogo from "@/assets/instagram-logo.avif";
 import hccLogo from "@/assets/hillingdon-chamber-logo.png";
 import ContactFormModal from "./ContactFormModal";
 import { ASSESSMENT_URL } from "@/lib/motion";
+import { scrollToSection } from "@/lib/scrollToSection";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const solutionsLinks = [
-    "AI & Operations Diagnostic",
-    "AI Strategy & Prioritisation Roadmap",
-    "AI Foundations & Responsible Adoption",
-    "AI & Automation Implementation",
-    "AI Voice Receptionist",
-    "Ongoing AI & Operations Advisory",
+  // sectionId scrolls to that section of /work-with-me after navigating.
+  const solutionsLinks: { label: string; sectionId?: string }[] = [
+    { label: "AI & Operations Diagnostic" },
+    { label: "AI Strategy & Prioritisation Roadmap" },
+    { label: "AI Foundations & Responsible Adoption" },
+    { label: "AI & Automation Implementation" },
+    { label: "AI Voice Receptionist", sectionId: "ai-voice-receptionist" },
+    { label: "Ongoing AI & Operations Advisory" },
   ];
 
   const companyLinks = [
@@ -56,9 +58,13 @@ const Footer = () => {
           <nav aria-label="Solutions we offer">
             <h2 className={`${headingClass}`}>Solutions We Offer</h2>
             <ul className="list-none">
-              {solutionsLinks.map((label) => (
+              {solutionsLinks.map(({ label, sectionId }) => (
                 <li key={label}>
-                  <Link to="/work-with-me" className={linkClass}>
+                  <Link
+                    to="/work-with-me"
+                    className={linkClass}
+                    onClick={sectionId ? () => scrollToSection(sectionId, 250) : undefined}
+                  >
                     {label}
                   </Link>
                 </li>

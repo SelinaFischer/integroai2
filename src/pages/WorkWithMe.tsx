@@ -6,7 +6,28 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import { Button } from "@/components/ui/button";
+import SectionHeader from "@/components/SectionHeader";
 import selinaOffice from "@/assets/selina-work-portrait.webp";
+
+// AI Voice Receptionist: a standalone solution, separate from the six stages.
+const voiceReceptionistFeatures = [
+  {
+    title: "Answers every call, 24/7",
+    description: "Out of hours, on busy days, when the team is with clients. Callers get an answer, not voicemail.",
+  },
+  {
+    title: "Books appointments",
+    description: "Bookings and callbacks go straight into your calendar.",
+  },
+  {
+    title: "Takes messages and details",
+    description: "Captures who called, what they need and how to reach them. Then passes it to your team.",
+  },
+  {
+    title: "Hands over to a person",
+    description: "Urgent or complex calls are transferred to someone on your team.",
+  },
+];
 
 // The free assessment is Stage 01: the entry point into the six-stage
 // journey, not something separate from it. It uses a simplified card
@@ -264,6 +285,47 @@ const WorkWithMe = () => {
                     )}
                   </motion.article>
                 ))}
+              </div>
+            </div>
+          </section>
+
+          {/* AI Voice Receptionist */}
+          <section id="ai-voice-receptionist" className="bg-white py-14 sm:py-16">
+            <div className="wrap flex flex-col gap-9">
+              <SectionHeader
+                eyebrow="AI solution"
+                title="AI Voice Receptionist"
+                intro="The IntegroAI AI Voice Receptionist is an AI phone assistant that answers your business calls 24/7, books appointments, takes messages and hands over to your team when a person is needed. Each one is custom built around your calls, your services and your systems."
+              />
+
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {voiceReceptionistFeatures.map((feature, index) => (
+                  <motion.div
+                    key={feature.title}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.5, delay: index * 0.06 }}
+                    className="card-soft flex flex-col gap-2.5 p-[26px]"
+                  >
+                    <h3 className="text-xl leading-tight">{feature.title}</h3>
+                    <p className="text-base leading-relaxed text-brand-slate">{feature.description}</p>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="flex flex-col items-center gap-4 text-center">
+                <p className="text-base font-semibold text-brand-navy sm:text-lg">
+                  Fewer missed calls. Less time on the phone. Your team stays in control of the calls that matter.
+                </p>
+                <a
+                  href="https://calendly.com/integroai-tech/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-amber"
+                >
+                  Book a Discovery Call
+                </a>
               </div>
             </div>
           </section>
