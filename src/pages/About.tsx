@@ -46,7 +46,7 @@ const About = () => {
         <title>About | IntegroAI Consulting</title>
         <meta
           name="description"
-          content="IntegroAI Consulting is an independent UK-based AI consultancy helping founder-led service businesses reduce operational firefighting, eliminate repetitive work and apply AI where it can create measurable business value."
+          content="IntegroAI Consulting is an independent UK-based AI consultancy helping founder-led service businesses reduce repetitive work, improve operational control and create capacity for growth."
         />
         <link rel="canonical" href="https://integroai.tech/about" />
       </Helmet>
@@ -59,11 +59,12 @@ const About = () => {
           <section className="pb-14 sm:pb-16 bg-background">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-6xl mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-10 lg:gap-16 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-10 lg:gap-16 items-center">
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
+                    className="text-center"
                   >
                     <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
                       About
@@ -74,16 +75,16 @@ const About = () => {
 
                     <div className="space-y-5">
                       <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                        IntegroAI Consulting is an independent AI consultancy helping founder-led service businesses reduce operational firefighting, eliminate repetitive work and apply AI where it can create measurable business value.
+                        IntegroAI Consulting is an independent AI consultancy helping founder-led service businesses reduce repetitive work, improve operational control and create capacity for growth.
                       </p>
                       <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                        We combine AI consulting with business and operations advisory, starting with a clear understanding of how the business operates before determining where technology can add value.
+                        We combine AI consulting with business and operations advisory. We start by understanding how work gets done, where problems recur and what needs to improve before recommending where AI or automation can add value.
                       </p>
                       <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                        Our work considers workflows, processes, data, systems, ownership and organisational readiness so that AI decisions are grounded in operational reality.
+                        We assess your workflows, data, systems and team readiness to identify practical opportunities. From there, we help you prioritise investment, plan implementation and agree how results will be measured.
                       </p>
                       <p className="text-foreground text-sm sm:text-base leading-relaxed font-medium">
-                        As an independent, technology-agnostic consultancy, IntegroAI adapts each engagement to the priorities, systems and level of AI maturity of the business.
+                        Our advice is independent of any particular technology provider. Recommendations are shaped by your business goals, budget and existing systems.
                       </p>
                     </div>
                   </motion.div>
@@ -105,8 +106,8 @@ const About = () => {
                         decoding="async"
                       />
                     </div>
-                    <p className="mt-4 text-xs text-muted-foreground leading-relaxed text-center lg:text-left">
-                      Helping business leaders turn operational complexity into confident AI decisions.
+                    <p className="mt-4 text-xs text-muted-foreground leading-relaxed text-center">
+                      Helping business leaders make clear, practical decisions about AI.
                     </p>
                   </motion.div>
                 </div>
