@@ -31,6 +31,11 @@ const stages = [
     stage: "Understand",
     service: "AI & Operations Diagnostic",
     purpose: "A clear, evidence-based view of how the business runs today, and where the real priorities sit.",
+    steps: [
+      "Interview you and key team members",
+      "Map how work flows today across people, processes and systems",
+      "Identify AI opportunities and risks",
+    ],
     gradient: "from-primary to-[#1E4A6E]",
     review: ["Workflows & processes", "Systems & data", "Ownership & accountability", "Existing AI use", "Business priorities"],
     receive: ["Priority operational issues", "Readiness gaps", "Recommended next steps"],
@@ -43,6 +48,11 @@ const stages = [
     stage: "Prioritise",
     service: "AI Strategy & Prioritisation Roadmap",
     purpose: "Decide what's worth solving, and which opportunities to prioritise first.",
+    steps: [
+      "Weigh each opportunity against business value, feasibility and risk",
+      "Prioritise objectives with you",
+      "Build the AI strategy and roadmap, with a detailed workflow plan",
+    ],
     gradient: "from-accent-warm to-amber-400",
     review: ["Business value", "Feasibility & risk", "Operational readiness", "Success measures", "Sequencing"],
     receive: ["Prioritised opportunity map", "Recommended initiatives", "A practical roadmap"],
@@ -54,6 +64,11 @@ const stages = [
     stage: "Prepare",
     service: "AI Foundations & Responsible Adoption",
     purpose: "Put the right foundations in place for AI to work safely, responsibly and sustainably.",
+    steps: [
+      "Check and prepare your data",
+      "Agree governance, ownership and accountability",
+      "Prepare your team to adopt new ways of working",
+    ],
     gradient: "from-primary to-[#1E4A6E]",
     review: ["Data readiness", "Governance & risk framework", "Accountability", "Training & team adoption", "Responsible adoption planning"],
     receive: ["Governance recommendations", "Accountability framework", "Adoption readiness actions"],
@@ -66,6 +81,11 @@ const stages = [
     stage: "Implement",
     service: "AI & Automation Implementation",
     purpose: "Turn validated opportunities into working solutions with a clear business case.",
+    steps: [
+      "Source the right tools, resources and specialists",
+      "Design, build and test the solution with your team",
+      "Deploy with human oversight built in",
+    ],
     gradient: "from-accent-warm to-amber-400",
     review: ["Workflow automation", "Integration support", "Custom GPTs & AI agents", "Voice AI agent", "Proof-of-concept & MVP", "Implementation oversight"],
     receive: ["Clearly defined scope", "Delivery oversight", "Human oversight built into the solution"],
@@ -78,6 +98,11 @@ const stages = [
     stage: "Evolve",
     service: "Ongoing AI & Operations Advisory",
     purpose: "Keep implemented changes delivering value as the business and technology evolve.",
+    steps: [
+      "Monitor performance against the agreed measures",
+      "Optimise what's working and correct what isn't",
+      "Update the roadmap as priorities change",
+    ],
     gradient: "from-primary to-[#1E4A6E]",
     review: ["Performance reviews", "Adoption & governance review", "Course correction", "Roadmap updates", "Ongoing leadership advisory"],
     receive: ["Evidence-based review", "Recommendations", "Ongoing advisory support"],
@@ -225,6 +250,28 @@ const WorkWithMe = () => {
                           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">Purpose</p>
                           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">{item.purpose}</p>
                         </div>
+
+                        {item.steps && (
+                          <div className="sm:col-span-2">
+                            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2.5">How it works</p>
+                            <ol className="grid list-none gap-3 sm:grid-cols-3">
+                              {item.steps.map((step, stepIndex) => (
+                                <li
+                                  key={step}
+                                  className="flex items-start gap-3 rounded-2xl border border-brand-sand bg-brand-ivory p-4 text-sm font-medium leading-snug text-brand-navy sm:text-[15px]"
+                                >
+                                  <span
+                                    className="flex h-6 w-6 flex-none items-center justify-center rounded-full bg-brand-amber text-xs font-bold text-brand-navy"
+                                    aria-hidden="true"
+                                  >
+                                    {stepIndex + 1}
+                                  </span>
+                                  {step}
+                                </li>
+                              ))}
+                            </ol>
+                          </div>
+                        )}
 
                         <div>
                           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">What we review</p>

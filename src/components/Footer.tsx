@@ -1,8 +1,6 @@
-import { Mail } from "lucide-react";
+import { Instagram, Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/integroai-logo-mark.webp";
-import linkedinLogo from "@/assets/linkedin-logo.avif";
-import instagramLogo from "@/assets/instagram-logo.avif";
 import hccLogo from "@/assets/hillingdon-chamber-logo.png";
 import ContactFormModal from "./ContactFormModal";
 import { ASSESSMENT_URL } from "@/lib/motion";
@@ -107,7 +105,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className={socialClass}
                 >
-                  <img src={linkedinLogo} alt="" width={16} height={16} loading="lazy" decoding="async" className="h-4 w-4 rounded-sm" />
+                  <Linkedin className="h-[18px] w-[18px] flex-none text-brand-navy" strokeWidth={2} aria-hidden="true" />
                   LinkedIn
                 </a>
               </li>
@@ -118,7 +116,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className={socialClass}
                 >
-                  <img src={instagramLogo} alt="" width={16} height={16} loading="lazy" decoding="async" className="h-4 w-4 rounded-sm" />
+                  <Instagram className="h-[18px] w-[18px] flex-none text-brand-navy" strokeWidth={2} aria-hidden="true" />
                   Instagram
                 </a>
               </li>
@@ -126,7 +124,7 @@ const Footer = () => {
                 <ContactFormModal
                   trigger={
                     <button className={`${socialClass} w-full`}>
-                      <Mail className="h-4 w-4" aria-hidden="true" />
+                      <Mail className="h-[18px] w-[18px] flex-none text-brand-navy" strokeWidth={2} aria-hidden="true" />
                       Send a Message
                     </button>
                   }

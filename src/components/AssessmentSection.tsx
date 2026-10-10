@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { motion } from "framer-motion";
 import { ASSESSMENT_URL, fadeUp } from "@/lib/motion";
 
@@ -17,6 +17,14 @@ const dimensions = [
   { label: "Data Readiness", value: 60 },
 ];
 
+// What the assessment gives you. Wording carried over from the previous site.
+const benefits = [
+  "Identify potential readiness gaps",
+  "Highlight areas requiring attention",
+  "Gain an initial view of where the business stands",
+  "Clarify possible next steps",
+];
+
 const AssessmentSection = () => {
   return (
     <section id="assessment" className="bg-brand-cream py-14 sm:py-16">
@@ -28,6 +36,16 @@ const AssessmentSection = () => {
           <p className="text-base leading-relaxed text-[#42566A] sm:text-lg">
             IntegroAI&apos;s free 5-minute AI Readiness Assessment is an AI assessment tool for business leaders. It scores your business across strategic clarity, leadership and ownership, process maturity, operational visibility and data readiness, then names the priority to focus on first.
           </p>
+          <ul className="flex list-none flex-col gap-3 py-1">
+            {benefits.map((benefit) => (
+              <li key={benefit} className="flex items-start gap-3 text-base font-medium text-brand-navy sm:text-[17px]">
+                <span className="mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-brand-amber">
+                  <Check className="h-3.5 w-3.5 text-brand-navy" strokeWidth={3.5} aria-hidden="true" />
+                </span>
+                {benefit}
+              </li>
+            ))}
+          </ul>
           <a href={ASSESSMENT_URL} target="_blank" rel="noopener noreferrer" className="btn-amber group">
             Start the free assessment
             <ArrowRight className="h-[18px] w-[18px] transition-transform group-hover:translate-x-1" strokeWidth={2.6} aria-hidden="true" />

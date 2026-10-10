@@ -74,7 +74,7 @@ const About = () => {
 
                     <div className="space-y-5">
                       <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                        IntegroAI Consulting is an independent UK-based AI consultancy helping founder-led service businesses reduce operational firefighting, eliminate repetitive work and apply AI where it can create measurable business value.
+                        IntegroAI Consulting is an independent AI consultancy helping founder-led service businesses reduce operational firefighting, eliminate repetitive work and apply AI where it can create measurable business value.
                       </p>
                       <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
                         We combine AI consulting with business and operations advisory, starting with a clear understanding of how the business operates before determining where technology can add value.
