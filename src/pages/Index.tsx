@@ -116,7 +116,7 @@ const Index = () => {
         "itemOffered": {
           "@type": "Service",
           "name": "AI Voice Receptionist",
-          "description": "A custom-built AI phone assistant that answers business calls 24/7, books appointments, takes messages and hands over to the team when a person is needed."
+          "description": "An AI phone assistant that answers business calls 24/7, books appointments, takes messages and hands over to the team when a person is needed."
         }
       }
     ]

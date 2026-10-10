@@ -7,6 +7,7 @@ import hccLogo from "@/assets/hillingdon-chamber-logo.png";
 import ContactFormModal from "./ContactFormModal";
 import { ASSESSMENT_URL } from "@/lib/motion";
 import { scrollToSection } from "@/lib/scrollToSection";
+import { EXTRA_SERVICES_SECTION_ID } from "@/lib/extraServices";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -17,8 +18,9 @@ const Footer = () => {
     { label: "AI Strategy & Prioritisation Roadmap" },
     { label: "AI Foundations & Responsible Adoption" },
     { label: "AI & Automation Implementation" },
-    { label: "AI Voice Receptionist", sectionId: "ai-voice-receptionist" },
+    { label: "AI Voice Receptionist", sectionId: EXTRA_SERVICES_SECTION_ID },
     { label: "Ongoing AI & Operations Advisory" },
+    { label: "Website Build", sectionId: EXTRA_SERVICES_SECTION_ID },
   ];
 
   const companyLinks = [

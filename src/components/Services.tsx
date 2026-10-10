@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SectionHeader from "./SectionHeader";
 import { fadeUp, fadeUpDelayed } from "@/lib/motion";
-import { scrollToSection } from "@/lib/scrollToSection";
+import { extraServices } from "@/lib/extraServices";
 
 // The six stages a client can engage, grouped into three service areas.
 // Stage numbers (01 to 06) match /work-with-me, where each stage is covered
@@ -106,31 +106,27 @@ const Services = () => {
           ))}
         </div>
 
-        {/* Standalone solution, separate from the six numbered stages. */}
-        <motion.div
-          {...fadeUp}
-          className="flex flex-col gap-x-7 gap-y-3 rounded-3xl border border-brand-sand bg-brand-cream px-7 py-6 lg:flex-row lg:items-center"
-          itemScope
-          itemType="https://schema.org/Service"
-          itemProp="itemListElement"
-        >
-          <div className="flex flex-none flex-col gap-1.5">
-            <p className="eyebrow">AI solution</p>
-            <h3 className="text-2xl leading-[1.15]" itemProp="name">
-              AI Voice Receptionist
-            </h3>
+        {/* Standalone services, separate from the six numbered stages. */}
+        <motion.div {...fadeUp} className="flex flex-col gap-4">
+          <p className="eyebrow text-center">Also available</p>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            {extraServices.map((service) => (
+              <div
+                key={service.title}
+                className="flex flex-col gap-2 rounded-3xl border border-brand-sand bg-brand-cream p-7"
+                itemScope
+                itemType="https://schema.org/Service"
+                itemProp="itemListElement"
+              >
+                <h3 className="text-2xl leading-[1.15]" itemProp="name">
+                  {service.title}
+                </h3>
+                <p className="text-base leading-relaxed text-brand-slate" itemProp="description">
+                  {service.description}
+                </p>
+              </div>
+            ))}
           </div>
-          <p className="text-base leading-relaxed text-brand-slate lg:flex-1" itemProp="description">
-            Answers your business calls 24/7, books appointments, takes messages and hands over to your team when a person is needed. Custom built per client.
-          </p>
-          <Link
-            to="/work-with-me"
-            onClick={() => scrollToSection("ai-voice-receptionist", 250)}
-            className="group inline-flex flex-none items-center gap-2 self-start py-2 text-base font-bold text-brand-navy underline underline-offset-4 hover:decoration-brand-amber lg:self-center"
-          >
-            See how it works
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.6} aria-hidden="true" />
-          </Link>
         </motion.div>
 
         <motion.div {...fadeUp} className="flex justify-center">
