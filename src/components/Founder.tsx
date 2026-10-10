@@ -44,7 +44,7 @@ const Founder = () => {
           </ul>
 
           <blockquote className="display border-l-4 border-brand-amber pl-[18px] text-2xl font-semibold italic leading-tight text-brand-navy sm:text-[29px] sm:leading-[1.25]">
-            I help business leaders see where AI can genuinely improve how their business runs, before they invest in tools or automation.
+            I help founders cut firefighting and repetitive work, and get back time for the work they love.
           </blockquote>
         </motion.div>
       </div>
