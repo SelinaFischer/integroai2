@@ -236,7 +236,7 @@ const About = () => {
                       </p>
                       <p className="text-muted-foreground text-base sm:text-[17px] leading-relaxed">
                         I founded IntegroAI Consulting to bring that thinking to AI adoption.{" "}
-                        <span className="font-semibold text-foreground">IntegroAI means integration and growth.</span>{" "}
+                        <span className="font-semibold text-foreground">IntegroAI means integration and growth with AI.</span>{" "}
                         The name reflects my belief that AI should become a useful part of how a business works, improving everyday operations and supporting growth.
                       </p>
                       <p className="text-muted-foreground text-base sm:text-[17px] leading-relaxed">
