@@ -265,7 +265,7 @@ const About = () => {
 
                     <div className="flex justify-center lg:justify-start">
                       <a
-                        href="https://www.linkedin.com/in/selinafischer8/"
+                        href="https://www.linkedin.com/in/selinafischer-ai/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2.5 text-accent-warm hover:text-accent-warm/80 transition-all duration-300 font-medium hover:translate-x-1 py-2 min-h-[44px] group"
