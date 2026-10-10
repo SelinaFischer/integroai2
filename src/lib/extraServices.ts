@@ -6,10 +6,10 @@ export const extraServices = [
   {
     title: "AI Voice Receptionist",
     description:
-      "An AI phone assistant that answers your calls 24/7, books appointments, takes messages and hands over to your team when a person is needed.",
+      "Spend less time answering calls and capture enquiries while you’re busy. An AI phone assistant answers 24/7, books appointments, takes messages and passes callers to your team when needed.",
   },
   {
-    title: "Website Build",
-    description: "A clear, modern website for your service business, designed, built and launched for you.",
+    title: "Websites for Service Businesses",
+    description: "Make it easy for customers to understand what you offer and get in touch. A professional website for your service business, designed, built and launched for you.",
   },
 ];
