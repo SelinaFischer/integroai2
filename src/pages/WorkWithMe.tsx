@@ -133,9 +133,9 @@ const WorkWithMe = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="max-w-4xl mx-auto grid sm:grid-cols-[auto,1fr] gap-8 sm:gap-10 items-center text-center sm:text-left"
+                className="max-w-4xl mx-auto grid sm:grid-cols-[1fr,auto] gap-8 sm:gap-10 items-center text-center sm:text-left"
               >
-                <div className="relative flex justify-center sm:justify-start">
+                <div className="relative flex justify-center sm:order-2 sm:justify-end">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-[85%] h-[85%] bg-gradient-to-br from-primary/10 via-accent-warm/10 to-primary/5 rounded-full blur-3xl" />
                   </div>
@@ -153,7 +153,7 @@ const WorkWithMe = () => {
                   />
                 </div>
 
-                <div>
+                <div className="sm:order-1">
                   <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
                     How Engagements Work
                   </span>
