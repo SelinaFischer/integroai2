@@ -46,7 +46,7 @@ const About = () => {
         <title>About | IntegroAI Consulting</title>
         <meta
           name="description"
-          content="IntegroAI Consulting is an independent UK-based AI consultancy helping founder-led service businesses, serviced accommodation and multi-property operators reduce operational firefighting, eliminate repetitive work and apply AI where it can create measurable business value."
+          content="IntegroAI Consulting is an independent UK-based AI consultancy helping founder-led service businesses reduce operational firefighting, eliminate repetitive work and apply AI where it can create measurable business value."
         />
         <link rel="canonical" href="https://integroai.tech/about" />
       </Helmet>
@@ -74,7 +74,7 @@ const About = () => {
 
                     <div className="space-y-5">
                       <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                        IntegroAI Consulting is an independent UK-based AI consultancy helping serviced accommodation and multi-property operators reduce operational firefighting, eliminate repetitive work and apply AI where it can create measurable business value.
+                        IntegroAI Consulting is an independent UK-based AI consultancy helping founder-led service businesses reduce operational firefighting, eliminate repetitive work and apply AI where it can create measurable business value.
                       </p>
                       <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
                         We combine AI consulting with business and operations advisory, starting with a clear understanding of how the business operates before determining where technology can add value.
@@ -237,7 +237,7 @@ const About = () => {
                         Leadership-Led Adoption
                       </span>
                       <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                        AI for Serviced Accommodation &amp; Multi-Property Operators
+                        AI for Founder-Led Service Businesses
                       </span>
                       <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
                         Tech Practitioner

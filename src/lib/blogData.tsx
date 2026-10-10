@@ -107,7 +107,7 @@ const WhatIsAiReadinessAssessmentContent: React.FC = () => (
 
     <h2>Who Should Do an AI Readiness Assessment</h2>
     <p>
-      Any business considering an AI investment benefits from an assessment before committing budget. It is particularly valuable for serviced accommodation and multi-property operators where operational processes have grown organically, decisions are often informal, and there has been limited previous exposure to structured technology implementation.
+      Any business considering an AI investment benefits from an assessment before committing budget. It is particularly valuable for founder-led service businesses where operational processes have grown organically, decisions are often informal, and there has been limited previous exposure to structured technology implementation.
     </p>
     <p>
       It is also useful for businesses that have already tried AI tools and found they did not deliver the expected results. In most cases, an honest readiness review reveals that the tools were not the problem.
