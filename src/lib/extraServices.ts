@@ -1,6 +1,6 @@
 // Standalone services offered alongside the six consulting stages.
 // Kept brief on purpose. Shown on the homepage and on /work-with-me.
-export const EXTRA_SERVICES_SECTION_ID = "also-available";
+export const EXTRA_SERVICES_SECTION_ID = "more-ways-we-help";
 
 export const extraServices = [
   {

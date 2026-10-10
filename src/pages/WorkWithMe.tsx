@@ -279,7 +279,7 @@ const WorkWithMe = () => {
                 transition={{ duration: 0.5 }}
                 className="mx-auto flex max-w-4xl flex-col items-center gap-6"
               >
-                <h2 className="font-heading text-3xl sm:text-4xl">Also available</h2>
+                <h2 className="font-heading text-3xl sm:text-4xl">More ways we help</h2>
                 <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2">
                   {extraServices.map((service) => (
                     <div

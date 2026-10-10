@@ -108,7 +108,7 @@ const Services = () => {
 
         {/* Standalone services, separate from the six numbered stages. */}
         <motion.div {...fadeUp} className="flex flex-col gap-4">
-          <p className="eyebrow text-center">Also available</p>
+          <p className="eyebrow text-center">More ways we help</p>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {extraServices.map((service) => (
               <div

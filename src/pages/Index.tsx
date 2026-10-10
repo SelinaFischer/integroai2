@@ -118,6 +118,14 @@ const Index = () => {
           "name": "AI Voice Receptionist",
           "description": "An AI phone assistant that answers business calls 24/7, books appointments, takes messages and hands over to the team when a person is needed."
         }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Website Build",
+          "description": "A clear, modern website for a service business, designed, built and launched for the client."
+        }
       }
     ]
   };
