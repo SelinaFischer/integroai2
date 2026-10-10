@@ -161,19 +161,19 @@ const WorkWithMe = () => {
                     Work With Me
                   </h1>
                   <p className="text-base sm:text-lg text-accent-warm font-medium mb-4">
-                    AI Consulting &amp; Business Operations Advisory for Founder-Led Service Businesses
+                    AI Adoption &amp; Transformation Consultant for Founder-Led Service Businesses
                   </p>
 
                   <p className="text-foreground text-base sm:text-lg font-semibold leading-snug mb-6">
-                    Identify what is slowing the business down, determine where AI can genuinely help, and turn the right opportunities into practical improvements.
+                    Cut firefighting and repetitive work, and reclaim time for the work you love.
                   </p>
 
                   <div className="space-y-4">
                     <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                      IntegroAI works with founders and business leaders to understand how their operations work today, identify where time, cost or control is being lost, and determine where AI can create measurable business value.
+                      I work with you to understand what is slowing your business down and identify where workflow improvements, AI or automation could make the biggest difference.
                     </p>
                     <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                      Every engagement begins with clarity on the business need. From there, the work is scoped around the priorities, complexity and level of support required.
+                      We agree your priorities, scope and measures of success before work begins. Support can include an AI readiness review, workflow analysis, an adoption plan, implementation and team training, depending on what your business needs.
                     </p>
                   </div>
                 </div>
@@ -193,7 +193,7 @@ const WorkWithMe = () => {
                     className="relative text-sm sm:text-base font-semibold bg-card border border-border/50 rounded-xl p-5 sm:p-6 shadow-lg text-center leading-relaxed"
                     style={{ color: "#041B2B" }}
                   >
-                    Work can be scoped around a specific business need or across several stages. Take the outputs forward independently, or continue with IntegroAI where further support adds value.
+                    Start with a specific business challenge or work with me through several stages. Put the recommendations into practice with your own team, or continue working with me for implementation and ongoing support.
                   </p>
                 </div>
               </motion.div>
