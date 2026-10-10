@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import headshot from "@/assets/selina-headshot.webp";
 import { fadeUp } from "@/lib/motion";
 
 const credentials = ["20+ years in product & tech", "AI & data strategy", "Tech practitioner"];
@@ -14,7 +13,7 @@ const Founder = () => {
           <p className="eyebrow">The founder</p>
           <h2 className="section-title">Meet Selina Fischer, independent AI consultant</h2>
           <p className="text-base leading-relaxed text-[#42566A] sm:text-lg">
-            My approach draws on more than 20 years across operations, product, technology and data. Successful AI adoption isn&apos;t about picking the right tool. It depends on clear priorities, the right foundations and an organisation ready to adopt new ways of working.
+            My approach draws on more than 20 years across operations, product, technology and data. Successful AI adoption needs more than the right technology: a strategy aligned with business goals, leadership commitment, reliable data, clear processes and a team ready for change, with agreed KPIs to measure results.
           </p>
           <p className="text-base leading-relaxed text-[#42566A] sm:text-lg">
             I lead every IntegroAI engagement personally, from initial diagnosis through to recommendations and delivery support.
@@ -28,20 +27,9 @@ const Founder = () => {
           {...fadeUp}
           className="flex flex-col gap-[18px] rounded-[20px] border border-brand-sand bg-brand-ivory p-6 sm:p-7"
         >
-          <div className="flex items-center gap-[18px]">
-            <img
-              src={headshot}
-              alt="Selina Fischer, founder of IntegroAI Consulting"
-              width={112}
-              height={112}
-              loading="lazy"
-              decoding="async"
-              className="h-24 w-24 flex-none rounded-full object-cover sm:h-28 sm:w-28"
-            />
-            <div className="flex flex-col gap-0.5">
-              <p className="display text-[28px] font-bold leading-[1.1] text-brand-navy sm:text-[32px]">Selina Fischer</p>
-              <p className="text-[15px] font-semibold text-brand-slate">Founder of IntegroAI Consulting</p>
-            </div>
+          <div className="flex flex-col gap-0.5">
+            <p className="display text-[28px] font-bold leading-[1.1] text-brand-navy sm:text-[32px]">Selina Fischer</p>
+            <p className="text-[15px] font-semibold text-brand-slate">Founder of IntegroAI Consulting</p>
           </div>
 
           <ul className="flex list-none flex-wrap gap-2">
