@@ -197,7 +197,7 @@ const About = () => {
               </motion.div>
 
               <div className="max-w-6xl mx-auto">
-                <div className="grid lg:grid-cols-[auto,1fr] gap-10 lg:gap-16 items-start">
+                <div className="grid lg:grid-cols-[auto,1fr] gap-10 lg:gap-16 items-center">
                   <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -226,40 +226,18 @@ const About = () => {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="space-y-6 text-left self-start"
                   >
-                    <div className="flex flex-wrap justify-start gap-2">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                        20+ Years in Product &amp; Tech
-                      </span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                        AI &amp; Data Strategy
-                      </span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                        Leadership-Led Adoption
-                      </span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                        AI for Founder-Led Service Businesses
-                      </span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                        Tech Practitioner
-                      </span>
-                    </div>
-
                     <div className="space-y-4">
-                      <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                        I have spent more than 20 years across product, technology and operations, turning business needs into practical, working solutions.
+                      <p className="text-muted-foreground text-base sm:text-[17px] leading-relaxed">
+                        Throughout my career in product, technology and operations, I have worked on turning business needs into practical solutions. That taught me to start with three questions: What problem are we solving? Why does it matter? What would a better outcome look like?
                       </p>
-                      <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                        That experience shaped how I think about technology. Whatever you build needs a clear purpose. You need to understand the problem you're solving and why it matters. Without that clarity, even good technology struggles to deliver real value.
+                      <p className="text-muted-foreground text-base sm:text-[17px] leading-relaxed">
+                        Those questions now guide my approach to AI. The possibilities are extensive, but business owners need clarity about where to focus, what to invest in and how to make changes work in practice.
                       </p>
-                      <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                        <span className="font-semibold text-foreground">IntegroAI means integration and growth.</span>{" "}
-                        AI should integrate into how a business already operates and help it grow with intent, rather than sit on top as another disconnected layer.
+                      <p className="text-muted-foreground text-base sm:text-[17px] leading-relaxed">
+                        IntegroAI brings together the ideas of integration and growth. I founded the consultancy to help businesses make AI a useful part of how they work, improving everyday operations and creating capacity for growth.
                       </p>
-                      <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                        I started IntegroAI Consulting to bring that product-led thinking to AI adoption, helping leaders approach AI with clarity, practicality and purpose. My work is supported by hands-on delivery experience across operations, product, technology and data, alongside formal training in AI consulting, implementation, data foundations, and leadership-led technology adoption.
-                      </p>
-                      <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                        I lead every IntegroAI engagement personally, from initial diagnosis through to recommendations and delivery support.
+                      <p className="text-muted-foreground text-base sm:text-[17px] leading-relaxed">
+                        My approach combines product-led thinking and practical technology experience with formal training in AI consulting, data and leadership-led adoption. The aim is straightforward: help founders cut firefighting and repetitive work, and reclaim time for the work they love.
                       </p>
                     </div>
 
