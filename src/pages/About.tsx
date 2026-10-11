@@ -13,29 +13,22 @@ const values = [
   {
     icon: Lightbulb,
     title: "Clarity",
-    description:
-      "We define the problem clearly, set decision boundaries, and agree what success looks like before any AI work begins.",
-    gradient: "from-accent-warm to-amber-400",
+    description: "We define the problem, agree priorities and establish what success looks like before work begins.",
   },
   {
     icon: Shield,
     title: "Integrity",
-    description: "We give honest guidance, including when AI is not the right solution.",
-    gradient: "from-primary to-[#1E4A6E]",
+    description: "We give honest advice, including when AI is not the right solution.",
   },
   {
     icon: Award,
     title: "Practicality",
-    description:
-      "Our recommendations are grounded in real workflows, business priorities, and what it will actually take to implement them.",
-    gradient: "from-accent-warm to-amber-400",
+    description: "We recommend solutions that fit your workflows, resources and business priorities.",
   },
   {
     icon: BarChart3,
     title: "Accountability",
-    description:
-      "Progress is measured through clear ownership, responsible delivery, and tangible business outcomes.",
-    gradient: "from-primary to-[#1E4A6E]",
+    description: "We agree who is responsible for what and measure progress against clear business outcomes.",
   },
 ];
 
@@ -183,11 +176,11 @@ const About = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="group bg-card rounded-2xl p-6 sm:p-7 shadow-sm border border-border/40 hover:shadow-md hover:border-primary/15 hover:-translate-y-1 transition-all duration-500 relative overflow-hidden"
+                      className="bg-card rounded-2xl p-6 sm:p-7 shadow-sm border border-border/40 relative overflow-hidden"
                     >
                       <div className="relative z-10">
-                        <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br ${value.gradient} flex items-center justify-center mb-4 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
-                          <value.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" aria-hidden="true" />
+                        <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-brand-amber sm:h-12 sm:w-12">
+                          <value.icon className="h-5 w-5 text-brand-navy sm:h-[22px] sm:w-[22px]" strokeWidth={2.2} aria-hidden="true" />
                         </div>
                         <h3 className="text-base sm:text-lg font-bold mb-2">{value.title}</h3>
                         <p className="text-muted-foreground text-sm leading-relaxed">{value.description}</p>
