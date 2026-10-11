@@ -25,7 +25,9 @@ jobs:
       - run: npm install --no-audit --no-fund
       - run: npm run build
       - run: echo "integroai.tech" > dist/CNAME
-      - run: cp dist/index.html dist/404.html
+      # The build writes its own 404.html (the plain app shell). Only fall
+      # back to copying the homepage if page generation was skipped.
+      - run: test -f dist/404.html || cp dist/index.html dist/404.html
       - uses: actions/configure-pages@v4
       - uses: actions/upload-pages-artifact@v3
         with:
