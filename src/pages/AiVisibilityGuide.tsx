@@ -103,12 +103,12 @@ const AiVisibilityGuide = () => {
             >
               <img
                 src={cover}
-                alt="Cover of the guide: Does AI know your business exists? By Selina Fischer, IntegroAI Consulting"
+                alt="Cover of the free guide and checklist: Does AI know your business exists? By IntegroAI Consulting"
                 width={720}
                 height={1018}
                 fetchPriority="high"
                 decoding="async"
-                className="h-auto w-[250px] rotate-2 rounded-xl shadow-[14px_14px_0_#FF9900] ring-1 ring-white/15 sm:w-[310px]"
+                className="h-auto w-[250px] rotate-2 rounded-xl shadow-[14px_14px_0_#FF9900] ring-[3px] ring-white/90 sm:w-[310px]"
               />
             </motion.div>
           </div>
@@ -219,7 +219,7 @@ const AiVisibilityGuide = () => {
               </a>
             </div>
             <p className="text-[15px] font-medium text-[#94A3B8]">
-              Written by Selina Fischer, Founder, IntegroAI Consulting
+              A free guide from IntegroAI Consulting
             </p>
           </motion.div>
         </section>

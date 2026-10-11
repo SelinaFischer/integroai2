@@ -27,7 +27,7 @@ const GuideBanner = ({ location, className = "bg-white py-14 sm:py-16" }: GuideB
           height={1018}
           loading="lazy"
           decoding="async"
-          className="h-auto w-[132px] flex-none -rotate-3 rounded-lg shadow-[0_18px_40px_rgba(0,0,0,0.45)] ring-1 ring-white/15 md:w-[150px]"
+          className="h-auto w-[132px] flex-none -rotate-3 rounded-lg shadow-[0_18px_40px_rgba(0,0,0,0.45)] ring-2 ring-white/90 md:w-[150px]"
         />
         <div className="flex flex-1 flex-col gap-2.5">
           <p className="eyebrow">Free guide and checklist</p>
