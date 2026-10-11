@@ -1,11 +1,14 @@
 import { Helmet } from "react-helmet-async";
 import { ClipboardCheck, Search, Target, ShieldCheck, Cog, TrendingUp, ArrowRight, CheckCircle2 } from "lucide-react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import { Button } from "@/components/ui/button";
 import selinaOffice from "@/assets/selina-work-portrait.webp";
+import selinaOffice320 from "@/assets/selina-work-portrait-320.webp";
+import selinaOffice480 from "@/assets/selina-work-portrait-480.webp";
+import selinaOffice640 from "@/assets/selina-work-portrait-640.webp";
 import { EXTRA_SERVICES_SECTION_ID } from "@/lib/extraServices";
 import ExtraServicesList from "@/components/ExtraServicesList";
 
@@ -129,7 +132,7 @@ const WorkWithMe = () => {
           {/* Intro */}
           <section className="pb-12 sm:pb-16 bg-background">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -144,6 +147,8 @@ const WorkWithMe = () => {
                       instead of cropping it off. */}
                   <img
                     src={selinaOffice}
+                    srcSet={`${selinaOffice320} 320w, ${selinaOffice480} 480w, ${selinaOffice640} 640w, ${selinaOffice} 900w`}
+                    sizes="(min-width: 1024px) 320px, (min-width: 640px) 288px, 224px"
                     alt="Selina Fischer, Founder of IntegroAI Consulting"
                     width={288}
                     height={360}
@@ -177,10 +182,10 @@ const WorkWithMe = () => {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
 
               {/* Engagement principle — highly visible */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -196,7 +201,7 @@ const WorkWithMe = () => {
                     Start with a specific business challenge or work with me through several stages. Put the recommendations into practice with your own team, or continue working with me for implementation and ongoing support.
                   </p>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
           </section>
 
@@ -212,7 +217,7 @@ const WorkWithMe = () => {
 
               <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
                 {stages.map((item, index) => (
-                  <motion.article
+                  <m.article
                     key={item.stage}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -310,7 +315,7 @@ const WorkWithMe = () => {
                         </div>
                       </div>
                     )}
-                  </motion.article>
+                  </m.article>
                 ))}
               </div>
             </div>
@@ -319,7 +324,7 @@ const WorkWithMe = () => {
           {/* Standalone services, kept brief on purpose. */}
           <section id={EXTRA_SERVICES_SECTION_ID} className="bg-white py-12 sm:py-14">
             <div className="wrap">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
@@ -336,7 +341,7 @@ const WorkWithMe = () => {
                 >
                   Book a Discovery Call
                 </a>
-              </motion.div>
+              </m.div>
             </div>
           </section>
 
@@ -344,7 +349,7 @@ const WorkWithMe = () => {
           <section className="py-16 sm:py-20 lg:py-24 bg-[#041B2B] relative overflow-hidden">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-accent-warm/10 rounded-full blur-[150px]" />
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
@@ -379,7 +384,7 @@ const WorkWithMe = () => {
                     </a>
                   </Button>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
           </section>
         </main>

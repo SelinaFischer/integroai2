@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import SectionHeader from "./SectionHeader";
 import { fadeUpDelayed } from "@/lib/motion";
 
@@ -40,7 +40,7 @@ const Framework = () => {
 
         <ol className="grid list-none grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
           {steps.map((step, index) => (
-            <motion.li
+            <m.li
               key={step.title}
               {...fadeUpDelayed(index)}
               className="flex flex-col gap-2.5 rounded-3xl border border-brand-sand bg-brand-ivory p-6"
@@ -50,7 +50,7 @@ const Framework = () => {
               </span>
               <h3 className="text-[22px] leading-tight">{step.title}</h3>
               <p className="text-[15px] leading-relaxed text-brand-slate">{step.description}</p>
-            </motion.li>
+            </m.li>
           ))}
         </ol>
       </div>

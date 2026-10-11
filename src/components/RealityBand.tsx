@@ -1,11 +1,11 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { fadeUp } from "@/lib/motion";
 
 // Full-width navy statement band between "Who we work with" and the founder.
 const RealityBand = () => {
   return (
     <section className="bg-brand-navy py-16 sm:py-[76px]">
-      <motion.div
+      <m.div
         {...fadeUp}
         className="mx-auto flex max-w-[980px] flex-col items-center gap-[18px] px-5 text-center sm:px-8"
       >
@@ -18,7 +18,7 @@ const RealityBand = () => {
         <p className="max-w-[720px] text-[17px] leading-relaxed text-brand-mist sm:text-[19px]">
           When foundations are unclear, AI amplifies inefficiency rather than value. That&apos;s why we start with operational clarity before any tools, automation or implementation.
         </p>
-      </motion.div>
+      </m.div>
     </section>
   );
 };

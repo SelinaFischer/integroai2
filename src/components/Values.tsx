@@ -1,5 +1,5 @@
 import { Lightbulb, Shield, Award, BarChart3 } from "lucide-react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import selinaOfficePhoto from "@/assets/selina-office.png";
 
 const Values = () => {
@@ -45,7 +45,7 @@ const Values = () => {
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-10 lg:gap-16 items-start mb-14 sm:mb-16">
 
             {/* Left column: heading + copy + Mission + Vision stacked */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -94,10 +94,10 @@ const Values = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
 
             {/* Right column: image + caption */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -116,13 +116,13 @@ const Values = () => {
               <p className="mt-4 text-xs text-muted-foreground leading-relaxed text-center lg:text-left">
                 Helping business leaders turn operational complexity into confident AI decisions.
               </p>
-            </motion.div>
+            </m.div>
           </div>
 
           {/* ── Values grid — unchanged ── */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {values.map((value, index) => (
-              <motion.div
+              <m.div
                 key={value.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -146,7 +146,7 @@ const Values = () => {
                     {value.description}
                   </p>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>

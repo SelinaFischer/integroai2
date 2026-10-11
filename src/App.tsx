@@ -1,9 +1,6 @@
 import { lazy, Suspense, useEffect, useState } from "react";
-import { PresenceContext } from "framer-motion";
+import { LazyMotion, PresenceContext, domAnimation } from "framer-motion";
 import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import ScrollToTop from "./components/ScrollToTop";
@@ -15,14 +12,18 @@ import BlogPostPage from "./pages/blog/BlogPostPage";
 import BlogPage from "./pages/Blog";
 import WorkWithMe from "./pages/WorkWithMe";
 import About from "./pages/About";
-import Install from "./pages/Install";
 import AiVisibilityGuide from "./pages/AiVisibilityGuide";
 
 // The private stats page brings a large charting library with it.
 // Loading it on demand keeps that out of every visitor's download.
 const AdminStats = lazy(() => import("./pages/AdminStats"));
+// The "install this app" help page is rarely visited, so it loads on demand too.
+const Install = lazy(() => import("./pages/Install"));
 
-const queryClient = new QueryClient();
+// Three libraries the site was loading but never using have been left out to
+// keep pages light: react-query (QueryClientProvider), the second toast system
+// (Sonner) and tooltips (TooltipProvider). If a future feature needs one of
+// them, add its provider back around the app here.
 
 // Tells every animated element whether to play its entrance animation.
 // "blocked" makes elements appear in their finished state straight away.
@@ -44,12 +45,12 @@ const App = ({ skipEntrance = false }: AppProps) => {
   }, []);
 
   return (
+  // LazyMotion loads only the animation features the site uses (fades and
+  // scroll reveals). Animated elements are written as <m.div>, not <motion.div>.
+  <LazyMotion features={domAnimation} strict>
   <PresenceContext.Provider value={firstScreen ? entranceBlocked : entranceAllowed}>
   <HelmetProvider>
-    <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
       <Toaster />
-      <Sonner />
       <BrowserRouter>
         <ScrollToTop />
 
@@ -62,7 +63,7 @@ const App = ({ skipEntrance = false }: AppProps) => {
           <Route path="/ai-visibility-guide" element={<AiVisibilityGuide />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
-          <Route path="/install" element={<Install />} />
+          <Route path="/install" element={<Suspense fallback={null}><Install /></Suspense>} />
           <Route path="/admin/stats" element={<Suspense fallback={null}><AdminStats /></Suspense>} />
           {/* Blog index page */}
           <Route path="/blog" element={<BlogPage />} />
@@ -73,10 +74,9 @@ const App = ({ skipEntrance = false }: AppProps) => {
         </Routes>
         </main>
       </BrowserRouter>
-    </TooltipProvider>
-    </QueryClientProvider>
   </HelmetProvider>
   </PresenceContext.Provider>
+  </LazyMotion>
   );
 };
 

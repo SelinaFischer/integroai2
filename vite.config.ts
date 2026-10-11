@@ -72,7 +72,7 @@ export default defineConfig(({ mode }) => ({
         globPatterns: ["**/*.{js,css,ico,png,svg,woff2}"],
         // The server renderer is only used while pages are being saved at
         // build time (scripts/prerender.mjs). Visitors never need it.
-        globIgnores: ["**/server.browser-*.js", "**/AdminStats-*.js", "og-image.png"],
+        globIgnores: ["**/server.browser-*.js", "**/AdminStats-*.js", "**/Install-*.js", "**/client-*.js", "**/confetti*.js", "og-image.png"],
         navigateFallback: null,
         runtimeCaching: [
           {
@@ -117,6 +117,11 @@ export default defineConfig(({ mode }) => ({
       },
     }),
   ].filter(Boolean),
+  build: {
+    // Source maps let browser tools and speed tests read the code. They are
+    // separate files that ordinary visitors never download.
+    sourcemap: true,
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

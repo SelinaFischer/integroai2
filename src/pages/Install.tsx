@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Smartphone, Share, Plus, MoreVertical, Download, Check, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -19,7 +19,7 @@ const Install = () => {
 
       <main className="min-h-screen bg-background pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -62,7 +62,7 @@ const Install = () => {
             </div>
 
             {/* iOS Instructions */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -107,10 +107,10 @@ const Install = () => {
                   </div>
                 </li>
               </ol>
-            </motion.div>
+            </m.div>
 
             {/* Android Instructions */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -153,7 +153,7 @@ const Install = () => {
                   </div>
                 </li>
               </ol>
-            </motion.div>
+            </m.div>
 
             {/* CTA */}
             <div className="text-center">
@@ -166,7 +166,7 @@ const Install = () => {
                 </Link>
               </Button>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </main>
 

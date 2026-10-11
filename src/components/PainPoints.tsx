@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import SectionHeader from "./SectionHeader";
 import { fadeUpDelayed } from "@/lib/motion";
 
@@ -47,7 +47,7 @@ const PainPoints = () => {
 
         <ol className="grid list-none grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {painPoints.map((point, index) => (
-            <motion.li
+            <m.li
               key={point.title}
               {...fadeUpDelayed(index)}
               className="card-soft flex flex-col gap-2.5 p-[26px]"
@@ -57,7 +57,7 @@ const PainPoints = () => {
               </span>
               <h3 className="text-xl leading-tight">{point.title}</h3>
               <p className="text-base leading-relaxed text-brand-slate">{point.description}</p>
-            </motion.li>
+            </m.li>
           ))}
         </ol>
       </div>

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import SectionHeader from "./SectionHeader";
 import { fadeUpDelayed } from "@/lib/motion";
 
@@ -40,14 +40,14 @@ const WhoWeWorkWith = () => {
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {audiences.map((audience, index) => (
-            <motion.div
+            <m.div
               key={audience.title}
               {...fadeUpDelayed(index)}
               className="card-soft flex flex-col gap-2.5 p-[26px]"
             >
               <h3 className="text-xl leading-tight">{audience.title}</h3>
               <p className="text-base leading-relaxed text-brand-slate">{audience.description}</p>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

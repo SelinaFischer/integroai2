@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
@@ -74,7 +74,7 @@ const AiVisibilityGuide = () => {
         {/* Hero */}
         <section className="overflow-hidden bg-midnight-glow pt-[104px] pb-16 sm:pt-[132px] sm:pb-20 lg:pt-[150px] lg:pb-[88px]">
           <div className="wrap flex flex-col items-center gap-12 lg:flex-row lg:gap-16">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -93,9 +93,9 @@ const AiVisibilityGuide = () => {
               <p className="max-w-[560px] text-[15px] leading-relaxed text-brand-mist">
                 Leave your name and email, and I’ll send you the guide with practical actions and a checklist.
               </p>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15 }}
@@ -105,14 +105,15 @@ const AiVisibilityGuide = () => {
                 eager
                 alt="Cover of the free guide and checklist: Does AI know your business exists? By IntegroAI Consulting"
                 className="w-[250px] rotate-2 sm:w-[310px]"
+                sizes="(min-width: 640px) 310px, 250px"
               />
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* Why this matters */}
         <section className="bg-brand-ivory py-14 sm:py-16">
-          <motion.div {...fadeUp} className="wrap mx-auto flex max-w-[860px] flex-col items-center gap-5 text-center">
+          <m.div {...fadeUp} className="wrap mx-auto flex max-w-[860px] flex-col items-center gap-5 text-center">
             <p className="eyebrow">Why this matters</p>
             <h2 className="section-title">
               When customers ask AI for a business like yours, does yours come up?
@@ -120,51 +121,51 @@ const AiVisibilityGuide = () => {
             <p className="lede">
               People are already turning to AI for recommendations. They ask it to help plan a holiday, decide what to buy or choose a service. More and more, they also ask it to recommend a business.
             </p>
-          </motion.div>
+          </m.div>
         </section>
 
         {/* Find me. Answer me. Recommend me. */}
         <section className="bg-white py-14 sm:py-16">
           <div className="wrap flex flex-col gap-9">
-            <motion.div {...fadeUp} className="mx-auto flex max-w-[820px] flex-col items-center gap-3.5 text-center">
+            <m.div {...fadeUp} className="mx-auto flex max-w-[820px] flex-col items-center gap-3.5 text-center">
               <p className="eyebrow">SEO, AEO and GEO</p>
               <h2 className="section-title">Find me. Answer me. Recommend me.</h2>
               <p className="lede">Three simple things to remember. That’s SEO, AEO and GEO.</p>
-            </motion.div>
+            </m.div>
 
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
               {threeIdeas.map((idea, index) => (
-                <motion.div key={idea.title} {...fadeUpDelayed(index)} className="card-soft flex flex-col gap-2.5 p-7">
+                <m.div key={idea.title} {...fadeUpDelayed(index)} className="card-soft flex flex-col gap-2.5 p-7">
                   <h3 className="display text-[32px] !font-bold leading-[1.08] !text-brand-navy">{idea.title}</h3>
                   <p className="text-xs font-bold uppercase tracking-[0.1em] text-brand-amber">{idea.label}</p>
                   <p className="text-base leading-relaxed text-brand-slate">{idea.text}</p>
-                </motion.div>
+                </m.div>
               ))}
             </div>
 
-            <motion.p
+            <m.p
               {...fadeUp}
               className="mx-auto max-w-[760px] rounded-[20px] bg-brand-cream px-6 py-5 text-center text-base font-semibold leading-relaxed text-brand-navy sm:text-[17px]"
             >
               The good news: you don’t need three different strategies. They work together.
-            </motion.p>
+            </m.p>
           </div>
         </section>
 
         {/* What's inside */}
         <section className="bg-brand-ivory py-14 sm:py-16">
           <div className="wrap flex flex-col gap-9">
-            <motion.div {...fadeUp} className="mx-auto flex max-w-[820px] flex-col items-center gap-3.5 text-center">
+            <m.div {...fadeUp} className="mx-auto flex max-w-[820px] flex-col items-center gap-3.5 text-center">
               <p className="eyebrow">What’s inside</p>
               <h2 className="section-title">Six short sections, each with something you can do this week</h2>
               <p className="lede">
                 This guide shows you how to check whether AI can find, understand and recommend your business, and what to do about it.
               </p>
-            </motion.div>
+            </m.div>
 
             <ol className="grid list-none grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {contents.map((item, index) => (
-                <motion.li
+                <m.li
                   key={item.title}
                   {...fadeUpDelayed(index)}
                   className="flex items-start gap-4 rounded-[20px] border border-brand-sand bg-white p-6"
@@ -176,13 +177,13 @@ const AiVisibilityGuide = () => {
                     <span className="text-lg font-bold leading-snug text-brand-navy">{item.title}</span>
                     <span className="text-[15px] leading-relaxed text-brand-slate">{item.detail}</span>
                   </span>
-                </motion.li>
+                </m.li>
               ))}
             </ol>
 
-            <motion.div {...fadeUp} className="flex justify-center">
+            <m.div {...fadeUp} className="flex justify-center">
               <GuideButton location="guide-page-contents" className="btn-amber group" />
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
@@ -194,7 +195,7 @@ const AiVisibilityGuide = () => {
               "radial-gradient(60% 55% at 50% 22%, rgba(30,74,110,0.5), rgba(30,74,110,0) 70%), #050F1B",
           }}
         >
-          <motion.div
+          <m.div
             {...fadeUp}
             className="mx-auto flex max-w-[900px] flex-col items-center gap-[22px] px-5 text-center sm:px-8"
           >
@@ -217,7 +218,7 @@ const AiVisibilityGuide = () => {
             <p className="text-[15px] font-medium text-[#94A3B8]">
               A free guide from IntegroAI Consulting
             </p>
-          </motion.div>
+          </m.div>
         </section>
       </main>
 

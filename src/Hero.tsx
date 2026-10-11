@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import heroBg from "@/assets/hero-bg.webp";
 
 const Hero = () => {
@@ -39,7 +39,7 @@ const Hero = () => {
       />
 
       {/* Subtle animated accent */}
-      <motion.div
+      <m.div
         className="absolute top-1/3 right-0 w-[600px] h-[600px] bg-accent-warm/10 rounded-full blur-[150px]"
         animate={{
           opacity: [0.1, 0.15, 0.1],
@@ -51,7 +51,7 @@ const Hero = () => {
         <div className="max-w-[660px] text-left lg:mt-8">
 
           {/* Main headline */}
-          <motion.h1
+          <m.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
@@ -60,27 +60,27 @@ const Hero = () => {
             Stop Automating
             <br />
             <span className="text-gradient-gold">Broken Processes.</span>
-          </motion.h1>
+          </m.h1>
 
           {/* Destination outcome line */}
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.18 }}
             className="text-xl sm:text-2xl md:text-3xl text-white/90 max-w-2xl mb-6 sm:mb-8 leading-snug font-medium"
           >
             Find where AI can save time, reduce cost and protect margin before you invest.
-          </motion.p>
+          </m.p>
 
           {/* Supporting value proposition */}
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.24 }}
             className="text-sm sm:text-base text-white/60 max-w-xl mb-10 sm:mb-12 lg:mb-14 leading-relaxed italic"
           >
             Built around your operations, your priorities and measurable ROI.
-          </motion.p>
+          </m.p>
 
           {/* SEO context line */}
           <p className="sr-only">
@@ -91,7 +91,7 @@ const Hero = () => {
           </p>
 
           {/* CTA buttons */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -108,29 +108,29 @@ const Hero = () => {
                 Book a Free Discovery Call
               </a>
             </Button>
-          </motion.div>
+          </m.div>
 
           {/* Process clarity line */}
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
             className="mt-4 text-sm sm:text-base text-[#e5eded] max-w-xl"
           >
             5-minute Assessment → Free Consultation → Clear Next Steps
-          </motion.p>
+          </m.p>
 
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.6 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10"
       >
-        <motion.a
+        <m.a
           href="#services"
           aria-label="Scroll to learn more"
           animate={{ y: [0, 6, 0] }}
@@ -138,8 +138,8 @@ const Hero = () => {
           className="text-white/40 hover:text-white/60 transition-colors"
         >
           <ChevronDown className="w-6 h-6" aria-hidden="true" />
-        </motion.a>
-      </motion.div>
+        </m.a>
+      </m.div>
 
       {/* Bottom wave */}
       <div className="absolute bottom-0 left-0 w-full pointer-events-none leading-none overflow-hidden">

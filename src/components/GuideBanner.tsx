@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Link } from "react-router-dom";
 import GuideCover from "./GuideCover";
 import { fadeUp } from "@/lib/motion";
@@ -16,7 +16,7 @@ type GuideBannerProps = {
 const GuideBanner = ({ location, className = "bg-white py-14 sm:py-16" }: GuideBannerProps) => (
   <section aria-labelledby={`guide-banner-${location}`} className={className}>
     <div className="wrap">
-      <motion.div
+      <m.div
         {...fadeUp}
         className="flex flex-col items-center gap-7 overflow-hidden rounded-[28px] bg-brand-navy px-6 py-9 text-center sm:px-10 md:flex-row md:gap-10 md:text-left"
       >
@@ -39,7 +39,7 @@ const GuideBanner = ({ location, className = "bg-white py-14 sm:py-16" }: GuideB
           Get your free guide
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
         </Link>
-      </motion.div>
+      </m.div>
     </div>
   </section>
 );
