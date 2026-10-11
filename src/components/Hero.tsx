@@ -21,13 +21,13 @@ const Hero = () => {
             Independent AI consultancy for founder-led service businesses
           </p>
 
-          <h1 className="text-[46px] font-semibold leading-none text-white sm:text-[64px] lg:text-[80px]">
+          <h1 className="text-[42px] font-semibold leading-none text-white sm:text-[56px] lg:text-[68px]">
             Stop Automating
             <br />
             <span className="italic text-brand-amber">Broken Processes.</span>
           </h1>
 
-          <p className="max-w-[660px] text-lg leading-normal text-brand-mist sm:text-[21px]">
+          <p className="max-w-[600px] text-[17px] leading-normal text-brand-mist sm:text-[19px]">
             Find where operational firefighting is draining time and capacity. Then prioritise where AI can create real value.
           </p>
 

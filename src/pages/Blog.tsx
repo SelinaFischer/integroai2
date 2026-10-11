@@ -77,10 +77,10 @@ const BlogPage = () => {
               <span className="text-accent-warm font-semibold text-sm tracking-wider uppercase">
                 Blog
               </span>
-              <h1 className="text-4xl lg:text-5xl font-bold text-white mt-3 mb-4">
+              <h1 className="text-4xl lg:text-[44px] font-bold text-white mt-3 mb-4">
                 AI Strategy Insights
               </h1>
-              <p className="text-primary-foreground/70 text-lg max-w-2xl mx-auto">
+              <p className="text-primary-foreground/70 text-[17px] max-w-2xl mx-auto">
                 Practical guidance for business leaders making clearer AI decisions before investing in tools, automation or new systems.
               </p>
             </m.div>

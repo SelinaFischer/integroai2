@@ -27,9 +27,9 @@ const BlogPosts = () => {
                 className="card-soft group flex flex-1 flex-col gap-3 p-7 transition-colors hover:border-brand-amber"
               >
                 <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-brand-slate">{post.category}</p>
-                <h3 className="text-[22px] leading-tight">{post.title}</h3>
-                <p className="line-clamp-3 flex-1 text-base leading-relaxed text-brand-slate">{post.excerpt}</p>
-                <span className="py-2.5 text-base font-bold text-brand-navy underline underline-offset-4 group-hover:decoration-brand-amber">
+                <h3 className="text-[19px] leading-tight">{post.title}</h3>
+                <p className="line-clamp-3 flex-1 text-[15px] leading-relaxed text-brand-slate">{post.excerpt}</p>
+                <span className="py-2.5 text-[15px] font-semibold text-brand-navy underline underline-offset-4 group-hover:decoration-brand-amber">
                   Read article
                 </span>
               </Link>

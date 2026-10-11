@@ -17,12 +17,12 @@ const FinalCTA = () => {
         className="mx-auto flex max-w-[calc(916px+2*var(--gutter))] flex-col items-center gap-[22px] px-gutter text-center"
       >
         <p className="eyebrow">Free AI Readiness Assessment</p>
-        <h2 className="display text-[40px] font-semibold leading-[1.03] text-white sm:text-[58px] lg:text-[76px]">
+        <h2 className="display text-[36px] font-semibold leading-[1.03] text-white sm:text-[50px] lg:text-[62px]">
           Make clearer AI decisions
           <br />
           <span className="italic text-brand-amber">before you invest.</span>
         </h2>
-        <p className="max-w-[720px] text-[17px] leading-relaxed text-brand-mist sm:text-[19px]">
+        <p className="max-w-[660px] text-base leading-relaxed text-brand-mist sm:text-[17px]">
           Identify where operational friction is limiting performance, where AI can create business value, and what the most appropriate next step should be.
         </p>
 

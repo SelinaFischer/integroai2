@@ -17,14 +17,14 @@ const Founder = () => {
             <h2 className="section-title">
               Meet Selina, independent AI consultant
             </h2>
-            <blockquote className="display max-w-[620px] text-2xl font-semibold italic leading-tight text-brand-navy sm:text-[29px] sm:leading-[1.25]">
+            <blockquote className="display max-w-[620px] text-[22px] font-semibold italic leading-tight text-brand-navy sm:text-[26px] sm:leading-[1.25]">
               I help founders cut firefighting and repetitive work, and reclaim time for the work they love.
             </blockquote>
             <span aria-hidden="true" className="h-[3px] w-14 rounded-full bg-brand-amber" />
-            <p className="text-base leading-relaxed text-[#42566A] sm:text-lg">
+            <p className="text-base leading-relaxed text-[#42566A] sm:text-[17px]">
               I bring more than 20 years of experience across operations, product, technology and data. Having also built and run my own business, I understand the pressure of balancing everyday demands with plans for growth.
             </p>
-            <p className="text-base leading-relaxed text-[#42566A] sm:text-lg">
+            <p className="text-base leading-relaxed text-[#42566A] sm:text-[17px]">
               I lead every IntegroAI engagement personally, from understanding your challenges through to recommendations and delivery support.
             </p>
             <Link to={SELINA_STORY_PATH} className="btn-outline-navy mt-2">
