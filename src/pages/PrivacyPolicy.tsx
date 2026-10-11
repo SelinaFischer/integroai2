@@ -28,15 +28,15 @@ const PrivacyPolicy = () => {
               Back to Home
             </Link>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8">Privacy Policy</h1>
+            <h1 className="text-3xl sm:text-4xl mb-6">Privacy Policy</h1>
             
-            <p className="text-muted-foreground mb-8">
+            <p className="text-muted-foreground text-sm mb-8">
               <strong>Last updated:</strong> October 2026
             </p>
 
-            <div className="prose prose-lg max-w-none text-foreground">
-              <section className="mb-10">
-                <h2 className="text-2xl font-bold mb-4">1. Introduction</h2>
+            <div className="max-w-none text-[15px] text-foreground">
+              <section className="mb-8">
+                <h2 className="text-[19px] font-semibold mb-3">1. Introduction</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   IntegroAI Consulting (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website integroai.tech or use our services.
                 </p>
@@ -45,8 +45,8 @@ const PrivacyPolicy = () => {
                 </p>
               </section>
 
-              <section className="mb-10">
-                <h2 className="text-2xl font-bold mb-4">2. Data Controller</h2>
+              <section className="mb-8">
+                <h2 className="text-[19px] font-semibold mb-3">2. Data Controller</h2>
                 <p className="text-muted-foreground leading-relaxed">
                   IntegroAI Consulting is the data controller responsible for your personal data. For any privacy-related inquiries, please contact us at{" "}
                   <a href="mailto:info@integroai.tech" className="text-primary hover:underline">
@@ -55,10 +55,10 @@ const PrivacyPolicy = () => {
                 </p>
               </section>
 
-              <section className="mb-10">
-                <h2 className="text-2xl font-bold mb-4">3. Information We Collect</h2>
+              <section className="mb-8">
+                <h2 className="text-[19px] font-semibold mb-3">3. Information We Collect</h2>
                 
-                <h3 className="text-xl font-semibold mb-3 mt-6">3.1 Information You Provide</h3>
+                <h3 className="text-base font-semibold mb-2 mt-5">3.1 Information You Provide</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   When you use our contact form, we collect:
                 </p>
@@ -70,17 +70,17 @@ const PrivacyPolicy = () => {
                   <li>Message content (your inquiry)</li>
                 </ul>
 
-                <h3 className="text-xl font-semibold mb-3 mt-6">3.2 AI Readiness Assessment</h3>
+                <h3 className="text-base font-semibold mb-2 mt-5">3.2 AI Readiness Assessment</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   When you complete our AI Readiness Assessment, we collect your name, email address, company, phone number if you give it, organisation size, industry, your answers and your score.
                 </p>
 
-                <h3 className="text-xl font-semibold mb-3 mt-6">3.3 Free Guide Sign-Up</h3>
+                <h3 className="text-base font-semibold mb-2 mt-5">3.3 Free Guide Sign-Up</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   When you request our free guide, we collect your email address and name, your business name if you choose to give it, whether you would like a free call, and whether you would like occasional follow-up emails. We only send follow-up emails if you tick the box asking for them.
                 </p>
 
-                <h3 className="text-xl font-semibold mb-3 mt-6">3.4 Automatically Collected Information</h3>
+                <h3 className="text-base font-semibold mb-2 mt-5">3.4 Automatically Collected Information</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   When you visit our website, we may automatically collect certain information including your IP address, browser type, device information, and pages visited. This data is collected to improve our website performance and user experience.
                 </p>
@@ -89,8 +89,8 @@ const PrivacyPolicy = () => {
                 </p>
               </section>
 
-              <section className="mb-10">
-                <h2 className="text-2xl font-bold mb-4">4. How We Use Your Information</h2>
+              <section className="mb-8">
+                <h2 className="text-[19px] font-semibold mb-3">4. How We Use Your Information</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   We use your personal data for the following purposes:
                 </p>
@@ -103,8 +103,8 @@ const PrivacyPolicy = () => {
                 </ul>
               </section>
 
-              <section className="mb-10">
-                <h2 className="text-2xl font-bold mb-4">5. Legal Basis for Processing (GDPR)</h2>
+              <section className="mb-8">
+                <h2 className="text-[19px] font-semibold mb-3">5. Legal Basis for Processing (GDPR)</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   Under GDPR, we process your personal data based on:
                 </p>
@@ -117,8 +117,8 @@ const PrivacyPolicy = () => {
                 </ul>
               </section>
 
-              <section className="mb-10">
-                <h2 className="text-2xl font-bold mb-4">6. Third-Party Services</h2>
+              <section className="mb-8">
+                <h2 className="text-[19px] font-semibold mb-3">6. Third-Party Services</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   We use the following third-party services:
                 </p>
@@ -156,15 +156,15 @@ const PrivacyPolicy = () => {
                 </ul>
               </section>
 
-              <section className="mb-10">
-                <h2 className="text-2xl font-bold mb-4">7. Data Retention</h2>
+              <section className="mb-8">
+                <h2 className="text-[19px] font-semibold mb-3">7. Data Retention</h2>
                 <p className="text-muted-foreground leading-relaxed">
                   We retain your personal data only for as long as necessary to fulfil the purposes for which it was collected, typically no longer than 24 months after your last interaction with us. Contact form data is retained for the duration needed to respond to your inquiry and for a reasonable period thereafter for record-keeping purposes. Assessment results and free guide sign-up details are kept for up to 24 months, or until you ask us to delete them.
                 </p>
               </section>
 
-              <section className="mb-10">
-                <h2 className="text-2xl font-bold mb-4">8. Your Rights Under GDPR</h2>
+              <section className="mb-8">
+                <h2 className="text-[19px] font-semibold mb-3">8. Your Rights Under GDPR</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   You have the following rights regarding your personal data:
                 </p>
@@ -185,29 +185,29 @@ const PrivacyPolicy = () => {
                 </p>
               </section>
 
-              <section className="mb-10">
-                <h2 className="text-2xl font-bold mb-4">9. Data Security</h2>
+              <section className="mb-8">
+                <h2 className="text-[19px] font-semibold mb-3">9. Data Security</h2>
                 <p className="text-muted-foreground leading-relaxed">
                   We implement appropriate technical and organisational measures to protect your personal data against unauthorised access, alteration, disclosure, or destruction. Our website uses HTTPS encryption to secure data transmission.
                 </p>
               </section>
 
-              <section className="mb-10">
-                <h2 className="text-2xl font-bold mb-4">10. International Transfers</h2>
+              <section className="mb-8">
+                <h2 className="text-[19px] font-semibold mb-3">10. International Transfers</h2>
                 <p className="text-muted-foreground leading-relaxed">
                   Your data may be processed by third-party services located outside the European Economic Area (EEA). We ensure that any such transfers comply with GDPR requirements through appropriate safeguards such as Standard Contractual Clauses.
                 </p>
               </section>
 
-              <section className="mb-10">
-                <h2 className="text-2xl font-bold mb-4">11. Changes to This Policy</h2>
+              <section className="mb-8">
+                <h2 className="text-[19px] font-semibold mb-3">11. Changes to This Policy</h2>
                 <p className="text-muted-foreground leading-relaxed">
                   We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the new policy on this page with an updated revision date.
                 </p>
               </section>
 
-              <section className="mb-10">
-                <h2 className="text-2xl font-bold mb-4">12. Contact Us</h2>
+              <section className="mb-8">
+                <h2 className="text-[19px] font-semibold mb-3">12. Contact Us</h2>
                 <p className="text-muted-foreground leading-relaxed">
                   If you have questions about this Privacy Policy or wish to exercise your data protection rights, please contact us at:
                 </p>
