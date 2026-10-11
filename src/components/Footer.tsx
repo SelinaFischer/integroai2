@@ -17,8 +17,8 @@ const Footer = () => {
     { label: "AI Strategy & Prioritisation Roadmap" },
     { label: "AI Foundations & Responsible Adoption" },
     { label: "AI & Automation Implementation" },
-    { label: "AI Voice Receptionist", sectionId: EXTRA_SERVICES_SECTION_ID },
     { label: "Ongoing AI & Operations Advisory" },
+    { label: "AI Voice Receptionist", sectionId: EXTRA_SERVICES_SECTION_ID },
     { label: "Website Design & Build", sectionId: EXTRA_SERVICES_SECTION_ID },
     { label: "AI Search Visibility (AEO & GEO)", sectionId: EXTRA_SERVICES_SECTION_ID },
   ];
