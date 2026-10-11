@@ -16,6 +16,8 @@ export default defineConfig(({ mode }) => ({
     mode === "development" && componentTagger(),
     VitePWA({
       registerType: "autoUpdate",
+      // Load the service worker script without holding up the first paint.
+      injectRegister: "script-defer",
       includeAssets: ["favicon.ico", "apple-touch-icon.png", "favicon-32x32.png"],
       manifest: {
         name: "IntegroAI Consulting",
@@ -68,6 +70,9 @@ export default defineConfig(({ mode }) => ({
         // first (near-instant on GitHub Pages' CDN), falling back to the
         // last-seen cached copy only if the network is unreachable.
         globPatterns: ["**/*.{js,css,ico,png,svg,woff2}"],
+        // The server renderer is only used while pages are being saved at
+        // build time (scripts/prerender.mjs). Visitors never need it.
+        globIgnores: ["**/server.browser-*.js", "**/AdminStats-*.js", "og-image.png"],
         navigateFallback: null,
         runtimeCaching: [
           {

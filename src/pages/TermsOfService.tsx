@@ -10,6 +10,7 @@ const TermsOfService = () => {
     <>
       <Helmet>
         <title>Terms of Service | IntegroAI Consulting</title>
+        <link rel="canonical" href="https://integroai.tech/terms-of-service" />
         <meta 
           name="description" 
           content="Terms of Service for IntegroAI Consulting. Read our terms and conditions for using our AI consulting services and website." 

@@ -1,3 +1,5 @@
+import { lazy, Suspense, useEffect, useState } from "react";
+import { PresenceContext } from "framer-motion";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -13,13 +15,36 @@ import BlogPostPage from "./pages/blog/BlogPostPage";
 import BlogPage from "./pages/Blog";
 import WorkWithMe from "./pages/WorkWithMe";
 import About from "./pages/About";
-import AdminStats from "./pages/AdminStats";
 import Install from "./pages/Install";
 import AiVisibilityGuide from "./pages/AiVisibilityGuide";
 
+// The private stats page brings a large charting library with it.
+// Loading it on demand keeps that out of every visitor's download.
+const AdminStats = lazy(() => import("./pages/AdminStats"));
+
 const queryClient = new QueryClient();
 
-const App = () => (
+// Tells every animated element whether to play its entrance animation.
+// "blocked" makes elements appear in their finished state straight away.
+const entranceBlocked = { id: "saved-page", isPresent: true, initial: false as const, register: () => () => {} };
+const entranceAllowed = { id: "saved-page", isPresent: true, register: () => () => {} };
+
+interface AppProps {
+  /** True when the page was saved as HTML at build time (see src/main.tsx). */
+  skipEntrance?: boolean;
+}
+
+const App = ({ skipEntrance = false }: AppProps) => {
+  // The first screen of a saved page is already on show, so it must not fade
+  // in a second time. Once it has started, animations run as normal: later
+  // pages and anything that opens afterwards animate in as designed.
+  const [firstScreen, setFirstScreen] = useState(skipEntrance);
+  useEffect(() => {
+    setFirstScreen(false);
+  }, []);
+
+  return (
+  <PresenceContext.Provider value={firstScreen ? entranceBlocked : entranceAllowed}>
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -38,7 +63,7 @@ const App = () => (
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/install" element={<Install />} />
-          <Route path="/admin/stats" element={<AdminStats />} />
+          <Route path="/admin/stats" element={<Suspense fallback={null}><AdminStats /></Suspense>} />
           {/* Blog index page */}
           <Route path="/blog" element={<BlogPage />} />
           {/* Data-driven blog — handles all articles in blogData.tsx automatically */}
@@ -51,6 +76,8 @@ const App = () => (
     </TooltipProvider>
     </QueryClientProvider>
   </HelmetProvider>
-);
+  </PresenceContext.Provider>
+  );
+};
 
 export default App;

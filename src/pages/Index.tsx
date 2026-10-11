@@ -156,6 +156,7 @@ const Index = () => {
   return (
     <>
       <Helmet>
+        <link rel="canonical" href="https://integroai.tech/" />
         <script type="application/ld+json">
           {JSON.stringify(localBusinessSchema)}
         </script>

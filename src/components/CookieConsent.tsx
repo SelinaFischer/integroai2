@@ -62,7 +62,7 @@ const CookieConsent = () => {
                     to="/privacy-policy" 
                     className="text-accent-warm hover:underline font-medium"
                   >
-                    Learn more
+                    Read our privacy policy
                   </Link>
                 </p>
               </div>
