@@ -9,7 +9,7 @@ const Founder = () => {
       <div className="wrap">
         <motion.div
           {...fadeUp}
-          className="rounded-[28px] border border-brand-chip bg-brand-cream px-6 py-10 sm:px-12 sm:py-14"
+          className="rounded-[28px] border border-brand-sand bg-brand-cream px-6 py-10 sm:px-12 sm:py-14"
         >
           <div className="mx-auto flex max-w-[780px] flex-col items-center gap-4 text-center">
             <p className="eyebrow">The founder</p>

@@ -16,7 +16,7 @@
   :root {
     /* Brand palette: navy + amber on warm neutrals.
        Navy #041B2B · Midnight #050F1B · Amber #FF9900 · Ink #0E273A
-       Ivory #FBF7F1 · Cream #FFF8EE · Sand #EDE5D8 · Slate #4A6080 */
+       Ivory #FBF7F1 · Light sand #F5EFE4 · Sand #E9E1D3 · Slate #4A6080 */
     --background: 0 0% 100%;
     --foreground: 205 83% 9%;
 
@@ -33,8 +33,8 @@
     --primary: 205 83% 9%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary: cream #FFF8EE */
-    --secondary: 35 100% 97%;
+    /* Secondary: light sand #F5EFE4 */
+    --secondary: 39 46% 93%;
     --secondary-foreground: 205 83% 9%;
 
     /* Muted: warm ivory #FBF7F1, slate text #4A6080 */
@@ -55,9 +55,9 @@
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    /* Sand #EDE5D8 */
-    --border: 37 37% 89%;
-    --input: 37 37% 89%;
+    /* Sand #E9E1D3 */
+    --border: 38 33% 87%;
+    --input: 38 33% 87%;
     --ring: 205 83% 9%;
 
     --radius: 0.875rem;
@@ -81,7 +81,7 @@
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 36 56% 96%;
     --sidebar-accent-foreground: 205 83% 9%;
-    --sidebar-border: 37 37% 89%;
+    --sidebar-border: 38 33% 87%;
     --sidebar-ring: 205 83% 9%;
   }
 

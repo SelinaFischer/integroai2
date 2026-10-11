@@ -115,7 +115,7 @@ const AssessmentSection = () => {
             ))}
           </div>
 
-          <div className="flex flex-col gap-1.5 rounded-[14px] border border-[#FFDDA6] bg-brand-cream px-[18px] py-4">
+          <div className="flex flex-col gap-1.5 rounded-[14px] border border-brand-sand bg-brand-cream px-[18px] py-4">
             <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-brand-slate">Priority focus</p>
             <p className="text-[17px] font-bold text-brand-navy">Operational Visibility</p>
             <p className="text-[15px] leading-normal text-brand-slate">
