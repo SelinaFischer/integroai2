@@ -20,9 +20,9 @@ const ExtraServicesList = () => (
         >
           <div className="flex items-center gap-3.5">
             <span className="flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-brand-chip text-brand-navy">
-              <Icon className="h-5 w-5" strokeWidth={2} aria-hidden="true" />
+              <Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden="true" />
             </span>
-            <h3 className="text-xl leading-tight" itemProp="name">
+            <h3 className="text-[19px] font-medium leading-snug tracking-[-0.01em]" itemProp="name">
               {service.title}
             </h3>
           </div>
@@ -34,10 +34,10 @@ const ExtraServicesList = () => (
               <Link
                 to={service.link.to}
                 onClick={() => trackGuideClick("visibility-service")}
-                className="flex w-fit items-center gap-1.5 text-[15px] font-bold text-brand-navy underline decoration-brand-amber decoration-2 underline-offset-4"
+                className="flex w-fit items-center gap-1.5 text-[15px] font-semibold text-brand-navy underline decoration-brand-amber decoration-[1.5px] underline-offset-4"
               >
                 {service.link.label}
-                <ArrowRight className="h-4 w-4 flex-none" strokeWidth={2.6} aria-hidden="true" />
+                <ArrowRight className="h-4 w-4 flex-none" strokeWidth={2.2} aria-hidden="true" />
               </Link>
             )}
           </div>

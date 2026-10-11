@@ -77,9 +77,9 @@ const Services = () => {
         />
 
         {/* The six stages drawn as one route with six stops, grouped into the
-            three service areas. On desktop the amber line runs left to right
-            through every stop; on tablet and mobile each area shows its two
-            stops joined top to bottom. Each area shares the same two rows through CSS
+            three service areas. On desktop each stop sits centred over its name
+            and the amber line runs from the first stop to the last, no further;
+            on tablet and mobile each area shows its two stops joined top to bottom. Each area shares the same two rows through CSS
             subgrid, so the line stays level however the text above it wraps. */}
         <m.div {...fadeUp} className="rounded-3xl bg-brand-navy px-6 py-8 sm:px-9 sm:py-10">
           <ol className="grid list-none grid-cols-1 gap-y-9 md:grid-cols-3 md:gap-y-7">
@@ -88,32 +88,33 @@ const Services = () => {
                 key={group.title}
                 className="flex flex-col gap-5 md:row-span-2 md:grid md:grid-rows-subgrid md:gap-y-7"
               >
-                <div className="flex flex-col gap-2 md:pr-8">
+                <div className="flex flex-col gap-2 md:pr-8 lg:px-5 lg:text-center">
                   <h3 className="text-[19px] font-medium leading-snug tracking-[-0.01em] !text-white">{group.title}</h3>
                   <p className="text-[15px] leading-relaxed text-brand-mist">{group.summary}</p>
                 </div>
 
                 <ol className="grid list-none grid-cols-1 lg:grid-cols-2" role="list">
                   {group.stages.map((stage, stageIndex) => {
-                    const isFirstStop = groupIndex === 0 && stageIndex === 0;
                     const isLastInGroup = stageIndex === group.stages.length - 1;
+                    const isLastStop = isLastInGroup && groupIndex === serviceGroups.length - 1;
                     return (
                       <li
                         key={stage.number}
-                        className="relative flex gap-3.5 pb-5 last:pb-0 lg:flex-col lg:gap-3 lg:pb-0 lg:pr-5"
+                        className="relative flex gap-3.5 pb-5 last:pb-0 md:pr-5 lg:flex-col lg:items-center lg:gap-3 lg:px-2.5 lg:pb-0 lg:text-center"
                         itemScope
                         itemType="https://schema.org/Service"
                         itemProp="itemListElement"
                       >
-                        {/* Route line: top to bottom on mobile, left to right on desktop. */}
-                        <span
-                          aria-hidden="true"
-                          className={`absolute bg-brand-amber ${
-                            isLastInGroup ? "hidden lg:block" : "left-[15px] top-0 h-full w-0.5"
-                          } lg:top-[15px] lg:h-0.5 ${
-                            isFirstStop ? "lg:left-4 lg:w-[calc(100%-16px)]" : "lg:left-0 lg:w-full"
-                          }`}
-                        />
+                        {/* Route line: top to bottom on mobile; on desktop from the centre
+                            of this stop to the centre of the next. Nothing after the last stop. */}
+                        {!isLastStop && (
+                          <span
+                            aria-hidden="true"
+                            className={`absolute bg-brand-amber ${
+                              isLastInGroup ? "hidden lg:block" : "left-[15px] top-0 h-full w-0.5"
+                            } lg:left-1/2 lg:top-[15px] lg:h-0.5 lg:w-full`}
+                          />
+                        )}
                         <span
                           aria-hidden="true"
                           className="relative z-10 flex h-8 w-8 flex-none items-center justify-center rounded-full bg-brand-amber text-xs font-semibold text-brand-navy ring-4 ring-brand-navy"
