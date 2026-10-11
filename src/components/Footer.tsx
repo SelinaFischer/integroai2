@@ -7,7 +7,7 @@ import Tagline from "./Tagline";
 import { ASSESSMENT_URL } from "@/lib/motion";
 import { scrollToSection } from "@/lib/scrollToSection";
 import { EXTRA_SERVICES_SECTION_ID } from "@/lib/extraServices";
-import { GUIDE_PAGE_PATH } from "@/lib/guide";
+import { GUIDE_FORM_URL, trackGuideClick } from "@/lib/guide";
 import { openCookieSettings } from "./CookieConsent";
 
 const Footer = () => {
@@ -29,7 +29,6 @@ const Footer = () => {
     { to: "/work-with-me", label: "Work With Me" },
     { to: "/about", label: "About" },
     { to: "/blog", label: "Blog" },
-    { to: GUIDE_PAGE_PATH, label: "Free AI Visibility Guide" },
   ];
 
   const headingClass = "mb-2 text-xs font-bold uppercase tracking-[0.14em] text-brand-navy";
@@ -89,6 +88,17 @@ const Footer = () => {
                   </Link>
                 </li>
               ))}
+              <li>
+                <a
+                  href={GUIDE_FORM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackGuideClick("footer")}
+                  className={linkClass}
+                >
+                  Free AI Visibility Guide
+                </a>
+              </li>
               <li>
                 <a href={ASSESSMENT_URL} target="_blank" rel="noopener noreferrer" className={linkClass}>
                   AI Readiness Assessment
