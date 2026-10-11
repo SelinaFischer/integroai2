@@ -24,7 +24,7 @@ const WhyIntegroAI = () => {
         <SectionHeader
           eyebrow="Why IntegroAI"
           title="Why choose an independent AI consultant?"
-          intro="Most AI advice starts with tools. We find the right problem before you pay for the solution."
+          intro="Most AI advice starts with tools. We start with your business, identifying what needs to improve before you invest in a solution."
         />
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
