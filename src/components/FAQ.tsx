@@ -81,10 +81,10 @@ const FAQ = () => {
           <SectionHeader eyebrow="Frequently asked questions" title="AI consulting questions, answered" />
 
           <m.div {...fadeUp}>
+            {/* Every question starts closed. One opens at a time. */}
             <Accordion.Root
               type="single"
               collapsible
-              defaultValue="item-0"
               className="grid grid-cols-1 items-start gap-3 lg:grid-cols-2"
             >
               {/* Two independent columns, so opening an answer on one side
