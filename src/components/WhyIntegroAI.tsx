@@ -1,88 +1,98 @@
-import { Compass, ShieldCheck, SlidersHorizontal, Layers, Users, Target } from "lucide-react";
+import { Check, X } from "lucide-react";
 import { motion } from "framer-motion";
+import SectionHeader from "./SectionHeader";
+import { ASSESSMENT_URL, DISCOVERY_CALL_URL, fadeUp } from "@/lib/motion";
 
-const differentiators = [
-  {
-    icon: Compass,
-    title: "AI decisions grounded in business priorities",
-    description:
-      "We begin by understanding your operational priorities, workflows and constraints before determining where AI or automation can create meaningful value.",
-    gradient: "from-accent-warm to-amber-400",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Independent, technology-agnostic advice",
-    description:
-      "Recommendations are shaped around what is right for your business, without preference for a particular vendor, platform or predefined solution.",
-    gradient: "from-primary to-cyan-600",
-  },
-  {
-    icon: SlidersHorizontal,
-    title: "Flexible, tailored engagements",
-    description:
-      "Every engagement reflects your priorities, operational maturity, existing systems and pace of change.",
-    gradient: "from-accent-warm to-amber-400",
-  },
-  {
-    icon: Layers,
-    title: "An integrated business and AI perspective",
-    description:
-      "We consider workflows, processes, data, systems, people and accountability together, rather than treating AI as a standalone technology initiative.",
-    gradient: "from-primary to-cyan-600",
-  },
-  {
-    icon: Users,
-    title: "Human-led adoption",
-    description:
-      "AI should strengthen capability and decision-making while preserving appropriate human oversight, accountability and control.",
-    gradient: "from-accent-warm to-amber-400",
-  },
-  {
-    icon: Target,
-    title: "Focused on measurable business value",
-    description:
-      "The objective is not AI adoption for its own sake. It is to reduce unnecessary work, strengthen operational control and improve business performance.",
-    gradient: "from-primary to-cyan-600",
-  },
+const wrongApproach = [
+  "The tool arrives before the problem is understood",
+  "The team works around it",
+  "Months later, the friction is still there",
+  "Plus a new subscription to pay for",
+];
+
+const whatWeDo = [
+  "Clarity before you spend, so your budget goes on the right problem",
+  "A plan built with the people who do the work",
+  "Ready before launch, supported after",
+  "People stay in control of the decisions that matter",
 ];
 
 const WhyIntegroAI = () => {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-muted/30 relative overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="why-integroai" className="bg-brand-ivory py-14 sm:py-16">
+      <div className="wrap flex flex-col gap-8">
+        <SectionHeader
+          eyebrow="Why IntegroAI"
+          title="Why choose an independent AI consultant?"
+          intro="Most AI advice starts with tools. We start with your business, identifying what needs to improve before you invest in a solution."
+        />
+
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <motion.div
+            {...fadeUp}
+            className="flex flex-col gap-3.5 rounded-[20px] border border-brand-sand bg-white p-6 sm:p-[30px]"
+          >
+            <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-slate">The wrong approach</p>
+            <h3 className="display text-[30px] !font-bold leading-[1.08] !text-brand-slate sm:text-4xl">
+              Tool-led AI adoption
+            </h3>
+            <ul className="flex list-none flex-col gap-2.5 text-base text-brand-slate">
+              {wrongApproach.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <X className="mt-[3px] h-5 w-5 flex-none text-[#7B8A99]" strokeWidth={2.6} aria-hidden="true" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          <motion.div
+            {...fadeUp}
+            className="flex flex-col gap-3.5 rounded-[20px] border-2 border-brand-amber bg-white p-[23px] sm:p-[29px]"
+          >
+            <p className="self-start rounded-full bg-brand-amber px-3 py-[5px] text-xs font-bold uppercase tracking-[0.14em] text-brand-navy">
+              What we do
+            </p>
+            <h3 className="display text-[30px] !font-bold leading-[1.08] !text-brand-navy sm:text-4xl">
+              Business-led AI strategy
+            </h3>
+            <ul className="flex list-none flex-col gap-2.5 text-base font-medium text-brand-navy">
+              {whatWeDo.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <Check className="mt-[3px] h-5 w-5 flex-none text-brand-amber" strokeWidth={3} aria-hidden="true" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        </div>
+
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto text-center mb-10 sm:mb-14"
+          {...fadeUp}
+          className="flex flex-col gap-x-7 gap-y-2.5 rounded-[20px] bg-brand-navy px-6 py-7 sm:px-8 lg:flex-row lg:items-center"
         >
-          <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-3 px-3 py-1 bg-accent-warm/10 rounded-full">
-            Why IntegroAI
-          </span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-4">Why IntegroAI?</h2>
+          <p className="eyebrow flex-none">The result</p>
+          <p className="display flex-none text-[30px] font-semibold leading-[1.08] text-white sm:text-4xl">
+            Measurable business value from AI.
+          </p>
+          <p className="text-base text-brand-mist lg:flex-1">
+            Less firefighting. Less manual work. More operational control. Time and capacity to grow.
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 max-w-6xl mx-auto">
-          {differentiators.map((item, index) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="group bg-card rounded-2xl p-6 sm:p-7 shadow-sm border border-border/40 hover:shadow-md hover:border-primary/15 hover:-translate-y-1 transition-all duration-500 relative overflow-hidden"
-            >
-              <div className="relative z-10">
-                <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-4 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
-                  <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" aria-hidden="true" />
-                </div>
-                <h3 className="text-base sm:text-lg font-bold mb-2">{item.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <motion.div {...fadeUp} className="flex flex-col justify-center gap-3.5 sm:flex-row">
+          <a href={ASSESSMENT_URL} target="_blank" rel="noopener noreferrer" className="btn-amber">
+            Start the free assessment
+          </a>
+          <a
+            href={DISCOVERY_CALL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-outline-navy"
+          >
+            Book a Discovery Call
+          </a>
+        </motion.div>
       </div>
     </section>
   );

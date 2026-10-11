@@ -14,8 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Montserrat', 'system-ui', 'sans-serif'],
-        heading: ['Montserrat', 'system-ui', 'sans-serif'],
+        sans: ['"Instrument Sans"', 'system-ui', 'sans-serif'],
+        heading: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -24,6 +25,19 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         nav: "hsl(var(--nav-bg))",
+        brand: {
+          navy: "#041B2B",
+          midnight: "#050F1B",
+          ink: "#0E273A",
+          amber: "#FF9900",
+          ivory: "#FBF7F1",
+          cream: "#F5EFE4",
+          sand: "#E9E1D3",
+          track: "#EFE8DC",
+          chip: "#FFE9C2",
+          slate: "#4A6080",
+          mist: "#CBD5E1",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

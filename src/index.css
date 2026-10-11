@@ -1,4 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+/* Fonts are self-hosted (no request to Google). Cormorant Garamond for
+   headlines, Instrument Sans for everything else. */
+@import "@fontsource/cormorant-garamond/latin-600.css";
+@import "@fontsource/cormorant-garamond/latin-700.css";
+@import "@fontsource/cormorant-garamond/latin-600-italic.css";
+@import "@fontsource/instrument-sans/latin-400.css";
+@import "@fontsource/instrument-sans/latin-500.css";
+@import "@fontsource/instrument-sans/latin-600.css";
+@import "@fontsource/instrument-sans/latin-700.css";
 
 @tailwind base;
 @tailwind components;
@@ -6,114 +14,114 @@
 
 @layer base {
   :root {
-    /* Brand Colors - Professional Deep Teal Palette */
+    /* Brand palette: navy + amber on warm neutrals.
+       Navy #041B2B · Midnight #050F1B · Amber #FF9900 · Ink #0E273A
+       Ivory #FBF7F1 · Light sand #F5EFE4 · Sand #E9E1D3 · Slate #4A6080 */
     --background: 0 0% 100%;
-    --foreground: 210 11% 15%;
-    
-    /* Navigation background - dark navy */
-    --nav-bg: 214 55% 10%;
+    --foreground: 205 83% 9%;
+
+    /* Dark surfaces (cookie banner etc.) */
+    --nav-bg: 205 83% 9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 11% 15%;
+    --card-foreground: 205 83% 9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 11% 15%;
+    --popover-foreground: 205 83% 9%;
 
-    /* Primary: Deep professional teal #012f46 */
-    --primary: 197 97% 14%;
+    /* Primary: navy #041B2B */
+    --primary: 205 83% 9%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary: Cool gray-blue */
-    --secondary: 200 15% 94%;
-    --secondary-foreground: 210 11% 15%;
+    /* Secondary: light sand #F5EFE4 */
+    --secondary: 39 46% 93%;
+    --secondary-foreground: 205 83% 9%;
 
-    /* Muted */
-    --muted: 210 14% 96%;
-    --muted-foreground: 215 14% 45%;
+    /* Muted: warm ivory #FBF7F1, slate text #4A6080 */
+    --muted: 36 56% 96%;
+    --muted-foreground: 216 27% 40%;
 
-    /* Accent: Premium gold/amber #d4a853 */
-    --accent: 40 58% 58%;
-    --accent-foreground: 210 11% 15%;
+    /* Accent: amber #FF9900. Text on amber is always navy. */
+    --accent: 36 100% 50%;
+    --accent-foreground: 205 83% 9%;
 
-    /* Accent warm: Rich gold */
-    --accent-warm: 38 70% 50%;
-    --accent-warm-foreground: 0 0% 100%;
+    --accent-warm: 36 100% 50%;
+    --accent-warm-foreground: 205 83% 9%;
 
-    /* Accent teal: matches primary */
-    --accent-teal: 197 97% 14%;
+    /* Kept for older class names: matches primary */
+    --accent-teal: 205 83% 9%;
     --accent-teal-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 20% 90%;
-    --input: 214 20% 90%;
-    --ring: 197 97% 14%;
+    /* Sand #E9E1D3 */
+    --border: 38 33% 87%;
+    --input: 38 33% 87%;
+    --ring: 205 83% 9%;
 
-    --radius: 0.625rem;
+    --radius: 0.875rem;
 
-    /* Premium gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(197 97% 8%) 0%, hsl(197 80% 16%) 50%, hsl(200 60% 22%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(38 70% 50%) 0%, hsl(45 80% 55%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 20% 98%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 20% 99%) 100%);
+    --gradient-hero: radial-gradient(70% 60% at 50% 18%, rgba(30, 74, 110, 0.55), rgba(30, 74, 110, 0) 70%), #050F1B;
+    --gradient-accent: linear-gradient(135deg, #FF9900 0%, #FFB13D 100%);
+    --gradient-subtle: linear-gradient(180deg, #FBF7F1 0%, #FBF7F1 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(36 56% 99%) 100%);
     --gradient-glass: linear-gradient(135deg, hsla(0, 0%, 100%, 0.9) 0%, hsla(0, 0%, 100%, 0.7) 100%);
 
-    /* Enhanced shadows for depth */
-    --shadow-sm: 0 1px 2px 0 hsl(197 97% 14% / 0.04);
-    --shadow-md: 0 4px 12px -2px hsl(197 97% 14% / 0.08), 0 2px 4px -2px hsl(197 97% 14% / 0.04);
-    --shadow-lg: 0 12px 24px -4px hsl(197 97% 14% / 0.12), 0 4px 8px -4px hsl(197 97% 14% / 0.06);
-    --shadow-xl: 0 24px 48px -8px hsl(197 97% 14% / 0.16), 0 12px 16px -8px hsl(197 97% 14% / 0.08);
-    --shadow-glow: 0 0 48px hsl(38 70% 50% / 0.2);
-    --shadow-glow-primary: 0 0 40px hsl(197 97% 14% / 0.25);
+    --shadow-sm: 0 1px 2px 0 rgba(4, 27, 43, 0.04);
+    --shadow-md: 0 1px 2px rgba(4, 27, 43, 0.04), 0 4px 10px rgba(4, 27, 43, 0.04);
+    --shadow-lg: 0 1px 2px rgba(4, 27, 43, 0.04), 0 12px 28px rgba(4, 27, 43, 0.08);
+    --shadow-xl: 0 24px 48px -8px rgba(4, 27, 43, 0.16), 0 12px 16px -8px rgba(4, 27, 43, 0.08);
+    --shadow-glow: 0 0 48px rgba(255, 153, 0, 0.2);
+    --shadow-glow-primary: 0 0 40px rgba(4, 27, 43, 0.25);
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 210 11% 15%;
-    --sidebar-primary: 197 97% 14%;
+    --sidebar-background: 36 56% 96%;
+    --sidebar-foreground: 205 83% 9%;
+    --sidebar-primary: 205 83% 9%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 210 14% 96%;
-    --sidebar-accent-foreground: 210 11% 15%;
-    --sidebar-border: 214 20% 90%;
-    --sidebar-ring: 197 97% 14%;
+    --sidebar-accent: 36 56% 96%;
+    --sidebar-accent-foreground: 205 83% 9%;
+    --sidebar-border: 38 33% 87%;
+    --sidebar-ring: 205 83% 9%;
   }
 
   .dark {
-    --background: 197 97% 6%;
+    --background: 213 69% 6%;
     --foreground: 0 0% 98%;
 
-    --card: 197 80% 10%;
+    --card: 205 83% 9%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 197 80% 10%;
+    --popover: 205 83% 9%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 38 70% 50%;
-    --primary-foreground: 197 97% 8%;
+    --primary: 36 100% 50%;
+    --primary-foreground: 205 83% 9%;
 
-    --secondary: 197 50% 16%;
+    --secondary: 206 61% 14%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 197 50% 16%;
-    --muted-foreground: 200 20% 65%;
+    --muted: 206 61% 14%;
+    --muted-foreground: 213 27% 84%;
 
-    --accent: 38 70% 50%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 36 100% 50%;
+    --accent-foreground: 205 83% 9%;
 
     --destructive: 0 62% 30%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 197 50% 18%;
-    --input: 197 50% 18%;
-    --ring: 38 70% 50%;
+    --border: 206 45% 20%;
+    --input: 206 45% 20%;
+    --ring: 36 100% 50%;
 
-    --sidebar-background: 197 97% 6%;
+    --sidebar-background: 213 69% 6%;
     --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 38 70% 50%;
-    --sidebar-primary-foreground: 197 97% 8%;
-    --sidebar-accent: 197 50% 12%;
+    --sidebar-primary: 36 100% 50%;
+    --sidebar-primary-foreground: 205 83% 9%;
+    --sidebar-accent: 206 61% 14%;
     --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 197 50% 18%;
-    --sidebar-ring: 38 70% 50%;
+    --sidebar-border: 206 45% 20%;
+    --sidebar-ring: 36 100% 50%;
   }
 }
 
@@ -136,7 +144,7 @@
   a:focus-visible,
   button:focus-visible,
   [role="button"]:focus-visible {
-    @apply outline-none ring-2 ring-accent-warm ring-offset-2 ring-offset-background rounded-sm;
+    @apply outline-none ring-2 ring-accent-warm ring-offset-2 ring-offset-background;
   }
 
   /* Focus styles for form inputs */
@@ -148,29 +156,87 @@
 
   body {
     @apply bg-background text-foreground antialiased overflow-x-hidden;
-    font-family: 'Montserrat', system-ui, sans-serif;
-    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    font-family: 'Instrument Sans', system-ui, sans-serif;
   }
 
   html {
     overflow-x: hidden;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', system-ui, sans-serif;
-    @apply tracking-tight font-bold text-foreground;
-  }
-
+  /* Page headlines (h1) use Cormorant Garamond. Everything else defaults to
+     Instrument Sans; section headlines opt in to the serif with the
+     .section-title, .display or font-heading classes. */
   h1 {
-    @apply font-extrabold;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    color: #0E273A;
+    /* Lining figures so a "1" never reads as a capital "I" */
+    font-variant-numeric: lining-nums;
+    text-wrap: balance;
   }
 
-  h2 {
-    @apply font-bold;
+  h2, h3, h4, h5, h6 {
+    font-family: 'Instrument Sans', system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    color: #0E273A;
   }
 }
 
 @layer components {
+  /* ── Homepage design system ─────────────────────────────────────────── */
+  .wrap {
+    @apply mx-auto w-full max-w-[1160px] px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.14em] text-brand-amber;
+  }
+
+  .display,
+  .font-heading {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-variant-numeric: lining-nums;
+    text-wrap: balance;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-variant-numeric: lining-nums;
+    text-wrap: balance;
+    @apply text-[34px] leading-[1.08] font-semibold text-brand-ink sm:text-[44px] lg:text-[54px];
+  }
+
+  .lede {
+    @apply text-base leading-relaxed text-brand-slate sm:text-lg;
+  }
+
+  .card-soft {
+    @apply rounded-3xl border border-brand-sand bg-white;
+    box-shadow: var(--shadow-md);
+  }
+
+  .num-chip {
+    @apply self-start rounded-lg bg-brand-chip px-[9px] py-[3px] text-sm font-bold text-brand-navy;
+  }
+
+  .btn-amber {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-amber px-6 py-[13px] text-base font-semibold leading-tight text-brand-navy transition-colors duration-200 hover:bg-[#FFAA2B];
+  }
+
+  .btn-outline-navy {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-[1.5px] border-brand-navy px-6 py-[11.5px] text-base font-semibold leading-tight text-brand-navy transition-colors duration-200 hover:bg-brand-navy hover:text-white;
+  }
+
+  .btn-outline-light {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-[1.5px] border-white/50 px-6 py-[11.5px] text-base font-semibold leading-tight text-white transition-colors duration-200 hover:border-white hover:bg-white/10;
+  }
+
+  .bg-midnight-glow {
+    background: var(--gradient-hero);
+  }
+
   .text-gradient {
     @apply bg-clip-text text-transparent;
     background-image: var(--gradient-accent);
@@ -178,18 +244,18 @@
 
   .text-gradient-gold {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(38 70% 50%) 0%, hsl(45 85% 60%) 50%, hsl(38 70% 50%) 100%);
+    background-image: linear-gradient(135deg, #FF9900 0%, #FFB13D 50%, #FF9900 100%);
   }
 
   /* Gold text shimmer animation */
   .text-shimmer-gold {
     background-image: linear-gradient(
       90deg,
-      hsl(38 70% 50%) 0%,
-      hsl(45 85% 70%) 25%,
-      hsl(50 90% 75%) 50%,
-      hsl(45 85% 70%) 75%,
-      hsl(38 70% 50%) 100%
+      #FF9900 0%,
+      #FFB13D 25%,
+      #FFC56B 50%,
+      #FFB13D 75%,
+      #FF9900 100%
     );
     background-size: 200% 100%;
     -webkit-background-clip: text;

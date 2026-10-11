@@ -1,144 +1,65 @@
-import { AlertTriangle, Users, Database, GraduationCap, Target, Lightbulb } from "lucide-react";
 import { motion } from "framer-motion";
+import SectionHeader from "./SectionHeader";
+import { fadeUpDelayed } from "@/lib/motion";
+
+const painPoints = [
+  {
+    title: "Unclear leadership ownership",
+    description:
+      "AI initiatives lose momentum when sponsorship, accountability, and decision ownership are not clearly defined.",
+  },
+  {
+    title: "Competing priorities",
+    description:
+      "Too many potential use cases, without a clear view of which initiatives will genuinely create value.",
+  },
+  {
+    title: "Data foundations not ready",
+    description:
+      "AI tools introduced before data quality, access, or consistency are sufficient to support them.",
+  },
+  {
+    title: "Limited organisational readiness",
+    description:
+      "Teams unsure how AI fits into existing workflows or how to use it responsibly in their roles.",
+  },
+  {
+    title: "No clear success metrics",
+    description:
+      "Outcomes are difficult to validate when there is no agreed baseline or way to measure impact.",
+  },
+  {
+    title: "Lack of practical AI understanding",
+    description:
+      "Teams struggle to see how AI applies to day to day work, so it is hard to identify where AI can create value.",
+  },
+];
 
 const PainPoints = () => {
-  const painPoints = [
-    {
-      icon: Users,
-      title: "Unclear leadership ownership",
-      description:
-        "AI initiatives lose momentum when sponsorship, accountability, and decision ownership are not clearly defined.",
-      gradient: "from-accent-warm to-amber-400",
-    },
-    {
-      icon: Target,
-      title: "Competing priorities",
-      description:
-        "Too many potential use cases, without a clear view of which initiatives will genuinely create value.",
-      gradient: "from-primary to-cyan-600",
-    },
-    {
-      icon: Database,
-      title: "Data foundations not ready",
-      description:
-        "AI tools introduced before data quality, access, or consistency are sufficient to support them.",
-      gradient: "from-accent-warm to-amber-400",
-    },
-    {
-      icon: GraduationCap,
-      title: "Limited organisational readiness",
-      description:
-        "Teams unsure how AI fits into existing workflows or how to use it responsibly in their roles.",
-      gradient: "from-primary to-cyan-600",
-    },
-    {
-      icon: AlertTriangle,
-      title: "No clear success metrics",
-      description:
-        "Outcomes are difficult to validate when there is no agreed baseline or way to measure impact.",
-      gradient: "from-accent-warm to-amber-400",
-    },
-    {
-      icon: Lightbulb,
-      title: "Lack of practical AI understanding",
-      description:
-        "Teams struggle to see how AI applies to day to day work. Without clear examples tied to real tasks, it is hard to identify where AI can create value.",
-      gradient: "from-primary to-cyan-600",
-    },
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 24 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 },
-    },
-  };
-
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-subtle relative overflow-hidden">
-      {/* Subtle background pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.02]"
-        style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--primary)) 1px, transparent 1px)`,
-          backgroundSize: "48px 48px",
-        }}
-      />
+    <section id="why-ai-stalls" className="bg-brand-ivory py-14 sm:py-16">
+      <div className="wrap flex flex-col gap-9">
+        <SectionHeader
+          eyebrow="Why AI initiatives stall"
+          title="Why do AI initiatives stall?"
+          intro="In many businesses, AI initiatives stall because the conditions for success were never clearly established, not because the technology is flawed. Use these six points as your AI readiness checklist."
+        />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto text-center mb-10 sm:mb-14"
-        >
-          <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-3 px-3 py-1 bg-accent-warm/10 rounded-full">
-            The Reality
-          </span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-4">Why AI Initiatives Stall</h2>
-          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-            In many businesses, AI initiatives struggle not because the technology is flawed, but because the conditions for success were never clearly
-            established. That’s why we start with operational clarity before any tools, automation, or implementation. The IntegroAI Operating Framework exists to establish
-            those conditions before execution begins.
-          </p>
-        </motion.div>
-
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 max-w-6xl mx-auto"
-        >
-          {painPoints.map((point) => (
-            <motion.div
+        <ol className="grid list-none grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {painPoints.map((point, index) => (
+            <motion.li
               key={point.title}
-              variants={itemVariants}
-              className="group bg-card rounded-xl sm:rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-md transition-all duration-500 hover:-translate-y-1 border border-border/40 hover:border-primary/15 relative overflow-hidden min-h-[160px]"
+              {...fadeUpDelayed(index)}
+              className="card-soft flex flex-col gap-2.5 p-[26px]"
             >
-              <div className="relative z-10">
-                <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${point.gradient} flex items-center justify-center mb-3 sm:mb-4 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
-                  <point.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-                </div>
-                <h3 className="text-sm sm:text-base font-bold mb-1.5 sm:mb-2">{point.title}</h3>
-                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed line-clamp-3 sm:line-clamp-none">
-                  {point.description}
-                </p>
-              </div>
-            </motion.div>
+              <span className="num-chip" aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3 className="text-xl leading-tight">{point.title}</h3>
+              <p className="text-base leading-relaxed text-brand-slate">{point.description}</p>
+            </motion.li>
           ))}
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="max-w-3xl mx-auto mt-10 sm:mt-14 text-center"
-        >
-          <div className="relative inline-block">
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-accent-warm/20 to-primary/20 rounded-xl blur-lg" />
-            <p
-              className="relative text-base sm:text-lg font-semibold bg-card border border-border/50 rounded-xl p-5 sm:p-6 shadow-lg"
-              style={{ color: "#012f46" }}
-            >
-              AI tends to amplify what already exists. When foundations are unclear, it amplifies inefficiency rather than value.
-            </p>
-          </div>
-        </motion.div>
+        </ol>
       </div>
     </section>
   );

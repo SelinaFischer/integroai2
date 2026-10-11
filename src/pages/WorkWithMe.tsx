@@ -1,12 +1,13 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
 import { ClipboardCheck, Search, Target, ShieldCheck, Cog, TrendingUp, ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import { Button } from "@/components/ui/button";
-import selinaOffice from "@/assets/selina-office.png";
+import selinaOffice from "@/assets/selina-work-portrait.webp";
+import { EXTRA_SERVICES_SECTION_ID } from "@/lib/extraServices";
+import ExtraServicesList from "@/components/ExtraServicesList";
 
 // The free assessment is Stage 01: the entry point into the six-stage
 // journey, not something separate from it. It uses a simplified card
@@ -30,7 +31,12 @@ const stages = [
     stage: "Understand",
     service: "AI & Operations Diagnostic",
     purpose: "A clear, evidence-based view of how the business runs today, and where the real priorities sit.",
-    gradient: "from-primary to-cyan-600",
+    steps: [
+      "Interview you and key team members",
+      "Map how work flows today across people, processes and systems",
+      "Identify AI opportunities and risks",
+    ],
+    gradient: "from-primary to-[#1E4A6E]",
     review: ["Workflows & processes", "Systems & data", "Ownership & accountability", "Existing AI use", "Business priorities"],
     receive: ["Priority operational issues", "Readiness gaps", "Recommended next steps"],
     next: "Take the findings forward yourself, or continue with IntegroAI for the next stage.",
@@ -42,6 +48,11 @@ const stages = [
     stage: "Prioritise",
     service: "AI Strategy & Prioritisation Roadmap",
     purpose: "Decide what's worth solving, and which opportunities to prioritise first.",
+    steps: [
+      "Weigh each opportunity against business value, feasibility and risk",
+      "Prioritise objectives with you",
+      "Build the AI strategy and roadmap, with a detailed workflow plan",
+    ],
     gradient: "from-accent-warm to-amber-400",
     review: ["Business value", "Feasibility & risk", "Operational readiness", "Success measures", "Sequencing"],
     receive: ["Prioritised opportunity map", "Recommended initiatives", "A practical roadmap"],
@@ -53,7 +64,12 @@ const stages = [
     stage: "Prepare",
     service: "AI Foundations & Responsible Adoption",
     purpose: "Put the right foundations in place for AI to work safely, responsibly and sustainably.",
-    gradient: "from-primary to-cyan-600",
+    steps: [
+      "Check and prepare your data",
+      "Agree governance, ownership and accountability",
+      "Prepare your team to adopt new ways of working",
+    ],
+    gradient: "from-primary to-[#1E4A6E]",
     review: ["Data readiness", "Governance & risk framework", "Accountability", "Training & team adoption", "Responsible adoption planning"],
     receive: ["Governance recommendations", "Accountability framework", "Adoption readiness actions"],
     next: "Carry these foundations forward yourself, or move straight into implementation with IntegroAI.",
@@ -65,8 +81,13 @@ const stages = [
     stage: "Implement",
     service: "AI & Automation Implementation",
     purpose: "Turn validated opportunities into working solutions with a clear business case.",
+    steps: [
+      "Source the right tools, resources and specialists",
+      "Design, build and test the solution with your team",
+      "Deploy with human oversight built in",
+    ],
     gradient: "from-accent-warm to-amber-400",
-    review: ["Workflow automation", "Integration support", "Custom GPTs & AI agents", "Voice AI agent", "Proof-of-concept & MVP", "Implementation oversight"],
+    review: ["Workflow automation", "Integration support", "AI skills, plugins & agents", "Voice AI agent", "Proof-of-concept & MVP", "Implementation oversight"],
     receive: ["Clearly defined scope", "Delivery oversight", "Human oversight built into the solution"],
     next: "Take the solution forward internally, or continue with IntegroAI for ongoing review and advisory support.",
     note: "Technology follows the business requirement, not the other way round, so what gets built is grounded in a genuine business case.",
@@ -77,7 +98,12 @@ const stages = [
     stage: "Evolve",
     service: "Ongoing AI & Operations Advisory",
     purpose: "Keep implemented changes delivering value as the business and technology evolve.",
-    gradient: "from-primary to-cyan-600",
+    steps: [
+      "Monitor performance against the agreed measures",
+      "Optimise what's working and correct what isn't",
+      "Update the roadmap as priorities change",
+    ],
+    gradient: "from-primary to-[#1E4A6E]",
     review: ["Performance reviews", "Adoption & governance review", "Course correction", "Roadmap updates", "Ongoing leadership advisory"],
     receive: ["Evidence-based review", "Recommendations", "Ongoing advisory support"],
     next: "Support scales up, down or pauses as priorities change.",
@@ -107,9 +133,9 @@ const WorkWithMe = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="max-w-4xl mx-auto grid sm:grid-cols-[auto,1fr] gap-8 sm:gap-10 items-center text-center sm:text-left"
+                className="max-w-4xl mx-auto grid sm:grid-cols-[1fr,auto] gap-8 sm:gap-10 items-center text-center sm:text-left"
               >
-                <div className="relative flex justify-center sm:justify-start">
+                <div className="relative flex justify-center sm:order-2 sm:justify-end">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-[85%] h-[85%] bg-gradient-to-br from-primary/10 via-accent-warm/10 to-primary/5 rounded-full blur-3xl" />
                   </div>
@@ -127,7 +153,7 @@ const WorkWithMe = () => {
                   />
                 </div>
 
-                <div>
+                <div className="sm:order-1">
                   <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
                     How Engagements Work
                   </span>
@@ -135,19 +161,19 @@ const WorkWithMe = () => {
                     Work With Me
                   </h1>
                   <p className="text-base sm:text-lg text-accent-warm font-medium mb-4">
-                    AI Consulting &amp; Business Operations Advisory for Serviced Accommodation &amp; Multi-Property Operators
+                    AI Adoption &amp; Transformation Consultant for Founder-Led Service Businesses
                   </p>
 
                   <p className="text-foreground text-base sm:text-lg font-semibold leading-snug mb-6">
-                    Identify what is slowing the business down, determine where AI can genuinely help, and turn the right opportunities into practical improvements.
+                    Cut firefighting and repetitive work, and reclaim time for the work you love.
                   </p>
 
                   <div className="space-y-4">
                     <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                      IntegroAI works with founders and business leaders to understand how their operations work today, identify where time, cost or control is being lost, and determine where AI can create measurable business value.
+                      I work with you to understand what is slowing your business down and identify where workflow improvements, AI or automation could make the biggest difference.
                     </p>
                     <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                      Every engagement begins with clarity on the business need. From there, the work is scoped around the priorities, complexity and level of support required.
+                      We agree your priorities, scope and measures of success before work begins. Support can include an AI readiness review, workflow analysis, an adoption plan, implementation and team training, depending on what your business needs.
                     </p>
                   </div>
                 </div>
@@ -165,9 +191,9 @@ const WorkWithMe = () => {
                   <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-accent-warm/20 to-primary/20 rounded-xl blur-lg" />
                   <p
                     className="relative text-sm sm:text-base font-semibold bg-card border border-border/50 rounded-xl p-5 sm:p-6 shadow-lg text-center leading-relaxed"
-                    style={{ color: "#012f46" }}
+                    style={{ color: "#041B2B" }}
                   >
-                    Work can be scoped around a specific business need or across several stages. Take the outputs forward independently, or continue with IntegroAI where further support adds value.
+                    Start with a specific business challenge or work with me through several stages. Put the recommendations into practice with your own team, or continue working with me for implementation and ongoing support.
                   </p>
                 </div>
               </motion.div>
@@ -178,7 +204,7 @@ const WorkWithMe = () => {
           <section className="py-12 sm:py-16 bg-subtle">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-4xl mx-auto text-center mb-10 sm:mb-14">
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-4">How We Can Work Together</h2>
+                <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] mb-4">How We Can Work Together</h2>
                 <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
                   Six stages of support, from initial assessment through implementation and ongoing advisory. Use the stages your business needs, without committing to the entire journey.
                 </p>
@@ -225,6 +251,28 @@ const WorkWithMe = () => {
                           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">{item.purpose}</p>
                         </div>
 
+                        {item.steps && (
+                          <div className="sm:col-span-2">
+                            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2.5">How it works</p>
+                            <ol className="grid list-none gap-3 sm:grid-cols-3">
+                              {item.steps.map((step, stepIndex) => (
+                                <li
+                                  key={step}
+                                  className="flex items-start gap-3 rounded-2xl border border-brand-sand bg-brand-ivory p-4 text-sm font-medium leading-snug text-brand-navy sm:text-[15px]"
+                                >
+                                  <span
+                                    className="flex h-6 w-6 flex-none items-center justify-center rounded-full bg-brand-amber text-xs font-bold text-brand-navy"
+                                    aria-hidden="true"
+                                  >
+                                    {stepIndex + 1}
+                                  </span>
+                                  {step}
+                                </li>
+                              ))}
+                            </ol>
+                          </div>
+                        )}
+
                         <div>
                           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">What we review</p>
                           <div className="flex flex-wrap gap-2">
@@ -268,8 +316,32 @@ const WorkWithMe = () => {
             </div>
           </section>
 
+          {/* Standalone services, kept brief on purpose. */}
+          <section id={EXTRA_SERVICES_SECTION_ID} className="bg-white py-12 sm:py-14">
+            <div className="wrap">
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5 }}
+                className="mx-auto flex max-w-5xl flex-col items-center gap-7"
+              >
+                <h2 className="text-center font-heading text-3xl sm:text-4xl">More practical solutions to support your business</h2>
+                <ExtraServicesList />
+                <a
+                  href="https://calendly.com/integroai-tech/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-outline-navy"
+                >
+                  Book a Discovery Call
+                </a>
+              </motion.div>
+            </div>
+          </section>
+
           {/* What You Can Expect */}
-          <section className="py-16 sm:py-20 lg:py-24 bg-[#012F46] relative overflow-hidden">
+          <section className="py-16 sm:py-20 lg:py-24 bg-[#041B2B] relative overflow-hidden">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-accent-warm/10 rounded-full blur-[150px]" />
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
               <motion.div
@@ -279,7 +351,7 @@ const WorkWithMe = () => {
                 transition={{ duration: 0.6 }}
                 className="max-w-2xl mx-auto text-center"
               >
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6">
+                <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-semibold text-white mb-6">
                   What You Can Expect
                 </h2>
                 <div className="space-y-4 mb-10 text-left sm:text-center">
@@ -307,13 +379,6 @@ const WorkWithMe = () => {
                     </a>
                   </Button>
                 </div>
-
-                <p className="mt-8 text-white/60 text-xs sm:text-sm">
-                  Prefer to read about the person leading the work first?{" "}
-                  <Link to="/about" className="text-accent-warm hover:underline font-medium">
-                    More About Selina
-                  </Link>
-                </p>
               </motion.div>
             </div>
           </section>

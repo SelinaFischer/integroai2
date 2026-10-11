@@ -1,10 +1,12 @@
 export interface FaqItem {
   question: string;
   answer: string;
+  /** Optional link shown under the answer. */
+  link?: { label: string; to: string };
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// HOMEPAGE FAQ — exactly 8 questions, shown on the homepage and used to build
+// HOMEPAGE FAQ: 9 questions, shown on the homepage and used to build
 // the visible FAQPage structured data. Do not add further questions here
 // without also updating the schema and the acceptance criteria in the brief.
 // The three former assessment-related questions (what it is / how long and
@@ -15,17 +17,17 @@ export const homepageFaqs: FaqItem[] = [
   {
     question: "What makes IntegroAI different from other AI consultancies?",
     answer:
-      "IntegroAI is an independent, technology-agnostic AI consultancy. We start with operational clarity, understanding how your business actually works, before considering where AI or automation is worth introducing. Recommendations are shaped around your priorities and constraints rather than a preferred platform or vendor.",
+      "We identify what needs to improve before you invest in a solution. IntegroAI is an independent, technology-agnostic AI consultancy. We start with operational clarity, understanding how your business actually works, before considering where AI or automation is worth introducing. Recommendations are shaped around your priorities and constraints rather than a preferred platform or vendor.",
   },
   {
     question: "Who is IntegroAI best suited for?",
     answer:
-      "IntegroAI is best suited to serviced accommodation and multi-property operators — including lettings and property management portfolios — and the leaders and operations teams within them, where manual work, fragmented processes or capacity pressure are affecting performance and where clarity is needed before any AI investment.",
+      "IntegroAI is best suited to founder-led service businesses, and the founders, leaders and operations teams within them, where manual work, fragmented processes or capacity pressure are affecting performance and where clarity is needed before any AI investment.",
   },
   {
     question: "What is the 5-Minute AI Readiness Assessment, and what happens after I complete it?",
     answer:
-      "The 5-Minute AI Readiness Assessment is a free introductory self-assessment that gives you an initial view of where your business stands and where readiness gaps may exist. It considers areas including workflow, data, systems, adoption and investment priorities. After completing it, you receive an initial score and summary, and you can book a free Discovery Call to talk through the results and appropriate next steps. It is not a full operational diagnostic and does not replace consultant-led analysis; that deeper work is covered separately by the AI & Operations Diagnostic.",
+      "The 5-Minute AI Readiness Assessment is a free introductory self-assessment that gives you an initial view of where your business stands and where readiness gaps may exist. It scores five areas: strategic clarity, leadership and ownership, process maturity, operational visibility and data readiness. After completing it, you receive an initial score and summary, and you can book a free Discovery Call to talk through the results and appropriate next steps. It is not a full operational diagnostic and does not replace consultant-led analysis; that deeper work is covered separately by the AI & Operations Diagnostic.",
   },
   {
     question: "When should a business not invest in AI?",
@@ -51,6 +53,12 @@ export const homepageFaqs: FaqItem[] = [
     question: "What does a typical engagement with IntegroAI look like, and how is consulting priced?",
     answer:
       "Most engagements begin with the free 5-Minute AI Readiness Assessment, followed where appropriate by a Discovery Call and, if needed, an AI & Operations Diagnostic to build a clear, evidence-based view of the business. From there, IntegroAI can support prioritisation, preparation, implementation or ongoing advisory, depending on what adds value. Pricing is scoped individually based on the nature and depth of the engagement, and there is no obligation until scope and cost are agreed.",
+  },
+  {
+    question: "What do SEO, AEO and GEO mean?",
+    answer:
+      "Three simple things to remember: find me, answer me, recommend me. SEO (search engine optimisation): can Google find your website and understand what you offer? AEO (answer engine optimisation): does your content clearly answer the questions your customers are asking? GEO (generative engine optimisation): can your business appear in an AI-generated answer or recommendation? You don’t need three different strategies. They work together.",
+    link: { label: "Get your free guide: Does AI know your business exists?", to: "/ai-visibility-guide" },
   },
 ];
 

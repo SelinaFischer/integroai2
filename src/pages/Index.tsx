@@ -6,9 +6,11 @@ import Services from "@/components/Services";
 import WhoWeWorkWith from "@/components/WhoWeWorkWith";
 import Framework from "@/components/Framework";
 import WhyIntegroAI from "@/components/WhyIntegroAI";
+import RealityBand from "@/components/RealityBand";
 import Founder from "@/components/Founder";
 import AssessmentSection from "@/components/AssessmentSection";
 import FAQ from "@/components/FAQ";
+import GuideBanner from "@/components/GuideBanner";
 import BlogPosts from "@/components/BlogPosts";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
@@ -22,7 +24,7 @@ const Index = () => {
     "@type": "LocalBusiness",
     "@id": "https://integroai.tech/#localbusiness",
     "name": "IntegroAI Consulting",
-    "description": "IntegroAI Consulting is an independent AI consultancy for serviced accommodation and multi-property operators. We help leaders reduce operational firefighting and repetitive work, strengthen operational control and identify where AI can create measurable business value, through our Discover-Design-Validate-Deliver-Iterate operating framework. Services include the AI & Operations Diagnostic, opportunity and strategy roadmapping, foundations and responsible adoption, implementation, and ongoing advisory.",
+    "description": "IntegroAI Consulting is an independent AI consultancy for founder-led service businesses. We help founders and leaders reduce operational firefighting and repetitive work, strengthen operational control and identify where AI can create measurable business value, through our Discover-Design-Validate-Deliver-Iterate operating framework. Services include the AI & Operations Diagnostic, AI strategy and prioritisation roadmapping, foundations and responsible adoption, implementation, and ongoing advisory.",
     "url": "https://integroai.tech",
     "logo": "https://integroai.tech/apple-touch-icon.png",
     "image": "https://integroai.tech/og-image.png",
@@ -60,7 +62,7 @@ const Index = () => {
     },
     "knowsAbout": [
       "Artificial Intelligence Strategy",
-      "AI Implementation for Serviced Accommodation & Multi-Property Operators",
+      "AI Implementation for Founder-Led Service Businesses",
       "AI Readiness Assessment",
       "Business & Operations Advisory",
       "Data Strategy",
@@ -82,7 +84,7 @@ const Index = () => {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "AI Opportunity & Strategy Roadmap",
+          "name": "AI Strategy & Prioritisation Roadmap",
           "description": "Evaluate where AI, automation or process improvement could create meaningful business value, and determine which opportunities should be addressed first."
         }
       },
@@ -108,6 +110,30 @@ const Index = () => {
           "@type": "Service",
           "name": "Ongoing AI & Operations Advisory",
           "description": "Review performance, strengthen adoption, refine priorities and identify where further operational or AI improvements can create value."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AI Voice Receptionist",
+          "description": "An AI phone assistant that answers business calls 24/7, books appointments, takes messages and hands over to the team when a person is needed."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Website Design & Build",
+          "description": "A professional business website, designed, built and launched for the client."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AI Search Visibility (AEO & GEO)",
+          "description": "A review of how search engines and AI tools find, understand and recommend a business, followed by improvements to the clarity, consistency and content of its website and online profiles. Covers SEO, answer engine optimisation (AEO) and generative engine optimisation (GEO)."
         }
       }
     ]
@@ -142,13 +168,15 @@ const Index = () => {
         <main id="main-content">
           <Hero />
           <PainPoints />
+          <AssessmentSection />
           <Services />
           <WhoWeWorkWith />
-          <Framework />
-          <WhyIntegroAI />
+          <RealityBand />
           <Founder />
-          <AssessmentSection />
+          <WhyIntegroAI />
+          <Framework />
           <FAQ />
+          <GuideBanner location="homepage" className="bg-brand-ivory pb-14 sm:pb-16" />
           <BlogPosts />
           <FinalCTA />
         </main>

@@ -1,157 +1,101 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import heroBg from "@/assets/hero-bg.webp";
+import { Link } from "react-router-dom";
+import portrait from "@/assets/selina-hero-portrait.webp";
+import { ASSESSMENT_URL, DISCOVERY_CALL_URL } from "@/lib/motion";
+import { GUIDE_PAGE_PATH, trackGuideClick } from "@/lib/guide";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#012F46]">
-      {/* Hero background image */}
-      <div className="absolute inset-0">
-        <img
-          src={heroBg}
-          alt=""
-          role="presentation"
-          width={1920}
-          height={1080}
-          fetchPriority="high"
-          decoding="async"
-          className="w-full h-full object-cover object-right opacity-[0.82] brightness-[0.79] contrast-[1.12] saturate-[1.02]"
-        />
-      </div>
-
-      {/* Navy gradient overlay — left readability, opens cleanly to right */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            'linear-gradient(90deg, rgba(1,47,70,0.91) 0%, rgba(1,47,70,0.78) 32%, rgba(1,47,70,0.36) 64%, rgba(3,21,35,0.18) 100%)',
-        }}
-      />
-
-      {/* Bottom depth — subtle brand navy fade */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            'linear-gradient(to bottom, transparent 0%, transparent 65%, rgba(1,47,70,0.34) 100%)',
-        }}
-      />
-
-      {/* Subtle animated accent */}
-      <motion.div
-        className="absolute top-1/3 right-0 w-[600px] h-[600px] bg-accent-warm/10 rounded-full blur-[150px]"
-        animate={{
-          opacity: [0.1, 0.15, 0.1],
-        }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-36 pb-24 sm:pb-32 relative z-10">
-        <div className="max-w-[660px] text-left lg:mt-8">
-
-          {/* Main headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] text-white leading-[1.05] mb-10 sm:mb-12 md:mb-14 font-semibold tracking-tight"
-          >
-            Stop Automating
-            <br />
-            <span className="text-gradient-gold">Broken Processes.</span>
-          </motion.h1>
-
-          {/* Destination outcome line */}
-          <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.18 }}
-            className="text-sm sm:text-base md:text-lg text-white/90 max-w-md mb-5 sm:mb-6 leading-snug font-medium"
-          >
-            Find where operational firefighting is draining time and capacity. Then prioritise where AI can create real value.
-          </motion.p>
-
-          {/* Supporting value proposition */}
-          <motion.p
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.24 }}
-            className="text-sm sm:text-base text-white/60 max-w-xl mb-10 sm:mb-12 lg:mb-14 leading-relaxed italic"
-          >
-            Operations-first AI consultancy for serviced accommodation and multi-property operators.
-          </motion.p>
-
-          {/* SEO context line */}
-          <p className="sr-only">
-            Operations-first AI consultancy for serviced accommodation and multi-property operators, focused on reducing operational firefighting and identifying where AI can create measurable business value.
+    <section className="bg-midnight-glow pt-[104px] pb-16 sm:pt-[132px] sm:pb-20 lg:pt-[162px] lg:pb-[88px]">
+      <div className="wrap flex flex-col items-center gap-12 lg:flex-row lg:gap-14">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="flex min-w-0 flex-col items-start gap-6 lg:flex-[1.35]"
+        >
+          <p className="text-[11px] font-bold uppercase leading-relaxed tracking-[0.16em] text-brand-amber sm:text-xs">
+            Independent AI consultancy for founder-led service businesses
           </p>
 
-          {/* CTA buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-4 mb-8 sm:mb-10"
-          >
-            <Button variant="hero" size="xl" className="group shimmer h-[46px] px-6 text-[16px]" asChild>
-              <a href="https://integroai.tech/assessment" target="_blank" rel="noopener noreferrer">
-                Start the Assessment
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          <h1 className="text-[46px] font-semibold leading-none text-white sm:text-[64px] lg:text-[80px]">
+            Stop Automating
+            <br />
+            <span className="italic text-brand-amber">Broken Processes.</span>
+          </h1>
+
+          <p className="max-w-[660px] text-lg leading-normal text-brand-mist sm:text-[21px]">
+            Find where operational firefighting is draining time and capacity. Then prioritise where AI can create real value.
+          </p>
+
+          {/* Buttons, with the free guide centred beneath them as a quiet text link
+              so the amber button stays the one main action. */}
+          <div className="flex w-full flex-col gap-7 sm:w-fit">
+            <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+              <a
+                href={ASSESSMENT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-amber group"
+              >
+                Start the free assessment
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
               </a>
-            </Button>
-            <Button variant="heroOutline" size="lg" className="backdrop-blur-sm h-[46px] px-5 text-[16px]" asChild>
-              <a href="https://calendly.com/integroai-tech/30min" target="_blank" rel="noopener noreferrer">
+              <a
+                href={DISCOVERY_CALL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline-light"
+              >
                 Book a Discovery Call
               </a>
-            </Button>
-          </motion.div>
+            </div>
 
-          {/* Process clarity line */}
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-4 text-sm sm:text-base text-[#e5eded] max-w-xl"
+            <Link
+              to={GUIDE_PAGE_PATH}
+              onClick={() => trackGuideClick("hero")}
+              className="group flex flex-col items-center gap-1 self-center text-center"
+            >
+              <span className="text-sm font-medium leading-snug text-white/85 sm:text-[15px]">
+                When customers ask AI for a business like yours, does yours come up?
+              </span>
+              <span className="flex w-fit items-center gap-1.5 text-[13px] leading-snug text-brand-mist underline decoration-white/40 decoration-1 underline-offset-4 transition-colors duration-200 group-hover:text-white group-hover:decoration-white sm:text-sm">
+                Get your free guide and checklist
+                <ArrowRight className="h-3.5 w-3.5 flex-none transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
+              </span>
+            </Link>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="flex min-w-0 flex-col items-center gap-[22px] lg:flex-1"
+        >
+          <div className="h-[350px] w-[284px] max-w-full overflow-hidden rounded-[142px_142px_28px_28px] bg-brand-navy shadow-[12px_12px_0_#FF9900] sm:h-[420px] sm:w-[340px] sm:rounded-[170px_170px_28px_28px] sm:shadow-[14px_14px_0_#FF9900]">
+            <img
+              src={portrait}
+              alt="Selina Fischer, founder of IntegroAI Consulting"
+              width={680}
+              height={850}
+              fetchPriority="high"
+              decoding="async"
+              className="block h-full w-full object-cover object-top opacity-90"
+            />
+          </div>
+          <a
+            href="#founder"
+            onClick={(event) => {
+              event.preventDefault();
+              document.getElementById("founder")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="text-sm font-normal text-brand-mist underline-offset-4 transition-colors duration-200 hover:text-white hover:underline"
           >
-            5-Minute Assessment → Discovery Call → Clear Next Steps
-          </motion.p>
-
-        </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 0.6 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10"
-      >
-        <motion.a
-          href="#services"
-          aria-label="Scroll to learn more"
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-          className="text-white/40 hover:text-white/60 transition-colors"
-        >
-          <ChevronDown className="w-6 h-6" aria-hidden="true" />
-        </motion.a>
-      </motion.div>
-
-      {/* Bottom wave */}
-      <div className="absolute bottom-0 left-0 w-full pointer-events-none leading-none overflow-hidden">
-        <svg
-          viewBox="0 0 1440 80"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="block w-full"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M0 80L60 74C120 68 240 56 360 52C480 48 600 52 720 56C840 60 960 64 1080 62C1200 60 1320 52 1380 48L1440 44V80H1380C1320 80 1200 80 1080 80C960 80 840 80 720 80C600 80 480 80 360 80C240 80 120 80 60 80H0Z"
-            fill="#FFFFFF"
-          />
-        </svg>
+            Meet the founder, Selina
+          </a>
+        </motion.div>
       </div>
     </section>
   );

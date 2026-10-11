@@ -21,7 +21,7 @@ export default defineConfig(({ mode }) => ({
         name: "IntegroAI Consulting",
         short_name: "IntegroAI",
         description: "AI Strategy for SME Leaders. Turn AI confusion into confident action.",
-        theme_color: "#1E3A5F",
+        theme_color: "#041B2B",
         background_color: "#ffffff",
         display: "standalone",
         orientation: "portrait",

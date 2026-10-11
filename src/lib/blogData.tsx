@@ -107,7 +107,7 @@ const WhatIsAiReadinessAssessmentContent: React.FC = () => (
 
     <h2>Who Should Do an AI Readiness Assessment</h2>
     <p>
-      Any business considering an AI investment benefits from an assessment before committing budget. It is particularly valuable for serviced accommodation and multi-property operators where operational processes have grown organically, decisions are often informal, and there has been limited previous exposure to structured technology implementation.
+      Any business considering an AI investment benefits from an assessment before committing budget. It is particularly valuable for founder-led service businesses where operational processes have grown organically, decisions are often informal, and there has been limited previous exposure to structured technology implementation.
     </p>
     <p>
       It is also useful for businesses that have already tried AI tools and found they did not deliver the expected results. In most cases, an honest readiness review reveals that the tools were not the problem.
@@ -293,7 +293,7 @@ const HowToMeasureAiROIContent: React.FC = () => (
       Once your baseline is established, the post-implementation measurement should track the same variables — not different ones. This is where many businesses go wrong. They measure something before and something different after, which makes comparison meaningless.
     </p>
     <p>
-      The most commercially relevant measures of AI ROI for serviced accommodation and multi-property operators fall into five categories.
+      The most commercially relevant measures of AI ROI for founder-led service businesses fall into five categories.
     </p>
 
     <h3>Time Saved</h3>
@@ -323,7 +323,7 @@ const HowToMeasureAiROIContent: React.FC = () => (
 
     <h2>A Simple Framework for AI ROI Measurement</h2>
     <p>
-      For most serviced accommodation and multi-property operators, a straightforward four-step approach is sufficient.
+      For most founder-led service businesses, a straightforward four-step approach is sufficient.
     </p>
     <p>
       Step one: define the specific problem. Identify one process or decision you want AI to improve and write down exactly what the problem is in measurable terms.

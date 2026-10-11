@@ -1,150 +1,113 @@
-import { Mail, ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { Instagram, Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
-import footerLogo from "@/assets/integroai-footer-logo.png";
-import linkedinLogo from "@/assets/linkedin-logo.avif";
-import instagramLogo from "@/assets/instagram-logo.avif";
+import logo from "@/assets/integroai-logo-mark.webp";
 import hccLogo from "@/assets/hillingdon-chamber-logo.png";
 import ContactFormModal from "./ContactFormModal";
+import { ASSESSMENT_URL } from "@/lib/motion";
 import { scrollToSection } from "@/lib/scrollToSection";
+import { EXTRA_SERVICES_SECTION_ID } from "@/lib/extraServices";
+import { GUIDE_PAGE_PATH } from "@/lib/guide";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const solutionsLinks = [
-    "AI & Operations Diagnostic",
-    "AI Strategy & Prioritisation Roadmap",
-    "AI Foundations & Responsible Adoption",
-    "AI & Automation Implementation",
-    "Ongoing AI & Operations Advisory",
+  // sectionId scrolls to that section of /work-with-me after navigating.
+  const solutionsLinks: { label: string; sectionId?: string }[] = [
+    { label: "AI & Operations Diagnostic" },
+    { label: "AI Strategy & Prioritisation Roadmap" },
+    { label: "AI Foundations & Responsible Adoption" },
+    { label: "AI & Automation Implementation" },
+    { label: "Ongoing AI & Operations Advisory" },
+    { label: "AI Voice Receptionist", sectionId: EXTRA_SERVICES_SECTION_ID },
+    { label: "Website Design & Build", sectionId: EXTRA_SERVICES_SECTION_ID },
+    { label: "AI Search Visibility (AEO & GEO)", sectionId: EXTRA_SERVICES_SECTION_ID },
   ];
 
   const companyLinks = [
-    { to: "/", label: "Home" },
-    { to: "/", label: "Our Service", sectionId: "services" },
     { to: "/work-with-me", label: "Work With Me" },
     { to: "/about", label: "About" },
-    { to: "/blog", label: "Insights" },
+    { to: "/blog", label: "Blog" },
+    { to: GUIDE_PAGE_PATH, label: "Free AI Visibility Guide" },
   ];
 
+  const headingClass = "mb-2 text-xs font-bold uppercase tracking-[0.14em] text-brand-navy";
   const linkClass =
-    "text-white/70 hover:text-[#F6C35B] transition-colors duration-200 text-xs sm:text-sm py-1.5 block leading-relaxed";
+    "block py-[5px] text-left text-[15px] text-[#42566A] underline-offset-4 transition-colors duration-200 hover:text-brand-navy hover:underline";
+  const socialClass = `${linkClass} flex items-center gap-2.5`;
 
   return (
-    <footer className="bg-gradient-to-b from-[#012F46] to-[#031523] relative overflow-hidden">
-      {/* Top accent line */}
-      <div className="absolute top-0 left-0 w-full h-px bg-[#F6C35B]/20" />
-      {/* Top border */}
-      <div className="absolute top-0 left-0 w-full h-px bg-white/10" />
-
-      <motion.div
-        className="container mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16 relative z-10"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      >
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.25fr_1.55fr_0.85fr_1.25fr] gap-10 sm:gap-12 lg:gap-10 xl:gap-14 mb-10 sm:mb-12">
-
-          {/* Column 1 — Brand */}
-          <div className="sm:col-span-2 lg:col-span-1">
-            <div className="mb-6">
-              <img
-                src={footerLogo}
-                alt="IntegroAI Consulting"
-                loading="lazy"
-                decoding="async"
-                className="w-32 sm:w-36 h-auto object-contain"
-              />
+    <footer className="border-t border-brand-sand bg-white pt-14 pb-9">
+      <div className="wrap flex flex-col gap-10">
+        <div className="grid grid-cols-1 gap-9 sm:grid-cols-2 lg:grid-cols-[1.3fr_1.2fr_0.8fr_0.8fr]">
+          {/* Column 1: brand */}
+          <div className="flex flex-col gap-3 sm:col-span-2 lg:col-span-1">
+            <div className="flex items-center gap-3 text-brand-navy">
+              <img src={logo} alt="" width={50} height={50} loading="lazy" decoding="async" className="h-[50px] w-[50px] object-contain" />
+              <span className="flex flex-col gap-[3px]">
+                <span className="text-xl font-bold leading-[1.1] tracking-[0.01em]">IntegroAI Consulting</span>
+                <span className="text-[13px] font-semibold leading-tight text-brand-slate [word-spacing:0.16em]">Simplify · Prioritise · Grow</span>
+              </span>
             </div>
-            <p className="text-white/75 text-xs sm:text-sm max-w-xs mb-5 leading-relaxed">
+            <p className="max-w-sm text-[15px] leading-relaxed text-[#42566A]">
               Helping business leaders find where AI can save time, reduce cost and protect margin before they invest.
             </p>
-            <div className="text-[#F6C35B] text-xs sm:text-sm font-semibold tracking-wider leading-relaxed">
-              <div>Discover › Design › Validate</div>
-              <div>Deliver › Iterate</div>
-            </div>
-
+            <p className="max-w-sm text-sm leading-relaxed text-[#42566A]">
+              IntegroAI Consulting is an independent AI consultancy for founder-led businesses, offering AI consulting across the UK: AI strategy consulting, AI advisory and business automation consulting.
+            </p>
           </div>
 
-          {/* Column 2 — Solutions We Offer */}
-          <div>
-            <h4 className="font-semibold text-white mb-4 sm:mb-5 text-xs sm:text-sm uppercase tracking-wider">
-              Solutions We Offer
-            </h4>
-            <ul className="space-y-0.5">
-              {solutionsLinks.map((label) => (
+          {/* Column 2: solutions */}
+          <nav aria-label="Solutions we offer">
+            <h2 className={`${headingClass}`}>Solutions We Offer</h2>
+            <ul className="list-none">
+              {solutionsLinks.map(({ label, sectionId }) => (
                 <li key={label}>
-                  <span className={linkClass}>{label}</span>
+                  <Link
+                    to="/work-with-me"
+                    className={linkClass}
+                    onClick={sectionId ? () => scrollToSection(sectionId, 250) : undefined}
+                  >
+                    {label}
+                  </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
-          {/* Column 3 — Company */}
-          <div>
-            <h4 className="font-semibold text-white mb-4 sm:mb-5 text-xs sm:text-sm uppercase tracking-wider">
-              Company
-            </h4>
-            <ul className="space-y-0.5">
+          {/* Column 3: company */}
+          <nav aria-label="Company">
+            <h2 className={`${headingClass}`}>Company</h2>
+            <ul className="list-none">
               {companyLinks.map((link) => (
                 <li key={link.label}>
-                  <Link
-                    to={link.to}
-                    className={linkClass}
-                    onClick={
-                      link.sectionId
-                        ? () => scrollToSection(link.sectionId)
-                        : link.to === "/"
-                        ? () => {
-                            // Same fix as Header.tsx: React Router won't
-                            // re-navigate to the path we're already on, so
-                            // "Home" needs an explicit scroll-to-top here.
-                            if (window.location.pathname === "/") {
-                              window.scrollTo({ top: 0, behavior: "smooth" });
-                            }
-                          }
-                        : undefined
-                    }
-                  >
+                  <Link to={link.to} className={linkClass}>
                     {link.label}
                   </Link>
                 </li>
               ))}
               <li>
-                <a
-                  href="https://integroai.tech/assessment"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={linkClass}
-                >
+                <a href={ASSESSMENT_URL} target="_blank" rel="noopener noreferrer" className={linkClass}>
                   AI Readiness Assessment
                 </a>
               </li>
               <li>
-                <ContactFormModal
-                  trigger={<button className={`${linkClass} text-left w-full`}>Contact</button>}
-                />
+                <ContactFormModal trigger={<button className={`${linkClass} w-full`}>Contact</button>} />
               </li>
             </ul>
-          </div>
+          </nav>
 
-          {/* Column 4 — Get in Touch + Footer CTA */}
+          {/* Column 4: get in touch */}
           <div>
-            <h4 className="font-semibold text-white mb-4 sm:mb-5 text-xs sm:text-sm uppercase tracking-wider">
-              Get in Touch
-            </h4>
-            <ul className="space-y-2 mb-8">
+            <h2 className={`${headingClass}`}>Get in Touch</h2>
+            <ul className="list-none">
               <li>
                 <a
                   href="https://www.linkedin.com/company/integroai-consulting/about/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-white/70 hover:text-[#F6C35B] transition-colors duration-200 text-xs sm:text-sm group py-1"
+                  className={socialClass}
                 >
-                  <div className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 transition-colors duration-200 group-hover:border-[#F6C35B]/50">
-                    <img src={linkedinLogo} alt="" width={16} height={16} loading="lazy" decoding="async" className="w-4 h-4 rounded-sm" />
-                  </div>
+                  <Linkedin className="h-[18px] w-[18px] flex-none text-brand-navy" strokeWidth={2} aria-hidden="true" />
                   LinkedIn
                 </a>
               </li>
@@ -153,63 +116,34 @@ const Footer = () => {
                   href="https://www.instagram.com/integroai_tech/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-white/70 hover:text-[#F6C35B] transition-colors duration-200 text-xs sm:text-sm group py-1"
+                  className={socialClass}
                 >
-                  <div className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 transition-colors duration-200 group-hover:border-[#F6C35B]/50">
-                    <img src={instagramLogo} alt="" width={16} height={16} loading="lazy" decoding="async" className="w-4 h-4 rounded-sm" />
-                  </div>
+                  <Instagram className="h-[18px] w-[18px] flex-none text-brand-navy" strokeWidth={2} aria-hidden="true" />
                   Instagram
                 </a>
               </li>
               <li>
                 <ContactFormModal
                   trigger={
-                    <button className="flex items-center gap-3 text-white/70 hover:text-[#F6C35B] transition-colors duration-200 text-xs sm:text-sm group py-1 w-full">
-                      <div className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 transition-colors duration-200 group-hover:border-[#F6C35B]/50">
-                        <Mail className="w-3.5 h-3.5" />
-                      </div>
+                    <button className={`${socialClass} w-full`}>
+                      <Mail className="h-[18px] w-[18px] flex-none text-brand-navy" strokeWidth={2} aria-hidden="true" />
                       Send a Message
                     </button>
                   }
                 />
               </li>
             </ul>
-
-            {/* Footer CTA */}
-            <div className="border-t border-white/10 pt-6">
-              <p className="text-white text-xs sm:text-sm font-semibold mb-1.5">
-                Start with clarity
-              </p>
-              <p className="text-white/60 text-xs leading-relaxed mb-3">
-                Find where AI can save time, reduce cost and protect margin before you invest.
-              </p>
-              <a
-                href="https://integroai.tech/assessment"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 border border-[#F6C35B]/50 text-[#F6C35B] hover:bg-[#F6C35B]/10 hover:border-[#F6C35B] transition-all duration-200 rounded-lg px-3.5 py-2 text-xs font-medium"
-              >
-                Start the Assessment
-                <ArrowRight className="w-3 h-3" aria-hidden="true" />
-              </a>
-            </div>
           </div>
-
         </div>
 
-        {/* Bottom legal bar */}
-        <div className="pt-6 border-t border-white/10">
-          <div className="flex flex-col items-center gap-4 text-xs text-white/55">
-
-            {/* Trust badges row — centred */}
-            <div className="flex items-center justify-center gap-4 flex-wrap">
-
-              {/* AIBL Verified Partner Badge */}
+        {/* Membership logos, centred */}
+        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-3 border-t border-brand-sand pt-6">
+          {/* AIBL Verified Partner Badge */}
               <a
                 href="https://aiblmedia.com/ai-enablement-directory/integroai-consulting/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="IntegroAI Consulting — aibl Verified AI Enablement Partner 2026. View our directory listing."
+                aria-label="IntegroAI Consulting, aibl Verified AI Enablement Partner 2026. View our directory listing."
                 className="inline-flex flex-shrink-0 rounded-xl overflow-hidden transition-transform duration-200 hover:scale-[1.03]"
               >
                 <svg
@@ -243,50 +177,38 @@ const Footer = () => {
                 </svg>
               </a>
 
-              {/* Hillingdon Chamber of Commerce */}
-              <a
-                href="https://hillingdonchamber.co.uk/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="IntegroAI Consulting — Member of Hillingdon Chamber of Commerce"
-                className="inline-flex flex-col items-center gap-2 flex-shrink-0 group"
-              >
-                <div className="rounded-xl overflow-hidden transition-transform duration-200 group-hover:scale-[1.03]">
-                  <img
-                    src={hccLogo}
-                    alt="Hillingdon Chamber of Commerce"
-                    width={140}
-                    height={45}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-[55px] w-auto object-contain block"
-                  />
-                </div>
-                <span className="text-white/80 text-[11px] font-medium leading-none group-hover:text-white transition-colors">
-                  HCC Member
-                </span>
-              </a>
+          {/* Hillingdon Chamber of Commerce */}
+          <a
+            href="https://hillingdonchamber.co.uk/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="IntegroAI Consulting is a member of Hillingdon Chamber of Commerce"
+            className="inline-flex flex-shrink-0 overflow-hidden rounded-xl transition-transform duration-200 hover:scale-[1.03]"
+          >
+            <img
+              src={hccLogo}
+              alt="Hillingdon Chamber of Commerce member"
+              width={170}
+              height={55}
+              loading="lazy"
+              decoding="async"
+              className="block h-[55px] w-auto object-contain"
+            />
+          </a>
+        </div>
 
-            </div>
-
-            <div className="flex items-center gap-4 sm:gap-6">
-              <Link
-                to="/privacy-policy"
-                className="text-white/55 hover:text-[#F6C35B] transition-colors duration-200 font-medium"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                to="/terms-of-service"
-                className="text-white/55 hover:text-[#F6C35B] transition-colors duration-200 font-medium"
-              >
-                Terms of Service
-              </Link>
-            </div>
-            <p>© {currentYear} IntegroAI Consulting. All rights reserved.</p>
+        <div className="flex flex-col items-center justify-between gap-x-7 gap-y-3 border-t border-brand-sand pt-6 text-sm text-[#42566A] sm:flex-row">
+          <p>© {currentYear} IntegroAI Consulting. All rights reserved.</p>
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
+            <Link to="/privacy-policy" className="py-1.5 underline-offset-4 hover:text-brand-navy hover:underline">
+              Privacy Policy
+            </Link>
+            <Link to="/terms-of-service" className="py-1.5 underline-offset-4 hover:text-brand-navy hover:underline">
+              Terms of Service
+            </Link>
           </div>
         </div>
-      </motion.div>
+      </div>
     </footer>
   );
 };

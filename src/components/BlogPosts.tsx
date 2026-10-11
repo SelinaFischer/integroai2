@@ -1,138 +1,45 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Tag } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import SectionHeader from "./SectionHeader";
 import { articles } from "@/lib/blogData";
-
-type BlogPost = {
-  title: string;
-  excerpt: string;
-  category: string;
-  slug?: string;
-  url?: string;
-};
+import { fadeUp, fadeUpDelayed } from "@/lib/motion";
 
 // Homepage shows only the latest 3 articles, newest first. The full list
-// lives on /blog via "View All Insights" below, so there is no separate
-// expand/collapse control here. Source of truth is articles in blogData.tsx.
-const sortedArticles = [...articles].sort(
-  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-);
-
-const allPosts: BlogPost[] = sortedArticles.map(({ slug, title, excerpt, category }) => ({
-  slug,
-  title,
-  excerpt,
-  category,
-}));
-
+// lives on /blog via "View all posts" below. Source of truth is articles in
+// blogData.tsx.
 const VISIBLE_COUNT = 3;
 
-const CardContent = ({ post }: { post: BlogPost }) => (
-  <>
-    {/* Card Header with gradient */}
-    <div className="h-2 bg-gradient-to-r from-primary via-primary/80 to-accent-warm" />
-
-    <div className="p-6 space-y-4">
-      {/* Meta info */}
-      <div className="flex items-center gap-4 text-sm text-muted-foreground">
-        <span className="flex items-center gap-1.5 text-accent-warm">
-          <Tag className="w-4 h-4" />
-          {post.category}
-        </span>
-      </div>
-
-      {/* Title */}
-      <h3 className="text-lg font-bold text-foreground group-hover:text-accent-warm transition-colors line-clamp-2">
-        {post.title}
-      </h3>
-
-      {/* Excerpt */}
-      <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
-        {post.excerpt}
-      </p>
-
-      {/* Read more link */}
-      <div className="pt-2">
-        <span className="inline-flex items-center gap-2 text-accent-warm font-medium text-sm group-hover:gap-3 transition-all">
-          Read Article
-          <ArrowRight className="w-4 h-4" />
-        </span>
-      </div>
-    </div>
-  </>
-);
-
-const BlogCard = ({ post, index }: { post: BlogPost; index: number }) => (
-  <motion.article
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: -10 }}
-    transition={{ duration: 0.4, delay: index * 0.06 }}
-  >
-    {post.slug ? (
-      <Link
-        to={`/blog/${post.slug}`}
-        className="group block bg-card rounded-2xl border border-border/50 overflow-hidden hover:border-accent-warm/30 transition-all duration-300 hover:shadow-lg hover:shadow-accent-warm/5"
-      >
-        <CardContent post={post} />
-      </Link>
-    ) : (
-      <a
-        href={post.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group block bg-card rounded-2xl border border-border/50 overflow-hidden hover:border-accent-warm/30 transition-all duration-300 hover:shadow-lg hover:shadow-accent-warm/5"
-      >
-        <CardContent post={post} />
-      </a>
-    )}
-  </motion.article>
-);
+const latestPosts = [...articles]
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  .slice(0, VISIBLE_COUNT);
 
 const BlogPosts = () => {
-  const visiblePosts = allPosts.slice(0, VISIBLE_COUNT);
-
   return (
-    <section id="blog" className="py-20 lg:py-28 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <span className="text-accent-warm font-semibold text-sm tracking-wider uppercase">
-            Insights
-          </span>
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mt-2">
-            Latest Insights
-          </h2>
-          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            Practical guidance for leaders navigating AI adoption
-          </p>
-        </motion.div>
+    <section id="blog" className="bg-white py-14 sm:py-16">
+      <div className="wrap flex flex-col gap-8">
+        <SectionHeader eyebrow="Blog" title="Practical AI guides for business leaders" />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {visiblePosts.map((post, index) => (
-            <BlogCard key={post.slug ?? post.url ?? index} post={post} index={index} />
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          {latestPosts.map((post, index) => (
+            <motion.article key={post.slug} {...fadeUpDelayed(index)} className="flex">
+              <Link
+                to={`/blog/${post.slug}`}
+                className="card-soft group flex flex-1 flex-col gap-3 p-7 transition-colors hover:border-brand-amber"
+              >
+                <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-brand-slate">{post.category}</p>
+                <h3 className="text-[22px] leading-tight">{post.title}</h3>
+                <p className="line-clamp-3 flex-1 text-base leading-relaxed text-brand-slate">{post.excerpt}</p>
+                <span className="py-2.5 text-base font-bold text-brand-navy underline underline-offset-4 group-hover:decoration-brand-amber">
+                  Read article
+                </span>
+              </Link>
+            </motion.article>
           ))}
         </div>
 
-        {/* View all */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-center mt-12"
-        >
-          <Link to="/blog">
-            <Button variant="subtle" size="lg" className="group">
-              View All Insights
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
+        <motion.div {...fadeUp} className="flex justify-center">
+          <Link to="/blog" className="btn-outline-navy">
+            View all posts
           </Link>
         </motion.div>
       </div>

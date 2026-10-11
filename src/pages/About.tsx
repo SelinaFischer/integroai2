@@ -1,41 +1,34 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { Lightbulb, Shield, Award, BarChart3, ArrowRight, Linkedin, Home } from "lucide-react";
+import { Lightbulb, Shield, Award, BarChart3, ArrowRight, Linkedin, Target, Telescope } from "lucide-react";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import { Button } from "@/components/ui/button";
-import selinaOfficePhoto from "@/assets/selina-office.png";
-import selinaPhoto from "@/assets/selina-founder.png";
+import selinaAboutPhoto from "@/assets/selina-about-portrait.webp";
+import selinaPhoto from "@/assets/selina-story-portrait.webp";
 
 const values = [
   {
     icon: Lightbulb,
     title: "Clarity",
-    description:
-      "We define the problem clearly, set decision boundaries, and agree what success looks like before any AI work begins.",
-    gradient: "from-accent-warm to-amber-400",
+    description: "We define the problem, agree priorities and establish what success looks like before work begins.",
   },
   {
     icon: Shield,
     title: "Integrity",
-    description: "We give honest guidance, including when AI is not the right solution.",
-    gradient: "from-primary to-cyan-600",
+    description: "We give honest advice, including when AI is not the right solution.",
   },
   {
     icon: Award,
     title: "Practicality",
-    description:
-      "Our recommendations are grounded in real workflows, business priorities, and what it will actually take to implement them.",
-    gradient: "from-accent-warm to-amber-400",
+    description: "We recommend solutions that fit your workflows, resources and business priorities.",
   },
   {
     icon: BarChart3,
     title: "Accountability",
-    description:
-      "Progress is measured through clear ownership, responsible delivery, and tangible business outcomes.",
-    gradient: "from-primary to-cyan-600",
+    description: "We agree who is responsible for what and measure progress against clear business outcomes.",
   },
 ];
 
@@ -46,7 +39,7 @@ const About = () => {
         <title>About | IntegroAI Consulting</title>
         <meta
           name="description"
-          content="IntegroAI Consulting is an independent UK-based AI consultancy helping founder-led service businesses, serviced accommodation and multi-property operators reduce operational firefighting, eliminate repetitive work and apply AI where it can create measurable business value."
+          content="IntegroAI Consulting is an independent UK-based AI consultancy helping founder-led service businesses reduce repetitive work, improve operational control and create capacity for growth."
         />
         <link rel="canonical" href="https://integroai.tech/about" />
       </Helmet>
@@ -59,11 +52,12 @@ const About = () => {
           <section className="pb-14 sm:pb-16 bg-background">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-6xl mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-10 lg:gap-16 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-10 lg:gap-16 items-center">
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
+                    className="text-center"
                   >
                     <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
                       About
@@ -74,16 +68,16 @@ const About = () => {
 
                     <div className="space-y-5">
                       <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                        IntegroAI Consulting is an independent UK-based AI consultancy helping serviced accommodation and multi-property operators reduce operational firefighting, eliminate repetitive work and apply AI where it can create measurable business value.
+                        IntegroAI Consulting is an independent AI consultancy helping founder-led service businesses reduce repetitive work, improve operational control and create capacity for growth.
                       </p>
                       <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                        We combine AI consulting with business and operations advisory, starting with a clear understanding of how the business operates before determining where technology can add value.
+                        We combine AI consulting with business and operations advisory. We start by understanding how work gets done, where problems recur and what needs to improve before recommending where AI or automation can add value.
                       </p>
                       <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                        Our work considers workflows, processes, data, systems, ownership and organisational readiness so that AI decisions are grounded in operational reality.
+                        We assess your workflows, data, systems and team readiness to identify practical opportunities. From there, we help you prioritise investment, plan implementation and agree how results will be measured.
                       </p>
                       <p className="text-foreground text-sm sm:text-base leading-relaxed font-medium">
-                        As an independent, technology-agnostic consultancy, IntegroAI adapts each engagement to the priorities, systems and level of AI maturity of the business.
+                        Our advice is independent of any particular technology provider. Recommendations are shaped by your business goals, budget and existing systems.
                       </p>
                     </div>
                   </motion.div>
@@ -96,15 +90,17 @@ const About = () => {
                   >
                     <div className="rounded-2xl overflow-hidden shadow-sm border border-border/40 aspect-[4/5]">
                       <img
-                        src={selinaOfficePhoto}
-                        alt="Professional workspace — IntegroAI Consulting"
-                        className="w-full h-full object-cover object-center"
+                        src={selinaAboutPhoto}
+                        alt="Selina Fischer, founder of IntegroAI Consulting"
+                        width={900}
+                        height={1125}
+                        className="w-full h-full object-cover object-top"
                         loading="lazy"
                         decoding="async"
                       />
                     </div>
-                    <p className="mt-4 text-xs text-muted-foreground leading-relaxed text-center lg:text-left">
-                      Helping business leaders turn operational complexity into confident AI decisions.
+                    <p className="mt-4 text-xs text-muted-foreground leading-relaxed text-center">
+                      Helping business leaders make clear, practical decisions about AI.
                     </p>
                   </motion.div>
                 </div>
@@ -112,20 +108,26 @@ const About = () => {
             </div>
           </section>
 
-          {/* Mission & Vision */}
+          {/* Mission & Vision: same card language as the Values below (white
+              card, flat amber icon tile), so the page reads as one system. */}
           <section className="py-12 sm:py-16 bg-subtle">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="max-w-5xl mx-auto grid sm:grid-cols-2 gap-5 sm:gap-6">
+              <div className="max-w-5xl mx-auto grid gap-4 sm:grid-cols-2 sm:gap-5">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
-                  className="bg-card border border-border/40 rounded-2xl p-7 sm:p-8 shadow-sm"
+                  className="bg-card border border-border/40 rounded-2xl p-6 sm:p-8 shadow-sm"
                 >
-                  <h2 className="text-lg sm:text-xl font-bold mb-3 text-foreground">Mission</h2>
-                  <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                    To help business leaders make confident AI decisions, reduce repetitive work and build stronger operational control.
+                  <div className="mb-4 flex items-center gap-3.5">
+                    <span className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-brand-amber sm:h-12 sm:w-12">
+                      <Target className="h-5 w-5 text-brand-navy sm:h-[22px] sm:w-[22px]" strokeWidth={2.2} aria-hidden="true" />
+                    </span>
+                    <h2 className="text-lg sm:text-xl font-bold text-foreground">Mission</h2>
+                  </div>
+                  <p className="text-base sm:text-[17px] leading-relaxed text-[#42566A]">
+                    To help business leaders make confident AI decisions, reduce repetitive work and gain operational control.
                   </p>
                 </motion.div>
 
@@ -134,44 +136,48 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  className="bg-card border border-border/40 rounded-2xl p-7 sm:p-8 shadow-sm"
+                  className="bg-card border border-border/40 rounded-2xl p-6 sm:p-8 shadow-sm"
                 >
-                  <h2 className="text-lg sm:text-xl font-bold mb-3 text-foreground">Vision</h2>
-                  <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                    A future where AI makes businesses easier to run, strengthening human capability, improving operational control and supporting sustainable growth.
+                  <div className="mb-4 flex items-center gap-3.5">
+                    <span className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-brand-amber sm:h-12 sm:w-12">
+                      <Telescope className="h-5 w-5 text-brand-navy sm:h-[22px] sm:w-[22px]" strokeWidth={2.2} aria-hidden="true" />
+                    </span>
+                    <h2 className="text-lg sm:text-xl font-bold text-foreground">Vision</h2>
+                  </div>
+                  <p className="text-base sm:text-[17px] leading-relaxed text-[#42566A]">
+                    A future where AI makes businesses easier to run and gives people more time for the work they do best.
                   </p>
                 </motion.div>
               </div>
             </div>
           </section>
 
-          {/* Values */}
+          {/* Values: one panel split by hairlines rather than four separate
+              cards, with soft icon tiles, so it sits quietly under the Mission
+              and Vision cards. */}
           <section className="py-12 sm:py-16 bg-background">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-5xl mx-auto">
-                <h2 className="text-2xl sm:text-3xl font-bold text-foreground text-center mb-8 sm:mb-10">
+                <h2 className="font-heading text-3xl sm:text-4xl font-semibold text-foreground text-center mb-8 sm:mb-10">
                   Values
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-                  {values.map((value, index) => (
-                    <motion.div
-                      key={value.title}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="group bg-card rounded-2xl p-6 sm:p-7 shadow-sm border border-border/40 hover:shadow-md hover:border-primary/15 hover:-translate-y-1 transition-all duration-500 relative overflow-hidden"
-                    >
-                      <div className="relative z-10">
-                        <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br ${value.gradient} flex items-center justify-center mb-4 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
-                          <value.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" aria-hidden="true" />
-                        </div>
-                        <h3 className="text-base sm:text-lg font-bold mb-2">{value.title}</h3>
-                        <p className="text-muted-foreground text-sm leading-relaxed">{value.description}</p>
-                      </div>
-                    </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-brand-sand bg-brand-sand sm:grid-cols-2 lg:grid-cols-4"
+                >
+                  {values.map((value) => (
+                    <div key={value.title} className="flex flex-col gap-3 bg-card p-6 sm:p-7">
+                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-chip text-brand-navy">
+                        <value.icon className="h-5 w-5" strokeWidth={2} aria-hidden="true" />
+                      </span>
+                      <h3 className="text-lg font-bold leading-tight">{value.title}</h3>
+                      <p className="text-[15px] leading-relaxed text-[#42566A]">{value.description}</p>
+                    </div>
                   ))}
-                </div>
+                </motion.div>
               </div>
             </div>
           </section>
@@ -189,13 +195,13 @@ const About = () => {
                 <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
                   Leadership
                 </span>
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">
+                <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-semibold text-foreground">
                   Selina&apos;s Story
                 </h2>
               </motion.div>
 
               <div className="max-w-6xl mx-auto">
-                <div className="grid lg:grid-cols-[auto,1fr] gap-10 lg:gap-16 items-start">
+                <div className="grid lg:grid-cols-[auto,1fr] gap-10 lg:gap-16 items-center">
                   <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -208,9 +214,9 @@ const About = () => {
                     </div>
                     <img
                       src={selinaPhoto}
-                      alt="Selina Fischer - IntegroAI Founder"
-                      width={400}
-                      height={400}
+                      alt="Selina Fischer, founder of IntegroAI Consulting"
+                      width={960}
+                      height={1200}
                       loading="lazy"
                       decoding="async"
                       className="relative w-80 sm:w-96 lg:w-[30rem] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border/20 z-10 h-auto"
@@ -224,46 +230,26 @@ const About = () => {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="space-y-6 text-left self-start"
                   >
-                    <div className="flex flex-wrap justify-start gap-2">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                        20+ Years in Product &amp; Tech
-                      </span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                        AI &amp; Data Strategy
-                      </span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                        Leadership-Led Adoption
-                      </span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                        AI for Serviced Accommodation &amp; Multi-Property Operators
-                      </span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                        Tech Practitioner
-                      </span>
-                    </div>
-
                     <div className="space-y-4">
-                      <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                        I have spent more than 20 years across product, technology and operations, turning business needs into practical, working solutions.
+                      <p className="text-muted-foreground text-base sm:text-[17px] leading-relaxed">
+                        Throughout my career in product, technology and operations, I have turned business needs into practical, working solutions. That experience taught me to start with three questions: What problem are we solving? Why does it matter? What would a better outcome look like?
                       </p>
-                      <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                        That experience shaped how I think about technology. Whatever you build needs a clear purpose. You need to understand the problem you're solving and why it matters. Without that clarity, even good technology struggles to deliver real value.
+                      <p className="text-muted-foreground text-base sm:text-[17px] leading-relaxed">
+                        Those questions now guide my approach to AI. Business owners need clarity about where to focus, what to invest in and how to make changes work in practice.
                       </p>
-                      <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                        <span className="font-semibold text-foreground">IntegroAI means integration and growth.</span>{" "}
-                        AI should integrate into how a business already operates and help it grow with intent, rather than sit on top as another disconnected layer.
+                      <p className="text-muted-foreground text-base sm:text-[17px] leading-relaxed">
+                        I founded IntegroAI Consulting to bring that thinking to AI adoption.{" "}
+                        <span className="font-semibold text-foreground">IntegroAI means integration and growth with AI.</span>{" "}
+                        The name reflects my belief that AI should become a useful part of how a business works, improving everyday operations and supporting growth.
                       </p>
-                      <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                        I started IntegroAI Consulting to bring that product-led thinking to AI adoption, helping leaders approach AI with clarity, practicality and purpose. My work is supported by hands-on delivery experience across operations, product, technology and data, alongside formal training in AI consulting, implementation, data foundations, and leadership-led technology adoption.
-                      </p>
-                      <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                        I lead every IntegroAI engagement personally, from initial diagnosis through to recommendations and delivery support.
+                      <p className="text-muted-foreground text-base sm:text-[17px] leading-relaxed">
+                        My approach combines experience of delivering technology with formal training in AI consulting, data analytics and leadership-led technology adoption.
                       </p>
                     </div>
 
                     <div className="flex justify-center lg:justify-start">
                       <a
-                        href="https://www.linkedin.com/in/selinafischer8/"
+                        href="https://www.linkedin.com/in/selinafischer-ai/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2.5 text-accent-warm hover:text-accent-warm/80 transition-all duration-300 font-medium hover:translate-x-1 py-2 min-h-[44px] group"
@@ -275,41 +261,6 @@ const About = () => {
                   </motion.div>
                 </div>
               </div>
-            </div>
-          </section>
-
-          {/* HostIntel — supporting proof point of sector focus, secondary to consulting */}
-          <section className="py-14 sm:py-16 bg-background">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="max-w-3xl mx-auto"
-              >
-                <div className="bg-card border border-border/40 rounded-2xl p-7 sm:p-9 shadow-sm">
-                  <div className="flex items-start gap-4 sm:gap-5">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-primary to-cyan-600 flex items-center justify-center flex-shrink-0 shadow-md">
-                      <Home className="w-5 h-5 sm:w-6 sm:h-6 text-white" aria-hidden="true" />
-                    </div>
-                    <div>
-                      <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-2">
-                        Also Building
-                      </span>
-                      <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-3">
-                        HostIntel — Practical AI for Hospitality Operations
-                      </h2>
-                      <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-3">
-                        Alongside consulting, I am building HostIntel, an AI-powered operations platform for serviced accommodation and multi-property operators, focused on maintenance, compliance and guest operations. HostIntel applies the same operations-first, human-led philosophy as IntegroAI. It is designed to reduce repetitive coordination and operational firefighting while keeping people in control of important decisions.
-                      </p>
-                      <p className="text-primary text-xs sm:text-sm font-semibold tracking-wide">
-                        Powered by AI. Approved by Humans.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
             </div>
           </section>
 

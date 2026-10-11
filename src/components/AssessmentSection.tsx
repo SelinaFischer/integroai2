@@ -1,101 +1,129 @@
-import { ArrowRight, Sparkles, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { motion } from "framer-motion";
-import scorecardPreview from "@/assets/ai-readiness-scorecard-preview.png";
+import { ASSESSMENT_URL, fadeUp } from "@/lib/motion";
 
-// "5-Minute AI Readiness Assessment" homepage section.
-// Public-facing framing only: an introductory self-assessment, not a full
-// diagnostic and not part of the paid consulting engagement.
+// Sample scorecard. The five dimensions and the /30 scale match the real
+// assessment result; the numbers are illustrative and labelled as a sample.
+const SAMPLE_SCORE = 11;
+const MAX_SCORE = 30;
+const RING_RADIUS = 56;
+const RING_LENGTH = 2 * Math.PI * RING_RADIUS;
+
+const dimensions = [
+  { label: "Strategic Clarity", value: 40 },
+  { label: "Leadership & Ownership", value: 35 },
+  { label: "Process Maturity", value: 55 },
+  { label: "Operational Visibility", value: 25, priority: true },
+  { label: "Data Readiness", value: 60 },
+];
+
+// What the assessment gives you. Wording carried over from the previous site.
+const benefits = [
+  "Identify potential readiness gaps",
+  "Highlight areas requiring attention",
+  "Gain an initial view of where the business stands",
+  "Clarify possible next steps",
+];
+
 const AssessmentSection = () => {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-[#BACBCB]">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="assessment" className="bg-brand-cream py-14 sm:py-16">
+      <div className="wrap grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
+        <motion.div {...fadeUp} className="flex flex-col items-start gap-[18px]">
+          <h2 className="section-title !text-brand-navy">
+            Is your business <span className="italic text-brand-amber">ready for AI?</span>
+          </h2>
+          <p className="text-base leading-relaxed text-[#42566A] sm:text-lg">
+            IntegroAI&apos;s free 5-minute AI Readiness Assessment is an AI assessment tool for business leaders. It scores your business across strategic clarity, leadership and ownership, process maturity, operational visibility and data readiness, then names the priority to focus on first.
+          </p>
+          <ul className="flex list-none flex-col gap-3 py-1">
+            {benefits.map((benefit) => (
+              <li key={benefit} className="flex items-start gap-3 text-base font-medium text-brand-navy sm:text-[17px]">
+                <span className="mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-brand-amber">
+                  <Check className="h-3.5 w-3.5 text-brand-navy" strokeWidth={3.5} aria-hidden="true" />
+                </span>
+                {benefit}
+              </li>
+            ))}
+          </ul>
+          <a href={ASSESSMENT_URL} target="_blank" rel="noopener noreferrer" className="btn-amber group">
+            Start the free assessment
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
+          </a>
+          <p className="text-sm font-semibold text-[#42566A]">A free AI readiness quiz. 5 minutes.</p>
+        </motion.div>
+
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6 }}
-          className="max-w-[1300px] mx-auto"
+          {...fadeUp}
+          className="flex flex-col gap-5 rounded-[20px] border border-brand-sand bg-white p-6 sm:p-[30px]"
+          style={{ boxShadow: "var(--shadow-lg)" }}
+          role="img"
+          aria-label="Sample AI Readiness Assessment result: 11 out of 30, Early Explorer. Priority focus: Operational Visibility."
         >
-          {/* Card */}
-          <div className="bg-[#012F46] border border-white/10 rounded-[28px] overflow-hidden shadow-[0_20px_60px_rgba(2,11,20,0.35)] grid grid-cols-1 lg:grid-cols-[62fr_38fr]">
-
-            {/* Left panel — scorecard preview image */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="flex items-center justify-center bg-[#031523]/40 p-6 sm:p-8 lg:p-10 border-b border-white/10 lg:border-b-0 lg:border-r lg:border-white/10"
-            >
-              <img
-                src={scorecardPreview}
-                alt="5-Minute AI Readiness Assessment scorecard preview showing an initial readiness score and priority focus areas"
-                className="w-full h-auto object-contain"
-                loading="lazy"
-                decoding="async"
-              />
-            </motion.div>
-
-            {/* Right panel — copy */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex flex-col justify-center p-8 sm:p-10 lg:p-12"
-            >
-              {/* Pill */}
-              <div className="mb-6">
-                <div className="inline-flex items-center gap-2 border border-[#F5A302] bg-transparent rounded-full px-4 py-2">
-                  <Sparkles className="w-3.5 h-3.5 text-[#F6C35B] flex-shrink-0" aria-hidden="true" />
-                  <span className="text-[#F6C35B] text-sm font-medium">5-Minute AI Readiness Assessment</span>
-                </div>
-              </div>
-
-              {/* Headline */}
-              <h2 className="text-2xl sm:text-3xl lg:text-[32px] text-white font-bold leading-tight mb-4">
-                Not Sure Where{" "}
-                <span className="text-[#F5A302]">to Start With AI</span>?
-              </h2>
-
-              {/* Supporting copy */}
-              <p className="text-white/80 text-sm sm:text-base leading-relaxed mb-4">
-                The 5-Minute AI Readiness Assessment provides an initial view of where your business stands and where further attention may be needed.
-              </p>
-              <p className="text-white/60 text-xs sm:text-sm leading-relaxed mb-8">
-                It considers areas including workflow, data, systems, adoption and investment priorities.
-              </p>
-
-              {/* CTA button */}
-              <div className="mb-8">
-                <a
-                  href="https://integroai.tech/assessment"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-[#F5A302] hover:bg-[#e09502] text-white hover:text-white font-semibold rounded-[10px] h-[54px] px-8 text-[15px] transition-colors duration-200 group"
-                >
-                  Start the AI Readiness Assessment
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-                </a>
-              </div>
-
-              {/* Bullets */}
-              <ul className="flex flex-col gap-3">
-                {[
-                  "Identify potential readiness gaps",
-                  "Highlight areas requiring attention",
-                  "Gain an initial view of where the business stands",
-                  "Clarify possible next steps",
-                ].map((item) => (
-                  <li key={item} className="flex items-center gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-[#F5A302] flex-shrink-0" aria-hidden="true" />
-                    <span className="text-white/85 text-sm sm:text-base">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-
+          <div className="flex items-center justify-between gap-3">
+            <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-slate">AI Readiness Score</p>
+            <p className="rounded-full bg-brand-amber px-3 py-[5px] text-[11px] font-bold uppercase tracking-[0.12em] text-brand-navy">
+              Sample result
+            </p>
           </div>
+
+          <div className="flex flex-wrap items-center gap-[22px]">
+            <div className="relative h-[132px] w-[132px] flex-none">
+              <svg width="132" height="132" viewBox="0 0 132 132" aria-hidden="true">
+                <circle cx="66" cy="66" r={RING_RADIUS} fill="none" stroke="#EFE8DC" strokeWidth="10" />
+                <circle
+                  cx="66"
+                  cy="66"
+                  r={RING_RADIUS}
+                  fill="none"
+                  stroke="#FF9900"
+                  strokeWidth="10"
+                  strokeLinecap="round"
+                  strokeDasharray={`${(SAMPLE_SCORE / MAX_SCORE) * RING_LENGTH} ${RING_LENGTH}`}
+                  transform="rotate(-90 66 66)"
+                />
+              </svg>
+              <div className="absolute inset-0 flex items-baseline justify-center gap-[3px] pt-[42px]">
+                <span className="text-[46px] font-bold leading-none tracking-tight text-brand-navy">{SAMPLE_SCORE}</span>
+                <span className="text-[17px] font-semibold text-brand-slate">/{MAX_SCORE}</span>
+              </div>
+            </div>
+            <div className="flex min-w-[180px] flex-1 flex-col gap-1.5">
+              <p className="display text-[32px] font-bold leading-none text-brand-navy">Early Explorer</p>
+              <p className="text-[15px] leading-normal text-brand-slate">
+                You&apos;re making progress. Clear gaps identified before AI investment.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-col border-t border-brand-sand pt-[18px]">
+            <p className="pb-2 text-xs font-bold uppercase tracking-[0.14em] text-brand-slate">Readiness by dimension</p>
+            {dimensions.map((dimension) => (
+              <div
+                key={dimension.label}
+                className="grid grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)_44px] items-center gap-3.5 py-[9px]"
+              >
+                <span className="text-[15px] font-semibold text-brand-navy">{dimension.label}</span>
+                <span className="h-2 rounded bg-brand-track">
+                  <span
+                    className={`block h-2 rounded ${dimension.priority ? "bg-brand-amber" : "bg-brand-navy"}`}
+                    style={{ width: `${dimension.value}%` }}
+                  />
+                </span>
+                <span className="text-right text-[15px] font-bold text-brand-navy">{dimension.value}%</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex flex-col gap-1.5 rounded-[14px] border border-brand-sand bg-brand-cream px-[18px] py-4">
+            <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-brand-slate">Priority focus</p>
+            <p className="text-[17px] font-bold text-brand-navy">Operational Visibility</p>
+            <p className="text-[15px] leading-normal text-brand-slate">
+              Clarify ownership and workflow visibility before investing further.
+            </p>
+          </div>
+
+          <p className="text-[13px] text-brand-slate">Sample result. Your score comes from your own answers.</p>
         </motion.div>
       </div>
     </section>

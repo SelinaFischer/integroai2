@@ -15,6 +15,7 @@ import WorkWithMe from "./pages/WorkWithMe";
 import About from "./pages/About";
 import AdminStats from "./pages/AdminStats";
 import Install from "./pages/Install";
+import AiVisibilityGuide from "./pages/AiVisibilityGuide";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/work-with-me" element={<WorkWithMe />} />
           <Route path="/about" element={<About />} />
+          <Route path="/ai-visibility-guide" element={<AiVisibilityGuide />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/install" element={<Install />} />

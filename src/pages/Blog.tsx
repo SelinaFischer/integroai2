@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet-async";
 import { articles } from "@/lib/blogData";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import GuideBanner from "@/components/GuideBanner";
 import { Button } from "@/components/ui/button";
 
 // All posts from blogData.tsx — single source of truth
@@ -68,13 +69,13 @@ const BlogPage = () => {
                   </li>
                   <li className="flex items-center">
                     <ChevronRight className="w-3.5 h-3.5 mx-1" />
-                    <span className="text-primary-foreground font-medium">Insights</span>
+                    <span className="text-primary-foreground font-medium">Blog</span>
                   </li>
                 </ol>
               </nav>
 
               <span className="text-accent-warm font-semibold text-sm tracking-wider uppercase">
-                Insights
+                Blog
               </span>
               <h1 className="text-4xl lg:text-5xl font-bold text-white mt-3 mb-4">
                 AI Strategy Insights
@@ -161,6 +162,7 @@ const BlogPage = () => {
             </motion.div>
           </div>
         </section>
+        <GuideBanner location="blog" className="bg-background pb-16 lg:pb-24" />
         <Footer />
       </main>
     </>

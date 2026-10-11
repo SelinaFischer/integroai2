@@ -1,167 +1,160 @@
-import { ClipboardCheck, Search, Target, ShieldCheck, Cog, TrendingUp, ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import SectionHeader from "./SectionHeader";
+import { fadeUp } from "@/lib/motion";
+import ExtraServicesList from "./ExtraServicesList";
 
-// Prospect-facing consulting journey. This is intentionally distinct from the
-// IntegroAI Operating Framework (Discover → Design → Validate → Deliver → Iterate),
-// which describes how IntegroAI executes work rather than the stages a client can engage.
-// Visual language (gradient icon tiles, gold step numbers) intentionally matches
-// the Operating Framework section for a consistent look across the homepage.
-// Full detail on each stage lives on /work-with-me, one click away via the
-// button below. `description` isn't rendered on screen — it only feeds the
-// hidden schema.org microdata so search engines still see a full description.
-// Numbering (01–06) matches the stage numbers on /work-with-me, where the
-// free assessment is Stage 01 rather than a separate, unnumbered item.
-const stages = [
+// The six stages a client can engage, grouped into three service areas.
+// Stage numbers (01 to 06) match /work-with-me, where each stage is covered
+// in full. `description` is not shown on screen; it feeds the schema.org
+// microdata so search engines and AI assistants still get a full description.
+const serviceGroups = [
   {
-    icon: ClipboardCheck,
-    number: "01",
-    title: "AI Readiness Assessment",
-    description: "A 5-minute self-assessment to see where you stand before you invest in AI.",
-    gradient: "from-accent-warm to-amber-400",
-    ctaLabel: "Start free assessment",
-    ctaHref: "https://integroai.tech/assessment",
+    title: "AI Readiness & Operations Diagnostic",
+    summary: "See where time, capacity or control is being lost. Operational efficiency first, AI second.",
+    stages: [
+      {
+        number: "01",
+        title: "AI Readiness Assessment",
+        description: "A 5-minute self-assessment to see where you stand before you invest in AI.",
+      },
+      {
+        number: "02",
+        title: "AI & Operations Diagnostic",
+        description: "Identify the workflow bottlenecks costing you time, capacity or control.",
+      },
+    ],
   },
   {
-    icon: Search,
-    number: "02",
-    title: "AI & Operations Diagnostic",
-    description: "Identify the workflow bottlenecks costing you time, capacity or control.",
-    gradient: "from-primary to-cyan-600",
+    title: "AI Strategy Consulting",
+    summary: "A business AI strategy that shows which opportunities are worth pursuing first.",
+    stages: [
+      {
+        number: "03",
+        title: "AI Strategy & Prioritisation Roadmap",
+        description: "Identify which opportunities are worth pursuing first.",
+      },
+      {
+        number: "04",
+        title: "AI Foundations & Responsible Adoption",
+        description: "Get the foundations right before you adopt AI.",
+      },
+    ],
   },
   {
-    icon: Target,
-    number: "03",
-    title: "AI Strategy & Prioritisation Roadmap",
-    description: "Identify which opportunities are worth pursuing first.",
-    gradient: "from-accent-warm to-amber-400",
-  },
-  {
-    icon: ShieldCheck,
-    number: "04",
-    title: "AI Foundations & Responsible Adoption",
-    description: "Get the foundations right before you adopt AI.",
-    gradient: "from-primary to-cyan-600",
-  },
-  {
-    icon: Cog,
-    number: "05",
-    title: "AI & Automation Implementation",
-    description: "Turn validated opportunities into working solutions.",
-    gradient: "from-accent-warm to-amber-400",
-  },
-  {
-    icon: TrendingUp,
-    number: "06",
-    title: "Ongoing AI & Operations Advisory",
-    description: "Review what's working, and refine what's next.",
-    gradient: "from-primary to-cyan-600",
+    title: "AI Implementation & Automation",
+    summary:
+      "Turn validated opportunities into working solutions, from AI workflow automation to business process automation.",
+    stages: [
+      {
+        number: "05",
+        title: "AI & Automation Implementation",
+        description: "Turn validated opportunities into working solutions.",
+      },
+      {
+        number: "06",
+        title: "Ongoing AI & Operations Advisory",
+        description: "Review what's working, and refine what's next.",
+      },
+    ],
   },
 ];
 
 const Services = () => {
+  const lastGroup = serviceGroups.length - 1;
+
   return (
     <section
       id="services"
-      className="py-16 sm:py-20 lg:py-24 bg-background relative overflow-hidden"
+      className="bg-white py-14 sm:py-16"
       itemScope
       itemType="https://schema.org/ItemList"
     >
-      {/* Background accent */}
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent-warm/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
+      <div className="wrap flex flex-col gap-10">
+        <SectionHeader
+          eyebrow="AI consulting services"
+          title="AI consulting services that cut firefighting, free up capacity and protect margin."
+          intro="IntegroAI provides AI strategy consulting, AI implementation and ongoing AI advisory. Use the stages your business needs, without committing to the entire journey."
+        />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-6xl mx-auto">
-
-          {/* Section header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-10 sm:mb-14"
-          >
-            <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-3 px-3 py-1 bg-accent-warm/10 rounded-full">
-              Our Approach
-            </span>
-
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-4 text-center">
-              How IntegroAI Helps
-            </h2>
-
-            <p className="text-muted-foreground text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-              Start with the complementary consultation. Then focus on the areas your business needs most.
-            </p>
-          </motion.div>
-
-          {/* Stage cards — every card shares the same icon/number/title rows so
-              they align across the grid; only the free assessment card (01)
-              has a trailing CTA, added after those shared rows so it never
-              throws off the alignment of the others. A faint numeral
-              watermark plus a visible one-line description give each card
-              enough visual weight that the grid doesn't read as empty. */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-            {stages.map((item, index) => (
-              <motion.article
-                key={item.title}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: index * 0.06 }}
-                className="group bg-card rounded-2xl border border-border/40 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-500 p-7 sm:p-8 flex flex-col items-center text-center relative overflow-hidden"
-                itemScope
-                itemType="https://schema.org/Service"
-                itemProp="itemListElement"
+        {/* The six stages drawn as one route with six stops, grouped into the
+            three service areas. On desktop the amber line runs left to right
+            through every stop; on tablet and mobile each area shows its two
+            stops joined top to bottom. Each area shares the same two rows through CSS
+            subgrid, so the line stays level however the text above it wraps. */}
+        <motion.div {...fadeUp} className="rounded-3xl bg-brand-navy px-6 py-8 sm:px-9 sm:py-10">
+          <ol className="grid list-none grid-cols-1 gap-y-9 md:grid-cols-3 md:gap-y-7">
+            {serviceGroups.map((group, groupIndex) => (
+              <li
+                key={group.title}
+                className="flex flex-col gap-5 md:row-span-2 md:grid md:grid-rows-subgrid md:gap-y-7"
               >
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-4 shadow-md group-hover:scale-110 group-hover:shadow-lg transition-all duration-300 relative z-10`}>
-                  <item.icon className="w-6 h-6 text-white" aria-hidden="true" />
+                <div className="flex flex-col gap-2 md:pr-8">
+                  <h3 className="text-xl leading-tight !text-white">{group.title}</h3>
+                  <p className="text-[15px] leading-relaxed text-brand-mist">{group.summary}</p>
                 </div>
 
-                <span className="text-accent-warm font-bold text-xs tracking-wider mb-1.5 relative z-10">
-                  {item.number}
-                </span>
-
-                <h3 className="text-base sm:text-lg font-bold tracking-tight leading-snug relative z-10" itemProp="name">
-                  {item.title}
-                </h3>
-
-                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed mt-2 relative z-10" itemProp="description">
-                  {item.description}
-                </p>
-
-                {item.ctaHref && (
-                  <a
-                    href={item.ctaHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 mt-4 px-4 py-2 rounded-full bg-accent-warm/10 text-accent-warm font-semibold text-sm hover:bg-accent-warm/15 hover:gap-2.5 transition-all relative z-10"
-                  >
-                    {item.ctaLabel}
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
-                )}
-              </motion.article>
+                <ol className="grid list-none grid-cols-1 lg:grid-cols-2" role="list">
+                  {group.stages.map((stage, stageIndex) => {
+                    const isFirstStop = groupIndex === 0 && stageIndex === 0;
+                    const isLastStop = groupIndex === lastGroup && stageIndex === group.stages.length - 1;
+                    const isLastInGroup = stageIndex === group.stages.length - 1;
+                    return (
+                      <li
+                        key={stage.number}
+                        className="relative flex gap-3.5 pb-5 last:pb-0 lg:flex-col lg:gap-3 lg:pb-0 lg:pr-5"
+                        itemScope
+                        itemType="https://schema.org/Service"
+                        itemProp="itemListElement"
+                      >
+                        {/* Route line: top to bottom on mobile, left to right on desktop. */}
+                        <span
+                          aria-hidden="true"
+                          className={`absolute bg-brand-amber ${
+                            isLastInGroup ? "hidden lg:block" : "left-[15px] top-0 h-full w-0.5"
+                          } lg:top-[15px] lg:h-0.5 ${
+                            isFirstStop ? "lg:left-4 lg:w-[calc(100%-16px)]" : "lg:left-0 lg:w-full"
+                          }`}
+                        />
+                        {isLastStop && (
+                          <ChevronRight
+                            aria-hidden="true"
+                            strokeWidth={2.6}
+                            className="absolute -right-[7px] top-[7px] hidden h-[18px] w-[18px] text-brand-amber lg:block"
+                          />
+                        )}
+                        <span
+                          aria-hidden="true"
+                          className="relative z-10 flex h-8 w-8 flex-none items-center justify-center rounded-full bg-brand-amber text-xs font-bold text-brand-navy ring-4 ring-brand-navy"
+                        >
+                          {stage.number}
+                        </span>
+                        <span className="pt-1.5 text-[15px] font-semibold leading-snug text-white lg:pt-0" itemProp="name">
+                          {stage.title}
+                        </span>
+                        <meta itemProp="description" content={stage.description} />
+                      </li>
+                    );
+                  })}
+                </ol>
+              </li>
             ))}
-          </div>
+          </ol>
+        </motion.div>
 
-          {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-center mt-10 sm:mt-14"
-          >
-            <Button variant="hero" size="lg" className="group" asChild>
-              <Link to="/work-with-me">
-                Explore How We Can Work Together
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
-          </motion.div>
+        {/* Standalone services, separate from the six numbered stages. */}
+        <motion.div {...fadeUp} className="flex flex-col gap-5">
+          <p className="eyebrow text-center">More practical solutions to support your business</p>
+          <ExtraServicesList />
+        </motion.div>
 
-        </div>
+        <motion.div {...fadeUp} className="flex justify-center">
+          <Link to="/work-with-me" className="btn-outline-navy group">
+            Explore how we can work together
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
