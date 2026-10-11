@@ -29,40 +29,43 @@ const Hero = () => {
             Find where operational firefighting is draining time and capacity. Then prioritise where AI can create real value.
           </p>
 
-          <div className="flex w-full flex-col gap-3.5 sm:w-auto sm:flex-row">
-            <a
-              href={ASSESSMENT_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-amber group px-[30px] py-[18px] text-lg"
-            >
-              Start the free assessment
-              <ArrowRight className="h-[18px] w-[18px] transition-transform group-hover:translate-x-1" strokeWidth={2.6} aria-hidden="true" />
-            </a>
-            <a
-              href={DISCOVERY_CALL_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-outline-light px-7 py-4 text-lg"
-            >
-              Book a Discovery Call
-            </a>
-          </div>
+          {/* Buttons, with the free guide centred beneath them as a quiet text link
+              so the amber button stays the one main action. */}
+          <div className="flex w-full flex-col gap-7 sm:w-fit">
+            <div className="flex w-full flex-col gap-3.5 sm:w-auto sm:flex-row">
+              <a
+                href={ASSESSMENT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-amber group px-[30px] py-[18px] text-lg"
+              >
+                Start the free assessment
+                <ArrowRight className="h-[18px] w-[18px] transition-transform group-hover:translate-x-1" strokeWidth={2.6} aria-hidden="true" />
+              </a>
+              <a
+                href={DISCOVERY_CALL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline-light px-7 py-4 text-lg"
+              >
+                Book a Discovery Call
+              </a>
+            </div>
 
-          {/* Free guide: a quiet text link, so the amber button stays the one main action. */}
-          <Link
-            to={GUIDE_PAGE_PATH}
-            onClick={() => trackGuideClick("hero")}
-            className="group mt-4 flex max-w-[620px] flex-col gap-1.5 sm:mt-5"
-          >
-            <span className="text-base font-semibold leading-snug text-white sm:text-[17px]">
-              When customers ask AI for a business like yours, does yours come up?
-            </span>
-            <span className="flex w-fit items-center gap-2 text-[15px] leading-snug text-brand-mist underline decoration-white/40 decoration-1 underline-offset-[5px] transition-colors duration-200 group-hover:text-white group-hover:decoration-white sm:text-base">
-              Get the free guide and checklist
-              <ArrowRight className="h-4 w-4 flex-none transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
-            </span>
-          </Link>
+            <Link
+              to={GUIDE_PAGE_PATH}
+              onClick={() => trackGuideClick("hero")}
+              className="group flex flex-col items-center gap-1 self-center text-center"
+            >
+              <span className="text-sm font-medium leading-snug text-white/85 sm:text-[15px]">
+                When customers ask AI for a business like yours, does yours come up?
+              </span>
+              <span className="flex w-fit items-center gap-1.5 text-[13px] leading-snug text-brand-mist underline decoration-white/40 decoration-1 underline-offset-4 transition-colors duration-200 group-hover:text-white group-hover:decoration-white sm:text-sm">
+                Get the free guide and checklist
+                <ArrowRight className="h-3.5 w-3.5 flex-none transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
+              </span>
+            </Link>
+          </div>
         </motion.div>
 
         <motion.div
