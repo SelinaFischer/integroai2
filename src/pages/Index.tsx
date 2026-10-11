@@ -124,8 +124,8 @@ const Index = () => {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Websites for Service Businesses",
-          "description": "A professional website for a service business, designed, built and launched for the client."
+          "name": "Website Design & Build",
+          "description": "A professional business website, designed, built and launched for the client."
         }
       },
       {

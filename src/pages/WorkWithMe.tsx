@@ -1,5 +1,4 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
 import { ClipboardCheck, Search, Target, ShieldCheck, Cog, TrendingUp, ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
@@ -7,8 +6,8 @@ import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import { Button } from "@/components/ui/button";
 import selinaOffice from "@/assets/selina-work-portrait.webp";
-import { EXTRA_SERVICES_SECTION_ID, extraServices } from "@/lib/extraServices";
-import { trackGuideClick } from "@/lib/guide";
+import { EXTRA_SERVICES_SECTION_ID } from "@/lib/extraServices";
+import ExtraServicesList from "@/components/ExtraServicesList";
 
 // The free assessment is Stage 01: the entry point into the six-stage
 // journey, not something separate from it. It uses a simplified card
@@ -325,30 +324,10 @@ const WorkWithMe = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5 }}
-                className="mx-auto flex max-w-6xl flex-col items-center gap-6"
+                className="mx-auto flex max-w-5xl flex-col items-center gap-7"
               >
                 <h2 className="font-heading text-3xl sm:text-4xl">More ways we help</h2>
-                <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-3">
-                  {extraServices.map((service) => (
-                    <div
-                      key={service.title}
-                      className="flex flex-col gap-2 rounded-3xl border border-brand-sand bg-brand-cream p-6 lg:p-7"
-                    >
-                      <h3 className="text-2xl leading-[1.15]">{service.title}</h3>
-                      <p className="text-base leading-relaxed text-brand-slate">{service.description}</p>
-                      {service.link && (
-                        <Link
-                          to={service.link.to}
-                          onClick={() => trackGuideClick("visibility-card")}
-                          className="mt-1 flex w-fit items-center gap-1.5 text-[15px] font-bold text-brand-navy underline decoration-brand-amber decoration-2 underline-offset-4"
-                        >
-                          {service.link.label}
-                          <ArrowRight className="h-4 w-4 flex-none" strokeWidth={2.6} aria-hidden="true" />
-                        </Link>
-                      )}
-                    </div>
-                  ))}
-                </div>
+                <ExtraServicesList />
                 <a
                   href="https://calendly.com/integroai-tech/30min"
                   target="_blank"

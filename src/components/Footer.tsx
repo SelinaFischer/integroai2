@@ -19,7 +19,7 @@ const Footer = () => {
     { label: "AI & Automation Implementation" },
     { label: "AI Voice Receptionist", sectionId: EXTRA_SERVICES_SECTION_ID },
     { label: "Ongoing AI & Operations Advisory" },
-    { label: "Websites for Service Businesses", sectionId: EXTRA_SERVICES_SECTION_ID },
+    { label: "Website Design & Build", sectionId: EXTRA_SERVICES_SECTION_ID },
     { label: "AI Search Visibility (AEO & GEO)", sectionId: EXTRA_SERVICES_SECTION_ID },
   ];
 

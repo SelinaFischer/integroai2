@@ -1,10 +1,9 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SectionHeader from "./SectionHeader";
-import { fadeUp, fadeUpDelayed } from "@/lib/motion";
-import { extraServices } from "@/lib/extraServices";
-import { trackGuideClick } from "@/lib/guide";
+import { fadeUp } from "@/lib/motion";
+import ExtraServicesList from "./ExtraServicesList";
 
 // The six stages a client can engage, grouped into three service areas.
 // Stage numbers (01 to 06) match /work-with-me, where each stage is covered
@@ -63,6 +62,8 @@ const serviceGroups = [
 ];
 
 const Services = () => {
+  const lastGroup = serviceGroups.length - 1;
+
   return (
     <section
       id="services"
@@ -70,77 +71,84 @@ const Services = () => {
       itemScope
       itemType="https://schema.org/ItemList"
     >
-      <div className="wrap flex flex-col gap-9">
+      <div className="wrap flex flex-col gap-10">
         <SectionHeader
           eyebrow="AI consulting services"
           title="AI consulting services that cut firefighting, free up capacity and protect margin."
           intro="IntegroAI provides AI strategy consulting, AI implementation and ongoing AI advisory. Use the stages your business needs, without committing to the entire journey."
         />
 
-        {/* On desktop every card shares the same four rows (title, summary,
-            stage, stage) through CSS subgrid, so the divider lines sit at the
-            same height across all three cards however the text wraps. */}
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-y-0">
-          {serviceGroups.map((group, index) => (
-            <motion.article
-              key={group.title}
-              {...fadeUpDelayed(index)}
-              className="card-soft flex flex-col p-7 md:row-span-4 md:grid md:grid-rows-subgrid md:gap-y-0"
-            >
-              <h3 className="text-2xl leading-[1.15]">{group.title}</h3>
-              <p className="mt-3 pb-5 text-base leading-relaxed text-brand-slate">{group.summary}</p>
-              <ul className="flex list-none flex-col md:contents" role="list">
-                {group.stages.map((stage) => (
-                  <li
-                    key={stage.number}
-                    className="flex items-baseline gap-3.5 border-t border-brand-sand py-3.5 text-base font-semibold text-brand-navy"
-                    itemScope
-                    itemType="https://schema.org/Service"
-                    itemProp="itemListElement"
-                  >
-                    <span className="font-bold text-brand-slate" aria-hidden="true">
-                      {stage.number}
-                    </span>
-                    <span itemProp="name">{stage.title}</span>
-                    <meta itemProp="description" content={stage.description} />
-                  </li>
-                ))}
-              </ul>
-            </motion.article>
-          ))}
-        </div>
+        {/* The six stages drawn as one route with six stops, grouped into the
+            three service areas. On desktop the amber line runs left to right
+            through every stop; on tablet and mobile each area shows its two
+            stops joined top to bottom. Each area shares the same two rows through CSS
+            subgrid, so the line stays level however the text above it wraps. */}
+        <motion.div {...fadeUp} className="rounded-[28px] bg-brand-navy px-6 py-9 sm:px-10 sm:py-12">
+          <ol className="grid list-none grid-cols-1 gap-y-10 md:grid-cols-3 md:gap-y-9">
+            {serviceGroups.map((group, groupIndex) => (
+              <li
+                key={group.title}
+                className="flex flex-col gap-6 md:row-span-2 md:grid md:grid-rows-subgrid md:gap-y-9"
+              >
+                <div className="flex flex-col gap-2.5 md:pr-8">
+                  <h3 className="display text-[28px] !font-semibold leading-[1.1] !text-white lg:text-[32px]">
+                    {group.title}
+                  </h3>
+                  <p className="text-[15px] leading-relaxed text-brand-mist">{group.summary}</p>
+                </div>
+
+                <ol className="grid list-none grid-cols-1 lg:grid-cols-2" role="list">
+                  {group.stages.map((stage, stageIndex) => {
+                    const isFirstStop = groupIndex === 0 && stageIndex === 0;
+                    const isLastStop = groupIndex === lastGroup && stageIndex === group.stages.length - 1;
+                    const isLastInGroup = stageIndex === group.stages.length - 1;
+                    return (
+                      <li
+                        key={stage.number}
+                        className="relative flex gap-4 pb-6 last:pb-0 lg:flex-col lg:gap-4 lg:pb-0 lg:pr-5"
+                        itemScope
+                        itemType="https://schema.org/Service"
+                        itemProp="itemListElement"
+                      >
+                        {/* Route line: top to bottom on mobile, left to right on desktop. */}
+                        <span
+                          aria-hidden="true"
+                          className={`absolute bg-brand-amber ${
+                            isLastInGroup ? "hidden lg:block" : "left-[21px] top-0 h-full w-0.5"
+                          } lg:top-[21px] lg:h-0.5 ${
+                            isFirstStop ? "lg:left-[22px] lg:w-[calc(100%-22px)]" : "lg:left-0 lg:w-full"
+                          }`}
+                        />
+                        {isLastStop && (
+                          <ChevronRight
+                            aria-hidden="true"
+                            strokeWidth={2.6}
+                            className="absolute -right-2 top-[11px] hidden h-[22px] w-[22px] text-brand-amber lg:block"
+                          />
+                        )}
+                        <span
+                          aria-hidden="true"
+                          className="relative z-10 flex h-11 w-11 flex-none items-center justify-center rounded-full bg-brand-amber text-[15px] font-bold text-brand-navy ring-[5px] ring-brand-navy"
+                        >
+                          {stage.number}
+                        </span>
+                        <span className="pt-2.5 text-base font-semibold leading-snug text-white lg:pt-0" itemProp="name">
+                          {stage.title}
+                        </span>
+                        <meta itemProp="description" content={stage.description} />
+                      </li>
+                    );
+                  })}
+                </ol>
+              </li>
+            ))}
+          </ol>
+        </motion.div>
 
         {/* Standalone services, separate from the six numbered stages. */}
-        <motion.div {...fadeUp} className="flex flex-col gap-4">
-          <p className="eyebrow text-center">More ways we help</p>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-            {extraServices.map((service) => (
-              <div
-                key={service.title}
-                className="flex flex-col gap-2 rounded-3xl border border-brand-sand bg-brand-cream p-6 lg:p-7"
-                itemScope
-                itemType="https://schema.org/Service"
-                itemProp="itemListElement"
-              >
-                <h3 className="text-2xl leading-[1.15]" itemProp="name">
-                  {service.title}
-                </h3>
-                <p className="text-base leading-relaxed text-brand-slate" itemProp="description">
-                  {service.description}
-                </p>
-                {service.link && (
-                  <Link
-                    to={service.link.to}
-                    onClick={() => trackGuideClick("visibility-card")}
-                    className="mt-1 flex w-fit items-center gap-1.5 text-[15px] font-bold text-brand-navy underline decoration-brand-amber decoration-2 underline-offset-4"
-                  >
-                    {service.link.label}
-                    <ArrowRight className="h-4 w-4 flex-none" strokeWidth={2.6} aria-hidden="true" />
-                  </Link>
-                )}
-              </div>
-            ))}
-          </div>
+        <motion.div {...fadeUp} className="flex flex-col gap-5">
+          <p className="eyebrow">More ways we help</p>
+          <ExtraServicesList />
         </motion.div>
 
         <motion.div {...fadeUp} className="flex justify-center">
