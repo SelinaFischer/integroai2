@@ -33,12 +33,12 @@ const AssessmentSection = () => {
           <h2 className="section-title !text-brand-navy">
             Is your business <span className="italic text-brand-amber">ready for AI?</span>
           </h2>
-          <p className="text-base leading-relaxed text-[#42566A] sm:text-lg">
+          <p className="text-base leading-relaxed text-[#42566A] sm:text-[17px]">
             IntegroAI&apos;s free 5-minute AI Readiness Assessment is an AI assessment tool for business leaders. It scores your business across strategic clarity, leadership and ownership, process maturity, operational visibility and data readiness, then names the priority to focus on first.
           </p>
           <ul className="flex list-none flex-col gap-3 py-1">
             {benefits.map((benefit) => (
-              <li key={benefit} className="flex items-start gap-3 text-base font-medium text-brand-navy sm:text-[17px]">
+              <li key={benefit} className="flex items-start gap-3 text-[15px] font-medium text-brand-navy sm:text-base">
                 <span className="mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-brand-amber">
                   <Check className="h-3.5 w-3.5 text-brand-navy" strokeWidth={3.5} aria-hidden="true" />
                 </span>

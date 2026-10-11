@@ -45,8 +45,8 @@ const WhoWeWorkWith = () => {
               {...fadeUpDelayed(index)}
               className="card-soft flex flex-col gap-2.5 p-[26px]"
             >
-              <h3 className="text-xl leading-tight">{audience.title}</h3>
-              <p className="text-base leading-relaxed text-brand-slate">{audience.description}</p>
+              <h3 className="text-lg leading-tight">{audience.title}</h3>
+              <p className="text-[15px] leading-relaxed text-brand-slate">{audience.description}</p>
             </m.div>
           ))}
         </div>

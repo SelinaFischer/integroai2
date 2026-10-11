@@ -48,8 +48,8 @@ const Framework = () => {
               <span className="num-chip !bg-brand-amber" aria-hidden="true">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <h3 className="text-[22px] leading-tight">{step.title}</h3>
-              <p className="text-[15px] leading-relaxed text-brand-slate">{step.description}</p>
+              <h3 className="text-[19px] leading-tight">{step.title}</h3>
+              <p className="text-[14.5px] leading-relaxed text-brand-slate">{step.description}</p>
             </m.li>
           ))}
         </ol>

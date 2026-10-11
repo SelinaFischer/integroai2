@@ -25,11 +25,11 @@ const GuideBanner = ({ location, className = "bg-white py-14 sm:py-16" }: GuideB
           <p className="eyebrow">Free guide and checklist</p>
           <h2
             id={`guide-banner-${location}`}
-            className="display text-[32px] font-semibold leading-[1.08] !text-white sm:text-[40px]"
+            className="display text-[28px] font-semibold leading-[1.08] !text-white sm:text-[34px]"
           >
             {GUIDE_TITLE}
           </h2>
-          <p className="text-base leading-relaxed text-brand-mist sm:text-[17px]">{GUIDE_SUBTITLE}</p>
+          <p className="text-[15px] leading-relaxed text-brand-mist sm:text-base">{GUIDE_SUBTITLE}</p>
         </div>
         <Link
           to={GUIDE_PAGE_PATH}

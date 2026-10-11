@@ -28,15 +28,15 @@ const TermsOfService = () => {
               Back to Home
             </Link>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8">Terms of Service</h1>
+            <h1 className="text-3xl sm:text-4xl mb-6">Terms of Service</h1>
             
-            <p className="text-muted-foreground mb-8">
+            <p className="text-muted-foreground text-sm mb-8">
               <strong>Last updated:</strong> January 2025
             </p>
 
-            <div className="prose prose-lg max-w-none text-foreground">
-              <section className="mb-10">
-                <h2 className="text-2xl font-bold mb-4">1. Introduction</h2>
+            <div className="max-w-none text-[15px] text-foreground">
+              <section className="mb-8">
+                <h2 className="text-[19px] font-semibold mb-3">1. Introduction</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   Welcome to IntegroAI Consulting. These Terms of Service (&quot;Terms&quot;) govern your use of our website at integroai.tech and any consulting services we provide.
                 </p>
@@ -45,8 +45,8 @@ const TermsOfService = () => {
                 </p>
               </section>
 
-              <section className="mb-10">
-                <h2 className="text-2xl font-bold mb-4">2. Services Description</h2>
+              <section className="mb-8">
+                <h2 className="text-[19px] font-semibold mb-3">2. Services Description</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   IntegroAI Consulting provides AI strategy and consulting services for businesses, including but not limited to:
                 </p>
@@ -63,8 +63,8 @@ const TermsOfService = () => {
                 </p>
               </section>
 
-              <section className="mb-10">
-                <h2 className="text-2xl font-bold mb-4">3. Use of Website</h2>
+              <section className="mb-8">
+                <h2 className="text-[19px] font-semibold mb-3">3. Use of Website</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   You agree to use our website only for lawful purposes and in accordance with these Terms. You agree not to:
                 </p>
@@ -77,8 +77,8 @@ const TermsOfService = () => {
                 </ul>
               </section>
 
-              <section className="mb-10">
-                <h2 className="text-2xl font-bold mb-4">4. Intellectual Property</h2>
+              <section className="mb-8">
+                <h2 className="text-[19px] font-semibold mb-3">4. Intellectual Property</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   All content on this website, including text, graphics, logos, images, and software, is the property of IntegroAI Consulting or its content suppliers and is protected by intellectual property laws.
                 </p>
@@ -87,15 +87,15 @@ const TermsOfService = () => {
                 </p>
               </section>
 
-              <section className="mb-10">
-                <h2 className="text-2xl font-bold mb-4">5. Consulting Services</h2>
+              <section className="mb-8">
+                <h2 className="text-[19px] font-semibold mb-3">5. Consulting Services</h2>
                 
-                <h3 className="text-xl font-semibold mb-3 mt-6">5.1 Nature of Advice</h3>
+                <h3 className="text-base font-semibold mb-2 mt-5">5.1 Nature of Advice</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   Our consulting services provide strategic guidance and recommendations based on our professional expertise. The advice we provide is tailored to your specific situation based on information you provide to us.
                 </p>
 
-                <h3 className="text-xl font-semibold mb-3 mt-6">5.2 Client Responsibilities</h3>
+                <h3 className="text-base font-semibold mb-2 mt-5">5.2 Client Responsibilities</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   You agree to:
                 </p>
@@ -106,14 +106,14 @@ const TermsOfService = () => {
                   <li>Pay fees as agreed in the service agreement</li>
                 </ul>
 
-                <h3 className="text-xl font-semibold mb-3 mt-6">5.3 Vendor-Agnostic Approach</h3>
+                <h3 className="text-base font-semibold mb-2 mt-5">5.3 Vendor-Agnostic Approach</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   IntegroAI Consulting maintains a vendor-agnostic approach. We do not receive commissions or incentives from technology vendors, ensuring our recommendations are based solely on your best interests.
                 </p>
               </section>
 
-              <section className="mb-10">
-                <h2 className="text-2xl font-bold mb-4">6. Disclaimer of Warranties</h2>
+              <section className="mb-8">
+                <h2 className="text-[19px] font-semibold mb-3">6. Disclaimer of Warranties</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   Our website and services are provided &quot;as is&quot; without warranties of any kind, either express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, or non-infringement.
                 </p>
@@ -122,8 +122,8 @@ const TermsOfService = () => {
                 </p>
               </section>
 
-              <section className="mb-10">
-                <h2 className="text-2xl font-bold mb-4">7. Limitation of Liability</h2>
+              <section className="mb-8">
+                <h2 className="text-[19px] font-semibold mb-3">7. Limitation of Liability</h2>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   To the maximum extent permitted by law, IntegroAI Consulting shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or business opportunities.
                 </p>
@@ -132,50 +132,50 @@ const TermsOfService = () => {
                 </p>
               </section>
 
-              <section className="mb-10">
-                <h2 className="text-2xl font-bold mb-4">8. Confidentiality</h2>
+              <section className="mb-8">
+                <h2 className="text-[19px] font-semibold mb-3">8. Confidentiality</h2>
                 <p className="text-muted-foreground leading-relaxed">
                   We treat all client information as confidential. We will not disclose your business information, strategies, or data to third parties without your consent, except as required by law. Specific confidentiality terms may be outlined in individual service agreements.
                 </p>
               </section>
 
-              <section className="mb-10">
-                <h2 className="text-2xl font-bold mb-4">9. Indemnification</h2>
+              <section className="mb-8">
+                <h2 className="text-[19px] font-semibold mb-3">9. Indemnification</h2>
                 <p className="text-muted-foreground leading-relaxed">
                   You agree to indemnify and hold harmless IntegroAI Consulting, its officers, directors, employees, and agents from any claims, damages, losses, or expenses arising from your use of our website, breach of these Terms, or violation of any rights of a third party.
                 </p>
               </section>
 
-              <section className="mb-10">
-                <h2 className="text-2xl font-bold mb-4">10. Third-Party Links</h2>
+              <section className="mb-8">
+                <h2 className="text-[19px] font-semibold mb-3">10. Third-Party Links</h2>
                 <p className="text-muted-foreground leading-relaxed">
                   Our website may contain links to third-party websites or services. We are not responsible for the content, privacy policies, or practices of any third-party sites. Your use of third-party websites is at your own risk.
                 </p>
               </section>
 
-              <section className="mb-10">
-                <h2 className="text-2xl font-bold mb-4">11. Modifications to Terms</h2>
+              <section className="mb-8">
+                <h2 className="text-[19px] font-semibold mb-3">11. Modifications to Terms</h2>
                 <p className="text-muted-foreground leading-relaxed">
                   We reserve the right to modify these Terms at any time. Changes will be effective immediately upon posting to this page. Your continued use of the website after changes constitutes acceptance of the modified Terms.
                 </p>
               </section>
 
-              <section className="mb-10">
-                <h2 className="text-2xl font-bold mb-4">12. Governing Law</h2>
+              <section className="mb-8">
+                <h2 className="text-[19px] font-semibold mb-3">12. Governing Law</h2>
                 <p className="text-muted-foreground leading-relaxed">
                   These Terms shall be governed by and construed in accordance with the laws of Germany. Any disputes arising from these Terms or your use of our services shall be subject to the exclusive jurisdiction of the courts of Germany.
                 </p>
               </section>
 
-              <section className="mb-10">
-                <h2 className="text-2xl font-bold mb-4">13. Severability</h2>
+              <section className="mb-8">
+                <h2 className="text-[19px] font-semibold mb-3">13. Severability</h2>
                 <p className="text-muted-foreground leading-relaxed">
                   If any provision of these Terms is found to be unenforceable or invalid, that provision shall be limited or eliminated to the minimum extent necessary, and the remaining provisions shall remain in full force and effect.
                 </p>
               </section>
 
-              <section className="mb-10">
-                <h2 className="text-2xl font-bold mb-4">14. Contact Information</h2>
+              <section className="mb-8">
+                <h2 className="text-[19px] font-semibold mb-3">14. Contact Information</h2>
                 <p className="text-muted-foreground leading-relaxed">
                   For questions about these Terms of Service, please contact us at:
                 </p>

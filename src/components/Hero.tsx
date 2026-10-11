@@ -21,14 +21,14 @@ const Hero = () => {
             Independent AI consultancy for founder-led service businesses
           </p>
 
-          <h1 className="text-[46px] font-semibold leading-none text-white sm:text-[64px] lg:text-[80px]">
+          <h1 className="text-[42px] font-semibold leading-none text-white sm:text-[56px] lg:text-[68px]">
             Stop Automating
             <br />
             <span className="italic text-brand-amber">Broken Processes.</span>
           </h1>
 
-          <p className="max-w-[660px] text-lg leading-normal text-brand-mist sm:text-[21px]">
-            Find where operational firefighting is draining time and capacity. Then prioritise where AI can create real value.
+          <p className="max-w-[600px] text-[17px] leading-normal text-brand-mist sm:text-[19px]">
+            Find where operational firefighting is draining time and capacity. Focus on where AI can make the biggest difference.
           </p>
 
           {/* Buttons, with the free guide centred beneath them as a quiet text link
@@ -60,10 +60,10 @@ const Hero = () => {
               className="group flex flex-col items-center gap-1 self-center text-center"
             >
               <span className="text-sm font-medium leading-snug text-white/85 sm:text-[15px]">
-                When customers ask AI for a business like yours, does yours come up?
+                How visible is your business to AI?
               </span>
               <span className="flex w-fit items-center gap-1.5 text-[13px] leading-snug text-brand-mist underline decoration-white/40 decoration-1 underline-offset-4 transition-colors duration-200 group-hover:text-white group-hover:decoration-white sm:text-sm">
-                Get your free guide and checklist
+                Get your free AI visibility guide and checklist
                 <ArrowRight className="h-3.5 w-3.5 flex-none transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
               </span>
             </Link>

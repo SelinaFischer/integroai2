@@ -67,7 +67,7 @@ const About = () => {
                     <span className="inline-block text-brand-label font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
                       About
                     </span>
-                    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+                    <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-foreground mb-6">
                       About IntegroAI Consulting
                     </h1>
 
@@ -133,7 +133,7 @@ const About = () => {
                     </span>
                     <h2 className="text-lg sm:text-xl font-bold text-foreground">Mission</h2>
                   </div>
-                  <p className="text-base sm:text-[17px] leading-relaxed text-[#42566A]">
+                  <p className="text-base leading-relaxed text-[#42566A]">
                     To help business leaders make confident AI decisions, reduce repetitive work and gain operational control.
                   </p>
                 </m.div>
@@ -151,7 +151,7 @@ const About = () => {
                     </span>
                     <h2 className="text-lg sm:text-xl font-bold text-foreground">Vision</h2>
                   </div>
-                  <p className="text-base sm:text-[17px] leading-relaxed text-[#42566A]">
+                  <p className="text-base leading-relaxed text-[#42566A]">
                     A future where AI makes businesses easier to run and gives people more time for the work they do best.
                   </p>
                 </m.div>
@@ -202,7 +202,7 @@ const About = () => {
                 <span className="inline-block text-brand-label font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
                   Leadership
                 </span>
-                <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-semibold text-foreground">
+                <h2 className="font-heading text-3xl sm:text-4xl lg:text-[40px] font-semibold text-foreground">
                   Selina&apos;s Story
                 </h2>
               </m.div>
@@ -240,18 +240,18 @@ const About = () => {
                     className="space-y-6 text-left self-start"
                   >
                     <div className="space-y-4">
-                      <p className="text-muted-foreground text-base sm:text-[17px] leading-relaxed">
+                      <p className="text-muted-foreground text-base leading-relaxed">
                         Throughout my career in product, technology and operations, I have turned business needs into practical, working solutions. That experience taught me to start with three questions: What problem are we solving? Why does it matter? What would a better outcome look like?
                       </p>
-                      <p className="text-muted-foreground text-base sm:text-[17px] leading-relaxed">
+                      <p className="text-muted-foreground text-base leading-relaxed">
                         Those questions now guide my approach to AI. Business owners need clarity about where to focus, what to invest in and how to make changes work in practice.
                       </p>
-                      <p className="text-muted-foreground text-base sm:text-[17px] leading-relaxed">
+                      <p className="text-muted-foreground text-base leading-relaxed">
                         I founded IntegroAI Consulting to bring that thinking to AI adoption.{" "}
                         <span className="font-semibold text-foreground">IntegroAI means integration and growth with AI.</span>{" "}
                         The name reflects my belief that AI should become a useful part of how a business works, improving everyday operations and supporting growth.
                       </p>
-                      <p className="text-muted-foreground text-base sm:text-[17px] leading-relaxed">
+                      <p className="text-muted-foreground text-base leading-relaxed">
                         My approach combines experience of delivering technology with formal training in AI consulting, data analytics and leadership-led technology adoption.
                       </p>
                     </div>

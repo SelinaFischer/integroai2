@@ -162,14 +162,14 @@ const WorkWithMe = () => {
                   <span className="inline-block text-brand-label font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
                     How Engagements Work
                   </span>
-                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+                  <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-foreground mb-4">
                     Work With Me
                   </h1>
-                  <p className="text-base sm:text-lg text-accent-warm font-medium mb-4">
+                  <p className="text-base sm:text-[17px] text-accent-warm font-medium mb-4">
                     AI Adoption &amp; Transformation Consultant for Founder-Led Service Businesses
                   </p>
 
-                  <p className="text-foreground text-base sm:text-lg font-semibold leading-snug mb-6">
+                  <p className="text-foreground text-base sm:text-[17px] font-semibold leading-snug mb-6">
                     Cut firefighting and repetitive work, and reclaim time for the work you love.
                   </p>
 
@@ -209,7 +209,7 @@ const WorkWithMe = () => {
           <section className="py-12 sm:py-16 bg-subtle">
             <div className="wrap">
               <div className="max-w-4xl mx-auto text-center mb-10 sm:mb-14">
-                <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] mb-4">How We Can Work Together</h2>
+                <h2 className="font-heading text-3xl sm:text-4xl lg:text-[40px] mb-4">How We Can Work Together</h2>
                 <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
                   Six stages of support, from initial assessment through implementation and ongoing advisory. Use the stages your business needs, without committing to the entire journey.
                 </p>
@@ -356,7 +356,7 @@ const WorkWithMe = () => {
                 transition={{ duration: 0.6 }}
                 className="max-w-2xl mx-auto text-center"
               >
-                <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-semibold text-white mb-6">
+                <h2 className="font-heading text-3xl sm:text-4xl lg:text-[40px] font-semibold text-white mb-6">
                   What You Can Expect
                 </h2>
                 <div className="space-y-4 mb-10 text-left sm:text-center">

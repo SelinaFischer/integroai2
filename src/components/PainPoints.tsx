@@ -55,8 +55,8 @@ const PainPoints = () => {
               <span className="num-chip" aria-hidden="true">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <h3 className="text-xl leading-tight">{point.title}</h3>
-              <p className="text-base leading-relaxed text-brand-slate">{point.description}</p>
+              <h3 className="text-lg leading-tight">{point.title}</h3>
+              <p className="text-[15px] leading-relaxed text-brand-slate">{point.description}</p>
             </m.li>
           ))}
         </ol>

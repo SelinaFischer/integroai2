@@ -83,12 +83,12 @@ const AiVisibilityGuide = () => {
               <p className="text-[11px] font-bold uppercase leading-relaxed tracking-[0.16em] text-brand-amber sm:text-xs">
                 Free guide and checklist
               </p>
-              <h1 className="text-[44px] font-semibold leading-none text-white sm:text-[60px] lg:text-[72px]">
+              <h1 className="text-[40px] font-semibold leading-none text-white sm:text-[52px] lg:text-[62px]">
                 Does AI know
                 <br />
                 <span className="italic text-brand-amber">your business exists?</span>
               </h1>
-              <p className="max-w-[620px] text-lg leading-normal text-brand-mist sm:text-[21px]">{GUIDE_SUBTITLE}</p>
+              <p className="max-w-[580px] text-[17px] leading-normal text-brand-mist sm:text-[19px]">{GUIDE_SUBTITLE}</p>
               <GuideButton location="guide-page-hero" />
             </m.div>
 
@@ -133,9 +133,9 @@ const AiVisibilityGuide = () => {
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
               {threeIdeas.map((idea, index) => (
                 <m.div key={idea.title} {...fadeUpDelayed(index)} className="card-soft flex flex-col gap-2.5 p-7">
-                  <h3 className="display text-[32px] !font-bold leading-[1.08] !text-brand-navy">{idea.title}</h3>
+                  <h3 className="display text-[28px] !font-bold leading-[1.08] !text-brand-navy">{idea.title}</h3>
                   <p className="text-xs font-bold uppercase tracking-[0.1em] text-brand-label">{idea.label}</p>
-                  <p className="text-base leading-relaxed text-brand-slate">{idea.text}</p>
+                  <p className="text-[15px] leading-relaxed text-brand-slate">{idea.text}</p>
                 </m.div>
               ))}
             </div>
@@ -197,7 +197,7 @@ const AiVisibilityGuide = () => {
             className="mx-auto flex max-w-[calc(836px+2*var(--gutter))] flex-col items-center gap-[22px] px-gutter text-center"
           >
             <p className="eyebrow">The one question to take away</p>
-            <h2 className="display text-[36px] font-semibold leading-[1.06] !text-white sm:text-[50px] lg:text-[60px]">
+            <h2 className="display text-[32px] font-semibold leading-[1.06] !text-white sm:text-[44px] lg:text-[52px]">
               What question do you want your business to be{" "}
               <span className="italic text-brand-amber">the answer to?</span>
             </h2>

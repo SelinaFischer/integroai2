@@ -89,7 +89,7 @@ const Services = () => {
                 className="flex flex-col gap-5 md:row-span-2 md:grid md:grid-rows-subgrid md:gap-y-7"
               >
                 <div className="flex flex-col gap-2 md:pr-8 lg:px-5 lg:text-center">
-                  <h3 className="text-[19px] font-medium leading-snug tracking-[-0.01em] !text-white">{group.title}</h3>
+                  <h3 className="text-lg font-medium leading-snug tracking-[-0.01em] !text-white">{group.title}</h3>
                   <p className="text-[15px] leading-relaxed text-brand-mist">{group.summary}</p>
                 </div>
 

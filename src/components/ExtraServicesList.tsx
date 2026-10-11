@@ -22,12 +22,12 @@ const ExtraServicesList = () => (
             <span className="flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-brand-chip text-brand-navy">
               <Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden="true" />
             </span>
-            <h3 className="text-[19px] font-medium leading-snug tracking-[-0.01em]" itemProp="name">
+            <h3 className="text-lg font-medium leading-snug tracking-[-0.01em]" itemProp="name">
               {service.title}
             </h3>
           </div>
           <div className="flex flex-col gap-2.5">
-            <p className="text-base leading-relaxed text-brand-slate" itemProp="description">
+            <p className="text-[15px] leading-relaxed text-brand-slate" itemProp="description">
               {service.description}
             </p>
             {service.link && (

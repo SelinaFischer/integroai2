@@ -217,11 +217,11 @@
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-variant-numeric: lining-nums;
     text-wrap: balance;
-    @apply text-[34px] leading-[1.08] font-semibold text-brand-ink sm:text-[44px] lg:text-[54px];
+    @apply text-[30px] leading-[1.1] font-semibold text-brand-ink sm:text-[38px] lg:text-[46px];
   }
 
   .lede {
-    @apply text-base leading-relaxed text-brand-slate sm:text-lg;
+    @apply text-base leading-relaxed text-brand-slate sm:text-[17px];
   }
 
   .card-soft {
@@ -234,15 +234,15 @@
   }
 
   .btn-amber {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-amber px-6 py-[13px] text-base font-semibold leading-tight text-brand-navy transition-colors duration-200 hover:bg-[#FFAA2B];
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-amber px-6 py-[13px] text-[15px] font-semibold leading-tight text-brand-navy transition-colors duration-200 hover:bg-[#FFAA2B];
   }
 
   .btn-outline-navy {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border-[1.5px] border-brand-navy px-6 py-[11.5px] text-base font-semibold leading-tight text-brand-navy transition-colors duration-200 hover:bg-brand-navy hover:text-white;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-[1.5px] border-brand-navy px-6 py-[11.5px] text-[15px] font-semibold leading-tight text-brand-navy transition-colors duration-200 hover:bg-brand-navy hover:text-white;
   }
 
   .btn-outline-light {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border-[1.5px] border-white/50 px-6 py-[11.5px] text-base font-semibold leading-tight text-white transition-colors duration-200 hover:border-white hover:bg-white/10;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-[1.5px] border-white/50 px-6 py-[11.5px] text-[15px] font-semibold leading-tight text-white transition-colors duration-200 hover:border-white hover:bg-white/10;
   }
 
   .bg-midnight-glow {

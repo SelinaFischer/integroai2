@@ -29,6 +29,8 @@ const FAQ = () => {
   const half = Math.ceil(faqs.length / 2);
   const columns = [faqs.slice(0, half), faqs.slice(half)];
 
+  // On desktop every question box is the same height (room for two lines), so
+  // the left and right columns line up row by row.
   const renderItem = (faq: (typeof faqs)[number], index: number) => (
                 <Accordion.Item
           key={faq.question}
@@ -37,10 +39,10 @@ const FAQ = () => {
         >
           <Accordion.Header asChild>
             <h3 className="m-0">
-              <Accordion.Trigger className="flex w-full items-center gap-4 rounded-[14px] px-5 py-5 text-left text-base font-semibold text-brand-navy sm:px-6 sm:text-[17px]">
+              <Accordion.Trigger className="flex w-full items-center gap-4 rounded-[14px] px-5 py-4 text-left text-[15px] font-medium leading-snug text-brand-navy sm:px-6 lg:min-h-[76px]">
                 <span className="flex-1">{faq.question}</span>
-                <Plus className="h-5 w-5 flex-none group-data-[state=open]:hidden" strokeWidth={2.4} aria-hidden="true" />
-                <Minus className="hidden h-5 w-5 flex-none group-data-[state=open]:block" strokeWidth={2.4} aria-hidden="true" />
+                <Plus className="h-[18px] w-[18px] flex-none group-data-[state=open]:hidden" strokeWidth={2} aria-hidden="true" />
+                <Minus className="hidden h-[18px] w-[18px] flex-none group-data-[state=open]:block" strokeWidth={2} aria-hidden="true" />
               </Accordion.Trigger>
             </h3>
           </Accordion.Header>
@@ -50,7 +52,7 @@ const FAQ = () => {
               collapsed on screen. */}
           <Accordion.Content
             forceMount
-            className="px-5 pb-5 text-[15px] leading-relaxed text-brand-slate data-[state=closed]:hidden sm:px-6 sm:text-base"
+            className="px-5 pb-5 text-[15px] leading-relaxed text-brand-slate data-[state=closed]:hidden sm:px-6"
           >
             {faq.answer}
             {faq.link && (
