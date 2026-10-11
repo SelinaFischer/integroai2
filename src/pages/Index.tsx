@@ -15,7 +15,6 @@ import BlogPosts from "@/components/BlogPosts";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
-import CookieConsent from "@/components/CookieConsent";
 
 
 const Index = () => {
@@ -183,7 +182,6 @@ const Index = () => {
         </main>
         <Footer />
         <BackToTop />
-        <CookieConsent />
         </div>
     </>
   );
