@@ -49,17 +49,13 @@ const Hero = () => {
             </a>
           </div>
 
-          {/* Free guide: the softer offer for visitors not ready for the assessment. */}
+          {/* Free guide: a quiet text link, so the amber button stays the one main action. */}
           <Link
             to={GUIDE_PAGE_PATH}
             onClick={() => trackGuideClick("hero")}
-            className="group flex max-w-full items-center gap-3 rounded-full border border-white/25 bg-white/[0.06] py-2 pl-2 pr-4 text-left text-[15px] font-semibold leading-snug text-white transition-colors duration-200 hover:border-brand-amber hover:bg-white/10 sm:text-base"
+            className="text-[15px] leading-snug text-brand-mist underline decoration-white/40 decoration-1 underline-offset-[5px] transition-colors duration-200 hover:text-white hover:decoration-white sm:text-base"
           >
-            <span className="flex-none rounded-full bg-brand-amber px-3 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-brand-navy">
-              Free guide
-            </span>
-            <span className="min-w-0">{GUIDE_TITLE}</span>
-            <ArrowRight className="h-4 w-4 flex-none text-brand-amber transition-transform group-hover:translate-x-1" strokeWidth={2.6} aria-hidden="true" />
+            Get the free guide: {GUIDE_TITLE}
           </Link>
         </motion.div>
 
