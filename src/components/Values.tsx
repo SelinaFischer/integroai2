@@ -38,7 +38,7 @@ const Values = () => {
       {/* Background accent */}
       <div className="absolute top-0 left-0 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-primary/3 rounded-full blur-[120px] -translate-y-1/2 -translate-x-1/2" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="wrap relative z-10">
         <div className="max-w-6xl mx-auto">
 
           {/* ── About: two-column layout ── */}

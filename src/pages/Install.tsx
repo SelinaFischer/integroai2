@@ -18,7 +18,7 @@ const Install = () => {
       <Header />
 
       <main className="min-h-screen bg-background pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="wrap">
           <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

@@ -191,7 +191,7 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image
         
         {/* Hero Header */}
         <section className="pt-32 pb-16 bg-gradient-to-br from-primary via-primary/95 to-primary/90">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+          <div className="mx-auto w-full max-w-[calc(832px+2*var(--gutter))] px-gutter">
             <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -218,8 +218,8 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image
                       Blog
                     </Link>
                   </li>
-                  <li className="flex items-center">
-                    <ChevronRight className="w-3.5 h-3.5 mx-1" />
+                  <li className="flex min-w-0 items-center">
+                    <ChevronRight className="w-3.5 h-3.5 mx-1 flex-none" />
                     <span className="text-primary-foreground font-medium truncate max-w-[200px] sm:max-w-[300px]">
                       {title}
                     </span>
@@ -310,7 +310,7 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image
             </div>
           </m.div>
           
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+          <div className="mx-auto w-full max-w-[calc(832px+2*var(--gutter))] px-gutter">
             <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

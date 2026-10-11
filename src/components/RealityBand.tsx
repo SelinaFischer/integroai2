@@ -7,7 +7,7 @@ const RealityBand = () => {
     <section className="bg-brand-navy py-16 sm:py-[76px]">
       <m.div
         {...fadeUp}
-        className="mx-auto flex max-w-[980px] flex-col items-center gap-[18px] px-5 text-center sm:px-8"
+        className="mx-auto flex max-w-[calc(916px+2*var(--gutter))] flex-col items-center gap-[18px] px-gutter text-center"
       >
         <p className="eyebrow">The reality</p>
         <h2 className="display text-[38px] font-semibold leading-[1.05] text-white sm:text-[54px] lg:text-[70px]">

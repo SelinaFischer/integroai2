@@ -19,7 +19,7 @@ const TermsOfService = () => {
       <div className="min-h-screen">
         <Header />
         <main id="main-content" className="pt-24 lg:pt-32 pb-16 lg:pb-24">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+          <div className="mx-auto w-full max-w-[calc(832px+2*var(--gutter))] px-gutter">
             <Link 
               to="/" 
               className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8"

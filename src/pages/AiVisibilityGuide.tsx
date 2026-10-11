@@ -110,7 +110,7 @@ const AiVisibilityGuide = () => {
 
         {/* Why this matters */}
         <section className="bg-brand-ivory py-14 sm:py-16">
-          <m.div {...fadeUp} className="wrap mx-auto flex max-w-[860px] flex-col items-center gap-5 text-center">
+          <m.div {...fadeUp} className="mx-auto flex w-full max-w-[calc(796px+2*var(--gutter))] flex-col items-center gap-5 px-gutter text-center">
             <p className="eyebrow">Why this matters</p>
             <h2 className="section-title">
               When customers ask AI for a business like yours, does yours come up?
@@ -194,7 +194,7 @@ const AiVisibilityGuide = () => {
         >
           <m.div
             {...fadeUp}
-            className="mx-auto flex max-w-[900px] flex-col items-center gap-[22px] px-5 text-center sm:px-8"
+            className="mx-auto flex max-w-[calc(836px+2*var(--gutter))] flex-col items-center gap-[22px] px-gutter text-center"
           >
             <p className="eyebrow">The one question to take away</p>
             <h2 className="display text-[36px] font-semibold leading-[1.06] !text-white sm:text-[50px] lg:text-[60px]">

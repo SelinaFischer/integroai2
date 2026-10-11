@@ -14,6 +14,11 @@
 
 @layer base {
   :root {
+    /* Side margin for the whole site. Grows with the screen: 24px on phones,
+       about 40px on tablets, up to 72px on laptops. Wide screens centre the
+       content, so their margins are larger still. */
+    --gutter: clamp(1.5rem, 5vw, 4.5rem);
+
     /* Brand palette: navy + amber on warm neutrals.
        Navy #041B2B · Midnight #050F1B · Amber #FF9900 · Ink #0E273A
        Ivory #FBF7F1 · Light sand #F5EFE4 · Sand #E9E1D3 · Slate #4A6080 */
@@ -189,8 +194,12 @@
 
 @layer components {
   /* ── Homepage design system ─────────────────────────────────────────── */
+  /* The one page frame used by every section on every page. Content is at
+     most 1096px wide; the side margin is --gutter (see :root). */
   .wrap {
-    @apply mx-auto w-full max-w-[1160px] px-5 sm:px-8;
+    @apply mx-auto w-full;
+    max-width: calc(1096px + 2 * var(--gutter));
+    padding-inline: var(--gutter);
   }
 
   .eyebrow {
