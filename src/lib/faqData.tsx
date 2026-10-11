@@ -17,7 +17,7 @@ export const homepageFaqs: FaqItem[] = [
   {
     question: "What makes IntegroAI different from other AI consultancies?",
     answer:
-      "We find the right problem before you pay for the solution. IntegroAI is an independent, technology-agnostic AI consultancy. We start with operational clarity, understanding how your business actually works, before considering where AI or automation is worth introducing. Recommendations are shaped around your priorities and constraints rather than a preferred platform or vendor.",
+      "We identify what needs to improve before you invest in a solution. IntegroAI is an independent, technology-agnostic AI consultancy. We start with operational clarity, understanding how your business actually works, before considering where AI or automation is worth introducing. Recommendations are shaped around your priorities and constraints rather than a preferred platform or vendor.",
   },
   {
     question: "Who is IntegroAI best suited for?",
