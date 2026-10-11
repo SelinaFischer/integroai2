@@ -57,8 +57,8 @@ const Index = () => {
     "founder": {
       "@type": "Person",
       "name": "Selina Fischer",
-      "jobTitle": "Founder & AI Strategist",
-      "description": "AI strategist helping SME leaders implement practical AI solutions"
+      "jobTitle": "Founder | AI Adoption & Transformation Consultant",
+      "description": "AI Adoption & Transformation Consultant helping founder-led service businesses reduce repetitive work, strengthen operational control and adopt AI responsibly, with a human-led approach."
     },
     "knowsAbout": [
       "Artificial Intelligence Strategy",
