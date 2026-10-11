@@ -1,7 +1,9 @@
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Link } from "react-router-dom";
 import portrait from "@/assets/selina-hero-portrait.webp";
+import portrait340 from "@/assets/selina-hero-portrait-340.webp";
+import portrait510 from "@/assets/selina-hero-portrait-510.webp";
 import { ASSESSMENT_URL, DISCOVERY_CALL_URL } from "@/lib/motion";
 import { GUIDE_PAGE_PATH, trackGuideClick } from "@/lib/guide";
 
@@ -9,7 +11,7 @@ const Hero = () => {
   return (
     <section className="bg-midnight-glow pt-[104px] pb-16 sm:pt-[132px] sm:pb-20 lg:pt-[162px] lg:pb-[88px]">
       <div className="wrap flex flex-col items-center gap-12 lg:flex-row lg:gap-14">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -66,9 +68,9 @@ const Hero = () => {
               </span>
             </Link>
           </div>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
@@ -77,6 +79,8 @@ const Hero = () => {
           <div className="h-[350px] w-[284px] max-w-full overflow-hidden rounded-[142px_142px_28px_28px] bg-brand-navy shadow-[12px_12px_0_#FF9900] sm:h-[420px] sm:w-[340px] sm:rounded-[170px_170px_28px_28px] sm:shadow-[14px_14px_0_#FF9900]">
             <img
               src={portrait}
+              srcSet={`${portrait340} 340w, ${portrait510} 510w, ${portrait} 680w`}
+              sizes="(min-width: 640px) 340px, 284px"
               alt="Selina Fischer, founder of IntegroAI Consulting"
               width={680}
               height={850}
@@ -95,7 +99,7 @@ const Hero = () => {
           >
             Meet the founder, Selina
           </a>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

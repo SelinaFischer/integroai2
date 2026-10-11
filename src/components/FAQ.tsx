@@ -1,7 +1,7 @@
 import * as Accordion from "@radix-ui/react-accordion";
 import { ArrowRight, Minus, Plus } from "lucide-react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import SectionHeader from "./SectionHeader";
 import { homepageFaqs } from "@/lib/faqData";
@@ -80,7 +80,7 @@ const FAQ = () => {
         <div className="wrap flex flex-col gap-8">
           <SectionHeader eyebrow="Frequently asked questions" title="AI consulting questions, answered" />
 
-          <motion.div {...fadeUp}>
+          <m.div {...fadeUp}>
             <Accordion.Root
               type="single"
               collapsible
@@ -95,7 +95,7 @@ const FAQ = () => {
                 </div>
               ))}
             </Accordion.Root>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </>

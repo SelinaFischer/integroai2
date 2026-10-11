@@ -1,13 +1,17 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Lightbulb, Shield, Award, BarChart3, ArrowRight, Linkedin, Target, Telescope } from "lucide-react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import { Button } from "@/components/ui/button";
 import selinaAboutPhoto from "@/assets/selina-about-portrait.webp";
+import selinaAboutPhoto450 from "@/assets/selina-about-portrait-450.webp";
+import selinaAboutPhoto675 from "@/assets/selina-about-portrait-675.webp";
 import selinaPhoto from "@/assets/selina-story-portrait.webp";
+import selinaPhoto480 from "@/assets/selina-story-portrait-480.webp";
+import selinaPhoto720 from "@/assets/selina-story-portrait-720.webp";
 
 const values = [
   {
@@ -53,7 +57,7 @@ const About = () => {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-6xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-10 lg:gap-16 items-center">
-                  <motion.div
+                  <m.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
@@ -80,9 +84,9 @@ const About = () => {
                         Our advice is independent of any particular technology provider. Recommendations are shaped by your business goals, budget and existing systems.
                       </p>
                     </div>
-                  </motion.div>
+                  </m.div>
 
-                  <motion.div
+                  <m.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.15 }}
@@ -91,6 +95,8 @@ const About = () => {
                     <div className="rounded-2xl overflow-hidden shadow-sm border border-border/40 aspect-[4/5]">
                       <img
                         src={selinaAboutPhoto}
+                        srcSet={`${selinaAboutPhoto450} 450w, ${selinaAboutPhoto675} 675w, ${selinaAboutPhoto} 900w`}
+                        sizes="(min-width: 1024px) 358px, calc(100vw - 34px)"
                         alt="Selina Fischer, founder of IntegroAI Consulting"
                         width={900}
                         height={1125}
@@ -102,7 +108,7 @@ const About = () => {
                     <p className="mt-4 text-xs text-muted-foreground leading-relaxed text-center">
                       Helping business leaders make clear, practical decisions about AI.
                     </p>
-                  </motion.div>
+                  </m.div>
                 </div>
               </div>
             </div>
@@ -113,7 +119,7 @@ const About = () => {
           <section className="py-12 sm:py-16 bg-subtle">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-5xl mx-auto grid gap-4 sm:grid-cols-2 sm:gap-5">
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -129,9 +135,9 @@ const About = () => {
                   <p className="text-base sm:text-[17px] leading-relaxed text-[#42566A]">
                     To help business leaders make confident AI decisions, reduce repetitive work and gain operational control.
                   </p>
-                </motion.div>
+                </m.div>
 
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -147,7 +153,7 @@ const About = () => {
                   <p className="text-base sm:text-[17px] leading-relaxed text-[#42566A]">
                     A future where AI makes businesses easier to run and gives people more time for the work they do best.
                   </p>
-                </motion.div>
+                </m.div>
               </div>
             </div>
           </section>
@@ -161,7 +167,7 @@ const About = () => {
                 <h2 className="font-heading text-3xl sm:text-4xl font-semibold text-foreground text-center mb-8 sm:mb-10">
                   Values
                 </h2>
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -177,7 +183,7 @@ const About = () => {
                       <p className="text-[15px] leading-relaxed text-[#42566A]">{value.description}</p>
                     </div>
                   ))}
-                </motion.div>
+                </m.div>
               </div>
             </div>
           </section>
@@ -185,7 +191,7 @@ const About = () => {
           {/* Founder — fuller story */}
           <section className="py-16 sm:py-20 bg-muted/30">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -198,11 +204,11 @@ const About = () => {
                 <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] font-semibold text-foreground">
                   Selina&apos;s Story
                 </h2>
-              </motion.div>
+              </m.div>
 
               <div className="max-w-6xl mx-auto">
                 <div className="grid lg:grid-cols-[auto,1fr] gap-10 lg:gap-16 items-center">
-                  <motion.div
+                  <m.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
@@ -214,6 +220,8 @@ const About = () => {
                     </div>
                     <img
                       src={selinaPhoto}
+                      srcSet={`${selinaPhoto480} 480w, ${selinaPhoto720} 720w, ${selinaPhoto} 960w`}
+                      sizes="(min-width: 1024px) 480px, (min-width: 640px) 384px, 320px"
                       alt="Selina Fischer, founder of IntegroAI Consulting"
                       width={960}
                       height={1200}
@@ -221,9 +229,9 @@ const About = () => {
                       decoding="async"
                       className="relative w-80 sm:w-96 lg:w-[30rem] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-border/20 z-10 h-auto"
                     />
-                  </motion.div>
+                  </m.div>
 
-                  <motion.div
+                  <m.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
@@ -258,7 +266,7 @@ const About = () => {
                         Connect with me on LinkedIn
                       </a>
                     </div>
-                  </motion.div>
+                  </m.div>
                 </div>
               </div>
             </div>
@@ -267,7 +275,7 @@ const About = () => {
           {/* Closing CTA */}
           <section className="py-14 sm:py-16 bg-background">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -290,7 +298,7 @@ const About = () => {
                     </a>
                   </Button>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
           </section>
         </main>

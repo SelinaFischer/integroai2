@@ -1,6 +1,6 @@
 import { Instagram, Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "@/assets/integroai-logo-mark.webp";
+import logo from "@/assets/integroai-logo-mark-112.webp";
 import hccLogo from "@/assets/hillingdon-chamber-logo.png";
 import ContactFormModal from "./ContactFormModal";
 import { ASSESSMENT_URL } from "@/lib/motion";

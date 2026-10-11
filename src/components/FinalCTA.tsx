@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ASSESSMENT_URL, DISCOVERY_CALL_URL, fadeUp } from "@/lib/motion";
 
 const FinalCTA = () => {
@@ -12,7 +12,7 @@ const FinalCTA = () => {
           "radial-gradient(60% 55% at 50% 22%, rgba(30,74,110,0.5), rgba(30,74,110,0) 70%), #050F1B",
       }}
     >
-      <motion.div
+      <m.div
         {...fadeUp}
         className="mx-auto flex max-w-[980px] flex-col items-center gap-[22px] px-5 text-center sm:px-8"
       >
@@ -49,7 +49,7 @@ const FinalCTA = () => {
         <p className="text-[15px] font-medium text-[#94A3B8]">
           5-Minute AI Readiness Assessment → Discovery Call → Clear Next Steps
         </p>
-      </motion.div>
+      </m.div>
     </section>
   );
 };

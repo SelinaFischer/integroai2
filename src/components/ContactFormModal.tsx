@@ -12,9 +12,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Send, CheckCircle2, Loader2 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import confetti from "canvas-confetti";
-import { supabase } from "@/integrations/supabase/client";
+import { m, AnimatePresence } from "framer-motion";
 
 interface ContactFormModalProps {
   trigger?: React.ReactNode;
@@ -26,7 +24,10 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { toast } = useToast();
 
-  const triggerConfetti = () => {
+  // The confetti and database libraries are only needed once a message has
+  // been sent, so they are loaded at that moment instead of with every page.
+  const triggerConfetti = async () => {
+    const { default: confetti } = await import("canvas-confetti");
     const duration = 2000;
     const end = Date.now() + duration;
 
@@ -99,6 +100,7 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
 
       // Save to database as backup (silent - don't affect UX if it fails)
       try {
+        const { supabase } = await import("@/integrations/supabase/client");
         await supabase.from("contact_submissions").insert({
           name: formData.get("name") as string,
           company: formData.get("company") as string | null,
@@ -151,7 +153,7 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
       <DialogContent className="sm:max-w-md bg-white text-[#041B2B] border border-[#041B2B]/10 shadow-[0_24px_64px_rgba(4,27,43,0.16)] rounded-2xl p-0 overflow-hidden [&>button]:text-[#4A6080] [&>button]:hover:text-[#041B2B]">
         <AnimatePresence mode="wait">
           {isSubmitted ? (
-            <motion.div
+            <m.div
               key="success"
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -159,14 +161,14 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
               transition={{ duration: 0.3, ease: "easeOut" }}
               className="py-12 px-6 text-center"
             >
-              <motion.div
+              <m.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.1, type: "spring", stiffness: 200 }}
                 className="w-20 h-20 bg-[#FF9900]/10 rounded-full flex items-center justify-center mx-auto mb-6"
               >
                 <CheckCircle2 className="w-10 h-10 text-[#FF9900]" />
-              </motion.div>
+              </m.div>
               <h3 className="text-2xl font-heading font-semibold mb-3 text-[#0F172A]">
                 Thank You!
               </h3>
@@ -179,9 +181,9 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
               >
                 Close
               </button>
-            </motion.div>
+            </m.div>
           ) : (
-            <motion.div
+            <m.div
               key="form"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -305,7 +307,7 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
                   We typically respond within 24 hours
                 </p>
               </form>
-            </motion.div>
+            </m.div>
           )}
         </AnimatePresence>
       </DialogContent>

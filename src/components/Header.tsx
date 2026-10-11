@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect, useRef, useCallback } from "react";
-import logo from "@/assets/integroai-logo-mark.webp";
+import logo from "@/assets/integroai-logo-mark-112.webp";
 import ContactFormModal from "./ContactFormModal";
 import { ASSESSMENT_URL } from "@/lib/motion";
 

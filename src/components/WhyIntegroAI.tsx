@@ -1,5 +1,5 @@
 import { Check, X } from "lucide-react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import SectionHeader from "./SectionHeader";
 import { ASSESSMENT_URL, DISCOVERY_CALL_URL, fadeUp } from "@/lib/motion";
 
@@ -28,7 +28,7 @@ const WhyIntegroAI = () => {
         />
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <motion.div
+          <m.div
             {...fadeUp}
             className="flex flex-col gap-3.5 rounded-[20px] border border-brand-sand bg-white p-6 sm:p-[30px]"
           >
@@ -44,9 +44,9 @@ const WhyIntegroAI = () => {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             {...fadeUp}
             className="flex flex-col gap-3.5 rounded-[20px] border-2 border-brand-amber bg-white p-[23px] sm:p-[29px]"
           >
@@ -64,10 +64,10 @@ const WhyIntegroAI = () => {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </m.div>
         </div>
 
-        <motion.div
+        <m.div
           {...fadeUp}
           className="flex flex-col gap-x-7 gap-y-2.5 rounded-[20px] bg-brand-navy px-6 py-7 sm:px-8 lg:flex-row lg:items-center"
         >
@@ -78,9 +78,9 @@ const WhyIntegroAI = () => {
           <p className="text-base text-brand-mist lg:flex-1">
             Less firefighting. Less manual work. More operational control. Time and capacity to grow.
           </p>
-        </motion.div>
+        </m.div>
 
-        <motion.div {...fadeUp} className="flex flex-col justify-center gap-3.5 sm:flex-row">
+        <m.div {...fadeUp} className="flex flex-col justify-center gap-3.5 sm:flex-row">
           <a href={ASSESSMENT_URL} target="_blank" rel="noopener noreferrer" className="btn-amber">
             Start the free assessment
           </a>
@@ -92,7 +92,7 @@ const WhyIntegroAI = () => {
           >
             Book a Discovery Call
           </a>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

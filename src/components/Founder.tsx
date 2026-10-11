@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Link } from "react-router-dom";
 import { fadeUp } from "@/lib/motion";
 
@@ -7,7 +7,7 @@ const Founder = () => {
   return (
     <section id="founder" className="bg-white py-14 sm:py-16">
       <div className="wrap">
-        <motion.div
+        <m.div
           {...fadeUp}
           className="rounded-[28px] border border-brand-sand bg-brand-cream px-6 py-10 sm:px-12 sm:py-14"
         >
@@ -30,7 +30,7 @@ const Founder = () => {
               Read Her Story
             </Link>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowRight, Tag, Clock, Calendar, Home, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -50,7 +50,7 @@ const BlogPage = () => {
         {/* Hero */}
         <section className="py-20 lg:py-28 bg-primary text-primary-foreground">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -83,7 +83,7 @@ const BlogPage = () => {
               <p className="text-primary-foreground/70 text-lg max-w-2xl mx-auto">
                 Practical guidance for business leaders making clearer AI decisions before investing in tools, automation or new systems.
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
@@ -92,7 +92,7 @@ const BlogPage = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {allPosts.map((post, index) => (
-                <motion.article
+                <m.article
                   key={post.slug}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -141,12 +141,12 @@ const BlogPage = () => {
                       </div>
                     </div>
                   </Link>
-                </motion.article>
+                </m.article>
               ))}
             </div>
 
             {/* Back to Home */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -159,7 +159,7 @@ const BlogPage = () => {
                   Back to Home
                 </Button>
               </Link>
-            </motion.div>
+            </m.div>
           </div>
         </section>
         <GuideBanner location="blog" className="bg-background pb-16 lg:pb-24" />

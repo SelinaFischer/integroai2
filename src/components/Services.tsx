@@ -1,6 +1,6 @@
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import SectionHeader from "./SectionHeader";
 import { fadeUp } from "@/lib/motion";
 import ExtraServicesList from "./ExtraServicesList";
@@ -83,7 +83,7 @@ const Services = () => {
             through every stop; on tablet and mobile each area shows its two
             stops joined top to bottom. Each area shares the same two rows through CSS
             subgrid, so the line stays level however the text above it wraps. */}
-        <motion.div {...fadeUp} className="rounded-3xl bg-brand-navy px-6 py-8 sm:px-9 sm:py-10">
+        <m.div {...fadeUp} className="rounded-3xl bg-brand-navy px-6 py-8 sm:px-9 sm:py-10">
           <ol className="grid list-none grid-cols-1 gap-y-9 md:grid-cols-3 md:gap-y-7">
             {serviceGroups.map((group, groupIndex) => (
               <li
@@ -141,20 +141,20 @@ const Services = () => {
               </li>
             ))}
           </ol>
-        </motion.div>
+        </m.div>
 
         {/* Standalone services, separate from the six numbered stages. */}
-        <motion.div {...fadeUp} className="flex flex-col gap-5">
+        <m.div {...fadeUp} className="flex flex-col gap-5">
           <p className="eyebrow text-center">More practical solutions to support your business</p>
           <ExtraServicesList />
-        </motion.div>
+        </m.div>
 
-        <motion.div {...fadeUp} className="flex justify-center">
+        <m.div {...fadeUp} className="flex justify-center">
           <Link to="/work-with-me" className="btn-outline-navy group">
             Explore how we can work together
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
           </Link>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

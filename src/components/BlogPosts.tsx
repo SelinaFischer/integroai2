@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Link } from "react-router-dom";
 import SectionHeader from "./SectionHeader";
 import { articles } from "@/lib/blogData";
@@ -21,7 +21,7 @@ const BlogPosts = () => {
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {latestPosts.map((post, index) => (
-            <motion.article key={post.slug} {...fadeUpDelayed(index)} className="flex">
+            <m.article key={post.slug} {...fadeUpDelayed(index)} className="flex">
               <Link
                 to={`/blog/${post.slug}`}
                 className="card-soft group flex flex-1 flex-col gap-3 p-7 transition-colors hover:border-brand-amber"
@@ -33,15 +33,15 @@ const BlogPosts = () => {
                   Read article
                 </span>
               </Link>
-            </motion.article>
+            </m.article>
           ))}
         </div>
 
-        <motion.div {...fadeUp} className="flex justify-center">
+        <m.div {...fadeUp} className="flex justify-center">
           <Link to="/blog" className="btn-outline-navy">
             View all posts
           </Link>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

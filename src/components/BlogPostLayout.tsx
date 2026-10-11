@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ChevronRight, Calendar, Tag, Clock, Home, Share2, Check, Linkedin, ArrowUp, User } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -178,7 +178,7 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image
       
       {/* Reading Progress Bar */}
       <div className="fixed top-0 left-0 right-0 z-50 h-1 bg-muted/30">
-        <motion.div
+        <m.div
           className="h-full bg-gradient-to-r from-accent-warm to-accent-warm/80"
           style={{ width: `${readingProgress}%` }}
           initial={{ width: 0 }}
@@ -192,7 +192,7 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image
         {/* Hero Header */}
         <section className="pt-32 pb-16 bg-gradient-to-br from-primary via-primary/95 to-primary/90">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -253,7 +253,7 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image
               <p className="text-xl text-primary-foreground/80 leading-relaxed">
                 {subtitle}
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
         
@@ -261,7 +261,7 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image
         {/* Article Content */}
         <article className="py-16 relative">
           {/* Floating Share Bar - Desktop Only */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
@@ -308,10 +308,10 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image
                 )}
               </Button>
             </div>
-          </motion.div>
+          </m.div>
           
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -336,10 +336,10 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image
               "
             >
               {children}
-            </motion.div>
+            </m.div>
             
             {/* Share & Back Section */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -401,14 +401,14 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image
                   </Button>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </article>
         
         <Footer />
         
         {/* Scroll to Top Button */}
-        <motion.button
+        <m.button
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ 
             opacity: showScrollTop ? 1 : 0, 
@@ -421,7 +421,7 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image
           aria-label="Scroll to top"
         >
           <ArrowUp className="w-5 h-5" />
-        </motion.button>
+        </m.button>
       </div>
     </>
   );

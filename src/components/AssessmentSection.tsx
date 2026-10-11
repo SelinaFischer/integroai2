@@ -1,5 +1,5 @@
 import { ArrowRight, Check } from "lucide-react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ASSESSMENT_URL, fadeUp } from "@/lib/motion";
 
 // Sample scorecard. The five dimensions and the /30 scale match the real
@@ -29,7 +29,7 @@ const AssessmentSection = () => {
   return (
     <section id="assessment" className="bg-brand-cream py-14 sm:py-16">
       <div className="wrap grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
-        <motion.div {...fadeUp} className="flex flex-col items-start gap-[18px]">
+        <m.div {...fadeUp} className="flex flex-col items-start gap-[18px]">
           <h2 className="section-title !text-brand-navy">
             Is your business <span className="italic text-brand-amber">ready for AI?</span>
           </h2>
@@ -51,9 +51,9 @@ const AssessmentSection = () => {
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
           </a>
           <p className="text-sm font-semibold text-[#42566A]">A free AI readiness quiz. 5 minutes.</p>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           {...fadeUp}
           className="flex flex-col gap-5 rounded-[20px] border border-brand-sand bg-white p-6 sm:p-[30px]"
           style={{ boxShadow: "var(--shadow-lg)" }}
@@ -124,7 +124,7 @@ const AssessmentSection = () => {
           </div>
 
           <p className="text-[13px] text-brand-slate">Sample result. Your score comes from your own answers.</p>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );
