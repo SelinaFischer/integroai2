@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "@/assets/integroai-logo-mark-112.webp";
 import hccLogo from "@/assets/hillingdon-chamber-logo.png";
 import ContactFormModal from "./ContactFormModal";
+import Tagline from "./Tagline";
 import { ASSESSMENT_URL } from "@/lib/motion";
 import { scrollToSection } from "@/lib/scrollToSection";
 import { EXTRA_SERVICES_SECTION_ID } from "@/lib/extraServices";
@@ -45,7 +46,7 @@ const Footer = () => {
               <img src={logo} alt="" width={50} height={50} loading="lazy" decoding="async" className="h-[50px] w-[50px] object-contain" />
               <span className="flex flex-col gap-[3px]">
                 <span className="text-xl font-bold leading-[1.1] tracking-[0.01em]">IntegroAI Consulting</span>
-                <span className="text-[13px] font-semibold leading-tight text-brand-slate [word-spacing:0.16em]">Simplify · Prioritise · Grow</span>
+                <span className="text-[13px] font-semibold leading-tight text-brand-teal [word-spacing:0.16em]"><Tagline /></span>
               </span>
             </div>
             <p className="max-w-sm text-[15px] leading-relaxed text-[#42566A]">
