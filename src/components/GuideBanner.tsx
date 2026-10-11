@@ -1,9 +1,8 @@
 import { ArrowRight } from "lucide-react";
 import { m } from "framer-motion";
-import { Link } from "react-router-dom";
 import GuideCover from "./GuideCover";
 import { fadeUp } from "@/lib/motion";
-import { GUIDE_PAGE_PATH, GUIDE_SUBTITLE, GUIDE_TITLE, trackGuideClick } from "@/lib/guide";
+import { GUIDE_FORM_URL, GUIDE_SUBTITLE, GUIDE_TITLE, trackGuideClick } from "@/lib/guide";
 
 type GuideBannerProps = {
   /** Where the banner sits, for click tracking (for example "homepage"). */
@@ -12,7 +11,8 @@ type GuideBannerProps = {
   className?: string;
 };
 
-// Promotes the free guide and links to its page.
+// Promotes the free guide. The button opens the sign-up form directly, in a
+// new tab, so the visitor is one step from the guide.
 const GuideBanner = ({ location, className = "bg-white py-14 sm:py-16" }: GuideBannerProps) => (
   <section aria-labelledby={`guide-banner-${location}`} className={className}>
     <div className="wrap">
@@ -31,14 +31,17 @@ const GuideBanner = ({ location, className = "bg-white py-14 sm:py-16" }: GuideB
           </h2>
           <p className="text-[15px] leading-relaxed text-brand-mist sm:text-base">{GUIDE_SUBTITLE}</p>
         </div>
-        <Link
-          to={GUIDE_PAGE_PATH}
+        <a
+          href={GUIDE_FORM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Get your free guide (opens the sign-up form in a new tab)"
           onClick={() => trackGuideClick(`banner-${location}`)}
           className="btn-amber group flex-none whitespace-nowrap"
         >
           Get your free guide
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
-        </Link>
+        </a>
       </m.div>
     </div>
   </section>
