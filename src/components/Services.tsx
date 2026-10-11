@@ -171,7 +171,7 @@ const Services = () => {
               >
                 {/* Until the measurement runs, the margins below are a close estimate. */}
                 <div
-                  className={`flex flex-col gap-2 md:pr-8 lg:ml-[calc(25%-52px)] ${
+                  className={`flex flex-col gap-1.5 md:pr-8 lg:ml-[calc(25%-52px)] ${
                     groupIndex === lastGroupIndex ? "lg:mr-[calc(25%-70px)] lg:pr-0" : "lg:pr-4"
                   }`}
                   style={
@@ -183,8 +183,12 @@ const Services = () => {
                       : undefined
                   }
                 >
-                  <h3 className="text-lg font-medium leading-snug tracking-[-0.01em] !text-white">{group.title}</h3>
-                  <p className="text-[15px] leading-relaxed text-brand-mist">{group.summary}</p>
+                  {/* On desktop each title stays on one line, so the three sit on the
+                      same row and the smaller descriptions start level beneath them. */}
+                  <h3 className="text-base font-medium leading-snug tracking-[-0.01em] !text-brand-amber lg:whitespace-nowrap lg:text-sm min-[1120px]:text-base">
+                    {group.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-brand-mist [text-wrap:balance]">{group.summary}</p>
                 </div>
 
                 <ol className="grid list-none grid-cols-1 lg:grid-cols-2" role="list">
