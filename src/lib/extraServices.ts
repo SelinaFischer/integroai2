@@ -31,6 +31,6 @@ export const extraServices: ExtraService[] = [
     icon: ScanSearch,
     description:
       "Be found, understood and recommended when customers ask AI for a business like yours. We review how Google and AI tools see your business, then improve the clarity, consistency and content that help you get recommended.",
-    link: { label: "Free guide: Does AI know your business exists?", to: GUIDE_PAGE_PATH },
+    link: { label: "Get your free guide: Does AI know your business exists?", to: GUIDE_PAGE_PATH },
   },
 ];

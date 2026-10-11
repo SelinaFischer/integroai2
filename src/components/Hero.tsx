@@ -61,7 +61,7 @@ const Hero = () => {
                 When customers ask AI for a business like yours, does yours come up?
               </span>
               <span className="flex w-fit items-center gap-1.5 text-[13px] leading-snug text-brand-mist underline decoration-white/40 decoration-1 underline-offset-4 transition-colors duration-200 group-hover:text-white group-hover:decoration-white sm:text-sm">
-                Get the free guide and checklist
+                Get your free guide and checklist
                 <ArrowRight className="h-3.5 w-3.5 flex-none transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
               </span>
             </Link>

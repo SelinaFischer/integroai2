@@ -46,7 +46,7 @@ const GuideButton = ({ location, className = "btn-amber group px-[30px] py-[18px
     onClick={() => trackGuideClick(location)}
     className={className}
   >
-    Get the free guide
+    Get your free guide
     <ArrowRight className="h-[18px] w-[18px] transition-transform group-hover:translate-x-1" strokeWidth={2.6} aria-hidden="true" />
   </a>
 );

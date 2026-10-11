@@ -58,7 +58,7 @@ export const homepageFaqs: FaqItem[] = [
     question: "What do SEO, AEO and GEO mean?",
     answer:
       "Three simple things to remember: find me, answer me, recommend me. SEO (search engine optimisation): can Google find your website and understand what you offer? AEO (answer engine optimisation): does your content clearly answer the questions your customers are asking? GEO (generative engine optimisation): can your business appear in an AI-generated answer or recommendation? You don’t need three different strategies. They work together.",
-    link: { label: "Get the free guide: Does AI know your business exists?", to: "/ai-visibility-guide" },
+    link: { label: "Get your free guide: Does AI know your business exists?", to: "/ai-visibility-guide" },
   },
 ];
 
