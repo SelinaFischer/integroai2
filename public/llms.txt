@@ -1,0 +1,44 @@
+# IntegroAI Consulting
+
+> IntegroAI Consulting is an independent, technology-agnostic AI consultancy based in the UK. It helps founder-led service businesses reduce repetitive work, improve operational control and create capacity for growth. The work starts with operational clarity: identifying what needs to improve before a business invests in an AI solution.
+
+- Founder: Selina Fischer, independent AI consultant, who leads every engagement personally.
+- Best suited to: founder-led service businesses, and the founders, leaders and operations teams within them.
+- Approach: the IntegroAI Operating Framework, a five-stage method for responsible AI implementation: Discover, Design, Validate, Deliver and Iterate. People stay in control at every stage.
+- Pricing: scoped individually. There is no obligation until scope and cost are agreed.
+- Contact: info@integroai.tech
+
+## Start here
+
+- [Homepage](https://integroai.tech/): what IntegroAI does, who it works with and frequently asked questions.
+- [Free 5-Minute AI Readiness Assessment](https://integroai.tech/assessment): a self-assessment that scores a business across strategic clarity, leadership and ownership, process maturity, operational visibility and data readiness.
+- [Work With Me](https://integroai.tech/work-with-me): how engagements work, stage by stage.
+- [About](https://integroai.tech/about): the consultancy, its mission, vision and values, and Selina's story.
+- [Book a free 30-minute Discovery Call](https://calendly.com/integroai-tech/30min)
+
+## Services
+
+- AI Readiness Assessment: a free self-assessment to see where a business stands before investing in AI.
+- AI & Operations Diagnostic: a clear, evidence-based view of how the business runs today and where the real priorities sit.
+- AI Strategy & Prioritisation Roadmap: decide what is worth solving and which opportunities to prioritise first.
+- AI Foundations & Responsible Adoption: put the right foundations in place for AI to work safely, responsibly and sustainably.
+- AI & Automation Implementation: turn validated opportunities into working solutions with a clear business case.
+- Ongoing AI & Operations Advisory: keep implemented changes delivering value as the business and technology evolve.
+- AI Voice Receptionist: an AI phone assistant that answers 24/7, books appointments, takes messages and passes callers to the team when needed.
+- Website Design & Build: a professional website, designed, built and launched for the business.
+- AI Search Visibility (AEO & GEO): a review of how Google and AI tools see a business, then improvements to the clarity, consistency and content that help it get recommended.
+
+## Free guide
+
+- [Does AI know your business exists?](https://integroai.tech/ai-visibility-guide): a practical guide and checklist on being found, understood and recommended in the age of AI search. Covers SEO, AEO and GEO: find me, answer me, recommend me.
+
+## Articles
+
+- [AI Is Making Organisational Ambiguity Expensive](https://integroai.tech/blog/ai-organisational-ambiguity-human-judgement)
+- [What is an AI Readiness Assessment? A Plain-English Guide for Business Leaders](https://integroai.tech/blog/what-is-an-ai-readiness-assessment)
+- [5 Signs Your Business Is Not Ready for AI](https://integroai.tech/blog/5-signs-your-business-is-not-ready-for-ai)
+- [How to Measure ROI from an AI Investment](https://integroai.tech/blog/how-to-measure-roi-from-ai-investment)
+- [Beyond Chatbots: How AI Agents Redefine Efficiency, Decision-Making & Growth](https://integroai.tech/blog/beyond-chatbots-ai-agents)
+- [Why AI Projects Fail: The Data Gap Nobody Talks About](https://integroai.tech/blog/why-ai-fails-the-data-gap)
+- [ROT to Resilience: The Data Cleanup Your AI Needs](https://integroai.tech/blog/rot-to-resilience-data-cleanup)
+- [All articles](https://integroai.tech/blog)

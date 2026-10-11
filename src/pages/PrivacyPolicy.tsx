@@ -10,6 +10,7 @@ const PrivacyPolicy = () => {
     <>
       <Helmet>
         <title>Privacy Policy | IntegroAI Consulting</title>
+        <link rel="canonical" href="https://integroai.tech/privacy-policy" />
         <meta 
           name="description" 
           content="Privacy Policy for IntegroAI Consulting. Learn how we collect, use, and protect your personal data in compliance with GDPR." 
