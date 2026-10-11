@@ -1,4 +1,4 @@
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { m } from "framer-motion";
 import SectionHeader from "./SectionHeader";
@@ -62,8 +62,6 @@ const serviceGroups = [
 ];
 
 const Services = () => {
-  const lastGroup = serviceGroups.length - 1;
-
   return (
     <section
       id="services"
@@ -91,14 +89,13 @@ const Services = () => {
                 className="flex flex-col gap-5 md:row-span-2 md:grid md:grid-rows-subgrid md:gap-y-7"
               >
                 <div className="flex flex-col gap-2 md:pr-8">
-                  <h3 className="text-xl leading-tight !text-white">{group.title}</h3>
+                  <h3 className="text-[19px] font-medium leading-snug tracking-[-0.01em] !text-white">{group.title}</h3>
                   <p className="text-[15px] leading-relaxed text-brand-mist">{group.summary}</p>
                 </div>
 
                 <ol className="grid list-none grid-cols-1 lg:grid-cols-2" role="list">
                   {group.stages.map((stage, stageIndex) => {
                     const isFirstStop = groupIndex === 0 && stageIndex === 0;
-                    const isLastStop = groupIndex === lastGroup && stageIndex === group.stages.length - 1;
                     const isLastInGroup = stageIndex === group.stages.length - 1;
                     return (
                       <li
@@ -117,20 +114,13 @@ const Services = () => {
                             isFirstStop ? "lg:left-4 lg:w-[calc(100%-16px)]" : "lg:left-0 lg:w-full"
                           }`}
                         />
-                        {isLastStop && (
-                          <ChevronRight
-                            aria-hidden="true"
-                            strokeWidth={2.6}
-                            className="absolute -right-[7px] top-[7px] hidden h-[18px] w-[18px] text-brand-amber lg:block"
-                          />
-                        )}
                         <span
                           aria-hidden="true"
-                          className="relative z-10 flex h-8 w-8 flex-none items-center justify-center rounded-full bg-brand-amber text-xs font-bold text-brand-navy ring-4 ring-brand-navy"
+                          className="relative z-10 flex h-8 w-8 flex-none items-center justify-center rounded-full bg-brand-amber text-xs font-semibold text-brand-navy ring-4 ring-brand-navy"
                         >
                           {stage.number}
                         </span>
-                        <span className="pt-1.5 text-[15px] font-semibold leading-snug text-white lg:pt-0" itemProp="name">
+                        <span className="pt-1.5 text-[15px] font-medium leading-snug text-white lg:pt-0" itemProp="name">
                           {stage.title}
                         </span>
                         <meta itemProp="description" content={stage.description} />
