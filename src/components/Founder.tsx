@@ -1,6 +1,7 @@
 import { m } from "framer-motion";
 import { Link } from "react-router-dom";
 import { fadeUp } from "@/lib/motion";
+import { SELINA_STORY_PATH } from "@/lib/selinaStory";
 
 // Short homepage introduction. Selina's fuller professional story lives on the About page.
 const Founder = () => {
@@ -26,7 +27,7 @@ const Founder = () => {
             <p className="text-base leading-relaxed text-[#42566A] sm:text-lg">
               I lead every IntegroAI engagement personally, from understanding your challenges through to recommendations and delivery support.
             </p>
-            <Link to="/about" className="btn-outline-navy mt-2">
+            <Link to={SELINA_STORY_PATH} className="btn-outline-navy mt-2">
               Read Her Story
             </Link>
           </div>

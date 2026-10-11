@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import { Button } from "@/components/ui/button";
+import { SELINA_STORY_SECTION_ID } from "@/lib/selinaStory";
 import selinaAboutPhoto from "@/assets/selina-about-portrait.webp";
 import selinaAboutPhoto450 from "@/assets/selina-about-portrait-450.webp";
 import selinaAboutPhoto675 from "@/assets/selina-about-portrait-675.webp";
@@ -188,8 +189,8 @@ const About = () => {
             </div>
           </section>
 
-          {/* Founder — fuller story */}
-          <section className="py-16 sm:py-20 bg-muted/30">
+          {/* Founder — fuller story. The homepage "Read Her Story" button lands here. */}
+          <section id={SELINA_STORY_SECTION_ID} className="py-16 sm:py-20 bg-muted/30">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <m.div
                 initial={{ opacity: 0, y: 20 }}
