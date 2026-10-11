@@ -195,10 +195,10 @@ const WorkWithMe = () => {
                 <div className="relative">
                   <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-accent-warm/20 to-primary/20 rounded-xl blur-lg" />
                   <p
-                    className="relative text-sm sm:text-base font-semibold bg-card border border-border/50 rounded-xl p-5 sm:p-6 shadow-lg text-center leading-relaxed"
+                    className="relative text-sm sm:text-base font-semibold bg-card border border-border/50 rounded-xl p-5 sm:p-6 shadow-lg text-center leading-relaxed [text-wrap:balance]"
                     style={{ color: "#041B2B" }}
                   >
-                    Start with a specific business challenge or work with me through several stages. Put the recommendations into practice with your own team, or continue working with me for implementation and ongoing support.
+                    Choose the level of support that suits you, from advice your team can act on to hands-on help putting it into practice.
                   </p>
                 </div>
               </m.div>
