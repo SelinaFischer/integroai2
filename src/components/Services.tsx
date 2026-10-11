@@ -77,8 +77,9 @@ const Services = () => {
         />
 
         {/* The six stages drawn as one route with six stops, grouped into the
-            three service areas. On desktop each stop sits centred over its name
-            and the amber line runs from the first stop to the last, no further;
+            three service areas. The three headings and their descriptions are
+            left-aligned. On desktop each stop sits centred over its name and the
+            amber line runs from the first stop to the last, no further;
             on tablet and mobile each area shows its two stops joined top to bottom. Each area shares the same two rows through CSS
             subgrid, so the line stays level however the text above it wraps. */}
         <m.div {...fadeUp} className="rounded-3xl bg-brand-navy px-6 py-8 sm:px-9 sm:py-10">
@@ -88,7 +89,7 @@ const Services = () => {
                 key={group.title}
                 className="flex flex-col gap-5 md:row-span-2 md:grid md:grid-rows-subgrid md:gap-y-7"
               >
-                <div className="flex flex-col gap-2 md:pr-8 lg:px-5 lg:text-center">
+                <div className="flex flex-col gap-2 md:pr-8">
                   <h3 className="text-lg font-medium leading-snug tracking-[-0.01em] !text-white">{group.title}</h3>
                   <p className="text-[15px] leading-relaxed text-brand-mist">{group.summary}</p>
                 </div>

@@ -55,6 +55,11 @@ export const homepageFaqs: FaqItem[] = [
       "Most engagements begin with the free 5-Minute AI Readiness Assessment, followed where appropriate by a Discovery Call and, if needed, an AI & Operations Diagnostic to build a clear, evidence-based view of the business. From there, IntegroAI can support prioritisation, preparation, implementation or ongoing advisory, depending on what adds value. Pricing is scoped individually based on the nature and depth of the engagement, and there is no obligation until scope and cost are agreed.",
   },
   {
+    question: "How will we know if AI is paying off?",
+    answer:
+      "We agree what success looks like before any work begins: the outcome you want to change, where it stands today, and who is accountable for it. Progress is then measured against that business outcome, not against how much AI is in use. If the numbers don't support a next step, we'll say so.",
+  },
+  {
     question: "What do SEO, AEO and GEO mean?",
     answer:
       "Three simple things to remember: find me, answer me, recommend me. SEO (search engine optimisation): can Google find your website and understand what you offer? AEO (answer engine optimisation): does your content clearly answer the questions your customers are asking? GEO (generative engine optimisation): can your business appear in an AI-generated answer or recommendation? You don’t need three different strategies. They work together.",
