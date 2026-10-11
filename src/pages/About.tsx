@@ -108,30 +108,25 @@ const About = () => {
             </div>
           </section>
 
-          {/* Mission & Vision: a contrasting pair. Mission on navy, Vision on
-              cream, each statement set in the serif so it reads as a statement
-              rather than body text. */}
+          {/* Mission & Vision: same card language as the Values below (white
+              card, flat amber icon tile), so the page reads as one system. */}
           <section className="py-12 sm:py-16 bg-subtle">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="max-w-5xl mx-auto grid gap-5 sm:grid-cols-2 sm:gap-6">
+              <div className="max-w-5xl mx-auto grid gap-4 sm:grid-cols-2 sm:gap-5">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
-                  className="relative flex flex-col gap-4 overflow-hidden rounded-3xl bg-brand-navy p-7 shadow-[0_18px_40px_-18px_rgba(4,27,43,0.55)] sm:p-9"
+                  className="bg-card border border-border/40 rounded-2xl p-6 sm:p-8 shadow-sm"
                 >
-                  <div
-                    aria-hidden="true"
-                    className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[radial-gradient(closest-side,rgba(255,153,0,0.22),rgba(255,153,0,0))]"
-                  />
-                  <div className="relative flex items-center gap-3">
-                    <span className="flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-brand-amber text-brand-navy">
-                      <Target className="h-5 w-5" strokeWidth={2.2} aria-hidden="true" />
+                  <div className="mb-4 flex items-center gap-3.5">
+                    <span className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-brand-amber sm:h-12 sm:w-12">
+                      <Target className="h-5 w-5 text-brand-navy sm:h-[22px] sm:w-[22px]" strokeWidth={2.2} aria-hidden="true" />
                     </span>
-                    <h2 className="text-xs font-bold uppercase tracking-[0.16em] !text-brand-amber">Mission</h2>
+                    <h2 className="text-lg sm:text-xl font-bold text-foreground">Mission</h2>
                   </div>
-                  <p className="display relative text-[24px] font-semibold leading-[1.22] text-white sm:text-[26px]">
+                  <p className="text-base sm:text-[17px] leading-relaxed text-[#42566A]">
                     To help business leaders make confident AI decisions, reduce repetitive work and gain operational control.
                   </p>
                 </motion.div>
@@ -141,19 +136,15 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  className="relative flex flex-col gap-4 overflow-hidden rounded-3xl border border-brand-chip bg-brand-cream p-7 shadow-[0_18px_40px_-22px_rgba(4,27,43,0.3)] sm:p-9"
+                  className="bg-card border border-border/40 rounded-2xl p-6 sm:p-8 shadow-sm"
                 >
-                  <div
-                    aria-hidden="true"
-                    className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[radial-gradient(closest-side,rgba(255,153,0,0.2),rgba(255,153,0,0))]"
-                  />
-                  <div className="relative flex items-center gap-3">
-                    <span className="flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-brand-navy text-brand-amber">
-                      <Telescope className="h-5 w-5" strokeWidth={2.2} aria-hidden="true" />
+                  <div className="mb-4 flex items-center gap-3.5">
+                    <span className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-brand-amber sm:h-12 sm:w-12">
+                      <Telescope className="h-5 w-5 text-brand-navy sm:h-[22px] sm:w-[22px]" strokeWidth={2.2} aria-hidden="true" />
                     </span>
-                    <h2 className="text-xs font-bold uppercase tracking-[0.16em] !text-brand-navy">Vision</h2>
+                    <h2 className="text-lg sm:text-xl font-bold text-foreground">Vision</h2>
                   </div>
-                  <p className="display relative text-[24px] font-semibold leading-[1.22] text-brand-navy sm:text-[26px]">
+                  <p className="text-base sm:text-[17px] leading-relaxed text-[#42566A]">
                     A future where AI makes businesses easier to run and gives people more time for the work they do best.
                   </p>
                 </motion.div>
