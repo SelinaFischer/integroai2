@@ -85,7 +85,16 @@ const Hero = () => {
               className="block h-full w-full object-cover object-top opacity-90"
             />
           </div>
-          <p className="text-sm font-normal text-brand-mist">Selina Fischer, Founder</p>
+          <a
+            href="#founder"
+            onClick={(event) => {
+              event.preventDefault();
+              document.getElementById("founder")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="text-sm font-normal text-brand-mist underline-offset-4 transition-colors duration-200 hover:text-white hover:underline"
+          >
+            Meet the founder, Selina
+          </a>
         </motion.div>
       </div>
     </section>
