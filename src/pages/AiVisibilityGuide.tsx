@@ -90,9 +90,6 @@ const AiVisibilityGuide = () => {
               </h1>
               <p className="max-w-[620px] text-lg leading-normal text-brand-mist sm:text-[21px]">{GUIDE_SUBTITLE}</p>
               <GuideButton location="guide-page-hero" />
-              <p className="max-w-[560px] text-[15px] leading-relaxed text-brand-mist">
-                Leave your name and email, and I’ll send you the guide with practical actions and a checklist.
-              </p>
             </m.div>
 
             <m.div
