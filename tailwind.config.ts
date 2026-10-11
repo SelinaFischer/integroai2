@@ -30,6 +30,7 @@ export default {
           midnight: "#050F1B",
           ink: "#0E273A",
           amber: "#FF9900",
+          teal: "#3B767C",
           // Small uppercase labels: deep teal on light backgrounds, amber on dark (see --label-ink in src/index.css).
           label: "var(--label-ink)",
           ivory: "#FBF7F1",
