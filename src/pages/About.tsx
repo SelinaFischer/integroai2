@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { Lightbulb, Shield, Award, BarChart3, ArrowRight, Linkedin } from "lucide-react";
+import { Lightbulb, Shield, Award, BarChart3, ArrowRight, Linkedin, Target, Telescope } from "lucide-react";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -115,20 +115,31 @@ const About = () => {
             </div>
           </section>
 
-          {/* Mission & Vision */}
+          {/* Mission & Vision: a contrasting pair. Mission on navy, Vision on
+              cream, each statement set in the serif so it reads as a statement
+              rather than body text. */}
           <section className="py-12 sm:py-16 bg-subtle">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="max-w-5xl mx-auto grid sm:grid-cols-2 gap-5 sm:gap-6">
+              <div className="max-w-5xl mx-auto grid gap-5 sm:grid-cols-2 sm:gap-6">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
-                  className="bg-card border border-border/40 rounded-2xl p-7 sm:p-8 shadow-sm"
+                  className="relative flex flex-col gap-4 overflow-hidden rounded-3xl bg-brand-navy p-7 shadow-[0_18px_40px_-18px_rgba(4,27,43,0.55)] sm:p-9"
                 >
-                  <h2 className="text-lg sm:text-xl font-bold mb-3 text-foreground">Mission</h2>
-                  <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                    To help business leaders make confident AI decisions, reduce repetitive work and build stronger operational control.
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[radial-gradient(closest-side,rgba(255,153,0,0.22),rgba(255,153,0,0))]"
+                  />
+                  <div className="relative flex items-center gap-3">
+                    <span className="flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-brand-amber text-brand-navy">
+                      <Target className="h-5 w-5" strokeWidth={2.2} aria-hidden="true" />
+                    </span>
+                    <h2 className="text-xs font-bold uppercase tracking-[0.16em] !text-brand-amber">Mission</h2>
+                  </div>
+                  <p className="display relative text-[24px] font-semibold leading-[1.22] text-white sm:text-[26px]">
+                    To help business leaders make confident AI decisions, reduce repetitive work and gain operational control.
                   </p>
                 </motion.div>
 
@@ -137,11 +148,20 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  className="bg-card border border-border/40 rounded-2xl p-7 sm:p-8 shadow-sm"
+                  className="relative flex flex-col gap-4 overflow-hidden rounded-3xl border border-brand-chip bg-brand-cream p-7 shadow-[0_18px_40px_-22px_rgba(4,27,43,0.3)] sm:p-9"
                 >
-                  <h2 className="text-lg sm:text-xl font-bold mb-3 text-foreground">Vision</h2>
-                  <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                    A future where AI makes businesses easier to run, strengthening human capability, improving operational control and supporting sustainable growth.
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[radial-gradient(closest-side,rgba(255,153,0,0.2),rgba(255,153,0,0))]"
+                  />
+                  <div className="relative flex items-center gap-3">
+                    <span className="flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-brand-navy text-brand-amber">
+                      <Telescope className="h-5 w-5" strokeWidth={2.2} aria-hidden="true" />
+                    </span>
+                    <h2 className="text-xs font-bold uppercase tracking-[0.16em] !text-brand-navy">Vision</h2>
+                  </div>
+                  <p className="display relative text-[24px] font-semibold leading-[1.22] text-brand-navy sm:text-[26px]">
+                    A future where AI makes businesses easier to run and gives people more time for the work they do best.
                   </p>
                 </motion.div>
               </div>
