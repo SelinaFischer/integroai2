@@ -43,12 +43,11 @@ const Footer = () => {
           <div className="flex flex-col gap-3 sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-3 text-brand-navy">
               <img src={logo} alt="" width={50} height={50} loading="lazy" decoding="async" className="h-[50px] w-[50px] object-contain" />
-              <span className="flex flex-col gap-px">
-                <span className="text-xl font-bold leading-[1.1] tracking-[0.01em]">IntegroAI</span>
-                <span className="text-[10px] font-bold leading-tight tracking-[0.22em]">CONSULTING</span>
+              <span className="flex flex-col gap-[3px]">
+                <span className="text-xl font-bold leading-[1.1] tracking-[0.01em]">IntegroAI Consulting</span>
+                <span className="text-[13px] font-bold leading-tight text-brand-amber [word-spacing:0.16em]">Simplify · Prioritise · Grow</span>
               </span>
             </div>
-            <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-slate">Simplify · Prioritise · Grow</p>
             <p className="max-w-sm text-[15px] leading-relaxed text-[#42566A]">
               Helping business leaders find where AI can save time, reduce cost and protect margin before they invest.
             </p>

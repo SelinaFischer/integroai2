@@ -109,13 +109,15 @@ const Header = () => {
     >
       <div className="wrap relative">
         <div className="flex h-16 items-center justify-between gap-4 lg:h-[78px]">
-          {/* Logo, with the tagline beside it on wide screens */}
-          <div className="flex items-center gap-4">
+          {/* Logo: mark, name and the tagline beneath it in amber. Phones narrower
+              than 390px keep the shorter two-line name with no tagline, because
+              the full name does not fit beside the assessment button there; the
+              tagline still shows at the foot of the menu. */}
           <Link
             to="/"
             onClick={scrollTopIfHome}
             aria-label="IntegroAI Consulting, go to homepage"
-            className="flex items-center gap-3 rounded-lg text-brand-navy"
+            className="flex items-center gap-2.5 rounded-lg text-brand-navy sm:gap-3"
           >
             <img
               src={logo}
@@ -124,17 +126,21 @@ const Header = () => {
               height={50}
               fetchPriority="high"
               decoding="async"
-              className="h-10 w-10 object-contain lg:h-[50px] lg:w-[50px]"
+              className="h-9 w-9 flex-none object-contain sm:h-10 sm:w-10 lg:h-[50px] lg:w-[50px]"
             />
-            <span className="flex flex-col gap-px">
-              <span className="text-lg font-bold leading-[1.1] tracking-[0.01em] lg:text-xl">IntegroAI</span>
-              <span className="text-[9px] font-bold leading-tight tracking-[0.22em] lg:text-[10px]">CONSULTING</span>
+            <span className="flex flex-col gap-px min-[390px]:hidden">
+              <span className="text-lg font-bold leading-[1.1] tracking-[0.01em]">IntegroAI</span>
+              <span className="text-[9px] font-bold leading-tight tracking-[0.22em]">CONSULTING</span>
+            </span>
+            <span className="hidden flex-col gap-[3px] min-[390px]:flex">
+              <span className="whitespace-nowrap text-sm font-bold leading-[1.1] tracking-[0.01em] sm:text-lg lg:text-xl">
+                IntegroAI Consulting
+              </span>
+              <span className="whitespace-nowrap text-[9.5px] font-bold leading-tight text-brand-amber [word-spacing:0.16em] sm:text-xs lg:text-[13px]">
+                Simplify · Prioritise · Grow
+              </span>
             </span>
           </Link>
-            <p className="hidden whitespace-nowrap border-l border-brand-sand pl-4 text-[11px] font-bold uppercase leading-none tracking-[0.16em] text-brand-slate xl:block">
-              Simplify · Prioritise · Grow
-            </p>
-          </div>
 
           <div className="flex items-center gap-2 lg:gap-9">
             {/* Desktop navigation */}
@@ -158,7 +164,7 @@ const Header = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Start the free AI Readiness Assessment (opens in a new tab)"
-              className="inline-flex items-center whitespace-nowrap rounded-full bg-brand-amber px-3.5 py-2.5 text-[13px] font-bold leading-tight text-brand-navy transition-colors duration-200 hover:bg-[#FFAA2B] sm:px-5 sm:text-sm lg:px-6 lg:py-[13px] lg:text-base"
+              className="inline-flex items-center whitespace-nowrap rounded-full bg-brand-amber px-3 py-2.5 text-[12.5px] font-bold leading-tight text-brand-navy transition-colors duration-200 hover:bg-[#FFAA2B] sm:px-5 sm:text-sm lg:px-6 lg:py-[13px] lg:text-base"
             >
               <span className="sm:hidden">Free assessment</span>
               <span className="hidden sm:inline">Start the free assessment</span>
@@ -232,7 +238,7 @@ const Header = () => {
               }
             />
           </nav>
-          <p className="mx-2 mt-2 border-t border-brand-sand px-4 pt-3 text-[10px] font-bold uppercase tracking-[0.16em] text-brand-slate">
+          <p className="mx-2 mt-2 border-t border-brand-sand px-4 pt-3 text-xs font-bold text-brand-amber [word-spacing:0.16em]">
             Simplify · Prioritise · Grow
           </p>
         </div>
