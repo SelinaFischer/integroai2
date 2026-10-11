@@ -1,4 +1,4 @@
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { m } from "framer-motion";
 import SectionHeader from "./SectionHeader";
@@ -79,20 +79,22 @@ const Services = () => {
         />
 
         {/* The six stages drawn as one route with six stops, grouped into the
-            three service areas. On desktop the amber line runs left to right
-            through every stop; on tablet and mobile each area shows its two
-            stops joined top to bottom. Each area shares the same two rows through CSS
-            subgrid, so the line stays level however the text above it wraps. */}
-        <m.div {...fadeUp} className="rounded-3xl bg-brand-navy px-6 py-8 sm:px-9 sm:py-10">
-          <ol className="grid list-none grid-cols-1 gap-y-9 md:grid-cols-3 md:gap-y-7">
+            three service areas. On desktop a fine amber line runs left to right
+            through every stop and fades out after the last one; on tablet and
+            mobile each area shows its two stops joined top to bottom. Each area
+            shares the same two rows through CSS subgrid, so the line stays level
+            however the text above it wraps. Kept deliberately light: hairline,
+            small markers, medium-weight type. */}
+        <m.div {...fadeUp} className="rounded-3xl bg-brand-navy px-7 py-9 sm:px-11 sm:py-12">
+          <ol className="grid list-none grid-cols-1 gap-y-10 md:grid-cols-3 md:gap-y-9">
             {serviceGroups.map((group, groupIndex) => (
               <li
                 key={group.title}
-                className="flex flex-col gap-5 md:row-span-2 md:grid md:grid-rows-subgrid md:gap-y-7"
+                className="flex flex-col gap-6 md:row-span-2 md:grid md:grid-rows-subgrid md:gap-y-9"
               >
-                <div className="flex flex-col gap-2 md:pr-8">
-                  <h3 className="text-xl leading-tight !text-white">{group.title}</h3>
-                  <p className="text-[15px] leading-relaxed text-brand-mist">{group.summary}</p>
+                <div className="flex flex-col gap-2.5 md:pr-9">
+                  <h3 className="text-lg font-medium leading-snug tracking-[-0.01em] !text-white">{group.title}</h3>
+                  <p className="text-[15px] leading-relaxed text-brand-mist/85">{group.summary}</p>
                 </div>
 
                 <ol className="grid list-none grid-cols-1 lg:grid-cols-2" role="list">
@@ -103,35 +105,36 @@ const Services = () => {
                     return (
                       <li
                         key={stage.number}
-                        className="relative flex gap-3.5 pb-5 last:pb-0 lg:flex-col lg:gap-3 lg:pb-0 lg:pr-5"
+                        className="relative flex gap-4 pb-6 last:pb-0 lg:flex-col lg:gap-4 lg:pb-0 lg:pr-6"
                         itemScope
                         itemType="https://schema.org/Service"
                         itemProp="itemListElement"
                       >
-                        {/* Route line: top to bottom on mobile, left to right on desktop. */}
+                        {/* Route line: top to bottom on mobile, left to right on desktop.
+                            After the last stop it fades away instead of ending in an arrow. */}
                         <span
                           aria-hidden="true"
-                          className={`absolute bg-brand-amber ${
-                            isLastInGroup ? "hidden lg:block" : "left-[15px] top-0 h-full w-0.5"
-                          } lg:top-[15px] lg:h-0.5 ${
-                            isFirstStop ? "lg:left-4 lg:w-[calc(100%-16px)]" : "lg:left-0 lg:w-full"
+                          className={`absolute ${
+                            isLastInGroup ? "hidden lg:block" : "left-1 top-2 h-full w-px"
+                          } lg:top-1 lg:h-px ${
+                            isFirstStop ? "lg:left-1 lg:w-[calc(100%-4px)]" : "lg:left-0 lg:w-full"
+                          } ${
+                            isLastStop
+                              ? "bg-brand-amber/50 lg:bg-transparent lg:bg-gradient-to-r lg:from-brand-amber/50 lg:to-transparent"
+                              : "bg-brand-amber/50"
                           }`}
                         />
-                        {isLastStop && (
-                          <ChevronRight
-                            aria-hidden="true"
-                            strokeWidth={2.6}
-                            className="absolute -right-[7px] top-[7px] hidden h-[18px] w-[18px] text-brand-amber lg:block"
-                          />
-                        )}
                         <span
                           aria-hidden="true"
-                          className="relative z-10 flex h-8 w-8 flex-none items-center justify-center rounded-full bg-brand-amber text-xs font-bold text-brand-navy ring-4 ring-brand-navy"
-                        >
-                          {stage.number}
-                        </span>
-                        <span className="pt-1.5 text-[15px] font-semibold leading-snug text-white lg:pt-0" itemProp="name">
-                          {stage.title}
+                          className="relative z-10 mt-1 h-[9px] w-[9px] flex-none rounded-full bg-brand-amber ring-[5px] ring-brand-navy lg:mt-0"
+                        />
+                        <span className="flex flex-col gap-1.5">
+                          <span aria-hidden="true" className="text-[11px] font-semibold leading-4 tracking-[0.18em] text-brand-amber">
+                            {stage.number}
+                          </span>
+                          <span className="text-[15px] font-medium leading-snug text-white" itemProp="name">
+                            {stage.title}
+                          </span>
                         </span>
                         <meta itemProp="description" content={stage.description} />
                       </li>
