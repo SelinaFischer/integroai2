@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { m } from "framer-motion";
-import { ChevronRight, Calendar, Tag, Clock, Home, Share2, Check, Linkedin, ArrowUp, User } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calendar, Tag, Clock, Share2, Check, Linkedin, ArrowUp, User } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
@@ -17,10 +17,12 @@ interface BlogPostLayoutProps {
   readTime: string;
   slug: string;
   image?: string;
+  /** Up to two articles suggested at the end of this one. */
+  keepReading?: { slug: string; title: string; category: string; readTime: string }[];
   children: React.ReactNode;
 }
 
-const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image, children }: BlogPostLayoutProps) => {
+const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image, keepReading = [], children }: BlogPostLayoutProps) => {
   const { toast } = useToast();
   const [copied, setCopied] = useState(false);
   const [readingProgress, setReadingProgress] = useState(0);
@@ -197,36 +199,15 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              {/* Breadcrumb Navigation */}
-              <nav aria-label="Breadcrumb" className="mb-8">
-                <ol className="flex items-center gap-1.5 text-sm text-primary-foreground/70">
-                  <li>
-                    <Link 
-                      to="/" 
-                      className="flex items-center gap-1 hover:text-primary-foreground transition-colors"
-                    >
-                      <Home className="w-3.5 h-3.5" />
-                      <span>Home</span>
-                    </Link>
-                  </li>
-                  <li className="flex items-center">
-                    <ChevronRight className="w-3.5 h-3.5 mx-1" />
-                    <Link
-                      to="/blog"
-                      className="hover:text-primary-foreground transition-colors"
-                    >
-                      Blog
-                    </Link>
-                  </li>
-                  <li className="flex min-w-0 items-center">
-                    <ChevronRight className="w-3.5 h-3.5 mx-1 flex-none" />
-                    <span className="text-primary-foreground font-medium truncate max-w-[200px] sm:max-w-[300px]">
-                      {title}
-                    </span>
-                  </li>
-                </ol>
-              </nav>
-              
+              {/* One clear way back to the article list. */}
+              <Link
+                to="/blog"
+                className="group mb-8 inline-flex items-center gap-2 text-[15px] font-medium text-primary-foreground/90 underline-offset-4 transition-colors hover:text-primary-foreground hover:underline"
+              >
+                <ArrowLeft className="h-4 w-4 text-accent-warm transition-transform group-hover:-translate-x-1" strokeWidth={2.4} aria-hidden="true" />
+                All articles
+              </Link>
+
               <div className="flex flex-wrap items-center gap-4 text-sm text-primary-foreground/70 mb-6">
                 <span className="flex items-center gap-1.5">
                   <Calendar className="w-4 h-4" />
@@ -338,20 +319,43 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image
               {children}
             </m.div>
             
+            {/* Keep reading: two suggested articles as cards. */}
+            {keepReading.length > 0 && (
+              <nav aria-label="Keep reading" className="mt-14 border-t border-border pt-8">
+                <p className="eyebrow mb-4">Keep reading</p>
+                <ul className="grid list-none grid-cols-1 gap-4 sm:grid-cols-2">
+                  {keepReading.map((next) => (
+                    <li key={next.slug}>
+                      <Link
+                        to={`/blog/${next.slug}`}
+                        className="group flex h-full flex-col gap-2 rounded-[14px] border border-brand-sand bg-white p-5 transition-colors hover:border-brand-amber"
+                      >
+                        <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-brand-slate">
+                          {next.category} · {next.readTime}
+                        </span>
+                        <span className="flex-1 text-[17px] font-medium leading-snug text-brand-navy">{next.title}</span>
+                        <span className="flex items-center gap-1.5 text-[15px] font-semibold text-brand-navy">
+                          Read article
+                          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            )}
+
             {/* Share & Back Section */}
             <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-16 pt-8 border-t border-border"
+              className="mt-10 pt-8 border-t border-border"
             >
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-                <Link 
-                  to="/blog"
-                  className="inline-flex items-center gap-2 text-accent-warm hover:text-accent-warm/80 transition-colors font-medium"
-                >
-                  <ChevronRight className="w-4 h-4 rotate-180" />
-                  Back to All Articles
+                <Link to="/blog" className="btn-outline-navy group w-fit">
+                  <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" strokeWidth={2.4} aria-hidden="true" />
+                  Back to all articles
                 </Link>
                 
                 {/* Share Buttons */}

@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // BLOG DATA FILE
@@ -16,35 +15,11 @@ export interface BlogArticle {
   readTime: string;
   excerpt: string;
   image?: string;
+  /** Slugs of two articles to suggest at the end ("Keep reading"). If left
+      out, the next two articles in the list are suggested. */
+  related?: string[];
   Content: React.FC;
 }
-
-// ─────────────────────────────────────────────────────────────────────────────
-// RELATED ARTICLES COMPONENT
-// Used at the bottom of each article content component.
-// ─────────────────────────────────────────────────────────────────────────────
-
-const RelatedArticles = ({ items }: { items: { slug: string; title: string }[] }) => (
-  <div className="mt-10 border-t border-border/50 pt-8">
-    <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4">
-      Related Articles
-    </p>
-    <div className="space-y-3">
-      {items.map((a) => (
-        <Link
-          key={a.slug}
-          to={`/blog/${a.slug}`}
-          className="flex items-start gap-3 group"
-        >
-          <span className="mt-1 w-1.5 h-1.5 rounded-full bg-accent-warm shrink-0" />
-          <span className="text-sm text-foreground group-hover:text-accent-warm transition-colors leading-snug">
-            {a.title}
-          </span>
-        </Link>
-      ))}
-    </div>
-  </div>
-);
 
 // ─────────────────────────────────────────────────────────────────────────────
 // ARTICLE 1 — What is an AI Readiness Assessment?
@@ -143,10 +118,6 @@ const WhatIsAiReadinessAssessmentContent: React.FC = () => (
         Start the Free Assessment
       </a>
     </div>
-    <RelatedArticles items={[
-      { slug: "5-signs-your-business-is-not-ready-for-ai", title: "5 Signs Your Business Is Not Ready for AI" },
-      { slug: "how-to-measure-roi-from-ai-investment", title: "How to Measure ROI from an AI Investment" },
-    ]} />
   </>
 );
 
@@ -240,10 +211,6 @@ const FiveSignsContent: React.FC = () => (
         Start the Free Assessment
       </a>
     </div>
-    <RelatedArticles items={[
-      { slug: "what-is-an-ai-readiness-assessment", title: "What is an AI Readiness Assessment? A Plain-English Guide for Business Leaders" },
-      { slug: "how-to-measure-roi-from-ai-investment", title: "How to Measure ROI from an AI Investment" },
-    ]} />
   </>
 );
 
@@ -368,10 +335,6 @@ const HowToMeasureAiROIContent: React.FC = () => (
         Start the Free Assessment
       </a>
     </div>
-    <RelatedArticles items={[
-      { slug: "what-is-an-ai-readiness-assessment", title: "What is an AI Readiness Assessment? A Plain-English Guide for Business Leaders" },
-      { slug: "5-signs-your-business-is-not-ready-for-ai", title: "5 Signs Your Business Is Not Ready for AI" },
-    ]} />
   </>
 );
 
@@ -1109,19 +1072,6 @@ const AiOrganisationalAmbiguityContent: React.FC = () => (
         Take the AI Readiness Assessment
       </a>
     </div>
-
-    <RelatedArticles
-      items={[
-        {
-          slug: "what-is-an-ai-readiness-assessment",
-          title: "What is an AI Readiness Assessment? A Plain-English Guide for Business Leaders",
-        },
-        {
-          slug: "5-signs-your-business-is-not-ready-for-ai",
-          title: "5 Signs Your Business Is Not Ready for AI",
-        },
-      ]}
-    />
   </>
 );
 
@@ -1141,6 +1091,7 @@ export const articles: BlogArticle[] = [
     readTime: "7 min read",
     excerpt: "AI is forcing organisations to make judgement, decision rights and accountability explicit. The real challenge is not simply what AI can do, but where machine capability ends and human responsibility begins.",
     image: "/ai-organisational-ambiguity-human-judgement.png",
+    related: ["what-is-an-ai-readiness-assessment", "5-signs-your-business-is-not-ready-for-ai"],
     Content: AiOrganisationalAmbiguityContent,
   },
   {
@@ -1151,6 +1102,7 @@ export const articles: BlogArticle[] = [
     category: "AI Strategy",
     readTime: "7 min read",
     excerpt: "Before investing in AI tools, most businesses need to answer a more important question first. Here is what a proper AI Readiness Assessment covers and what you should expect to get from one.",
+    related: ["5-signs-your-business-is-not-ready-for-ai", "how-to-measure-roi-from-ai-investment"],
     Content: WhatIsAiReadinessAssessmentContent,
   },
   {
@@ -1161,6 +1113,7 @@ export const articles: BlogArticle[] = [
     category: "AI Strategy",
     readTime: "6 min read",
     excerpt: "AI amplifies whatever already exists in your operations. These five signs suggest your business needs operational clarity first, before any AI investment is made.",
+    related: ["what-is-an-ai-readiness-assessment", "how-to-measure-roi-from-ai-investment"],
     Content: FiveSignsContent,
   },
   {
@@ -1171,6 +1124,7 @@ export const articles: BlogArticle[] = [
     category: "AI Strategy",
     readTime: "8 min read",
     excerpt: "Most businesses cannot measure the return on their AI investments because they never defined what they were trying to improve. Here is how to approach it properly.",
+    related: ["what-is-an-ai-readiness-assessment", "5-signs-your-business-is-not-ready-for-ai"],
     Content: HowToMeasureAiROIContent,
   },
   {

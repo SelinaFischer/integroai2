@@ -12,10 +12,22 @@ const BlogPostPage = () => {
 
   if (!article) return <NotFound />;
 
-  const { Content, ...layoutProps } = article;
+  const { Content, related, ...layoutProps } = article;
+
+  // Two articles to suggest at the end: the hand-picked ones if the article
+  // names any, otherwise the next two in the list (wrapping round).
+  const index = articles.indexOf(article);
+  const fallback = [1, 2].map((step) => articles[(index + step) % articles.length]);
+  const picked = (related ?? [])
+    .map((relatedSlug) => articles.find((a) => a.slug === relatedSlug))
+    .filter((a): a is (typeof articles)[number] => Boolean(a));
+  const keepReading = (picked.length ? picked : fallback)
+    .filter((a) => a.slug !== article.slug)
+    .slice(0, 2)
+    .map(({ slug: nextSlug, title, category, readTime }) => ({ slug: nextSlug, title, category, readTime }));
 
   return (
-    <BlogPostLayout {...layoutProps}>
+    <BlogPostLayout {...layoutProps} keepReading={keepReading}>
       <Content />
     </BlogPostLayout>
   );
