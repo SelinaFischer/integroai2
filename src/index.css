@@ -46,6 +46,13 @@
     --accent-foreground: 205 83% 9%;
 
     --accent-warm: 36 100% 50%;
+    /* Amber for text. Deep amber #9E5700 on light backgrounds (contrast 4.8:1
+       or better on white, ivory and sand); a slightly brighter tone for large
+       headline words. Dark sections switch both back to bright amber below. */
+    --amber-ink: 33 100% 31%;
+    --amber-ink-display: 33 100% 38%;
+    /* Small uppercase section labels ("eyebrows"). */
+    --eyebrow-ink: var(--amber-ink);
     --accent-warm-foreground: 205 83% 9%;
 
     /* Kept for older class names: matches primary */
@@ -191,7 +198,8 @@
   }
 
   .eyebrow {
-    @apply text-xs font-bold uppercase tracking-[0.14em] text-brand-amber;
+    @apply text-xs font-bold uppercase tracking-[0.14em];
+    color: hsl(var(--eyebrow-ink));
   }
 
   .display,
@@ -235,6 +243,25 @@
 
   .bg-midnight-glow {
     background: var(--gradient-hero);
+  }
+
+  /* On dark surfaces amber text stays bright. */
+  .on-dark,
+  .bg-midnight-glow,
+  .bg-brand-navy,
+  .bg-nav,
+  .bg-primary,
+  .from-primary,
+  [class~="bg-[#041B2B]"] {
+    --amber-ink: 36 100% 50%;
+    --amber-ink-display: 36 100% 50%;
+    --eyebrow-ink: 36 100% 50%;
+  }
+
+  /* Large amber words inside headings only need the lighter of the two tones. */
+  h1 .text-brand-amber,
+  h2 .text-brand-amber {
+    color: hsl(var(--amber-ink-display));
   }
 
   .text-gradient {

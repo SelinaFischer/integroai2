@@ -18,6 +18,14 @@ export default {
         heading: ['"Cormorant Garamond"', 'Georgia', 'serif'],
         display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
       },
+      // Amber TEXT uses a deeper tone on light backgrounds so small labels
+      // are readable (WCAG AA). Amber fills, buttons and borders stay bright.
+      // The tone is set by --amber-ink in src/index.css and switches back to
+      // bright amber inside dark sections.
+      textColor: {
+        brand: { amber: "hsl(var(--amber-ink))" },
+        accent: { warm: "hsl(var(--amber-ink))" },
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

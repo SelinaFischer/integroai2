@@ -189,7 +189,7 @@ const AiVisibilityGuide = () => {
 
         {/* Closing call to action */}
         <section
-          className="py-16 sm:py-[84px]"
+          className="on-dark py-16 sm:py-[84px]"
           style={{
             background:
               "radial-gradient(60% 55% at 50% 22%, rgba(30,74,110,0.5), rgba(30,74,110,0) 70%), #050F1B",
