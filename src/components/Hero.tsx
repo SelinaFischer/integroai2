@@ -1,7 +1,9 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import portrait from "@/assets/selina-hero-portrait.webp";
 import { ASSESSMENT_URL, DISCOVERY_CALL_URL } from "@/lib/motion";
+import { GUIDE_PAGE_PATH, GUIDE_TITLE, trackGuideClick } from "@/lib/guide";
 
 const Hero = () => {
   return (
@@ -46,6 +48,19 @@ const Hero = () => {
               Book a Discovery Call
             </a>
           </div>
+
+          {/* Free guide: the softer offer for visitors not ready for the assessment. */}
+          <Link
+            to={GUIDE_PAGE_PATH}
+            onClick={() => trackGuideClick("hero")}
+            className="group flex max-w-full items-center gap-3 rounded-full border border-white/25 bg-white/[0.06] py-2 pl-2 pr-4 text-left text-[15px] font-semibold leading-snug text-white transition-colors duration-200 hover:border-brand-amber hover:bg-white/10 sm:text-base"
+          >
+            <span className="flex-none rounded-full bg-brand-amber px-3 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-brand-navy">
+              Free guide
+            </span>
+            <span className="min-w-0">{GUIDE_TITLE}</span>
+            <ArrowRight className="h-4 w-4 flex-none text-brand-amber transition-transform group-hover:translate-x-1" strokeWidth={2.6} aria-hidden="true" />
+          </Link>
         </motion.div>
 
         <motion.div
