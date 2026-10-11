@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import portrait from "@/assets/selina-hero-portrait.webp";
 import { ASSESSMENT_URL, DISCOVERY_CALL_URL } from "@/lib/motion";
-import { GUIDE_PAGE_PATH, GUIDE_TITLE, trackGuideClick } from "@/lib/guide";
+import { GUIDE_PAGE_PATH, trackGuideClick } from "@/lib/guide";
 
 const Hero = () => {
   return (
@@ -53,9 +53,15 @@ const Hero = () => {
           <Link
             to={GUIDE_PAGE_PATH}
             onClick={() => trackGuideClick("hero")}
-            className="text-[15px] leading-snug text-brand-mist underline decoration-white/40 decoration-1 underline-offset-[5px] transition-colors duration-200 hover:text-white hover:decoration-white sm:text-base"
+            className="group mt-4 flex max-w-[620px] flex-col gap-1.5 sm:mt-5"
           >
-            Get the free guide: {GUIDE_TITLE}
+            <span className="text-base font-semibold leading-snug text-white sm:text-[17px]">
+              When customers ask AI for a business like yours, does yours come up?
+            </span>
+            <span className="flex w-fit items-center gap-2 text-[15px] leading-snug text-brand-mist underline decoration-white/40 decoration-1 underline-offset-[5px] transition-colors duration-200 group-hover:text-white group-hover:decoration-white sm:text-base">
+              Get the free guide and checklist
+              <ArrowRight className="h-4 w-4 flex-none transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
+            </span>
           </Link>
         </motion.div>
 
