@@ -1,5 +1,4 @@
 import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
 import { extraServices } from "@/lib/extraServices";
 import { trackGuideClick } from "@/lib/guide";
 
@@ -31,14 +30,16 @@ const ExtraServicesList = () => (
               {service.description}
             </p>
             {service.link && (
-              <Link
-                to={service.link.to}
+              <a
+                href={service.link.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => trackGuideClick("visibility-service")}
                 className="flex w-fit items-center gap-1.5 text-[15px] font-semibold text-brand-navy underline decoration-brand-amber decoration-[1.5px] underline-offset-4"
               >
                 {service.link.label}
                 <ArrowRight className="h-4 w-4 flex-none" strokeWidth={2.2} aria-hidden="true" />
-              </Link>
+              </a>
             )}
           </div>
         </li>

@@ -1,5 +1,5 @@
 import { MonitorSmartphone, PhoneCall, ScanSearch, type LucideIcon } from "lucide-react";
-import { GUIDE_PAGE_PATH } from "@/lib/guide";
+import { GUIDE_FORM_URL } from "@/lib/guide";
 
 // Standalone services offered alongside the six consulting stages.
 // Kept brief on purpose. Shown on the homepage and on /work-with-me.
@@ -9,8 +9,8 @@ type ExtraService = {
   title: string;
   description: string;
   icon: LucideIcon;
-  /** Optional link shown under the description. */
-  link?: { label: string; to: string };
+  /** Optional link shown under the description. Opens in a new tab. */
+  link?: { label: string; href: string };
 };
 
 export const extraServices: ExtraService[] = [
@@ -31,6 +31,6 @@ export const extraServices: ExtraService[] = [
     icon: ScanSearch,
     description:
       "Be found, understood and recommended when customers ask AI for a business like yours. We review how Google and AI tools see your business, then improve the clarity, consistency and content that help you get recommended.",
-    link: { label: "Get your free guide: Does AI know your business exists?", to: GUIDE_PAGE_PATH },
+    link: { label: "Get your free guide: Does AI know your business exists?", href: GUIDE_FORM_URL },
   },
 ];

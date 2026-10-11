@@ -1,6 +1,5 @@
 import * as Accordion from "@radix-ui/react-accordion";
 import { ArrowRight, Minus, Plus } from "lucide-react";
-import { Link } from "react-router-dom";
 import { m } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import SectionHeader from "./SectionHeader";
@@ -56,14 +55,16 @@ const FAQ = () => {
           >
             {faq.answer}
             {faq.link && (
-              <Link
-                to={faq.link.to}
+              <a
+                href={faq.link.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => trackGuideClick("faq")}
                 className="mt-3 flex w-fit items-center gap-1.5 font-bold text-brand-navy underline decoration-brand-amber decoration-2 underline-offset-4 hover:text-brand-ink"
               >
                 {faq.link.label}
                 <ArrowRight className="h-4 w-4 flex-none" strokeWidth={2.6} aria-hidden="true" />
-              </Link>
+              </a>
             )}
           </Accordion.Content>
         </Accordion.Item>

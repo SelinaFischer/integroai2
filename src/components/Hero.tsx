@@ -1,11 +1,10 @@
 import { ArrowRight } from "lucide-react";
 import { m } from "framer-motion";
-import { Link } from "react-router-dom";
 import portrait from "@/assets/selina-hero-portrait.webp";
 import portrait340 from "@/assets/selina-hero-portrait-340.webp";
 import portrait510 from "@/assets/selina-hero-portrait-510.webp";
 import { ASSESSMENT_URL, DISCOVERY_CALL_URL } from "@/lib/motion";
-import { GUIDE_PAGE_PATH, trackGuideClick } from "@/lib/guide";
+import { GUIDE_FORM_URL, trackGuideClick } from "@/lib/guide";
 
 const Hero = () => {
   return (
@@ -54,8 +53,10 @@ const Hero = () => {
               </a>
             </div>
 
-            <Link
-              to={GUIDE_PAGE_PATH}
+            <a
+              href={GUIDE_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => trackGuideClick("hero")}
               className="group flex flex-col items-center gap-1 self-center text-center"
             >
@@ -66,7 +67,7 @@ const Hero = () => {
                 Get your free AI visibility guide and checklist
                 <ArrowRight className="h-3.5 w-3.5 flex-none transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
               </span>
-            </Link>
+            </a>
           </div>
         </m.div>
 
