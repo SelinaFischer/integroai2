@@ -109,7 +109,8 @@ const Header = () => {
     >
       <div className="wrap relative">
         <div className="flex h-16 items-center justify-between gap-4 lg:h-[78px]">
-          {/* Logo */}
+          {/* Logo, with the tagline beside it on wide screens */}
+          <div className="flex items-center gap-4">
           <Link
             to="/"
             onClick={scrollTopIfHome}
@@ -130,6 +131,10 @@ const Header = () => {
               <span className="text-[9px] font-bold leading-tight tracking-[0.22em] lg:text-[10px]">CONSULTING</span>
             </span>
           </Link>
+            <p className="hidden whitespace-nowrap border-l border-brand-sand pl-4 text-[11px] font-bold uppercase leading-none tracking-[0.16em] text-brand-slate xl:block">
+              Simplify · Prioritise · Grow
+            </p>
+          </div>
 
           <div className="flex items-center gap-2 lg:gap-9">
             {/* Desktop navigation */}
@@ -227,6 +232,9 @@ const Header = () => {
               }
             />
           </nav>
+          <p className="mx-2 mt-2 border-t border-brand-sand px-4 pt-3 text-[10px] font-bold uppercase tracking-[0.16em] text-brand-slate">
+            Simplify · Prioritise · Grow
+          </p>
         </div>
       </div>
     </header>
