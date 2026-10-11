@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { m } from "framer-motion";
@@ -61,7 +62,80 @@ const serviceGroups = [
   },
 ];
 
+// Desktop only. The three headings sit flush with the stage names beneath
+// them: each heading starts where its first stage name starts, and the last
+// heading stops where the last stage name stops. Stage names are centred under
+// their circles, so their edges depend on the wording; they are measured here
+// rather than guessed. `shift` then nudges the whole panel content sideways so
+// the space left of the first block equals the space right of the last one.
+type PanelEdges = { starts: number[]; end: number; shift: number };
+
+const usePanelEdges = () => {
+  const listRef = useRef<HTMLOListElement>(null);
+  const [edges, setEdges] = useState<PanelEdges | null>(null);
+
+  useEffect(() => {
+    const list = listRef.current;
+    const panel = list?.parentElement;
+    if (!list || !panel) return;
+
+    // The tight box around the words themselves, not the element that holds them.
+    const wordsBox = (element: Element) => {
+      const range = document.createRange();
+      range.selectNodeContents(element);
+      return range.getBoundingClientRect();
+    };
+    const round = (value: number) => Math.round(value * 2) / 2;
+    let applied = 0;
+
+    const measure = () => {
+      if (!window.matchMedia("(min-width: 1024px)").matches) {
+        applied = 0;
+        setEdges(null);
+        return;
+      }
+      const groups = Array.from(list.querySelectorAll<HTMLElement>("[data-group]"));
+      const names = groups.map((group) => Array.from(group.querySelectorAll("[data-stage-name]")));
+      if (!groups.length || names.some((group) => !group.length)) return;
+
+      const starts = groups.map((group, index) =>
+        round(wordsBox(names[index][0]).left - group.getBoundingClientRect().left),
+      );
+      const lastGroup = groups[groups.length - 1];
+      const lastName = names[names.length - 1].slice(-1)[0];
+      const end = round(lastGroup.getBoundingClientRect().right - wordsBox(lastName).right);
+
+      // Space either side as it would be with no nudge applied.
+      const box = panel.getBoundingClientRect();
+      const spaceLeft = wordsBox(names[0][0]).left - box.left - applied;
+      const spaceRight = box.right - wordsBox(lastName).right + applied;
+      const shift = round((spaceRight - spaceLeft) / 2);
+      applied = shift;
+
+      setEdges((current) =>
+        current &&
+        current.end === end &&
+        current.shift === shift &&
+        current.starts.every((start, index) => start === starts[index])
+          ? current
+          : { starts, end, shift },
+      );
+    };
+
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(list);
+    document.fonts?.ready.then(measure).catch(() => {});
+    return () => observer.disconnect();
+  }, []);
+
+  return { listRef, edges };
+};
+
 const Services = () => {
+  const { listRef, edges } = usePanelEdges();
+  const lastGroupIndex = serviceGroups.length - 1;
+
   return (
     <section
       id="services"
@@ -78,18 +152,37 @@ const Services = () => {
 
         {/* The six stages drawn as one route with six stops, grouped into the
             three service areas. The three headings and their descriptions are
-            left-aligned. On desktop each stop sits centred over its name and the
+            left-aligned and, on desktop, sit flush with the stage names beneath
+            them (see usePanelEdges). Each stop sits centred over its name and the
             amber line runs from the first stop to the last, no further;
             on tablet and mobile each area shows its two stops joined top to bottom. Each area shares the same two rows through CSS
             subgrid, so the line stays level however the text above it wraps. */}
         <m.div {...fadeUp} className="rounded-3xl bg-brand-navy px-6 py-8 sm:px-9 sm:py-10">
-          <ol className="grid list-none grid-cols-1 gap-y-9 md:grid-cols-3 md:gap-y-7">
+          <ol
+            ref={listRef}
+            className="grid list-none grid-cols-1 gap-y-9 md:grid-cols-3 md:gap-y-7"
+            style={edges ? { transform: `translateX(${edges.shift}px)` } : undefined}
+          >
             {serviceGroups.map((group, groupIndex) => (
               <li
                 key={group.title}
+                data-group
                 className="flex flex-col gap-5 md:row-span-2 md:grid md:grid-rows-subgrid md:gap-y-7"
               >
-                <div className="flex flex-col gap-2 md:pr-8">
+                {/* Until the measurement runs, the margins below are a close estimate. */}
+                <div
+                  className={`flex flex-col gap-2 md:pr-8 lg:ml-[calc(25%-52px)] ${
+                    groupIndex === lastGroupIndex ? "lg:mr-[calc(25%-70px)] lg:pr-0" : "lg:pr-4"
+                  }`}
+                  style={
+                    edges
+                      ? {
+                          marginLeft: edges.starts[groupIndex],
+                          marginRight: groupIndex === lastGroupIndex ? edges.end : undefined,
+                        }
+                      : undefined
+                  }
+                >
                   <h3 className="text-lg font-medium leading-snug tracking-[-0.01em] !text-white">{group.title}</h3>
                   <p className="text-[15px] leading-relaxed text-brand-mist">{group.summary}</p>
                 </div>
@@ -122,7 +215,7 @@ const Services = () => {
                         >
                           {stage.number}
                         </span>
-                        <span className="pt-1.5 text-[15px] font-medium leading-snug text-white lg:pt-0" itemProp="name">
+                        <span data-stage-name className="pt-1.5 text-[15px] font-medium leading-snug text-white lg:pt-0" itemProp="name">
                           {stage.title}
                         </span>
                         <meta itemProp="description" content={stage.description} />
