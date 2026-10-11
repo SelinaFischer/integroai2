@@ -164,7 +164,7 @@ const Header = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Start the free AI Readiness Assessment (opens in a new tab)"
-              className="inline-flex items-center whitespace-nowrap rounded-full bg-brand-amber px-3 py-2.5 text-[12.5px] font-bold leading-tight text-brand-navy transition-colors duration-200 hover:bg-[#FFAA2B] sm:px-5 sm:text-sm lg:px-6 lg:py-[13px] lg:text-base"
+              className="inline-flex items-center whitespace-nowrap rounded-full bg-brand-amber px-3 py-2.5 text-[12.5px] font-semibold leading-tight text-brand-navy transition-colors duration-200 hover:bg-[#FFAA2B] sm:px-5 sm:text-sm lg:py-[11px] lg:text-[15px]"
             >
               <span className="sm:hidden">Free assessment</span>
               <span className="hidden sm:inline">Start the free assessment</span>

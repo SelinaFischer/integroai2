@@ -88,7 +88,7 @@ const WhyIntegroAI = () => {
             href={DISCOVERY_CALL_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-outline-navy px-[26px] py-3.5 text-[17px]"
+            className="btn-outline-navy"
           >
             Book a Discovery Call
           </a>

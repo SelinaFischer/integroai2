@@ -152,7 +152,7 @@ const Services = () => {
         <motion.div {...fadeUp} className="flex justify-center">
           <Link to="/work-with-me" className="btn-outline-navy group">
             Explore how we can work together
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.6} aria-hidden="true" />
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
           </Link>
         </motion.div>
       </div>

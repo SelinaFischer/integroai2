@@ -48,7 +48,7 @@ const AssessmentSection = () => {
           </ul>
           <a href={ASSESSMENT_URL} target="_blank" rel="noopener noreferrer" className="btn-amber group">
             Start the free assessment
-            <ArrowRight className="h-[18px] w-[18px] transition-transform group-hover:translate-x-1" strokeWidth={2.6} aria-hidden="true" />
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
           </a>
           <p className="text-sm font-semibold text-[#42566A]">A free AI readiness quiz. 5 minutes.</p>
         </motion.div>

@@ -222,15 +222,15 @@
   }
 
   .btn-amber {
-    @apply inline-flex items-center justify-center gap-2.5 rounded-full bg-brand-amber px-7 py-4 text-[17px] font-bold leading-tight text-brand-navy transition-colors duration-200 hover:bg-[#FFAA2B];
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-amber px-6 py-[13px] text-base font-semibold leading-tight text-brand-navy transition-colors duration-200 hover:bg-[#FFAA2B];
   }
 
   .btn-outline-navy {
-    @apply inline-flex items-center justify-center gap-2.5 rounded-full border-2 border-brand-navy px-[26px] py-[13px] text-base font-bold leading-tight text-brand-navy transition-colors duration-200 hover:bg-brand-navy hover:text-white;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-[1.5px] border-brand-navy px-6 py-[11.5px] text-base font-semibold leading-tight text-brand-navy transition-colors duration-200 hover:bg-brand-navy hover:text-white;
   }
 
   .btn-outline-light {
-    @apply inline-flex items-center justify-center gap-2.5 rounded-full border-2 border-white/60 px-7 py-[14px] text-[17px] font-bold leading-tight text-white transition-colors duration-200 hover:border-white hover:bg-white/10;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-[1.5px] border-white/50 px-6 py-[11.5px] text-base font-semibold leading-tight text-white transition-colors duration-200 hover:border-white hover:bg-white/10;
   }
 
   .bg-midnight-glow {

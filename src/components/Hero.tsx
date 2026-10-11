@@ -32,21 +32,21 @@ const Hero = () => {
           {/* Buttons, with the free guide centred beneath them as a quiet text link
               so the amber button stays the one main action. */}
           <div className="flex w-full flex-col gap-7 sm:w-fit">
-            <div className="flex w-full flex-col gap-3.5 sm:w-auto sm:flex-row">
+            <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               <a
                 href={ASSESSMENT_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-amber group px-[30px] py-[18px] text-lg"
+                className="btn-amber group"
               >
                 Start the free assessment
-                <ArrowRight className="h-[18px] w-[18px] transition-transform group-hover:translate-x-1" strokeWidth={2.6} aria-hidden="true" />
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
               </a>
               <a
                 href={DISCOVERY_CALL_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-outline-light px-7 py-4 text-lg"
+                className="btn-outline-light"
               >
                 Book a Discovery Call
               </a>

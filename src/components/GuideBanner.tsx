@@ -37,7 +37,7 @@ const GuideBanner = ({ location, className = "bg-white py-14 sm:py-16" }: GuideB
           className="btn-amber group flex-none whitespace-nowrap"
         >
           Get your free guide
-          <ArrowRight className="h-[18px] w-[18px] transition-transform group-hover:translate-x-1" strokeWidth={2.6} aria-hidden="true" />
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
         </Link>
       </motion.div>
     </div>
