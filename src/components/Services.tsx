@@ -145,7 +145,7 @@ const Services = () => {
 
         {/* Standalone services, separate from the six numbered stages. */}
         <motion.div {...fadeUp} className="flex flex-col gap-5">
-          <p className="eyebrow">More ways we help</p>
+          <p className="eyebrow text-center">More ways we help</p>
           <ExtraServicesList />
         </motion.div>
 
