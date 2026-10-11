@@ -24,8 +24,8 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { toast } = useToast();
 
-  // The confetti and database libraries are only needed once a message has
-  // been sent, so they are loaded at that moment instead of with every page.
+  // The confetti library is only needed once a message has been sent, so it
+  // is loaded at that moment instead of with every page.
   const triggerConfetti = async () => {
     const { default: confetti } = await import("canvas-confetti");
     const duration = 2000;
@@ -96,20 +96,6 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
 
       if (data && (data as any).error) {
         throw new Error((data as any).error);
-      }
-
-      // Save to database as backup (silent - don't affect UX if it fails)
-      try {
-        const { supabase } = await import("@/integrations/supabase/client");
-        await supabase.from("contact_submissions").insert({
-          name: formData.get("name") as string,
-          company: formData.get("company") as string | null,
-          email: formData.get("email") as string,
-          telephone: formData.get("telephone") as string | null,
-          message: formData.get("message") as string,
-        });
-      } catch {
-        // Silent fail - Formspree succeeded, backup is just extra safety
       }
 
       setIsSubmitted(true);
