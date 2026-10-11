@@ -137,7 +137,7 @@ const AiVisibilityGuide = () => {
               {threeIdeas.map((idea, index) => (
                 <m.div key={idea.title} {...fadeUpDelayed(index)} className="card-soft flex flex-col gap-2.5 p-7">
                   <h3 className="display text-[32px] !font-bold leading-[1.08] !text-brand-navy">{idea.title}</h3>
-                  <p className="text-xs font-bold uppercase tracking-[0.1em] text-brand-amber">{idea.label}</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.1em] text-brand-label">{idea.label}</p>
                   <p className="text-base leading-relaxed text-brand-slate">{idea.text}</p>
                 </m.div>
               ))}
@@ -189,7 +189,7 @@ const AiVisibilityGuide = () => {
 
         {/* Closing call to action */}
         <section
-          className="py-16 sm:py-[84px]"
+          className="on-dark py-16 sm:py-[84px]"
           style={{
             background:
               "radial-gradient(60% 55% at 50% 22%, rgba(30,74,110,0.5), rgba(30,74,110,0) 70%), #050F1B",

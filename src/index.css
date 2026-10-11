@@ -46,6 +46,9 @@
     --accent-foreground: 205 83% 9%;
 
     --accent-warm: 36 100% 50%;
+    /* Small uppercase section labels. Deep teal reads clearly on white, ivory
+       and sand (contrast 4.5:1 or better). Dark sections switch it back to amber below. */
+    --label-ink: #3B767C;
     --accent-warm-foreground: 205 83% 9%;
 
     /* Kept for older class names: matches primary */
@@ -191,7 +194,7 @@
   }
 
   .eyebrow {
-    @apply text-xs font-bold uppercase tracking-[0.14em] text-brand-amber;
+    @apply text-xs font-bold uppercase tracking-[0.14em] text-brand-label;
   }
 
   .display,
@@ -235,6 +238,17 @@
 
   .bg-midnight-glow {
     background: var(--gradient-hero);
+  }
+
+  /* On dark surfaces the small labels stay bright amber. */
+  .on-dark,
+  .bg-midnight-glow,
+  .bg-brand-navy,
+  .bg-nav,
+  .bg-primary,
+  .from-primary,
+  [class~="bg-[#041B2B]"] {
+    --label-ink: #FF9900;
   }
 
   .text-gradient {
