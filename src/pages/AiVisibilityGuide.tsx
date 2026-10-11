@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
-import cover from "@/assets/guide-cover.webp";
+import GuideCover from "@/components/GuideCover";
 import { ASSESSMENT_URL, fadeUp, fadeUpDelayed } from "@/lib/motion";
 import { GUIDE_FORM_URL, GUIDE_PAGE_PATH, GUIDE_SUBTITLE, GUIDE_TITLE, trackGuideClick } from "@/lib/guide";
 
@@ -72,7 +72,7 @@ const AiVisibilityGuide = () => {
 
       <main id="main-content">
         {/* Hero */}
-        <section className="bg-midnight-glow pt-[104px] pb-16 sm:pt-[132px] sm:pb-20 lg:pt-[150px] lg:pb-[88px]">
+        <section className="overflow-hidden bg-midnight-glow pt-[104px] pb-16 sm:pt-[132px] sm:pb-20 lg:pt-[150px] lg:pb-[88px]">
           <div className="wrap flex flex-col items-center gap-12 lg:flex-row lg:gap-16">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -101,14 +101,10 @@ const AiVisibilityGuide = () => {
               transition={{ duration: 0.6, delay: 0.15 }}
               className="flex min-w-0 justify-center lg:flex-1"
             >
-              <img
-                src={cover}
+              <GuideCover
+                eager
                 alt="Cover of the free guide and checklist: Does AI know your business exists? By IntegroAI Consulting"
-                width={720}
-                height={1018}
-                fetchPriority="high"
-                decoding="async"
-                className="h-auto w-[250px] rotate-2 rounded-xl shadow-[14px_14px_0_#FF9900] ring-[3px] ring-white/90 sm:w-[310px]"
+                className="w-[250px] rotate-2 sm:w-[310px]"
               />
             </motion.div>
           </div>

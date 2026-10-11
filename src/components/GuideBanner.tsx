@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import cover from "@/assets/guide-cover.webp";
+import GuideCover from "./GuideCover";
 import { fadeUp } from "@/lib/motion";
 import { GUIDE_PAGE_PATH, GUIDE_SUBTITLE, GUIDE_TITLE, trackGuideClick } from "@/lib/guide";
 
@@ -18,17 +18,9 @@ const GuideBanner = ({ location, className = "bg-white py-14 sm:py-16" }: GuideB
     <div className="wrap">
       <motion.div
         {...fadeUp}
-        className="flex flex-col items-center gap-7 rounded-[28px] bg-brand-navy px-6 py-9 text-center sm:px-10 md:flex-row md:gap-10 md:text-left"
+        className="flex flex-col items-center gap-7 overflow-hidden rounded-[28px] bg-brand-navy px-6 py-9 text-center sm:px-10 md:flex-row md:gap-10 md:text-left"
       >
-        <img
-          src={cover}
-          alt=""
-          width={720}
-          height={1018}
-          loading="lazy"
-          decoding="async"
-          className="h-auto w-[132px] flex-none -rotate-3 rounded-lg shadow-[0_18px_40px_rgba(0,0,0,0.45)] ring-2 ring-white/90 md:w-[150px]"
-        />
+        <GuideCover className="w-[132px] -rotate-3 md:w-[150px]" />
         <div className="flex flex-1 flex-col gap-2.5">
           <p className="eyebrow">Free guide and checklist</p>
           <h2
