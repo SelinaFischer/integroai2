@@ -13,16 +13,16 @@ const ExtraServicesList = () => (
       return (
         <li
           key={service.title}
-          className="grid grid-cols-1 gap-x-12 gap-y-3 border-t border-brand-sand py-7 text-left md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.4fr)] md:items-center"
+          className="grid grid-cols-1 gap-x-12 gap-y-3 border-t border-brand-sand py-6 text-left md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.5fr)] md:items-center"
           itemScope
           itemType="https://schema.org/Service"
           itemProp="itemListElement"
         >
-          <div className="flex items-center gap-4">
-            <span className="flex h-12 w-12 flex-none items-center justify-center rounded-2xl bg-brand-chip text-brand-navy">
-              <Icon className="h-[22px] w-[22px]" strokeWidth={2} aria-hidden="true" />
+          <div className="flex items-center gap-3.5">
+            <span className="flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-brand-chip text-brand-navy">
+              <Icon className="h-5 w-5" strokeWidth={2} aria-hidden="true" />
             </span>
-            <h3 className="display text-[28px] !font-semibold leading-[1.1] !text-brand-navy lg:text-[32px]" itemProp="name">
+            <h3 className="text-xl leading-tight" itemProp="name">
               {service.title}
             </h3>
           </div>

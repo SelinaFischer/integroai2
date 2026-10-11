@@ -83,17 +83,15 @@ const Services = () => {
             through every stop; on tablet and mobile each area shows its two
             stops joined top to bottom. Each area shares the same two rows through CSS
             subgrid, so the line stays level however the text above it wraps. */}
-        <motion.div {...fadeUp} className="rounded-[28px] bg-brand-navy px-6 py-9 sm:px-10 sm:py-12">
-          <ol className="grid list-none grid-cols-1 gap-y-10 md:grid-cols-3 md:gap-y-9">
+        <motion.div {...fadeUp} className="rounded-3xl bg-brand-navy px-6 py-8 sm:px-9 sm:py-10">
+          <ol className="grid list-none grid-cols-1 gap-y-9 md:grid-cols-3 md:gap-y-7">
             {serviceGroups.map((group, groupIndex) => (
               <li
                 key={group.title}
-                className="flex flex-col gap-6 md:row-span-2 md:grid md:grid-rows-subgrid md:gap-y-9"
+                className="flex flex-col gap-5 md:row-span-2 md:grid md:grid-rows-subgrid md:gap-y-7"
               >
-                <div className="flex flex-col gap-2.5 md:pr-8">
-                  <h3 className="display text-[28px] !font-semibold leading-[1.1] !text-white lg:text-[32px]">
-                    {group.title}
-                  </h3>
+                <div className="flex flex-col gap-2 md:pr-8">
+                  <h3 className="text-xl leading-tight !text-white">{group.title}</h3>
                   <p className="text-[15px] leading-relaxed text-brand-mist">{group.summary}</p>
                 </div>
 
@@ -105,7 +103,7 @@ const Services = () => {
                     return (
                       <li
                         key={stage.number}
-                        className="relative flex gap-4 pb-6 last:pb-0 lg:flex-col lg:gap-4 lg:pb-0 lg:pr-5"
+                        className="relative flex gap-3.5 pb-5 last:pb-0 lg:flex-col lg:gap-3 lg:pb-0 lg:pr-5"
                         itemScope
                         itemType="https://schema.org/Service"
                         itemProp="itemListElement"
@@ -114,25 +112,25 @@ const Services = () => {
                         <span
                           aria-hidden="true"
                           className={`absolute bg-brand-amber ${
-                            isLastInGroup ? "hidden lg:block" : "left-[21px] top-0 h-full w-0.5"
-                          } lg:top-[21px] lg:h-0.5 ${
-                            isFirstStop ? "lg:left-[22px] lg:w-[calc(100%-22px)]" : "lg:left-0 lg:w-full"
+                            isLastInGroup ? "hidden lg:block" : "left-[15px] top-0 h-full w-0.5"
+                          } lg:top-[15px] lg:h-0.5 ${
+                            isFirstStop ? "lg:left-4 lg:w-[calc(100%-16px)]" : "lg:left-0 lg:w-full"
                           }`}
                         />
                         {isLastStop && (
                           <ChevronRight
                             aria-hidden="true"
                             strokeWidth={2.6}
-                            className="absolute -right-2 top-[11px] hidden h-[22px] w-[22px] text-brand-amber lg:block"
+                            className="absolute -right-[7px] top-[7px] hidden h-[18px] w-[18px] text-brand-amber lg:block"
                           />
                         )}
                         <span
                           aria-hidden="true"
-                          className="relative z-10 flex h-11 w-11 flex-none items-center justify-center rounded-full bg-brand-amber text-[15px] font-bold text-brand-navy ring-[5px] ring-brand-navy"
+                          className="relative z-10 flex h-8 w-8 flex-none items-center justify-center rounded-full bg-brand-amber text-xs font-bold text-brand-navy ring-4 ring-brand-navy"
                         >
                           {stage.number}
                         </span>
-                        <span className="pt-2.5 text-base font-semibold leading-snug text-white lg:pt-0" itemProp="name">
+                        <span className="pt-1.5 text-[15px] font-semibold leading-snug text-white lg:pt-0" itemProp="name">
                           {stage.title}
                         </span>
                         <meta itemProp="description" content={stage.description} />
