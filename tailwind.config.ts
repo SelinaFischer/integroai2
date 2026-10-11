@@ -13,6 +13,9 @@ export default {
       },
     },
     extend: {
+      spacing: {
+        gutter: "var(--gutter)",
+      },
       fontFamily: {
         sans: ['"Instrument Sans"', 'system-ui', 'sans-serif'],
         heading: ['"Cormorant Garamond"', 'Georgia', 'serif'],

@@ -14,7 +14,7 @@ const FinalCTA = () => {
     >
       <m.div
         {...fadeUp}
-        className="mx-auto flex max-w-[980px] flex-col items-center gap-[22px] px-5 text-center sm:px-8"
+        className="mx-auto flex max-w-[calc(916px+2*var(--gutter))] flex-col items-center gap-[22px] px-gutter text-center"
       >
         <p className="eyebrow">Free AI Readiness Assessment</p>
         <h2 className="display text-[40px] font-semibold leading-[1.03] text-white sm:text-[58px] lg:text-[76px]">

@@ -109,7 +109,7 @@ const Header = () => {
       }`}
     >
       <div className="wrap relative">
-        <div className="flex h-16 items-center justify-between gap-4 lg:h-[78px]">
+        <div className="flex h-16 items-center justify-between gap-2 sm:gap-4 lg:h-[78px]">
           {/* Logo: mark, name and the tagline beneath it. Phones narrower
               than 390px keep the shorter two-line name with no tagline, because
               the full name does not fit beside the assessment button there; the
@@ -118,7 +118,7 @@ const Header = () => {
             to="/"
             onClick={scrollTopIfHome}
             aria-label="IntegroAI Consulting, go to homepage"
-            className="flex items-center gap-2.5 rounded-lg text-brand-navy sm:gap-3"
+            className="flex items-center gap-2 rounded-lg text-brand-navy sm:gap-3"
           >
             <img
               src={logo}
@@ -134,7 +134,7 @@ const Header = () => {
               <span className="text-[9px] font-bold leading-tight tracking-[0.22em]">CONSULTING</span>
             </span>
             <span className="hidden flex-col gap-[3px] min-[390px]:flex">
-              <span className="whitespace-nowrap text-sm font-bold leading-[1.1] tracking-[0.01em] sm:text-lg lg:text-xl">
+              <span className="whitespace-nowrap text-[13px] font-bold leading-[1.1] tracking-[0.01em] min-[400px]:text-sm sm:text-lg lg:text-xl">
                 IntegroAI Consulting
               </span>
               <span className="whitespace-nowrap text-[9.5px] font-semibold leading-tight text-brand-teal [word-spacing:0.16em] sm:text-xs lg:text-[13px]">
@@ -143,7 +143,7 @@ const Header = () => {
             </span>
           </Link>
 
-          <div className="flex items-center gap-2 lg:gap-9">
+          <div className="flex items-center gap-1 min-[400px]:gap-1.5 sm:gap-2 lg:gap-9">
             {/* Desktop navigation */}
             <nav aria-label="Main" className="hidden items-center gap-9 lg:flex">
               {primaryLinks.map((link) => (
@@ -165,7 +165,7 @@ const Header = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Start the free AI Readiness Assessment (opens in a new tab)"
-              className="inline-flex items-center whitespace-nowrap rounded-full bg-brand-amber px-3 py-2.5 text-[12.5px] font-semibold leading-tight text-brand-navy transition-colors duration-200 hover:bg-[#FFAA2B] sm:px-5 sm:text-sm lg:py-[11px] lg:text-[15px]"
+              className="inline-flex items-center whitespace-nowrap rounded-full bg-brand-amber px-2.5 py-2.5 text-[12.5px] min-[400px]:px-3 font-semibold leading-tight text-brand-navy transition-colors duration-200 hover:bg-[#FFAA2B] sm:px-5 sm:text-sm lg:py-[11px] lg:text-[15px]"
             >
               <span className="sm:hidden">Free assessment</span>
               <span className="hidden sm:inline">Start the free assessment</span>
@@ -174,7 +174,7 @@ const Header = () => {
             {/* Menu toggle (mobile and tablet) */}
             <button
               ref={menuButtonRef}
-              className="-mr-2 flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg text-brand-navy transition-colors hover:bg-brand-ivory lg:hidden"
+              className="-mr-2.5 flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg text-brand-navy transition-colors hover:bg-brand-ivory lg:hidden"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileMenuOpen}

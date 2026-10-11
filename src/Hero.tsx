@@ -47,7 +47,7 @@ const Hero = () => {
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-36 pb-24 sm:pb-32 relative z-10">
+      <div className="wrap pt-32 sm:pt-36 pb-24 sm:pb-32 relative z-10">
         <div className="max-w-[660px] text-left lg:mt-8">
 
           {/* Main headline */}

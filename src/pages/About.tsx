@@ -55,7 +55,7 @@ const About = () => {
         <main id="main-content" className="pt-24 lg:pt-32 pb-16 lg:pb-24">
           {/* Intro */}
           <section className="pb-14 sm:pb-16 bg-background">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="wrap">
               <div className="max-w-6xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-10 lg:gap-16 items-center">
                   <m.div
@@ -118,7 +118,7 @@ const About = () => {
           {/* Mission & Vision: same card language as the Values below (white
               card, flat amber icon tile), so the page reads as one system. */}
           <section className="py-12 sm:py-16 bg-subtle">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="wrap">
               <div className="max-w-5xl mx-auto grid gap-4 sm:grid-cols-2 sm:gap-5">
                 <m.div
                   initial={{ opacity: 0, y: 20 }}
@@ -163,7 +163,7 @@ const About = () => {
               cards, with soft icon tiles, so it sits quietly under the Mission
               and Vision cards. */}
           <section className="py-12 sm:py-16 bg-background">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="wrap">
               <div className="max-w-5xl mx-auto">
                 <h2 className="font-heading text-3xl sm:text-4xl font-semibold text-foreground text-center mb-8 sm:mb-10">
                   Values
@@ -191,7 +191,7 @@ const About = () => {
 
           {/* Founder — fuller story. The homepage "Read Her Story" button lands here. */}
           <section id={SELINA_STORY_SECTION_ID} className="py-16 sm:py-20 bg-muted/30">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="wrap">
               <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -275,7 +275,7 @@ const About = () => {
 
           {/* Closing CTA */}
           <section className="py-14 sm:py-16 bg-background">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="wrap">
               <m.div
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}

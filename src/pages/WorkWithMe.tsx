@@ -131,7 +131,7 @@ const WorkWithMe = () => {
         <main id="main-content" className="pt-24 lg:pt-32">
           {/* Intro */}
           <section className="pb-12 sm:pb-16 bg-background">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="wrap">
               <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -207,7 +207,7 @@ const WorkWithMe = () => {
 
           {/* Stages */}
           <section className="py-12 sm:py-16 bg-subtle">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="wrap">
               <div className="max-w-4xl mx-auto text-center mb-10 sm:mb-14">
                 <h2 className="font-heading text-3xl sm:text-4xl lg:text-[44px] mb-4">How We Can Work Together</h2>
                 <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
@@ -348,7 +348,7 @@ const WorkWithMe = () => {
           {/* What You Can Expect */}
           <section className="py-16 sm:py-20 lg:py-24 bg-[#041B2B] relative overflow-hidden">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-accent-warm/10 rounded-full blur-[150px]" />
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="wrap relative z-10">
               <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
