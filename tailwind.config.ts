@@ -34,6 +34,9 @@ export default {
           ink: "#0E273A",
           amber: "#FF9900",
           teal: "#3B767C",
+          // Light teals for dark backgrounds: the hero's free-guide message.
+          seaglass: "#8FD3D1",
+          seafoam: "#BFE6E4",
           // Small uppercase labels: deep teal on light backgrounds, amber on dark (see --label-ink in src/index.css).
           label: "var(--label-ink)",
           ivory: "#FBF7F1",

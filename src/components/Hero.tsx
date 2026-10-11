@@ -31,7 +31,7 @@ const Hero = () => {
             Find where operational firefighting is draining time and capacity. Focus on where AI can make the biggest difference.
           </p>
 
-          {/* Buttons, with the free guide centred beneath them as a quiet text link
+          {/* Buttons, with the free guide centred beneath them as a light teal text link
               so the amber button stays the one main action. */}
           <div className="flex w-full flex-col gap-7 sm:w-fit">
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
@@ -59,10 +59,10 @@ const Hero = () => {
               onClick={() => trackGuideClick("hero")}
               className="group flex flex-col items-center gap-1 self-center text-center"
             >
-              <span className="text-sm font-medium leading-snug text-white/85 sm:text-[15px]">
+              <span className="text-sm font-semibold leading-snug text-brand-seaglass sm:text-[15px]">
                 How visible is your business to AI?
               </span>
-              <span className="flex w-fit items-center gap-1.5 text-[13px] leading-snug text-brand-mist underline decoration-white/40 decoration-1 underline-offset-4 transition-colors duration-200 group-hover:text-white group-hover:decoration-white sm:text-sm">
+              <span className="flex w-fit items-center gap-1.5 text-[13px] leading-snug text-brand-seafoam underline decoration-brand-seaglass/60 decoration-1 underline-offset-4 transition-colors duration-200 group-hover:text-white group-hover:decoration-white sm:text-sm">
                 Get your free AI visibility guide and checklist
                 <ArrowRight className="h-3.5 w-3.5 flex-none transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
               </span>
