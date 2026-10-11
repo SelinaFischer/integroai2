@@ -159,7 +159,7 @@ const WorkWithMe = () => {
                 </div>
 
                 <div className="sm:order-1">
-                  <span className="inline-block text-accent-warm font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
+                  <span className="inline-block text-brand-label font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
                     How Engagements Work
                   </span>
                   <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
@@ -230,7 +230,7 @@ const WorkWithMe = () => {
                         <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" aria-hidden="true" />
                       </div>
                       <div>
-                        <span className="text-accent-warm font-semibold text-xs uppercase tracking-[0.15em]">
+                        <span className="text-brand-label font-semibold text-xs uppercase tracking-[0.15em]">
                           Stage {item.number} — {item.stage}
                         </span>
                         <h3 className="text-lg sm:text-xl font-bold text-foreground mt-1 tracking-tight">
