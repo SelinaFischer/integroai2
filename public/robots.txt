@@ -3,7 +3,6 @@
 
 User-agent: *
 Allow: /
-Disallow: /admin/
 
 # AI assistants and AI search, named explicitly so there is no doubt.
 # OpenAI (ChatGPT)
@@ -36,6 +35,5 @@ User-agent: Twitterbot
 User-agent: facebookexternalhit
 User-agent: LinkedInBot
 Allow: /
-Disallow: /admin/
 
 Sitemap: https://integroai.tech/sitemap.xml

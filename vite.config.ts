@@ -72,7 +72,7 @@ export default defineConfig(({ mode }) => ({
         globPatterns: ["**/*.{js,css,ico,png,svg,woff2}"],
         // The server renderer is only used while pages are being saved at
         // build time (scripts/prerender.mjs). Visitors never need it.
-        globIgnores: ["**/server.browser-*.js", "**/AdminStats-*.js", "**/Install-*.js", "**/confetti*.js", "og-image.png"],
+        globIgnores: ["**/server.browser-*.js", "**/Install-*.js", "**/confetti*.js", "og-image.png"],
         navigateFallback: null,
         runtimeCaching: [
           {

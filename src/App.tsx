@@ -14,10 +14,7 @@ import WorkWithMe from "./pages/WorkWithMe";
 import About from "./pages/About";
 import AiVisibilityGuide from "./pages/AiVisibilityGuide";
 
-// The private stats page brings a large charting library with it.
-// Loading it on demand keeps that out of every visitor's download.
-const AdminStats = lazy(() => import("./pages/AdminStats"));
-// The "install this app" help page is rarely visited, so it loads on demand too.
+// The "install this app" help page is rarely visited, so it loads on demand.
 const Install = lazy(() => import("./pages/Install"));
 
 // Three libraries the site was loading but never using have been left out to
@@ -64,7 +61,6 @@ const App = ({ skipEntrance = false }: AppProps) => {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/install" element={<Suspense fallback={null}><Install /></Suspense>} />
-          <Route path="/admin/stats" element={<Suspense fallback={null}><AdminStats /></Suspense>} />
           {/* Blog index page */}
           <Route path="/blog" element={<BlogPage />} />
           {/* Data-driven blog — handles all articles in blogData.tsx automatically */}
