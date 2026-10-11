@@ -152,33 +152,32 @@ const About = () => {
             </div>
           </section>
 
-          {/* Values */}
+          {/* Values: one panel split by hairlines rather than four separate
+              cards, with soft icon tiles, so it sits quietly under the Mission
+              and Vision cards. */}
           <section className="py-12 sm:py-16 bg-background">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-5xl mx-auto">
                 <h2 className="font-heading text-3xl sm:text-4xl font-semibold text-foreground text-center mb-8 sm:mb-10">
                   Values
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-                  {values.map((value, index) => (
-                    <motion.div
-                      key={value.title}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="bg-card rounded-2xl p-6 sm:p-7 shadow-sm border border-border/40 relative overflow-hidden"
-                    >
-                      <div className="relative z-10">
-                        <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-brand-amber sm:h-12 sm:w-12">
-                          <value.icon className="h-5 w-5 text-brand-navy sm:h-[22px] sm:w-[22px]" strokeWidth={2.2} aria-hidden="true" />
-                        </div>
-                        <h3 className="text-base sm:text-lg font-bold mb-2">{value.title}</h3>
-                        <p className="text-muted-foreground text-sm leading-relaxed">{value.description}</p>
-                      </div>
-                    </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-brand-sand bg-brand-sand sm:grid-cols-2 lg:grid-cols-4"
+                >
+                  {values.map((value) => (
+                    <div key={value.title} className="flex flex-col gap-3 bg-card p-6 sm:p-7">
+                      <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-chip text-brand-navy">
+                        <value.icon className="h-5 w-5" strokeWidth={2} aria-hidden="true" />
+                      </span>
+                      <h3 className="text-lg font-bold leading-tight">{value.title}</h3>
+                      <p className="text-[15px] leading-relaxed text-[#42566A]">{value.description}</p>
+                    </div>
                   ))}
-                </div>
+                </motion.div>
               </div>
             </div>
           </section>
