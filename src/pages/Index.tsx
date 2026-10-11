@@ -127,6 +127,14 @@ const Index = () => {
           "name": "Websites for Service Businesses",
           "description": "A professional website for a service business, designed, built and launched for the client."
         }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AI Search Visibility (AEO & GEO)",
+          "description": "A review of how search engines and AI tools find, understand and recommend a business, followed by improvements to the clarity, consistency and content of its website and online profiles. Covers SEO, answer engine optimisation (AEO) and generative engine optimisation (GEO)."
+        }
       }
     ]
   };

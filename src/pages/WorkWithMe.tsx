@@ -325,21 +325,21 @@ const WorkWithMe = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5 }}
-                className="mx-auto flex max-w-4xl flex-col items-center gap-6"
+                className="mx-auto flex max-w-6xl flex-col items-center gap-6"
               >
                 <h2 className="font-heading text-3xl sm:text-4xl">More ways we help</h2>
-                <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2">
+                <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-3">
                   {extraServices.map((service) => (
                     <div
                       key={service.title}
-                      className="flex flex-col gap-2 rounded-3xl border border-brand-sand bg-brand-cream p-7"
+                      className="flex flex-col gap-2 rounded-3xl border border-brand-sand bg-brand-cream p-6 lg:p-7"
                     >
                       <h3 className="text-2xl leading-[1.15]">{service.title}</h3>
                       <p className="text-base leading-relaxed text-brand-slate">{service.description}</p>
                       {service.link && (
                         <Link
                           to={service.link.to}
-                          onClick={() => trackGuideClick("websites-card")}
+                          onClick={() => trackGuideClick("visibility-card")}
                           className="mt-1 flex w-fit items-center gap-1.5 text-[15px] font-bold text-brand-navy underline decoration-brand-amber decoration-2 underline-offset-4"
                         >
                           {service.link.label}

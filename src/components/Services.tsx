@@ -113,11 +113,11 @@ const Services = () => {
         {/* Standalone services, separate from the six numbered stages. */}
         <motion.div {...fadeUp} className="flex flex-col gap-4">
           <p className="eyebrow text-center">More ways we help</p>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
             {extraServices.map((service) => (
               <div
                 key={service.title}
-                className="flex flex-col gap-2 rounded-3xl border border-brand-sand bg-brand-cream p-7"
+                className="flex flex-col gap-2 rounded-3xl border border-brand-sand bg-brand-cream p-6 lg:p-7"
                 itemScope
                 itemType="https://schema.org/Service"
                 itemProp="itemListElement"
@@ -131,7 +131,7 @@ const Services = () => {
                 {service.link && (
                   <Link
                     to={service.link.to}
-                    onClick={() => trackGuideClick("websites-card")}
+                    onClick={() => trackGuideClick("visibility-card")}
                     className="mt-1 flex w-fit items-center gap-1.5 text-[15px] font-bold text-brand-navy underline decoration-brand-amber decoration-2 underline-offset-4"
                   >
                     {service.link.label}
