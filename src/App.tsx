@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import ScrollToTop from "./components/ScrollToTop";
+import CookieConsent from "./components/CookieConsent";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -69,6 +70,8 @@ const App = ({ skipEntrance = false }: AppProps) => {
           <Route path="*" element={<NotFound />} />
         </Routes>
         </main>
+        {/* On every page, so the choice can be made (and changed) anywhere. */}
+        <CookieConsent />
       </BrowserRouter>
   </HelmetProvider>
   </PresenceContext.Provider>

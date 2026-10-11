@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html lang="en-GB">
   <head>
-<!-- Google Tag Manager (delay 2s after window load) -->
+<!-- Google Tag Manager: loads only after the visitor accepts analytics cookies.
+     The cookie banner (src/components/CookieConsent.tsx) calls window.__loadAnalytics(). -->
 <script>
   (function () {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+    var loaded = false;
+    window.__loadAnalytics = function () {
+      if (loaded) return;
+      loaded = true;
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+      var f = document.getElementsByTagName("script")[0];
+      var j = document.createElement("script");
+      j.async = true;
+      j.src = "https://www.googletagmanager.com/gtm.js?id=GTM-KQCJ7DCJ&l=dataLayer";
+      f.parentNode.insertBefore(j, f);
+    };
 
+    var accepted = false;
+    try {
+      accepted = window.localStorage.getItem("integroai-cookie-consent") === "accepted";
+    } catch (e) {}
+    if (!accepted) return;
+
+    // Returning visitor who already said yes: load 2s after the page, to keep it fast.
     window.addEventListener("load", function () {
-      setTimeout(function () {
-        var f = document.getElementsByTagName("script")[0];
-        var j = document.createElement("script");
-        j.async = true;
-       j.src = "https://www.googletagmanager.com/gtm.js?id=GTM-KQCJ7DCJ&l=dataLayer";
-       f.parentNode.insertBefore(j, f);
-      }, 2000);
+      setTimeout(window.__loadAnalytics, 2000);
     });
   })();
 </script>
@@ -282,17 +294,6 @@
   </head>
 
   <body>
-   <!-- Google Tag Manager (noscript) -->
-   <noscript>
-     <iframe 
-       src="https://www.googletagmanager.com/ns.html?id=GTM-KQCJ7DCJ"
-       height="0" 
-       width="0" 
-       style="display:none;visibility:hidden"
-       ></iframe>
-   </noscript>
-   <!-- End Google Tag Manager (noscript) -->
-
     
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded">Skip to main content</a>
     <div id="root"></div>

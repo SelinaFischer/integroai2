@@ -84,6 +84,9 @@ const PrivacyPolicy = () => {
                 <p className="text-muted-foreground leading-relaxed">
                   When you visit our website, we may automatically collect certain information including your IP address, browser type, device information, and pages visited. This data is collected to improve our website performance and user experience.
                 </p>
+                <p className="text-muted-foreground leading-relaxed mt-4">
+                  We use Google Analytics, loaded through Google Tag Manager, to understand how the website is used. Its cookies are set only if you accept them on the cookie banner. You can change your choice at any time using the "Cookie settings" link at the bottom of every page.
+                </p>
               </section>
 
               <section className="mb-10">

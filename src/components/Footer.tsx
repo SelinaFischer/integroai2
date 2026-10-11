@@ -8,6 +8,7 @@ import { ASSESSMENT_URL } from "@/lib/motion";
 import { scrollToSection } from "@/lib/scrollToSection";
 import { EXTRA_SERVICES_SECTION_ID } from "@/lib/extraServices";
 import { GUIDE_PAGE_PATH } from "@/lib/guide";
+import { openCookieSettings } from "./CookieConsent";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -36,8 +37,10 @@ const Footer = () => {
     "block py-[5px] text-left text-[15px] text-[#42566A] underline-offset-4 transition-colors duration-200 hover:text-brand-navy hover:underline";
   const socialClass = `${linkClass} flex items-center gap-2.5`;
 
+  // Extra space at the bottom below wide screens keeps the last row of links
+  // clear of the floating "back to top" button.
   return (
-    <footer className="border-t border-brand-sand bg-white pt-14 pb-9">
+    <footer className="border-t border-brand-sand bg-white pt-14 pb-20 xl:pb-9">
       <div className="wrap flex flex-col gap-10">
         <div className="grid grid-cols-1 gap-9 sm:grid-cols-2 lg:grid-cols-[1.3fr_1.2fr_0.8fr_0.8fr]">
           {/* Column 1: brand */}
@@ -207,6 +210,13 @@ const Footer = () => {
             <Link to="/terms-of-service" className="py-1.5 underline-offset-4 hover:text-brand-navy hover:underline">
               Terms of Service
             </Link>
+            <button
+              type="button"
+              onClick={openCookieSettings}
+              className="py-1.5 underline-offset-4 hover:text-brand-navy hover:underline"
+            >
+              Cookie settings
+            </button>
           </div>
         </div>
       </div>
