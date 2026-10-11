@@ -109,7 +109,7 @@ const Header = () => {
     >
       <div className="wrap relative">
         <div className="flex h-16 items-center justify-between gap-4 lg:h-[78px]">
-          {/* Logo: mark, name and the tagline beneath it in amber. Phones narrower
+          {/* Logo: mark, name and the tagline beneath it. Phones narrower
               than 390px keep the shorter two-line name with no tagline, because
               the full name does not fit beside the assessment button there; the
               tagline still shows at the foot of the menu. */}
@@ -136,7 +136,7 @@ const Header = () => {
               <span className="whitespace-nowrap text-sm font-bold leading-[1.1] tracking-[0.01em] sm:text-lg lg:text-xl">
                 IntegroAI Consulting
               </span>
-              <span className="whitespace-nowrap text-[9.5px] font-bold leading-tight text-brand-amber [word-spacing:0.16em] sm:text-xs lg:text-[13px]">
+              <span className="whitespace-nowrap text-[9.5px] font-semibold leading-tight text-brand-slate [word-spacing:0.16em] sm:text-xs lg:text-[13px]">
                 Simplify · Prioritise · Grow
               </span>
             </span>
@@ -238,7 +238,7 @@ const Header = () => {
               }
             />
           </nav>
-          <p className="mx-2 mt-2 border-t border-brand-sand px-4 pt-3 text-xs font-bold text-brand-amber [word-spacing:0.16em]">
+          <p className="mx-2 mt-2 border-t border-brand-sand px-4 pt-3 text-xs font-semibold text-brand-slate [word-spacing:0.16em]">
             Simplify · Prioritise · Grow
           </p>
         </div>

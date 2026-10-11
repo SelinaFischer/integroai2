@@ -45,7 +45,7 @@ const Footer = () => {
               <img src={logo} alt="" width={50} height={50} loading="lazy" decoding="async" className="h-[50px] w-[50px] object-contain" />
               <span className="flex flex-col gap-[3px]">
                 <span className="text-xl font-bold leading-[1.1] tracking-[0.01em]">IntegroAI Consulting</span>
-                <span className="text-[13px] font-bold leading-tight text-brand-amber [word-spacing:0.16em]">Simplify · Prioritise · Grow</span>
+                <span className="text-[13px] font-semibold leading-tight text-brand-slate [word-spacing:0.16em]">Simplify · Prioritise · Grow</span>
               </span>
             </div>
             <p className="max-w-sm text-[15px] leading-relaxed text-[#42566A]">
