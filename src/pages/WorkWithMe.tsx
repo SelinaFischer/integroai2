@@ -326,7 +326,7 @@ const WorkWithMe = () => {
                 transition={{ duration: 0.5 }}
                 className="mx-auto flex max-w-5xl flex-col items-center gap-7"
               >
-                <h2 className="font-heading text-3xl sm:text-4xl">More ways we help</h2>
+                <h2 className="text-center font-heading text-3xl sm:text-4xl">More practical solutions to support your business</h2>
                 <ExtraServicesList />
                 <a
                   href="https://calendly.com/integroai-tech/30min"
