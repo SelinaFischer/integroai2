@@ -31,7 +31,7 @@ const PrivacyPolicy = () => {
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8">Privacy Policy</h1>
             
             <p className="text-muted-foreground mb-8">
-              <strong>Last updated:</strong> January 2025
+              <strong>Last updated:</strong> October 2026
             </p>
 
             <div className="prose prose-lg max-w-none text-foreground">
@@ -70,7 +70,17 @@ const PrivacyPolicy = () => {
                   <li>Message content (your inquiry)</li>
                 </ul>
 
-                <h3 className="text-xl font-semibold mb-3 mt-6">3.2 Automatically Collected Information</h3>
+                <h3 className="text-xl font-semibold mb-3 mt-6">3.2 AI Readiness Assessment</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  When you complete our AI Readiness Assessment, we collect your name, email address, company, phone number if you give it, organisation size, industry, your answers and your score.
+                </p>
+
+                <h3 className="text-xl font-semibold mb-3 mt-6">3.3 Free Guide Sign-Up</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  When you request our free guide, we collect your email address and name, your business name if you choose to give it, whether you would like a free call, and whether you would like occasional follow-up emails. We only send follow-up emails if you tick the box asking for them.
+                </p>
+
+                <h3 className="text-xl font-semibold mb-3 mt-6">3.4 Automatically Collected Information</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   When you visit our website, we may automatically collect certain information including your IP address, browser type, device information, and pages visited. This data is collected to improve our website performance and user experience.
                 </p>
@@ -97,6 +107,7 @@ const PrivacyPolicy = () => {
                 </p>
                 <ul className="list-disc pl-6 text-muted-foreground space-y-2">
                   <li><strong>Consent:</strong> When you submit our contact form, you consent to us processing your data to respond to your inquiry</li>
+                  <li><strong>Free guide:</strong> We send the guide because you asked for it. Follow-up emails are sent only with your consent, which you can withdraw at any time</li>
                   <li><strong>Legitimate interests:</strong> To improve our services and website functionality</li>
                   <li><strong>Contractual necessity:</strong> To fulfil our obligations when you engage our consulting services</li>
                   <li><strong>Legal obligations:</strong> To comply with applicable laws</li>
@@ -109,19 +120,34 @@ const PrivacyPolicy = () => {
                   We use the following third-party services:
                 </p>
                 <ul className="list-disc pl-6 text-muted-foreground space-y-2">
-                  <li><strong>Formspree:</strong> Our contact form submissions are processed through Formspree. Please review their privacy policy at{" "}
+                  <li><strong>Formspree:</strong> Processes our website contact form and enquiries sent from the assessment. Their privacy policy is available at{" "}
                     <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                       formspree.io/legal/privacy-policy
                     </a>
                   </li>
-                  <li><strong>Calendly:</strong> For booking consultation calls. Their privacy policy is available at{" "}
+                  <li><strong>EmailJS:</strong> Emails your assessment results to you. Their privacy policy is available at{" "}
+                    <a href="https://www.emailjs.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                      emailjs.com/legal/privacy-policy
+                    </a>
+                  </li>
+                  <li><strong>Make and Google Sheets:</strong> Your assessment details are passed through Make to a Google Sheet so we can follow up. Make&apos;s privacy notice is available at{" "}
+                    <a href="https://www.make.com/en/privacy-notice" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                      make.com/en/privacy-notice
+                    </a>
+                  </li>
+                  <li><strong>Google Forms and Google Sheets:</strong> Collect and store free guide sign-ups. Google&apos;s privacy policy is available at{" "}
+                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                      policies.google.com/privacy
+                    </a>
+                  </li>
+                  <li><strong>Calendly:</strong> For booking calls. Their privacy policy is available at{" "}
                     <a href="https://calendly.com/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                       calendly.com/privacy
                     </a>
                   </li>
-                  <li><strong>Tally:</strong> For our AI Readiness Audit form. Their privacy policy is available at{" "}
-                    <a href="https://tally.so/help/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                      tally.so/help/privacy-policy
+                  <li><strong>Google Analytics and Google Tag Manager:</strong> Help us understand how the website is used. Google&apos;s privacy policy is available at{" "}
+                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                      policies.google.com/privacy
                     </a>
                   </li>
                 </ul>
@@ -130,7 +156,7 @@ const PrivacyPolicy = () => {
               <section className="mb-10">
                 <h2 className="text-2xl font-bold mb-4">7. Data Retention</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  We retain your personal data only for as long as necessary to fulfil the purposes for which it was collected, typically no longer than 24 months after your last interaction with us. Contact form data is retained for the duration needed to respond to your inquiry and for a reasonable period thereafter for record-keeping purposes.
+                  We retain your personal data only for as long as necessary to fulfil the purposes for which it was collected, typically no longer than 24 months after your last interaction with us. Contact form data is retained for the duration needed to respond to your inquiry and for a reasonable period thereafter for record-keeping purposes. Assessment results and free guide sign-up details are kept for up to 24 months, or until you ask us to delete them.
                 </p>
               </section>
 
