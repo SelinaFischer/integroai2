@@ -346,7 +346,7 @@ const HowToMeasureAiROIContent: React.FC = () => (
 const ROTToResilienceContent: React.FC = () => (
   <>
 <p className="!text-[15px] italic">This article draws on what I learnt at the IAPP web conference <a href="https://iapp.org/resources/article/rot-to-resilience-building-a-defensible-disposition-program-privacy-teams-trust" target="_blank" rel="noopener noreferrer">“ROT to resilience: Building a defensible disposition program privacy teams trust”</a> (November 2025).</p>
-<p>Your organization's data contains a silent threat to AI success. It's not hackers, it's not budget constraints, and it's not technical complexity. It's ROT: <strong>Redundant, Obsolete, and Trivial</strong> data that accumulates in your systems year after year, degrading AI performance and multiplying risk.</p>
+<p>Your organisation's data contains a silent threat to AI success. It's not hackers, it's not budget constraints, and it's not technical complexity. It's ROT: <strong>Redundant, Obsolete, and Trivial</strong> data that accumulates in your systems year after year, degrading AI performance and multiplying risk.</p>
 
       {/* Stats Box */}
       <div className="bg-primary text-primary-foreground p-8 rounded-xl text-center my-8">
@@ -354,13 +354,13 @@ const ROTToResilienceContent: React.FC = () => (
         <p className="text-primary-foreground/90 mb-0">of stored data is redundant, obsolete or trivial, according to IT leaders surveyed for the Veritas Global Databerg Report (2016)</p>
       </div>
 
-      <p>The uncomfortable truth? Most organizations don't even know how much ROT they have. They've spent years accumulating duplicate files, outdated versions, and trivial information with no business purpose. This data clutter hides in old folders, shared drives, inboxes, and legacy systems, growing without checks or review.</p>
+      <p>The uncomfortable truth? Most organisations don't even know how much ROT they have. They've spent years accumulating duplicate files, outdated versions, and trivial information with no business purpose. This data clutter hides in old folders, shared drives, inboxes, and legacy systems, growing without checks or review.</p>
 
       <p>And when you implement AI, all that ROT becomes your AI's training data.</p>
 
       <h2>What ROT Actually Means</h2>
       
-      <p>ROT isn't a technical term. It's a business reality that every organization faces. Let's break down what each component means:</p>
+      <p>ROT isn't a technical term. It's a business reality that every organisation faces. Let's break down what each component means:</p>
 
       <div className="grid md:grid-cols-3 gap-6 my-8">
         <div className="bg-muted/30 p-6 rounded-xl text-center">
@@ -384,7 +384,7 @@ const ROTToResilienceContent: React.FC = () => (
       <p>AI quality depends entirely on information quality. Clean input creates clear output. Unclear input creates unclear results. When AI receives outdated versions, duplicate records, or irrelevant material, the effects spread across every output and decision.</p>
 
       <div className="bg-muted/50 border-l-4 border-accent-warm p-6 rounded-r-lg my-8">
-        <p className="mb-0"><strong>An illustration:</strong> imagine a professional services firm that uses AI to analyze project profitability patterns. The system produces confusing recommendations that contradict actual performance. The issue? Its project database contains ROT: old pricing structures marked as current, duplicate client records with conflicting information, and archived projects mixed with active ones. The AI can't distinguish signal from noise.</p>
+        <p className="mb-0"><strong>An illustration:</strong> imagine a professional services firm that uses AI to analyse project profitability patterns. The system produces confusing recommendations that contradict actual performance. The issue? Its project database contains ROT: old pricing structures marked as current, duplicate client records with conflicting information, and archived projects mixed with active ones. The AI can't distinguish signal from noise.</p>
       </div>
 
       <p>Here's exactly how ROT sabotages AI:</p>
@@ -393,7 +393,7 @@ const ROTToResilienceContent: React.FC = () => (
       <p>ROT introduces noise that obscures genuine patterns. AI models trained on data containing duplicates learn the wrong signals. Obsolete information creates patterns that no longer exist. Trivial data dilutes the meaningful information AI needs to identify real insights.</p>
 
       <h3>2. Processing Slows</h3>
-      <p>Models waste computational resources analyzing irrelevant or duplicate information. What should take minutes takes hours. What should cost hundreds costs thousands. Your AI infrastructure processes garbage instead of value.</p>
+      <p>Models waste computational resources analysing irrelevant or duplicate information. What should take minutes takes hours. What should cost hundreds costs thousands. Your AI infrastructure processes garbage instead of value.</p>
 
       <h3>3. Accuracy Drops</h3>
       <p>Outdated training data produces recommendations misaligned with current reality. Your AI makes decisions based on how things were, not how things are. Historical bias becomes baked into every prediction.</p>
@@ -407,7 +407,7 @@ const ROTToResilienceContent: React.FC = () => (
 
       <h2>Why ROT Creates Serious Business Risk</h2>
       
-      <p>Beyond AI performance, ROT multiplies organizational risk in ways most leaders don't recognize until it's too late.</p>
+      <p>Beyond AI performance, ROT multiplies organisational risk in ways most leaders don't recognise until it's too late.</p>
 
       <h3>Breach Exposure Multiplies</h3>
       <p>Every piece of data is a potential exposure point in a security breach. More data surfaces mean more vulnerability points. When you maintain 10 duplicate copies of sensitive customer information instead of one, you've created 10 breach opportunities instead of one.</p>
@@ -433,7 +433,7 @@ const ROTToResilienceContent: React.FC = () => (
       
       <p>Defensible disposition is the practice of removing items with clarity, evidence, and confidence. It turns deletion into protection, but only when supported by the right structure.</p>
 
-      <p>This isn't just "delete old files." That's how organizations create legal liability and compliance disasters. Defensible disposition means having documented, auditable, policy-driven processes for data retention and removal.</p>
+      <p>This isn't just "delete old files." That's how organisations create legal liability and compliance disasters. Defensible disposition means having documented, auditable, policy-driven processes for data retention and removal.</p>
 
       <h3>The Four Pillars of Defensible Disposition</h3>
 
@@ -451,7 +451,7 @@ const ROTToResilienceContent: React.FC = () => (
       <p>Addressing ROT requires systematic approach, not occasional cleanup efforts. Here's how to build sustainable data hygiene:</p>
 
       <h3>Step 1: Assess Your ROT Exposure</h3>
-      <p>Before you can clean, you need to understand the scope. Conduct a data discovery exercise to identify where ROT accumulates in your organization. Map storage locations, estimate duplication rates, and identify obsolete data sources.</p>
+      <p>Before you can clean, you need to understand the scope. Conduct a data discovery exercise to identify where ROT accumulates in your organisation. Map storage locations, estimate duplication rates, and identify obsolete data sources.</p>
 
       <h3>Step 2: Establish Retention Policies</h3>
       <p>Create clear, documented policies that define how long different data types should be retained. Base these on legal requirements, regulatory obligations, and genuine business needs, not "we might need it someday."</p>
@@ -460,7 +460,7 @@ const ROTToResilienceContent: React.FC = () => (
       <p>Design processes for regular, documented disposition. This isn't a one-time project. It's an ongoing operational capability. Build ROT removal into normal business operations.</p>
 
       <h3>Step 4: Prevent Future Accumulation</h3>
-      <p>Fix the systems that create ROT in the first place. Implement automatic retention enforcement, reduce unnecessary duplication, and establish data hygiene as an organizational value.</p>
+      <p>Fix the systems that create ROT in the first place. Implement automatic retention enforcement, reduce unnecessary duplication, and establish data hygiene as an organisational value.</p>
 
       <h2>The AI Readiness Connection</h2>
 
@@ -473,7 +473,7 @@ const ROTToResilienceContent: React.FC = () => (
         <li>Do we have documented retention policies that AI systems can respect?</li>
       </ul>
 
-      <p>Organizations that clean before they train achieve better AI outcomes with lower costs. The investment in data hygiene pays dividends in AI performance.</p>
+      <p>Organisations that clean before they train achieve better AI outcomes with lower costs. The investment in data hygiene pays dividends in AI performance.</p>
 
       {/* CTA */}
       <div className="bg-muted/30 p-8 rounded-xl text-center my-8">
@@ -505,21 +505,21 @@ const WhyAIFailsContent: React.FC = () => (
         <p className="text-primary-foreground/90 mb-0">of AI projects unsupported by AI-ready data will be abandoned through 2026, Gartner predicts (February 2025)</p>
       </div>
 
-      <p>In the same research, 63% of organizations said they either lack the right data management practices for AI or are unsure whether they have them.</p>
+      <p>In the same research, 63% of organisations said they either lack the right data management practices for AI or are unsure whether they have them.</p>
 
-      <p>Organizations can invest heavily in sophisticated AI systems, only to discover their data wasn't ready. The technology works. The data doesn't. The project fails.</p>
+      <p>Organisations can invest heavily in sophisticated AI systems, only to discover their data wasn't ready. The technology works. The data doesn't. The project fails.</p>
 
       <h2>The Inconvenient Reality: AI is Only as Good as Your Data</h2>
       
       <p>Here's what happens in a typical failed AI project: A company hears about AI's transformative potential. Leadership gets excited. They purchase enterprise AI software. A vendor promises incredible results. Three months later, the system produces nonsensical outputs, the team has lost confidence, and the project is quietly shelved.</p>
 
-      <p>The vendor blames the organization. The organization blames the vendor. Nobody blames the actual culprit: inadequate data preparation.</p>
+      <p>The vendor blames the organisation. The organisation blames the vendor. Nobody blames the actual culprit: inadequate data preparation.</p>
 
       <h2>The Five Critical Data Gaps</h2>
 
       <h3>Gap 1: Data Quality: Garbage In, Garbage Out</h3>
       
-      <p>Most organizations vastly overestimate their data quality. They believe their data is "pretty good" when the reality is far different.</p>
+      <p>Most organisations vastly overestimate their data quality. They believe their data is "pretty good" when the reality is far different.</p>
 
       <div className="bg-muted/50 border-l-4 border-accent-warm p-6 rounded-r-lg my-8">
         <p className="mb-0"><strong>An illustration:</strong> imagine a financial services firm that implements AI for fraud detection. Six months and a large budget later, the system flags legitimate transactions as fraud while missing actual fraud cases. The problem? Its historical transaction data has inconsistent formatting, missing fields, and outdated customer information. The AI learns from flawed data and produces flawed results.</p>
@@ -538,9 +538,9 @@ const WhyAIFailsContent: React.FC = () => (
 
       <h3>Gap 2: Data Availability: The Information You Need Doesn't Exist</h3>
       
-      <p>Sometimes organizations simply don't have the data their AI project requires. This is more common than you'd think.</p>
+      <p>Sometimes organisations simply don't have the data their AI project requires. This is more common than you'd think.</p>
 
-      <p>A retailer wants to predict customer churn but has never tracked customer engagement metrics. A manufacturer wants to predict equipment failure but lacks maintenance history. A professional services firm wants to optimize pricing but doesn't have detailed project profitability data.</p>
+      <p>A retailer wants to predict customer churn but has never tracked customer engagement metrics. A manufacturer wants to predict equipment failure but lacks maintenance history. A professional services firm wants to optimise pricing but doesn't have detailed project profitability data.</p>
 
       <p>You cannot train AI on data you don't have. This sounds obvious, yet I regularly encounter projects that assume needed data exists when it doesn't.</p>
 
@@ -552,7 +552,7 @@ const WhyAIFailsContent: React.FC = () => (
       
       <p>Data trapped in legacy systems, locked in departmental silos, or buried in incompatible formats is useless for AI, regardless of its quality.</p>
 
-      <p>In many organizations:</p>
+      <p>In many organisations:</p>
       <ul>
         <li>Sales data sits in Salesforce, financial data in an ERP system, and customer service data in separate ticketing software</li>
         <li>Critical information exists only in PDF reports or scanned documents</li>
@@ -573,7 +573,7 @@ const WhyAIFailsContent: React.FC = () => (
         <p className="text-primary-foreground/90 mb-0">Minimum data points typically needed for reliable AI pattern recognition</p>
       </div>
 
-      <p>A startup with six months of transaction history wants to predict customer behavior. An SME with 50 customer records wants personalization AI. A new product line wants demand forecasting with three months of sales data.</p>
+      <p>A startup with six months of transaction history wants to predict customer behaviour. An SME with 50 customer records wants personalisation AI. A new product line wants demand forecasting with three months of sales data.</p>
 
       <p>These scenarios lack sufficient data volume for reliable AI. The technology might work, but the predictions will be unreliable because there isn't enough historical information to identify meaningful patterns.</p>
 
@@ -590,12 +590,12 @@ const WhyAIFailsContent: React.FC = () => (
       </ul>
 
       <div className="bg-muted/50 border-l-4 border-accent-warm p-6 rounded-r-lg my-8">
-        <p className="mb-0"><strong>An illustration:</strong> imagine a recruitment firm that trains AI on historical hiring data. The system learns to favor candidates similar to those previously hired, which means replicating the lack of diversity in the existing workforce. The AI isn't racist or sexist; it is accurately reflecting biased historical patterns. But the result was the same: perpetuating inequality.</p>
+        <p className="mb-0"><strong>An illustration:</strong> imagine a recruitment firm that trains AI on historical hiring data. The system learns to favour candidates similar to those previously hired, which means replicating the lack of diversity in the existing workforce. The AI isn't racist or sexist; it is accurately reflecting biased historical patterns. But the result was the same: perpetuating inequality.</p>
       </div>
 
       <h2>The IntegroAI Consulting Data-First Approach</h2>
       
-      <p>Our methodology centers data readiness before technology selection. We believe that a proper data foundation is the difference between AI projects that fail and those that deliver transformative value.</p>
+      <p>Our methodology centres data readiness before technology selection. We believe that a proper data foundation is the difference between AI projects that fail and those that deliver transformative value.</p>
 
       <p>Here's how we approach it:</p>
 
@@ -609,7 +609,7 @@ const WhyAIFailsContent: React.FC = () => (
       <p>We design systems to collect, integrate, and access data effectively. This might mean new data pipelines, integration platforms, or collection processes: whatever infrastructure your AI needs.</p>
 
       <h3>Phase 4: Bias Identification & Mitigation</h3>
-      <p>We analyze historical data for bias patterns and develop strategies to address them. This protects both business performance and ethical standards.</p>
+      <p>We analyse historical data for bias patterns and develop strategies to address them. This protects both business performance and ethical standards.</p>
 
       <h3>Only Then: AI Implementation</h3>
       <p>With data foundations solid, AI implementation becomes straightforward. The technology works because it has quality fuel.</p>
@@ -684,7 +684,7 @@ const BeyondChatbotsContent: React.FC = () => (
       <ul>
         <li><strong>Faster execution:</strong> Tasks complete in seconds instead of hours</li>
         <li><strong>Fewer errors:</strong> Consistency improves accuracy across operations</li>
-        <li><strong>Predictable workflows:</strong> Standardized processes reduce variability</li>
+        <li><strong>Predictable workflows:</strong> Standardised processes reduce variability</li>
       </ul>
 
       <p>So why do most automation projects plateau after 12 months?</p>
@@ -707,7 +707,7 @@ const BeyondChatbotsContent: React.FC = () => (
 
       <h2>What Intelligent Autonomy Looks Like in Practice</h2>
 
-      <p>AI Agents bridge the gap between automation and strategic intelligence: detecting anomalies, rerouting workflows, and prioritizing decisions by business impact <strong>in real time</strong>.</p>
+      <p>AI Agents bridge the gap between automation and strategic intelligence: detecting anomalies, rerouting workflows, and prioritising decisions by business impact <strong>in real time</strong>.</p>
 
       <h3>Real-World Examples:</h3>
 
@@ -720,7 +720,7 @@ const BeyondChatbotsContent: React.FC = () => (
       <p><strong>Supply Chain Management:</strong></p>
       <ul>
         <li><strong>Automation:</strong> Reorders inventory when stock hits threshold</li>
-        <li><strong>AI Agent:</strong> Analyzes demand forecasts, supplier lead times, market trends, and dynamically adjusts purchasing decisions</li>
+        <li><strong>AI Agent:</strong> Analyses demand forecasts, supplier lead times, market trends, and dynamically adjusts purchasing decisions</li>
       </ul>
 
       <p><strong>Customer Service:</strong></p>
@@ -737,7 +737,7 @@ const BeyondChatbotsContent: React.FC = () => (
 
       <h2>Readiness Self-Check: Is Your Business Ready to Evolve?</h2>
 
-      <p>Before moving beyond automation, assess your organization's readiness across these three critical dimensions:</p>
+      <p>Before moving beyond automation, assess your organisation's readiness across these three critical dimensions:</p>
 
       <div className="bg-muted/30 p-6 rounded-xl my-8">
         <h3 className="text-foreground font-bold mt-0 mb-6">AI Agent Readiness Assessment</h3>
@@ -819,7 +819,7 @@ const BeyondChatbotsContent: React.FC = () => (
         <li>Strategic clarity on where AI agents create the most value</li>
         <li>Robust data foundations (clean, accessible, bias-free)</li>
         <li>Clear frameworks for measuring business impact</li>
-        <li>Organizational readiness and trust in AI decision-making</li>
+        <li>Organisational readiness and trust in AI decision-making</li>
       </ul>
 
       <p>At <strong>IntegroAI Consulting</strong>, we guide leaders, startups, and SMEs through this evolution, from discovery to strategy to implementation, with clarity, confidence, and measurable outcomes.</p>
