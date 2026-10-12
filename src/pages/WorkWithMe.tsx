@@ -49,7 +49,13 @@ const stages: Stage[] = [
       "Agree and prioritise objectives with you",
     ],
     deliverable: "Key Findings Report",
-    get: ["Priority operational issues and readiness gaps", "AI opportunities and risks, prioritised", "Strategic direction and recommended next steps"],
+    get: [
+      "A clear, actionable summary of where you stand",
+      "Strengths, weaknesses, opportunities and threats",
+      "The highest-leverage AI opportunities",
+      "Workflow suggestions and a strategic roadmap",
+      "The estimated impact of acting on them",
+    ],
   },
   {
     number: "03",
@@ -75,7 +81,7 @@ const stages: Stage[] = [
       "Prepare your team to adopt new ways of working",
     ],
     deliverable: "Data and adoption readiness",
-    get: ["Data readiness actions", "Governance recommendations and accountability framework", "Team adoption actions"],
+    get: ["Data readiness actions", "Governance recommendations and accountability framework", "Training and upskilling for your team"],
     extra: "Outputs reflect the agreed scope of the engagement.",
   },
   {
