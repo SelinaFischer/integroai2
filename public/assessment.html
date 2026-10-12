@@ -169,42 +169,89 @@ a{color:inherit}
 /* ============================================================
    WELCOME
    ============================================================ */
-.hero{background:var(--gradient-hero);padding:104px 0 64px;color:#fff;overflow:hidden}
-@media(min-width:640px){.hero{padding:132px 0 80px}}
-@media(min-width:1024px){.hero{padding:156px 0 96px}}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr);gap:56px;align-items:center}
-@media(min-width:1024px){.hero .wrap{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:64px}}
+.hero{position:relative;overflow:hidden;color:#fff;padding:104px 0 72px;
+  background:
+    radial-gradient(50% 55% at 8% 8%,rgba(78,156,163,.38),rgba(78,156,163,0) 62%),
+    radial-gradient(42% 50% at 88% 72%,rgba(255,153,0,.20),rgba(255,153,0,0) 62%),
+    radial-gradient(70% 60% at 50% 18%,rgba(30,74,110,.55),rgba(30,74,110,0) 70%),
+    #050F1B}
+.hero::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(rgba(191,230,228,.16) 1px,transparent 1.2px);background-size:26px 26px;
+  -webkit-mask-image:linear-gradient(100deg,#000 0%,rgba(0,0,0,.2) 55%,transparent 75%);mask-image:linear-gradient(100deg,#000 0%,rgba(0,0,0,.2) 55%,transparent 75%)}
+@media(min-width:640px){.hero{padding:132px 0 88px}}
+@media(min-width:1024px){.hero{padding:150px 0 104px}}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:64px;align-items:center}
+@media(min-width:1024px){.hero .wrap{grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);gap:64px}}
 .hero-copy{display:flex;flex-direction:column;align-items:flex-start;gap:24px;min-width:0}
-.hero h1{font-family:var(--serif);font-weight:600;font-size:44px;line-height:1;color:#fff;letter-spacing:-.005em;text-wrap:balance;font-variant-numeric:lining-nums}
-.hero h1 em{color:var(--amber);font-style:italic}
-@media(min-width:640px){.hero h1{font-size:58px}}
-@media(min-width:1024px){.hero h1{font-size:68px}}
-.hero-sub{font-family:var(--serif);font-style:italic;font-weight:600;font-size:23px;line-height:1.25;color:#fff}
+.pill{display:inline-flex;align-items:center;gap:9px;padding:8px 16px;border-radius:999px;background:rgba(143,211,209,.10);border:1px solid rgba(143,211,209,.38);color:#BFE6E4;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 4px rgba(255,153,0,.18)}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:46px;line-height:1;color:#fff;letter-spacing:-.005em;font-variant-numeric:lining-nums}
+.hero h1 em{position:relative;display:inline-block;color:var(--amber);font-style:italic;padding-bottom:6px}
+.hero h1 em svg{position:absolute;left:-2%;bottom:-8px;width:104%;height:18px;overflow:visible}
+@media(min-width:640px){.hero h1{font-size:60px}}
+@media(min-width:1024px){.hero h1{font-size:72px}}
+.hero-sub{font-family:var(--serif);font-style:italic;font-weight:600;font-size:23px;line-height:1.25;color:#BFE6E4}
 @media(min-width:640px){.hero-sub{font-size:27px}}
 .hero-body{max-width:560px;font-size:17px;line-height:1.6;color:var(--mist)}
 @media(min-width:640px){.hero-body{font-size:19px}}
+.hero .btn-amber{padding:15px 28px;font-size:16px;box-shadow:0 10px 30px rgba(255,153,0,.28)}
 .facts{list-style:none;display:flex;flex-wrap:wrap;gap:12px 24px;padding-top:4px}
 .facts li{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:500;color:#fff;white-space:nowrap}
-.facts svg{width:18px;height:18px;flex:none;color:var(--amber)}
+.facts svg{width:18px;height:18px;flex:none;color:#8FD3D1}
 .hero-note{font-size:14px;color:var(--mist);margin-top:-8px}
-/* right-hand visual: sample scorecard in the same amber offset frame as the homepage portrait */
-.hero-visual{display:flex;flex-direction:column;align-items:center;gap:26px;width:100%;max-width:440px;justify-self:center;min-width:0}
+/* right-hand visual */
+.hero-visual{position:relative;display:flex;flex-direction:column;align-items:center;gap:40px;width:100%;max-width:440px;justify-self:center;min-width:0}
 @media(min-width:1024px){.hero-visual{justify-self:end}}
-.mock{width:calc(100% - 10px);align-self:flex-start;background:#fff;border-radius:24px;box-shadow:10px 10px 0 var(--amber);padding:22px;display:flex;flex-direction:column;gap:16px;color:var(--navy)}
-@media(min-width:640px){.mock{width:calc(100% - 14px);box-shadow:14px 14px 0 var(--amber);padding:28px}}
+.rings{position:absolute;left:50%;top:44%;width:640px;height:640px;transform:translate(-50%,-50%);pointer-events:none;z-index:0}
+.mock{position:relative;z-index:1;width:calc(100% - 10px);align-self:flex-start;background:#fff;border-radius:24px;box-shadow:10px 10px 0 var(--amber),0 30px 60px rgba(0,0,0,.35);padding:22px;display:flex;flex-direction:column;gap:16px;color:var(--navy)}
+@media(min-width:640px){.mock{width:calc(100% - 14px);box-shadow:14px 14px 0 var(--amber),0 30px 60px rgba(0,0,0,.35);padding:28px}}
 .mock-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .mock .ring-row{gap:18px}
 .mock .ring-txt{min-width:140px}
 .mock-bars{display:flex;flex-direction:column;border-top:1px solid var(--sand);padding-top:14px}
 .mock-bar{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) 30px;align-items:center;gap:12px;padding:6px 0}
 .mock-bar span:first-child{font-size:14px;font-weight:600;color:var(--navy);line-height:1.3}
-.mock-bar i{display:block;height:7px;border-radius:6px;background:var(--track);overflow:hidden}
-.mock-bar i b{display:block;height:100%;border-radius:6px;background:var(--navy)}
-.mock-bar.pri i b{background:var(--amber)}
+.mock-bar i{display:block;height:8px;border-radius:6px;background:#E7F1F1;overflow:hidden}
+.mock-bar i b{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,#8FD3D1,#4E9CA3)}
+.mock-bar.pri i{background:#FFF1DA}
+.mock-bar.pri i b{background:linear-gradient(90deg,#FFC56B,#FF9900)}
 .mock-bar em{font-style:normal;font-size:14px;font-weight:700;color:var(--navy);text-align:right}
-.mock-focus{background:var(--cream);border:1px solid var(--sand);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:3px}
-.mock-focus p:last-child{font-size:16px;font-weight:700;color:var(--navy)}
-.hero-caption{font-size:14px;color:var(--mist);text-align:center}
+.mock-focus{background:#FFF7EA;border:1px solid #FFD9A0;border-radius:12px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.mock-focus .nm{font-size:16px;font-weight:700;color:var(--navy)}
+.mock-focus .tag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);background:var(--amber);border-radius:999px;padding:4px 10px;white-space:nowrap}
+.mock .lbl{color:var(--teal)}
+.float{position:absolute;z-index:2;display:flex;align-items:center;gap:10px;background:#fff;color:var(--navy);border-radius:14px;padding:10px 14px 10px 10px;box-shadow:0 14px 30px rgba(4,27,43,.28);font-size:13px;font-weight:600;line-height:1.25;white-space:nowrap}
+.float .ic{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex:none}
+.float .ic svg{width:18px;height:18px}
+.float small{display:block;font-size:11px;font-weight:500;color:var(--slate)}
+.float-a{top:-22px;left:-12px}
+.float-a .ic{background:#E7F1F1;color:#3B767C}
+.float-b{bottom:18px;left:-26px;background:var(--navy);color:#fff}
+.float-b .ic{background:rgba(255,153,0,.16);color:var(--amber)}
+.float-b small{color:var(--mist)}
+@media(max-width:639px){.float-a{left:-4px;top:-20px}.float-b{display:none}.mock{padding-top:40px}}
+.hero-caption{position:relative;z-index:1;font-size:14px;color:var(--mist);text-align:center}
+/* dimensions strip under the hero */
+.dims{background:var(--ivory);padding:64px 0 72px;border-bottom:1px solid var(--sand)}
+.dims-head{text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:36px}
+.dims-head h2{font-family:var(--serif);font-weight:600;font-size:32px;line-height:1.1;color:var(--ink);text-wrap:balance}
+.dims-head h2 em{font-style:italic;color:#3B767C}
+@media(min-width:640px){.dims-head h2{font-size:42px}}
+.dims-head p{font-size:17px;color:var(--slate);max-width:560px;line-height:1.6}
+.dim-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+@media(min-width:640px){.dim-grid{grid-template-columns:repeat(6,minmax(0,1fr))}.dim-tile{grid-column:span 2}.dim-tile:nth-child(4){grid-column:2 / span 2}}
+@media(min-width:1024px){.dim-grid{grid-template-columns:repeat(5,minmax(0,1fr))}.dim-tile,.dim-tile:nth-child(4){grid-column:auto}}
+.dim-tile{background:#fff;border:1px solid var(--sand);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.dim-tile::before{content:'';position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,#8FD3D1,#4E9CA3)}
+.dim-tile.amber::before{background:linear-gradient(90deg,#FFC56B,#FF9900)}
+.dim-tile:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.dim-ic{width:42px;height:42px;border-radius:12px;background:#E7F1F1;color:#3B767C;display:flex;align-items:center;justify-content:center}
+.dim-tile.amber .dim-ic{background:#FFF1DA;color:#B36B00}
+.dim-ic svg{width:22px;height:22px}
+.dim-tile h3{font-size:16px;font-weight:700;color:var(--navy);line-height:1.25}
+.dim-tile p{font-size:14px;color:var(--body);line-height:1.55}
+.dims-cta{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:36px}
+.dims-cta p{font-size:14px;color:var(--slate)}
 
 /* sample result card (same as the homepage assessment card) */
 .card{background:#fff;border:1px solid var(--sand);border-radius:20px;box-shadow:var(--shadow-lg);color:var(--navy)}
@@ -405,8 +452,8 @@ a{color:inherit}
   <div class="hero on-dark">
     <div class="wrap">
       <div class="hero-copy">
-        <p class="eyebrow">AI Readiness Assessment</p>
-        <h1 id="welcome-title">Is your business<br><em>ready for AI?</em></h1>
+        <p class="pill"><i aria-hidden="true"></i>AI Readiness Assessment</p>
+        <h1 id="welcome-title">Is your business<br><em>ready for AI?<svg viewBox="0 0 300 18" preserveAspectRatio="none" aria-hidden="true"><path d="M3 12c60-8 130-11 200-8 32 1.4 62 4 94 7" stroke="#8FD3D1" stroke-width="4" fill="none" stroke-linecap="round"/></svg></em></h1>
         <p class="hero-sub">Operational clarity before AI investment.</p>
         <p class="hero-body">Find where manual effort, fragmented workflows and unclear ownership are holding back your AI readiness. Answer 10 questions and see where the gaps are before you invest.</p>
         <button type="button" class="btn-amber" onclick="startAssessment()">
@@ -422,6 +469,13 @@ a{color:inherit}
       </div>
 
       <div class="hero-visual">
+        <svg class="rings" viewBox="0 0 640 640" aria-hidden="true">
+          <circle cx="320" cy="320" r="300" fill="none" stroke="rgba(143,211,209,.10)" stroke-width="1.5"/>
+          <circle cx="320" cy="320" r="240" fill="none" stroke="rgba(143,211,209,.14)" stroke-width="1.5"/>
+          <circle cx="320" cy="320" r="300" fill="none" stroke="rgba(255,153,0,.45)" stroke-width="3" stroke-linecap="round" stroke-dasharray="320 1565" transform="rotate(-70 320 320)"/>
+          <circle cx="320" cy="320" r="240" fill="none" stroke="rgba(143,211,209,.55)" stroke-width="3" stroke-linecap="round" stroke-dasharray="220 1288" transform="rotate(130 320 320)"/>
+        </svg>
+        <div class="float float-a" aria-hidden="true"><span class="ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/></svg></span><span>5 readiness areas<small>scored out of 6 each</small></span></div>
         <div class="mock" role="img" aria-label="Sample AI Readiness result: 11 out of 30, Early Explorer, with Operational Visibility as the priority focus.">
           <div class="mock-top">
             <p class="lbl">AI Readiness Score</p>
@@ -430,8 +484,9 @@ a{color:inherit}
           <div class="ring-row">
             <div class="ring">
               <svg viewBox="0 0 112 112" aria-hidden="true">
+                <defs><linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4E9CA3"/><stop offset="1" stop-color="#FF9900"/></linearGradient></defs>
                 <circle cx="56" cy="56" r="47" fill="none" stroke="#EFE8DC" stroke-width="9"/>
-                <circle cx="56" cy="56" r="47" fill="none" stroke="#FF9900" stroke-width="9" stroke-linecap="round" stroke-dasharray="108.3 295.3" transform="rotate(-90 56 56)"/>
+                <circle cx="56" cy="56" r="47" fill="none" stroke="url(#ringGrad)" stroke-width="9" stroke-linecap="round" stroke-dasharray="108.3 295.3" transform="rotate(-90 56 56)"/>
               </svg>
               <div class="ring-val"><b>11</b><span>/30</span></div>
             </div>
@@ -449,11 +504,53 @@ a{color:inherit}
               <div class="mock-bar"><span>Data Readiness</span><i><b style="width:33%"></b></i><em>2/6</em></div>
           </div>
           <div class="mock-focus">
-            <p class="lbl">Priority focus</p>
-            <p>Operational Visibility</p>
+            <span><span class="lbl" style="display:block;color:var(--slate)">Priority focus</span><span class="nm">Operational Visibility</span></span>
+            <span class="tag">Start here</span>
           </div>
         </div>
+        <div class="float float-b" aria-hidden="true"><span class="ic"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.8"/><path d="M10 6v4.2l2.8 1.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Results in minutes<small>on screen and by email</small></span></div>
         <p class="hero-caption">A sample result. Yours appears the moment you finish.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="dims">
+    <div class="wrap">
+      <div class="dims-head">
+        <p class="eyebrow">What you'll be scored on</p>
+        <h2>Five areas. <em>One clear priority.</em></h2>
+        <p>Each area gets a score out of 6. Your lowest becomes your priority focus, so you know exactly where to start.</p>
+      </div>
+      <div class="dim-grid">
+        <div class="dim-tile">
+          <span class="dim-ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/></svg></span>
+          <h3>Strategic Clarity</h3>
+          <p>Is there a clear goal for what AI should achieve?</p>
+        </div>
+        <div class="dim-tile">
+          <span class="dim-ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3.6" stroke="currentColor" stroke-width="1.8"/><path d="M4.5 20c.9-3.8 3.9-5.8 7.5-5.8s6.6 2 7.5 5.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+          <h3>Leadership &amp; Ownership</h3>
+          <p>Does someone own AI decisions, with time to act on them?</p>
+        </div>
+        <div class="dim-tile">
+          <span class="dim-ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="7" height="6" rx="1.6" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="14" width="7" height="6" rx="1.6" stroke="currentColor" stroke-width="1.8"/><path d="M6.5 10v3.5a2 2 0 002 2H14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+          <h3>Process Maturity</h3>
+          <p>Are key workflows defined and followed the same way?</p>
+        </div>
+        <div class="dim-tile amber">
+          <span class="dim-ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg></span>
+          <h3>Operational Visibility</h3>
+          <p>Do you know where time and recurring problems pile up?</p>
+        </div>
+        <div class="dim-tile">
+          <span class="dim-ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="2.8" stroke="currentColor" stroke-width="1.8"/><path d="M5 6v6c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8V6M5 12v6c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8v-6" stroke="currentColor" stroke-width="1.8"/></svg></span>
+          <h3>Data Readiness</h3>
+          <p>Are your data and everyday tools ready for AI to use?</p>
+        </div>
+      </div>
+      <div class="dims-cta">
+        <button type="button" class="btn-amber" onclick="startAssessment()">Get My AI Readiness Score <svg class="arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <p>Free. Takes about 5 minutes.</p>
       </div>
     </div>
   </div>
