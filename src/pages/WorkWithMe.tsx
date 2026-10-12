@@ -214,7 +214,7 @@ const WorkWithMe = () => {
               <div className="max-w-4xl mx-auto text-center mb-8 sm:mb-10">
                 <h2 className="font-heading text-3xl sm:text-4xl lg:text-[40px] mb-4">How We Can Work Together</h2>
                 <p className="text-muted-foreground text-sm sm:text-base leading-relaxed [text-wrap:balance]">
-                  Six stages, from a free assessment to ongoing advice. Each builds on the last: diagnosis, then priorities, then delivery. I lead every stage, and we agree the scope together before it begins.
+                  Six stages, from a free assessment to ongoing support. We start by understanding your business challenges, goals and priorities. You receive a key findings report and a tailored strategy recommending what to implement. I lead every stage personally, and we agree the scope together before it begins.
                 </p>
               </div>
 
