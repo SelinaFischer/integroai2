@@ -7,9 +7,6 @@ import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import { Button } from "@/components/ui/button";
 import { SELINA_STORY_SECTION_ID } from "@/lib/selinaStory";
-import selinaAboutPhoto from "@/assets/selina-about-portrait.webp";
-import selinaAboutPhoto450 from "@/assets/selina-about-portrait-450.webp";
-import selinaAboutPhoto675 from "@/assets/selina-about-portrait-675.webp";
 import selinaPhoto from "@/assets/selina-story-portrait.webp";
 import selinaPhoto480 from "@/assets/selina-story-portrait-480.webp";
 import selinaPhoto720 from "@/assets/selina-story-portrait-720.webp";
@@ -56,61 +53,36 @@ const About = () => {
           {/* Intro */}
           <section className="pb-14 sm:pb-16 bg-background">
             <div className="wrap">
-              <div className="max-w-6xl mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-10 lg:gap-16 items-center">
-                  <m.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    className="text-center"
-                  >
-                    <span className="inline-block text-brand-label font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
-                      About
-                    </span>
-                    <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-foreground mb-6">
-                      About IntegroAI Consulting
-                    </h1>
+              {/* Company introduction. Selina's portrait appears once, in her story below. */}
+              <div className="max-w-3xl mx-auto">
+              <m.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-center"
+              >
+                <span className="inline-block text-brand-label font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
+                  About
+                </span>
+                <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-foreground mb-6">
+                  About IntegroAI Consulting
+                </h1>
 
-                    <div className="space-y-5">
-                      <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                        IntegroAI Consulting is an independent AI consultancy helping founder-led service businesses reduce repetitive work, improve operational control and create capacity for growth.
-                      </p>
-                      <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                        We combine AI consulting with business and operations advisory. We start by understanding how work gets done, where problems recur and what needs to improve before recommending where AI or automation can add value.
-                      </p>
-                      <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                        We assess your workflows, data, systems and team readiness to identify practical opportunities. From there, we help you prioritise investment, plan implementation and agree how results will be measured.
-                      </p>
-                      <p className="text-foreground text-sm sm:text-base leading-relaxed font-medium">
-                        Our advice is independent of any particular technology provider. Recommendations are shaped by your business goals, budget and existing systems.
-                      </p>
-                    </div>
-                  </m.div>
-
-                  <m.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.15 }}
-                    className="self-start lg:sticky lg:top-24"
-                  >
-                    <div className="rounded-2xl overflow-hidden shadow-sm border border-border/40 aspect-[4/5]">
-                      <img
-                        src={selinaAboutPhoto}
-                        srcSet={`${selinaAboutPhoto450} 450w, ${selinaAboutPhoto675} 675w, ${selinaAboutPhoto} 900w`}
-                        sizes="(min-width: 1024px) 358px, calc(100vw - 34px)"
-                        alt="Selina Fischer, founder of IntegroAI Consulting"
-                        width={900}
-                        height={1125}
-                        className="w-full h-full object-cover object-top"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </div>
-                    <p className="mt-4 text-xs text-muted-foreground leading-relaxed text-center">
-                      Helping business leaders make clear, practical decisions about AI.
-                    </p>
-                  </m.div>
+                <div className="space-y-5">
+                  <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                    IntegroAI Consulting is an independent AI consultancy helping founder-led service businesses reduce repetitive work, improve operational control and create capacity for growth.
+                  </p>
+                  <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                    We combine AI consulting with business and operations advisory. We start by understanding how work gets done, where problems recur and what needs to improve before recommending where AI or automation can add value.
+                  </p>
+                  <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                    We assess your workflows, data, systems and team readiness to identify practical opportunities. From there, we help you prioritise investment, plan implementation and agree how results will be measured.
+                  </p>
+                  <p className="text-foreground text-sm sm:text-base leading-relaxed font-medium">
+                    Our advice is independent of any particular technology provider. Recommendations are shaped by your business goals, budget and existing systems.
+                  </p>
                 </div>
+              </m.div>
               </div>
             </div>
           </section>
