@@ -29,7 +29,7 @@ export interface BlogArticle {
 const WhatIsAiReadinessAssessmentContent: React.FC = () => (
   <>
     <p>
-      Most business leaders who approach AI consulting come in with the same question: which AI tool should we use? The more important question — one that most businesses skip entirely — is whether their operations are actually ready for AI at all.
+      Most business leaders who approach AI consulting come in with the same question: which AI tool should we use? The more important question, and one that most businesses skip entirely, is whether their operations are actually ready for AI at all.
     </p>
     <p>
       An AI Readiness Assessment answers that question. It is a structured diagnostic that evaluates your business before any tools are chosen, any budget is committed, or any implementation begins. Done properly, it gives you a clear picture of where AI can genuinely help, where it cannot, and what needs to be sorted out first.
@@ -37,10 +37,10 @@ const WhatIsAiReadinessAssessmentContent: React.FC = () => (
 
     <h2>Why AI Readiness Matters Before You Invest</h2>
     <p>
-      AI does not fix broken operations. It amplifies whatever already exists. A business with inconsistent processes, unclear ownership, or poor data quality will not get better results by adding AI — it will get faster, more expensive versions of the same problems.
+      AI does not fix broken operations. It amplifies whatever already exists. A business with inconsistent processes, unclear ownership, or poor data quality will not get better results by adding AI. It will get faster, more expensive versions of the same problems.
     </p>
     <p>
-      Most AI project failures are not technology failures. They are readiness failures. The technology works as intended. The business simply was not in a position to benefit from it because the conditions for success were never established beforehand. An AI Readiness Assessment is how you establish those conditions — or at minimum, understand what is missing before you spend.
+      Most AI project failures are not technology failures. They are readiness failures. The technology works as intended. The business simply was not in a position to benefit from it because the conditions for success were never established beforehand. An AI Readiness Assessment is how you establish those conditions, or at minimum, understand what is missing before you spend.
     </p>
 
     <h2>What a Proper AI Readiness Assessment Should Cover</h2>
@@ -94,7 +94,7 @@ const WhatIsAiReadinessAssessmentContent: React.FC = () => (
       This varies depending on the depth of the assessment and how it is conducted. At IntegroAI, the starting point is a free five-minute online questionnaire that gives you an immediate readiness score across the five dimensions above, with a summary of where your business stands and where attention is needed. That initial assessment costs nothing and carries no obligation.
     </p>
     <p>
-      For businesses that want to go deeper — mapping specific workflows, reviewing data infrastructure, or working through leadership alignment in detail — that work is scoped individually based on the size and complexity of the business.
+      For businesses that want to go deeper, mapping specific workflows, reviewing data infrastructure, or working through leadership alignment in detail, that work is scoped individually based on the size and complexity of the business.
     </p>
 
     <h2>The Bottom Line</h2>
@@ -108,7 +108,7 @@ const WhatIsAiReadinessAssessmentContent: React.FC = () => (
     <div className="mt-10 p-6 bg-primary/5 border border-primary/20 rounded-xl">
       <p className="text-foreground font-semibold mb-2">Ready to find out where you stand?</p>
       <p className="text-muted-foreground text-sm mb-4">
-        IntegroAI's free AI Readiness Assessment takes five minutes. You receive a score across all five dimensions, a clear summary of your operational readiness, and a recommended starting point — all before any obligation or investment.
+        IntegroAI's free AI Readiness Assessment takes five minutes. You receive a score across all five dimensions, a clear summary of your operational readiness, and a recommended starting point, all before any obligation or investment.
       </p>
       <a
         href="https://integroai.tech/assessment"
@@ -129,7 +129,7 @@ const WhatIsAiReadinessAssessmentContent: React.FC = () => (
 const FiveSignsContent: React.FC = () => (
   <>
     <p>
-      There is a common assumption that if a business is struggling with manual work, slow processes, or team capacity, AI is the answer. In some cases it is. But in many cases, the conditions that make AI valuable are simply not in place yet — and investing before those conditions exist leads to wasted budget, frustrated teams, and tools that get abandoned within months.
+      There is a common assumption that if a business is struggling with manual work, slow processes, or team capacity, AI is the answer. In some cases it is. But in many cases, the conditions that make AI valuable are simply not in place yet. And investing before those conditions exist leads to wasted budget, frustrated teams, and tools that get abandoned within months.
     </p>
     <p>
       This is not a reason to avoid AI. It is a reason to be honest about where you are before you invest. Here are five signs that your business is not yet ready, and what each one tells you about what to address first.
@@ -140,7 +140,7 @@ const FiveSignsContent: React.FC = () => (
       "We want to be more efficient" is not a problem statement. "We want to use AI to improve our operations" is not a problem statement. A problem statement identifies a specific workflow, a measurable inefficiency, and a clear outcome you want to achieve.
     </p>
     <p>
-      If the leadership team cannot agree on which single process or decision to improve first, or if the answer changes depending on who you ask, that is a meaningful signal. AI investment decisions made without a clear problem definition tend to result in tools that are bought for one purpose and quietly used for something else — or not used at all.
+      If the leadership team cannot agree on which single process or decision to improve first, or if the answer changes depending on who you ask, that is a meaningful signal. AI investment decisions made without a clear problem definition tend to result in tools that are bought for one purpose and quietly used for something else, or not used at all.
     </p>
     <p>
       What to do first: define the problem in operational terms. Which process is the bottleneck? How much time does it take? Who owns it? What does a better outcome look like and how will you know when you have achieved it?
@@ -151,7 +151,7 @@ const FiveSignsContent: React.FC = () => (
       AI works by finding patterns and applying them at scale. If the underlying process is performed differently by different people, or if it depends on informal knowledge that lives in someone's head rather than in a documented system, there is no reliable pattern for AI to learn from or augment.
     </p>
     <p>
-      This is one of the most common blockers we see. An operator will try to automate guest check-in messaging, only to discover that the process looks different for every property and every team member handling it. The inconsistency is the root problem. AI cannot fix it — it will just replicate the inconsistency faster.
+      This is one of the most common blockers in AI projects. Picture an operator trying to automate guest check-in messaging, only to discover that the process looks different for every property and every team member handling it. The inconsistency is the root problem. AI cannot fix it. It will just replicate the inconsistency faster.
     </p>
     <p>
       What to do first: map the process as it actually happens, identify the points of inconsistency, and standardise before any automation or AI layer is introduced.
@@ -173,7 +173,7 @@ const FiveSignsContent: React.FC = () => (
       If your business has invested in software or automation tools in the past that were adopted briefly and then quietly abandoned, that pattern is worth paying attention to. The tools themselves are rarely the whole story. In most cases, the issues are a combination of unclear ownership, insufficient onboarding, no one responsible for driving adoption, and a tool that was chosen before the problem was properly understood.
     </p>
     <p>
-      AI tools carry a higher adoption burden than most software. They require configuration, testing, correction, and ongoing management. They produce outputs that need to be reviewed by someone with enough context to know when they are wrong. A business that has struggled to embed simpler tools is likely to face the same challenges — at greater cost — with AI.
+      AI tools carry a higher adoption burden than most software. They require configuration, testing, correction, and ongoing management. They produce outputs that need to be reviewed by someone with enough context to know when they are wrong. A business that has struggled to embed simpler tools is likely to face the same challenges with AI, at greater cost.
     </p>
     <p>
       What to do first: understand why previous tools did not stick. Was the problem unclear? Was there no designated owner? Was the team not given enough time or support to adopt it? Those same conditions need to be addressed before the next investment is made.
@@ -184,7 +184,7 @@ const FiveSignsContent: React.FC = () => (
       This is the sign that gets overlooked most often, particularly in growing operators where teams are already running close to capacity. AI tools do not reduce workload on day one. In the early stages, they typically add to it. Someone needs to configure the system, test its outputs, correct errors, train the model where applicable, and manage the change across the team.
     </p>
     <p>
-      If your team is already stretched, adding a new system without first creating capacity tends to result in the tool being used minimally or abandoned when the initial enthusiasm fades. The benefit of AI — time saved — only materialises once the system is properly embedded and the team has changed how they work. That transition requires time and attention that a stretched team often cannot provide.
+      If your team is already stretched, adding a new system without first creating capacity tends to result in the tool being used minimally or abandoned when the initial enthusiasm fades. The benefit of AI, time saved, only materialises once the system is properly embedded and the team has changed how they work. That transition requires time and attention that a stretched team often cannot provide.
     </p>
     <p>
       What to do first: identify where capacity is being lost to manual, repetitive work that could be reduced before AI is introduced. A workflow improvement or simpler automation might free up enough time to make the more significant AI investment viable and sustainable.
@@ -201,7 +201,7 @@ const FiveSignsContent: React.FC = () => (
     <div className="mt-10 p-6 bg-primary/5 border border-primary/20 rounded-xl">
       <p className="text-foreground font-semibold mb-2">Not sure where you stand?</p>
       <p className="text-muted-foreground text-sm mb-4">
-        IntegroAI's free AI Readiness Assessment takes five minutes and gives you a clear view of your operational readiness across leadership alignment, process quality, data foundations, and team capacity — before any investment is discussed.
+        IntegroAI's free AI Readiness Assessment takes five minutes and gives you a clear view of your operational readiness across leadership alignment, process quality, data foundations, and team capacity, before any investment is discussed.
       </p>
       <a
         href="https://integroai.tech/assessment"
@@ -233,7 +233,7 @@ const HowToMeasureAiROIContent: React.FC = () => (
       Traditional ROI is straightforward: you invest a certain amount and track the financial return. AI makes this more complicated for several reasons.
     </p>
     <p>
-      First, the benefits of AI are often indirect. AI might save a team member three hours per week on a reporting task. But those three hours do not automatically translate into revenue. They translate into capacity — which may or may not be redeployed productively. Whether that capacity delivers value depends on decisions that happen after the tool is in place.
+      First, the benefits of AI are often indirect. AI might save a team member three hours per week on a reporting task. But those three hours do not automatically translate into revenue. They translate into capacity, which may or may not be redeployed productively. Whether that capacity delivers value depends on decisions that happen after the tool is in place.
     </p>
     <p>
       Second, AI is often introduced alongside other changes. A business might streamline its workflow, implement a new process, and add an AI tool at the same time. Isolating the specific contribution of AI to any improvement becomes difficult.
@@ -258,7 +258,7 @@ const HowToMeasureAiROIContent: React.FC = () => (
 
     <h2>The Right Things to Measure After AI Is in Place</h2>
     <p>
-      Once your baseline is established, the post-implementation measurement should track the same variables — not different ones. This is where many businesses go wrong. They measure something before and something different after, which makes comparison meaningless.
+      Once your baseline is established, the post-implementation measurement should track the same variables, not different ones. This is where many businesses go wrong. They measure something before and something different after, which makes comparison meaningless.
     </p>
     <p>
       The most commercially relevant measures of AI ROI for founder-led service businesses fall into five categories.
@@ -271,12 +271,12 @@ const HowToMeasureAiROIContent: React.FC = () => (
 
     <h3>Capacity Freed</h3>
     <p>
-      Time saved only creates value if it is redeployed. Capacity freed measures whether the time no longer spent on the target task is being used for something with higher commercial value — client work, business development, quality improvement, or strategic thinking. This requires tracking what happens after the time is freed, which is a step many businesses skip.
+      Time saved only creates value if it is redeployed. Capacity freed measures whether the time no longer spent on the target task is being used for something with higher commercial value: client work, business development, quality improvement, or strategic thinking. This requires tracking what happens after the time is freed, which is a step many businesses skip.
     </p>
 
     <h3>Error and Rework Reduction</h3>
     <p>
-      If AI is applied to a process that previously had a meaningful error rate, tracking the change in errors, corrections, and rework cycles is a direct measure of quality improvement. This is particularly relevant for reporting, data processing, client communication, and administrative workflows where errors carry a cost — in time, reputation, or both.
+      If AI is applied to a process that previously had a meaningful error rate, tracking the change in errors, corrections, and rework cycles is a direct measure of quality improvement. This is particularly relevant for reporting, data processing, client communication, and administrative workflows where errors carry a cost in time, reputation, or both.
     </p>
 
     <h3>Decision Quality</h3>
@@ -286,7 +286,7 @@ const HowToMeasureAiROIContent: React.FC = () => (
 
     <h3>Risk Avoided</h3>
     <p>
-      This is the hardest category to quantify and the most commonly ignored. AI applied to compliance checking, contract review, or data quality can reduce the probability of costly errors or regulatory issues. The ROI here is the cost of the risk that did not materialise — which is real but invisible unless you have tracked the historical frequency of those events.
+      This is the hardest category to quantify and the most commonly ignored. AI applied to compliance checking, contract review, or data quality can reduce the probability of costly errors or regulatory issues. The ROI here is the cost of the risk that did not materialise, which is real but invisible unless you have tracked the historical frequency of those events.
     </p>
 
     <h2>A Simple Framework for AI ROI Measurement</h2>
@@ -325,7 +325,7 @@ const HowToMeasureAiROIContent: React.FC = () => (
     <div className="mt-10 p-6 bg-primary/5 border border-primary/20 rounded-xl">
       <p className="text-foreground font-semibold mb-2">Start with a clear baseline</p>
       <p className="text-muted-foreground text-sm mb-4">
-        IntegroAI's free AI Readiness Assessment gives you a structured view of your current operational state — the foundation for any meaningful ROI measurement. Five minutes, no obligation.
+        IntegroAI's free AI Readiness Assessment gives you a structured view of your current operational state: the foundation for any meaningful ROI measurement. Five minutes, no obligation.
       </p>
       <a
         href="https://integroai.tech/assessment"
@@ -345,15 +345,16 @@ const HowToMeasureAiROIContent: React.FC = () => (
 
 const ROTToResilienceContent: React.FC = () => (
   <>
+<p className="!text-[15px] italic">This article draws on what I learnt at the IAPP web conference <a href="https://iapp.org/resources/article/rot-to-resilience-building-a-defensible-disposition-program-privacy-teams-trust" target="_blank" rel="noopener noreferrer">“ROT to resilience: Building a defensible disposition program privacy teams trust”</a> (November 2025).</p>
 <p>Your organization's data contains a silent threat to AI success. It's not hackers, it's not budget constraints, and it's not technical complexity. It's ROT: <strong>Redundant, Obsolete, and Trivial</strong> data that accumulates in your systems year after year, degrading AI performance and multiplying risk.</p>
 
       {/* Stats Box */}
       <div className="bg-primary text-primary-foreground p-8 rounded-xl text-center my-8">
-        <h3 className="text-4xl font-bold text-accent-warm mb-2">30-40%</h3>
-        <p className="text-primary-foreground/90 mb-0">of enterprise data is ROT—costing money, creating risk, and sabotaging AI initiatives</p>
+        <h3 className="text-4xl font-bold text-accent-warm mb-2">About a third</h3>
+        <p className="text-primary-foreground/90 mb-0">of stored data is redundant, obsolete or trivial, according to IT leaders surveyed for the Veritas Global Databerg Report (2016)</p>
       </div>
 
-      <p>The uncomfortable truth? Most organizations don't even know how much ROT they have. They've spent years accumulating duplicate files, outdated versions, and trivial information with no business purpose. This data clutter hides in old folders, shared drives, inboxes, and legacy systems—growing without checks or review.</p>
+      <p>The uncomfortable truth? Most organizations don't even know how much ROT they have. They've spent years accumulating duplicate files, outdated versions, and trivial information with no business purpose. This data clutter hides in old folders, shared drives, inboxes, and legacy systems, growing without checks or review.</p>
 
       <p>And when you implement AI, all that ROT becomes your AI's training data.</p>
 
@@ -364,26 +365,26 @@ const ROTToResilienceContent: React.FC = () => (
       <div className="grid md:grid-cols-3 gap-6 my-8">
         <div className="bg-muted/30 p-6 rounded-xl text-center">
           <h4 className="font-bold text-foreground mb-2">Redundant</h4>
-          <p className="text-muted-foreground text-sm mb-0">Duplicate copies stored across multiple locations—the same document saved in three different folders, five people's inboxes, and two shared drives.</p>
+          <p className="text-muted-foreground text-sm mb-0">Duplicate copies stored across multiple locations: the same document saved in three different folders, five people's inboxes, and two shared drives.</p>
         </div>
         <div className="bg-muted/30 p-6 rounded-xl text-center">
           <h4 className="font-bold text-foreground mb-2">Obsolete</h4>
-          <p className="text-muted-foreground text-sm mb-0">Outdated versions that no longer reflect current reality—last year's pricing, old org charts, superseded policies, archived projects.</p>
+          <p className="text-muted-foreground text-sm mb-0">Outdated versions that no longer reflect current reality: last year's pricing, old org charts, superseded policies, archived projects.</p>
         </div>
         <div className="bg-muted/30 p-6 rounded-xl text-center">
           <h4 className="font-bold text-foreground mb-2">Trivial</h4>
-          <p className="text-muted-foreground text-sm mb-0">Low-value items with no business or legal purpose—lunch order confirmations, meeting scheduler emails, random screenshots, duplicated drafts.</p>
+          <p className="text-muted-foreground text-sm mb-0">Low-value items with no business or legal purpose: lunch order confirmations, meeting scheduler emails, random screenshots, duplicated drafts.</p>
         </div>
       </div>
 
-      <p>This clutter disrupts operations, privacy work, and critically—future AI initiatives.</p>
+      <p>This clutter disrupts operations, privacy work, and, critically, future AI initiatives.</p>
 
       <h2>The AI Connection: Garbage In, Garbage Out</h2>
       
       <p>AI quality depends entirely on information quality. Clean input creates clear output. Unclear input creates unclear results. When AI receives outdated versions, duplicate records, or irrelevant material, the effects spread across every output and decision.</p>
 
       <div className="bg-muted/50 border-l-4 border-accent-warm p-6 rounded-r-lg my-8">
-        <p className="mb-0"><strong>Real Example:</strong> A professional services firm implemented AI to analyze project profitability patterns. The system produced confusing recommendations that contradicted actual performance. The issue? Their project database contained ROT: old pricing structures marked as current, duplicate client records with conflicting information, and archived projects mixed with active ones. The AI couldn't distinguish signal from noise.</p>
+        <p className="mb-0"><strong>An illustration:</strong> imagine a professional services firm that uses AI to analyze project profitability patterns. The system produces confusing recommendations that contradict actual performance. The issue? Its project database contains ROT: old pricing structures marked as current, duplicate client records with conflicting information, and archived projects mixed with active ones. The AI can't distinguish signal from noise.</p>
       </div>
 
       <p>Here's exactly how ROT sabotages AI:</p>
@@ -401,7 +402,7 @@ const ROTToResilienceContent: React.FC = () => (
       <p>Users lose confidence when AI outputs reflect garbage inputs. Teams stop using AI tools when results don't make sense. Leadership questions AI investments when outcomes contradict known realities. Your AI initiative fails not because of technology, but because of data hygiene.</p>
 
       <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg my-8">
-        <p className="text-amber-900 mb-0"><strong>Critical Point:</strong> You cannot train reliable AI on data polluted with ROT. Every duplicate file, outdated record, and trivial item degrades model performance. ROT isn't just clutter—it's poison for AI systems.</p>
+        <p className="text-amber-900 mb-0"><strong>Critical Point:</strong> You cannot train reliable AI on data polluted with ROT. Every duplicate file, outdated record, and trivial item degrades model performance. ROT isn't just clutter. It's poison for AI systems.</p>
       </div>
 
       <h2>Why ROT Creates Serious Business Risk</h2>
@@ -414,10 +415,10 @@ const ROTToResilienceContent: React.FC = () => (
       <p>Obsolete data is particularly dangerous because nobody's actively protecting it. Old customer records sit in archived folders without current security controls. Historical financial data remains accessible to people who've changed roles. Outdated personal information creates GDPR compliance nightmares.</p>
 
       <h3>Legal and Compliance Work Expands</h3>
-      <p>During legal discovery or regulatory audits, every file must be reviewed. ROT doesn't get a free pass. Your legal team must examine duplicate versions, assess obsolete records, and process trivial items—all billable hours spent on data that provides zero business value.</p>
+      <p>During legal discovery or regulatory audits, every file must be reviewed. ROT doesn't get a free pass. Your legal team must examine duplicate versions, assess obsolete records, and process trivial items: all billable hours spent on data that provides zero business value.</p>
 
       <div className="bg-muted/50 border-l-4 border-accent-warm p-6 rounded-r-lg my-8">
-        <p className="mb-0"><strong>Example:</strong> During a regulatory investigation, a financial institution spent £500,000 in legal fees reviewing documents. An estimated 40% of those documents were ROT—duplicates, outdated versions, and trivial items with no relevance to the investigation. That's £200,000 spent reviewing data that should never have been retained.</p>
+        <p className="mb-0"><strong>An illustration:</strong> imagine a firm that spends £500,000 on legal review during a regulatory investigation. If 40% of the documents reviewed are ROT (duplicates, outdated versions and trivial items with no relevance to the investigation), £200,000 of that bill is spent on data that should never have been kept.</p>
       </div>
 
       <h3>Investigation Delays</h3>
@@ -430,7 +431,7 @@ const ROTToResilienceContent: React.FC = () => (
 
       <h2>Defensible Disposition: The Solution</h2>
       
-      <p>Defensible disposition is the practice of removing items with clarity, evidence, and confidence. It turns deletion into protection—but only when supported by the right structure.</p>
+      <p>Defensible disposition is the practice of removing items with clarity, evidence, and confidence. It turns deletion into protection, but only when supported by the right structure.</p>
 
       <p>This isn't just "delete old files." That's how organizations create legal liability and compliance disasters. Defensible disposition means having documented, auditable, policy-driven processes for data retention and removal.</p>
 
@@ -453,10 +454,10 @@ const ROTToResilienceContent: React.FC = () => (
       <p>Before you can clean, you need to understand the scope. Conduct a data discovery exercise to identify where ROT accumulates in your organization. Map storage locations, estimate duplication rates, and identify obsolete data sources.</p>
 
       <h3>Step 2: Establish Retention Policies</h3>
-      <p>Create clear, documented policies that define how long different data types should be retained. Base these on legal requirements, regulatory obligations, and genuine business needs—not "we might need it someday."</p>
+      <p>Create clear, documented policies that define how long different data types should be retained. Base these on legal requirements, regulatory obligations, and genuine business needs, not "we might need it someday."</p>
 
       <h3>Step 3: Implement Systematic Cleanup</h3>
-      <p>Design processes for regular, documented disposition. This isn't a one-time project—it's an ongoing operational capability. Build ROT removal into normal business operations.</p>
+      <p>Design processes for regular, documented disposition. This isn't a one-time project. It's an ongoing operational capability. Build ROT removal into normal business operations.</p>
 
       <h3>Step 4: Prevent Future Accumulation</h3>
       <p>Fix the systems that create ROT in the first place. Implement automatic retention enforcement, reduce unnecessary duplication, and establish data hygiene as an organizational value.</p>
@@ -500,11 +501,11 @@ const WhyAIFailsContent: React.FC = () => (
 
       {/* Stats Box */}
       <div className="bg-primary text-primary-foreground p-8 rounded-xl text-center my-8">
-        <h3 className="text-4xl font-bold text-accent-warm mb-2">85%</h3>
-        <p className="text-primary-foreground/90 mb-0">of AI project failures are caused by data quality issues, not algorithmic problems</p>
+        <h3 className="text-4xl font-bold text-accent-warm mb-2">80%+</h3>
+        <p className="text-primary-foreground/90 mb-0">of AI projects fail, by some estimates cited by RAND researchers (2024). Not having the right data is one of the five root causes they identified.</p>
       </div>
 
-      <p>I've watched organizations invest hundreds of thousands of pounds in sophisticated AI systems, only to discover their data wasn't ready. The technology worked perfectly. The data didn't. The project failed.</p>
+      <p>Organizations can invest heavily in sophisticated AI systems, only to discover their data wasn't ready. The technology works. The data doesn't. The project fails.</p>
 
       <h2>The Inconvenient Reality: AI is Only as Good as Your Data</h2>
       
@@ -514,12 +515,12 @@ const WhyAIFailsContent: React.FC = () => (
 
       <h2>The Five Critical Data Gaps</h2>
 
-      <h3>Gap 1: Data Quality — Garbage In, Garbage Out</h3>
+      <h3>Gap 1: Data Quality: Garbage In, Garbage Out</h3>
       
       <p>Most organizations vastly overestimate their data quality. They believe their data is "pretty good" when the reality is far different.</p>
 
       <div className="bg-muted/50 border-l-4 border-accent-warm p-6 rounded-r-lg my-8">
-        <p className="mb-0"><strong>Real Example:</strong> A UK financial services firm implemented AI for fraud detection. Six months and £200,000 later, the system was flagging legitimate transactions as fraud while missing actual fraud cases. The problem? Their historical transaction data had inconsistent formatting, missing fields, and outdated customer information. The AI learned from flawed data and produced flawed results.</p>
+        <p className="mb-0"><strong>An illustration:</strong> imagine a financial services firm that implements AI for fraud detection. Six months and a large budget later, the system flags legitimate transactions as fraud while missing actual fraud cases. The problem? Its historical transaction data has inconsistent formatting, missing fields, and outdated customer information. The AI learns from flawed data and produces flawed results.</p>
       </div>
 
       <p>Common data quality issues include:</p>
@@ -533,7 +534,7 @@ const WhyAIFailsContent: React.FC = () => (
 
       <p>The solution isn't just cleaning data once. It's establishing data quality processes that maintain accuracy over time.</p>
 
-      <h3>Gap 2: Data Availability — The Information You Need Doesn't Exist</h3>
+      <h3>Gap 2: Data Availability: The Information You Need Doesn't Exist</h3>
       
       <p>Sometimes organizations simply don't have the data their AI project requires. This is more common than you'd think.</p>
 
@@ -545,11 +546,11 @@ const WhyAIFailsContent: React.FC = () => (
         <p className="mb-0"><strong>Critical Question:</strong> Before starting any AI project, ask: "Do we currently collect all the data this system needs to function?" If the answer is no, you need data collection infrastructure before AI implementation.</p>
       </div>
 
-      <h3>Gap 3: Data Accessibility — The Data Exists, But You Can't Get To It</h3>
+      <h3>Gap 3: Data Accessibility: The Data Exists, But You Can't Get To It</h3>
       
       <p>Data trapped in legacy systems, locked in departmental silos, or buried in incompatible formats is useless for AI, regardless of its quality.</p>
 
-      <p>I've seen organizations where:</p>
+      <p>In many organizations:</p>
       <ul>
         <li>Sales data sits in Salesforce, financial data in an ERP system, and customer service data in separate ticketing software</li>
         <li>Critical information exists only in PDF reports or scanned documents</li>
@@ -560,7 +561,7 @@ const WhyAIFailsContent: React.FC = () => (
 
       <p>Effective AI requires bringing data together. If your data integration strategy is "we'll figure it out during implementation," your project will likely fail.</p>
 
-      <h3>Gap 4: Data Volume — You Don't Have Enough</h3>
+      <h3>Gap 4: Data Volume: You Don't Have Enough</h3>
       
       <p>AI models need substantial data to learn patterns effectively. How much data depends on the specific use case, but "we have some data" is rarely sufficient.</p>
 
@@ -574,11 +575,11 @@ const WhyAIFailsContent: React.FC = () => (
 
       <p>These scenarios lack sufficient data volume for reliable AI. The technology might work, but the predictions will be unreliable because there isn't enough historical information to identify meaningful patterns.</p>
 
-      <h3>Gap 5: Data Bias — Your Historical Data Reflects Historical Problems</h3>
+      <h3>Gap 5: Data Bias: Your Historical Data Reflects Historical Problems</h3>
       
       <p>AI learns from historical data. If that data reflects biased decisions or non-representative samples, the AI will perpetuate and amplify those biases.</p>
 
-      <p>This isn't just an ethical concern—it's a business risk. Biased training data leads to AI systems that:</p>
+      <p>This isn't just an ethical concern. It's a business risk. Biased training data leads to AI systems that:</p>
       <ul>
         <li>Make poor decisions that don't reflect current reality</li>
         <li>Exclude potential opportunities by replicating past limitations</li>
@@ -587,12 +588,12 @@ const WhyAIFailsContent: React.FC = () => (
       </ul>
 
       <div className="bg-muted/50 border-l-4 border-accent-warm p-6 rounded-r-lg my-8">
-        <p className="mb-0"><strong>Example:</strong> A recruitment firm trained AI on historical hiring data. The system learned to favor candidates similar to those previously hired—which meant replicating the lack of diversity in their existing workforce. The AI wasn't racist or sexist; it was accurately reflecting biased historical patterns. But the result was the same: perpetuating inequality.</p>
+        <p className="mb-0"><strong>An illustration:</strong> imagine a recruitment firm that trains AI on historical hiring data. The system learns to favor candidates similar to those previously hired, which means replicating the lack of diversity in the existing workforce. The AI isn't racist or sexist; it is accurately reflecting biased historical patterns. But the result was the same: perpetuating inequality.</p>
       </div>
 
       <h2>The IntegroAI Consulting Data-First Approach</h2>
       
-      <p>Our methodology centers data readiness before technology selection. We believe—and our results prove—that proper data foundation is the difference between AI projects that fail and those that deliver transformative value.</p>
+      <p>Our methodology centers data readiness before technology selection. We believe that a proper data foundation is the difference between AI projects that fail and those that deliver transformative value.</p>
 
       <p>Here's how we approach it:</p>
 
@@ -603,7 +604,7 @@ const WhyAIFailsContent: React.FC = () => (
       <p>We establish data cleaning processes, address missing values, resolve inconsistencies, and create ongoing quality monitoring. This isn't glamorous work, but it's essential work.</p>
 
       <h3>Phase 3: Data Architecture Design</h3>
-      <p>We design systems to collect, integrate, and access data effectively. This might mean new data pipelines, integration platforms, or collection processes—whatever infrastructure your AI needs.</p>
+      <p>We design systems to collect, integrate, and access data effectively. This might mean new data pipelines, integration platforms, or collection processes: whatever infrastructure your AI needs.</p>
 
       <h3>Phase 4: Bias Identification & Mitigation</h3>
       <p>We analyze historical data for bias patterns and develop strategies to address them. This protects both business performance and ethical standards.</p>
@@ -623,7 +624,7 @@ const WhyAIFailsContent: React.FC = () => (
         <li><strong>Data Bias:</strong> Have you assessed whether your historical data reflects patterns you want to perpetuate?</li>
       </ol>
 
-      <p>If you can't confidently answer "yes" to all five questions, you need data preparation before AI implementation. This isn't failure—it's smart planning that prevents expensive project failures.</p>
+      <p>If you can't confidently answer "yes" to all five questions, you need data preparation before AI implementation. This isn't failure. It's smart planning that prevents expensive project failures.</p>
 
       <h2>The Bottom Line</h2>
 
@@ -657,16 +658,16 @@ const BeyondChatbotsContent: React.FC = () => (
       <div className="bg-muted/50 border-l-4 border-accent-warm p-6 rounded-r-lg my-8">
         <h3 className="text-foreground font-bold mt-0 mb-2">The Big Question</h3>
         <p className="mb-2"><strong>Automation saved time. But does autonomy create value?</strong></p>
-        <p className="mb-0">For years, businesses automated tasks to save time. But today's environment demands more than rule-following — it needs reasoning and adaptability. The future isn't about doing more tasks faster. It's about building systems that can <strong>think</strong>.</p>
+        <p className="mb-0">For years, businesses automated tasks to save time. But today's environment demands more than rule-following. It needs reasoning and adaptability. The future isn't about doing more tasks faster. It's about building systems that can <strong>think</strong>.</p>
       </div>
 
       <h2>The Big Shift: From Automation to Intelligent Autonomy</h2>
       
       <p>For years, automation helped teams save time by following rules. Workflows became faster. Manual errors decreased. Productivity metrics improved.</p>
 
-      <p>But today's business environment demands more than rule-following — <strong>it needs reasoning and adaptability</strong>.</p>
+      <p>But today's business environment demands more than rule-following: <strong>it needs reasoning and adaptability</strong>.</p>
 
-      <p>Businesses don't just need to automate tasks — they need systems that can think. From finance to supply chain, static automations struggle when conditions change. <strong>AI Agents bring adaptability and context-awareness into business logic.</strong></p>
+      <p>Businesses don't just need to automate tasks. They need systems that can think. From finance to supply chain, static automations struggle when conditions change. <strong>AI Agents bring adaptability and context-awareness into business logic.</strong></p>
 
       {/* Stats Box */}
       <div className="bg-primary text-primary-foreground p-8 rounded-xl text-center my-8">
@@ -704,7 +705,7 @@ const BeyondChatbotsContent: React.FC = () => (
 
       <h2>What Intelligent Autonomy Looks Like in Practice</h2>
 
-      <p>AI Agents bridge the gap between automation and strategic intelligence — detecting anomalies, rerouting workflows, and prioritizing decisions by business impact <strong>in real time</strong>.</p>
+      <p>AI Agents bridge the gap between automation and strategic intelligence: detecting anomalies, rerouting workflows, and prioritizing decisions by business impact <strong>in real time</strong>.</p>
 
       <h3>Real-World Examples:</h3>
 
@@ -766,11 +767,11 @@ const BeyondChatbotsContent: React.FC = () => (
         </div>
       </div>
 
-      <p><strong>If you answered "no" to any of these questions, you're still automating — not evolving.</strong></p>
+      <p><strong>If you answered "no" to any of these questions, you're still automating, not evolving.</strong></p>
 
       <h2>The Strategic Evolution</h2>
 
-      <p>The next competitive advantage isn't about speed — it's about systems that think alongside your business.</p>
+      <p>The next competitive advantage isn't about speed. It's about systems that think alongside your business.</p>
 
       <p>AI Agents don't just complete tasks. They:</p>
       <ul>
@@ -788,7 +789,7 @@ const BeyondChatbotsContent: React.FC = () => (
         <div className="space-y-4">
           <div className="flex gap-4">
             <div className="w-9 h-9 rounded-full bg-accent-warm text-white flex items-center justify-center font-bold shrink-0 text-sm">01</div>
-            <p className="text-primary-foreground/95 mb-0"><strong>Stop measuring actions — start measuring outcomes.</strong> Track business impact, not task completion rates.</p>
+            <p className="text-primary-foreground/95 mb-0"><strong>Stop measuring actions. Start measuring outcomes.</strong> Track business impact, not task completion rates.</p>
           </div>
           
           <div className="flex gap-4">
@@ -819,7 +820,7 @@ const BeyondChatbotsContent: React.FC = () => (
         <li>Organizational readiness and trust in AI decision-making</li>
       </ul>
 
-      <p>At <strong>IntegroAI Consulting</strong>, we guide leaders, startups, and SMEs through this evolution — from discovery to strategy to implementation — with clarity, confidence, and measurable outcomes.</p>
+      <p>At <strong>IntegroAI Consulting</strong>, we guide leaders, startups, and SMEs through this evolution, from discovery to strategy to implementation, with clarity, confidence, and measurable outcomes.</p>
 
       {/* CTA */}
       <div className="bg-muted/30 p-8 rounded-xl text-center my-8">
@@ -1580,13 +1581,13 @@ export const articles: BlogArticle[] = [
     date: "November 2025",
     category: "Data Management",
     readTime: "12 min read",
-    excerpt: "30-40% of enterprise data is Redundant, Obsolete, and Trivial — costing money, creating risk, and sabotaging AI initiatives. Learn how to transform data clutter into competitive advantage.",
+    excerpt: "Redundant, Obsolete, and Trivial data costs money, creates risk, and sabotages AI initiatives. Learn how to transform data clutter into competitive advantage.",
     Content: ROTToResilienceContent,
   },
   {
     slug: "why-ai-fails-the-data-gap",
     title: "Why AI Projects Fail: The Data Gap Nobody Talks About",
-    subtitle: "The most advanced AI in the world is worthless without quality data. Here's why 70% of AI projects fail at the data layer — and how to fix it.",
+    subtitle: "The most advanced AI in the world is worthless without quality data. Here's why so many AI projects stall on data, and how to fix it.",
     date: "December 2025",
     category: "Data Strategy",
     readTime: "10 min read",
@@ -1596,7 +1597,7 @@ export const articles: BlogArticle[] = [
   {
     slug: "beyond-chatbots-ai-agents",
     title: "Beyond Chatbots: How AI Agents Redefine Efficiency, Decision-Making & Growth",
-    subtitle: "Automation saved time. But does autonomy create value? Today's environment demands more than rule-following — it needs reasoning and adaptability.",
+    subtitle: "Automation saved time. But does autonomy create value? Today's environment demands more than rule-following. It needs reasoning and adaptability.",
     date: "December 2025",
     category: "AI Strategy",
     readTime: "10 min read",
