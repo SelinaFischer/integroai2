@@ -54,12 +54,12 @@ const About = () => {
           <section className="pb-14 sm:pb-16 bg-background">
             <div className="wrap">
               {/* Company introduction. Selina's portrait appears once, in her story below. */}
-              <div className="max-w-3xl mx-auto">
+              <div className="max-w-5xl mx-auto">
               <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="text-center"
+                className="max-w-3xl text-left"
               >
                 <span className="inline-block text-brand-label font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
                   About
