@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
-import { ClipboardCheck, Search, Target, ShieldCheck, Cog, TrendingUp, ArrowRight, CheckCircle2 } from "lucide-react";
+import * as Accordion from "@radix-ui/react-accordion";
+import { ArrowRight, CheckCircle2, Minus, Plus } from "lucide-react";
 import { m } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -12,104 +13,104 @@ import selinaOffice640 from "@/assets/selina-work-portrait-640.webp";
 import { EXTRA_SERVICES_SECTION_ID } from "@/lib/extraServices";
 import ExtraServicesList from "@/components/ExtraServicesList";
 
-// The free assessment is Stage 01: the entry point into the six-stage
-// journey, not something separate from it. It uses a simplified card
-// (isAssessment: true) since "what we review / what you receive" doesn't
-// apply to a free self-serve tool the way it does to the paid stages.
-const stages = [
+// Stage 01 is the free entry point and is shown as a single row with a
+// button. Stages 02 to 06 open one at a time: closed, each row shows the
+// stage, its name and the result; open, it shows what we do and what you get.
+// Each paid stage leads to one named deliverable.
+const assessment = {
+  number: "01",
+  stage: "Assess",
+  service: "5-Minute AI Readiness Assessment",
+  result: "See where you stand before you invest in AI.",
+  ctaLabel: "Start the free assessment",
+  ctaHref: "https://integroai.tech/assessment",
+};
+
+type Stage = {
+  number: string;
+  stage: string;
+  service: string;
+  result: string;
+  doSteps: string[];
+  deliverable: string;
+  get: string[];
+  extra?: string;
+};
+
+const stages: Stage[] = [
   {
-    icon: ClipboardCheck,
-    number: "01",
-    stage: "Assess",
-    service: "5-Minute AI Readiness Assessment",
-    purpose: "A free self-assessment to see where you stand before you invest in AI.",
-    gradient: "from-accent-warm to-amber-400",
-    isAssessment: true,
-    ctaLabel: "Start the Assessment",
-    ctaHref: "https://integroai.tech/assessment",
-  },
-  {
-    icon: Search,
     number: "02",
     stage: "Understand",
     service: "AI & Operations Diagnostic",
-    purpose: "A clear, evidence-based view of how the business runs today, and where the real priorities sit.",
-    steps: [
-      "Interview you and key team members",
-      "Map how work flows today across people, processes and systems",
+    result: "Know where AI can make the biggest difference, and what to tackle first.",
+    doSteps: [
+      "Review how work flows today across people, processes, systems and data",
       "Identify AI opportunities and risks",
+      "Agree and prioritise objectives with you",
     ],
-    gradient: "from-primary to-[#1E4A6E]",
-    review: ["Workflows & processes", "Systems & data", "Ownership & accountability", "Existing AI use", "Business priorities"],
-    receive: ["Priority operational issues", "Readiness gaps", "Recommended next steps"],
-    next: "Take the findings forward yourself, or continue with IntegroAI for the next stage.",
-    note: "This paid, consultant-led diagnostic builds on the initial AI Readiness Assessment with a deeper, evidence-based review of your operations, priorities and readiness.",
+    deliverable: "Key Findings Report",
+    get: [
+      "A clear, actionable summary of where you stand",
+      "Strengths, weaknesses, opportunities and threats",
+      "The highest-leverage AI opportunities",
+      "Workflow suggestions and a strategic roadmap",
+      "The estimated impact of acting on them",
+    ],
   },
   {
-    icon: Target,
     number: "03",
     stage: "Prioritise",
     service: "AI Strategy & Prioritisation Roadmap",
-    purpose: "Decide what's worth solving, and which opportunities to prioritise first.",
-    steps: [
-      "Weigh each opportunity against business value, feasibility and risk",
-      "Prioritise objectives with you",
-      "Build the AI strategy and roadmap, with a detailed workflow plan",
+    result: "A clear plan for what to do, in what order, and how the work will change.",
+    doSteps: [
+      "Interview you and key team members",
+      "Sequence initiatives by business value, feasibility and risk",
+      "Map the detailed workflow changes",
     ],
-    gradient: "from-accent-warm to-amber-400",
-    review: ["Business value", "Feasibility & risk", "Operational readiness", "Success measures", "Sequencing"],
-    receive: ["Prioritised opportunity map", "Recommended initiatives", "A practical roadmap"],
-    next: "Use the roadmap yourself, or continue with IntegroAI on the next stage.",
+    deliverable: "Roadmap and workflow plan",
+    get: ["A practical, sequenced roadmap", "A detailed workflow plan", "Success measures for each initiative"],
   },
   {
-    icon: ShieldCheck,
     number: "04",
     stage: "Prepare",
     service: "AI Foundations & Responsible Adoption",
-    purpose: "Put the right foundations in place for AI to work safely, responsibly and sustainably.",
-    steps: [
+    result: "Your data, people and governance ready for AI to work safely.",
+    doSteps: [
       "Check and prepare your data",
       "Agree governance, ownership and accountability",
       "Prepare your team to adopt new ways of working",
     ],
-    gradient: "from-primary to-[#1E4A6E]",
-    review: ["Data readiness", "Governance & risk framework", "Accountability", "Training & team adoption", "Responsible adoption planning"],
-    receive: ["Governance recommendations", "Accountability framework", "Adoption readiness actions"],
-    next: "Carry these foundations forward yourself, or move straight into implementation with IntegroAI.",
-    receiveNote: "Outputs reflect the agreed scope of the engagement.",
+    deliverable: "Data and adoption readiness",
+    get: ["Data readiness actions", "Governance recommendations and accountability framework", "Training and upskilling for your team"],
+    extra: "Outputs reflect the agreed scope of the engagement.",
   },
   {
-    icon: Cog,
     number: "05",
     stage: "Implement",
     service: "AI & Automation Implementation",
-    purpose: "Turn validated opportunities into working solutions with a clear business case.",
-    steps: [
+    result: "Working solutions your team uses, with human oversight built in.",
+    doSteps: [
       "Source the right tools, resources and specialists",
       "Design, build and test the solution with your team",
       "Deploy with human oversight built in",
     ],
-    gradient: "from-accent-warm to-amber-400",
-    review: ["Workflow automation", "Integration support", "AI skills, plugins & agents", "Voice AI agent", "Proof-of-concept & MVP", "Implementation oversight"],
-    receive: ["Clearly defined scope", "Delivery oversight", "Human oversight built into the solution"],
-    next: "Take the solution forward internally, or continue with IntegroAI for ongoing review and advisory support.",
-    note: "Technology follows the business requirement, not the other way round, so what gets built is grounded in a genuine business case.",
+    deliverable: "A working solution",
+    get: ["Clearly defined scope", "Delivery oversight", "Human oversight built into the solution"],
+    extra: "For example: workflow automation, integrations, AI agents, voice AI agents, proof of concept and MVP. Technology follows the business requirement, not the other way round.",
   },
   {
-    icon: TrendingUp,
     number: "06",
     stage: "Evolve",
     service: "Ongoing AI & Operations Advisory",
-    purpose: "Keep implemented changes delivering value as the business and technology evolve.",
-    steps: [
+    result: "Changes that keep delivering value as your business grows.",
+    doSteps: [
       "Monitor performance against the agreed measures",
       "Optimise what's working and correct what isn't",
       "Update the roadmap as priorities change",
     ],
-    gradient: "from-primary to-[#1E4A6E]",
-    review: ["Performance reviews", "Adoption & governance review", "Course correction", "Roadmap updates", "Ongoing leadership advisory"],
-    receive: ["Evidence-based review", "Recommendations", "Ongoing advisory support"],
-    next: "Support scales up, down or pauses as priorities change.",
+    deliverable: "Ongoing advisory retainer",
+    get: ["Regular evidence-based reviews", "Clear recommendations", "Ongoing leadership advice"],
+    extra: "Support scales up, down or pauses as priorities change.",
   },
 ];
 
@@ -207,70 +208,79 @@ const WorkWithMe = () => {
             </div>
           </section>
 
-          {/* Stages */}
+          {/* Stages: one free entry row, then five stages that open one at a time. */}
           <section className="py-12 sm:py-16 bg-subtle">
             <div className="wrap">
-              <div className="max-w-4xl mx-auto text-center mb-10 sm:mb-14">
+              <div className="max-w-4xl mx-auto text-center mb-8 sm:mb-10">
                 <h2 className="font-heading text-3xl sm:text-4xl lg:text-[40px] mb-4">How We Can Work Together</h2>
-                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                  Six stages of support, from initial assessment through implementation and ongoing advisory. Use the stages your business needs, without committing to the entire journey.
+                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed [text-wrap:balance]">
+                  Six stages, from a free assessment to ongoing advice. Start at any stage, take the findings forward yourself, or continue with us. Nothing commits you to the full journey.
                 </p>
               </div>
 
-              <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
-                {stages.map((item, index) => (
-                  <m.article
-                    key={item.stage}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 0.5, delay: index * 0.05 }}
-                    className="bg-card rounded-2xl border border-border/40 shadow-sm hover:shadow-md hover:border-primary/15 transition-all duration-500 p-8 sm:p-10"
-                  >
-                    <div className="flex items-start gap-5 mb-6">
-                      <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center flex-shrink-0 shadow-md`}>
-                        <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" aria-hidden="true" />
-                      </div>
-                      <div>
-                        <span className="text-brand-label font-semibold text-xs uppercase tracking-[0.15em]">
-                          Stage {item.number} — {item.stage}
-                        </span>
-                        <h3 className="text-lg sm:text-xl font-bold text-foreground mt-1 tracking-tight">
-                          {item.service}
-                        </h3>
-                      </div>
+              <m.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5 }}
+                className="max-w-4xl mx-auto flex flex-col gap-3"
+              >
+                {/* Stage 01: free, so it gets a button instead of details. */}
+                <div className="flex flex-col gap-4 rounded-[14px] border border-brand-amber bg-white px-5 py-5 sm:flex-row sm:items-center sm:px-6">
+                  <div className="flex flex-1 items-start gap-4">
+                    <span className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-brand-amber text-sm font-semibold text-brand-navy" aria-hidden="true">
+                      {assessment.number}
+                    </span>
+                    <div>
+                      <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-brand-teal">
+                        Stage {assessment.number} · {assessment.stage} · Free
+                      </p>
+                      <h3 className="mt-1 text-base font-semibold leading-snug text-brand-navy sm:text-[17px]">{assessment.service}</h3>
+                      <p className="mt-1 text-sm leading-relaxed text-brand-slate sm:text-[15px]">{assessment.result}</p>
                     </div>
+                  </div>
+                  <a href={assessment.ctaHref} target="_blank" rel="noopener noreferrer" className="btn-amber group w-fit flex-none sm:ml-4">
+                    {assessment.ctaLabel}
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                  </a>
+                </div>
 
-                    {item.isAssessment ? (
-                      <div>
-                        <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-4">{item.purpose}</p>
-                        <Button variant="outline" size="default" className="group" asChild>
-                          <a href={item.ctaHref} target="_blank" rel="noopener noreferrer">
-                            {item.ctaLabel}
-                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                          </a>
-                        </Button>
-                      </div>
-                    ) : (
-                      <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
-                        <div className="sm:col-span-2">
-                          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">Purpose</p>
-                          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">{item.purpose}</p>
-                        </div>
+                <Accordion.Root type="single" collapsible className="flex flex-col gap-3">
+                  {stages.map((item) => (
+                    <Accordion.Item
+                      key={item.number}
+                      value={item.number}
+                      className="group rounded-[14px] border border-brand-sand bg-white transition-colors data-[state=open]:border-brand-amber data-[state=open]:ring-1 data-[state=open]:ring-brand-amber"
+                    >
+                      <Accordion.Header asChild>
+                        <h3 className="m-0">
+                          <Accordion.Trigger className="flex w-full items-start gap-4 rounded-[14px] px-5 py-5 text-left sm:px-6">
+                            <span className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-brand-navy text-sm font-semibold text-white" aria-hidden="true">
+                              {item.number}
+                            </span>
+                            <span className="flex-1">
+                              <span className="block text-[11px] font-bold uppercase tracking-[0.12em] text-brand-teal">
+                                Stage {item.number} · {item.stage}
+                              </span>
+                              <span className="mt-1 block text-base font-semibold leading-snug text-brand-navy sm:text-[17px]">{item.service}</span>
+                              <span className="mt-1 block text-sm font-normal leading-relaxed text-brand-slate sm:text-[15px]">{item.result}</span>
+                            </span>
+                            <Plus className="mt-2.5 h-[18px] w-[18px] flex-none text-brand-navy group-data-[state=open]:hidden" strokeWidth={2} aria-hidden="true" />
+                            <Minus className="mt-2.5 hidden h-[18px] w-[18px] flex-none text-brand-navy group-data-[state=open]:block" strokeWidth={2} aria-hidden="true" />
+                          </Accordion.Trigger>
+                        </h3>
+                      </Accordion.Header>
 
-                        {item.steps && (
-                          <div className="sm:col-span-2">
-                            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2.5">How it works</p>
-                            <ol className="grid list-none gap-3 sm:grid-cols-3">
-                              {item.steps.map((step, stepIndex) => (
-                                <li
-                                  key={step}
-                                  className="flex items-start gap-3 rounded-2xl border border-brand-sand bg-brand-ivory p-4 text-sm font-medium leading-snug text-brand-navy sm:text-[15px]"
-                                >
-                                  <span
-                                    className="flex h-6 w-6 flex-none items-center justify-center rounded-full bg-brand-amber text-xs font-bold text-brand-navy"
-                                    aria-hidden="true"
-                                  >
+                      {/* forceMount keeps the details in the page HTML for search
+                          engines and AI assistants while they are collapsed. */}
+                      <Accordion.Content forceMount className="px-5 pb-6 data-[state=closed]:hidden sm:px-6 sm:pl-[80px]">
+                        <div className="grid gap-6 border-t border-brand-sand pt-5 sm:grid-cols-2 sm:gap-8">
+                          <div>
+                            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.12em] text-brand-slate">What we do</p>
+                            <ol className="flex list-none flex-col gap-2.5">
+                              {item.doSteps.map((step, stepIndex) => (
+                                <li key={step} className="flex items-start gap-3 text-sm leading-relaxed text-brand-navy sm:text-[15px]">
+                                  <span className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-brand-chip text-[11px] font-bold text-brand-navy" aria-hidden="true">
                                     {stepIndex + 1}
                                   </span>
                                   {step}
@@ -278,48 +288,27 @@ const WorkWithMe = () => {
                               ))}
                             </ol>
                           </div>
-                        )}
-
-                        <div>
-                          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">What we review</p>
-                          <div className="flex flex-wrap gap-2">
-                            {item.review.map((r) => (
-                              <span key={r} className="text-xs sm:text-sm font-medium text-foreground border border-border/70 px-3 py-1 rounded-full">
-                                {r}
-                              </span>
-                            ))}
+                          <div>
+                            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.12em] text-brand-slate">What you get</p>
+                            <p className="mb-2.5 text-[15px] font-semibold text-brand-navy sm:text-base">{item.deliverable}</p>
+                            <ul className="flex flex-col gap-2">
+                              {item.get.map((g) => (
+                                <li key={g} className="flex items-start gap-2 text-sm leading-relaxed text-brand-slate sm:text-[15px]">
+                                  <CheckCircle2 className="mt-0.5 h-4 w-4 flex-none text-brand-teal" aria-hidden="true" />
+                                  {g}
+                                </li>
+                              ))}
+                            </ul>
                           </div>
                         </div>
-
-                        <div>
-                          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">What you receive</p>
-                          <ul className="space-y-1.5">
-                            {item.receive.map((r) => (
-                              <li key={r} className="flex items-start gap-2 text-sm sm:text-base text-muted-foreground leading-relaxed">
-                                <CheckCircle2 className="w-4 h-4 text-accent-warm flex-shrink-0 mt-0.5" aria-hidden="true" />
-                                {r}
-                              </li>
-                            ))}
-                          </ul>
-                          {item.receiveNote && (
-                            <p className="text-xs text-muted-foreground/80 italic mt-2">{item.receiveNote}</p>
-                          )}
-                        </div>
-
-                        <div className="sm:col-span-2 pt-2 border-t border-border/50">
-                          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5 mt-4">What happens next</p>
-                          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">{item.next}</p>
-                          {item.note && (
-                            <p className="text-xs sm:text-sm text-muted-foreground/80 leading-relaxed mt-3 bg-muted/50 rounded-lg p-3">
-                              {item.note}
-                            </p>
-                          )}
-                        </div>
-                      </div>
-                    )}
-                  </m.article>
-                ))}
-              </div>
+                        {item.extra && (
+                          <p className="mt-5 text-[13px] leading-relaxed text-brand-slate sm:text-sm">{item.extra}</p>
+                        )}
+                      </Accordion.Content>
+                    </Accordion.Item>
+                  ))}
+                </Accordion.Root>
+              </m.div>
             </div>
           </section>
 
