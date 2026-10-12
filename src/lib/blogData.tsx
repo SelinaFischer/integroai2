@@ -1117,7 +1117,7 @@ const GetFoundOnChatGPTContent: React.FC = () => (
       This guide gives you five practical checks, in plain English.
     </p>
 
-    <h2>Why does AI search matter for small businesses?</h2>
+    <h2>Why does AI search matter for your business?</h2>
     <p>
       Search used to start with a short phrase, like “financial adviser London”. A page of links came back.
       The customer did the comparing.
@@ -1335,7 +1335,7 @@ const GetFoundOnChatGPTContent: React.FC = () => (
       .
     </p>
 
-    <h2>Can ChatGPT access your website?</h2>
+    <h2>Can AI tools access your website?</h2>
     <p>
       Clear content needs a website that AI search can read. Ask your web developer to check three things:
     </p>
@@ -1345,7 +1345,7 @@ const GetFoundOnChatGPTContent: React.FC = () => (
       <li>Is your key information written as text, not only inside images?</li>
     </ul>
     <p>
-      For ChatGPT search, the crawler is called <strong>OAI-SearchBot</strong>. It is separate from{" "}
+      Each AI tool has its own crawler. For ChatGPT search, it is called <strong>OAI-SearchBot</strong>. It is separate from{" "}
       <strong>GPTBot</strong>, which relates to training OpenAI’s models. You can allow one and not the other.
     </p>
     <p>
@@ -1367,7 +1367,7 @@ const GetFoundOnChatGPTContent: React.FC = () => (
       <strong>Access is the starting point. The five checks do the rest.</strong>
     </p>
 
-    <h2>How do you check whether ChatGPT recommends your business?</h2>
+    <h2>How do you check whether AI recommends your business?</h2>
     <p>
       Run the AI test. Ask the question a customer would ask.
     </p>
@@ -1431,16 +1431,16 @@ const GetFoundOnChatGPTContent: React.FC = () => (
       qualified enquiries, not mentions.</strong>
     </p>
 
-    <h2>Frequently asked questions about getting found on ChatGPT</h2>
+    <h2>Frequently asked questions about getting found by AI</h2>
 
-    <h3>Why is my business not showing up in ChatGPT?</h3>
+    <h3>Why is my business not showing up in ChatGPT or other AI tools?</h3>
     <p>
       Common reasons: pages AI search can’t read, unclear service descriptions, outdated listings, or too
       little relevant information online. The question, the location and the search mode matter too.
       Check your sources and your website access before settling on one cause.
     </p>
 
-    <h3>Can I guarantee that ChatGPT will recommend my business?</h3>
+    <h3>Can I guarantee that AI will recommend my business?</h3>
     <p>
       No. Nobody can. Be wary of any service that promises guaranteed recommendations.
     </p>
@@ -1522,7 +1522,7 @@ const GetFoundOnChatGPTContent: React.FC = () => (
 export const articles: BlogArticle[] = [
   {
     slug: "how-to-get-your-business-found-on-chatgpt",
-    title: "How to Get Your Business Found on ChatGPT: A Practical Guide for Small Businesses",
+    title: "How to Get Your Business Found by ChatGPT and Other AI Tools",
     subtitle: "When customers ask AI to recommend a business like yours, does yours come up? Five practical checks to make your business clear, useful and easy to verify.",
     date: "October 2026",
     category: "AI Visibility",
