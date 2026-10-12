@@ -211,6 +211,7 @@ a{color:inherit}
 .veil{display:block;height:10px;border-radius:6px;background:linear-gradient(90deg,#E9E1D3,#F5EFE4)}
 .veil-lg{width:150px;height:14px;margin-top:6px;background:linear-gradient(90deg,#FFD9A0,#FFF1DA)}
 .mf-left{display:flex;flex-direction:column}
+.mock-focus .nm{font-size:16px;font-weight:700;color:var(--navy)}
 .mock-bars-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-bottom:8px;flex-wrap:wrap}
 .lock-chip{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:#3B767C;background:#E7F1F1;border-radius:999px;padding:3px 9px 3px 7px;white-space:nowrap}
 .lock-chip svg{width:12px;height:12px}
@@ -494,15 +495,15 @@ a{color:inherit}
             </div>
           </div>
           <div class="mock-bars">
-            <div class="mock-bars-head"><p class="lbl">Readiness by area</p><span class="lock-chip"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.6" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Revealed in your results</span></div>
-            <div class="mock-bar"><span class="veil" style="width:78%"></span><i><b style="width:50%"></b></i><em>3/6</em></div>
-            <div class="mock-bar"><span class="veil" style="width:92%"></span><i><b style="width:33%"></b></i><em>2/6</em></div>
-            <div class="mock-bar"><span class="veil" style="width:70%"></span><i><b style="width:50%"></b></i><em>3/6</em></div>
-            <div class="mock-bar pri"><span class="veil" style="width:86%"></span><i><b style="width:17%"></b></i><em>1/6</em></div>
-            <div class="mock-bar"><span class="veil" style="width:64%"></span><i><b style="width:33%"></b></i><em>2/6</em></div>
+            <p class="lbl" style="padding-bottom:6px">Readiness by dimension</p>
+            <div class="mock-bar"><span>Strategic Clarity</span><i><b style="width:50%"></b></i><em>3/6</em></div>
+            <div class="mock-bar"><span>Leadership &amp; Ownership</span><i><b style="width:33%"></b></i><em>2/6</em></div>
+            <div class="mock-bar"><span>Process Maturity</span><i><b style="width:50%"></b></i><em>3/6</em></div>
+            <div class="mock-bar pri"><span>Operational Visibility</span><i><b style="width:17%"></b></i><em>1/6</em></div>
+            <div class="mock-bar"><span>Data Readiness</span><i><b style="width:33%"></b></i><em>2/6</em></div>
           </div>
           <div class="mock-focus">
-            <span class="mf-left"><span class="lbl" style="display:block;color:var(--slate)">Priority focus</span><span class="veil veil-lg"></span></span>
+            <span class="mf-left"><span class="lbl" style="display:block;color:var(--slate)">Priority focus</span><span class="nm">Operational Visibility</span></span>
             <span class="tag">Start here</span>
           </div>
         </div>
@@ -990,7 +991,7 @@ function startAssessment(){curQ=0;picks=new Array(QS.length).fill(null);show('s-
 var TICK_SVG='<svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6.2l2.6 2.6L10 3.4" stroke="#041B2B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 function renderQ(moveFocus){
   var q=QS[curQ],tot=QS.length,pct=Math.round(((curQ+1)/tot)*100),isLast=curQ===tot-1;
-  document.getElementById('q-sec').textContent='Part '+(q.dim+1)+' of 5';
+  document.getElementById('q-sec').textContent=DIM_NAMES[q.dim]+' \u00b7 '+(q.dim+1)+' of 5';
   document.getElementById('q-num').textContent='Question '+(curQ+1)+' of '+tot;
   document.getElementById('q-prog').style.width=pct+'%';
   document.getElementById('q-progbar').setAttribute('aria-valuenow',pct);
