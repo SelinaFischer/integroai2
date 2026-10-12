@@ -209,9 +209,11 @@ a{color:inherit}
 .mock .ring-val b{font-size:32px}
 .mock .ring-txt .serif{font-size:25px}
 .mock .hide{filter:blur(3px);opacity:.55;user-select:none}
-.mock-veil{position:absolute;left:0;right:0;bottom:0;height:48%;display:flex;align-items:flex-end;justify-content:center;padding-bottom:26px;background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.75) 45%,#fff 80%);pointer-events:none}
-.lock-tag{display:inline-flex;align-items:center;gap:7px;background:var(--navy);color:#fff;font-size:13px;font-weight:600;border-radius:999px;padding:9px 16px;box-shadow:0 8px 20px rgba(4,27,43,.18)}
-.lock-tag svg{width:14px;height:14px;color:var(--amber)}
+.mock .mock-focus.hide{display:none}
+.mock{transform:rotate(3deg);transform-origin:50% 40%}
+@media(min-width:768px){.mock{transform:rotate(5deg)}.hero-visual{padding-top:12px}}
+.hero-caption{margin-top:10px}
+.mock-veil{position:absolute;left:0;right:0;bottom:0;height:34%;display:flex;align-items:flex-end;justify-content:center;padding-bottom:0;background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.75) 45%,#fff 80%);pointer-events:none}
 .hero-caption{font-size:14px;color:var(--mist);text-align:center}
 
 /* sample result card (same as the homepage assessment card) */
@@ -433,7 +435,7 @@ a{color:inherit}
       </div>
 
       <div class="hero-visual">
-        <div class="mock" role="img" aria-label="Sample AI Readiness result: 11 out of 30, Early Explorer. The full breakdown appears when you finish.">
+        <div class="mock" role="img" aria-label="Sample AI Readiness result: 11 out of 30, Early Explorer.">
           <div class="mock-top">
             <p class="lbl">AI Readiness Score</p>
             <p class="chip">Sample result</p>
@@ -463,7 +465,7 @@ a{color:inherit}
             <p class="lbl">Priority focus</p>
             <p>Operational Visibility</p>
           </div>
-          <div class="mock-veil" aria-hidden="true"><span class="lock-tag"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.6" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Full breakdown when you finish</span></div>
+          <div class="mock-veil" aria-hidden="true"></div>
         </div>
         <p class="hero-caption">A sample result. Yours appears the moment you finish.</p>
       </div>
