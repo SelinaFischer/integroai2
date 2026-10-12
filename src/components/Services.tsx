@@ -147,7 +147,7 @@ const Services = () => {
         <SectionHeader
           eyebrow="AI consulting services"
           title="AI consulting services that cut firefighting, free up capacity and protect margin."
-          intro="IntegroAI provides AI strategy consulting, AI implementation and ongoing AI advisory. Use the stages your business needs, without committing to the entire journey."
+          intro="IntegroAI provides AI strategy consulting, AI implementation and ongoing AI advisory, led from diagnosis through to delivery."
         />
 
         {/* The six stages drawn as one route with six stops, grouped into the
