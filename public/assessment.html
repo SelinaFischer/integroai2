@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Readiness Assessment | IntegroAI Consulting</title>
-<meta name="description" content="IntegroAI's free 5-minute AI Readiness Assessment scores your business across strategic clarity, leadership and ownership, process maturity, operational visibility and data readiness, then names the priority to focus on first.">
+<meta name="description" content="IntegroAI's free 5-minute AI Readiness Assessment scores your business across business direction, ownership and capacity, process readiness, systems and information, and responsible use and skills, then names the priority to focus on first.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#050F1B">
 <link rel="canonical" href="https://integroai.tech/assessment">
@@ -13,7 +13,7 @@
 <meta property="og:locale" content="en_GB">
 <meta property="og:url" content="https://integroai.tech/assessment">
 <meta property="og:title" content="AI Readiness Assessment | IntegroAI Consulting">
-<meta property="og:description" content="IntegroAI's free 5-minute AI Readiness Assessment scores your business across strategic clarity, leadership and ownership, process maturity, operational visibility and data readiness, then names the priority to focus on first.">
+<meta property="og:description" content="IntegroAI's free 5-minute AI Readiness Assessment scores your business across business direction, ownership and capacity, process readiness, systems and information, and responsible use and skills, then names the priority to focus on first.">
 <meta property="og:image" content="https://integroai.tech/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/x-icon" href="https://integroai.tech/favicon.ico">
@@ -257,6 +257,7 @@ a{color:inherit}
 .prog-fill{height:100%;width:0;background:var(--amber);border-radius:6px;transition:width .4s cubic-bezier(.4,0,.2,1)}
 .q-title{font-family:var(--serif);font-weight:600;font-size:28px;line-height:1.12;color:var(--ink);margin-bottom:10px;text-wrap:balance;font-variant-numeric:lining-nums}
 @media(min-width:640px){.q-title{font-size:34px}}
+.q-intro{font-size:14px;line-height:1.55;color:var(--body);background:var(--cream);border:1px solid var(--sand);border-radius:12px;padding:12px 14px;margin-bottom:20px}
 .q-hint{font-size:15px;line-height:1.6;color:var(--slate);margin-bottom:24px}
 .ans-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:28px}
 .a-card{position:relative;width:100%;text-align:left;background:#fff;border:1.5px solid var(--sand);border-radius:var(--radius);padding:15px 52px 15px 18px;cursor:pointer;transition:border-color .15s,background-color .15s,box-shadow .15s;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
@@ -332,7 +333,7 @@ a{color:inherit}
 @media(min-width:900px){.r-cols{grid-template-columns:1fr 1fr;align-items:stretch}}
 .r-panel{padding:24px}
 @media(min-width:640px){.r-panel{padding:30px}}
-.dim-row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) 38px 58px;align-items:center;gap:12px;padding:10px 0}
+.dim-row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) 38px 150px;align-items:center;gap:12px;padding:10px 0}
 .dim-row + .dim-row{border-top:1px solid var(--track)}
 .dim-nm{font-size:15px;font-weight:600;color:var(--navy)}
 .dim-nm .pf{display:inline-block;margin-left:6px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);background:var(--chip);border-radius:999px;padding:2px 8px;vertical-align:2px}
@@ -340,16 +341,21 @@ a{color:inherit}
 .bar-f{height:100%;width:0;background:var(--navy);border-radius:6px;transition:width 1.1s cubic-bezier(.4,0,.2,1)}
 .bar-f.priority{background:var(--amber)}
 .dim-vl{font-size:15px;font-weight:700;color:var(--navy);text-align:right}
-.dim-band{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-align:right}
-@media(max-width:480px){.dim-row{grid-template-columns:minmax(0,1fr) 34px 54px;row-gap:6px}.dim-row .bar-t{grid-column:1/-1;grid-row:2}}
+.dim-band{font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;text-align:right;white-space:nowrap}
+@media(max-width:480px){.dim-row{grid-template-columns:minmax(0,1fr) 34px 118px;row-gap:6px}.dim-row .bar-t{grid-column:1/-1;grid-row:2}}
 .dim-note{font-size:13px;color:var(--slate);margin-top:10px}
 .radar-holder{display:flex;flex-direction:column;justify-content:center}
-.radar-holder svg{display:block;width:100%;max-width:440px;margin:0 auto}
+.radar-holder svg{display:block;width:100%;max-width:620px;margin:0 auto}
 .radar-summary{font-size:15px;color:var(--body);text-align:center;margin-top:6px;line-height:1.5}
 
 .diag-p{font-size:16px;line-height:1.7;color:var(--body);margin:10px 0 20px}
 .focus-box{background:var(--cream);border:1px solid var(--sand);border-radius:var(--radius);padding:16px 18px;display:flex;flex-direction:column;gap:6px}
 .focus-name{font-size:18px;font-weight:700;color:var(--navy)}
+.flag-box{margin-top:16px;background:#FEF3F2;border:1px solid #FECDCA;border-radius:var(--radius);padding:16px 18px}
+.flag-box .lbl{color:#B42318}
+.flag-box ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.flag-box li{position:relative;padding-left:18px;font-size:15px;line-height:1.55;color:var(--navy)}
+.flag-box li::before{content:'';position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;background:#B42318}
 .focus-p{font-size:15px;line-height:1.6;color:var(--body)}
 .next-p{font-size:15px;line-height:1.65;color:var(--body);margin-top:16px}
 
@@ -465,15 +471,15 @@ a{color:inherit}
           </div>
           <div class="mock-bars">
             <p class="lbl" style="padding-bottom:6px">Score by dimension</p>
-              <div class="mock-bar"><span>Strategic Clarity</span><i><b style="width:50%"></b></i><em>3/6</em></div>
-              <div class="mock-bar"><span>Leadership &amp; Ownership</span><i><b style="width:33%"></b></i><em>2/6</em></div>
-              <div class="mock-bar"><span>Process Maturity</span><i><b style="width:50%"></b></i><em>3/6</em></div>
-              <div class="mock-bar pri hide"><span>Operational Visibility</span><i><b style="width:17%"></b></i><em>1/6</em></div>
-              <div class="mock-bar hide"><span>Data &amp; Readiness</span><i><b style="width:33%"></b></i><em>2/6</em></div>
+              <div class="mock-bar"><span>Business Direction</span><i><b style="width:50%"></b></i><em>3/6</em></div>
+              <div class="mock-bar"><span>Ownership &amp; Capacity</span><i><b style="width:33%"></b></i><em>2/6</em></div>
+              <div class="mock-bar"><span>Process Readiness</span><i><b style="width:50%"></b></i><em>3/6</em></div>
+              <div class="mock-bar pri hide"><span>Systems &amp; Information</span><i><b style="width:17%"></b></i><em>1/6</em></div>
+              <div class="mock-bar hide"><span>Responsible Use &amp; Skills</span><i><b style="width:33%"></b></i><em>2/6</em></div>
           </div>
           <div class="mock-focus hide">
             <p class="lbl">Recommended next step</p>
-            <p>Operational Visibility</p>
+            <p>Systems &amp; Information</p>
           </div>
           <div class="mock-veil" aria-hidden="true"></div>
         </div>
@@ -494,6 +500,7 @@ a{color:inherit}
         <span class="q-counter" id="q-num"></span>
       </div>
       <div class="prog-track" role="progressbar" aria-label="Assessment progress" aria-valuemin="0" aria-valuemax="100" id="q-progbar"><div class="prog-fill" id="q-prog"></div></div>
+      <p class="q-intro" id="q-intro">Choose the answer that best reflects your business today. If you work alone, answer for yourself. Otherwise, include the people involved in delivering your services.</p>
       <h2 class="q-title" id="q-title" tabindex="-1"></h2>
       <p class="q-hint" id="q-hint"></p>
       <div class="ans-grid" id="q-grid" role="radiogroup" aria-labelledby="q-title"></div>
@@ -662,7 +669,7 @@ a{color:inherit}
 
       <div class="r-cols">
         <div class="card r-panel radar-holder">
-          <svg id="radar-svg" viewBox="0 0 440 340" role="img" aria-label="Radar chart of your five readiness dimensions"></svg>
+          <svg id="radar-svg" viewBox="0 0 620 420" role="img" aria-label="Radar chart of your five readiness dimensions"></svg>
           <p class="radar-summary" id="radar-summary"></p>
         </div>
         <div class="card r-panel">
@@ -671,6 +678,10 @@ a{color:inherit}
           <div class="focus-box">
             <p class="lbl">Recommended Next Step</p>
             <p class="focus-p" id="r-opp" style="color:var(--navy);font-weight:500"></p>
+          </div>
+          <div class="flag-box" id="r-flags" hidden>
+            <p class="lbl">Important to address</p>
+            <ul id="r-flag-list"></ul>
           </div>
         </div>
       </div>
@@ -782,103 +793,111 @@ function validatePhone(p){
    Total max = 30
    ──────────────────────────────────────────────────────────────────────────── */
 var QS=[
-  /* ── DIRECTION ─────────────────────────────────────── */
-  {sec:'Section 1 of 3: Direction',
-   title:'How clear is your main goal for using AI in the next 6–12 months?',
-   hint:'A goal linked to a specific outcome (time saved, cost reduced, or revenue grown) is the single strongest predictor of whether AI delivers a return. For example: win back 10 hours of admin a week, or take on more clients without hiring.',
+  /* ── SECTION 1: BUSINESS DIRECTION ─────────────────── */
+  {sec:'Section 1 of 3: Business direction',
+   title:'How clear are you about the business outcome you want AI to help achieve?',
+   hint:'For example: less admin, faster client responses or more capacity to serve customers.',
    opts:[
-     {t:'Clearly defined',    s:'We have a written goal linked to specific outcomes: time, cost, or revenue',v:3},
-     {t:'Broadly stated',     s:'We have 1–2 written goals but they are still fairly general',               v:2},
-     {t:'General direction',  s:'We have an idea but nothing written down yet',                               v:1},
-     {t:'Not yet defined',    s:'We have not agreed what AI should achieve for the business yet',            v:0}
+     {t:'Clear and measurable', s:'We have a specific outcome and a target to measure success.',v:3},
+     {t:'Clear outcome',        s:'We know what we want to improve but have not set a measurable target.',v:2},
+     {t:'General ambition',     s:'We want to save time or improve how we work but have not chosen a specific outcome.',v:1},
+     {t:'Still exploring',      s:'We are not yet sure what AI should help us achieve.',v:0}
    ]},
-  {sec:'Section 1 of 3: Direction',
-   title:'When you come across a new AI tool or solution, what is your instinct?',
-   hint:'How a business approaches AI tools reveals whether it is solution-led or problem-led. The strongest AI investments always start from the problem.',
+  {sec:'Section 1 of 3: Business direction',
+   title:'How do you decide where AI could make the biggest difference in your business?',
+   hint:'Think about how you choose which tasks or problems to focus on.',
    opts:[
-     {t:'Problem-led',        s:'We check whether it solves a specific problem we have and fits how we work', v:3},
-     {t:'Business-case first', s:'We assess whether the time, cost, and operational case justify exploring it', v:2},
-     {t:'Curious but unsure', s:'We are interested but unsure how to evaluate whether it is worth trying',     v:1},
-     {t:'Tool-first',         s:'We want to try it, as it might be useful somewhere',                         v:0}
+     {t:'Compare and prioritise', s:'We compare opportunities by their likely benefits, effort and risks before choosing.',v:3},
+     {t:'Start with a problem',   s:'We have identified a specific business problem but have not compared it with other opportunities.',v:2},
+     {t:'Follow interest',        s:'We explore solutions that catch our attention without linking them to a clear business priority.',v:1},
+     {t:'No approach yet',        s:'We have not worked out how to choose where AI could help.',v:0}
    ]},
-  {sec:'Section 1 of 3: Direction',
-   title:'Who is responsible for making decisions about AI in your organisation?',
-   hint:'In a founder-led business this is often the founder. Without a named owner with decision authority, AI initiatives stall before they deliver results.',
+  {sec:'Section 1 of 3: Business direction',
+   title:'Who would be responsible for moving an AI project forward?',
+   hint:'This could be you, a team member or an external partner.',
    opts:[
-     {t:'Named owner with authority', s:'A specific person owns AI decisions, priorities, and budget approval',    v:3},
-     {t:'Named owner, limited capacity',s:'One person owns AI decisions alongside other significant responsibilities',v:2},
-     {t:'Informal interest',          s:'Someone is engaged but there is no formal ownership yet',               v:1},
-     {t:'Not assigned',               s:'No one has been given responsibility for AI decisions',                  v:0}
+     {t:'Owner and authority agreed', s:'A specific person would lead, with a clear route to decisions and approvals.',v:3},
+     {t:'Owner agreed',               s:'A specific person would lead, but decision-making responsibilities are unclear.',v:2},
+     {t:'Potential owner',            s:'Someone could lead, but this has not been agreed.',v:1},
+     {t:'No owner identified',        s:'We do not yet know who would lead.',v:0}
    ]},
-  /* ── OPERATIONS ─────────────────────────────────────── */
-  {sec:'Section 2 of 3: Operations',
-   title:'How clearly are your key repeatable processes, like client onboarding, quoting, scheduling and invoicing, documented and followed?',
-   hint:'AI cannot improve a process that has not been defined. Undocumented processes produce unpredictable results at scale.',
+  {sec:'Section 1 of 3: Business direction',
+   title:'What time and resources could you commit to testing AI on one task?',
+   hint:'Include setup, learning, testing and any necessary costs or outside support.',
    opts:[
-     {t:'Documented and used',   s:'Key processes are written down, shared, and followed in daily work',         v:3},
-     {t:'Written but variable',  s:'Most processes are written down but not always followed consistently',        v:2},
-     {t:'Partially documented',  s:'Some processes are written down but many rely on individual knowledge',       v:1},
-     {t:'Not documented',        s:'We mostly rely on people\'s experience and memory',                           v:0}
+     {t:'Available',               s:'We can set aside regular time and cover the resources needed for a small trial.',v:3},
+     {t:'Possible but not agreed', s:'We could make time and resources available, but have not committed them.',v:2},
+     {t:'Limited',                 s:'We could manage occasional testing, but regular time or necessary spending would be difficult.',v:1},
+     {t:'Unavailable currently',   s:'We cannot currently commit time or resources to a trial.',v:0}
    ]},
-  {sec:'Section 2 of 3: Operations',
-   title:'How clearly do you know where your team spends the most repetitive manual time each week?',
-   hint:'Think chasing clients, re-keying information, scheduling, updating spreadsheets and reporting. The highest-value AI opportunities are almost always hiding in the work people repeat most often.',
+  /* ── SECTION 2: EVERYDAY OPERATIONS ────────────────── */
+  {sec:'Section 2 of 3: Everyday operations',
+   title:'How clearly are the steps in your main recurring tasks documented and followed?',
+   hint:'Think about client onboarding, quoting, scheduling and invoicing.',
    opts:[
-     {t:'Clearly mapped',     s:'We have mapped where time goes across key workflows and know our main bottlenecks',v:3},
-     {t:'Broadly understood', s:'We have a good sense of 1–2 high-friction areas',                                 v:2},
-     {t:'Anecdotal view',     s:'We have a general sense based on feedback, but it has not been measured',          v:1},
-     {t:'Not measured',       s:'We have not looked at where repetitive time is spent',                            v:0}
+     {t:'Clear and consistently followed', s:'Instructions are current, cover the main steps and are usually followed.',v:3},
+     {t:'Mostly clear',                    s:'Instructions cover the main steps, but some explanation or updating is needed.',v:2},
+     {t:'Partly documented',               s:'Some steps are written down, but much depends on individual knowledge.',v:1},
+     {t:'No agreed instructions',          s:'Tasks rely mainly on people’s memory and their own way of working.',v:0}
    ]},
-  {sec:'Section 2 of 3: Operations',
-   title:'How consistent is the way work is actually done compared to how it is meant to be done?',
-   hint:'Inconsistency in how work is done is one of the clearest signals that a process is not ready for automation.',
+  {sec:'Section 2 of 3: Everyday operations',
+   title:'How well do you understand the time spent on your main repetitive tasks?',
+   hint:'For example: chasing clients, copying information, preparing documents or updating records.',
    opts:[
-     {t:'Highly consistent', s:'Work follows agreed steps most of the time across the team',        v:3},
-     {t:'Mostly consistent', s:'Most people follow a similar approach with some variation',          v:2},
-     {t:'Inconsistent',      s:'Some people follow a consistent approach, others do not',            v:1},
-     {t:'Highly variable',   s:'Each person has their own way of doing things',                      v:0}
+     {t:'Measured',                     s:'We have measured how much time the main repetitive tasks take.',v:3},
+     {t:'Estimated',                    s:'We know the main tasks and have rough estimates of the time involved.',v:2},
+     {t:'Identified but not estimated', s:'We know some time-consuming tasks but have not estimated their impact.',v:1},
+     {t:'Not identified',               s:'We have not looked closely at where repetitive work takes up time.',v:0}
    ]},
-  {sec:'Section 2 of 3: Operations',
-   title:'When a recurring problem in your operations keeps surfacing, how do you usually identify it?',
-   hint:'Think missed follow-ups, late invoices, repeat client complaints or jobs that overrun. The ability to spot patterns early shows that feedback loops are working. Without this, operational problems scale silently.',
+  {sec:'Section 2 of 3: Everyday operations',
+   title:'How reliably does information move between the systems you use?',
+   hint:'Think about email, spreadsheets, calendars, client management and accounts software. If you use one system, consider whether it avoids duplicate entry.',
    opts:[
-     {t:'Systematic review', s:'We review data or reports regularly and catch patterns before they escalate',     v:3},
-     {t:'Periodic check-in', s:'We review operational feedback from time to time and usually catch issues early', v:2},
-     {t:'Reactive review',   s:'We look into it when we find time to go through feedback or notes',               v:1},
-     {t:'Only when urgent',  s:'Usually when it becomes too visible or costly to ignore',                       v:0}
+     {t:'Reliable with little copying', s:'Information is shared or transferred reliably, with little manual re-entry.',v:3},
+     {t:'Reliable but manual',          s:'Information usually stays accurate, but regular copying or re-entry is needed.',v:2},
+     {t:'Frequent problems',            s:'Transfers often lead to missing details, duplicate entries or outdated information.',v:1},
+     {t:'No agreed approach',           s:'Information is moved as needed, without a reliable way to keep it consistent.',v:0}
    ]},
-  /* ── READINESS ─────────────────────────────────────── */
-  {sec:'Section 3 of 3: Readiness',
-   title:'Which best describes your current use of digital tools for everyday work?',
-   hint:'Think your CRM, practice or job management system, calendar and accounts software. AI works best when it connects to tools already in use. A fragmented or manual toolset significantly increases implementation risk.',
+  {sec:'Section 2 of 3: Everyday operations',
+   title:'How easy is it to find accurate, up-to-date information needed to deliver your services?',
+   hint:'Include client records, pricing, service information, templates and policies.',
    opts:[
-     {t:'Well-defined toolset', s:'A clear set of tools is used consistently, with ownership and agreed ways of working', v:3},
-     {t:'Consistently used',    s:'Several core tools used consistently by most of the team',                 v:2},
-     {t:'Partially adopted',    s:'A few core tools in place but not fully used across the team',             v:1},
-     {t:'Manual and ad hoc',    s:'Mostly email, spreadsheets, and tools individuals choose for themselves',  v:0}
+     {t:'Easy and reliable',      s:'Information is easy to find and maintained so it stays accurate and current.',v:3},
+     {t:'Mostly reliable',        s:'Information is generally available, but some details need checking or updating.',v:2},
+     {t:'Difficult to verify',    s:'Information is scattered or conflicting, and people often need to confirm it with someone.',v:1},
+     {t:'Frequently unavailable', s:'Important information is often missing or held only in people’s heads.',v:0}
    ]},
-  {sec:'Section 3 of 3: Readiness',
-   title:'How ready is your data for use in AI or automation projects?',
-   hint:'Think client records, enquiries, jobs, time and invoices. AI is only as reliable as the data it works with. Scattered or incomplete data produces scattered results.',
+  /* ── SECTION 3: PUTTING AI INTO PRACTICE ───────────── */
+  {sec:'Section 3 of 3: Putting AI into practice',
+   title:'How clear are your rules for using AI safely in your business?',
+   hint:'Think about what information can be entered into AI and what a person must check before an output is used or sent.',
    opts:[
-     {t:'Accessible and reliable',s:'Key data is easy to access, reasonably clean, and trusted for reporting or decision-making',v:3},
-     {t:'Mostly captured',       s:'Key data is in one or two main systems but some gaps exist',               v:2},
-     {t:'Partial',               s:'Some data is in one place but there are gaps and duplicates',              v:1},
-     {t:'Scattered',             s:'Data is spread across multiple places and often incomplete',               v:0}
+     {t:'Written and followed', s:'Clear rules cover information handling and human checks, and are followed.',v:3},
+     {t:'Agreed but informal',  s:'We have shared expectations covering these areas, but they are not written down.',v:2},
+     {t:'Individual judgement', s:'People make their own decisions without shared rules.',v:1},
+     {t:'Not considered yet',   s:'We have not agreed rules for using AI.',v:0}
    ]},
-  {sec:'Section 3 of 3: Readiness',
-   title:'How open is your team to piloting AI on one specific process before rolling it out more widely?',
-   hint:'A focused, contained pilot is the lowest-risk way to prove value and build confidence before broader investment.',
+  {sec:'Section 3 of 3: Putting AI into practice',
+   title:'How prepared are you and your team to use AI for everyday tasks?',
+   hint:'Think about giving clear instructions, checking outputs and recognising when human judgement is needed.',
    opts:[
-     {t:'Ready to pilot',          s:'We are ready to run a focused pilot with clear boundaries and a review process',v:3},
-     {t:'Informally experimenting', s:'We have tried one or two tools informally',                                    v:2},
-     {t:'Curious but cautious',     s:'We are interested but have not tried anything yet',                            v:1},
-     {t:'Not ready to proceed',      s:'We have concerns about the risks and need more clarity before testing AI',    v:0}
+     {t:'Practical skills in place', s:'The people who would use AI can apply these skills to relevant tasks.',v:3},
+     {t:'Some skills in place',      s:'The people involved have some practical experience but need guidance to use AI reliably.',v:2},
+     {t:'Beginners',                 s:'The people involved have little practical experience and would need introductory support.',v:1},
+     {t:'Not assessed yet',          s:'We do not yet know what skills or support would be needed.',v:0}
    ]}
 ];
 
-var DIM_NAMES = ['Strategic Clarity','Leadership & Ownership','Process Maturity','Operational Visibility','Data & Readiness'];
+/* Five dimensions, two questions each (Q1+Q2, Q3+Q4, Q5+Q6, Q7+Q8, Q9+Q10). Max 6 each, 30 overall. */
+var DIM_NAMES = ['Business Direction','Ownership & Capacity','Process Readiness','Systems & Information','Responsible Use & Skills'];
 var DIM_MAX   = [6, 6, 6, 6, 6];
+
+/* Individual flags: shown whatever the overall score */
+var FLAG_RULES = [
+  {q:2, max:0, text:'No owner has been identified to lead an AI project. Without one, progress is likely to stall.'},
+  {q:3, max:0, text:'No time or resources are currently available for a trial. These need to be set aside before testing AI.'},
+  {q:8, max:1, text:'There are no shared rules for using AI safely. Agree what information can be entered into AI and what a person must check before an output is used.'}
+];
 
 /* STATE */
 var curQ=0, picks=new Array(QS.length).fill(null), contact={};
@@ -906,6 +925,7 @@ function renderQ(moveFocus){
   document.getElementById('q-progbar').setAttribute('aria-valuenow',pct);
   document.getElementById('q-title').textContent=q.title;
   document.getElementById('q-hint').textContent=q.hint;
+  document.getElementById('q-intro').hidden=curQ!==0;
   document.getElementById('btn-back').style.visibility=curQ===0?'hidden':'visible';
   document.getElementById('next-lbl').textContent=isLast?'See my score':'Next question';
   document.getElementById('btn-next').disabled=picks[curQ]===null;
@@ -992,13 +1012,16 @@ function submitContact(){
 function calcScores(){
   var raw=picks.map(function(sel,i){return sel!==null?QS[i].opts[sel].v:0});
   var dims=[
-    raw[0]+raw[1],   /* Strategic Clarity:      Q1+Q2   max 6 */
-    raw[2]+raw[6],   /* Leadership & Ownership: Q3+Q7   max 6 */
-    raw[3]+raw[5],   /* Process Maturity:       Q4+Q6   max 6 */
-    raw[4]+raw[7],   /* Operational Visibility: Q5+Q8   max 6 */
-    raw[8]+raw[9]    /* Data & Readiness:       Q9+Q10  max 6 */
+    raw[0]+raw[1],   /* Business Direction:       Q1+Q2   max 6 */
+    raw[2]+raw[3],   /* Ownership & Capacity:     Q3+Q4   max 6 */
+    raw[4]+raw[5],   /* Process Readiness:        Q5+Q6   max 6 */
+    raw[6]+raw[7],   /* Systems & Information:    Q7+Q8   max 6 */
+    raw[8]+raw[9]    /* Responsible Use & Skills: Q9+Q10  max 6 */
   ];
-  return{dims:dims,total:dims.reduce(function(a,b){return a+b},0)};
+  return{dims:dims,total:dims.reduce(function(a,b){return a+b},0),raw:raw};
+}
+function getFlags(raw){
+  return FLAG_RULES.filter(function(f){return raw[f.q]<=f.max}).map(function(f){return f.text});
 }
 function getTier(t){
   if(t<=9) return 'Not Yet Ready';
@@ -1076,15 +1099,15 @@ function getCtaBullets(tier){
 }
 
 /* SCORE BANDS */
-function getScoreBand(v){return v>=5?'High':v>=3?'Medium':'Low'}
-function getBandColor(b){return b==='High'?'#B36B00':b==='Medium'?'#0E7490':'#B42318'}
+function getScoreBand(v){return v>=5?'Stronger foundations':v>=3?'Developing':'Needs attention'}
+function getBandColor(b){return b==='Stronger foundations'?'#2F6B70':b==='Developing'?'#9A5B00':'#B42318'}
 
 function buildSummaryLine(dims){
   var high=[],med=[],low=[];
   dims.forEach(function(v,i){
     var b=getScoreBand(v);
-    if(b==='High')high.push(DIM_NAMES[i]);
-    else if(b==='Medium')med.push(DIM_NAMES[i]);
+    if(b==='Stronger foundations')high.push(DIM_NAMES[i]);
+    else if(b==='Developing')med.push(DIM_NAMES[i]);
     else low.push(DIM_NAMES[i]);
   });
   function ls(arr){if(!arr.length)return'';if(arr.length===1)return arr[0];return arr.slice(0,-1).join(', ')+' and '+arr[arr.length-1]}
@@ -1098,14 +1121,14 @@ function buildSummaryLine(dims){
 /* RADAR (pentagon, light theme) */
 function drawRadar(dims){
   var svg=document.getElementById('radar-svg');
-  var cx=220,cy=180,maxR=98,n=5,labR=146;
+  var cx=310,cy=212,maxR=128,n=5,labR=165;
   var ang=[0,1,2,3,4].map(function(i){return(2*Math.PI*i/n)-Math.PI/2});
   var labCfg=[
-    {lines:['Strategic','Clarity'],      anchor:'middle'},
-    {lines:['Leadership','& Ownership'], anchor:'start' },
-    {lines:['Process','Maturity'],       anchor:'start' },
-    {lines:['Operational','Visibility'], anchor:'end'   },
-    {lines:['Data &','Readiness'],       anchor:'end'   }
+    {lines:['Business','Direction'],       anchor:'middle'},
+    {lines:['Ownership','& Capacity'],     anchor:'start' },
+    {lines:['Process','Readiness'],        anchor:'start' },
+    {lines:['Systems &','Information'],    anchor:'end'   },
+    {lines:['Responsible','Use & Skills'], anchor:'end'   }
   ];
   var font='font-family="Instrument Sans,system-ui,sans-serif"';
   var html='';
@@ -1128,12 +1151,12 @@ function drawRadar(dims){
   ang.forEach(function(a,i){
     var lx=cx+labR*Math.cos(a),ly=cy+labR*Math.sin(a),cfg=labCfg[i];
     var band=getScoreBand(dims[i]),col=getBandColor(band);
-    var startY=ly-((cfg.lines.length+1)*15)/2+10;
+    var startY=ly-((cfg.lines.length+1)*17)/2+12;
     if(i===0) startY-=4;
     cfg.lines.forEach(function(line,li){
-      html+='<text x="'+lx+'" y="'+(startY+li*15)+'" text-anchor="'+cfg.anchor+'" fill="#041B2B" font-size="13" font-weight="600" '+font+'>'+line+'</text>';
+      html+='<text x="'+lx+'" y="'+(startY+li*17)+'" text-anchor="'+cfg.anchor+'" fill="#041B2B" font-size="15" font-weight="600" '+font+'>'+line+'</text>';
     });
-    html+='<text x="'+lx+'" y="'+(startY+cfg.lines.length*15+2)+'" text-anchor="'+cfg.anchor+'" fill="'+col+'" font-size="12" font-weight="700" '+font+'>'+band+'</text>';
+    html+='<text x="'+lx+'" y="'+(startY+cfg.lines.length*17+3)+'" text-anchor="'+cfg.anchor+'" fill="'+col+'" font-size="13.5" font-weight="700" '+font+'>'+band+'</text>';
   });
   svg.innerHTML=html;
 }
@@ -1205,7 +1228,8 @@ function sendToFormspree(score,tier,dims){
       company:contact.company||'',org_size:contact.size||'',industry:contact.industry||'',
       motivation:contact.motivation||'',decision_role:contact.role||'',timeline:contact.timeline||'',
       situation:contact.situation||'',
-      score:score+'/30',tier:tier,weakest_area:getWeakest(dims)
+      score:score+'/30',tier:tier,weakest_area:getWeakest(dims),
+      flags:getFlags(calcScores().raw).join(' | ')||'None'
     })
   }).then(function(r){return r.json()}).then(function(d){if(d.ok)showToast('Results on their way to '+contact.email)}).catch(function(e){console.error('Formspree:',e)});
 }
@@ -1219,7 +1243,8 @@ function sendToSheets(score,tier,diag){
       industry:contact.industry||'',motivation:contact.motivation||'',
       decisionRole:contact.role||'',timeline:contact.timeline||'',
       situation:contact.situation||'',
-      score:String(score),tier:tier,diagnosis:diag
+      score:String(score),tier:tier,diagnosis:diag,
+      flags:getFlags(calcScores().raw).join(' | ')||'None'
     })
   }).catch(function(e){console.error('Sheets webhook:',e)});
 }
@@ -1234,11 +1259,12 @@ function sendEmail(score,tier,diag,opp,dims){
     motivation:contact.motivation||'',notify_email:NOTIFY_EMAIL,
     decision_role:contact.role||'',timeline:contact.timeline||'',
     situation:contact.situation||'',
-    strategic_clarity_score:dims[0]+'/6',     strategic_clarity_band:bands[0],
-    leadership_ownership_score:dims[1]+'/6',  leadership_ownership_band:bands[1],
-    process_maturity_score:dims[2]+'/6',      process_maturity_band:bands[2],
-    operational_visibility_score:dims[3]+'/6',operational_visibility_band:bands[3],
-    data_readiness_score:dims[4]+'/6',        data_readiness_band:bands[4]
+    business_direction_score:dims[0]+'/6',       business_direction_band:bands[0],
+    ownership_capacity_score:dims[1]+'/6',       ownership_capacity_band:bands[1],
+    process_readiness_score:dims[2]+'/6',        process_readiness_band:bands[2],
+    systems_information_score:dims[3]+'/6',      systems_information_band:bands[3],
+    responsible_use_skills_score:dims[4]+'/6',   responsible_use_skills_band:bands[4],
+    flags:getFlags(calcScores().raw).join(' | ')||'None'
   }).then(function(){showToast('Results sent to '+contact.email)}).catch(function(err){console.error('EmailJS:',err)});
 }
 
@@ -1252,6 +1278,9 @@ function buildResults(){
   document.getElementById('r-cta-p').textContent=getCtaSub(tier);
   document.getElementById('r-opp').textContent=diag.opp;
   document.getElementById('radar-summary').textContent=buildSummaryLine(sc.dims);
+  var flags=getFlags(sc.raw),fb=document.getElementById('r-flags');
+  fb.hidden=!flags.length;
+  document.getElementById('r-flag-list').innerHTML=flags.map(function(f){return '<li>'+f+'</li>'}).join('');
   document.getElementById('cta-bullets-list').innerHTML=getCtaBullets(tier).map(function(b){
     return '<li><span class="tick">'+TICK_SVG+'</span><span>'+b+'</span></li>';
   }).join('');

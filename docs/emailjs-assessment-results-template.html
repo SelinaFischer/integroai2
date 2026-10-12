@@ -13,15 +13,16 @@
   Variables used:
     {{to_name}}
     {{score}}  {{tier}}
-    {{strategic_clarity_score}}      {{strategic_clarity_band}}
-    {{leadership_ownership_score}}   {{leadership_ownership_band}}
-    {{process_maturity_score}}       {{process_maturity_band}}
-    {{operational_visibility_score}} {{operational_visibility_band}}
-    {{data_readiness_score}}         {{data_readiness_band}}
+    {{business_direction_score}}      {{business_direction_band}}
+    {{ownership_capacity_score}}   {{ownership_capacity_band}}
+    {{process_readiness_score}}       {{process_readiness_band}}
+    {{systems_information_score}} {{systems_information_band}}
+    {{responsible_use_skills_score}}         {{responsible_use_skills_band}}
     {{diagnosis}}
     {{next_opportunity}}
     {{company}} {{phone}} {{org_size}} {{industry}} {{motivation}}
     {{decision_role}} {{timeline}} {{situation}}
+    {{flags}}  (list of watch-outs, or "None")
   Same build rules as v1: inline styles only, no @media queries, no CSS
   classes, single column, 480px max. Logo is the PNG hosted on the site.
 -->
@@ -82,35 +83,35 @@
           <td style="padding:0 20px 20px;">
             <p style="margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#3B767C;">Your readiness by area</p>
             <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #E9E1D3;border-radius:10px;">
-              <!-- Strategic Clarity -->
+              <!-- Business Direction -->
               <tr>
-                <td style="padding:12px 8px 12px 14px;font-size:14px;font-weight:600;color:#041B2B;border-bottom:1px solid #EFE8DC;">Strategic Clarity</td>
-                <td style="padding:12px 4px;font-size:14px;font-weight:700;color:#041B2B;text-align:center;white-space:nowrap;border-bottom:1px solid #EFE8DC;">{{strategic_clarity_score}}</td>
-                <td style="padding:12px 14px 12px 4px;text-align:right;border-bottom:1px solid #EFE8DC;"><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:100px;background:#F5EFE4;color:#041B2B;white-space:nowrap;">{{strategic_clarity_band}}</span></td>
+                <td style="padding:12px 8px 12px 14px;font-size:14px;font-weight:600;color:#041B2B;border-bottom:1px solid #EFE8DC;">Business Direction</td>
+                <td style="padding:12px 4px;font-size:14px;font-weight:700;color:#041B2B;text-align:center;white-space:nowrap;border-bottom:1px solid #EFE8DC;">{{business_direction_score}}</td>
+                <td style="padding:12px 14px 12px 4px;text-align:right;border-bottom:1px solid #EFE8DC;"><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:100px;background:#F5EFE4;color:#041B2B;white-space:nowrap;">{{business_direction_band}}</span></td>
               </tr>
-              <!-- Leadership & Ownership -->
+              <!-- Ownership & Capacity -->
               <tr>
-                <td style="padding:12px 8px 12px 14px;font-size:14px;font-weight:600;color:#041B2B;border-bottom:1px solid #EFE8DC;">Leadership &amp; Ownership</td>
-                <td style="padding:12px 4px;font-size:14px;font-weight:700;color:#041B2B;text-align:center;white-space:nowrap;border-bottom:1px solid #EFE8DC;">{{leadership_ownership_score}}</td>
-                <td style="padding:12px 14px 12px 4px;text-align:right;border-bottom:1px solid #EFE8DC;"><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:100px;background:#F5EFE4;color:#041B2B;white-space:nowrap;">{{leadership_ownership_band}}</span></td>
+                <td style="padding:12px 8px 12px 14px;font-size:14px;font-weight:600;color:#041B2B;border-bottom:1px solid #EFE8DC;">Ownership &amp; Capacity</td>
+                <td style="padding:12px 4px;font-size:14px;font-weight:700;color:#041B2B;text-align:center;white-space:nowrap;border-bottom:1px solid #EFE8DC;">{{ownership_capacity_score}}</td>
+                <td style="padding:12px 14px 12px 4px;text-align:right;border-bottom:1px solid #EFE8DC;"><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:100px;background:#F5EFE4;color:#041B2B;white-space:nowrap;">{{ownership_capacity_band}}</span></td>
               </tr>
-              <!-- Process Maturity -->
+              <!-- Process Readiness -->
               <tr>
-                <td style="padding:12px 8px 12px 14px;font-size:14px;font-weight:600;color:#041B2B;border-bottom:1px solid #EFE8DC;">Process Maturity</td>
-                <td style="padding:12px 4px;font-size:14px;font-weight:700;color:#041B2B;text-align:center;white-space:nowrap;border-bottom:1px solid #EFE8DC;">{{process_maturity_score}}</td>
-                <td style="padding:12px 14px 12px 4px;text-align:right;border-bottom:1px solid #EFE8DC;"><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:100px;background:#F5EFE4;color:#041B2B;white-space:nowrap;">{{process_maturity_band}}</span></td>
+                <td style="padding:12px 8px 12px 14px;font-size:14px;font-weight:600;color:#041B2B;border-bottom:1px solid #EFE8DC;">Process Readiness</td>
+                <td style="padding:12px 4px;font-size:14px;font-weight:700;color:#041B2B;text-align:center;white-space:nowrap;border-bottom:1px solid #EFE8DC;">{{process_readiness_score}}</td>
+                <td style="padding:12px 14px 12px 4px;text-align:right;border-bottom:1px solid #EFE8DC;"><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:100px;background:#F5EFE4;color:#041B2B;white-space:nowrap;">{{process_readiness_band}}</span></td>
               </tr>
-              <!-- Operational Visibility -->
+              <!-- Systems & Information -->
               <tr>
-                <td style="padding:12px 8px 12px 14px;font-size:14px;font-weight:600;color:#041B2B;border-bottom:1px solid #EFE8DC;">Operational Visibility</td>
-                <td style="padding:12px 4px;font-size:14px;font-weight:700;color:#041B2B;text-align:center;white-space:nowrap;border-bottom:1px solid #EFE8DC;">{{operational_visibility_score}}</td>
-                <td style="padding:12px 14px 12px 4px;text-align:right;border-bottom:1px solid #EFE8DC;"><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:100px;background:#F5EFE4;color:#041B2B;white-space:nowrap;">{{operational_visibility_band}}</span></td>
+                <td style="padding:12px 8px 12px 14px;font-size:14px;font-weight:600;color:#041B2B;border-bottom:1px solid #EFE8DC;">Systems &amp; Information</td>
+                <td style="padding:12px 4px;font-size:14px;font-weight:700;color:#041B2B;text-align:center;white-space:nowrap;border-bottom:1px solid #EFE8DC;">{{systems_information_score}}</td>
+                <td style="padding:12px 14px 12px 4px;text-align:right;border-bottom:1px solid #EFE8DC;"><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:100px;background:#F5EFE4;color:#041B2B;white-space:nowrap;">{{systems_information_band}}</span></td>
               </tr>
               <!-- Data Readiness -->
               <tr>
-                <td style="padding:12px 8px 12px 14px;font-size:14px;font-weight:600;color:#041B2B;">Data &amp; Readiness</td>
-                <td style="padding:12px 4px;font-size:14px;font-weight:700;color:#041B2B;text-align:center;white-space:nowrap;">{{data_readiness_score}}</td>
-                <td style="padding:12px 14px 12px 4px;text-align:right;"><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:100px;background:#F5EFE4;color:#041B2B;white-space:nowrap;">{{data_readiness_band}}</span></td>
+                <td style="padding:12px 8px 12px 14px;font-size:14px;font-weight:600;color:#041B2B;">Responsible Use &amp; Skills</td>
+                <td style="padding:12px 4px;font-size:14px;font-weight:700;color:#041B2B;text-align:center;white-space:nowrap;">{{responsible_use_skills_score}}</td>
+                <td style="padding:12px 14px 12px 4px;text-align:right;"><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:100px;background:#F5EFE4;color:#041B2B;white-space:nowrap;">{{responsible_use_skills_band}}</span></td>
               </tr>
             </table>
           </td>
@@ -132,6 +133,20 @@
                 <td style="padding:16px 18px;">
                   <p style="margin:0 0 8px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#4A6080;">Your Next Opportunity</p>
                   <p style="margin:0;font-size:15px;color:#041B2B;line-height:1.7;word-wrap:break-word;">{{next_opportunity}}</p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Important to address (flags) -->
+        <tr>
+          <td style="padding:0 20px 24px;">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FEF3F2;border:1px solid #FECDCA;border-radius:12px;">
+              <tr>
+                <td style="padding:16px 18px;">
+                  <p style="margin:0 0 8px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#B42318;">Important to address</p>
+                  <p style="margin:0;font-size:14px;color:#041B2B;line-height:1.7;word-wrap:break-word;">{{flags}}</p>
                 </td>
               </tr>
             </table>
