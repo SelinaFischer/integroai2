@@ -1535,7 +1535,7 @@ export const articles: BlogArticle[] = [
     slug: "ai-organisational-ambiguity-human-judgement",
     title: "AI Is Making Organisational Ambiguity Expensive",
     subtitle: "As AI enters operational decision-making, organisations need clearer boundaries around judgement, human review and accountability.",
-    date: "August 11, 2026",
+    date: "August 2026",
     category: "AI Adoption & Leadership",
     readTime: "7 min read",
     excerpt: "AI is forcing organisations to make judgement, decision rights and accountability explicit. The real challenge is not simply what AI can do, but where machine capability ends and human responsibility begins.",
