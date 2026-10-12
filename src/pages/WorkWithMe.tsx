@@ -159,12 +159,14 @@ const WorkWithMe = () => {
                 </div>
 
                 <div className="sm:order-1">
-                  <span className="inline-block text-brand-label font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
-                    How Engagements Work
-                  </span>
-                  <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-foreground mb-4">
-                    Work With Me
-                  </h1>
+                  <div className="text-center">
+                    <span className="inline-block text-brand-label font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
+                      How Engagements Work
+                    </span>
+                    <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-foreground mb-4">
+                      Work With Me
+                    </h1>
+                  </div>
                   <p className="text-base sm:text-[17px] text-accent-warm font-medium mb-4">
                     AI Adoption &amp; Transformation Consultant for Founder-Led Service Businesses
                   </p>
