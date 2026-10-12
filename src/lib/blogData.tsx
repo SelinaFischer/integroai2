@@ -1230,7 +1230,7 @@ const GetFoundOnChatGPTContent: React.FC = () => (
       <div className="rounded-[14px] border border-brand-teal/40 bg-white p-5">
         <p className={`${articleLabel} mb-2`}>Clear</p>
         <p className={articleQuote}>
-          “We help small businesses in Harrow manage employment contracts, recruitment and everyday HR questions.”
+          “We help small businesses in London manage employment contracts, recruitment and everyday HR questions.”
         </p>
       </div>
     </div>
@@ -1393,7 +1393,7 @@ const GetFoundOnChatGPTContent: React.FC = () => (
     </div>
 
     <p>
-      <strong>For example:</strong> “Search the web and recommend HR consultants in Harrow who help small
+      <strong>For example:</strong> “Search the web and recommend HR consultants in London who help small
       businesses hire their first employee. Include your sources.”
     </p>
     <p>Then check three things:</p>
