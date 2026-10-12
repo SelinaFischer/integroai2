@@ -291,34 +291,31 @@ a{color:inherit}
    RESULTS
    ============================================================ */
 .r-wrap{max-width:1096px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
-.r-intro{text-align:center;margin-bottom:4px}
-.r-intro h1{font-family:var(--serif);font-weight:600;font-size:32px;line-height:1.1;color:var(--ink);margin-top:8px;text-wrap:balance}
-@media(min-width:640px){.r-intro h1{font-size:44px}}
-
-.score-card{padding:24px;display:grid;grid-template-columns:1fr;gap:24px;align-items:center}
-@media(min-width:640px){.score-card{padding:32px}}
-@media(min-width:900px){.score-card{grid-template-columns:auto 1fr;gap:36px}}
-.score-ring{width:150px;height:150px;position:relative;margin:0 auto}
-.score-ring svg{width:100%;height:100%;display:block}
-.score-ring .ring-val{padding-top:48px}
-.score-ring .ring-val b{font-size:52px}
-.score-ring .ring-val span{font-size:19px}
-.score-main{display:flex;flex-direction:column;gap:8px;text-align:center}
-@media(min-width:900px){.score-main{text-align:left}}
-.tier-name{font-family:var(--serif);font-weight:600;font-size:38px;line-height:1;color:var(--navy)}
-.score-calc{font-size:14px;color:var(--slate)}
+.score-strip{background:var(--gradient-hero);border-radius:24px;color:#fff;text-align:center;padding:34px 18px 30px;display:flex;flex-direction:column;align-items:center;gap:10px}
+@media(min-width:640px){.score-strip{padding:44px 40px 38px}}
+.big-score{display:flex;align-items:baseline;gap:4px;line-height:1}
+.big-score b{font-size:88px;font-weight:700;color:var(--amber);letter-spacing:-.03em}
+.big-score span{font-size:30px;font-weight:600;color:var(--mist)}
+@media(min-width:640px){.big-score b{font-size:104px}}
+.tier-pill{background:var(--amber);color:var(--navy);border-radius:999px;padding:6px 16px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.strip-calc{font-size:14px;color:var(--mist)}
+.strip-name{font-family:var(--sans);font-size:18px;font-weight:600;color:#fff;letter-spacing:0;margin-top:2px}
+.strip-stage{margin-top:12px}
+.score-strip .legend{width:100%;max-width:640px;border-color:rgba(203,213,225,.28);margin-top:0}
+.score-strip .lg-cell{background:transparent}
+.score-strip .lg-cell + .lg-cell{border-left-color:rgba(203,213,225,.28)}
+.score-strip .lg-name{color:var(--mist)}
+.score-strip .lg-range{color:rgba(203,213,225,.65)}
+.score-strip .lg-cell.active{background:rgba(255,153,0,.14)}
+.score-strip .lg-cell.active .lg-name,.score-strip .lg-cell.active .lg-range{color:var(--amber)}
 .legend{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--sand);border-radius:12px;overflow:hidden;margin-top:10px}
-.lg-cell{padding:10px 6px;text-align:center;background:#fff}
+.lg-cell{padding:10px 6px;text-align:center}
 .lg-cell + .lg-cell{border-left:1px solid var(--sand)}
-.lg-name{display:block;font-size:12px;font-weight:700;color:var(--slate);line-height:1.25}
-.lg-range{display:block;font-size:12px;color:#8A97A6;margin-top:2px}
-.lg-cell.active{background:var(--chip)}
-.lg-cell.active .lg-name{color:var(--navy)}
-.lg-cell.active .lg-range{color:var(--navy)}
+.lg-name{display:block;font-size:12px;font-weight:700;line-height:1.25}
+.lg-range{display:block;font-size:12px;margin-top:2px}
 @media(max-width:480px){.lg-name{font-size:11px}.lg-range{font-size:11px}}
-
 .r-cols{display:grid;grid-template-columns:1fr;gap:20px}
-@media(min-width:900px){.r-cols{grid-template-columns:1.1fr 1fr;align-items:start}}
+@media(min-width:900px){.r-cols{grid-template-columns:1fr 1fr;align-items:stretch}}
 .r-panel{padding:24px}
 @media(min-width:640px){.r-panel{padding:30px}}
 .dim-row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) 38px 58px;align-items:center;gap:12px;padding:10px 0}
@@ -332,8 +329,7 @@ a{color:inherit}
 .dim-band{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-align:right}
 @media(max-width:480px){.dim-row{grid-template-columns:minmax(0,1fr) 34px 54px;row-gap:6px}.dim-row .bar-t{grid-column:1/-1;grid-row:2}}
 .dim-note{font-size:13px;color:var(--slate);margin-top:10px}
-.radar-holder{margin-top:18px;border-top:1px solid var(--sand);padding-top:18px}
-@media(max-width:559px){.radar-holder{display:none}}
+.radar-holder{display:flex;flex-direction:column;justify-content:center}
 .radar-holder svg{display:block;width:100%;max-width:440px;margin:0 auto}
 .radar-summary{font-size:15px;color:var(--body);text-align:center;margin-top:6px;line-height:1.5}
 
@@ -635,43 +631,26 @@ a{color:inherit}
   <div class="wrap">
     <div class="r-wrap">
 
-      <div class="r-intro">
-        <p class="eyebrow">AI Readiness Assessment</p>
-        <h1 id="r-name" tabindex="-1"></h1>
-      </div>
-
-      <div class="card score-card">
-        <div class="score-ring">
-          <svg viewBox="0 0 150 150" aria-hidden="true">
-            <circle cx="75" cy="75" r="64" fill="none" stroke="#EFE8DC" stroke-width="12"/>
-            <circle id="score-arc" cx="75" cy="75" r="64" fill="none" stroke="#FF9900" stroke-width="12" stroke-linecap="round" stroke-dasharray="0 402.1" transform="rotate(-90 75 75)" style="transition:stroke-dasharray 1.2s cubic-bezier(.4,0,.2,1)"/>
-          </svg>
-          <div class="ring-val"><b id="r-score">0</b><span>/30</span></div>
-        </div>
-        <div class="score-main">
-          <p class="lbl">Your AI Readiness Score</p>
-          <p class="tier-name" id="r-tier"></p>
-          <p class="score-calc">Based on 10 questions across 5 AI readiness dimensions. Maximum score: 30.</p>
-          <p class="lbl" style="margin-top:8px">Your AI readiness stage</p>
-          <div class="legend" id="tier-legend" aria-label="The four readiness stages">
-            <div class="lg-cell" id="tl-0"><span class="lg-name">Not Yet Ready</span><span class="lg-range">0 – 9</span></div>
-            <div class="lg-cell" id="tl-1"><span class="lg-name">Early Explorer</span><span class="lg-range">10 – 17</span></div>
-            <div class="lg-cell" id="tl-2"><span class="lg-name">Focused Experimenter</span><span class="lg-range">18 – 24</span></div>
-            <div class="lg-cell" id="tl-3"><span class="lg-name">Emerging Integrator</span><span class="lg-range">25 – 30</span></div>
-          </div>
+      <div class="score-strip on-dark">
+        <p class="eyebrow">Your AI Readiness Score</p>
+        <p class="big-score"><b id="r-score">0</b><span>/30</span></p>
+        <p class="tier-pill" id="r-tier"></p>
+        <p class="strip-calc">Based on 10 questions across 5 AI readiness dimensions. Maximum score: 30.</p>
+        <h1 class="strip-name" id="r-name" tabindex="-1"></h1>
+        <p class="eyebrow strip-stage">Your AI readiness stage</p>
+        <div class="legend" id="tier-legend" aria-label="The four readiness stages">
+          <div class="lg-cell" id="tl-0"><span class="lg-name">Not Yet Ready</span><span class="lg-range">0 – 9</span></div>
+          <div class="lg-cell" id="tl-1"><span class="lg-name">Early Explorer</span><span class="lg-range">10 – 17</span></div>
+          <div class="lg-cell" id="tl-2"><span class="lg-name">Focused Experimenter</span><span class="lg-range">18 – 24</span></div>
+          <div class="lg-cell" id="tl-3"><span class="lg-name">Emerging Integrator</span><span class="lg-range">25 – 30</span></div>
         </div>
       </div>
 
       <div class="r-cols">
-        <div class="card r-panel">
-          <p class="lbl">Score by dimension <span style="font-weight:500;letter-spacing:.04em;text-transform:none">(2 questions × max 3 pts = max 6 per dimension)</span></p>
-          <div id="dim-bars" style="margin-top:8px"></div>
-          <div class="radar-holder">
-            <svg id="radar-svg" viewBox="0 0 440 340" role="img" aria-label="Radar chart of your five readiness dimensions"></svg>
-            <p class="radar-summary" id="radar-summary"></p>
-          </div>
+        <div class="card r-panel radar-holder">
+          <svg id="radar-svg" viewBox="0 0 440 340" role="img" aria-label="Radar chart of your five readiness dimensions"></svg>
+          <p class="radar-summary" id="radar-summary"></p>
         </div>
-
         <div class="card r-panel">
           <p class="lbl">Your Diagnosis</p>
           <p class="diag-p" id="r-diag"></p>
@@ -680,6 +659,11 @@ a{color:inherit}
             <p class="focus-p" id="r-opp" style="color:var(--navy);font-weight:500"></p>
           </div>
         </div>
+      </div>
+
+      <div class="card r-panel">
+        <p class="lbl">Score by dimension <span style="font-weight:500;letter-spacing:.04em;text-transform:none">(2 questions × max 3 pts = max 6 per dimension)</span></p>
+        <div id="dim-bars" style="margin-top:8px"></div>
       </div>
 
       <div class="cta on-dark">
@@ -1261,9 +1245,6 @@ function buildResults(){
   drawRadar(sc.dims);
   renderDimBars(sc.dims);
   show('s-results','r-name');
-  setTimeout(function(){
-    document.getElementById('score-arc').setAttribute('stroke-dasharray',(sc.total/30*402.1).toFixed(1)+' 402.1');
-  },150);
   if(IS_LIVE){
     sendToFormspree(sc.total,tier,sc.dims);
     sendToSheets(sc.total,tier,diag.diag);
