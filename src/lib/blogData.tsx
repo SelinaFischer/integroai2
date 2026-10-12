@@ -501,9 +501,11 @@ const WhyAIFailsContent: React.FC = () => (
 
       {/* Stats Box */}
       <div className="bg-primary text-primary-foreground p-8 rounded-xl text-center my-8">
-        <h3 className="text-4xl font-bold text-accent-warm mb-2">80%+</h3>
-        <p className="text-primary-foreground/90 mb-0">of AI projects fail, by some estimates cited by RAND researchers (2024). Not having the right data is one of the five root causes they identified.</p>
+        <h3 className="text-4xl font-bold text-accent-warm mb-2">60%</h3>
+        <p className="text-primary-foreground/90 mb-0">of AI projects unsupported by AI-ready data will be abandoned through 2026, Gartner predicts (February 2025)</p>
       </div>
+
+      <p>In the same research, 63% of organizations said they either lack the right data management practices for AI or are unsure whether they have them.</p>
 
       <p>Organizations can invest heavily in sophisticated AI systems, only to discover their data wasn't ready. The technology works. The data doesn't. The project fails.</p>
 
