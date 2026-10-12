@@ -1,4 +1,5 @@
 import React from "react";
+import { GUIDE_FORM_URL, trackGuideClick } from "@/lib/guide";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // BLOG DATA FILE
@@ -1077,11 +1078,456 @@ const AiOrganisationalAmbiguityContent: React.FC = () => (
 
 
 // ─────────────────────────────────────────────────────────────────────────────
+// ARTICLE — How to Get Your Business Found on ChatGPT
+// Based on the free guide "Does AI know your business exists?". The printable
+// checklist and the foundation, signals, authority framework stay in the guide.
+// ─────────────────────────────────────────────────────────────────────────────
+
+const articleCard = "rounded-[14px] border border-brand-sand bg-white p-5";
+const articleLabel = "text-[11px] font-bold uppercase tracking-[0.12em] text-brand-teal";
+const articleQuote = "text-[17px] leading-relaxed text-brand-navy";
+
+const GetFoundOnChatGPTContent: React.FC = () => (
+  <>
+    <p>
+      <strong>Does AI know your business exists?</strong> And if it does, does it understand who you help?
+    </p>
+    <p>
+      People now ask AI to recommend a business. An accountant. An HR consultant. A financial adviser.
+      Your business could be the right fit. But if your website is vague and your profiles tell different
+      stories, that customer may never hear your name.
+    </p>
+
+    <div className="not-prose my-8 rounded-[14px] border border-brand-sand bg-brand-ivory p-6">
+      <p className={`${articleLabel} mb-3`}>The short answer</p>
+      <ul className="list-disc space-y-2 pl-5 text-[17px] leading-relaxed text-brand-navy marker:text-brand-teal">
+        <li>Be clear about what you do and who you help.</li>
+        <li>Keep your details consistent everywhere.</li>
+        <li>Answer the questions customers actually ask.</li>
+        <li>Show proof of your expertise.</li>
+        <li>Make sure AI search can read your website.</li>
+      </ul>
+    </div>
+
+    <p>
+      Nobody can guarantee an AI recommendation. What you can control is the information you publish.
+      This guide gives you five practical checks, in plain English.
+    </p>
+
+    <h2>Why does AI search matter for small businesses?</h2>
+    <p>
+      Search used to start with a short phrase, like “financial adviser London”. A page of links came back.
+      The customer did the comparing.
+    </p>
+    <p>
+      <strong>AI search works differently.</strong> The customer explains their situation and asks for a shortlist.
+    </p>
+    <p>
+      Meet Sarah, an imaginary customer. She’s in her 50s and self-employed. She has pensions from three
+      previous jobs. She asks:
+    </p>
+
+    <div className="not-prose my-8 border-l-2 border-brand-amber pl-5">
+      <p className="text-[19px] leading-relaxed text-brand-navy">
+        “I’m in my 50s, self-employed, with several pensions. Can you recommend a financial adviser in London
+        who specialises in retirement planning?”
+      </p>
+    </div>
+
+    <p>
+      Now imagine you’re that adviser. You’d be a good fit for Sarah. But this is what AI finds:
+    </p>
+
+    <div className="not-prose my-8 grid gap-4 md:grid-cols-3">
+      <div className={articleCard}>
+        <p className={`${articleLabel} mb-2`}>Your website</p>
+        <p className={articleQuote}>“Helping you achieve your financial goals.”</p>
+      </div>
+      <div className={articleCard}>
+        <p className={`${articleLabel} mb-2`}>LinkedIn</p>
+        <p className={articleQuote}>“Wealth management adviser.”</p>
+      </div>
+      <div className={articleCard}>
+        <p className={`${articleLabel} mb-2`}>Old directories</p>
+        <p className={articleQuote}>Services you no longer offer.</p>
+      </div>
+    </div>
+
+    <p>
+      Nothing says you specialise in retirement planning for self-employed people. So AI has very little
+      to go on, and it might recommend somebody else.
+    </p>
+
+    <div className="not-prose my-8 rounded-[14px] bg-brand-navy p-7">
+      <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.12em] text-brand-amber">
+        The one question to take away
+      </p>
+      <p className="text-[21px] font-medium leading-snug text-white">
+        What question do you want your business to be the answer to?
+      </p>
+    </div>
+
+    <p>
+      For an HR consultant, it might be helping a small business hire its first employee. For an accountant,
+      supporting someone who has just become self-employed. <strong>That question should shape everything you publish.</strong>
+    </p>
+
+    <h2>What is the difference between SEO, AEO and GEO?</h2>
+    <p>
+      Three terms. One simple way to remember them: <strong>find me, answer me, recommend me.</strong>
+    </p>
+
+    <div className="not-prose my-8 grid gap-4 md:grid-cols-3">
+      <div className={articleCard}>
+        <p className={`${articleLabel} mb-2`}>SEO · Search engine optimisation</p>
+        <p className="mb-2 text-[19px] font-medium leading-snug text-brand-navy">Find me.</p>
+        <p className="text-[15px] leading-relaxed text-brand-slate">Can a customer find you through search?</p>
+      </div>
+      <div className={articleCard}>
+        <p className={`${articleLabel} mb-2`}>AEO · Answer engine optimisation</p>
+        <p className="mb-2 text-[19px] font-medium leading-snug text-brand-navy">Answer me.</p>
+        <p className="text-[15px] leading-relaxed text-brand-slate">Does your content clearly answer the customer’s question?</p>
+      </div>
+      <div className={articleCard}>
+        <p className={`${articleLabel} mb-2`}>GEO · Generative engine optimisation</p>
+        <p className="mb-2 text-[19px] font-medium leading-snug text-brand-navy">Recommend me.</p>
+        <p className="text-[15px] leading-relaxed text-brand-slate">Can your business appear in an AI-generated answer?</p>
+      </div>
+    </div>
+
+    <p>
+      The good news: <strong>you don’t need three separate strategies.</strong> Clear information, useful
+      content and a website that can be read support all three.
+    </p>
+    <p>
+      And SEO still matters. Google’s own guidance says its SEO best practices still apply to its AI search
+      features, with{" "}
+      <a href="https://developers.google.com/search/docs/appearance/ai-features" target="_blank" rel="noopener noreferrer">
+        no special optimisation required
+      </a>
+      .
+    </p>
+
+    <h2>How to improve your AI search visibility: five practical checks</h2>
+
+    <h3>1. Clarity</h3>
+    <p>
+      <strong>Is it clear what you do, who you help and where you work?</strong>
+    </p>
+    <p>
+      Read your homepage as if you knew nothing about your business. Could a stranger explain what you offer
+      and who it’s for?
+    </p>
+
+    <div className="not-prose my-8 grid gap-4 md:grid-cols-2">
+      <div className={articleCard}>
+        <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.12em] text-brand-slate">Vague</p>
+        <p className={articleQuote}>“We provide tailored solutions to help your business thrive.”</p>
+      </div>
+      <div className="rounded-[14px] border border-brand-teal/40 bg-white p-5">
+        <p className={`${articleLabel} mb-2`}>Clear</p>
+        <p className={articleQuote}>
+          “We help small businesses in Harrow manage employment contracts, recruitment and everyday HR questions.”
+        </p>
+      </div>
+    </div>
+
+    <ul>
+      <li>Use the words your customers use.</li>
+      <li>If location matters, say where. If you work remotely across the UK, say that.</li>
+      <li>Only list services and locations you really cover.</li>
+    </ul>
+    <p>
+      <strong>Try this:</strong> rewrite the opening of one service page so it names your service, your
+      customer and their need.
+    </p>
+
+    <h3>2. Consistency</h3>
+    <p>
+      <strong>Do your website, LinkedIn, Google Business Profile and directory listings tell the same story?</strong>
+    </p>
+    <p>
+      Consistency doesn’t mean copying the same paragraph everywhere. It means no conflicting information
+      about your name, services, location or contact details.
+    </p>
+    <p>Search for your business name. Look for:</p>
+    <ul>
+      <li>Old phone numbers</li>
+      <li>Services you no longer offer</li>
+      <li>Abandoned profiles</li>
+      <li>Descriptions written before your business changed direction</li>
+    </ul>
+    <p>
+      <strong>Try this:</strong> fix the three most visible profiles or listings that are out of date.
+    </p>
+
+    <h3>3. Useful content</h3>
+    <p>
+      <strong>Are you answering the questions your customers actually ask?</strong>
+    </p>
+    <p>Start with the questions you answer in discovery calls, emails and meetings. For example:</p>
+    <ul>
+      <li><strong>HR consultant:</strong> “What HR support does a small business need when hiring its first employee?”</li>
+      <li><strong>Accountant:</strong> “What records should I keep when I become self-employed?”</li>
+      <li><strong>IT support:</strong> “What should a small business include in an IT support contract?”</li>
+    </ul>
+    <p>
+      Give the direct answer first. Then the detail, the practical steps and when the answer changes.
+      One detailed, useful answer is worth more than several brief, generic posts.
+    </p>
+    <p>
+      Stuck for ideas? AnswerThePublic shows the questions people ask about a topic. Treat them as prompts,
+      not phrases to repeat.
+    </p>
+    <p>
+      <strong>Try this:</strong> publish one answer to a question you hear every week.
+    </p>
+
+    <h3>4. Proof</h3>
+    <p>
+      <strong>What shows your expertise?</strong>
+    </p>
+    <ul>
+      <li>Genuine client reviews</li>
+      <li>Relevant qualifications and professional memberships</li>
+      <li>A short case study: the problem, what you did and what changed</li>
+    </ul>
+    <p>
+      Keep every claim honest. Don’t say “saved hundreds of hours” unless you can back it up. And add a short
+      author bio to your articles, so readers know who wrote them and why your experience counts.
+    </p>
+    <p>
+      <strong>Try this:</strong> add one concrete piece of proof to your most important service page.
+    </p>
+
+    <h3>5. Corroboration</h3>
+    <p>
+      <strong>That’s simply other people or businesses backing up what you say.</strong>
+    </p>
+    <p>
+      Think professional directories, industry associations, event speaker pages, podcasts and articles
+      that quote you.
+    </p>
+    <p>
+      This is one of the reasons networking is so valuable. If you speak at an event, ask the organiser to
+      include an accurate bio and a link to your website.
+    </p>
+    <p>
+      Choose sources a customer would trust. One genuine professional profile beats a scatter of unrelated listings.
+    </p>
+    <p>
+      <strong>Try this:</strong> find one opportunity to share your expertise beyond your own channels.
+    </p>
+
+    <p>
+      Want these checks on one page?{" "}
+      <a
+        href={GUIDE_FORM_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={() => trackGuideClick("blog-chatgpt-inline")}
+      >
+        Get the free AI visibility guide and checklist
+      </a>
+      .
+    </p>
+
+    <h2>Can ChatGPT access your website?</h2>
+    <p>
+      Clear content needs a website that AI search can read. Ask your web developer to check three things:
+    </p>
+    <ul>
+      <li>Are your public pages readable?</li>
+      <li>Does your robots.txt file, or your hosting, block search crawlers?</li>
+      <li>Is your key information written as text, not only inside images?</li>
+    </ul>
+    <p>
+      For ChatGPT search, the crawler is called <strong>OAI-SearchBot</strong>. It is separate from{" "}
+      <strong>GPTBot</strong>, which relates to training OpenAI’s models. You can allow one and not the other.
+    </p>
+    <p>
+      Two things worth knowing from{" "}
+      <a href="https://developers.openai.com/api/docs/bots" target="_blank" rel="noopener noreferrer">
+        OpenAI’s own documentation
+      </a>
+      :
+    </p>
+    <ul>
+      <li>Sites that opt out of OAI-SearchBot are not shown in ChatGPT search answers.</li>
+      <li>After a robots.txt change, it can take about 24 hours for search to catch up.</li>
+    </ul>
+    <p>
+      Don’t simply allow every AI crawler. Check each provider’s documentation and choose what suits your
+      business. For Google, use Search Console to spot indexing and access problems.
+    </p>
+    <p>
+      <strong>Access is the starting point. The five checks do the rest.</strong>
+    </p>
+
+    <h2>How do you check whether ChatGPT recommends your business?</h2>
+    <p>
+      Run the AI test. Ask the question a customer would ask.
+    </p>
+    <ol>
+      <li>Start a fresh conversation in ChatGPT, or your favourite AI chatbot.</li>
+      <li>Ask it to search the web.</li>
+      <li>Leave your business name out.</li>
+    </ol>
+
+    <div className="not-prose my-8 grid gap-4 md:grid-cols-2">
+      <div className={articleCard}>
+        <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.12em] text-brand-slate">Don’t ask</p>
+        <p className={`${articleQuote} mb-2`}>“Tell me about my company.”</p>
+        <p className="text-[15px] leading-relaxed text-brand-slate">That only tests your name.</p>
+      </div>
+      <div className="rounded-[14px] border border-brand-teal/40 bg-white p-5">
+        <p className={`${articleLabel} mb-2`}>Do ask: fill in the blanks</p>
+        <p className={articleQuote}>
+          “Search the web and recommend [your service] in [your area] that helps [your ideal customer] with
+          [their need]. Include your sources.”
+        </p>
+      </div>
+    </div>
+
+    <p>
+      <strong>For example:</strong> “Search the web and recommend HR consultants in Harrow who help small
+      businesses hire their first employee. Include your sources.”
+    </p>
+    <p>Then check three things:</p>
+    <ul>
+      <li>Does your business appear?</li>
+      <li>Are the details accurate?</li>
+      <li>Which sources does AI cite?</li>
+    </ul>
+    <p>
+      Open those sources and check them. AI can make mistakes, and answers vary. So try a few versions of
+      the question and a few different AI tools.
+    </p>
+    <p>
+      <strong>Not there yet? That’s your starting point.</strong> Look at the businesses AI does mention.
+      What do they explain clearly that you don’t?
+    </p>
+    <p>
+      Save your results. One answer is a snapshot, so repeat the test once a month with the same questions.
+    </p>
+
+    <h2>How do you measure whether AI visibility brings website traffic?</h2>
+    <p>
+      A mention, a website visit and an enquiry are three different things. Track each one where you can.
+    </p>
+    <ul>
+      <li><strong>Search:</strong> use Google Search Console to see impressions, queries and clicks for your pages.</li>
+      <li><strong>AI referrals:</strong> check your website analytics for visits from AI tools like ChatGPT, and what those visitors do next.</li>
+      <li><strong>Enquiries:</strong> ask every new enquiry “How did you hear about us?”, including whether they used AI.</li>
+    </ul>
+    <p>
+      Referral data won’t catch everything. Someone may read an AI recommendation, then search for you by name.
+    </p>
+    <p>
+      Review monthly, alongside your saved AI test results. <strong>The goal is relevant visitors and
+      qualified enquiries, not mentions.</strong>
+    </p>
+
+    <h2>Frequently asked questions about getting found on ChatGPT</h2>
+
+    <h3>Why is my business not showing up in ChatGPT?</h3>
+    <p>
+      Common reasons: pages AI search can’t read, unclear service descriptions, outdated listings, or too
+      little relevant information online. The question, the location and the search mode matter too.
+      Check your sources and your website access before settling on one cause.
+    </p>
+
+    <h3>Can I guarantee that ChatGPT will recommend my business?</h3>
+    <p>
+      No. Nobody can. Be wary of any service that promises guaranteed recommendations.
+    </p>
+
+    <h3>Does SEO still matter for AI search?</h3>
+    <p>
+      Yes. People still use Google, and the basics still count. AEO and GEO add to SEO. They don’t replace it.
+    </p>
+
+    <h3>Do I need special schema or an AI file on my website?</h3>
+    <p>
+      Google says no special schema or new AI text file is needed for its AI search features. Structured data
+      can describe your content, but it should match what readers see. It is not a shortcut.
+    </p>
+
+    <h3>How long does it take to improve AI search visibility?</h3>
+    <p>
+      There is no fixed timetable. It depends on where you start, what you change and the AI service
+      answering. Record a baseline, then review monthly.
+    </p>
+
+    <h2>Start with three actions this week</h2>
+    <ol>
+      <li><strong>Check your profiles.</strong> Make your website and main listings clear and accurate.</li>
+      <li><strong>Answer one customer question.</strong> Publish a practical answer on a relevant page.</li>
+      <li><strong>Run the AI test.</strong> Save the answer and the sources as your starting point.</li>
+    </ol>
+
+    <div className="not-prose my-10 rounded-[14px] bg-brand-navy p-7">
+      <p className="text-[19px] leading-relaxed text-white">
+        You can’t control whether AI recommends you. But you are in control of the information you share.{" "}
+        <span className="text-brand-amber">Make it clear, useful and easy to check.</span>
+      </p>
+    </div>
+
+    <div className="not-prose mt-12 rounded-[14px] border border-brand-sand bg-brand-ivory p-7">
+      <p className={`${articleLabel} mb-3`}>Free guide and checklist</p>
+      <p className="mb-3 text-[21px] font-medium leading-snug text-brand-navy">
+        Does AI know your business exists?
+      </p>
+      <p className="mb-5 text-[15px] leading-relaxed text-brand-slate">
+        The free guide puts these checks on one printable checklist, so you can tick what’s already true
+        and see the gaps. It also gives you a simple framework for deciding what to work on first.
+      </p>
+      <a
+        href={GUIDE_FORM_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={() => trackGuideClick("blog-chatgpt-article")}
+        className="btn-amber"
+      >
+        Get your free guide and checklist
+      </a>
+    </div>
+
+    <h2>What comes after being found?</h2>
+    <p>
+      Being found is one part of a business that works well. When more enquiries arrive, you need the
+      capacity to respond.
+    </p>
+    <p>
+      Want to see how ready your business is for AI? Take the free{" "}
+      <a href="https://integroai.tech/assessment">five-minute AI readiness assessment</a> and get an
+      instant scorecard.
+    </p>
+
+    <p className="!mt-12 border-t border-brand-sand pt-6 !text-[15px] !leading-relaxed">
+      <strong>Selina Fischer</strong> is the founder of IntegroAI Consulting and an AI Adoption &amp;
+      Transformation Consultant, with more than 20 years of experience across product, technology and operations.
+    </p>
+  </>
+);
+
+// ─────────────────────────────────────────────────────────────────────────────
 // MASTER ARTICLES ARRAY
 // Add new articles here. Everything else is automatic.
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const articles: BlogArticle[] = [
+  {
+    slug: "how-to-get-your-business-found-on-chatgpt",
+    title: "How to Get Your Business Found on ChatGPT: A Practical Guide for Small Businesses",
+    subtitle: "When customers ask AI to recommend a business like yours, does yours come up? Five practical checks to make your business clear, useful and easy to verify.",
+    date: "October 2026",
+    category: "AI Visibility",
+    readTime: "8 min read",
+    excerpt: "When customers ask AI to recommend a business like yours, does yours come up? Five practical checks to make your business clear, useful and easy to verify.",
+    related: ["what-is-an-ai-readiness-assessment", "how-to-measure-roi-from-ai-investment"],
+    Content: GetFoundOnChatGPTContent,
+  },
   {
     slug: "ai-organisational-ambiguity-human-judgement",
     title: "AI Is Making Organisational Ambiguity Expensive",

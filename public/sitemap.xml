@@ -50,6 +50,12 @@
 
   <!-- Blog articles — new (data-driven) -->
   <url>
+    <loc>https://integroai.tech/blog/how-to-get-your-business-found-on-chatgpt</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://integroai.tech/blog/ai-organisational-ambiguity-human-judgement</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>monthly</changefreq>

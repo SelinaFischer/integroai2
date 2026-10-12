@@ -296,24 +296,16 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="prose prose-lg max-w-none
-  prose-headings:text-foreground prose-headings:font-bold
-  prose-h2:text-2xl prose-h2:mt-16 prose-h2:mb-7 prose-h2:leading-tight
-  prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-5 prose-h3:leading-snug
-  prose-p:text-muted-foreground prose-p:leading-8 prose-p:mb-8
-  prose-strong:text-foreground prose-strong:font-semibold
-  prose-ul:text-muted-foreground prose-ul:my-8
-  prose-ol:text-muted-foreground prose-ol:my-8
-  prose-li:mb-4 prose-li:leading-7
-
-  [&>p]:mb-8
-  [&>p]:leading-8
-  [&>h2]:mt-16
-  [&>h2]:mb-7
-  [&>h3]:mt-10
-  [&>h3]:mb-5
-  [&>ul]:my-8
-  [&>ol]:my-8
+              className="max-w-none
+  [&>p]:mb-8 [&>p]:leading-8
+  [&>h2]:mt-16 [&>h2]:mb-7 [&>h2]:text-[22px] [&>h2]:leading-tight
+  [&>h3]:mt-10 [&>h3]:mb-5 [&>h3]:text-[18px] [&>h3]:leading-snug
+  [&>ul]:my-8 [&>ul]:list-disc [&>ul]:pl-6
+  [&>ol]:my-8 [&>ol]:list-decimal [&>ol]:pl-6
+  [&>ul>li]:mb-3 [&>ul>li]:pl-1 [&>ul>li]:leading-7 [&>ul>li]:marker:text-brand-teal
+  [&>ol>li]:mb-3 [&>ol>li]:pl-1 [&>ol>li]:leading-7 [&>ol>li]:marker:font-semibold [&>ol>li]:marker:text-brand-teal
+  [&>p>a]:font-medium [&>p>a]:underline [&>p>a]:decoration-brand-amber [&>p>a]:decoration-2 [&>p>a]:underline-offset-4
+  [&>ul>li>a]:font-medium [&>ul>li>a]:underline [&>ul>li>a]:decoration-brand-amber [&>ul>li>a]:decoration-2 [&>ul>li>a]:underline-offset-4
               "
             >
               {children}
