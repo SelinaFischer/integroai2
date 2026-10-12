@@ -1147,7 +1147,7 @@ function sendMessage(){
     btn.disabled=false;btn.textContent='Send message';
     if(ok){okEl.textContent='Message sent. You will hear back shortly.';okEl.style.display='block';ta.value='';
       setTimeout(function(){document.getElementById('msg-panel').style.display='none';okEl.style.display='none'},4000)}
-    else{errEl.textContent='Something went wrong. Please email info.integroai@consultant.com directly.';errEl.style.display='block'}
+    else{errEl.textContent='Something went wrong. Please email info@integroai.tech directly.';errEl.style.display='block'}
   }
   if(!IS_LIVE){setTimeout(function(){done(true)},500);return}
   fetch('https://formspree.io/f/'+MSG_FORMSPREE_ID,{
