@@ -188,10 +188,10 @@ a{color:inherit}
 .facts svg{width:18px;height:18px;flex:none;color:var(--amber)}
 .hero-note{font-size:14px;color:var(--mist);margin-top:-8px}
 /* right-hand visual: sample scorecard in the same amber offset frame as the homepage portrait */
-.hero-visual{display:flex;flex-direction:column;align-items:center;gap:26px;width:100%;max-width:440px;justify-self:center;min-width:0}
+.hero-visual{display:flex;flex-direction:column;align-items:center;gap:26px;width:100%;max-width:380px;justify-self:center;min-width:0}
 @media(min-width:768px){.hero-visual{justify-self:end}}
-.mock{width:calc(100% - 10px);align-self:flex-start;background:#fff;border-radius:24px;box-shadow:10px 10px 0 var(--amber);padding:22px;display:flex;flex-direction:column;gap:16px;color:var(--navy)}
-@media(min-width:640px){.mock{width:calc(100% - 14px);box-shadow:14px 14px 0 var(--amber);padding:28px}}
+.mock{position:relative;overflow:hidden;width:calc(100% - 10px);align-self:flex-start;background:#fff;border-radius:24px;box-shadow:10px 10px 0 var(--amber);padding:22px;display:flex;flex-direction:column;gap:16px;color:var(--navy)}
+@media(min-width:640px){.mock{width:calc(100% - 14px);box-shadow:14px 14px 0 var(--amber);padding:24px}}
 .mock-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .mock .ring-row{gap:18px}
 .mock .ring-txt{min-width:140px}
@@ -204,6 +204,14 @@ a{color:inherit}
 .mock-bar em{font-style:normal;font-size:14px;font-weight:700;color:var(--navy);text-align:right}
 .mock-focus{background:var(--cream);border:1px solid var(--sand);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:3px}
 .mock-focus p:last-child{font-size:16px;font-weight:700;color:var(--navy)}
+.mock .ring{width:96px;height:96px}
+.mock .ring-val{padding-top:29px}
+.mock .ring-val b{font-size:32px}
+.mock .ring-txt .serif{font-size:25px}
+.mock .hide{filter:blur(3px);opacity:.55;user-select:none}
+.mock-veil{position:absolute;left:0;right:0;bottom:0;height:48%;display:flex;align-items:flex-end;justify-content:center;padding-bottom:26px;background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.75) 45%,#fff 80%);pointer-events:none}
+.lock-tag{display:inline-flex;align-items:center;gap:7px;background:var(--navy);color:#fff;font-size:13px;font-weight:600;border-radius:999px;padding:9px 16px;box-shadow:0 8px 20px rgba(4,27,43,.18)}
+.lock-tag svg{width:14px;height:14px;color:var(--amber)}
 .hero-caption{font-size:14px;color:var(--mist);text-align:center}
 
 /* sample result card (same as the homepage assessment card) */
@@ -425,7 +433,7 @@ a{color:inherit}
       </div>
 
       <div class="hero-visual">
-        <div class="mock" role="img" aria-label="Sample AI Readiness result: 11 out of 30, Early Explorer, with Operational Visibility as the priority focus.">
+        <div class="mock" role="img" aria-label="Sample AI Readiness result: 11 out of 30, Early Explorer. The full breakdown appears when you finish.">
           <div class="mock-top">
             <p class="lbl">AI Readiness Score</p>
             <p class="chip">Sample result</p>
@@ -448,13 +456,14 @@ a{color:inherit}
               <div class="mock-bar"><span>Strategic Clarity</span><i><b style="width:50%"></b></i><em>3/6</em></div>
               <div class="mock-bar"><span>Leadership &amp; Ownership</span><i><b style="width:33%"></b></i><em>2/6</em></div>
               <div class="mock-bar"><span>Process Maturity</span><i><b style="width:50%"></b></i><em>3/6</em></div>
-              <div class="mock-bar pri"><span>Operational Visibility</span><i><b style="width:17%"></b></i><em>1/6</em></div>
-              <div class="mock-bar"><span>Data Readiness</span><i><b style="width:33%"></b></i><em>2/6</em></div>
+              <div class="mock-bar pri hide"><span>Operational Visibility</span><i><b style="width:17%"></b></i><em>1/6</em></div>
+              <div class="mock-bar hide"><span>Data Readiness</span><i><b style="width:33%"></b></i><em>2/6</em></div>
           </div>
-          <div class="mock-focus">
+          <div class="mock-focus hide">
             <p class="lbl">Priority focus</p>
             <p>Operational Visibility</p>
           </div>
+          <div class="mock-veil" aria-hidden="true"><span class="lock-tag"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.6" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Full breakdown when you finish</span></div>
         </div>
         <p class="hero-caption">A sample result. Yours appears the moment you finish.</p>
       </div>
