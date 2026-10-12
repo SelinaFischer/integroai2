@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Readiness Assessment | IntegroAI Consulting</title>
-<meta name="description" content="IntegroAI's free 5-minute AI Readiness Assessment for founder-led service businesses. Get your AI readiness score, see where the gaps are and find out what to fix first, before you invest in AI.">
+<meta name="description" content="IntegroAI's free 5-minute AI Readiness Assessment scores your business across strategic clarity, leadership and ownership, process maturity, operational visibility and data readiness, then names the priority to focus on first.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#050F1B">
 <link rel="canonical" href="https://integroai.tech/assessment">
@@ -13,7 +13,7 @@
 <meta property="og:locale" content="en_GB">
 <meta property="og:url" content="https://integroai.tech/assessment">
 <meta property="og:title" content="AI Readiness Assessment | IntegroAI Consulting">
-<meta property="og:description" content="IntegroAI's free 5-minute AI Readiness Assessment for founder-led service businesses. Get your AI readiness score, see where the gaps are and find out what to fix first, before you invest in AI.">
+<meta property="og:description" content="IntegroAI's free 5-minute AI Readiness Assessment scores your business across strategic clarity, leadership and ownership, process maturity, operational visibility and data readiness, then names the priority to focus on first.">
 <meta property="og:image" content="https://integroai.tech/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/x-icon" href="https://integroai.tech/favicon.ico">
@@ -160,97 +160,44 @@ a{color:inherit}
 /* ============================================================
    WELCOME
    ============================================================ */
-.hero{position:relative;overflow:hidden;color:#fff;padding:104px 0 72px;
-  background:
-    radial-gradient(50% 55% at 8% 8%,rgba(78,156,163,.38),rgba(78,156,163,0) 62%),
-    radial-gradient(42% 50% at 88% 72%,rgba(255,153,0,.20),rgba(255,153,0,0) 62%),
-    radial-gradient(70% 60% at 50% 18%,rgba(30,74,110,.55),rgba(30,74,110,0) 70%),
-    #050F1B}
-.hero::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.5;
-  background-image:radial-gradient(rgba(191,230,228,.16) 1px,transparent 1.2px);background-size:26px 26px;
-  -webkit-mask-image:linear-gradient(100deg,#000 0%,rgba(0,0,0,.2) 55%,transparent 75%);mask-image:linear-gradient(100deg,#000 0%,rgba(0,0,0,.2) 55%,transparent 75%)}
-@media(min-width:640px){.hero{padding:132px 0 88px}}
-@media(min-width:1024px){.hero{padding:150px 0 104px}}
-.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:64px;align-items:center}
-@media(min-width:1024px){.hero .wrap{grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);gap:64px}}
+.hero{background:var(--gradient-hero);padding:104px 0 64px;color:#fff;overflow:hidden}
+@media(min-width:640px){.hero{padding:132px 0 80px}}
+@media(min-width:1024px){.hero{padding:156px 0 96px}}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr);gap:56px;align-items:center}
+@media(min-width:1024px){.hero .wrap{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:64px}}
 .hero-copy{display:flex;flex-direction:column;align-items:flex-start;gap:24px;min-width:0}
 .pill{display:inline-flex;align-items:center;gap:9px;padding:8px 16px;border-radius:999px;background:rgba(143,211,209,.10);border:1px solid rgba(143,211,209,.38);color:#BFE6E4;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
 .pill i{width:8px;height:8px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 4px rgba(255,153,0,.18)}
-.hero h1{font-family:var(--serif);font-weight:600;font-size:46px;line-height:1;color:#fff;letter-spacing:-.005em;font-variant-numeric:lining-nums}
-.hero h1 em{position:relative;display:inline-block;color:var(--amber);font-style:italic;padding-bottom:6px}
-.hero h1 em svg{position:absolute;left:-2%;bottom:-8px;width:104%;height:18px;overflow:visible}
-@media(min-width:640px){.hero h1{font-size:60px}}
-@media(min-width:1024px){.hero h1{font-size:72px}}
-.hero-sub{font-family:var(--serif);font-style:italic;font-weight:600;font-size:23px;line-height:1.25;color:#BFE6E4}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:44px;line-height:1;color:#fff;letter-spacing:-.005em;text-wrap:balance;font-variant-numeric:lining-nums}
+.hero h1 em{color:var(--amber);font-style:italic}
+@media(min-width:640px){.hero h1{font-size:58px}}
+@media(min-width:1024px){.hero h1{font-size:68px}}
+.hero-sub{font-family:var(--serif);font-style:italic;font-weight:600;font-size:23px;line-height:1.25;color:#fff}
 @media(min-width:640px){.hero-sub{font-size:27px}}
 .hero-body{max-width:560px;font-size:17px;line-height:1.6;color:var(--mist)}
 @media(min-width:640px){.hero-body{font-size:19px}}
-.hero .btn-amber{padding:15px 28px;font-size:16px;box-shadow:0 10px 30px rgba(255,153,0,.28)}
 .facts{list-style:none;display:flex;flex-wrap:wrap;gap:12px 24px;padding-top:4px}
 .facts li{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:500;color:#fff;white-space:nowrap}
-.facts svg{width:18px;height:18px;flex:none;color:#8FD3D1}
+.facts svg{width:18px;height:18px;flex:none;color:var(--amber)}
 .hero-note{font-size:14px;color:var(--mist);margin-top:-8px}
-/* right-hand visual */
-.hero-visual{position:relative;display:flex;flex-direction:column;align-items:center;gap:40px;width:100%;max-width:440px;justify-self:center;min-width:0}
+/* right-hand visual: sample scorecard in the same amber offset frame as the homepage portrait */
+.hero-visual{display:flex;flex-direction:column;align-items:center;gap:26px;width:100%;max-width:440px;justify-self:center;min-width:0}
 @media(min-width:1024px){.hero-visual{justify-self:end}}
-.rings{position:absolute;left:50%;top:44%;width:640px;height:640px;transform:translate(-50%,-50%);pointer-events:none;z-index:0}
-.mock{position:relative;z-index:1;width:calc(100% - 10px);align-self:flex-start;background:#fff;border-radius:24px;box-shadow:10px 10px 0 var(--amber),0 30px 60px rgba(0,0,0,.35);padding:22px;display:flex;flex-direction:column;gap:16px;color:var(--navy)}
-@media(min-width:640px){.mock{width:calc(100% - 14px);box-shadow:14px 14px 0 var(--amber),0 30px 60px rgba(0,0,0,.35);padding:28px}}
+.mock{width:calc(100% - 10px);align-self:flex-start;background:#fff;border-radius:24px;box-shadow:10px 10px 0 var(--amber);padding:22px;display:flex;flex-direction:column;gap:16px;color:var(--navy)}
+@media(min-width:640px){.mock{width:calc(100% - 14px);box-shadow:14px 14px 0 var(--amber);padding:28px}}
 .mock-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .mock .ring-row{gap:18px}
 .mock .ring-txt{min-width:140px}
 .mock-bars{display:flex;flex-direction:column;border-top:1px solid var(--sand);padding-top:14px}
 .mock-bar{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) 30px;align-items:center;gap:12px;padding:6px 0}
 .mock-bar span:first-child{font-size:14px;font-weight:600;color:var(--navy);line-height:1.3}
-.mock-bar i{display:block;height:8px;border-radius:6px;background:#E7F1F1;overflow:hidden}
-.mock-bar i b{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,#8FD3D1,#4E9CA3)}
-.mock-bar.pri i{background:#FFF1DA}
-.mock-bar.pri i b{background:linear-gradient(90deg,#FFC56B,#FF9900)}
+.mock-bar i{display:block;height:7px;border-radius:6px;background:var(--track);overflow:hidden}
+.mock-bar i b{display:block;height:100%;border-radius:6px;background:var(--navy)}
+.mock-bar.pri i b{background:var(--amber)}
 .mock-bar em{font-style:normal;font-size:14px;font-weight:700;color:var(--navy);text-align:right}
-.mock-focus{background:#FFF7EA;border:1px solid #FFD9A0;border-radius:12px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px}
-.veil{display:block;height:10px;border-radius:6px;background:linear-gradient(90deg,#E9E1D3,#F5EFE4)}
-.veil-lg{width:150px;height:14px;margin-top:6px;background:linear-gradient(90deg,#FFD9A0,#FFF1DA)}
-.mf-left{display:flex;flex-direction:column}
-.mock-focus .nm{font-size:16px;font-weight:700;color:var(--navy)}
-.mock-bars-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-bottom:8px;flex-wrap:wrap}
-.lock-chip{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:#3B767C;background:#E7F1F1;border-radius:999px;padding:3px 9px 3px 7px;white-space:nowrap}
-.lock-chip svg{width:12px;height:12px}
-.mock-focus .tag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);background:var(--amber);border-radius:999px;padding:4px 10px;white-space:nowrap}
-.mock .lbl{color:var(--teal)}
-.float{position:absolute;z-index:2;display:flex;align-items:center;gap:10px;background:#fff;color:var(--navy);border-radius:14px;padding:10px 14px 10px 10px;box-shadow:0 14px 30px rgba(4,27,43,.28);font-size:13px;font-weight:600;line-height:1.25;white-space:nowrap}
-.float .ic{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex:none}
-.float .ic svg{width:18px;height:18px}
-.float small{display:block;font-size:11px;font-weight:500;color:var(--slate)}
-.float-a{top:-22px;left:-12px}
-.float-a .ic{background:#E7F1F1;color:#3B767C}
-.float-b{bottom:18px;left:-26px;background:var(--navy);color:#fff}
-.float-b .ic{background:rgba(255,153,0,.16);color:var(--amber)}
-.float-b small{color:var(--mist)}
-@media(max-width:639px){.float-a{left:-4px;top:-20px}.float-b{display:none}.mock{padding-top:40px}}
-.hero-caption{position:relative;z-index:1;font-size:14px;color:var(--mist);text-align:center}
-/* dimensions strip under the hero */
-.dims{background:var(--ivory);padding:64px 0 72px;border-bottom:1px solid var(--sand)}
-.dims-head{text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:36px}
-.dims-head h2{font-family:var(--serif);font-weight:600;font-size:32px;line-height:1.1;color:var(--ink);text-wrap:balance}
-.dims-head h2 em{font-style:italic;color:#3B767C}
-@media(min-width:640px){.dims-head h2{font-size:42px}}
-.dims-head p{font-size:17px;color:var(--slate);max-width:560px;line-height:1.6}
-.dim-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
-@media(min-width:768px){.dim-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}}
-.dim-tile{padding:24px}
-.dim-tile h3{font-size:18px}
-.dim-tile p{font-size:15px}
-.dim-tile{background:#fff;border:1px solid var(--sand);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
-.dim-tile::before{content:'';position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,#8FD3D1,#4E9CA3)}
-.dim-tile.amber::before{background:linear-gradient(90deg,#FFC56B,#FF9900)}
-.dim-tile:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
-.dim-ic{width:42px;height:42px;border-radius:12px;background:#E7F1F1;color:#3B767C;display:flex;align-items:center;justify-content:center}
-.dim-tile.amber .dim-ic{background:#FFF1DA;color:#B36B00}
-.dim-ic svg{width:22px;height:22px}
-.dim-tile h3{font-size:16px;font-weight:700;color:var(--navy);line-height:1.25}
-.dim-tile p{font-size:14px;color:var(--body);line-height:1.55}
-.dims-cta{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:36px}
-.dims-cta p{font-size:14px;color:var(--slate)}
+.mock-focus{background:var(--cream);border:1px solid var(--sand);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:3px}
+.mock-focus p:last-child{font-size:16px;font-weight:700;color:var(--navy)}
+.hero-caption{font-size:14px;color:var(--mist);text-align:center}
 
 /* sample result card (same as the homepage assessment card) */
 .card{background:#fff;border:1px solid var(--sand);border-radius:20px;box-shadow:var(--shadow-lg);color:var(--navy)}
@@ -452,7 +399,7 @@ a{color:inherit}
     <div class="wrap">
       <div class="hero-copy">
         <p class="pill"><i aria-hidden="true"></i>AI Readiness Assessment</p>
-        <h1 id="welcome-title">Is your business<br><em>ready for AI?<svg viewBox="0 0 300 18" preserveAspectRatio="none" aria-hidden="true"><path d="M3 12c60-8 130-11 200-8 32 1.4 62 4 94 7" stroke="#8FD3D1" stroke-width="4" fill="none" stroke-linecap="round"/></svg></em></h1>
+        <h1 id="welcome-title">Is your business<br><em>ready for AI?</em></h1>
         <p class="hero-sub">Operational clarity before AI investment.</p>
         <p class="hero-body">Find where manual effort, fragmented workflows and unclear ownership are holding back your AI readiness. Answer 10 questions and see where the gaps are before you invest.</p>
         <button type="button" class="btn-amber" onclick="startAssessment()">
@@ -468,14 +415,7 @@ a{color:inherit}
       </div>
 
       <div class="hero-visual">
-        <svg class="rings" viewBox="0 0 640 640" aria-hidden="true">
-          <circle cx="320" cy="320" r="300" fill="none" stroke="rgba(143,211,209,.10)" stroke-width="1.5"/>
-          <circle cx="320" cy="320" r="240" fill="none" stroke="rgba(143,211,209,.14)" stroke-width="1.5"/>
-          <circle cx="320" cy="320" r="300" fill="none" stroke="rgba(255,153,0,.45)" stroke-width="3" stroke-linecap="round" stroke-dasharray="320 1565" transform="rotate(-70 320 320)"/>
-          <circle cx="320" cy="320" r="240" fill="none" stroke="rgba(143,211,209,.55)" stroke-width="3" stroke-linecap="round" stroke-dasharray="220 1288" transform="rotate(130 320 320)"/>
-        </svg>
-        <div class="float float-a" aria-hidden="true"><span class="ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/></svg></span><span>Score out of 30<small>plus your readiness stage</small></span></div>
-        <div class="mock" role="img" aria-label="Sample AI Readiness result: 11 out of 30, Early Explorer.">
+        <div class="mock" role="img" aria-label="Sample AI Readiness result: 11 out of 30, Early Explorer, with Operational Visibility as the priority focus.">
           <div class="mock-top">
             <p class="lbl">AI Readiness Score</p>
             <p class="chip">Sample result</p>
@@ -483,9 +423,8 @@ a{color:inherit}
           <div class="ring-row">
             <div class="ring">
               <svg viewBox="0 0 112 112" aria-hidden="true">
-                <defs><linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4E9CA3"/><stop offset="1" stop-color="#FF9900"/></linearGradient></defs>
                 <circle cx="56" cy="56" r="47" fill="none" stroke="#EFE8DC" stroke-width="9"/>
-                <circle cx="56" cy="56" r="47" fill="none" stroke="url(#ringGrad)" stroke-width="9" stroke-linecap="round" stroke-dasharray="108.3 295.3" transform="rotate(-90 56 56)"/>
+                <circle cx="56" cy="56" r="47" fill="none" stroke="#FF9900" stroke-width="9" stroke-linecap="round" stroke-dasharray="108.3 295.3" transform="rotate(-90 56 56)"/>
               </svg>
               <div class="ring-val"><b>11</b><span>/30</span></div>
             </div>
@@ -496,50 +435,18 @@ a{color:inherit}
           </div>
           <div class="mock-bars">
             <p class="lbl" style="padding-bottom:6px">Readiness by dimension</p>
-            <div class="mock-bar"><span>Strategic Clarity</span><i><b style="width:50%"></b></i><em>3/6</em></div>
-            <div class="mock-bar"><span>Leadership &amp; Ownership</span><i><b style="width:33%"></b></i><em>2/6</em></div>
-            <div class="mock-bar"><span>Process Maturity</span><i><b style="width:50%"></b></i><em>3/6</em></div>
-            <div class="mock-bar pri"><span>Operational Visibility</span><i><b style="width:17%"></b></i><em>1/6</em></div>
-            <div class="mock-bar"><span>Data Readiness</span><i><b style="width:33%"></b></i><em>2/6</em></div>
+              <div class="mock-bar"><span>Strategic Clarity</span><i><b style="width:50%"></b></i><em>3/6</em></div>
+              <div class="mock-bar"><span>Leadership &amp; Ownership</span><i><b style="width:33%"></b></i><em>2/6</em></div>
+              <div class="mock-bar"><span>Process Maturity</span><i><b style="width:50%"></b></i><em>3/6</em></div>
+              <div class="mock-bar pri"><span>Operational Visibility</span><i><b style="width:17%"></b></i><em>1/6</em></div>
+              <div class="mock-bar"><span>Data Readiness</span><i><b style="width:33%"></b></i><em>2/6</em></div>
           </div>
           <div class="mock-focus">
-            <span class="mf-left"><span class="lbl" style="display:block;color:var(--slate)">Priority focus</span><span class="nm">Operational Visibility</span></span>
-            <span class="tag">Start here</span>
+            <p class="lbl">Priority focus</p>
+            <p>Operational Visibility</p>
           </div>
         </div>
-        <div class="float float-b" aria-hidden="true"><span class="ic"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.8"/><path d="M10 6v4.2l2.8 1.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Results in minutes<small>on screen and by email</small></span></div>
         <p class="hero-caption">A sample result. Yours appears the moment you finish.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="dims">
-    <div class="wrap">
-      <div class="dims-head">
-        <p class="eyebrow">What you'll walk away with</p>
-        <h2>Ten questions. <em>Real clarity.</em></h2>
-        <p>Your results are built from your own answers, so they show where your business stands today and what to fix first.</p>
-      </div>
-      <div class="dim-grid">
-        <div class="dim-tile">
-          <span class="dim-ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3.5 16a8.5 8.5 0 1117 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 16l4-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="16" r="1.6" fill="currentColor"/></svg></span>
-          <h3>Your AI Readiness Score</h3>
-          <p>A score out of 30, plus the readiness stage your business is at right now.</p>
-        </div>
-        <div class="dim-tile">
-          <span class="dim-ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M7 16v-4M12 16V6M17 16v-7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></span>
-          <h3>Your strengths and gaps</h3>
-          <p>See where you are ready, and where gaps could hold back any AI investment.</p>
-        </div>
-        <div class="dim-tile amber">
-          <span class="dim-ic"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/></svg></span>
-          <h3>Your priority focus</h3>
-          <p>The one thing to fix first, with a clear next step you can act on.</p>
-        </div>
-      </div>
-      <div class="dims-cta">
-        <button type="button" class="btn-amber" onclick="startAssessment()">Get My AI Readiness Score <svg class="arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <p>Free. Takes about 5 minutes.</p>
       </div>
     </div>
   </div>
@@ -605,71 +512,79 @@ a{color:inherit}
         </div>
       </div>
 
-      <div class="form-divider">
-        <p class="form-sec">Business context</p>
-        <div class="form-2">
-          <div class="fld">
-            <label for="f-size">Number of people *</label>
-            <select id="f-size">
-              <option value="">Select size...</option>
-              <option>Under 20 people</option>
-              <option>20 to 49 people</option>
-              <option>50 to 99 people</option>
-              <option>100 to 249 people</option>
-              <option>250 or more people</option>
-            </select>
-          </div>
-          <div class="fld">
-            <label for="f-industry">Industry *</label>
-            <select id="f-industry">
-              <option value="">Select industry...</option>
-              <option>Professional services (legal, accounting, consulting)</option>
-              <option>Marketing, creative and agencies</option>
-              <option>Recruitment and staffing</option>
-              <option>Property, hospitality and accommodation</option>
-              <option>Healthcare, wellbeing and care</option>
-              <option>Education, training and coaching</option>
-              <option>Trades, construction and field services</option>
-              <option>Technology and software</option>
-              <option>Retail and eCommerce</option>
-              <option>Other</option>
-            </select>
-          </div>
+      <div class="form-2">
+        <div class="fld">
+          <label for="f-size">Organisation size *</label>
+          <select id="f-size">
+            <option value="">Select size...</option>
+            <option>Solo / micro business (1–5 people)</option>
+            <option>Small team (6–20 people)</option>
+            <option>Growing SME (21–100 people)</option>
+            <option>Larger SME (101–250 people)</option>
+          </select>
         </div>
         <div class="fld">
-          <label for="f-motivation">What is driving your interest in AI right now? *</label>
-          <select id="f-motivation" onchange="toggleMotivationOther(this.value)">
+          <label for="f-industry">Industry / business type *</label>
+          <select id="f-industry">
+            <option value="">Select industry...</option>
+            <option>Professional services (legal, accounting, consulting)</option>
+            <option>Marketing, creative and agencies</option>
+            <option>Recruitment and staffing</option>
+            <option>Property, hospitality and accommodation</option>
+            <option>Healthcare, wellbeing and care</option>
+            <option>Education, training and coaching</option>
+            <option>Trades, construction and field services</option>
+            <option>Technology and software</option>
+            <option>Retail and eCommerce</option>
+            <option>Other services</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="fld">
+        <label for="f-motivation">Why are you exploring AI right now? *</label>
+        <select id="f-motivation" onchange="toggleMotivationOther(this.value)">
+          <option value="">Select...</option>
+          <option>We want to save time on repetitive work</option>
+          <option>We want to improve quality and consistency</option>
+          <option>We want to grow revenue without adding headcount</option>
+          <option>We feel pressure to keep up with AI and do not know where to start</option>
+          <option value="Other">Other (please specify)</option>
+        </select>
+        <input type="text" id="f-motivation-other" placeholder="Tell us what is driving your interest in AI..." aria-label="What is driving your interest in AI">
+      </div>
+
+      <div class="form-divider">
+        <p class="form-sec">Business context</p>
+        <div class="fld">
+          <label for="f-role">Your role in AI or investment decisions *</label>
+          <select id="f-role">
+            <option value="">Select...</option>
+            <option>I make the final decision</option>
+            <option>I influence the decision</option>
+            <option>I am researching on behalf of the decision maker</option>
+            <option>I am exploring personally</option>
+          </select>
+        </div>
+        <div class="fld">
+          <label for="f-timeline">When are you hoping to make progress? *</label>
+          <select id="f-timeline">
+            <option value="">Select...</option>
+            <option>Within 1 month</option>
+            <option>Within 3 months</option>
+            <option>Within 6 months</option>
+            <option>No clear timeline yet</option>
+          </select>
+        </div>
+        <div class="fld">
+          <label for="f-situation">What best describes your current situation? *</label>
+          <select id="f-situation">
             <option value="">Select...</option>
             <option>We have a specific operational problem to solve</option>
-            <option>We want to cut repetitive, manual work</option>
-            <option>We want to grow without adding headcount</option>
-            <option>We want to improve quality and consistency</option>
+            <option>We want to reduce manual effort or duplicated work</option>
             <option>We are exploring AI but unsure where it fits</option>
-            <option value="Other">Other (please specify)</option>
+            <option>We are mainly looking for tool ideas</option>
           </select>
-          <input type="text" id="f-motivation-other" placeholder="Tell us what is driving your interest in AI" aria-label="What is driving your interest in AI">
-        </div>
-        <div class="form-2">
-          <div class="fld">
-            <label for="f-role">Your role in AI or investment decisions *</label>
-            <select id="f-role">
-              <option value="">Select...</option>
-              <option>I make the final decision</option>
-              <option>I influence the decision</option>
-              <option>I am researching for the decision maker</option>
-              <option>I am exploring personally</option>
-            </select>
-          </div>
-          <div class="fld">
-            <label for="f-timeline">When do you want to make progress? *</label>
-            <select id="f-timeline">
-              <option value="">Select...</option>
-              <option>Within 1 month</option>
-              <option>Within 3 months</option>
-              <option>Within 6 months</option>
-              <option>No clear timeline yet</option>
-            </select>
-          </div>
         </div>
       </div>
 
@@ -700,7 +615,7 @@ a{color:inherit}
     <div class="r-wrap">
 
       <div class="r-intro">
-        <p class="eyebrow">Your AI Readiness results</p>
+        <p class="eyebrow">AI Readiness Assessment</p>
         <h1 id="r-name" tabindex="-1"></h1>
       </div>
 
@@ -713,23 +628,23 @@ a{color:inherit}
           <div class="ring-val"><b id="r-score">0</b><span>/30</span></div>
         </div>
         <div class="score-main">
-          <p class="lbl">AI Readiness Score</p>
+          <p class="lbl">Your AI Readiness Score</p>
           <p class="tier-name" id="r-tier"></p>
-          <p class="score-calc">Based on 10 questions across five readiness dimensions. Maximum score 30.</p>
+          <p class="score-calc">Based on 10 questions across 5 AI readiness dimensions. Maximum score: 30.</p>
+          <p class="lbl" style="margin-top:8px">Your AI readiness stage</p>
           <div class="legend" id="tier-legend" aria-label="The four readiness stages">
-            <div class="lg-cell" id="tl-0"><span class="lg-name">Not Yet Ready</span><span class="lg-range">0 to 9</span></div>
-            <div class="lg-cell" id="tl-1"><span class="lg-name">Early Explorer</span><span class="lg-range">10 to 17</span></div>
-            <div class="lg-cell" id="tl-2"><span class="lg-name">Focused Experimenter</span><span class="lg-range">18 to 24</span></div>
-            <div class="lg-cell" id="tl-3"><span class="lg-name">Emerging Integrator</span><span class="lg-range">25 to 30</span></div>
+            <div class="lg-cell" id="tl-0"><span class="lg-name">Not Yet Ready</span><span class="lg-range">0 – 9</span></div>
+            <div class="lg-cell" id="tl-1"><span class="lg-name">Early Explorer</span><span class="lg-range">10 – 17</span></div>
+            <div class="lg-cell" id="tl-2"><span class="lg-name">Focused Experimenter</span><span class="lg-range">18 – 24</span></div>
+            <div class="lg-cell" id="tl-3"><span class="lg-name">Emerging Integrator</span><span class="lg-range">25 – 30</span></div>
           </div>
         </div>
       </div>
 
       <div class="r-cols">
         <div class="card r-panel">
-          <p class="lbl">Readiness by dimension</p>
+          <p class="lbl">Score by dimension <span style="font-weight:500;letter-spacing:.04em;text-transform:none">(2 questions × max 3 pts = max 6 per dimension)</span></p>
           <div id="dim-bars" style="margin-top:8px"></div>
-          <p class="dim-note">Each dimension is scored out of 6 (two questions, up to 3 points each).</p>
           <div class="radar-holder">
             <svg id="radar-svg" viewBox="0 0 440 340" role="img" aria-label="Radar chart of your five readiness dimensions"></svg>
             <p class="radar-summary" id="radar-summary"></p>
@@ -737,26 +652,23 @@ a{color:inherit}
         </div>
 
         <div class="card r-panel">
-          <p class="lbl">Your diagnosis</p>
+          <p class="lbl">Your Diagnosis</p>
           <p class="diag-p" id="r-diag"></p>
           <div class="focus-box">
-            <p class="lbl">Priority focus</p>
-            <p class="focus-name" id="r-focus-name"></p>
-            <p class="focus-p" id="r-focus-p"></p>
+            <p class="lbl">Recommended Next Step</p>
+            <p class="focus-p" id="r-opp" style="color:var(--navy);font-weight:500"></p>
           </div>
-          <p class="next-p" id="r-opp"></p>
         </div>
       </div>
 
       <div class="cta on-dark">
-        <p class="eyebrow">Your next step</p>
-        <h2>Turn your score into <em>a clear plan.</em></h2>
-        <p class="cta-p">Book a free 30-minute AI Readiness Discovery Call. We'll go through your results together and agree what to do first.</p>
+        <h2>Your results are ready. <em>Here is your recommended next step.</em></h2>
+        <p class="cta-p" id="r-cta-p"></p>
         <ul class="cta-bullets" id="cta-bullets-list"></ul>
         <div class="cta-btns">
           <!-- CALENDLY_LINK -->
           <a href="https://calendly.com/integroai-tech/30min" class="btn-amber" target="_blank" rel="noopener noreferrer">
-            Book your free Discovery Call
+            Book Your AI Readiness Discovery Call
             <svg class="arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
           <button type="button" class="btn-outline-light" onclick="toggleMsgForm()" aria-controls="msg-panel" id="msg-toggle">
@@ -766,7 +678,7 @@ a{color:inherit}
 
         <div id="msg-panel" class="card msg-panel">
           <h3>Send IntegroAI Consulting a message</h3>
-          <p class="msg-sub">Your assessment results are included automatically, so the reply is about your business.</p>
+          <p class="msg-sub">Your assessment details will be included automatically so the team has full context when responding.</p>
           <div class="fld">
             <label for="msg-body">Your message *</label>
             <textarea id="msg-body" rows="7"></textarea>
@@ -856,120 +768,109 @@ function validatePhone(p){
   return 'Please enter a valid UK phone number.';
 }
 
-/* ── QUESTIONS ────────────────────────────────────────────────────────────
-   10 scored questions, two per dimension, shown in dimension order.
-   Each answer scores 0 to 3, so each dimension is out of 6 and the total
-   is out of 30. The dim field links each question to its dimension.
-   ──────────────────────────────────────────────────────────────────────── */
-var DIM_NAMES = ['Strategic Clarity','Leadership & Ownership','Process Maturity','Operational Visibility','Data Readiness'];
-var DIM_MAX   = [6,6,6,6,6];
-
+/* ── QUESTIONS ───────────────────────────────────────────────────────────────
+   10 scored questions across 3 sections:
+   Direction (Q1–Q3, max 9) | Operations (Q4–Q7, max 12) | Readiness (Q8–Q10, max 9)
+   Total max = 30
+   ──────────────────────────────────────────────────────────────────────────── */
 var QS=[
-  /* ── STRATEGIC CLARITY ─────────────────────────────── */
-  {dim:0,
-   title:'How clear is your main goal for using AI in the next 6 to 12 months?',
-   hint:'For example: win back 10 hours of admin a week, or take on more clients without hiring. A goal like this tells you whether AI is paying off.',
+  /* ── DIRECTION ─────────────────────────────────────── */
+  {sec:'Section 1 of 3: Direction',
+   title:'How clear is your main goal for using AI in the next 6–12 months?',
+   hint:'A goal linked to a specific outcome (time saved, cost reduced, or revenue grown) is the single strongest predictor of whether AI delivers a return. For example: win back 10 hours of admin a week, or take on more clients without hiring.',
    opts:[
-     {t:'Clearly defined',   s:'We have a written goal linked to a specific outcome: time, cost or revenue',v:3},
-     {t:'Broadly stated',    s:'We have one or two written goals, but they are still fairly general',     v:2},
-     {t:'General direction', s:'We have an idea, but nothing written down yet',                          v:1},
-     {t:'Not yet defined',   s:'We have not agreed what AI should achieve for the business',             v:0}
+     {t:'Clearly defined',    s:'We have a written goal linked to specific outcomes: time, cost, or revenue',v:3},
+     {t:'Broadly stated',     s:'We have 1–2 written goals but they are still fairly general',               v:2},
+     {t:'General direction',  s:'We have an idea but nothing written down yet',                               v:1},
+     {t:'Not yet defined',    s:'We have not agreed what AI should achieve for the business yet',            v:0}
    ]},
-  {dim:0,
-   title:'When a new AI tool catches your attention, what usually happens next?',
-   hint:'Strong AI investments start from a business problem, not from the tool.',
+  {sec:'Section 1 of 3: Direction',
+   title:'When you come across a new AI tool or solution, what is your instinct?',
+   hint:'How a business approaches AI tools reveals whether it is solution-led or problem-led. The strongest AI investments always start from the problem.',
    opts:[
-     {t:'Problem first',        s:'We check whether it solves a specific problem we have and fits how we work',v:3},
-     {t:'Business case first',  s:'We weigh up the time, cost and operational case before exploring it',      v:2},
-     {t:'Curious but unsure',   s:'We are interested, but unsure how to judge whether it is worth trying',    v:1},
-     {t:'Tool first',           s:'We try it because it might be useful somewhere',                           v:0}
+     {t:'Problem-led',        s:'We check whether it solves a specific problem we have and fits how we work', v:3},
+     {t:'Business-case first', s:'We assess whether the time, cost, and operational case justify exploring it', v:2},
+     {t:'Curious but unsure', s:'We are interested but unsure how to evaluate whether it is worth trying',     v:1},
+     {t:'Tool-first',         s:'We want to try it, as it might be useful somewhere',                         v:0}
    ]},
-  /* ── LEADERSHIP & OWNERSHIP ────────────────────────── */
-  {dim:1,
-   title:'Who is responsible for decisions about AI in your business?',
-   hint:'In a founder-led business this is often the founder. Without a named owner who has time to act, AI projects stall.',
+  {sec:'Section 1 of 3: Direction',
+   title:'Who is responsible for making decisions about AI in your organisation?',
+   hint:'In a founder-led business this is often the founder. Without a named owner with decision authority, AI initiatives stall before they deliver results.',
    opts:[
-     {t:'Named owner with authority',    s:'The founder or one named person owns AI decisions, priorities and budget',           v:3},
-     {t:'Named owner, limited capacity', s:'Someone owns it, but it competes with client work and running the business',                  v:2},
-     {t:'Informal interest',             s:'Someone is keen, but nobody formally owns it',                            v:1},
-     {t:'Not assigned',                  s:'No one is responsible for AI decisions yet',                              v:0}
+     {t:'Named owner with authority', s:'A specific person owns AI decisions, priorities, and budget approval',    v:3},
+     {t:'Named owner, limited capacity',s:'One person owns AI decisions alongside other significant responsibilities',v:2},
+     {t:'Informal interest',          s:'Someone is engaged but there is no formal ownership yet',               v:1},
+     {t:'Not assigned',               s:'No one has been given responsibility for AI decisions',                  v:0}
    ]},
-  {dim:1,
-   title:'If you agreed to pilot AI on one process, how ready is the business to back it?',
-   hint:'A focused pilot only works when someone owns it, has time for it and reviews the results.',
-   opts:[
-     {t:'Ready to commit',          s:'We could give it an owner, protected time and a review date this month',v:3},
-     {t:'Willing but stretched',    s:'We would commit, but finding the time and people would be tight',       v:2},
-     {t:'Informal experiments only',s:'People try tools on their own, but nothing is owned or reviewed',       v:1},
-     {t:'Not ready yet',            s:'We have concerns about risk that need answering before we test anything',v:0}
-   ]},
-  /* ── PROCESS MATURITY ──────────────────────────────── */
-  {dim:2,
+  /* ── OPERATIONS ─────────────────────────────────────── */
+  {sec:'Section 2 of 3: Operations',
    title:'How clearly are your key repeatable processes, like client onboarding, quoting, scheduling and invoicing, documented and followed?',
-   hint:'AI cannot improve a process that has not been defined. It will only speed up whatever is there.',
+   hint:'AI cannot improve a process that has not been defined. Undocumented processes produce unpredictable results at scale.',
    opts:[
-     {t:'Documented and used',  s:'Key processes are written down, shared and followed day to day',      v:3},
-     {t:'Written but variable', s:'Most processes are written down, but not always followed',             v:2},
-     {t:'Partly documented',    s:'Some are written down, but many live in individual people\'s heads',   v:1},
-     {t:'Not documented',       s:'We mostly rely on people\'s experience and memory',                    v:0}
+     {t:'Documented and used',   s:'Key processes are written down, shared, and followed in daily work',         v:3},
+     {t:'Written but variable',  s:'Most processes are written down but not always followed consistently',        v:2},
+     {t:'Partially documented',  s:'Some processes are written down but many rely on individual knowledge',       v:1},
+     {t:'Not documented',        s:'We mostly rely on people\'s experience and memory',                           v:0}
    ]},
-  {dim:2,
-   title:'How closely does the way work is actually done match the way it is meant to be done?',
-   hint:'When everyone does a task differently, that process is not ready to automate.',
+  {sec:'Section 2 of 3: Operations',
+   title:'How clearly do you know where your team spends the most repetitive manual time each week?',
+   hint:'Think chasing clients, re-keying information, scheduling, updating spreadsheets and reporting. The highest-value AI opportunities are almost always hiding in the work people repeat most often.',
    opts:[
-     {t:'Highly consistent', s:'Work follows the agreed steps most of the time, across the team', v:3},
-     {t:'Mostly consistent', s:'Most people follow a similar approach, with some variation',       v:2},
-     {t:'Inconsistent',      s:'Some people follow a set approach, others do not',                 v:1},
-     {t:'Highly variable',   s:'Everyone has their own way of doing things',                       v:0}
+     {t:'Clearly mapped',     s:'We have mapped where time goes across key workflows and know our main bottlenecks',v:3},
+     {t:'Broadly understood', s:'We have a good sense of 1–2 high-friction areas',                                 v:2},
+     {t:'Anecdotal view',     s:'We have a general sense based on feedback, but it has not been measured',          v:1},
+     {t:'Not measured',       s:'We have not looked at where repetitive time is spent',                            v:0}
    ]},
-  /* ── OPERATIONAL VISIBILITY ────────────────────────── */
-  {dim:3,
-   title:'How clearly do you know where your team loses the most time to repetitive, manual work?',
-   hint:'Think chasing clients, re-keying information, scheduling, updating spreadsheets and reporting. The best AI opportunities usually sit in work people repeat most often.',
+  {sec:'Section 2 of 3: Operations',
+   title:'How consistent is the way work is actually done compared to how it is meant to be done?',
+   hint:'Inconsistency in how work is done is one of the clearest signals that a process is not ready for automation.',
    opts:[
-     {t:'Clearly mapped',     s:'We have mapped where time goes across key workflows and know our bottlenecks',v:3},
-     {t:'Broadly understood', s:'We have a good sense of one or two high-friction areas',                      v:2},
-     {t:'Anecdotal view',     s:'We have a feel for it from team feedback, but have not measured it',         v:1},
-     {t:'Not measured',       s:'We have not looked at where repetitive time goes',                           v:0}
+     {t:'Highly consistent', s:'Work follows agreed steps most of the time across the team',        v:3},
+     {t:'Mostly consistent', s:'Most people follow a similar approach with some variation',          v:2},
+     {t:'Inconsistent',      s:'Some people follow a consistent approach, others do not',            v:1},
+     {t:'Highly variable',   s:'Each person has their own way of doing things',                      v:0}
    ]},
-  {dim:3,
-   title:'When the same operational problem keeps coming back, how do you usually spot it?',
-   hint:'Think missed follow-ups, late invoices, repeat client complaints or jobs that overrun. Spotting patterns early stops problems growing quietly.',
+  {sec:'Section 2 of 3: Operations',
+   title:'When a recurring problem in your operations keeps surfacing, how do you usually identify it?',
+   hint:'Think missed follow-ups, late invoices, repeat client complaints or jobs that overrun. The ability to spot patterns early shows that feedback loops are working. Without this, operational problems scale silently.',
    opts:[
-     {t:'Regular review',     s:'We review data or reports regularly and catch patterns before they escalate', v:3},
-     {t:'Periodic check-ins', s:'We look at feedback from time to time and usually catch issues early',         v:2},
-     {t:'When time allows',   s:'We look into it when someone finds time to go through feedback or notes',     v:1},
-     {t:'Only when urgent',   s:'Usually only once it becomes too visible or costly to ignore',                v:0}
+     {t:'Systematic review', s:'We review data or reports regularly and catch patterns before they escalate',     v:3},
+     {t:'Periodic check-in', s:'We review operational feedback from time to time and usually catch issues early', v:2},
+     {t:'Reactive review',   s:'We look into it when we find time to go through feedback or notes',               v:1},
+     {t:'Only when urgent',  s:'Usually when it becomes too visible or costly to ignore',                       v:0}
    ]},
-  /* ── DATA READINESS ────────────────────────────────── */
-  {dim:4,
-   title:'Which best describes the digital tools your team uses for everyday work?',
-   hint:'Think your CRM, practice or job management system, calendar and accounts software. AI works best when it connects to tools you already use well.',
+  /* ── READINESS ─────────────────────────────────────── */
+  {sec:'Section 3 of 3: Readiness',
+   title:'Which best describes your current use of digital tools for everyday work?',
+   hint:'Think your CRM, practice or job management system, calendar and accounts software. AI works best when it connects to tools already in use. A fragmented or manual toolset significantly increases implementation risk.',
    opts:[
-     {t:'Well-defined toolset', s:'A clear set of tools, used consistently, with owners and agreed ways of working',v:3},
-     {t:'Consistently used',    s:'Several core tools used consistently by most of the team',                     v:2},
-     {t:'Partly adopted',       s:'A few core tools in place, but not fully used across the team',                v:1},
-     {t:'Manual and ad hoc',    s:'Mostly email, spreadsheets and tools people pick for themselves',              v:0}
+     {t:'Well-defined toolset', s:'A clear set of tools is used consistently, with ownership and agreed ways of working', v:3},
+     {t:'Consistently used',    s:'Several core tools used consistently by most of the team',                 v:2},
+     {t:'Partially adopted',    s:'A few core tools in place but not fully used across the team',             v:1},
+     {t:'Manual and ad hoc',    s:'Mostly email, spreadsheets, and tools individuals choose for themselves',  v:0}
    ]},
-  {dim:4,
-   title:'How ready is your business data for AI or automation?',
-   hint:'Think client records, enquiries, jobs, time and invoices. AI is only as reliable as the data it works with.',
+  {sec:'Section 3 of 3: Readiness',
+   title:'How ready is your data for use in AI or automation projects?',
+   hint:'Think client records, enquiries, jobs, time and invoices. AI is only as reliable as the data it works with. Scattered or incomplete data produces scattered results.',
    opts:[
-     {t:'Accessible and reliable', s:'Client and business data is easy to reach, reasonably clean and trusted for decisions',v:3},
-     {t:'Mostly in one place',     s:'Key data sits in one or two main systems, with some gaps',            v:2},
-     {t:'Patchy',                  s:'Some data is in one place, but there are gaps and duplicates',        v:1},
-     {t:'Scattered',               s:'Data is spread across many places and often incomplete',              v:0}
+     {t:'Accessible and reliable',s:'Key data is easy to access, reasonably clean, and trusted for reporting or decision-making',v:3},
+     {t:'Mostly captured',       s:'Key data is in one or two main systems but some gaps exist',               v:2},
+     {t:'Partial',               s:'Some data is in one place but there are gaps and duplicates',              v:1},
+     {t:'Scattered',             s:'Data is spread across multiple places and often incomplete',               v:0}
+   ]},
+  {sec:'Section 3 of 3: Readiness',
+   title:'How open is your team to piloting AI on one specific process before rolling it out more widely?',
+   hint:'A focused, contained pilot is the lowest-risk way to prove value and build confidence before broader investment.',
+   opts:[
+     {t:'Ready to pilot',          s:'We are ready to run a focused pilot with clear boundaries and a review process',v:3},
+     {t:'Informally experimenting', s:'We have tried one or two tools informally',                                    v:2},
+     {t:'Curious but cautious',     s:'We are interested but have not tried anything yet',                            v:1},
+     {t:'Not ready to proceed',      s:'We have concerns about the risks and need more clarity before testing AI',    v:0}
    ]}
 ];
 
-/* One line per dimension, shown as the priority focus */
-var FOCUS_COPY = [
-  'Agree what AI should achieve for the business, in time, cost or revenue, before choosing any tool.',
-  'Name one owner for AI decisions and give them the time to see a first project through.',
-  'Settle and document your key workflows first, so AI improves a process instead of automating a broken one.',
-  'Get a clear view of where repetitive time and recurring problems sit before investing further.',
-  'Bring your key data and core tools into order, so any AI you add has reliable information to work with.'
-];
+var DIM_NAMES = ['Strategic Clarity','Leadership & Ownership','Process Maturity','Operational Visibility','Data & Readiness'];
+var DIM_MAX   = [6, 6, 6, 6, 6];
 
 /* STATE */
 var curQ=0, picks=new Array(QS.length).fill(null), contact={};
@@ -991,7 +892,7 @@ function startAssessment(){curQ=0;picks=new Array(QS.length).fill(null);show('s-
 var TICK_SVG='<svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6.2l2.6 2.6L10 3.4" stroke="#041B2B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 function renderQ(moveFocus){
   var q=QS[curQ],tot=QS.length,pct=Math.round(((curQ+1)/tot)*100),isLast=curQ===tot-1;
-  document.getElementById('q-sec').textContent=DIM_NAMES[q.dim]+' \u00b7 '+(q.dim+1)+' of 5';
+  document.getElementById('q-sec').textContent=q.sec;
   document.getElementById('q-num').textContent='Question '+(curQ+1)+' of '+tot;
   document.getElementById('q-prog').style.width=pct+'%';
   document.getElementById('q-progbar').setAttribute('aria-valuenow',pct);
@@ -1059,13 +960,14 @@ function formError(msg){var e=document.getElementById('form-err');e.textContent=
 function val(id){return document.getElementById(id).value.trim()}
 function submitContact(){
   var first=val('f-first'),last=val('f-last'),email=val('f-email'),company=val('f-company'),phone=val('f-phone');
-  var size=val('f-size'),industry=val('f-industry'),motivate=val('f-motivation'),role=val('f-role'),timeline=val('f-timeline');
+  var size=val('f-size'),industry=val('f-industry'),motivate=val('f-motivation'),role=val('f-role'),timeline=val('f-timeline'),situation=val('f-situation');
   var consent=document.getElementById('gdpr-cb').checked;
   if(!first||!last||!email||!company) return formError('Please fill in your name, business email and company name.');
   if(!isValidEmail(email)) return formError('Please enter a valid email address.');
   if(!isBusinessEmail(email)) return formError(EMAIL_FREE_MSG);
   var phoneErr=validatePhone(phone); if(phoneErr) return formError(phoneErr);
-  if(!size||!industry||!motivate||!role||!timeline) return formError('Please answer every question in the Business context section.');
+  if(!size||!industry||!motivate) return formError('Please complete all required fields.');
+  if(!role||!timeline||!situation) return formError('Please answer all three questions in the Business context section.');
   if(motivate==='Other'){
     var other=val('f-motivation-other');
     if(!other) return formError('Please tell us what is driving your interest in AI.');
@@ -1074,14 +976,20 @@ function submitContact(){
   if(!consent) return formError('Please tick the consent box so we can send your results.');
   document.getElementById('form-err').style.display='none';
   contact={firstName:first,lastName:last,email:email,company:company,phone:phone,
-           size:size,industry:industry,motivation:motivate,role:role,timeline:timeline};
+           size:size,industry:industry,motivation:motivate,role:role,timeline:timeline,situation:situation};
   buildResults();
 }
 
 /* SCORING */
 function calcScores(){
-  var dims=[0,0,0,0,0];
-  picks.forEach(function(sel,i){if(sel!==null)dims[QS[i].dim]+=QS[i].opts[sel].v});
+  var raw=picks.map(function(sel,i){return sel!==null?QS[i].opts[sel].v:0});
+  var dims=[
+    raw[0]+raw[1],   /* Strategic Clarity:      Q1+Q2   max 6 */
+    raw[2]+raw[6],   /* Leadership & Ownership: Q3+Q7   max 6 */
+    raw[3]+raw[5],   /* Process Maturity:       Q4+Q6   max 6 */
+    raw[4]+raw[7],   /* Operational Visibility: Q5+Q8   max 6 */
+    raw[8]+raw[9]    /* Data & Readiness:       Q9+Q10  max 6 */
+  ];
   return{dims:dims,total:dims.reduce(function(a,b){return a+b},0)};
 }
 function getTier(t){
@@ -1091,12 +999,11 @@ function getTier(t){
   return 'Emerging Integrator';
 }
 var TIERS=['Not Yet Ready','Early Explorer','Focused Experimenter','Emerging Integrator'];
-function getWeakestIdx(dims){
+function getWeakest(dims){
   var mi=0;
   dims.forEach(function(v,i){if((v/DIM_MAX[i])<(dims[mi]/DIM_MAX[mi]))mi=i});
-  return mi;
+  return DIM_NAMES[mi];
 }
-function getWeakest(dims){return DIM_NAMES[getWeakestIdx(dims)]}
 function highlightLegend(tier){
   var idx=TIERS.indexOf(tier);
   [0,1,2,3].forEach(function(i){document.getElementById('tl-'+i).classList.toggle('active',i===idx)});
@@ -1107,66 +1014,77 @@ function getDiag(tier,dims){
   var w=getWeakest(dims);
   var c={
     'Not Yet Ready':{
-      diag:'The foundations need attention before AI will pay off. That is common at this stage, and the good news is you have spotted it before spending money. Investing now would likely speed up today\'s gaps rather than fix them. Getting ready usually takes smaller steps than leaders expect.',
-      opp:'Start with '+w+'. It is your lowest-scoring area and the one most likely to hold back any AI investment. A Discovery Call will pin down what to fix first, and in what order.'
+      diag:'Your results suggest the operational and strategic foundations need attention before an AI investment will deliver a return. This is not unusual: most businesses exploring AI are at a similar stage. The risk of investing now is that AI will scale existing gaps rather than resolve them. The steps required to become ready do not need to be large or costly.',
+      opp:'The most valuable next step is to clarify where the real operational pain is and map how that work runs today. '+w+' is the dimension showing the most room to strengthen first. A structured conversation would help you identify exactly what to address and in what order.'
     },
     'Early Explorer':{
-      diag:'Some of the right foundations are in place. A few gaps would still limit the return on AI if you invested today. Closing your biggest gap first will lower the risk and raise the return on whatever you invest next.',
-      opp:'Strengthen '+w+' before committing to tools. A Discovery Call will turn these results into a clear, prioritised plan.'
+      diag:'You have some of the right foundations in place, but there are gaps that would limit the return from any AI investment made right now. The area with the most room to improve relative to its potential is '+w+'. Addressing this before committing to AI tools would meaningfully change your readiness position and reduce implementation risk.',
+      opp:'Strengthening '+w+' is the highest-value move at this stage. It is the constraint most likely to limit the impact of any AI investment you make. An AI Readiness Discovery Call would help you define a clear, prioritised action plan.'
     },
     'Focused Experimenter':{
-      diag:'Your foundations are solid. You have direction, some process structure and someone able to make decisions. The gaps that remain are specific and fixable. The next step is choosing the right starting point, not more exploring.',
-      opp:'Tighten '+w+' to reduce the risk on your first AI project. A Discovery Call will help you move from exploring to investing with a clear plan.'
+      diag:'Your foundations are reasonably strong. You have direction, some process structure, and the decision-making capacity needed to move forward. The gaps that remain are addressable with targeted work. A structured AI Readiness Assessment would confirm your priorities and define the right sequence to maximise your return.',
+      opp:'Sharpening your position in '+w+' would increase your confidence and reduce your deployment risk. An AI Readiness Discovery Call would help you move from exploring to investing with a clear, prioritised plan.'
     },
     'Emerging Integrator':{
-      diag:'You have strong foundations across direction, operations and data, and you are well placed to invest in AI. The main risk now is starting in the wrong place or under-planning delivery.',
-      opp:'Your lowest area is '+w+', so check it before you commit. A Discovery Call will help you pick the AI opportunity with the strongest business case.'
+      diag:'Your assessment shows strong foundations across direction, operations, and readiness. You have a defined goal, structured processes, accessible data, and clear ownership. You are well-positioned to make an informed AI investment. The primary risk at this stage is selecting the wrong starting point or underinvesting in implementation planning.',
+      opp:'A full AI Readiness Assessment would validate your priorities in '+w+' and produce a deployment plan that protects the investment you are ready to make, ensuring the first project delivers a measurable return.'
     }
   };
   return c[tier];
 }
+function getCtaSub(tier){
+  var m={
+    'Not Yet Ready':'Your results show exactly where to focus. Fixing the right foundations now means any AI investment you make later will actually stick and deliver a return. Book your AI Readiness Discovery Call to review your results, pinpoint the gaps that matter most, and leave with a clear action plan.',
+    'Early Explorer':'You are on the right track, and your results give you something concrete to act on. The gaps holding you back are identifiable and addressable. Book your AI Readiness Discovery Call to review your results, understand what to strengthen first, and build a clear path to an AI investment that delivers.',
+    'Focused Experimenter':'You are in a stronger position than most businesses at this stage. Your results show real readiness in several areas and a clear picture of where to focus next. Book your AI Readiness Discovery Call to review your results, identify the highest-value starting point, and scope a full AI Readiness Audit that turns your readiness into results.',
+    'Emerging Integrator':'Your foundations are strong and your results reflect that. The priority now is to focus your AI investment on the opportunity most likely to create measurable business value. Book your AI Readiness Discovery Call to review your results, identify the AI opportunity with the strongest business case, and define the right scope for a full AI Readiness Audit before implementation.'
+  };
+  return m[tier];
+}
 function getCtaBullets(tier){
   var b={
     'Not Yet Ready':[
-      'See which gaps are causing the most friction right now',
-      'Know what to fix before AI can add real value',
-      'Leave with a clear first step'
+      'Understand which operational gaps are creating the most friction right now',
+      'Identify what needs to be fixed before AI can add real business value',
+      'Confirm the right starting point for a structured AI Readiness Audit'
     ],
     'Early Explorer':[
-      'See which gaps could cut the return on AI',
-      'Know what to strengthen before committing time or budget',
-      'Leave with a prioritised plan'
+      'Identify which gaps could reduce the return on any AI investment',
+      'Clarify what needs to be strengthened before committing time or budget',
+      'Define how a deeper AI Readiness Audit can help you move forward faster'
     ],
     'Focused Experimenter':[
-      'Confirm which areas are ready and which still carry risk',
-      'Find the highest-value starting point for your first AI project',
-      'Leave with clarity on what to do next'
+      'Confirm which areas are ready and which still carry deployment risk',
+      'Identify the highest-value starting point for your first AI project',
+      'Scope the right AI Readiness Audit to sharpen your plan before you invest'
     ],
     'Emerging Integrator':[
-      'Pinpoint the AI opportunity with the strongest return',
-      'Review the risks that could affect your first rollout',
-      'Agree a practical next step before you invest'
+      'Identify which AI opportunity is likely to deliver the strongest return',
+      'Review the implementation risks that could affect your first deployment',
+      'Agree on a practical next step before moving from assessment to investment'
     ]
   };
-  return b[tier];
+  return b[tier]||b['Focused Experimenter'];
 }
 
 /* SCORE BANDS */
 function getScoreBand(v){return v>=5?'High':v>=3?'Medium':'Low'}
-function getBandColor(b){return b==='High'?'#2F6B70':b==='Medium'?'#9A5B00':'#B42318'}
+function getBandColor(b){return b==='High'?'#B36B00':b==='Medium'?'#0E7490':'#B42318'}
 
 function buildSummaryLine(dims){
   var high=[],med=[],low=[];
   dims.forEach(function(v,i){
     var b=getScoreBand(v);
-    if(b==='High')high.push(DIM_NAMES[i]);else if(b==='Medium')med.push(DIM_NAMES[i]);else low.push(DIM_NAMES[i]);
+    if(b==='High')high.push(DIM_NAMES[i]);
+    else if(b==='Medium')med.push(DIM_NAMES[i]);
+    else low.push(DIM_NAMES[i]);
   });
-  function ls(a){if(!a.length)return'';if(a.length===1)return a[0];return a.slice(0,-1).join(', ')+' and '+a[a.length-1]}
+  function ls(arr){if(!arr.length)return'';if(arr.length===1)return arr[0];return arr.slice(0,-1).join(', ')+' and '+arr[arr.length-1]}
   var parts=[];
-  if(high.length)parts.push('Strongest: '+ls(high)+'.');
-  if(med.length&&!low.length)parts.push('Developing: '+ls(med)+'.');
-  if(low.length)parts.push((low.length===1?'Needs':'Need')+' most attention: '+ls(low)+'.');
-  return parts.join(' ');
+  if(high.length)parts.push('Strong '+ls(high)+'.');
+  if(med.length&&!low.length)parts.push(ls(med)+' is developing well.');
+  if(low.length)parts.push(ls(low)+' need the most attention.');
+  return parts.join(' ')||'Review your dimension scores below.';
 }
 
 /* RADAR (pentagon, light theme) */
@@ -1179,7 +1097,7 @@ function drawRadar(dims){
     {lines:['Leadership','& Ownership'], anchor:'start' },
     {lines:['Process','Maturity'],       anchor:'start' },
     {lines:['Operational','Visibility'], anchor:'end'   },
-    {lines:['Data','Readiness'],         anchor:'end'   }
+    {lines:['Data &','Readiness'],       anchor:'end'   }
   ];
   var font='font-family="Instrument Sans,system-ui,sans-serif"';
   var html='';
@@ -1214,14 +1132,13 @@ function drawRadar(dims){
 
 /* DIMENSION BARS */
 function renderDimBars(dims){
-  var weak=getWeakestIdx(dims);
   var c=document.getElementById('dim-bars');
   c.innerHTML=DIM_NAMES.map(function(name,i){
     var v=dims[i],band=getScoreBand(v),col=getBandColor(band);
     return '<div class="dim-row">'
-      +'<div class="dim-nm">'+name+(i===weak?'<span class="pf">Focus</span>':'')+'</div>'
-      +'<div class="bar-t" aria-hidden="true"><div class="bar-f'+(i===weak?' priority':'')+'" id="bf-'+i+'"></div></div>'
-      +'<div class="dim-vl">'+v+'/6</div>'
+      +'<div class="dim-nm">'+name+'</div>'
+      +'<div class="bar-t" aria-hidden="true"><div class="bar-f" id="bf-'+i+'" style="background:'+col+'"></div></div>'
+      +'<div class="dim-vl" style="color:'+col+'">'+v+'/6</div>'
       +'<div class="dim-band" style="color:'+col+'">'+band+'</div>'
       +'</div>';
   }).join('');
@@ -1236,7 +1153,7 @@ function toggleMsgForm(){
   document.getElementById('msg-toggle').setAttribute('aria-expanded',opening?'true':'false');
   if(opening){
     var sc=calcScores(),tier=getTier(sc.total);
-    document.getElementById('msg-body').value='Hi Selina,\n\nI just completed the AI Readiness Assessment and scored '+sc.total+'/30 ('+tier+').\n\nI would like to understand what this means for my business and what a sensible next step looks like.\n\nThanks,\n'+contact.firstName+' '+contact.lastName+'\n'+contact.company;
+    document.getElementById('msg-body').value='Hi IntegroAI Consulting,\n\nI just completed the AI Readiness Assessment. My score was '+sc.total+'/30 ('+tier+').\n\nI would love to understand what this means for my business and explore what a good next step looks like.\n\nLooking forward to connecting,\n'+contact.firstName+(contact.lastName?' '+contact.lastName:'')+(contact.company?'\n'+contact.company:'');
     document.getElementById('msg-err').style.display='none';
     document.getElementById('msg-ok').style.display='none';
     panel.scrollIntoView({behavior:'smooth',block:'nearest'});
@@ -1249,7 +1166,7 @@ function sendMessage(){
   btn.disabled=true;btn.textContent='Sending...';errEl.style.display='none';
   function done(ok){
     btn.disabled=false;btn.textContent='Send message';
-    if(ok){okEl.textContent='Message sent. You will hear back shortly.';okEl.style.display='block';ta.value='';
+    if(ok){okEl.textContent='Message sent. We will be in touch shortly.';okEl.style.display='block';ta.value='';
       setTimeout(function(){document.getElementById('msg-panel').style.display='none';okEl.style.display='none'},4000)}
     else{errEl.textContent='Something went wrong. Please email info@integroai.tech directly.';errEl.style.display='block'}
   }
@@ -1258,7 +1175,7 @@ function sendMessage(){
     method:'POST',
     headers:{'Accept':'application/json','Content-Type':'application/json'},
     body:JSON.stringify({
-      _subject:'Message from '+contact.firstName+' '+contact.lastName+' | '+tier+' ('+sc.total+'/30)',
+      _subject:'Message from '+contact.firstName+' '+contact.lastName+' — '+tier+' ('+sc.total+'/30)',
       email:contact.email,_replyto:contact.email,type:'prospect_message',
       first_name:contact.firstName,last_name:contact.lastName,phone:contact.phone||'',
       company:contact.company||'',org_size:contact.size||'',industry:contact.industry||'',
@@ -1275,14 +1192,14 @@ function sendToFormspree(score,tier,dims){
     headers:{'Accept':'application/json','Content-Type':'application/json'},
     body:JSON.stringify({
       email:contact.email,_replyto:contact.email,
-      _subject:'AI Readiness Lead: '+contact.firstName+' '+contact.lastName+' | '+tier+' ('+score+'/30)',
+      _subject:'AI Readiness Lead: '+contact.firstName+' '+contact.lastName+' — '+tier+' ('+score+'/30)',
       first_name:contact.firstName,last_name:contact.lastName,phone:contact.phone||'',
       company:contact.company||'',org_size:contact.size||'',industry:contact.industry||'',
       motivation:contact.motivation||'',decision_role:contact.role||'',timeline:contact.timeline||'',
-      situation:contact.motivation||'',
+      situation:contact.situation||'',
       score:score+'/30',tier:tier,weakest_area:getWeakest(dims)
     })
-  }).catch(function(e){console.error('Formspree:',e)});
+  }).then(function(r){return r.json()}).then(function(d){if(d.ok)showToast('Results on their way to '+contact.email)}).catch(function(e){console.error('Formspree:',e)});
 }
 function sendToSheets(score,tier,diag){
   fetch('https://hook.eu1.make.com/qpcrejwodo9m6567lf62fshft94xcxgy',{
@@ -1293,7 +1210,7 @@ function sendToSheets(score,tier,diag){
       company:contact.company||'',phone:contact.phone||'',orgSize:contact.size||'',
       industry:contact.industry||'',motivation:contact.motivation||'',
       decisionRole:contact.role||'',timeline:contact.timeline||'',
-      situation:contact.motivation||'',
+      situation:contact.situation||'',
       score:String(score),tier:tier,diagnosis:diag
     })
   }).catch(function(e){console.error('Sheets webhook:',e)});
@@ -1308,26 +1225,23 @@ function sendEmail(score,tier,diag,opp,dims){
     org_size:contact.size||'',industry:contact.industry||'',
     motivation:contact.motivation||'',notify_email:NOTIFY_EMAIL,
     decision_role:contact.role||'',timeline:contact.timeline||'',
-    situation:contact.motivation||'',
-    priority_focus:DIM_NAMES[getWeakestIdx(dims)],
-    priority_focus_note:FOCUS_COPY[getWeakestIdx(dims)],
+    situation:contact.situation||'',
     strategic_clarity_score:dims[0]+'/6',     strategic_clarity_band:bands[0],
     leadership_ownership_score:dims[1]+'/6',  leadership_ownership_band:bands[1],
     process_maturity_score:dims[2]+'/6',      process_maturity_band:bands[2],
     operational_visibility_score:dims[3]+'/6',operational_visibility_band:bands[3],
     data_readiness_score:dims[4]+'/6',        data_readiness_band:bands[4]
-  }).then(function(){showToast('Your results are on their way to '+contact.email)}).catch(function(err){console.error('EmailJS:',err)});
+  }).then(function(){showToast('Results sent to '+contact.email)}).catch(function(err){console.error('EmailJS:',err)});
 }
 
 /* BUILD RESULTS */
 function buildResults(){
-  var sc=calcScores(),tier=getTier(sc.total),diag=getDiag(tier,sc.dims),weak=getWeakestIdx(sc.dims);
+  var sc=calcScores(),tier=getTier(sc.total),diag=getDiag(tier,sc.dims);
   document.getElementById('r-score').textContent=sc.total;
   document.getElementById('r-tier').textContent=tier;
-  document.getElementById('r-name').textContent=contact.firstName+', here is where your business stands.';
+  document.getElementById('r-name').textContent=contact.firstName+', here are your AI Readiness results.';
   document.getElementById('r-diag').textContent=diag.diag;
-  document.getElementById('r-focus-name').textContent=DIM_NAMES[weak];
-  document.getElementById('r-focus-p').textContent=FOCUS_COPY[weak];
+  document.getElementById('r-cta-p').textContent=getCtaSub(tier);
   document.getElementById('r-opp').textContent=diag.opp;
   document.getElementById('radar-summary').textContent=buildSummaryLine(sc.dims);
   document.getElementById('cta-bullets-list').innerHTML=getCtaBullets(tier).map(function(b){

@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light">
 <meta name="supported-color-schemes" content="light">
-<title>Your AI Readiness results</title>
+<title>Your AI Readiness Scorecard result</title>
 <!--
   IntegroAI EmailJS Template (v2, matches integroai.tech)
-  Subject (set in EmailJS template settings): Your AI Readiness results
-  Preview text: Your score, your priority focus and your next step.
+  Subject (set in EmailJS template settings): Your AI Readiness Scorecard result
+  Preview text: Your AI Readiness Scorecard is ready.
   Variables used:
     {{to_name}}
     {{score}}  {{tier}}
@@ -19,17 +19,16 @@
     {{operational_visibility_score}} {{operational_visibility_band}}
     {{data_readiness_score}}         {{data_readiness_band}}
     {{diagnosis}}
-    {{priority_focus}} {{priority_focus_note}}
     {{next_opportunity}}
     {{company}} {{phone}} {{org_size}} {{industry}} {{motivation}}
-    {{decision_role}} {{timeline}}
+    {{decision_role}} {{timeline}} {{situation}}
   Same build rules as v1: inline styles only, no @media queries, no CSS
   classes, single column, 480px max. Logo is the PNG hosted on the site.
 -->
 </head>
 <body style="margin:0;padding:0;background-color:#FBF7F1;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#041B2B;-webkit-font-smoothing:antialiased;">
 <!-- Preview text (hidden) -->
-<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">Your score, your priority focus and your next step.&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</div>
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">Your AI Readiness Scorecard is ready.&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</div>
 <!-- Outer wrapper -->
 <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FBF7F1;min-width:100%;">
   <tr>
@@ -58,7 +57,8 @@
         <tr>
           <td style="padding:26px 20px 20px;">
             <p style="margin:0 0 12px;font-family:Georgia,'Times New Roman',serif;font-size:24px;color:#0E273A;line-height:1.2;word-wrap:break-word;">Hi {{to_name}},</p>
-            <p style="margin:0;font-size:15px;color:#42566A;line-height:1.65;word-wrap:break-word;">Here are your AI Readiness results. Keep this email to revisit them, or share it with your team.</p>
+            <p style="margin:0 0 6px;font-size:15px;color:#42566A;line-height:1.65;word-wrap:break-word;">Here are your personalised AI Readiness Scorecard results.</p>
+            <p style="margin:0;font-size:15px;color:#42566A;line-height:1.65;word-wrap:break-word;">This email gives you a copy of your scorecard to keep, revisit, or share with your team.</p>
           </td>
         </tr>
 
@@ -68,7 +68,7 @@
             <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#050F1B;border-radius:14px;">
               <tr>
                 <td style="padding:24px 16px;text-align:center;">
-                  <p style="margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#FF9900;">AI Readiness Score</p>
+                  <p style="margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#FF9900;">Your Score</p>
                   <p style="margin:0 0 10px;font-size:46px;font-weight:700;color:#FFFFFF;line-height:1;white-space:nowrap;">{{score}}<span style="font-size:20px;font-weight:600;color:#CBD5E1;">/30</span></p>
                   <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:24px;font-style:italic;color:#FF9900;line-height:1.2;">{{tier}}</p>
                 </td>
@@ -80,7 +80,7 @@
         <!-- Readiness by dimension -->
         <tr>
           <td style="padding:0 20px 20px;">
-            <p style="margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#3B767C;">Readiness by dimension</p>
+            <p style="margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#3B767C;">Your readiness by area</p>
             <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #E9E1D3;border-radius:10px;">
               <!-- Strategic Clarity -->
               <tr>
@@ -108,33 +108,30 @@
               </tr>
               <!-- Data Readiness -->
               <tr>
-                <td style="padding:12px 8px 12px 14px;font-size:14px;font-weight:600;color:#041B2B;">Data Readiness</td>
+                <td style="padding:12px 8px 12px 14px;font-size:14px;font-weight:600;color:#041B2B;">Data &amp; Readiness</td>
                 <td style="padding:12px 4px;font-size:14px;font-weight:700;color:#041B2B;text-align:center;white-space:nowrap;">{{data_readiness_score}}</td>
                 <td style="padding:12px 14px 12px 4px;text-align:right;"><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:100px;background:#F5EFE4;color:#041B2B;white-space:nowrap;">{{data_readiness_band}}</span></td>
               </tr>
             </table>
-            <p style="margin:8px 0 0;font-size:12px;color:#4A6080;line-height:1.5;">Each dimension is scored out of 6.</p>
           </td>
         </tr>
 
         <!-- Diagnosis -->
         <tr>
           <td style="padding:0 20px 16px;">
-            <p style="margin:0 0 8px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#3B767C;">Your diagnosis</p>
+            <p style="margin:0 0 8px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#3B767C;">What your score shows</p>
             <p style="margin:0;font-size:15px;color:#42566A;line-height:1.7;word-wrap:break-word;">{{diagnosis}}</p>
           </td>
         </tr>
 
-        <!-- Priority focus + next step -->
+        <!-- Your Next Opportunity -->
         <tr>
           <td style="padding:0 20px 24px;">
             <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F5EFE4;border:1px solid #E9E1D3;border-radius:12px;">
               <tr>
                 <td style="padding:16px 18px;">
-                  <p style="margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#4A6080;">Priority focus</p>
-                  <p style="margin:0 0 6px;font-size:18px;font-weight:700;color:#041B2B;line-height:1.3;word-wrap:break-word;">{{priority_focus}}</p>
-                  <p style="margin:0 0 12px;font-size:14px;color:#42566A;line-height:1.6;word-wrap:break-word;">{{priority_focus_note}}</p>
-                  <p style="margin:0;padding-top:12px;border-top:1px solid #E9E1D3;font-size:14px;color:#041B2B;line-height:1.6;word-wrap:break-word;">{{next_opportunity}}</p>
+                  <p style="margin:0 0 8px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#4A6080;">Your Next Opportunity</p>
+                  <p style="margin:0;font-size:15px;color:#041B2B;line-height:1.7;word-wrap:break-word;">{{next_opportunity}}</p>
                 </td>
               </tr>
             </table>
@@ -144,7 +141,7 @@
         <!-- Your details -->
         <tr>
           <td style="padding:0 20px 24px;">
-            <p style="margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#3B767C;">Your details</p>
+            <p style="margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#3B767C;">Your submission summary</p>
             <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #E9E1D3;border-radius:10px;">
               <tr><td style="padding:11px 16px;border-bottom:1px solid #EFE8DC;">
                 <p style="margin:0 0 2px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#4A6080;">Company</p>
@@ -155,24 +152,28 @@
                 <p style="margin:0;font-size:14px;color:#041B2B;word-wrap:break-word;">{{phone}}</p>
               </td></tr>
               <tr><td style="padding:11px 16px;border-bottom:1px solid #EFE8DC;">
-                <p style="margin:0 0 2px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#4A6080;">Number of people</p>
+                <p style="margin:0 0 2px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#4A6080;">Organisation size</p>
                 <p style="margin:0;font-size:14px;color:#041B2B;word-wrap:break-word;">{{org_size}}</p>
               </td></tr>
               <tr><td style="padding:11px 16px;border-bottom:1px solid #EFE8DC;">
-                <p style="margin:0 0 2px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#4A6080;">Industry</p>
+                <p style="margin:0 0 2px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#4A6080;">Industry / business type</p>
                 <p style="margin:0;font-size:14px;color:#041B2B;word-wrap:break-word;">{{industry}}</p>
               </td></tr>
               <tr><td style="padding:11px 16px;border-bottom:1px solid #EFE8DC;">
-                <p style="margin:0 0 2px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#4A6080;">What is driving your interest in AI</p>
+                <p style="margin:0 0 2px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#4A6080;">Why exploring AI</p>
                 <p style="margin:0;font-size:14px;color:#041B2B;word-wrap:break-word;">{{motivation}}</p>
               </td></tr>
               <tr><td style="padding:11px 16px;border-bottom:1px solid #EFE8DC;">
-                <p style="margin:0 0 2px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#4A6080;">Your role in the decision</p>
+                <p style="margin:0 0 2px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#4A6080;">Decision-making role</p>
                 <p style="margin:0;font-size:14px;color:#041B2B;word-wrap:break-word;">{{decision_role}}</p>
               </td></tr>
-              <tr><td style="padding:11px 16px;">
+              <tr><td style="padding:11px 16px;border-bottom:1px solid #EFE8DC;">
                 <p style="margin:0 0 2px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#4A6080;">Timeline</p>
                 <p style="margin:0;font-size:14px;color:#041B2B;word-wrap:break-word;">{{timeline}}</p>
+              </td></tr>
+              <tr><td style="padding:11px 16px;">
+                <p style="margin:0 0 2px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#4A6080;">Current situation</p>
+                <p style="margin:0;font-size:14px;color:#041B2B;word-wrap:break-word;">{{situation}}</p>
               </td></tr>
             </table>
           </td>
@@ -184,18 +185,17 @@
             <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#050F1B;border-radius:14px;">
               <tr>
                 <td style="padding:26px 18px;text-align:center;">
-                  <p style="margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#FF9900;">Your next step</p>
-                  <p style="margin:0 0 12px;font-family:Georgia,'Times New Roman',serif;font-size:24px;color:#FFFFFF;line-height:1.2;word-wrap:break-word;">Turn your score into <span style="font-style:italic;color:#FF9900;">a clear plan.</span></p>
-                  <p style="margin:0 0 20px;font-size:14px;color:#CBD5E1;line-height:1.65;word-wrap:break-word;">Book a free 30-minute AI Readiness Discovery Call. We&#39;ll go through your results together and agree what to do first.</p>
+                  <p style="margin:0 0 12px;font-family:Georgia,'Times New Roman',serif;font-size:24px;color:#FFFFFF;line-height:1.2;word-wrap:break-word;">Your results are ready. <span style="font-style:italic;color:#FF9900;">Now let&#39;s make sense of them.</span></p>
+                  <p style="margin:0 0 20px;font-size:14px;color:#CBD5E1;line-height:1.65;word-wrap:break-word;">Book a free 30 minute AI Readiness Discovery Call. We will review your scorecard together and give you a clear, honest view of where to start, what to prioritise, and whether a deeper assessment makes sense for your business.</p>
                   <table cellpadding="0" cellspacing="0" border="0" style="margin:0 auto 12px;">
                     <tr>
                       <td style="background-color:#FF9900;border-radius:999px;">
-                        <a href="https://calendly.com/integroai-tech/30min" style="display:inline-block;padding:13px 24px;font-size:15px;font-weight:700;color:#041B2B;text-decoration:none;">Book your free Discovery Call</a>
+                        <a href="https://calendly.com/integroai-tech/30min" style="display:inline-block;padding:13px 24px;font-size:15px;font-weight:700;color:#041B2B;text-decoration:none;">Book Your Free Discovery Call</a>
                       </td>
                     </tr>
                   </table>
-                  <p style="margin:0 0 14px;font-size:12px;font-weight:600;color:#FF9900;letter-spacing:0.3px;">Free &middot; No obligation &middot; 30 minutes</p>
-                  <p style="margin:0;font-size:13px;color:#CBD5E1;">Not ready to book? Email <a href="mailto:info@integroai.tech" style="color:#FFFFFF;text-decoration:underline;">info@integroai.tech</a></p>
+                  <p style="margin:0 0 14px;font-size:12px;font-weight:600;color:#FF9900;letter-spacing:0.3px;">100% free &middot; No obligation &middot; 30 minutes</p>
+                  <p style="margin:0;font-size:13px;color:#CBD5E1;">Not ready to book? Email us at <a href="mailto:info@integroai.tech" style="color:#FFFFFF;text-decoration:underline;">info@integroai.tech</a></p>
                 </td>
               </tr>
             </table>
@@ -205,10 +205,9 @@
         <!-- Footer -->
         <tr>
           <td style="padding:20px;border-top:1px solid #E9E1D3;text-align:center;background-color:#FBF7F1;">
-            <p style="margin:0 0 6px;font-size:13px;font-weight:700;color:#041B2B;">IntegroAI Consulting</p>
-            <p style="margin:0 0 10px;font-size:12px;font-weight:600;color:#3B767C;">Simplify <span style="color:#FF9900;">&middot;</span> Prioritise <span style="color:#FF9900;">&middot;</span> Grow</p>
-            <p style="margin:0 0 8px;font-size:12px;"><a href="https://integroai.tech" style="color:#42566A;text-decoration:underline;">integroai.tech</a></p>
-            <p style="margin:0;font-size:11px;color:#4A6080;line-height:1.5;word-wrap:break-word;">You are receiving this because you completed the AI Readiness Assessment on integroai.tech.</p>
+            <p style="margin:0 0 6px;font-size:13px;font-weight:700;color:#B36B00;">Operational Clarity. Smarter AI Investment.</p>
+            <p style="margin:0 0 8px;font-size:12px;color:#42566A;">IntegroAI Consulting &nbsp;|&nbsp; <a href="https://www.integroai.tech" style="color:#42566A;text-decoration:underline;">www.integroai.tech</a></p>
+            <p style="margin:0;font-size:11px;color:#4A6080;line-height:1.5;word-wrap:break-word;">You are receiving this because you completed the AI Readiness Scorecard.</p>
           </td>
         </tr>
 
