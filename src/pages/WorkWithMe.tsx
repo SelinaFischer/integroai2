@@ -110,7 +110,7 @@ const stages: Stage[] = [
     ],
     deliverable: "Ongoing advisory retainer",
     get: ["Regular evidence-based reviews", "Clear recommendations", "Ongoing leadership advice"],
-    extra: "Support scales up, down or pauses as priorities change.",
+    extra: "The level of support is agreed with you and reviewed as your priorities change.",
   },
 ];
 
@@ -214,7 +214,7 @@ const WorkWithMe = () => {
               <div className="max-w-4xl mx-auto text-center mb-8 sm:mb-10">
                 <h2 className="font-heading text-3xl sm:text-4xl lg:text-[40px] mb-4">How We Can Work Together</h2>
                 <p className="text-muted-foreground text-sm sm:text-base leading-relaxed [text-wrap:balance]">
-                  Six stages, from a free assessment to ongoing advice. Start at any stage, take the findings forward yourself, or continue with us. Nothing commits you to the full journey.
+                  Six stages, from a free assessment to ongoing advice. Each builds on the last: diagnosis, then priorities, then delivery. I lead every stage, and we agree the scope together before it begins.
                 </p>
               </div>
 
