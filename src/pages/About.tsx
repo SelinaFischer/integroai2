@@ -59,16 +59,18 @@ const About = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="max-w-3xl text-left"
+                className="text-left"
               >
+                <div className="text-center">
                 <span className="inline-block text-brand-label font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
                   About
                 </span>
                 <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-foreground mb-6">
                   About IntegroAI Consulting
                 </h1>
+                </div>
 
-                <div className="space-y-5">
+                <div className="mx-auto max-w-3xl space-y-5" data-intro-text>
                   <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
                     IntegroAI Consulting is an independent AI consultancy helping founder-led service businesses reduce repetitive work, improve operational control and create capacity for growth.
                   </p>
