@@ -656,14 +656,14 @@ a{color:inherit}
         <p class="eyebrow">Your AI Readiness Score</p>
         <p class="big-score"><b id="r-score">0</b><span>/30</span></p>
         <p class="tier-pill" id="r-tier"></p>
-        <p class="strip-calc">Based on 10 questions across 5 AI readiness dimensions. Maximum score: 30.</p>
+        <p class="strip-calc">Based on 10 questions across 5 AI readiness dimensions. Maximum score: 30. This self-assessment indicates readiness foundations; it does not confirm that a particular AI solution is suitable.</p>
         <h1 class="strip-name" id="r-name" tabindex="-1"></h1>
         <p class="eyebrow strip-stage">Your AI readiness stage</p>
         <div class="legend" id="tier-legend" aria-label="The four readiness stages">
           <div class="lg-cell" id="tl-0"><span class="lg-name">Not Yet Ready</span><span class="lg-range">0 – 9</span></div>
           <div class="lg-cell" id="tl-1"><span class="lg-name">Early Explorer</span><span class="lg-range">10 – 17</span></div>
           <div class="lg-cell" id="tl-2"><span class="lg-name">Focused Experimenter</span><span class="lg-range">18 – 24</span></div>
-          <div class="lg-cell" id="tl-3"><span class="lg-name">Emerging Integrator</span><span class="lg-range">25 – 30</span></div>
+          <div class="lg-cell" id="tl-3"><span class="lg-name">Ready to Pilot</span><span class="lg-range">25 – 30</span></div>
         </div>
       </div>
 
@@ -794,24 +794,60 @@ function validatePhone(p){
    ──────────────────────────────────────────────────────────────────────────── */
 var QS=[
   /* ── SECTION 1: BUSINESS DIRECTION ─────────────────── */
-  {sec:'Section 1 of 3: Business direction',
-   title:'How clear are you about the business outcome you want AI to help achieve?',
-   hint:'For example: less admin, faster client responses or more capacity to serve customers.',
-   opts:[
-     {t:'Clear and measurable', s:'We have a specific outcome and a target to measure success.',v:3},
-     {t:'Clear outcome',        s:'We know what we want to improve but have not set a measurable target.',v:2},
-     {t:'General ambition',     s:'We want to save time or improve how we work but have not chosen a specific outcome.',v:1},
-     {t:'Still exploring',      s:'We are not yet sure what AI should help us achieve.',v:0}
-   ]},
-  {sec:'Section 1 of 3: Business direction',
-   title:'How do you decide where AI could make the biggest difference in your business?',
-   hint:'Think about how you choose which tasks or problems to focus on.',
-   opts:[
-     {t:'Compare and prioritise', s:'We compare opportunities by their likely benefits, effort and risks before choosing.',v:3},
-     {t:'Start with a problem',   s:'We have identified a specific business problem but have not compared it with other opportunities.',v:2},
-     {t:'Follow interest',        s:'We explore solutions that catch our attention without linking them to a clear business priority.',v:1},
-     {t:'No approach yet',        s:'We have not worked out how to choose where AI could help.',v:0}
-   ]},
+  {
+  "sec": "Section 1 of 3: Business direction",
+  "title": "How clearly have you defined the business improvement you want to achieve?",
+  "hint": "For example: faster client responses, fewer errors, less admin or more capacity to serve customers.",
+  "opts": [
+    {
+      "t": "Clear and measurable",
+      "s": "We have a specific business priority and a measurable target for improvement.",
+      "v": 3
+    },
+    {
+      "t": "Clear improvement",
+      "s": "We know what needs to improve, but have not set a measurable target.",
+      "v": 2
+    },
+    {
+      "t": "General ambition",
+      "s": "We want to save time or improve how we work, but have not chosen a specific priority.",
+      "v": 1
+    },
+    {
+      "t": "Still exploring",
+      "s": "We have not yet identified the business improvement to focus on.",
+      "v": 0
+    }
+  ]
+},
+  {
+  "sec": "Section 1 of 3: Business direction",
+  "title": "How do you decide which activities to improve or automate?",
+  "hint": "Consider the business benefit, what customers value and any personal attention or judgement that needs to be preserved.",
+  "opts": [
+    {
+      "t": "Compare value and trade-offs",
+      "s": "We compare benefits, effort and risks, including the effect on customer experience.",
+      "v": 3
+    },
+    {
+      "t": "Consider the value",
+      "s": "We have identified a useful improvement, but have not fully assessed the effort, risks or customer impact.",
+      "v": 2
+    },
+    {
+      "t": "Focus mainly on efficiency",
+      "s": "We mainly look at repetitive tasks or time savings, with little consideration of customer impact.",
+      "v": 1
+    },
+    {
+      "t": "No approach yet",
+      "s": "We have not established how to choose which activities to improve or automate.",
+      "v": 0
+    }
+  ]
+},
   {sec:'Section 1 of 3: Business direction',
    title:'Who would be responsible for moving an AI project forward?',
    hint:'This could be you, a team member or an external partner.',
@@ -831,24 +867,60 @@ var QS=[
      {t:'Unavailable currently',   s:'We cannot currently commit time or resources to a trial.',v:0}
    ]},
   /* ── SECTION 2: EVERYDAY OPERATIONS ────────────────── */
-  {sec:'Section 2 of 3: Everyday operations',
-   title:'How clearly are the steps in your main recurring tasks documented and followed?',
-   hint:'Think about client onboarding, quoting, scheduling and invoicing.',
-   opts:[
-     {t:'Clear and consistently followed', s:'Instructions are current, cover the main steps and are usually followed.',v:3},
-     {t:'Mostly clear',                    s:'Instructions cover the main steps, but some explanation or updating is needed.',v:2},
-     {t:'Partly documented',               s:'Some steps are written down, but much depends on individual knowledge.',v:1},
-     {t:'No agreed instructions',          s:'Tasks rely mainly on people’s memory and their own way of working.',v:0}
-   ]},
-  {sec:'Section 2 of 3: Everyday operations',
-   title:'How well do you understand the time spent on your main repetitive tasks?',
-   hint:'For example: chasing clients, copying information, preparing documents or updating records.',
-   opts:[
-     {t:'Measured',                     s:'We have measured how much time the main repetitive tasks take.',v:3},
-     {t:'Estimated',                    s:'We know the main tasks and have rough estimates of the time involved.',v:2},
-     {t:'Identified but not estimated', s:'We know some time-consuming tasks but have not estimated their impact.',v:1},
-     {t:'Not identified',               s:'We have not looked closely at where repetitive work takes up time.',v:0}
-   ]},
+  {
+  "sec": "Section 2 of 3: Everyday operations",
+  "title": "How well do you understand how your main recurring work gets done?",
+  "hint": "Think about the steps, people, handoffs and exceptions involved in onboarding, quoting, scheduling or delivering your service.",
+  "opts": [
+    {
+      "t": "Clear and verified",
+      "s": "The workflow is documented and checked against how the work actually happens, including handoffs and common exceptions.",
+      "v": 3
+    },
+    {
+      "t": "Mostly understood",
+      "s": "The main steps and responsibilities are clear, but some handoffs or exceptions need checking.",
+      "v": 2
+    },
+    {
+      "t": "Partly understood",
+      "s": "Some steps are clear, but much depends on individual knowledge or workarounds.",
+      "v": 1
+    },
+    {
+      "t": "Not clearly understood",
+      "s": "We have not established how the work happens from start to finish.",
+      "v": 0
+    }
+  ]
+},
+  {
+  "sec": "Section 2 of 3: Everyday operations",
+  "title": "How well do you understand the impact of delays, repetitive work or mistakes?",
+  "hint": "Consider time spent, rework, missed deadlines and the effect on customers.",
+  "opts": [
+    {
+      "t": "Measured",
+      "s": "We have measured the main problem using relevant indicators, such as time, errors or response speed.",
+      "v": 3
+    },
+    {
+      "t": "Estimated",
+      "s": "We know the main problem and have rough estimates of its impact.",
+      "v": 2
+    },
+    {
+      "t": "Identified but not assessed",
+      "s": "We know where work is difficult, but have not assessed the impact.",
+      "v": 1
+    },
+    {
+      "t": "Not identified",
+      "s": "We have not looked closely at where delays, repetitive work or mistakes affect the business.",
+      "v": 0
+    }
+  ]
+},
   {sec:'Section 2 of 3: Everyday operations',
    title:'How reliably does information move between the systems you use?',
    hint:'Think about email, spreadsheets, calendars, client management and accounts software. If you use one system, consider whether it avoids duplicate entry.',
@@ -894,6 +966,7 @@ var DIM_MAX   = [6, 6, 6, 6, 6];
 
 /* Individual flags: shown whatever the overall score */
 var FLAG_RULES = [
+  {q:1, max:1, text:'Before choosing what to automate, establish what customers value and where personal attention or human judgement needs to be preserved.'},
   {q:2, max:0, text:'No owner has been identified to lead an AI project. Without one, progress is likely to stall.'},
   {q:3, max:0, text:'No time or resources are currently available for a trial. These need to be set aside before testing AI.'},
   {q:8, max:1, text:'There are no shared rules for using AI safely. Agree what information can be entered into AI and what a person must check before an output is used.'}
@@ -1027,9 +1100,9 @@ function getTier(t){
   if(t<=9) return 'Not Yet Ready';
   if(t<=17) return 'Early Explorer';
   if(t<=24) return 'Focused Experimenter';
-  return 'Emerging Integrator';
+  return 'Ready to Pilot';
 }
-var TIERS=['Not Yet Ready','Early Explorer','Focused Experimenter','Emerging Integrator'];
+var TIERS=['Not Yet Ready','Early Explorer','Focused Experimenter','Ready to Pilot'];
 function getWeakest(dims){
   var mi=0;
   dims.forEach(function(v,i){if((v/DIM_MAX[i])<(dims[mi]/DIM_MAX[mi]))mi=i});
@@ -1056,9 +1129,9 @@ function getDiag(tier,dims){
       diag:'Your foundations are reasonably strong. You have direction, some process structure, and the decision-making capacity needed to move forward. The gaps that remain are addressable with targeted work. A structured AI Readiness Assessment would confirm your priorities and define the right sequence to maximise your return.',
       opp:'Sharpening your position in '+w+' would increase your confidence and reduce your deployment risk. An AI Readiness Discovery Call would help you move from exploring to investing with a clear, prioritised plan.'
     },
-    'Emerging Integrator':{
-      diag:'Your assessment shows strong foundations across direction, operations, and readiness. You have a defined goal, structured processes, accessible data, and clear ownership. You are well-positioned to make an informed AI investment. The primary risk at this stage is selecting the wrong starting point or underinvesting in implementation planning.',
-      opp:'A full AI Readiness Assessment would validate your priorities in '+w+' and produce a deployment plan that protects the investment you are ready to make, ensuring the first project delivers a measurable return.'
+    'Ready to Pilot':{
+      diag:'Your assessment shows strong foundations across direction, operations, and readiness. You have a defined goal, structured processes, accessible data, and clear ownership. Your answers suggest you may be ready to test one clearly scoped improvement. Validate the workflow, information and safeguards before starting a pilot. The primary risk at this stage is selecting the wrong starting point or underinvesting in implementation planning.',
+      opp:'A full AI Readiness Assessment would validate your priorities in '+w+' and produce a deployment plan that protects the investment you are ready to make, with agreed measures for business value and customer experience.'
     }
   };
   return c[tier];
@@ -1068,7 +1141,7 @@ function getCtaSub(tier){
     'Not Yet Ready':'Your results show exactly where to focus. Fixing the right foundations now means any AI investment you make later will actually stick and deliver a return. Book your AI Readiness Discovery Call to review your results, pinpoint the gaps that matter most, and leave with a clear action plan.',
     'Early Explorer':'You are on the right track, and your results give you something concrete to act on. The gaps holding you back are identifiable and addressable. Book your AI Readiness Discovery Call to review your results, understand what to strengthen first, and build a clear path to an AI investment that delivers.',
     'Focused Experimenter':'You are in a stronger position than most businesses at this stage. Your results show real readiness in several areas and a clear picture of where to focus next. Book your AI Readiness Discovery Call to review your results, identify the highest-value starting point, and scope a full AI Readiness Audit that turns your readiness into results.',
-    'Emerging Integrator':'Your foundations are strong and your results reflect that. The priority now is to focus your AI investment on the opportunity most likely to create measurable business value. Book your AI Readiness Discovery Call to review your results, identify the AI opportunity with the strongest business case, and define the right scope for a full AI Readiness Audit before implementation.'
+    'Ready to Pilot':'Your foundations are strong and your results reflect that. The priority now is to focus your AI investment on the opportunity most likely to create measurable business value. Book your AI Readiness Discovery Call to review your results, identify the AI opportunity with the strongest business case, and define the right scope for a full AI Readiness Audit before implementation.'
   };
   return m[tier];
 }
@@ -1089,7 +1162,7 @@ function getCtaBullets(tier){
       'Identify the highest-value starting point for your first AI project',
       'Scope the right AI Readiness Audit to sharpen your plan before you invest'
     ],
-    'Emerging Integrator':[
+    'Ready to Pilot':[
       'Identify which AI opportunity is likely to deliver the strongest return',
       'Review the implementation risks that could affect your first deployment',
       'Agree on a practical next step before moving from assessment to investment'
