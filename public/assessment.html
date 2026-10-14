@@ -783,6 +783,9 @@ try{ emailjs.init({publicKey:EJS_KEY}); ejsReady=true; }catch(e){}
 var FORMSPREE_ID = 'xgoqlpdy';
 var MSG_FORMSPREE_ID = 'xeedqvpk';
 
+/* Lead Google Sheet: paste the Apps Script web app URL (ends in /exec). */
+var SHEETS_WEBHOOK_URL = '';
+
 /* FREE DOMAIN BLOCKLIST (business emails only) */
 var FREE_DOMAINS = new Set([
   'gmail.com','googlemail.com','yahoo.com','yahoo.co.uk','yahoo.com.au',
@@ -1333,17 +1336,28 @@ function sendToFormspree(score,tier,dims){
   }).then(function(r){return r.json()}).then(function(d){if(d.ok)showToast('Results on their way to '+contact.email)}).catch(function(e){console.error('Formspree:',e)});
 }
 function sendToSheets(score,tier,diag){
-  fetch('https://hook.eu1.make.com/qpcrejwodo9m6567lf62fshft94xcxgy',{
+  /* Writes one row to the lead Google Sheet via its Apps Script web app
+     (docs/google-sheet-lead-webhook.gs). Skipped until the URL is set. */
+  if(!SHEETS_WEBHOOK_URL)return;
+  var sc=calcScores(),bands=sc.dims.map(getScoreBand);
+  fetch(SHEETS_WEBHOOK_URL,{
     method:'POST',
-    headers:{'Content-Type':'application/json'},
+    mode:'no-cors',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
     body:JSON.stringify({
-      firstName:contact.firstName,lastName:contact.lastName,email:contact.email,
-      company:contact.company||'',phone:contact.phone||'',orgSize:contact.size||'',
+      first_name:contact.firstName,last_name:contact.lastName,email:contact.email,
+      company:contact.company||'',phone:contact.phone||'',org_size:contact.size||'',
       industry:contact.industry||'',motivation:contact.motivation||'',
-      decisionRole:contact.role||'',timeline:contact.timeline||'',
+      decision_role:contact.role||'',timeline:contact.timeline||'',
       situation:contact.situation||'',
-      score:String(score),tier:tier,diagnosis:diag,
-      flags:getFlags(calcScores().raw).join(' | ')||'None'
+      score:score+'/30',tier:tier,weakest_area:getWeakest(sc.dims),
+      business_direction:sc.dims[0]+'/6 '+bands[0],
+      ownership_capacity:sc.dims[1]+'/6 '+bands[1],
+      process_readiness:sc.dims[2]+'/6 '+bands[2],
+      systems_information:sc.dims[3]+'/6 '+bands[3],
+      responsible_use_skills:sc.dims[4]+'/6 '+bands[4],
+      flags:getFlags(sc.raw).join(' | ')||'None',
+      diagnosis:diag
     })
   }).catch(function(e){console.error('Sheets webhook:',e)});
 }
