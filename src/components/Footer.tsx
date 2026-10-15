@@ -28,7 +28,7 @@ const Footer = () => {
   const companyLinks = [
     { to: "/work-with-me", label: "Work With Me" },
     { to: "/about", label: "About" },
-    { to: "/blog", label: "Blog" },
+    { to: "/blog/", label: "Blog" },
   ];
 
   const headingClass = "mb-2 text-xs font-bold uppercase tracking-[0.14em] text-brand-navy";

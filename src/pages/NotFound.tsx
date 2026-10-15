@@ -1,5 +1,6 @@
 import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 
@@ -11,6 +12,12 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
+    <>
+    {/* Tells search engines this address has no page, so it is never indexed. */}
+    <Helmet>
+      <title>Page not found | IntegroAI Consulting</title>
+      <meta name="robots" content="noindex" />
+    </Helmet>
     <div className="flex min-h-screen items-center justify-center bg-background">
       <div className="text-center max-w-md mx-auto px-4">
         <h1 className="font-serif text-6xl font-bold text-foreground mb-4">404</h1>
@@ -25,6 +32,7 @@ const NotFound = () => {
         </Button>
       </div>
     </div>
+    </>
   );
 };
 

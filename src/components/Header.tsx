@@ -85,7 +85,7 @@ const Header = () => {
   const primaryLinks = [
     { to: "/work-with-me", label: "Work With Me" },
     { to: "/about", label: "About" },
-    { to: "/blog", label: "Blog" },
+    { to: "/blog/", label: "Blog" },
   ];
 
   const menuLinks = [{ to: "/", label: "Home" }, ...primaryLinks];

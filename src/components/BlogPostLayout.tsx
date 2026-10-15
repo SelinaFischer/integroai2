@@ -108,7 +108,7 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image
         "@type": "ListItem",
         "position": 2,
         "name": "Blog",
-        "item": "https://integroai.tech/blog"
+        "item": "https://integroai.tech/blog/"
       },
       {
         "@type": "ListItem",
@@ -201,7 +201,7 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image
             >
               {/* One clear way back to the article list. */}
               <Link
-                to="/blog"
+                to="/blog/"
                 className="group mb-8 inline-flex items-center gap-2 text-[15px] font-medium text-primary-foreground/90 underline-offset-4 transition-colors hover:text-primary-foreground hover:underline"
               >
                 <ArrowLeft className="h-4 w-4 text-accent-warm transition-transform group-hover:-translate-x-1" strokeWidth={2.4} aria-hidden="true" />
@@ -345,7 +345,7 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image
               className="mt-10 pt-8 border-t border-border"
             >
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-                <Link to="/blog" className="btn-outline-navy group w-fit">
+                <Link to="/blog/" className="btn-outline-navy group w-fit">
                   <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" strokeWidth={2.4} aria-hidden="true" />
                   Back to all articles
                 </Link>

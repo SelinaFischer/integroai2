@@ -38,7 +38,7 @@ const BlogPosts = () => {
         </div>
 
         <m.div {...fadeUp} className="flex justify-center">
-          <Link to="/blog" className="btn-outline-navy">
+          <Link to="/blog/" className="btn-outline-navy">
             View all posts
           </Link>
         </m.div>
