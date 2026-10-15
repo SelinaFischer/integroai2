@@ -27,13 +27,13 @@ const BlogPage = () => {
           name="description"
           content="Practical guidance for business leaders navigating AI adoption. Articles on AI readiness, operational efficiency, data strategy, and measuring ROI from AI investment."
         />
-        <link rel="canonical" href="https://integroai.tech/blog" />
+        <link rel="canonical" href="https://integroai.tech/blog/" />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Blog",
             name: "IntegroAI Consulting — AI Strategy Insights",
-            url: "https://integroai.tech/blog",
+            url: "https://integroai.tech/blog/",
             description:
               "Practical guidance for business leaders navigating AI adoption. Operations first. AI second. ROI always.",
             publisher: {

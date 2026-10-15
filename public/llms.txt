@@ -42,4 +42,4 @@
 - [Beyond Chatbots: How AI Agents Redefine Efficiency, Decision-Making & Growth](https://integroai.tech/blog/beyond-chatbots-ai-agents)
 - [Why AI Projects Fail: The Data Gap Nobody Talks About](https://integroai.tech/blog/why-ai-fails-the-data-gap)
 - [ROT to Resilience: The Data Cleanup Your AI Needs](https://integroai.tech/blog/rot-to-resilience-data-cleanup)
-- [All articles](https://integroai.tech/blog)
+- [All articles](https://integroai.tech/blog/)
