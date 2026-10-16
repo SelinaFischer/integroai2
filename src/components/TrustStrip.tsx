@@ -23,7 +23,7 @@ const TrustStrip = () => {
   return (
     <section aria-label="Why clients trust IntegroAI" className="border-b border-brand-sand bg-white py-10 sm:py-12">
       <div className="wrap grid grid-cols-1 items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:gap-12">
-        <m.div {...fadeUp} className="flex flex-col gap-6">
+        <m.div {...fadeUp} className="flex flex-col gap-6 text-center lg:text-left">
           <div className="flex flex-col gap-1">
             <p className="eyebrow">Experience</p>
             <p className="text-[17px] leading-relaxed text-brand-navy">
@@ -51,7 +51,7 @@ const TrustStrip = () => {
         </m.div>
 
         <m.div {...fadeUp} className="flex flex-col gap-4">
-          <p className="eyebrow">What clients say</p>
+          <p className="eyebrow text-center lg:text-left">What clients say</p>
           {testimonials.map((testimonial) => (
             <figure key={testimonial.name} className="m-0 rounded-[18px] border border-brand-sand bg-brand-ivory p-6 sm:p-7">
               <blockquote className="m-0">
