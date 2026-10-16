@@ -1782,7 +1782,7 @@ const WhichTasksToAutomateContent: React.FC = () => (
     </div>
 
     <p className="!mt-12 border-t border-brand-sand pt-6 !text-[15px] !leading-relaxed">
-      <strong>Selina Fischer</strong>, Founder, IntegroAI Consulting
+      <strong>Selina Fischer</strong>, Founder | AI Adoption &amp; Transformation Consultant
     </p>
   </>
 );
@@ -1956,7 +1956,7 @@ const WhyAiInitiativesStallContent: React.FC = () => (
       </p>
     </div>
     <p className="!mt-12 border-t border-brand-sand pt-6 !text-[15px] !leading-relaxed">
-      <strong>Selina Fischer</strong>, Founder, IntegroAI Consulting
+      <strong>Selina Fischer</strong>, Founder | AI Adoption &amp; Transformation Consultant
     </p>
   </>
 );
