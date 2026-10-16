@@ -1,6 +1,10 @@
 import React from "react";
 import { GUIDE_FORM_URL, trackGuideClick } from "@/lib/guide";
 
+// Booking link for the AI Clarity Session CTA. Currently the existing Calendly
+// link: replace with the Clarity Session booking page once it exists.
+const CLARITY_SESSION_URL = "https://calendly.com/integroai-tech/30min";
+
 // ─────────────────────────────────────────────────────────────────────────────
 // BLOG DATA FILE
 // To add a new article: add one object to the `articles` array below.
@@ -19,6 +23,9 @@ export interface BlogArticle {
   /** Slugs of two articles to suggest at the end ("Keep reading"). If left
       out, the next two articles in the list are suggested. */
   related?: string[];
+  /** Questions and answers shown at the end of the article. The same text is
+      also given to search engines as FAQ structured data, so the two always match. */
+  faqs?: { question: string; answer: string }[];
   Content: React.FC;
 }
 
@@ -1515,11 +1522,223 @@ const GetFoundOnChatGPTContent: React.FC = () => (
 );
 
 // ─────────────────────────────────────────────────────────────────────────────
+// NEW ARTICLE — Which Tasks Should a Business Automate With AI First?
+// ─────────────────────────────────────────────────────────────────────────────
+
+const whichTasksFaqs = [
+  {
+    question: "What should a business automate with AI first?",
+    answer:
+      "Start with tasks that repeat weekly, involve lots of reading or writing, and follow clear steps. Good first examples are call summaries, CRM updates and first drafts of proposals. Remove any task that doesn't need to exist before automating it.",
+  },
+  {
+    question: "Should we cut tasks before automating them?",
+    answer:
+      "Yes. Automating a task nobody needs only makes waste run faster. Cutting first means less to build, maintain and check.",
+  },
+  {
+    question: "How do I know if a task is right for AI?",
+    answer:
+      "Ask three questions. Does it repeat? Is it mostly reading, writing or summarising? Could you explain the steps to a new starter? One yes makes it worth a look.",
+  },
+  {
+    question: "Do we still need people checking AI work?",
+    answer:
+      "Yes. AI produces the most likely answer, not necessarily the right one for your client. A named person should review anything that reaches a client or affects a decision.",
+  },
+  {
+    question: "How many AI use cases should we start with?",
+    answer: "Two or three. Pick frequent, low-risk tasks that are easy to check. Prove them, then expand.",
+  },
+];
+
+const whichTasksExample = [
+  { task: "Monthly client report nobody reads in full", decision: "Cut it", ai: "Nothing. Replaced by a one-page summary", checks: "Account lead" },
+  { task: "Turning call notes into CRM updates", decision: "Automate", ai: "Drafts the update from the call transcript", checks: "Account manager" },
+  { task: "First drafts of proposals", decision: "Automate", ai: "Builds a draft from past proposals and the brief", checks: "Founder or sales lead" },
+  { task: "Booking meetings and chasing approvals", decision: "Hand off", ai: "Nothing. Moves to an assistant role", checks: "Operations" },
+  { task: "Spotting clients at risk of leaving", decision: "Automate", ai: "Flags warning signs across emails and project notes", checks: "Account director" },
+];
+
+const WhichTasksToAutomateContent: React.FC = () => (
+  <>
+    <div className="not-prose my-8 rounded-[14px] border border-brand-sand bg-brand-ivory p-6">
+      <p className={`${articleLabel} mb-3`}>The quick answer</p>
+      <p className="text-[17px] leading-relaxed text-brand-navy">
+        Automate the tasks that repeat every week, run on reading and writing, and could be explained to a new
+        starter. But cut the tasks that shouldn’t exist first. The best first AI wins are boring, frequent and
+        low risk, with a person still checking the output.
+      </p>
+    </div>
+
+    <p>Here’s how to find them in your own business, in five steps.</p>
+
+    <h2>Why “what should we automate?” is the wrong first question</h2>
+    <p>
+      Most founders start with the tool. They see a demo, buy a licence, then look for somewhere to use it.
+    </p>
+    <p>
+      That’s backwards. Automating a pointless task just makes a pointless task run faster. You’ve paid to keep
+      waste alive.
+    </p>
+    <p>
+      The better first question is simpler:{" "}
+      <strong>what is my team actually doing all week, and should they be doing it at all?</strong>
+    </p>
+    <p>Answer that, and the right AI opportunities become obvious. Clarity first. Technology second.</p>
+
+    <h2>Step 1: Write down what really happened last week</h2>
+    <p>Not the job description. The real week.</p>
+    <p>Ask each team lead to list everything they did, including the small stuff nobody tracks:</p>
+    <ul>
+      <li>Chasing a client for a signed approval</li>
+      <li>Copying call notes into the CRM</li>
+      <li>Rewriting the same proposal intro for the fifth time</li>
+      <li>Answering “where’s this at?” messages</li>
+    </ul>
+    <p>The small tasks matter most. That’s where the hidden hours go.</p>
+
+    <h2>Step 2: Screen each task with three questions</h2>
+    <ol>
+      <li><strong>Does it happen again and again?</strong> Weekly or daily tasks pay back fastest.</li>
+      <li><strong>Is it mostly reading, writing or summarising?</strong> That’s where today’s AI tools are strongest.</li>
+      <li><strong>Could you explain it to a new starter?</strong> If the steps can be written down, AI can usually follow them too.</li>
+    </ol>
+    <p>One yes makes it worth a closer look. Two or three and it’s a strong candidate.</p>
+
+    <h2>Step 3: Cut it, automate it, or hand it off</h2>
+    <p>Before any AI goes near a task, decide what it needs:</p>
+    <ul>
+      <li><strong>Cut it.</strong> Does anyone use the output? The report nobody opens. The meeting that could be a message. Stop doing it.</li>
+      <li><strong>Automate it.</strong> It’s needed, it repeats, and it follows a pattern. This is where AI earns its place.</li>
+      <li><strong>Hand it off.</strong> It’s needed, but it’s not the best use of this person’s time.</li>
+    </ul>
+    <p>
+      Cutting always comes first. Every task you remove is one you never have to automate, maintain or check.
+    </p>
+
+    <h2>Step 4: Decide what AI should do for each task that stays</h2>
+    <p>Not every AI win looks the same. For each task you keep, ask which job AI is doing:</p>
+    <ul>
+      <li><strong>Taking it off your plate.</strong> First drafts, data entry, meeting summaries. Your team reviews instead of starting from scratch.</li>
+      <li><strong>Making your team sharper.</strong> Suggesting options, spotting gaps in a proposal, pulling client history before a call. The person still decides.</li>
+      <li><strong>Doing what wasn’t practical before.</strong> Reading every client email for early signs of churn. Spotting patterns across hundreds of project records.</li>
+    </ul>
+    <p>
+      Start with the admin your team dreads: first drafts, data entry, meeting notes. Fast to prove. Easy to
+      trust. Hours back every week.
+    </p>
+
+    <h2>Step 5: Pick your first wins and keep a human in the loop</h2>
+    <p>Choose two or three tasks to start. The best first picks are:</p>
+    <ul>
+      <li><strong>Frequent</strong>, so the time saved adds up fast</li>
+      <li><strong>Low risk</strong>, so mistakes are easy to catch</li>
+      <li><strong>Easy to check</strong>, so your team trusts the output</li>
+    </ul>
+    <p>
+      Brief the AI the way you’d brief a capable new hire. What the task is for. The rules to follow. What good
+      looks like. The format you want back.
+    </p>
+    <p>
+      Then keep a person checking the output. AI is good at producing a likely answer. It doesn’t know your
+      clients, your standards or what matters most this week. Your people do.
+    </p>
+
+    <h2>What this looks like in practice</h2>
+    <p>
+      Picture a founder-led digital agency of around 60 people. The same approach works in any business; here’s
+      how five everyday tasks might come out:
+    </p>
+
+    <div className="not-prose my-8 overflow-x-auto rounded-[14px] border border-brand-sand">
+      <table className="w-full min-w-[640px] border-collapse bg-white text-left text-[15px] leading-relaxed text-brand-navy">
+        <thead className="bg-brand-ivory">
+          <tr>
+            {["Task", "Decision", "What AI does", "Who checks"].map((heading) => (
+              <th key={heading} scope="col" className={`${articleLabel} px-4 py-3`}>
+                {heading}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {whichTasksExample.map((row) => (
+            <tr key={row.task} className="border-t border-brand-sand align-top">
+              <td className="px-4 py-3 font-medium">{row.task}</td>
+              <td className="px-4 py-3">{row.decision}</td>
+              <td className="px-4 py-3">{row.ai}</td>
+              <td className="px-4 py-3">{row.checks}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <p>The first move is a cut, not a tool. And every automated task still has a named person checking it.</p>
+
+    <div className="not-prose my-10 rounded-[14px] bg-brand-navy p-7">
+      <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.12em] text-brand-amber">Start with clarity, not a tool</p>
+      <p className="text-[19px] leading-relaxed text-white">
+        The businesses that get real value from AI don’t start with the technology. They start by knowing exactly
+        where their team’s time goes.{" "}
+        <span className="text-brand-amber">
+          Get that right and the first wins are obvious: less firefighting, less repetitive work, and more time for
+          the work your clients pay you for.
+        </span>
+      </p>
+    </div>
+
+    <div className="not-prose mt-12 rounded-[14px] border border-brand-sand bg-brand-ivory p-7">
+      <p className={`${articleLabel} mb-3`}>Find your first three AI wins</p>
+      <p className="mb-5 text-[17px] leading-relaxed text-brand-navy">
+        Book an AI Clarity Session. In 90 minutes, we’ll map where your team’s time goes and agree what to cut,
+        automate or hand off first.
+      </p>
+      <a href={CLARITY_SESSION_URL} target="_blank" rel="noopener noreferrer" className="btn-amber">
+        Book an AI Clarity Session
+      </a>
+      <p className="mt-5 text-[15px] leading-relaxed text-brand-slate">
+        Not ready for a call?{" "}
+        <a href="https://integroai.tech/assessment" className="font-medium text-brand-navy underline decoration-brand-amber decoration-2 underline-offset-4">
+          Take the free AI Readiness Assessment
+        </a>{" "}
+        and see where your business stands today.
+      </p>
+    </div>
+
+    <h2>Frequently asked questions</h2>
+    {whichTasksFaqs.map((faq) => (
+      <React.Fragment key={faq.question}>
+        <h3>{faq.question}</h3>
+        <p>{faq.answer}</p>
+      </React.Fragment>
+    ))}
+
+    <p className="!mt-12 border-t border-brand-sand pt-6 !text-[15px] !leading-relaxed">
+      <strong>Selina Fischer</strong>, Founder, IntegroAI Consulting
+    </p>
+  </>
+);
+
+// ─────────────────────────────────────────────────────────────────────────────
 // MASTER ARTICLES ARRAY
 // Add new articles here. Everything else is automatic.
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const articles: BlogArticle[] = [
+  {
+    slug: "which-tasks-to-automate-with-ai-first",
+    title: "Which Tasks Should a Business Automate With AI First?",
+    subtitle: "A five-step way to find your first AI wins: cut what’s pointless, automate what repeats, and keep a person checking the output.",
+    date: "October 2026",
+    category: "AI Strategy",
+    readTime: "5 min read",
+    excerpt: "A five-step way to find your first AI wins: cut what’s pointless, automate what repeats, and keep a person checking the output.",
+    related: ["5-signs-your-business-is-not-ready-for-ai", "what-is-an-ai-readiness-assessment"],
+    faqs: whichTasksFaqs,
+    Content: WhichTasksToAutomateContent,
+  },
   {
     slug: "how-to-get-your-business-found-on-chatgpt",
     title: "How to Get Your Business Found by ChatGPT and Other AI Tools",

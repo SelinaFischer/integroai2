@@ -19,10 +19,12 @@ interface BlogPostLayoutProps {
   image?: string;
   /** Up to two articles suggested at the end of this one. */
   keepReading?: { slug: string; title: string; category: string; readTime: string }[];
+  /** The article's FAQ, if it has one. Given to search engines as FAQ structured data. */
+  faqs?: { question: string; answer: string }[];
   children: React.ReactNode;
 }
 
-const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image, keepReading = [], children }: BlogPostLayoutProps) => {
+const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image, keepReading = [], faqs = [], children }: BlogPostLayoutProps) => {
   const { toast } = useToast();
   const [copied, setCopied] = useState(false);
   const [readingProgress, setReadingProgress] = useState(0);
@@ -151,6 +153,18 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image
     "image": articleImage
   };
 
+  const faqSchema = faqs.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqs.map((faq) => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": { "@type": "Answer", "text": faq.answer },
+        })),
+      }
+    : null;
+
   return (
     <>
       <Helmet>
@@ -176,6 +190,11 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image
         <script type="application/ld+json">
           {JSON.stringify(articleSchema)}
         </script>
+        {faqSchema && (
+          <script type="application/ld+json">
+            {JSON.stringify(faqSchema)}
+          </script>
+        )}
       </Helmet>
       
       {/* Reading Progress Bar */}
