@@ -1788,11 +1788,197 @@ const WhichTasksToAutomateContent: React.FC = () => (
 );
 
 // ─────────────────────────────────────────────────────────────────────────────
+// WHY AI INITIATIVES STALL (moved from the homepage checklist, October 2026)
+// ─────────────────────────────────────────────────────────────────────────────
+
+const articleLink =
+  "font-medium text-brand-navy underline decoration-brand-amber decoration-2 underline-offset-4 hover:text-brand-teal";
+
+const stallFaqs: Faq[] = [
+  {
+    question: "What is the most common reason AI initiatives stall?",
+    answer:
+      "There is rarely a single cause, and several of these conditions can be missing at once. Ownership is a sensible place to start, because without an owner the other gaps are less likely to be addressed.",
+  },
+  {
+    question: "Can a stalled AI initiative be restarted?",
+    answer:
+      "Often, yes, but not always. Identify the gaps, then decide whether the initiative is still worth pursuing. If it is, address the most important blockers and restart with one small, measured use case. Sometimes stopping is the right decision.",
+  },
+  {
+    question: "Do all six conditions need to be perfect before we start?",
+    answer:
+      "No. They need to be clear enough for the first use case. Processes and data can improve as you go, as long as someone owns the outcome and you know how you’ll measure it.",
+  },
+  {
+    question: "How is this different from an AI readiness assessment?",
+    answer:
+      "This checklist is a quick self-check. The free 5-Minute AI Readiness Assessment gives a readiness score and the priority to focus on first. Deeper, consultant-led analysis is covered by the AI & Operations Diagnostic.",
+  },
+];
+
+const StallCheck: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <p className="!mt-3 border-l-[3px] border-brand-amber pl-4">
+    <strong>Check:</strong> {children}
+  </p>
+);
+
+const WhyAiInitiativesStallContent: React.FC = () => (
+  <>
+    <p>
+      The pilot started well. A few people tried the tool. Then priorities shifted, usage dropped, and six months
+      later nobody can say whether it worked.
+    </p>
+    <p>
+      The tool may be part of the problem. But it is also worth checking whether the business conditions needed to
+      support it were ever established.
+    </p>
+    <p>
+      Below are six conditions to check. Use them before you start, or to understand why an initiative has lost
+      momentum.
+    </p>
+
+    <div className="not-prose my-8 rounded-[14px] border border-brand-sand bg-brand-ivory p-6">
+      <p className={`${articleLabel} mb-3`}>The quick answer</p>
+      <p className="text-[17px] leading-relaxed text-brand-navy">
+        Six conditions worth checking when an AI initiative stalls are: clear ownership, focused priorities, data
+        that is ready for the task, a team that is ready to use it, an agreed way to measure success, and practical
+        understanding of how AI applies to daily work.
+      </p>
+    </div>
+
+    <h2>1. Unclear leadership ownership</h2>
+    <p>
+      AI initiatives lose momentum when sponsorship, accountability, and decision ownership are not clearly defined.
+      When AI is everyone’s project, it can become nobody’s. Decisions wait and blockers stay put.
+    </p>
+    <StallCheck>Is one named person accountable for the business outcome, not just the tool?</StallCheck>
+
+    <h2>2. Competing priorities</h2>
+    <p>
+      Too many potential use cases, without a clear view of which initiatives will genuinely create value. A long
+      list of ideas can feel like progress. But when a small team spreads its effort across several pilots, each one
+      may struggle to get the time and attention it needs.
+    </p>
+    <StallCheck>
+      Can you name the problem this initiative solves, why it takes priority, and who has time to deliver it? If
+      you’re still choosing, see{" "}
+      <a href="/blog/which-tasks-to-automate-with-ai-first" className={articleLink}>
+        which tasks to automate with AI first
+      </a>
+      .
+    </StallCheck>
+
+    <h2>3. Data foundations not ready</h2>
+    <p>
+      AI tools introduced before data quality, access, or consistency are sufficient to support them. If client
+      records conflict across systems, AI may produce an incomplete or inaccurate answer.
+    </p>
+    <StallCheck>
+      Is the information this task depends on accurate enough, sufficiently complete, and accessible to the people
+      and systems authorised to use it? More on this in{" "}
+      <a href="/blog/why-ai-fails-the-data-gap" className={articleLink}>
+        the data readiness gap
+      </a>
+      .
+    </StallCheck>
+
+    <h2>4. Limited organisational readiness</h2>
+    <p>
+      Teams unsure how AI fits into existing workflows or how to use it responsibly in their roles. A tool added on
+      top of an unchanged workflow becomes extra work, so people work around it.
+    </p>
+    <StallCheck>
+      Do people know where it fits, have time and support to use it, and understand what they remain responsible
+      for?
+    </StallCheck>
+
+    <h2>5. No clear success metrics</h2>
+    <p>
+      Outcomes are difficult to validate when there is no agreed baseline or way to measure impact. Without a
+      starting point, the decision to scale or stop becomes a matter of opinion.
+    </p>
+    <StallCheck>
+      Have you written down how the task performs today, and what “better” will look like? See{" "}
+      <a href="/blog/how-to-measure-roi-from-ai-investment" className={articleLink}>
+        how to measure ROI from an AI investment
+      </a>
+      .
+    </StallCheck>
+
+    <h2>6. Lack of practical AI understanding</h2>
+    <p>
+      Teams struggle to see how AI applies to day to day work, so it is hard to identify where AI can create value.
+      When AI feels abstract, people either expect too much or dismiss it.
+    </p>
+    <StallCheck>
+      Can your team explain one relevant use, where AI might get it wrong, and how they would check the result?
+    </StallCheck>
+
+    <h2>How to use this checklist</h2>
+    <p>
+      Go through the six points with the people closest to the work. Mark each one as in place, partly in place, or
+      missing. Prioritise the gaps that could prevent this use case from working safely and delivering value.
+    </p>
+    <p>
+      If an initiative has already stalled, identify the gaps, then decide whether it is still worth pursuing. If it
+      is, address the most important blockers and restart with one small, measured use case. If you haven’t started
+      yet, read{" "}
+      <a href="/blog/5-signs-your-business-is-not-ready-for-ai" className={articleLink}>
+        5 signs your business is not ready for AI
+      </a>
+      .
+    </p>
+
+    <h2>Before you invest further</h2>
+    <p>
+      A useful tool still needs a clear problem, an accountable owner and a workable process. Start small, measure
+      the result, and use that evidence to decide what happens next.
+    </p>
+
+    <ArticleFaq faqs={stallFaqs} />
+
+    <div className="not-prose mt-12 rounded-[14px] border border-brand-sand bg-brand-ivory p-7">
+      <p className={`${articleLabel} mb-3`}>See where your business stands</p>
+      <p className="mb-5 text-[17px] leading-relaxed text-brand-navy">
+        The free 5-Minute AI Readiness Assessment gives you an initial view of how ready your business is for AI,
+        with a readiness score and the priority to focus on first.
+      </p>
+      <a href="https://integroai.tech/assessment" className="btn-amber">
+        Start the free assessment
+      </a>
+      <p className="mt-5 text-[15px] leading-relaxed text-brand-slate">
+        Prefer to talk it through?{" "}
+        <a href={DISCOVERY_CALL_URL} target="_blank" rel="noopener noreferrer" className={articleLink}>
+          Book a free 30-minute Discovery Call
+        </a>
+        .
+      </p>
+    </div>
+    <p className="!mt-12 border-t border-brand-sand pt-6 !text-[15px] !leading-relaxed">
+      <strong>Selina Fischer</strong>, Founder, IntegroAI Consulting
+    </p>
+  </>
+);
+
+// ─────────────────────────────────────────────────────────────────────────────
 // MASTER ARTICLES ARRAY
 // Add new articles here. Everything else is automatic.
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const articles: BlogArticle[] = [
+  {
+    slug: "why-ai-initiatives-stall",
+    title: "Why Do AI Initiatives Stall? A Six-Point AI Readiness Checklist",
+    subtitle: "AI initiatives can stall when ownership, priorities, data and ways of working are unclear. Use this six-point checklist to identify gaps before you invest or expand.",
+    date: "October 2026",
+    category: "AI Strategy",
+    readTime: "4 min read",
+    excerpt: "AI initiatives can stall when ownership, priorities, data and ways of working are unclear. Use this six-point checklist to identify gaps before you invest or expand.",
+    related: ["5-signs-your-business-is-not-ready-for-ai", "which-tasks-to-automate-with-ai-first"],
+    faqs: stallFaqs,
+    Content: WhyAiInitiativesStallContent,
+  },
   {
     slug: "which-tasks-to-automate-with-ai-first",
     title: "Which Tasks Should a Business Automate With AI First?",

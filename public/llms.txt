@@ -34,6 +34,7 @@
 
 ## Articles
 
+- [Why Do AI Initiatives Stall? A Six-Point AI Readiness Checklist](https://integroai.tech/blog/why-ai-initiatives-stall)
 - [Which Tasks Should a Business Automate With AI First?](https://integroai.tech/blog/which-tasks-to-automate-with-ai-first)
 - [How to Get Your Business Found by ChatGPT and Other AI Tools](https://integroai.tech/blog/how-to-get-your-business-found-on-chatgpt)
 - [AI Is Making Organisational Ambiguity Expensive](https://integroai.tech/blog/ai-organisational-ambiguity-human-judgement)

@@ -50,6 +50,12 @@
 
   <!-- Blog articles — new (data-driven) -->
   <url>
+    <loc>https://integroai.tech/blog/why-ai-initiatives-stall</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://integroai.tech/blog/which-tasks-to-automate-with-ai-first</loc>
     <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
