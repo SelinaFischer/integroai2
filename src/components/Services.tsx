@@ -13,7 +13,8 @@ import ExtraServicesList from "./ExtraServicesList";
 const serviceGroups = [
   {
     title: "AI Readiness & Operations Diagnostic",
-    summary: "See where time, capacity or control is being lost. Operational efficiency first, AI second.",
+    outcome: "See where time and margin are leaking",
+    summary: "Find where time, capacity or control is being lost, before you spend on AI.",
     stages: [
       {
         number: "01",
@@ -29,7 +30,8 @@ const serviceGroups = [
   },
   {
     title: "AI Strategy Consulting",
-    summary: "A business AI strategy that shows which opportunities are worth pursuing first.",
+    outcome: "Know what to fix first",
+    summary: "A clear, sequenced plan, so your budget goes to the opportunities that matter.",
     stages: [
       {
         number: "03",
@@ -45,8 +47,8 @@ const serviceGroups = [
   },
   {
     title: "AI Implementation & Automation",
-    summary:
-      "Turn validated opportunities into working solutions, from AI workflow automation to business process automation.",
+    outcome: "Get it working, and keep it working",
+    summary: "Working solutions your team actually uses, with people in control of the decisions that matter.",
     stages: [
       {
         number: "05",
@@ -155,8 +157,9 @@ const Services = () => {
             left-aligned and, on desktop, sit flush with the stage names beneath
             them (see usePanelEdges). Each stop sits centred over its name and the
             amber line runs from the first stop to the last, no further;
-            on tablet and mobile each area shows its two stops joined top to bottom. Each area shares the same two rows through CSS
-            subgrid, so the line stays level however the text above it wraps. */}
+            on tablet and mobile each area shows its two stops joined top to bottom. Each area shares the same rows through CSS
+            subgrid (label, heading, summary, stages), so labels, headings and the line
+            stay level however the text above them wraps. */}
         <m.div {...fadeUp} className="rounded-3xl bg-brand-navy px-6 py-8 sm:px-9 sm:py-10">
           <ol
             ref={listRef}
@@ -167,11 +170,11 @@ const Services = () => {
               <li
                 key={group.title}
                 data-group
-                className="flex flex-col gap-5 md:row-span-2 md:grid md:grid-rows-subgrid md:gap-y-7"
+                className="flex flex-col gap-5 md:row-span-4 md:grid md:grid-rows-subgrid md:gap-y-7"
               >
                 {/* Until the measurement runs, the margins below are a close estimate. */}
                 <div
-                  className={`flex flex-col gap-1.5 md:pr-8 lg:ml-[calc(25%-52px)] ${
+                  className={`flex flex-col gap-1.5 md:row-span-3 md:grid md:grid-rows-subgrid md:gap-y-1.5 md:pr-8 lg:ml-[calc(25%-52px)] ${
                     groupIndex === lastGroupIndex ? "lg:mr-[calc(25%-70px)] lg:pr-0" : "lg:pr-4"
                   }`}
                   style={
@@ -183,10 +186,11 @@ const Services = () => {
                       : undefined
                   }
                 >
-                  {/* On desktop each title stays on one line, so the three sit on the
-                      same row and the smaller descriptions start level beneath them. */}
-                  <h3 className="text-base font-medium leading-snug tracking-[-0.01em] !text-brand-amber lg:whitespace-nowrap lg:text-sm min-[1120px]:text-base">
-                    {group.title}
+                  {/* The service name sits as a small label; the heading says what
+                      changes for the client. */}
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-brand-amber">{group.title}</p>
+                  <h3 className="text-lg font-medium leading-snug tracking-[-0.01em] !text-white [text-wrap:balance]">
+                    {group.outcome}
                   </h3>
                   <p className="text-sm leading-relaxed text-brand-mist [text-wrap:balance]">{group.summary}</p>
                 </div>

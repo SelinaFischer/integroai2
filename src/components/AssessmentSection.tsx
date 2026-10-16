@@ -2,19 +2,22 @@ import { ArrowRight, Check } from "lucide-react";
 import { m } from "framer-motion";
 import { ASSESSMENT_URL, fadeUp } from "@/lib/motion";
 
-// Sample scorecard. The five dimensions and the /30 scale match the real
-// assessment result; the numbers are illustrative and labelled as a sample.
+// Sample scorecard. The five dimensions, their /6 scores and the /30 total
+// match the real assessment (public/assessment.html); the numbers are
+// illustrative and labelled as a sample.
 const SAMPLE_SCORE = 11;
 const MAX_SCORE = 30;
 const RING_RADIUS = 56;
 const RING_LENGTH = 2 * Math.PI * RING_RADIUS;
 
+const AREA_MAX = 6;
+
 const dimensions = [
-  { label: "Strategic Clarity", value: 40 },
-  { label: "Leadership & Ownership", value: 35 },
-  { label: "Process Maturity", value: 55 },
-  { label: "Operational Visibility", value: 25, priority: true },
-  { label: "Data Readiness", value: 60 },
+  { label: "Business Direction", score: 3 },
+  { label: "Ownership & Capacity", score: 2 },
+  { label: "Process Readiness", score: 3 },
+  { label: "Systems & Information", score: 1, priority: true },
+  { label: "Responsible Use & Skills", score: 2 },
 ];
 
 // What the assessment gives you. Wording carried over from the previous site.
@@ -34,7 +37,7 @@ const AssessmentSection = () => {
             Is your business <span className="italic text-brand-amber">ready for AI?</span>
           </h2>
           <p className="text-base leading-relaxed text-[#42566A] sm:text-[17px]">
-            IntegroAI&apos;s free 5-minute AI Readiness Assessment is an AI assessment tool for business leaders. It scores your business across strategic clarity, leadership and ownership, process maturity, operational visibility and data readiness, then names the priority to focus on first.
+            IntegroAI&apos;s free 5-minute AI Readiness Assessment gives you an initial view of how ready your business is for AI, with a readiness score and the priority to focus on first.
           </p>
           <ul className="flex list-none flex-col gap-3 py-1">
             {benefits.map((benefit) => (
@@ -58,7 +61,7 @@ const AssessmentSection = () => {
           className="flex flex-col gap-5 rounded-[20px] border border-brand-sand bg-white p-6 sm:p-[30px]"
           style={{ boxShadow: "var(--shadow-lg)" }}
           role="img"
-          aria-label="Sample AI Readiness Assessment result: 11 out of 30, Early Explorer. Priority focus: Operational Visibility."
+          aria-label="Sample AI Readiness Assessment result: 11 out of 30, Early Explorer. Priority focus: Systems and Information."
         >
           <div className="flex items-center justify-between gap-3">
             <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-slate">AI Readiness Score</p>
@@ -107,19 +110,21 @@ const AssessmentSection = () => {
                 <span className="h-2 rounded bg-brand-track">
                   <span
                     className={`block h-2 rounded ${dimension.priority ? "bg-brand-amber" : "bg-brand-navy"}`}
-                    style={{ width: `${dimension.value}%` }}
+                    style={{ width: `${(dimension.score / AREA_MAX) * 100}%` }}
                   />
                 </span>
-                <span className="text-right text-[15px] font-bold text-brand-navy">{dimension.value}%</span>
+                <span className="text-right text-[15px] font-bold text-brand-navy">
+                  {dimension.score}/{AREA_MAX}
+                </span>
               </div>
             ))}
           </div>
 
           <div className="flex flex-col gap-1.5 rounded-[14px] border border-brand-sand bg-brand-cream px-[18px] py-4">
             <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-brand-slate">Priority focus</p>
-            <p className="text-[17px] font-bold text-brand-navy">Operational Visibility</p>
+            <p className="text-[17px] font-bold text-brand-navy">Systems &amp; Information</p>
             <p className="text-[15px] leading-normal text-brand-slate">
-              Clarify ownership and workflow visibility before investing further.
+              Strengthening Systems &amp; Information is the highest-value move at this stage.
             </p>
           </div>
 

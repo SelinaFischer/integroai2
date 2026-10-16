@@ -29,7 +29,7 @@ export const homepageFaqs: FaqItem[] = [
   {
     question: "What is the 5-Minute AI Readiness Assessment, and what happens after I complete it?",
     answer:
-      "The 5-Minute AI Readiness Assessment is a free introductory self-assessment that gives you an initial view of where your business stands and where readiness gaps may exist. It scores five areas: strategic clarity, leadership and ownership, process maturity, operational visibility and data readiness. After completing it, you receive an initial score and summary, and you can book a free Discovery Call to talk through the results and appropriate next steps. It is not a full operational diagnostic and does not replace consultant-led analysis; that deeper work is covered separately by the AI & Operations Diagnostic.",
+      "The 5-Minute AI Readiness Assessment is a free introductory self-assessment that gives you an initial view of where your business stands and where readiness gaps may exist. It covers five areas and names the priority to focus on first. After completing it, you receive an initial score and summary, and you can book a free Discovery Call to talk through the results and appropriate next steps. It is not a full operational diagnostic and does not replace consultant-led analysis; that deeper work is covered separately by the AI & Operations Diagnostic.",
   },
   {
     question: "When should a business not invest in AI?",

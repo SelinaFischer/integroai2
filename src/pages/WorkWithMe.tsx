@@ -12,6 +12,7 @@ import selinaOffice480 from "@/assets/selina-work-portrait-480.webp";
 import selinaOffice640 from "@/assets/selina-work-portrait-640.webp";
 import { EXTRA_SERVICES_SECTION_ID } from "@/lib/extraServices";
 import ExtraServicesList from "@/components/ExtraServicesList";
+import ClientTestimonials from "@/components/ClientTestimonials";
 
 // Stage 01 is the free entry point and is shown as a single row with a
 // button. Stages 02 to 06 open one at a time: closed, each row shows the
@@ -201,7 +202,7 @@ const WorkWithMe = () => {
                     className="relative text-sm sm:text-base font-semibold bg-card border border-border/50 rounded-xl p-5 sm:p-6 shadow-lg text-center leading-relaxed [text-wrap:balance]"
                     style={{ color: "#041B2B" }}
                   >
-                    Choose the level of support that suits you, from advice your team can act on to hands-on help putting it into practice.
+                    Every engagement is led by me, one stage at a time, and we agree each stage before it begins.
                   </p>
                 </div>
               </m.div>
@@ -311,6 +312,21 @@ const WorkWithMe = () => {
               </m.div>
             </div>
           </section>
+
+          {/* Client testimonials: proof at the point of decision. */}
+          <ClientTestimonials id="client-testimonials-title" heading="In our clients’ words">
+            <div className="flex justify-center">
+              <a
+                href="https://calendly.com/integroai-tech/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-amber group"
+              >
+                Book a Discovery Call
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
+              </a>
+            </div>
+          </ClientTestimonials>
 
           {/* Standalone services, kept brief on purpose. */}
           <section id={EXTRA_SERVICES_SECTION_ID} className="bg-white py-12 sm:py-14">
