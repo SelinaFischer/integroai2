@@ -1,5 +1,6 @@
 import { m } from "framer-motion";
 import { fadeUp } from "@/lib/motion";
+import { testimonials } from "@/lib/testimonials";
 
 // Proof directly under the hero: experience, memberships and real client
 // quotes. Only verified facts go here. Qualifications are added once their
@@ -15,22 +16,6 @@ const memberships = [
     name: "Hillingdon Chamber of Commerce",
     detail: "Member",
     href: "https://hillingdonchamber.co.uk/",
-  },
-];
-
-// Client quotes. First names only, for privacy.
-const testimonials = [
-  {
-    quote:
-      "Selina did an excellent job with the AI Readiness Assessment and Key Findings Report. Her clear explanations helped me understand the recommendations and feel more confident about the next steps for my business.",
-    name: "Fabrice",
-    role: "Founder & CEO, Consultancy business",
-  },
-  {
-    quote:
-      "The AI Readiness Assessment was easy to follow and valuable. I appreciated Selina’s clear approach and practical recommendations, which helped me see where AI could support my business and what to prioritise next.",
-    name: "Paul",
-    role: "CEO, technology business",
   },
 ];
 
