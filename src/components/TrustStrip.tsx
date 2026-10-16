@@ -18,22 +18,19 @@ const memberships = [
   },
 ];
 
-// Client quotes, in the clients' own words. Square brackets mark wording
-// changed for clarity or privacy. Names are shortened at the clients' request.
+// Client quotes. First names only, for privacy.
 const testimonials = [
   {
     quote:
-      "She delivered both an assessment and a [Key Findings Report] presentation with me as customer. She did an amazing job. We both learned so much from the experience and came out of it even more confident.",
-    name: "Fabrice M.",
-    role: "Founder & CEO",
-    context: "Free AI readiness assessment and Key Findings Report",
+      "Selina did an excellent job with the AI Readiness Assessment and Key Findings Report. Her clear explanations helped me understand the recommendations and feel more confident about the next steps for my business.",
+    name: "Fabrice",
+    role: "Founder & CEO, Consultancy business",
   },
   {
     quote:
-      "Selina made AI adoption feel clear and achievable. Her AI Readiness Assessment was straightforward and valuable, with practical recommendations that helped me see where AI could make a difference at [our company] and what to prioritise next.",
-    name: "Paul F.",
-    role: "CEO, technology company",
-    context: "",
+      "The AI Readiness Assessment was easy to follow and valuable. I appreciated Selina’s clear approach and practical recommendations, which helped me see where AI could support my business and what to prioritise next.",
+    name: "Paul",
+    role: "CEO, technology business",
   },
 ];
 
@@ -77,12 +74,6 @@ const TrustStrip = () => {
               </blockquote>
               <figcaption className="mt-4 text-[15px] leading-relaxed text-brand-slate">
                 <span className="font-bold text-brand-navy">{testimonial.name}</span>, {testimonial.role}
-                {testimonial.context && (
-                  <>
-                    <br />
-                    {testimonial.context}
-                  </>
-                )}
               </figcaption>
             </figure>
           ))}
