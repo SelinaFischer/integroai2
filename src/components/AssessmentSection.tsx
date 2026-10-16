@@ -2,20 +2,23 @@ import { ArrowRight, Check } from "lucide-react";
 import { m } from "framer-motion";
 import { ASSESSMENT_URL, fadeUp } from "@/lib/motion";
 
-// Sample scorecard. The five dimensions and the /30 scale match the real
-// assessment result; the numbers are illustrative and labelled as a sample.
+// Sample scorecard, matching the sample on the assessment page itself
+// (public/assessment.html): /30 scale, five areas scored out of 6, the last
+// two areas and the next step blurred. The numbers are illustrative.
 const SAMPLE_SCORE = 11;
 const MAX_SCORE = 30;
 const RING_RADIUS = 56;
 const RING_LENGTH = 2 * Math.PI * RING_RADIUS;
 
 const dimensions = [
-  { label: "Strategic Clarity", value: 40 },
-  { label: "Leadership & Ownership", value: 35 },
-  { label: "Process Maturity", value: 55 },
-  { label: "Operational Visibility", value: 25, priority: true },
-  { label: "Data Readiness", value: 60 },
+  { label: "Business Direction", score: 3 },
+  { label: "Ownership & Capacity", score: 2 },
+  { label: "Process Readiness", score: 3 },
+  // Blurred rows carry placeholder text, so nothing hidden is in the page code.
+  { label: "Revealed in your results", score: 1, priority: true, blurred: true },
+  { label: "Revealed in your results ", score: 2, blurred: true },
 ];
+const AREA_MAX = 6;
 
 // What the assessment gives you. Wording carried over from the previous site.
 const benefits = [
@@ -34,7 +37,7 @@ const AssessmentSection = () => {
             Is your business <span className="italic text-brand-amber">ready for AI?</span>
           </h2>
           <p className="text-base leading-relaxed text-[#42566A] sm:text-[17px]">
-            IntegroAI&apos;s free 5-minute AI Readiness Assessment is an AI assessment tool for business leaders. It scores your business across strategic clarity, leadership and ownership, process maturity, operational visibility and data readiness, then names the priority to focus on first.
+            IntegroAI&apos;s free 5-minute AI Readiness Assessment gives you an initial view of how ready your business is for AI, with a readiness score and the priority to focus on first.
           </p>
           <ul className="flex list-none flex-col gap-3 py-1">
             {benefits.map((benefit) => (
@@ -58,7 +61,7 @@ const AssessmentSection = () => {
           className="flex flex-col gap-5 rounded-[20px] border border-brand-sand bg-white p-6 sm:p-[30px]"
           style={{ boxShadow: "var(--shadow-lg)" }}
           role="img"
-          aria-label="Sample AI Readiness Assessment result: 11 out of 30, Early Explorer. Priority focus: Operational Visibility."
+          aria-label="Sample AI Readiness Assessment result: 11 out of 30, Early Explorer."
         >
           <div className="flex items-center justify-between gap-3">
             <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-slate">AI Readiness Score</p>
@@ -91,36 +94,41 @@ const AssessmentSection = () => {
             <div className="flex min-w-[180px] flex-1 flex-col gap-1.5">
               <p className="display text-[32px] font-bold leading-none text-brand-navy">Early Explorer</p>
               <p className="text-[15px] leading-normal text-brand-slate">
-                You&apos;re making progress. Clear gaps identified before AI investment.
+                Some foundations in place, with gaps to close before investing.
               </p>
             </div>
           </div>
 
           <div className="flex flex-col border-t border-brand-sand pt-[18px]">
-            <p className="pb-2 text-xs font-bold uppercase tracking-[0.14em] text-brand-slate">Readiness by dimension</p>
+            <p className="pb-2 text-xs font-bold uppercase tracking-[0.14em] text-brand-slate">Score by area</p>
             {dimensions.map((dimension) => (
               <div
                 key={dimension.label}
-                className="grid grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)_44px] items-center gap-3.5 py-[9px]"
+                aria-hidden={dimension.blurred ? true : undefined}
+                className={`grid grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)_44px] items-center gap-3.5 py-[9px] ${
+                  dimension.blurred ? "select-none blur-[5px]" : ""
+                }`}
               >
                 <span className="text-[15px] font-semibold text-brand-navy">{dimension.label}</span>
                 <span className="h-2 rounded bg-brand-track">
                   <span
                     className={`block h-2 rounded ${dimension.priority ? "bg-brand-amber" : "bg-brand-navy"}`}
-                    style={{ width: `${dimension.value}%` }}
+                    style={{ width: `${(dimension.score / AREA_MAX) * 100}%` }}
                   />
                 </span>
-                <span className="text-right text-[15px] font-bold text-brand-navy">{dimension.value}%</span>
+                <span className="text-right text-[15px] font-bold text-brand-navy">
+                  {dimension.score}/{AREA_MAX}
+                </span>
               </div>
             ))}
           </div>
 
           <div className="flex flex-col gap-1.5 rounded-[14px] border border-brand-sand bg-brand-cream px-[18px] py-4">
-            <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-brand-slate">Priority focus</p>
-            <p className="text-[17px] font-bold text-brand-navy">Operational Visibility</p>
-            <p className="text-[15px] leading-normal text-brand-slate">
-              Clarify ownership and workflow visibility before investing further.
-            </p>
+            <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-brand-slate">Recommended next step</p>
+            <div aria-hidden="true" className="select-none blur-[5px]">
+              <p className="text-[17px] font-bold text-brand-navy">Your priority area</p>
+            </div>
+            <p className="text-[15px] leading-normal text-brand-slate">Revealed in your own results.</p>
           </div>
 
           <p className="text-[13px] text-brand-slate">Sample result. Your score comes from your own answers.</p>

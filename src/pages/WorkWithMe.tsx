@@ -201,7 +201,7 @@ const WorkWithMe = () => {
                     className="relative text-sm sm:text-base font-semibold bg-card border border-border/50 rounded-xl p-5 sm:p-6 shadow-lg text-center leading-relaxed [text-wrap:balance]"
                     style={{ color: "#041B2B" }}
                   >
-                    Choose the level of support that suits you, from advice your team can act on to hands-on help putting it into practice.
+                    Every engagement is led by me, one stage at a time, and we agree each stage before it begins.
                   </p>
                 </div>
               </m.div>

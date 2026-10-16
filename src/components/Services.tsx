@@ -13,7 +13,8 @@ import ExtraServicesList from "./ExtraServicesList";
 const serviceGroups = [
   {
     title: "AI Readiness & Operations Diagnostic",
-    summary: "See where time, capacity or control is being lost. Operational efficiency first, AI second.",
+    outcome: "See where time and margin are leaking",
+    summary: "Find where time, capacity or control is being lost, before you spend on AI.",
     stages: [
       {
         number: "01",
@@ -29,7 +30,8 @@ const serviceGroups = [
   },
   {
     title: "AI Strategy Consulting",
-    summary: "A business AI strategy that shows which opportunities are worth pursuing first.",
+    outcome: "Know what to fix first",
+    summary: "A clear, sequenced plan, so your budget goes to the opportunities that matter.",
     stages: [
       {
         number: "03",
@@ -45,8 +47,8 @@ const serviceGroups = [
   },
   {
     title: "AI Implementation & Automation",
-    summary:
-      "Turn validated opportunities into working solutions, from AI workflow automation to business process automation.",
+    outcome: "Get it working, and keep it working",
+    summary: "Working solutions your team actually uses, with people in control of the decisions that matter.",
     stages: [
       {
         number: "05",
@@ -183,10 +185,11 @@ const Services = () => {
                       : undefined
                   }
                 >
-                  {/* On desktop each title stays on one line, so the three sit on the
-                      same row and the smaller descriptions start level beneath them. */}
-                  <h3 className="text-base font-medium leading-snug tracking-[-0.01em] !text-brand-amber lg:whitespace-nowrap lg:text-sm min-[1120px]:text-base">
-                    {group.title}
+                  {/* The service name sits as a small label; the heading says what
+                      changes for the client. */}
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-brand-amber">{group.title}</p>
+                  <h3 className="text-lg font-medium leading-snug tracking-[-0.01em] !text-white [text-wrap:balance]">
+                    {group.outcome}
                   </h3>
                   <p className="text-sm leading-relaxed text-brand-mist [text-wrap:balance]">{group.summary}</p>
                 </div>
