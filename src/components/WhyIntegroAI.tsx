@@ -17,6 +17,50 @@ const whatWeDo = [
   "People stay in control of the decisions that matter",
 ];
 
+// The tool-led vs business-led comparison. Shown on the homepage inside the
+// navy "The reality" band; also used by the full WhyIntegroAI section.
+export const ApproachComparison = () => (
+  <div className="grid w-full grid-cols-1 gap-4 text-left md:grid-cols-2">
+    <m.div
+      {...fadeUp}
+      className="flex flex-col gap-3.5 rounded-[20px] border border-brand-sand bg-white p-6 sm:p-[30px]"
+    >
+      <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-slate">The wrong approach</p>
+      <h3 className="display text-[22px] !font-bold leading-[1.15] !text-brand-slate sm:text-[24px]">
+        Tool-led AI adoption
+      </h3>
+      <ul className="flex list-none flex-col gap-2.5 text-[15px] text-brand-slate">
+        {wrongApproach.map((item) => (
+          <li key={item} className="flex items-start gap-3">
+            <X className="mt-[3px] h-5 w-5 flex-none text-[#7B8A99]" strokeWidth={2.6} aria-hidden="true" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </m.div>
+
+    <m.div
+      {...fadeUp}
+      className="flex flex-col gap-3.5 rounded-[20px] border-2 border-brand-amber bg-white p-[23px] sm:p-[29px]"
+    >
+      <p className="self-start rounded-full bg-brand-amber px-3 py-[5px] text-xs font-bold uppercase tracking-[0.14em] text-brand-navy">
+        What we do
+      </p>
+      <h3 className="display text-[22px] !font-bold leading-[1.15] !text-brand-navy sm:text-[24px]">
+        Business-led AI strategy
+      </h3>
+      <ul className="flex list-none flex-col gap-2.5 text-[15px] font-medium text-brand-navy">
+        {whatWeDo.map((item) => (
+          <li key={item} className="flex items-start gap-3">
+            <Check className="mt-[3px] h-5 w-5 flex-none text-brand-amber" strokeWidth={3} aria-hidden="true" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </m.div>
+  </div>
+);
+
 const WhyIntegroAI = () => {
   return (
     <section id="why-integroai" className="bg-brand-ivory py-14 sm:py-16">
@@ -27,45 +71,7 @@ const WhyIntegroAI = () => {
           intro="Most AI advice starts with tools. We start with your business, identifying what needs to improve before you invest in a solution."
         />
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <m.div
-            {...fadeUp}
-            className="flex flex-col gap-3.5 rounded-[20px] border border-brand-sand bg-white p-6 sm:p-[30px]"
-          >
-            <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-slate">The wrong approach</p>
-            <h3 className="display text-[22px] !font-bold leading-[1.15] !text-brand-slate sm:text-[24px]">
-              Tool-led AI adoption
-            </h3>
-            <ul className="flex list-none flex-col gap-2.5 text-[15px] text-brand-slate">
-              {wrongApproach.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <X className="mt-[3px] h-5 w-5 flex-none text-[#7B8A99]" strokeWidth={2.6} aria-hidden="true" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </m.div>
-
-          <m.div
-            {...fadeUp}
-            className="flex flex-col gap-3.5 rounded-[20px] border-2 border-brand-amber bg-white p-[23px] sm:p-[29px]"
-          >
-            <p className="self-start rounded-full bg-brand-amber px-3 py-[5px] text-xs font-bold uppercase tracking-[0.14em] text-brand-navy">
-              What we do
-            </p>
-            <h3 className="display text-[22px] !font-bold leading-[1.15] !text-brand-navy sm:text-[24px]">
-              Business-led AI strategy
-            </h3>
-            <ul className="flex list-none flex-col gap-2.5 text-[15px] font-medium text-brand-navy">
-              {whatWeDo.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <Check className="mt-[3px] h-5 w-5 flex-none text-brand-amber" strokeWidth={3} aria-hidden="true" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </m.div>
-        </div>
+        <ApproachComparison />
 
         <m.div
           {...fadeUp}

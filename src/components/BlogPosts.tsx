@@ -13,9 +13,14 @@ const latestPosts = [...articles]
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
   .slice(0, VISIBLE_COUNT);
 
-const BlogPosts = () => {
+type BlogPostsProps = {
+  /** Homepage version: sits right under the guide banner, titles only. */
+  compact?: boolean;
+};
+
+const BlogPosts = ({ compact = false }: BlogPostsProps) => {
   return (
-    <section id="blog" className="bg-white py-14 sm:py-16">
+    <section id="blog" className={compact ? "bg-white pb-14 pt-12 sm:pb-16 sm:pt-14" : "bg-white py-14 sm:py-16"}>
       <div className="wrap flex flex-col gap-8">
         <SectionHeader eyebrow="Blog" title="Practical AI guides for business leaders" />
 
@@ -28,7 +33,11 @@ const BlogPosts = () => {
               >
                 <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-brand-slate">{post.category}</p>
                 <h3 className="text-[19px] leading-tight">{post.title}</h3>
-                <p className="line-clamp-3 flex-1 text-[15px] leading-relaxed text-brand-slate">{post.excerpt}</p>
+                {compact ? (
+                  <span className="flex-1" />
+                ) : (
+                  <p className="line-clamp-3 flex-1 text-[15px] leading-relaxed text-brand-slate">{post.excerpt}</p>
+                )}
                 <span className="py-2.5 text-[15px] font-semibold text-brand-navy underline underline-offset-4 group-hover:decoration-brand-amber">
                   Read article
                 </span>

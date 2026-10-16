@@ -246,7 +246,7 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image
                 </span>
               </div>
               
-              <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-primary-foreground leading-tight mb-6">
+              <h1 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-primary-foreground leading-[1.15] mb-6 [text-wrap:balance]">
                 {title}
               </h1>
               

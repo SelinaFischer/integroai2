@@ -28,13 +28,20 @@ const steps = [
   },
 ];
 
-const Framework = () => {
+type FrameworkProps = {
+  /** Heading size, so the section matches the page it sits on. */
+  titleClassName?: string;
+};
+
+// The five-stage method. Lives on Work With Me, next to how engagements run.
+const Framework = ({ titleClassName }: FrameworkProps) => {
   return (
     <section id="framework" className="bg-white py-14 sm:py-16">
       <div className="wrap flex flex-col gap-9">
         <SectionHeader
           eyebrow="Our methodology"
           title="The IntegroAI Operating Framework"
+          titleClassName={titleClassName}
           intro="The IntegroAI Operating Framework is a five-stage method for responsible AI implementation: Discover, Design, Validate, Deliver and Iterate. People stay in control at every stage."
         />
 

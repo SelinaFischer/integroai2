@@ -12,6 +12,7 @@ import selinaOffice480 from "@/assets/selina-work-portrait-480.webp";
 import selinaOffice640 from "@/assets/selina-work-portrait-640.webp";
 import { EXTRA_SERVICES_SECTION_ID } from "@/lib/extraServices";
 import ExtraServicesList from "@/components/ExtraServicesList";
+import Framework from "@/components/Framework";
 import ClientTestimonials from "@/components/ClientTestimonials";
 
 // Stage 01 is the free entry point and is shown as a single row with a
@@ -314,6 +315,8 @@ const WorkWithMe = () => {
           </section>
 
           {/* Client testimonials: proof at the point of decision. */}
+          <Framework titleClassName="font-heading text-3xl sm:text-4xl lg:text-[40px]" />
+
           <ClientTestimonials id="client-testimonials-title" heading="In our clients’ words">
             <div className="flex justify-center">
               <a
