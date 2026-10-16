@@ -92,7 +92,7 @@ const AssessmentSection = () => {
               </div>
             </div>
             <div className="flex min-w-[180px] flex-1 flex-col gap-1.5">
-              <p className="display text-[32px] font-bold leading-none text-brand-navy">Early Explorer</p>
+              <p className="display text-[22px] font-bold leading-none text-brand-navy sm:text-[24px]">Early Explorer</p>
               <p className="text-[15px] leading-normal text-brand-slate">
                 You&apos;re making progress. Clear gaps identified before AI investment.
               </p>

@@ -10,7 +10,7 @@ const RealityBand = () => {
         className="mx-auto flex max-w-[calc(916px+2*var(--gutter))] flex-col items-center gap-[18px] px-gutter text-center"
       >
         <p className="eyebrow">The reality</p>
-        <h2 className="display text-[34px] font-semibold leading-[1.05] text-white sm:text-[46px] lg:text-[58px]">
+        <h2 className="display text-[30px] font-semibold leading-[1.1] text-white sm:text-[38px] lg:text-[46px]">
           AI amplifies what already exists.
           <br />
           <span className="italic text-brand-amber">Clarity comes first.</span>

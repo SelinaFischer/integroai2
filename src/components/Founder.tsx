@@ -17,7 +17,7 @@ const Founder = () => {
             <h2 className="section-title">
               Meet Selina, independent AI consultant
             </h2>
-            <blockquote className="display max-w-[620px] text-[22px] font-semibold italic leading-tight text-brand-navy sm:text-[26px] sm:leading-[1.25]">
+            <blockquote className="display max-w-[620px] text-[22px] font-semibold italic leading-tight text-brand-navy sm:text-[24px] sm:leading-[1.25]">
               I help founders cut firefighting and repetitive work, and reclaim time for the work they love.
             </blockquote>
             <span aria-hidden="true" className="h-[3px] w-14 rounded-full bg-brand-amber" />
