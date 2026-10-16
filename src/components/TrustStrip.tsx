@@ -1,69 +1,60 @@
 import { m } from "framer-motion";
 import { fadeUp } from "@/lib/motion";
 import { testimonials } from "@/lib/testimonials";
+import ClientQuote from "./ClientQuote";
 
-// Proof directly under the hero: experience, memberships and real client
-// quotes. Only verified facts go here. Qualifications are added once their
-// exact wording is confirmed.
+// Proof directly under the hero. The clients' words lead; experience and
+// memberships sit quietly underneath. Only verified facts go here.
 
-const memberships = [
+const facts = [
   {
-    name: "AI Enablement Directory",
-    detail: "Verified partner 2026",
+    statement: "20+ years",
+    caption: "across operations, product, technology and data",
+  },
+  {
+    statement: "Verified partner 2026",
+    caption: "AI Enablement Directory",
     href: "https://aiblmedia.com/ai-enablement-directory/integroai-consulting/",
   },
   {
-    name: "Hillingdon Chamber of Commerce",
-    detail: "Member",
+    statement: "Chamber member",
+    caption: "Hillingdon Chamber of Commerce",
     href: "https://hillingdonchamber.co.uk/",
   },
 ];
 
 const TrustStrip = () => {
   return (
-    <section aria-label="Why clients trust IntegroAI" className="border-b border-brand-sand bg-white py-10 sm:py-12">
-      <div className="wrap grid grid-cols-1 items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:gap-12">
-        <m.div {...fadeUp} className="flex flex-col gap-6 text-center lg:text-left">
-          <div className="flex flex-col gap-1">
-            <p className="eyebrow">Experience</p>
-            <p className="text-[17px] leading-relaxed text-brand-navy">
-              <span className="font-bold">20+ years</span> across operations, product, technology and data.
-            </p>
-          </div>
-          <div className="flex flex-col gap-2">
-            <p className="eyebrow">Member of</p>
-            <ul className="flex list-none flex-col gap-1.5">
-              {memberships.map((membership) => (
-                <li key={membership.name} className="text-[17px] leading-relaxed text-brand-navy">
-                  <a
-                    href={membership.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold underline decoration-brand-amber decoration-2 underline-offset-4 hover:text-brand-teal"
-                  >
-                    {membership.name}
-                  </a>
-                  <span className="text-brand-slate"> · {membership.detail}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </m.div>
-
-        <m.div {...fadeUp} className="flex flex-col gap-4">
-          <p className="eyebrow text-center lg:text-left">What clients say</p>
-          {testimonials.map((testimonial) => (
-            <figure key={testimonial.name} className="m-0 rounded-[18px] border border-brand-sand bg-brand-ivory p-6 sm:p-7">
-              <blockquote className="m-0">
-                <p className="display text-[20px] leading-snug text-brand-navy sm:text-[22px]">“{testimonial.quote}”</p>
-              </blockquote>
-              <figcaption className="mt-4 text-[15px] leading-relaxed text-brand-slate">
-                <span className="font-bold text-brand-navy">{testimonial.name}</span>, {testimonial.role}
-              </figcaption>
-            </figure>
+    <section aria-label="What clients say" className="border-b border-brand-sand bg-white py-14 sm:py-20">
+      <m.div {...fadeUp} className="wrap flex flex-col gap-14 sm:gap-16">
+        <ul className="grid list-none grid-cols-1 gap-12 md:grid-cols-2 md:gap-0 md:divide-x md:divide-brand-sand">
+          {testimonials.map((testimonial, index) => (
+            <li key={testimonial.name} className={index === 0 ? "md:pr-12 lg:pr-16" : "md:pl-12 lg:pl-16"}>
+              <ClientQuote quote={testimonial.quote} name={testimonial.name} role={testimonial.role} />
+            </li>
           ))}
-        </m.div>
-      </div>
+        </ul>
+
+        <ul className="grid list-none grid-cols-1 gap-6 border-t border-brand-sand pt-8 text-center sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-brand-sand">
+          {facts.map((fact) => (
+            <li key={fact.statement} className="flex flex-col gap-1 sm:px-6">
+              <span className="font-heading text-[24px] leading-tight text-brand-navy">{fact.statement}</span>
+              {fact.href ? (
+                <a
+                  href={fact.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[14px] text-brand-slate underline decoration-brand-sand decoration-1 underline-offset-4 hover:text-brand-teal hover:decoration-brand-amber"
+                >
+                  {fact.caption}
+                </a>
+              ) : (
+                <span className="text-[14px] text-brand-slate">{fact.caption}</span>
+              )}
+            </li>
+          ))}
+        </ul>
+      </m.div>
     </section>
   );
 };

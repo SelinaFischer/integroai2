@@ -1,45 +1,33 @@
 import { m } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { fadeUp, fadeUpDelayed } from "@/lib/motion";
+import { fadeUp } from "@/lib/motion";
 import { testimonials } from "@/lib/testimonials";
+import ClientQuote from "./ClientQuote";
 
-// Work With Me: the clients' words at the point where visitors decide.
-// Built from the site's own system (label, serif, navy, ivory). Amber is
-// kept for the one emphasised word and the single action underneath.
+// Work With Me: the clients' words at the point where visitors decide, set in
+// the same editorial style as the homepage, then one action.
 const ClientTestimonials = () => {
   return (
-    <section aria-labelledby="client-testimonials-title" className="bg-brand-ivory py-12 sm:py-16">
-      <div className="wrap flex flex-col items-center gap-9">
-        <m.div {...fadeUp} className="flex max-w-2xl flex-col items-center gap-3 text-center">
-          <p className="eyebrow">What clients say</p>
-          <h2 id="client-testimonials-title" className="font-heading text-3xl sm:text-4xl lg:text-[40px]">
-            Clear, practical, <span className="italic text-brand-amber">valuable.</span>
-          </h2>
-        </m.div>
+    <section aria-labelledby="client-testimonials-title" className="bg-brand-ivory py-14 sm:py-20">
+      <m.div {...fadeUp} className="wrap flex flex-col gap-12 sm:gap-14">
+        <h2 id="client-testimonials-title" className="font-heading text-center text-3xl sm:text-4xl lg:text-[40px]">
+          In our clients’ words
+        </h2>
 
-        <ul className="grid w-full list-none grid-cols-1 gap-5 md:grid-cols-2">
+        <ul className="grid list-none grid-cols-1 gap-12 md:grid-cols-2 md:gap-0 md:divide-x md:divide-brand-sand">
           {testimonials.map((testimonial, index) => (
-            <m.li key={testimonial.name} {...fadeUpDelayed(index)} className="flex">
-              <figure className="m-0 flex w-full flex-col rounded-[20px] border border-brand-sand bg-white p-7 sm:p-8">
-                <blockquote className="m-0 flex-1">
-                  <p className="font-heading text-[22px] leading-snug text-brand-navy sm:text-[24px]">
-                    “{testimonial.quote}”
-                  </p>
-                </blockquote>
-                <figcaption className="mt-6 flex flex-col gap-3 border-t border-brand-sand pt-5">
-                  <span className="text-[15px] leading-relaxed text-brand-slate">
-                    <span className="font-bold text-brand-navy">{testimonial.name}</span>, {testimonial.role}
-                  </span>
-                  <span className="w-fit rounded-full bg-brand-chip px-3 py-1 text-[12px] font-semibold text-brand-navy">
-                    Received: {testimonial.received}
-                  </span>
-                </figcaption>
-              </figure>
-            </m.li>
+            <li key={testimonial.name} className={index === 0 ? "md:pr-12 lg:pr-16" : "md:pl-12 lg:pl-16"}>
+              <ClientQuote
+                quote={testimonial.quote}
+                name={testimonial.name}
+                role={testimonial.role}
+                received={testimonial.received}
+              />
+            </li>
           ))}
         </ul>
 
-        <m.div {...fadeUp}>
+        <div className="flex justify-center">
           <a
             href="https://calendly.com/integroai-tech/30min"
             target="_blank"
@@ -49,8 +37,8 @@ const ClientTestimonials = () => {
             Book a Discovery Call
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
           </a>
-        </m.div>
-      </div>
+        </div>
+      </m.div>
     </section>
   );
 };
