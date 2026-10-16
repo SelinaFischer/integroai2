@@ -1,8 +1,8 @@
 import { m } from "framer-motion";
 import { fadeUp } from "@/lib/motion";
 
-// Proof directly under the hero: experience, memberships and one real client
-// quote. Only verified facts go here. Qualifications are added once their
+// Proof directly under the hero: experience, memberships and real client
+// quotes. Only verified facts go here. Qualifications are added once their
 // exact wording is confirmed.
 
 const memberships = [
@@ -15,6 +15,25 @@ const memberships = [
     name: "Hillingdon Chamber of Commerce",
     detail: "Member",
     href: "https://hillingdonchamber.co.uk/",
+  },
+];
+
+// Client quotes, in the clients' own words. Square brackets mark wording
+// changed for clarity or privacy. Names are shortened at the clients' request.
+const testimonials = [
+  {
+    quote:
+      "She delivered both an assessment and a [Key Findings Report] presentation with me as customer. She did an amazing job. We both learned so much from the experience and came out of it even more confident.",
+    name: "Fabrice M.",
+    role: "Founder & CEO",
+    context: "Free AI readiness assessment and Key Findings Report",
+  },
+  {
+    quote:
+      "Selina made AI adoption feel clear and achievable. Her AI Readiness Assessment was straightforward and valuable, with practical recommendations that helped me see where AI could make a difference at [our company] and what to prioritise next.",
+    name: "Paul F.",
+    role: "CEO, technology company",
+    context: "",
   },
 ];
 
@@ -49,20 +68,25 @@ const TrustStrip = () => {
           </div>
         </m.div>
 
-        <m.figure {...fadeUp} className="m-0 rounded-[18px] border border-brand-sand bg-brand-ivory p-6 sm:p-7">
-          <p className="eyebrow mb-3">What a client said</p>
-          <blockquote className="m-0">
-            <p className="display text-[22px] leading-snug text-brand-navy sm:text-[24px]">
-              “She delivered both an assessment and a [Key Findings Report] presentation with me as customer. She did
-              an amazing job. We both learned so much from the experience and came out of it even more confident.”
-            </p>
-          </blockquote>
-          <figcaption className="mt-4 text-[15px] leading-relaxed text-brand-slate">
-            <span className="font-bold text-brand-navy">Fabrice M.</span>, Founder &amp; CEO
-            <br />
-            Free AI readiness assessment and Key Findings Report
-          </figcaption>
-        </m.figure>
+        <m.div {...fadeUp} className="flex flex-col gap-4">
+          <p className="eyebrow">What clients say</p>
+          {testimonials.map((testimonial) => (
+            <figure key={testimonial.name} className="m-0 rounded-[18px] border border-brand-sand bg-brand-ivory p-6 sm:p-7">
+              <blockquote className="m-0">
+                <p className="display text-[20px] leading-snug text-brand-navy sm:text-[22px]">“{testimonial.quote}”</p>
+              </blockquote>
+              <figcaption className="mt-4 text-[15px] leading-relaxed text-brand-slate">
+                <span className="font-bold text-brand-navy">{testimonial.name}</span>, {testimonial.role}
+                {testimonial.context && (
+                  <>
+                    <br />
+                    {testimonial.context}
+                  </>
+                )}
+              </figcaption>
+            </figure>
+          ))}
+        </m.div>
       </div>
     </section>
   );
