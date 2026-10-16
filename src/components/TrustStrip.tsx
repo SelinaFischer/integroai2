@@ -27,7 +27,7 @@ const TrustStrip = () => {
       tone="white"
       heading={
         <>
-          Clear, practical, <span className="italic text-brand-amber">valuable.</span>
+          Clear, Practical, <span className="italic text-brand-amber">Valuable.</span>
         </>
       }
     >
