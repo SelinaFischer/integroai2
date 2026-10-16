@@ -1647,7 +1647,7 @@ const WhichTasksToAutomateContent: React.FC = () => (
     </ul>
 
     <h2>Step 4: Decide what AI should do for each task that stays</h2>
-    <p>Not every AI use looks the same. For each task you keep, ask which job AI is doing:</p>
+    <p>AI can help with a task in three ways. For each task you keep, decide which one you need:</p>
     <ul>
       <li><strong>Taking it off your plate.</strong> First drafts, data entry, meeting summaries. Your team reviews instead of starting from scratch.</li>
       <li><strong>Making your team sharper.</strong> Suggesting options, spotting gaps in a proposal, pulling client history before a call. The person still decides.</li>
