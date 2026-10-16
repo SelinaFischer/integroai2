@@ -11,10 +11,12 @@ interface ClientTestimonialsProps {
   heading: ReactNode;
   /** "ivory" section with white cards, or "white" section with ivory cards. */
   tone?: "ivory" | "white";
+  /** Heading size: "home" matches the homepage section titles, "page" the inner-page headings. */
+  scale?: "home" | "page";
   children?: ReactNode;
 }
 
-const ClientTestimonials = ({ id, heading, tone = "ivory", children }: ClientTestimonialsProps) => {
+const ClientTestimonials = ({ id, heading, tone = "ivory", scale = "page", children }: ClientTestimonialsProps) => {
   const sectionBg = tone === "white" ? "bg-white" : "bg-brand-ivory";
   const cardBg = tone === "white" ? "bg-brand-ivory" : "bg-white";
   return (
@@ -22,7 +24,7 @@ const ClientTestimonials = ({ id, heading, tone = "ivory", children }: ClientTes
       <div className="wrap flex flex-col items-center gap-9">
         <m.div {...fadeUp} className="flex max-w-2xl flex-col items-center gap-3 text-center">
           <p className="eyebrow">What clients say</p>
-          <h2 id={id} className="font-heading text-3xl sm:text-4xl lg:text-[40px]">
+          <h2 id={id} className={scale === "home" ? "section-title" : "font-heading text-3xl sm:text-4xl lg:text-[40px]"}>
             {heading}
           </h2>
         </m.div>
@@ -32,7 +34,7 @@ const ClientTestimonials = ({ id, heading, tone = "ivory", children }: ClientTes
             <m.li key={testimonial.name} {...fadeUpDelayed(index)} className="flex">
               <figure className={`m-0 flex w-full flex-col rounded-[20px] border border-brand-sand ${cardBg} p-7 sm:p-8`}>
                 <blockquote className="m-0 flex-1">
-                  <p className="font-heading text-[22px] leading-snug text-brand-navy sm:text-[24px]">
+                  <p className="font-heading text-[19px] leading-[1.5] text-brand-navy sm:text-[20px]">
                     “{testimonial.quote}”
                   </p>
                 </blockquote>

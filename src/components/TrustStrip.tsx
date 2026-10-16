@@ -25,6 +25,7 @@ const TrustStrip = () => {
     <ClientTestimonials
       id="home-testimonials-title"
       tone="white"
+      scale="home"
       heading={
         <>
           Clear, Practical, <span className="italic text-brand-amber">Valuable.</span>
@@ -34,7 +35,7 @@ const TrustStrip = () => {
       <ul className="grid list-none grid-cols-1 gap-6 border-t border-brand-sand pt-8 text-center sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-brand-sand">
         {facts.map((fact) => (
           <li key={fact.statement} className="flex flex-col gap-1 sm:px-6">
-            <span className="font-heading text-[24px] leading-tight text-brand-navy">{fact.statement}</span>
+            <span className="font-heading text-[20px] leading-tight text-brand-navy">{fact.statement}</span>
             {fact.href ? (
               <a
                 href={fact.href}
