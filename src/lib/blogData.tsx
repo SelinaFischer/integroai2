@@ -1557,7 +1557,7 @@ const whichTasksFaqs = [
 ];
 
 const whichTasksExample = [
-  { task: "Monthly client report nobody reads in full", decision: "Simplify", ai: "Nothing yet. Replace it with a one-page summary first", checks: "Account lead" },
+  { task: "Monthly client report nobody reads in full", decision: "Simplify", ai: "Replace the long report with a one-page summary, then check whether it meets the client’s needs", checks: "Account lead" },
   { task: "Updating the CRM after client calls", decision: "AI draft", ai: "Drafts the update from call notes for approval. Nothing goes into live records unchecked", checks: "Account manager" },
   { task: "First drafts of proposals", decision: "AI draft", ai: "Drafts from approved templates and current service and pricing information", checks: "Founder or sales lead" },
   { task: "Booking client meetings", decision: "Standard automation", ai: "No AI needed. A booking link does the job", checks: "Operations" },
@@ -1579,7 +1579,7 @@ const WhichTasksToAutomateContent: React.FC = () => (
 
     <h2>Why “what should we automate?” is the wrong first question</h2>
     <p>
-      Most founders start with the tool. They see a demo, buy a licence, then look for somewhere to use it.
+      It’s easy to start with the tool. You see a demo, buy a licence, then look for somewhere to use it.
     </p>
     <p>
       That’s backwards. Automating a pointless task just makes a pointless task run faster. You’ve paid to keep
@@ -1593,7 +1593,10 @@ const WhichTasksToAutomateContent: React.FC = () => (
 
     <h2>Step 1: Write down what really happened last week</h2>
     <p>Not the job description. The real week.</p>
-    <p>Ask each team lead to list everything they did, including the small stuff nobody tracks:</p>
+    <p>
+      Ask each team lead to work with their team to list what they actually did last week, including the small
+      tasks nobody tracks:
+    </p>
     <ul>
       <li>Chasing a client for a signed approval</li>
       <li>Copying call notes into the CRM</li>
@@ -1608,7 +1611,7 @@ const WhichTasksToAutomateContent: React.FC = () => (
     <h2>Step 2: Screen each task, then check it properly</h2>
     <p>Three quick questions help you spot candidates:</p>
     <ol>
-      <li><strong>Does it happen again and again?</strong> Weekly or daily tasks pay back fastest.</li>
+      <li><strong>Does it happen again and again?</strong> Frequent tasks give small time savings more chances to add up.</li>
       <li><strong>Is it mostly reading, writing or summarising?</strong> That’s where today’s AI tools are strongest.</li>
       <li><strong>Could you explain it to a new starter?</strong> If the steps can be written down, the work is easier to brief.</li>
     </ol>
@@ -1621,7 +1624,8 @@ const WhichTasksToAutomateContent: React.FC = () => (
       <li><strong>Checking the output takes less effort</strong> than doing the task yourself</li>
     </ul>
     <p>
-      That last check matters most. <strong>An AI draft that takes longer to fix than to write has saved nothing.</strong>
+      That last check is easy to overlook.{" "}
+      <strong>An AI draft that takes longer to fix than to write has saved no time.</strong>
     </p>
 
     <h2>Step 3: Remove, simplify, then automate or hand off</h2>
@@ -1677,8 +1681,8 @@ const WhichTasksToAutomateContent: React.FC = () => (
 
     <h2>What this looks like in practice</h2>
     <p>
-      Picture a founder-led digital agency of around 60 people. The same approach works in any business; here’s
-      how five everyday tasks might come out:
+      Picture a founder-led digital agency of around 60 people. The same principles apply across many businesses.
+      Here’s how five everyday tasks might come out:
     </p>
 
     <div className="not-prose my-8 overflow-x-auto rounded-[14px] border border-brand-sand">
