@@ -3,8 +3,9 @@ import { m } from "framer-motion";
 import { ASSESSMENT_URL, fadeUp } from "@/lib/motion";
 
 // Sample scorecard, matching the sample on the assessment page itself
-// (public/assessment.html): /30 scale, five areas scored out of 6, the last
-// two areas and the next step blurred. The numbers are illustrative.
+// (public/assessment.html): /30 scale, areas scored out of 6. Only three of
+// the five areas are shown; the rest stay for the visitor's own results.
+// The numbers are illustrative.
 const SAMPLE_SCORE = 11;
 const MAX_SCORE = 30;
 const RING_RADIUS = 56;
@@ -14,9 +15,6 @@ const dimensions = [
   { label: "Business Direction", score: 3 },
   { label: "Ownership & Capacity", score: 2 },
   { label: "Process Readiness", score: 3 },
-  // Blurred rows carry placeholder text, so nothing hidden is in the page code.
-  { label: "Revealed in your results", score: 1, priority: true, blurred: true },
-  { label: "Revealed in your results ", score: 2, blurred: true },
 ];
 const AREA_MAX = 6;
 
@@ -104,15 +102,12 @@ const AssessmentSection = () => {
             {dimensions.map((dimension) => (
               <div
                 key={dimension.label}
-                aria-hidden={dimension.blurred ? true : undefined}
-                className={`grid grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)_44px] items-center gap-3.5 py-[9px] ${
-                  dimension.blurred ? "select-none blur-[5px]" : ""
-                }`}
+                className="grid grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)_44px] items-center gap-3.5 py-[9px]"
               >
                 <span className="text-[15px] font-semibold text-brand-navy">{dimension.label}</span>
                 <span className="h-2 rounded bg-brand-track">
                   <span
-                    className={`block h-2 rounded ${dimension.priority ? "bg-brand-amber" : "bg-brand-navy"}`}
+                    className="block h-2 rounded bg-brand-navy"
                     style={{ width: `${(dimension.score / AREA_MAX) * 100}%` }}
                   />
                 </span>
@@ -121,14 +116,14 @@ const AssessmentSection = () => {
                 </span>
               </div>
             ))}
+            <p className="pt-1 text-[13px] font-semibold text-brand-slate">+ 2 more areas in your full results</p>
           </div>
 
           <div className="flex flex-col gap-1.5 rounded-[14px] border border-brand-sand bg-brand-cream px-[18px] py-4">
             <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-brand-slate">Recommended next step</p>
-            <div aria-hidden="true" className="select-none blur-[5px]">
-              <p className="text-[17px] font-bold text-brand-navy">Your priority area</p>
-            </div>
-            <p className="text-[15px] leading-normal text-brand-slate">Revealed in your own results.</p>
+            <p className="text-[15px] leading-normal text-brand-slate">
+              Your full results show every area, your priority and practical next steps.
+            </p>
           </div>
 
           <p className="text-[13px] text-brand-slate">Sample result. Your score comes from your own answers.</p>
