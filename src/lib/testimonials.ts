@@ -13,6 +13,6 @@ export const testimonials = [
       "The AI Readiness Assessment was easy to follow and valuable. I appreciated Selina’s clear approach and practical recommendations, which helped me see where AI could support my business and what to prioritise next.",
     name: "Paul",
     role: "CEO, IT Company",
-    received: "AI Readiness Assessment",
+    received: "AI Readiness Assessment + Key Findings Report",
   },
 ];
