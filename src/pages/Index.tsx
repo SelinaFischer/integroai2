@@ -2,11 +2,8 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import TrustStrip from "@/components/TrustStrip";
-import PainPoints from "@/components/PainPoints";
 import Services from "@/components/Services";
 import WhoWeWorkWith from "@/components/WhoWeWorkWith";
-import Framework from "@/components/Framework";
-import WhyIntegroAI from "@/components/WhyIntegroAI";
 import RealityBand from "@/components/RealityBand";
 import Founder from "@/components/Founder";
 import AssessmentSection from "@/components/AssessmentSection";
@@ -169,17 +166,14 @@ const Index = () => {
         <main id="main-content">
           <Hero />
           <TrustStrip />
-          <PainPoints />
-          <AssessmentSection />
-          <Services />
           <WhoWeWorkWith />
           <RealityBand />
           <Founder />
-          <WhyIntegroAI />
-          <Framework />
+          <AssessmentSection />
+          <Services />
           <FAQ />
-          <GuideBanner location="homepage" className="bg-brand-ivory pb-14 sm:pb-16" />
-          <BlogPosts />
+          <GuideBanner location="homepage" className="bg-white pt-14 sm:pt-16" />
+          <BlogPosts compact />
           <FinalCTA />
         </main>
         <Footer />

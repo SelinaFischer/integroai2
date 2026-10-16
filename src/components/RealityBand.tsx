@@ -1,7 +1,9 @@
 import { m } from "framer-motion";
 import { fadeUp } from "@/lib/motion";
+import { ApproachComparison } from "./WhyIntegroAI";
 
-// Full-width navy statement band between "Who we work with" and the founder.
+// Full-width navy statement band after "Who we work with": the core belief,
+// then the tool-led vs business-led comparison that shows it.
 const RealityBand = () => {
   return (
     <section className="bg-brand-navy py-16 sm:py-[76px]">
@@ -18,6 +20,9 @@ const RealityBand = () => {
         <p className="max-w-[660px] text-base leading-relaxed text-brand-mist sm:text-[17px]">
           When foundations are unclear, AI amplifies inefficiency rather than value. That&apos;s why we start with operational clarity before any tools, automation or implementation.
         </p>
+      </m.div>
+      <m.div {...fadeUp} className="mx-auto mt-10 max-w-[calc(916px+2*var(--gutter))] px-gutter sm:mt-12">
+        <ApproachComparison />
       </m.div>
     </section>
   );
