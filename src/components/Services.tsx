@@ -157,8 +157,9 @@ const Services = () => {
             left-aligned and, on desktop, sit flush with the stage names beneath
             them (see usePanelEdges). Each stop sits centred over its name and the
             amber line runs from the first stop to the last, no further;
-            on tablet and mobile each area shows its two stops joined top to bottom. Each area shares the same two rows through CSS
-            subgrid, so the line stays level however the text above it wraps. */}
+            on tablet and mobile each area shows its two stops joined top to bottom. Each area shares the same rows through CSS
+            subgrid (label, heading, summary, stages), so labels, headings and the line
+            stay level however the text above them wraps. */}
         <m.div {...fadeUp} className="rounded-3xl bg-brand-navy px-6 py-8 sm:px-9 sm:py-10">
           <ol
             ref={listRef}
@@ -169,11 +170,11 @@ const Services = () => {
               <li
                 key={group.title}
                 data-group
-                className="flex flex-col gap-5 md:row-span-2 md:grid md:grid-rows-subgrid md:gap-y-7"
+                className="flex flex-col gap-5 md:row-span-4 md:grid md:grid-rows-subgrid md:gap-y-7"
               >
                 {/* Until the measurement runs, the margins below are a close estimate. */}
                 <div
-                  className={`flex flex-col gap-1.5 md:pr-8 lg:ml-[calc(25%-52px)] ${
+                  className={`flex flex-col gap-1.5 md:row-span-3 md:grid md:grid-rows-subgrid md:gap-y-1.5 md:pr-8 lg:ml-[calc(25%-52px)] ${
                     groupIndex === lastGroupIndex ? "lg:mr-[calc(25%-70px)] lg:pr-0" : "lg:pr-4"
                   }`}
                   style={
