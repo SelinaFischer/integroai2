@@ -2,28 +2,21 @@ import { ArrowRight, Check } from "lucide-react";
 import { m } from "framer-motion";
 import { ASSESSMENT_URL, fadeUp } from "@/lib/motion";
 
-// Sample scorecard. The five dimensions, the /6 scores, the per-dimension
-// groups and their colours, and the /30 total match the real assessment
-// (public/assessment.html); the numbers are illustrative and labelled as a sample.
+// Sample scorecard. The five dimensions, their /6 scores and the /30 total
+// match the real assessment (public/assessment.html); the numbers are
+// illustrative and labelled as a sample.
 const SAMPLE_SCORE = 11;
 const MAX_SCORE = 30;
 const RING_RADIUS = 56;
 const RING_LENGTH = 2 * Math.PI * RING_RADIUS;
 
 const AREA_MAX = 6;
-// Same groups and colours as the assessment's results.
-const groupFor = (score: number) =>
-  score >= 5
-    ? { name: "Stronger foundations", colour: "#2F6B70" }
-    : score >= 3
-      ? { name: "Developing", colour: "#9A5B00" }
-      : { name: "Needs attention", colour: "#B42318" };
 
 const dimensions = [
   { label: "Business Direction", score: 3 },
   { label: "Ownership & Capacity", score: 2 },
   { label: "Process Readiness", score: 3 },
-  { label: "Systems & Information", score: 1 },
+  { label: "Systems & Information", score: 1, priority: true },
   { label: "Responsible Use & Skills", score: 2 },
 ];
 
@@ -101,38 +94,30 @@ const AssessmentSection = () => {
             <div className="flex min-w-[180px] flex-1 flex-col gap-1.5">
               <p className="display text-[32px] font-bold leading-none text-brand-navy">Early Explorer</p>
               <p className="text-[15px] leading-normal text-brand-slate">
-                Some foundations in place, with gaps to close before investing.
+                You&apos;re making progress. Clear gaps identified before AI investment.
               </p>
             </div>
           </div>
 
           <div className="flex flex-col border-t border-brand-sand pt-[18px]">
             <p className="pb-2 text-xs font-bold uppercase tracking-[0.14em] text-brand-slate">Readiness by dimension</p>
-            {dimensions.map((dimension) => {
-              const group = groupFor(dimension.score);
-              return (
-                <div
-                  key={dimension.label}
-                  className="grid grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)_44px] items-center gap-3.5 py-[9px]"
-                >
-                  <span className="flex flex-col">
-                    <span className="text-[15px] font-semibold text-brand-navy">{dimension.label}</span>
-                    <span className="text-[11px] font-bold uppercase tracking-[0.05em]" style={{ color: group.colour }}>
-                      {group.name}
-                    </span>
-                  </span>
-                  <span className="h-2 rounded bg-brand-track">
-                    <span
-                      className="block h-2 rounded"
-                      style={{ width: `${(dimension.score / AREA_MAX) * 100}%`, background: group.colour }}
-                    />
-                  </span>
-                  <span className="text-right text-[15px] font-bold" style={{ color: group.colour }}>
-                    {dimension.score}/{AREA_MAX}
-                  </span>
-                </div>
-              );
-            })}
+            {dimensions.map((dimension) => (
+              <div
+                key={dimension.label}
+                className="grid grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)_44px] items-center gap-3.5 py-[9px]"
+              >
+                <span className="text-[15px] font-semibold text-brand-navy">{dimension.label}</span>
+                <span className="h-2 rounded bg-brand-track">
+                  <span
+                    className={`block h-2 rounded ${dimension.priority ? "bg-brand-amber" : "bg-brand-navy"}`}
+                    style={{ width: `${(dimension.score / AREA_MAX) * 100}%` }}
+                  />
+                </span>
+                <span className="text-right text-[15px] font-bold text-brand-navy">
+                  {dimension.score}/{AREA_MAX}
+                </span>
+              </div>
+            ))}
           </div>
 
           <div className="flex flex-col gap-1.5 rounded-[14px] border border-brand-sand bg-brand-cream px-[18px] py-4">
