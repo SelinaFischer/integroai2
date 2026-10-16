@@ -30,9 +30,6 @@ const ClientTestimonials = () => {
                   <span className="text-[15px] leading-relaxed text-brand-slate">
                     <span className="font-bold text-brand-navy">{testimonial.name}</span>, {testimonial.role}
                   </span>
-                  <span className="w-fit rounded-full bg-brand-chip px-3 py-1 text-[12px] font-semibold text-brand-navy">
-                    Received: {testimonial.received}
-                  </span>
                 </figcaption>
               </figure>
             </m.li>
