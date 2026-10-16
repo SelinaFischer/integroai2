@@ -132,7 +132,7 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image
       "@type": "Person",
       "name": "Selina Fischer",
       "url": "https://integroai.tech/#founder",
-      "jobTitle": "Founder & AI Strategist"
+      "jobTitle": "Founder | AI Adoption & Transformation Consultant"
     },
     "publisher": {
       "@type": "Organization",

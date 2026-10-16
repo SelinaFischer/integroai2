@@ -1,9 +1,7 @@
 import React from "react";
 import { GUIDE_FORM_URL, trackGuideClick } from "@/lib/guide";
 
-// Booking link for the AI Clarity Session CTA. Currently the existing Calendly
-// link: replace with the Clarity Session booking page once it exists.
-const CLARITY_SESSION_URL = "https://calendly.com/integroai-tech/30min";
+import { DISCOVERY_CALL_URL } from "@/lib/motion";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // BLOG DATA FILE
@@ -1692,11 +1690,11 @@ const WhichTasksToAutomateContent: React.FC = () => (
     <div className="not-prose mt-12 rounded-[14px] border border-brand-sand bg-brand-ivory p-7">
       <p className={`${articleLabel} mb-3`}>Find your first three AI wins</p>
       <p className="mb-5 text-[17px] leading-relaxed text-brand-navy">
-        Book an AI Clarity Session. In 90 minutes, we’ll map where your team’s time goes and agree what to cut,
+        Book a free 30-minute Discovery Call. We’ll talk through where your team’s time goes and what to cut,
         automate or hand off first.
       </p>
-      <a href={CLARITY_SESSION_URL} target="_blank" rel="noopener noreferrer" className="btn-amber">
-        Book an AI Clarity Session
+      <a href={DISCOVERY_CALL_URL} target="_blank" rel="noopener noreferrer" className="btn-amber">
+        Book a free 30-minute Discovery Call
       </a>
       <p className="mt-5 text-[15px] leading-relaxed text-brand-slate">
         Not ready for a call?{" "}
