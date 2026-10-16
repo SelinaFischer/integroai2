@@ -1527,35 +1527,41 @@ const whichTasksFaqs = [
   {
     question: "What should a business automate with AI first?",
     answer:
-      "Start with tasks that repeat weekly, involve lots of reading or writing, and follow clear steps. Good first examples are call summaries, CRM updates and first drafts of proposals. Remove any task that doesn't need to exist before automating it.",
+      "Start with one frequent, low-risk task that involves reading or writing, such as drafting meeting summaries or CRM updates from call notes. Remove or simplify unnecessary work first, and check that reviewing the AI output takes less effort than doing the task yourself.",
   },
   {
     question: "Should we cut tasks before automating them?",
     answer:
-      "Yes. Automating a task nobody needs only makes waste run faster. Cutting first means less to build, maintain and check.",
+      "Yes. Remove what is unnecessary and simplify what remains. Automating a task nobody needs only makes waste run faster.",
   },
   {
     question: "How do I know if a task is right for AI?",
     answer:
-      "Ask three questions. Does it repeat? Is it mostly reading, writing or summarising? Could you explain the steps to a new starter? One yes makes it worth a look.",
+      "Use three questions to spot candidates: does it repeat, is it mostly reading or writing, and could you explain it to a new starter? Then check the information is available and safe to use, mistakes are easy to catch, and checking the output is quicker than doing the work.",
+  },
+  {
+    question: "What is the difference between AI and standard automation?",
+    answer:
+      "If a task follows fixed rules, such as sending a booking link, standard automation may be enough. AI is useful when the task involves interpreting information, such as turning varied call notes into a structured draft.",
   },
   {
     question: "Do we still need people checking AI work?",
     answer:
-      "Yes. AI produces the most likely answer, not necessarily the right one for your client. A named person should review anything that reaches a client or affects a decision.",
+      "Yes. AI can produce convincing output that contains errors or misses important context. Name the person responsible and agree exactly what they check against the source information and your standards.",
   },
   {
     question: "How many AI use cases should we start with?",
-    answer: "Two or three. Pick frequent, low-risk tasks that are easy to check. Prove them, then expand.",
+    answer:
+      "One. Shortlist two more, measure the first pilot against how the task was done before, and continue only if the overall result improves.",
   },
 ];
 
 const whichTasksExample = [
-  { task: "Monthly client report nobody reads in full", decision: "Cut it", ai: "Nothing. Replaced by a one-page summary", checks: "Account lead" },
-  { task: "Turning call notes into CRM updates", decision: "Automate", ai: "Drafts the update from the call transcript", checks: "Account manager" },
-  { task: "First drafts of proposals", decision: "Automate", ai: "Builds a draft from past proposals and the brief", checks: "Founder or sales lead" },
-  { task: "Booking meetings and chasing approvals", decision: "Hand off", ai: "Nothing. Moves to an assistant role", checks: "Operations" },
-  { task: "Spotting clients at risk of leaving", decision: "Automate", ai: "Flags warning signs across emails and project notes", checks: "Account director" },
+  { task: "Monthly client report nobody reads in full", decision: "Simplify", ai: "Nothing yet. Replace it with a one-page summary first", checks: "Account lead" },
+  { task: "Updating the CRM after client calls", decision: "AI draft", ai: "Drafts the update from call notes for approval. Nothing goes into live records unchecked", checks: "Account manager" },
+  { task: "First drafts of proposals", decision: "AI draft", ai: "Drafts from approved templates and current service and pricing information", checks: "Founder or sales lead" },
+  { task: "Booking client meetings", decision: "Standard automation", ai: "No AI needed. A booking link does the job", checks: "Operations" },
+  { task: "Writing up internal meeting actions", decision: "AI draft", ai: "Drafts the summary and action list from the meeting notes", checks: "Meeting owner" },
 ];
 
 const WhichTasksToAutomateContent: React.FC = () => (
@@ -1563,13 +1569,13 @@ const WhichTasksToAutomateContent: React.FC = () => (
     <div className="not-prose my-8 rounded-[14px] border border-brand-sand bg-brand-ivory p-6">
       <p className={`${articleLabel} mb-3`}>The quick answer</p>
       <p className="text-[17px] leading-relaxed text-brand-navy">
-        Automate the tasks that repeat every week, run on reading and writing, and could be explained to a new
-        starter. But cut the tasks that shouldn’t exist first. The best first AI wins are boring, frequent and
-        low risk, with a person still checking the output.
+        Remove what’s unnecessary. Simplify what remains. Then pick one frequent, low-risk task that runs on reading
+        and writing, where checking the AI’s work is quicker than doing it yourself. Measure it, keep a person
+        checking, and only then expand.
       </p>
     </div>
 
-    <p>Here’s how to find them in your own business, in five steps.</p>
+    <p>Here’s how to find that first task in your own business, in five steps.</p>
 
     <h2>Why “what should we automate?” is the wrong first question</h2>
     <p>
@@ -1583,7 +1589,7 @@ const WhichTasksToAutomateContent: React.FC = () => (
       The better first question is simpler:{" "}
       <strong>what is my team actually doing all week, and should they be doing it at all?</strong>
     </p>
-    <p>Answer that, and the right AI opportunities become obvious. Clarity first. Technology second.</p>
+    <p>Answer that, and the real candidates for AI start to show. Clarity first. Technology second.</p>
 
     <h2>Step 1: Write down what really happened last week</h2>
     <p>Not the job description. The real week.</p>
@@ -1594,53 +1600,79 @@ const WhichTasksToAutomateContent: React.FC = () => (
       <li>Rewriting the same proposal intro for the fifth time</li>
       <li>Answering “where’s this at?” messages</li>
     </ul>
-    <p>The small tasks matter most. That’s where the hidden hours go.</p>
+    <p>
+      Small tasks often hide big chunks of time. So do handovers, rework and the exceptions nobody planned for.
+      Capture those too.
+    </p>
 
-    <h2>Step 2: Screen each task with three questions</h2>
+    <h2>Step 2: Screen each task, then check it properly</h2>
+    <p>Three quick questions help you spot candidates:</p>
     <ol>
       <li><strong>Does it happen again and again?</strong> Weekly or daily tasks pay back fastest.</li>
       <li><strong>Is it mostly reading, writing or summarising?</strong> That’s where today’s AI tools are strongest.</li>
-      <li><strong>Could you explain it to a new starter?</strong> If the steps can be written down, AI can usually follow them too.</li>
+      <li><strong>Could you explain it to a new starter?</strong> If the steps can be written down, the work is easier to brief.</li>
     </ol>
-    <p>One yes makes it worth a closer look. Two or three and it’s a strong candidate.</p>
-
-    <h2>Step 3: Cut it, automate it, or hand it off</h2>
-    <p>Before any AI goes near a task, decide what it needs:</p>
+    <p>
+      A yes means it’s worth a look, not that it’s ready. Before choosing a task, check three more things:
+    </p>
     <ul>
-      <li><strong>Cut it.</strong> Does anyone use the output? The report nobody opens. The meeting that could be a message. Stop doing it.</li>
-      <li><strong>Automate it.</strong> It’s needed, it repeats, and it follows a pattern. This is where AI earns its place.</li>
-      <li><strong>Hand it off.</strong> It’s needed, but it’s not the best use of this person’s time.</li>
+      <li><strong>The information is available</strong>, and safe to use with the AI tool and settings you have</li>
+      <li><strong>Mistakes would be easy to catch</strong> before they reach a client</li>
+      <li><strong>Checking the output takes less effort</strong> than doing the task yourself</li>
     </ul>
     <p>
-      Cutting always comes first. Every task you remove is one you never have to automate, maintain or check.
+      That last check matters most. <strong>An AI draft that takes longer to fix than to write has saved nothing.</strong>
     </p>
 
+    <h2>Step 3: Remove, simplify, then automate or hand off</h2>
+    <p>Before any technology goes near a task, work through it in this order:</p>
+    <ul>
+      <li><strong>Remove it.</strong> Does anyone use the output? The meeting that could be a message. The report nobody opens. Stop doing it.</li>
+      <li><strong>Simplify it.</strong> If it’s needed, make it lighter. A 12-page report might become a one-page summary.</li>
+      <li><strong>Automate it.</strong> If it’s still needed and repeats, decide which kind of automation fits.</li>
+      <li><strong>Hand it off.</strong> If it’s needed but not the best use of this person’s time, move it. But fix it first: handing off a messy task just moves the cost to someone else.</li>
+    </ul>
+    <p>
+      Some tasks reveal a different problem. If your team spends hours chasing approvals, the fix may be clearer
+      ownership, not technology.
+    </p>
+    <p><strong>Not every automation needs AI.</strong></p>
+    <ul>
+      <li><strong>Fixed rules?</strong> Standard automation may be enough. A booking link. A form. A simple CRM rule.</li>
+      <li><strong>Needs interpreting?</strong> That’s where AI helps. Turning messy call notes into a structured draft, for example.</li>
+    </ul>
+
     <h2>Step 4: Decide what AI should do for each task that stays</h2>
-    <p>Not every AI win looks the same. For each task you keep, ask which job AI is doing:</p>
+    <p>Not every AI use looks the same. For each task you keep, ask which job AI is doing:</p>
     <ul>
       <li><strong>Taking it off your plate.</strong> First drafts, data entry, meeting summaries. Your team reviews instead of starting from scratch.</li>
       <li><strong>Making your team sharper.</strong> Suggesting options, spotting gaps in a proposal, pulling client history before a call. The person still decides.</li>
-      <li><strong>Doing what wasn’t practical before.</strong> Reading every client email for early signs of churn. Spotting patterns across hundreds of project records.</li>
+      <li><strong>Doing what wasn’t practical before.</strong> Spotting patterns across hundreds of project records, for example. Powerful, but harder to set up and check. Save it for later, once you have the basics working.</li>
     </ul>
     <p>
-      Start with the admin your team dreads: first drafts, data entry, meeting notes. Fast to prove. Easy to
-      trust. Hours back every week.
+      Start with the admin your team dreads: first drafts, data entry, meeting notes. Quick to test. Easy to check.
+      Real time back when it works.
     </p>
 
-    <h2>Step 5: Pick your first wins and keep a human in the loop</h2>
-    <p>Choose two or three tasks to start. The best first picks are:</p>
-    <ul>
-      <li><strong>Frequent</strong>, so the time saved adds up fast</li>
-      <li><strong>Low risk</strong>, so mistakes are easy to catch</li>
-      <li><strong>Easy to check</strong>, so your team trusts the output</li>
-    </ul>
+    <h2>Step 5: Run one pilot, measure it, and keep a person checking</h2>
     <p>
-      Brief the AI the way you’d brief a capable new hire. What the task is for. The rules to follow. What good
+      <strong>Start with one task.</strong> Shortlist two more for later. One pilot is easier to run properly,
+      especially when your team is already stretched.
+    </p>
+    <p>
+      <strong>Measure before and after.</strong> Before the pilot, record how often the task happens, how long it
+      takes and what usually goes wrong. During the pilot, count the time spent checking and correcting the AI’s
+      work too. Continue only if the overall result improves.
+    </p>
+    <p>
+      <strong>Brief the AI like a capable new hire.</strong> What the task is for. The rules to follow. What good
       looks like. The format you want back.
     </p>
     <p>
-      Then keep a person checking the output. AI is good at producing a likely answer. It doesn’t know your
-      clients, your standards or what matters most this week. Your people do.
+      <strong>Make the human check specific.</strong> AI can produce convincing work that contains errors or misses
+      important context. Name the person responsible and agree what they check. For a proposal, that might be
+      scope, pricing, delivery dates and client details. Agree what happens when the output is incomplete or
+      uncertain.
     </p>
 
     <h2>What this looks like in practice</h2>
@@ -1653,7 +1685,7 @@ const WhichTasksToAutomateContent: React.FC = () => (
       <table className="w-full min-w-[640px] border-collapse bg-white text-left text-[15px] leading-relaxed text-brand-navy">
         <thead className="bg-brand-ivory">
           <tr>
-            {["Task", "Decision", "What AI does", "Who checks"].map((heading) => (
+            {["Task", "Decision", "What happens", "Who checks"].map((heading) => (
               <th key={heading} scope="col" className={`${articleLabel} px-4 py-3`}>
                 {heading}
               </th>
@@ -1673,7 +1705,10 @@ const WhichTasksToAutomateContent: React.FC = () => (
       </table>
     </div>
 
-    <p>The first move is a cut, not a tool. And every automated task still has a named person checking it.</p>
+    <p>
+      The first move is simplifying, not buying a tool. One task needs no AI at all. And every AI draft has a
+      named person checking it before it goes anywhere.
+    </p>
 
     <div className="not-prose my-10 rounded-[14px] bg-brand-navy p-7">
       <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.12em] text-brand-amber">Start with clarity, not a tool</p>
@@ -1681,17 +1716,17 @@ const WhichTasksToAutomateContent: React.FC = () => (
         The businesses that get real value from AI don’t start with the technology. They start by knowing exactly
         where their team’s time goes.{" "}
         <span className="text-brand-amber">
-          Get that right and the first wins are obvious: less firefighting, less repetitive work, and more time for
-          the work your clients pay you for.
+          Get that right, and you can choose where AI genuinely helps: less firefighting, less repetitive work, and
+          more time for the work your clients pay you for.
         </span>
       </p>
     </div>
 
     <div className="not-prose mt-12 rounded-[14px] border border-brand-sand bg-brand-ivory p-7">
-      <p className={`${articleLabel} mb-3`}>Find your first three AI wins</p>
+      <p className={`${articleLabel} mb-3`}>Find a practical place to start</p>
       <p className="mb-5 text-[17px] leading-relaxed text-brand-navy">
-        Book a free 30-minute Discovery Call. We’ll talk through where your team’s time goes and what to cut,
-        automate or hand off first.
+        Book a free 30-minute Discovery Call. We’ll discuss where repetitive work is slowing your business down and
+        which opportunities deserve a closer look.
       </p>
       <a href={DISCOVERY_CALL_URL} target="_blank" rel="noopener noreferrer" className="btn-amber">
         Book a free 30-minute Discovery Call
@@ -1728,11 +1763,11 @@ export const articles: BlogArticle[] = [
   {
     slug: "which-tasks-to-automate-with-ai-first",
     title: "Which Tasks Should a Business Automate With AI First?",
-    subtitle: "A five-step way to find your first AI wins: cut what’s pointless, automate what repeats, and keep a person checking the output.",
+    subtitle: "A five-step way to choose your first AI task: remove what’s unnecessary, simplify what remains, then test one task and measure it.",
     date: "October 2026",
     category: "AI Strategy",
-    readTime: "5 min read",
-    excerpt: "A five-step way to find your first AI wins: cut what’s pointless, automate what repeats, and keep a person checking the output.",
+    readTime: "6 min read",
+    excerpt: "A five-step way to choose your first AI task: remove what’s unnecessary, simplify what remains, then test one task and measure it.",
     related: ["5-signs-your-business-is-not-ready-for-ai", "what-is-an-ai-readiness-assessment"],
     faqs: whichTasksFaqs,
     Content: WhichTasksToAutomateContent,
