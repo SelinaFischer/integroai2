@@ -34,6 +34,7 @@
 
 ## Articles
 
+- [Which Tasks Should a Business Automate With AI First?](https://integroai.tech/blog/which-tasks-to-automate-with-ai-first)
 - [How to Get Your Business Found by ChatGPT and Other AI Tools](https://integroai.tech/blog/how-to-get-your-business-found-on-chatgpt)
 - [AI Is Making Organisational Ambiguity Expensive](https://integroai.tech/blog/ai-organisational-ambiguity-human-judgement)
 - [What is an AI Readiness Assessment? A Plain-English Guide for Business Leaders](https://integroai.tech/blog/what-is-an-ai-readiness-assessment)
