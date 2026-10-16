@@ -28,6 +28,83 @@ export interface BlogArticle {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// ARTICLE FAQS
+// Each article's FAQ is written once here. It is shown at the end of the article
+// (via ArticleFaq) and given to search engines as structured data, so the two
+// always match.
+// ─────────────────────────────────────────────────────────────────────────────
+
+type Faq = { question: string; answer: string };
+
+const ArticleFaq: React.FC<{ faqs: Faq[]; heading?: string }> = ({ faqs, heading = "Frequently asked questions" }) => (
+  <>
+    <h2>{heading}</h2>
+    {faqs.map((faq) => (
+      <React.Fragment key={faq.question}>
+        <h3>{faq.question}</h3>
+        <p>{faq.answer}</p>
+      </React.Fragment>
+    ))}
+  </>
+);
+
+const readinessFaqs: Faq[] = [
+  { question: "What is an AI Readiness Assessment?", answer: "A structured check of whether your business is ready to benefit from AI, before you choose tools or commit budget. It shows where AI can help, where it can’t, and what to fix first." },
+  { question: "Why assess readiness before buying AI tools?", answer: "AI amplifies what already exists. If processes, ownership or data are unclear, AI gives you faster, more expensive versions of the same problems." },
+  { question: "Should a readiness assessment recommend specific AI tools?", answer: "Not as its starting point. Its job is to establish the problem, how ready you are and what to prioritise. Tool choice follows once those are clear." },
+  { question: "How long does IntegroAI’s assessment take, and what does it cost?", answer: "The free online assessment takes about five minutes and gives an initial indication of your readiness. A more detailed assessment, such as mapping specific workflows, is separate consultancy work, scoped and priced individually." },
+];
+
+const fiveSignsFaqs: Faq[] = [
+  { question: "How do I know if my business is ready for AI?", answer: "You can describe the problem clearly, your core processes are consistent, ownership is clear, past tools have stuck, and your team has capacity to adopt something new." },
+  { question: "Does “not ready” mean we shouldn’t use AI?", answer: "Not necessarily. You may be ready for a small, low-risk use while still fixing gaps before wider adoption." },
+  { question: "Why does team capacity matter?", answer: "AI adds work before it saves it. Someone has to set it up, test it and correct it. A stretched team may struggle to adopt something new." },
+  { question: "What should we fix first?", answer: "Define the problem in operational terms: which process, how long it takes, who owns it and what a better result looks like." },
+];
+
+const roiFaqs: Faq[] = [
+  { question: "Why is AI ROI hard to measure?", answer: "The benefits are often indirect, AI is usually introduced alongside other changes, and costs like setup, correction and maintenance are easy to underestimate." },
+  { question: "What is a baseline, and why does it matter?", answer: "A measurable picture of how a process works today: time taken, who does it, error rate and cost. Without one, you can only estimate improvement." },
+  { question: "Does time saved mean the investment paid off?", answer: "Not automatically. Compare the full cost, including setup and checking time, with the value you actually see: extra capacity, lower costs, faster service or better results." },
+  { question: "When should we review the results?", answer: "Agree review points before you start. Check performance during the pilot and regularly afterwards, so you can judge cost, adoption and whether the benefits last." },
+];
+
+const ambiguityFaqs: Faq[] = [
+  { question: "Why does AI make organisational ambiguity expensive?", answer: "People quietly fill gaps in unclear processes. Once AI does part of the work, unclear boundaries, expectations and ownership become much harder to work around." },
+  { question: "Who is accountable when AI contributes to a decision?", answer: "That needs deciding before AI is used. AI can support a decision, but a named person should own the result." },
+  { question: "How much human review does AI work need?", answer: "It depends on the consequence of a mistake, how uncertain the output is and the risk involved. Low-risk work needs light oversight. Consequential decisions stay with people." },
+  { question: "Isn’t AI governance just about approved tools?", answer: "No. Approved tools and data rules matter, but you also need to agree who can act on AI output, what must be checked and who is accountable if it’s wrong." },
+];
+
+const rotFaqs: Faq[] = [
+  { question: "What is ROT data?", answer: "Redundant, obsolete and trivial data: duplicate copies, outdated versions and low-value items with no business purpose." },
+  { question: "Why does ROT matter for AI?", answer: "AI works from the data it can reach. Clutter makes the right information harder to find and raises the risk of AI using outdated or duplicate material." },
+  { question: "What is defensible disposition?", answer: "Removing data you no longer need through a documented, policy-based process, so you can show what was removed, when and why." },
+  { question: "How do we start a ROT cleanup?", answer: "Assess where ROT builds up, set clear retention policies, clean up systematically and put habits in place so it doesn’t build up again." },
+];
+
+const dataGapFaqs: Faq[] = [
+  { question: "Why do AI projects fail?", answer: "One common reason is that the technology works but the data isn’t ready. Typical gaps are quality, availability, accessibility, volume and bias." },
+  { question: "How can I tell if my data is ready for AI?", answer: "Check whether it’s accurate and consistent, whether you collect what the AI needs, whether you can access and combine it, whether you have enough of it, and whether it fairly represents the people and situations the AI will face." },
+  { question: "What is data bias?", answer: "Data bias occurs when data systematically overrepresents, underrepresents or misrepresents particular groups or situations. AI using that data can reproduce or amplify those patterns." },
+  { question: "What should come first, data or AI?", answer: "Start with the business problem. Then assess whether AI is appropriate and prepare the data the proposed use case needs." },
+];
+
+const agentsFaqs: Faq[] = [
+  { question: "What is the difference between automation and AI agents?", answer: "Traditional automation follows fixed rules. An AI agent works towards a goal, choosing its own steps and using tools within limits you set. Being adaptable doesn’t make its judgement reliable, so it still needs oversight." },
+  { question: "When might rule-based automation be insufficient?", answer: "When a task involves varied inputs or changing conditions that are difficult to capture in fixed rules. AI may help interpret those inputs, but important decisions still need appropriate human review." },
+  { question: "How do I know if we’re ready for AI agents?", answer: "Start with a clearly defined task, reliable access to the right systems and data, clear permissions, agreed success measures and a named person responsible for monitoring and stepping in." },
+];
+
+const chatgptFaqs: Faq[] = [
+  { question: "Why is my business not showing up in ChatGPT or other AI tools?", answer: "Common reasons: pages AI search can’t read, unclear service descriptions, outdated listings, or too little relevant information online. The question, the location and the search mode matter too. Check your sources and your website access before settling on one cause." },
+  { question: "Can I guarantee that AI will recommend my business?", answer: "No. Nobody can. Be wary of any service that promises guaranteed recommendations." },
+  { question: "Does SEO still matter for AI search?", answer: "Yes. People still use Google, and the basics still count. AEO and GEO add to SEO. They don’t replace it." },
+  { question: "Do I need special schema or an AI file on my website?", answer: "Google says no special schema or new AI text file is needed for its AI search features. Structured data can describe your content, but it should match what readers see. It is not a shortcut." },
+  { question: "How long does it take to improve AI search visibility?", answer: "There is no fixed timetable. It depends on where you start, what you change and the AI service answering. Record a baseline, then review monthly." },
+];
+
+// ─────────────────────────────────────────────────────────────────────────────
 // ARTICLE 1 — What is an AI Readiness Assessment?
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -48,42 +125,27 @@ const WhatIsAiReadinessAssessmentContent: React.FC = () => (
       Most AI project failures are not technology failures. They are readiness failures. The technology works as intended. The business simply was not in a position to benefit from it because the conditions for success were never established beforehand. An AI Readiness Assessment is how you establish those conditions, or at minimum, understand what is missing before you spend.
     </p>
 
-    <h2>What a Proper AI Readiness Assessment Should Cover</h2>
+    <h2>What Should an AI Readiness Assessment Cover?</h2>
     <p>
-      Not all readiness assessments are the same. Some are little more than checklists. A thorough one should evaluate your business across five core dimensions.
+      Not all readiness assessments are the same. Some are little more than a checklist. A thorough one looks at how your business actually runs today, not just your appetite for AI.
     </p>
-
-    <h3>1. Leadership Alignment</h3>
+    <p>It should help you answer questions like:</p>
+    <ul>
+      <li>What problem are we really trying to solve, and is AI the right answer?</li>
+      <li>Is the work we want to improve stable and well understood?</li>
+      <li>Do we have the people, time and information to make a change stick?</li>
+      <li>Where would AI create genuine value, and where would it add cost or risk?</li>
+    </ul>
     <p>
-      Does your leadership team agree on why AI is being considered, what problem it is meant to solve, and who is accountable for the outcome? AI initiatives without clear sponsorship and ownership consistently lose momentum. A readiness assessment examines whether the conditions for confident decision-making exist at the top before any work begins below.
-    </p>
-
-    <h3>2. Process Quality</h3>
-    <p>
-      AI needs something consistent to work with. If a core process is performed differently by different people, or if steps are undocumented, then automating or augmenting that process with AI will produce inconsistent results. The assessment identifies which of your workflows are stable enough to benefit from AI and which need to be standardised first.
-    </p>
-
-    <h3>3. Data Foundations</h3>
-    <p>
-      AI runs on data. But having data is not the same as having useful data. The assessment looks at whether your data is accessible, reliable, and relevant to the outcomes you want to improve. Many businesses discover at this stage that their data is fragmented across tools, incomplete, or not collected in a way that supports the decisions they want AI to help with.
-    </p>
-
-    <h3>4. Team Capacity and Capability</h3>
-    <p>
-      AI adoption requires people. Someone needs to configure it, test it, correct it when it is wrong, and maintain it over time. The assessment considers whether your team has the capacity to take on something new and whether they have enough understanding of AI to use it responsibly in their roles, even if they are not technical.
-    </p>
-
-    <h3>5. Where AI Is Actually Relevant</h3>
-    <p>
-      Not every operational problem is an AI problem. Some inefficiencies are better solved by clearer process design, better tooling, or improved ownership structures. The assessment maps your operational pain points against what AI can and cannot realistically address, so you avoid investing in the wrong solution to the right problem.
+      A thorough assessment tests these questions against evidence from your operations. A short online assessment provides an initial indication of readiness and helps identify where further investigation may be useful.
     </p>
 
     <h2>What You Should Receive from an AI Readiness Assessment</h2>
     <p>
-      A good assessment produces more than a score. It should give you a clear view of your current state across the dimensions above, a set of priority areas where attention is needed before AI is introduced, an honest view of where AI could create genuine value, and a recommended starting point that is commercially sensible and operationally realistic.
+      A good assessment produces more than a score. It should give you a clear view of where your business stands today, a set of priority areas where attention is needed before AI is introduced, an honest view of where AI could create genuine value, and a recommended starting point that is commercially sensible and operationally realistic.
     </p>
     <p>
-      What it should not do is recommend specific AI tools. Tool selection comes later, and only once the problem is properly defined and the foundations are in place. An assessment that ends with a list of software recommendations has skipped the most important work.
+      Its first job is not to recommend specific AI tools. Tool selection comes later, and only once the problem is properly defined and the foundations are in place. An assessment that jumps straight to software recommendations has skipped the most important work.
     </p>
 
     <h2>Who Should Do an AI Readiness Assessment</h2>
@@ -96,11 +158,13 @@ const WhatIsAiReadinessAssessmentContent: React.FC = () => (
 
     <h2>How Long It Takes and What It Costs</h2>
     <p>
-      This varies depending on the depth of the assessment and how it is conducted. At IntegroAI, the starting point is a free five-minute online questionnaire that gives you an immediate readiness score across the five dimensions above, with a summary of where your business stands and where attention is needed. That initial assessment costs nothing and carries no obligation.
+      This varies depending on the depth of the assessment and how it is conducted. At IntegroAI, the starting point is a free five-minute online questionnaire that gives you an immediate readiness score, with a summary of where your business stands and where attention is needed. That initial assessment costs nothing and carries no obligation.
     </p>
     <p>
-      For businesses that want to go deeper, mapping specific workflows, reviewing data infrastructure, or working through leadership alignment in detail, that work is scoped individually based on the size and complexity of the business.
+      For businesses that want to go deeper, mapping specific workflows, reviewing data infrastructure, or working through priorities in detail, that work is scoped individually based on the size and complexity of the business.
     </p>
+
+    <ArticleFaq faqs={readinessFaqs} />
 
     <h2>The Bottom Line</h2>
     <p>
@@ -113,7 +177,7 @@ const WhatIsAiReadinessAssessmentContent: React.FC = () => (
     <div className="mt-10 p-6 bg-primary/5 border border-primary/20 rounded-xl">
       <p className="text-foreground font-semibold mb-2">Ready to find out where you stand?</p>
       <p className="text-muted-foreground text-sm mb-4">
-        IntegroAI's free AI Readiness Assessment takes five minutes. You receive a score across all five dimensions, a clear summary of your operational readiness, and a recommended starting point, all before any obligation or investment.
+        IntegroAI's free AI Readiness Assessment takes five minutes. You receive a readiness score, a clear summary of your operational readiness, and a recommended starting point, all before any obligation or investment.
       </p>
       <a
         href="https://integroai.tech/assessment"
@@ -194,6 +258,8 @@ const FiveSignsContent: React.FC = () => (
     <p>
       What to do first: identify where capacity is being lost to manual, repetitive work that could be reduced before AI is introduced. A workflow improvement or simpler automation might free up enough time to make the more significant AI investment viable and sustainable.
     </p>
+
+    <ArticleFaq faqs={fiveSignsFaqs} />
 
     <h2>What These Signs Tell You</h2>
     <p>
@@ -318,6 +384,8 @@ const HowToMeasureAiROIContent: React.FC = () => (
     <p>
       Each of these is fixable. But they require honest diagnosis rather than defaulting to the assumption that a different tool would have produced a different result.
     </p>
+
+    <ArticleFaq faqs={roiFaqs} />
 
     <h2>The Bottom Line</h2>
     <p>
@@ -467,6 +535,8 @@ const ROTToResilienceContent: React.FC = () => (
       <h3>Step 4: Prevent Future Accumulation</h3>
       <p>Fix the systems that create ROT in the first place. Implement automatic retention enforcement, reduce unnecessary duplication, and establish data hygiene as an organisational value.</p>
 
+      <ArticleFaq faqs={rotFaqs} />
+
       <h2>The AI Readiness Connection</h2>
 
       <p>Every AI initiative should begin with ROT assessment. Before you invest in sophisticated AI technology, ask:</p>
@@ -572,12 +642,6 @@ const WhyAIFailsContent: React.FC = () => (
       
       <p>AI models need substantial data to learn patterns effectively. How much data depends on the specific use case, but "we have some data" is rarely sufficient.</p>
 
-      {/* Stats Box */}
-      <div className="bg-primary text-primary-foreground p-8 rounded-xl text-center my-8">
-        <h3 className="text-4xl font-bold text-accent-warm mb-2">10,000+</h3>
-        <p className="text-primary-foreground/90 mb-0">Minimum data points typically needed for reliable AI pattern recognition</p>
-      </div>
-
       <p>A startup with six months of transaction history wants to predict customer behaviour. An SME with 50 customer records wants personalisation AI. A new product line wants demand forecasting with three months of sales data.</p>
 
       <p>These scenarios lack sufficient data volume for reliable AI. The technology might work, but the predictions will be unreliable because there isn't enough historical information to identify meaningful patterns.</p>
@@ -633,6 +697,8 @@ const WhyAIFailsContent: React.FC = () => (
 
       <p>If you can't confidently answer "yes" to all five questions, you need data preparation before AI implementation. This isn't failure. It's smart planning that prevents expensive project failures.</p>
 
+      <ArticleFaq faqs={dataGapFaqs} />
+
       <h2>The Bottom Line</h2>
 
       <p>AI technology has never been more accessible or powerful. But technology alone doesn't create business value. <strong>Quality data, properly prepared and accessible, determines whether your AI investment succeeds or fails.</strong></p>
@@ -676,12 +742,6 @@ const BeyondChatbotsContent: React.FC = () => (
 
       <p>Businesses don't just need to automate tasks. They need systems that can think. From finance to supply chain, static automations struggle when conditions change. <strong>AI Agents bring adaptability and context-awareness into business logic.</strong></p>
 
-      {/* Stats Box */}
-      <div className="bg-primary text-primary-foreground p-8 rounded-xl text-center my-8">
-        <h3 className="text-3xl font-bold text-accent-warm mb-2">The Automation Plateau</h3>
-        <p className="text-primary-foreground/90 mb-0">Most automation projects plateau after 12 months, delivering speed but not strategic intelligence</p>
-      </div>
-
       <h2>Why Businesses Get Stuck with Automation</h2>
 
       <p>Automation delivers three clear benefits:</p>
@@ -692,7 +752,7 @@ const BeyondChatbotsContent: React.FC = () => (
         <li><strong>Predictable workflows:</strong> Standardised processes reduce variability</li>
       </ul>
 
-      <p>So why do most automation projects plateau after 12 months?</p>
+      <p>So where does automation fall short?</p>
 
       <h3>The Problem: Faster Execution ≠ Smarter Operations</h3>
 
@@ -815,6 +875,8 @@ const BeyondChatbotsContent: React.FC = () => (
         <h3 className="text-foreground font-bold mt-0 mb-2">The Future Isn't About Doing More</h3>
         <p className="mb-0"><strong>It's about thinking smarter.</strong> Every business will automate. The leaders will make it autonomous.</p>
       </div>
+
+      <ArticleFaq faqs={agentsFaqs} />
 
       <h2>Ready to Evolve? Start Your AI Agent Journey</h2>
 
@@ -1039,6 +1101,8 @@ const AiOrganisationalAmbiguityContent: React.FC = () => (
       <li>Who decides?</li>
       <li>Who owns the outcome?</li>
     </ul>
+
+    <ArticleFaq faqs={ambiguityFaqs} />
 
     <div className="bg-primary text-primary-foreground p-8 rounded-xl my-8">
       <h3 className="text-2xl font-bold text-accent-warm mt-0 mb-4">
@@ -1436,36 +1500,7 @@ const GetFoundOnChatGPTContent: React.FC = () => (
       qualified enquiries, not mentions.</strong>
     </p>
 
-    <h2>Frequently asked questions about getting found by AI</h2>
-
-    <h3>Why is my business not showing up in ChatGPT or other AI tools?</h3>
-    <p>
-      Common reasons: pages AI search can’t read, unclear service descriptions, outdated listings, or too
-      little relevant information online. The question, the location and the search mode matter too.
-      Check your sources and your website access before settling on one cause.
-    </p>
-
-    <h3>Can I guarantee that AI will recommend my business?</h3>
-    <p>
-      No. Nobody can. Be wary of any service that promises guaranteed recommendations.
-    </p>
-
-    <h3>Does SEO still matter for AI search?</h3>
-    <p>
-      Yes. People still use Google, and the basics still count. AEO and GEO add to SEO. They don’t replace it.
-    </p>
-
-    <h3>Do I need special schema or an AI file on my website?</h3>
-    <p>
-      Google says no special schema or new AI text file is needed for its AI search features. Structured data
-      can describe your content, but it should match what readers see. It is not a shortcut.
-    </p>
-
-    <h3>How long does it take to improve AI search visibility?</h3>
-    <p>
-      There is no fixed timetable. It depends on where you start, what you change and the AI service
-      answering. Record a baseline, then review monthly.
-    </p>
+    <ArticleFaq heading="Frequently asked questions about getting found by AI" faqs={chatgptFaqs} />
 
     <h2>Start with three actions this week</h2>
     <ol>
@@ -1714,6 +1749,8 @@ const WhichTasksToAutomateContent: React.FC = () => (
       named person checking it before it goes anywhere.
     </p>
 
+    <ArticleFaq faqs={whichTasksFaqs} />
+
     <div className="not-prose my-10 rounded-[14px] bg-brand-navy p-7">
       <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.12em] text-brand-amber">Start with clarity, not a tool</p>
       <p className="text-[19px] leading-relaxed text-white">
@@ -1744,14 +1781,6 @@ const WhichTasksToAutomateContent: React.FC = () => (
       </p>
     </div>
 
-    <h2>Frequently asked questions</h2>
-    {whichTasksFaqs.map((faq) => (
-      <React.Fragment key={faq.question}>
-        <h3>{faq.question}</h3>
-        <p>{faq.answer}</p>
-      </React.Fragment>
-    ))}
-
     <p className="!mt-12 border-t border-brand-sand pt-6 !text-[15px] !leading-relaxed">
       <strong>Selina Fischer</strong>, Founder, IntegroAI Consulting
     </p>
@@ -1778,6 +1807,7 @@ export const articles: BlogArticle[] = [
   },
   {
     slug: "how-to-get-your-business-found-on-chatgpt",
+    faqs: chatgptFaqs,
     title: "How to Get Your Business Found by ChatGPT and Other AI Tools",
     subtitle: "When customers ask AI to recommend a business like yours, does yours come up? Five practical checks to make your business clear, useful and easy to verify.",
     date: "October 2026",
@@ -1789,6 +1819,7 @@ export const articles: BlogArticle[] = [
   },
   {
     slug: "ai-organisational-ambiguity-human-judgement",
+    faqs: ambiguityFaqs,
     title: "AI Is Making Organisational Ambiguity Expensive",
     subtitle: "As AI enters operational decision-making, organisations need clearer boundaries around judgement, human review and accountability.",
     date: "August 2026",
@@ -1801,6 +1832,7 @@ export const articles: BlogArticle[] = [
   },
   {
     slug: "what-is-an-ai-readiness-assessment",
+    faqs: readinessFaqs,
     title: "What is an AI Readiness Assessment? A Plain-English Guide for Business Leaders",
     subtitle: "Before investing in AI tools, most businesses need to answer a more important question first. Here is what a proper AI Readiness Assessment covers, why it matters, and what you should expect to get from one.",
     date: "June 2026",
@@ -1812,6 +1844,7 @@ export const articles: BlogArticle[] = [
   },
   {
     slug: "5-signs-your-business-is-not-ready-for-ai",
+    faqs: fiveSignsFaqs,
     title: "5 Signs Your Business Is Not Ready for AI",
     subtitle: "AI amplifies whatever already exists in your operations. These five signs suggest your business needs operational clarity first, before any AI investment is made.",
     date: "June 2026",
@@ -1823,6 +1856,7 @@ export const articles: BlogArticle[] = [
   },
   {
     slug: "how-to-measure-roi-from-ai-investment",
+    faqs: roiFaqs,
     title: "How to Measure ROI from an AI Investment",
     subtitle: "Most businesses cannot measure the return on their AI investments because they never defined what they were trying to improve. Here is how to approach it properly, from baseline to outcome.",
     date: "June 2026",
@@ -1834,6 +1868,7 @@ export const articles: BlogArticle[] = [
   },
   {
     slug: "rot-to-resilience-data-cleanup",
+    faqs: rotFaqs,
     title: "ROT to Resilience: The Data Cleanup Your AI Needs",
     subtitle: "Redundant, Obsolete, and Trivial data silently sabotages AI projects. Here's how to transform data clutter into competitive advantage through defensible disposition.",
     date: "November 2025",
@@ -1844,7 +1879,8 @@ export const articles: BlogArticle[] = [
   },
   {
     slug: "why-ai-fails-the-data-gap",
-    title: "Why AI Projects Fail: The Data Gap Nobody Talks About",
+    faqs: dataGapFaqs,
+    title: "Why AI Projects Fail: The Data Readiness Gap",
     subtitle: "The most advanced AI in the world is worthless without quality data. Here's why so many AI projects stall on data, and how to fix it.",
     date: "December 2025",
     category: "Data Strategy",
@@ -1854,6 +1890,7 @@ export const articles: BlogArticle[] = [
   },
   {
     slug: "beyond-chatbots-ai-agents",
+    faqs: agentsFaqs,
     title: "Beyond Chatbots: How AI Agents Redefine Efficiency, Decision-Making & Growth",
     subtitle: "Automation saved time. But does autonomy create value? Today's environment demands more than rule-following. It needs reasoning and adaptability.",
     date: "December 2025",

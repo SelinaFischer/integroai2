@@ -41,6 +41,6 @@
 - [5 Signs Your Business Is Not Ready for AI](https://integroai.tech/blog/5-signs-your-business-is-not-ready-for-ai)
 - [How to Measure ROI from an AI Investment](https://integroai.tech/blog/how-to-measure-roi-from-ai-investment)
 - [Beyond Chatbots: How AI Agents Redefine Efficiency, Decision-Making & Growth](https://integroai.tech/blog/beyond-chatbots-ai-agents)
-- [Why AI Projects Fail: The Data Gap Nobody Talks About](https://integroai.tech/blog/why-ai-fails-the-data-gap)
+- [Why AI Projects Fail: The Data Readiness Gap](https://integroai.tech/blog/why-ai-fails-the-data-gap)
 - [ROT to Resilience: The Data Cleanup Your AI Needs](https://integroai.tech/blog/rot-to-resilience-data-cleanup)
 - [All articles](https://integroai.tech/blog)
