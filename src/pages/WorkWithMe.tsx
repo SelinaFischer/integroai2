@@ -314,7 +314,19 @@ const WorkWithMe = () => {
           </section>
 
           {/* Client testimonials: proof at the point of decision. */}
-          <ClientTestimonials />
+          <ClientTestimonials id="client-testimonials-title" heading="In our clients’ words">
+            <div className="flex justify-center">
+              <a
+                href="https://calendly.com/integroai-tech/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-amber group"
+              >
+                Book a Discovery Call
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
+              </a>
+            </div>
+          </ClientTestimonials>
 
           {/* Standalone services, kept brief on purpose. */}
           <section id={EXTRA_SERVICES_SECTION_ID} className="bg-white py-12 sm:py-14">
