@@ -279,7 +279,7 @@ const About = () => {
                 className="max-w-2xl mx-auto text-center"
               >
                 <h2 className="font-heading text-2xl sm:text-3xl font-semibold text-foreground mb-6 [text-wrap:balance]">
-                  Want to know where your time is really going?
+                  Ready to spend less time firefighting and more time moving your business forward?
                 </h2>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <Button variant="hero" size="lg" className="group w-full sm:w-auto" asChild>
