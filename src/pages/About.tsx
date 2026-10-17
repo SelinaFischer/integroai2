@@ -56,7 +56,7 @@ const situationCards = [
     points: [
       "You know what to fix first, and why.",
       "Your team gets time back for client work.",
-      "AI takes on repetitive work. People keep the decisions that matter.",
+      "Less time goes on repetitive work. People keep the decisions that matter.",
       "Progress is measured against outcomes you agreed.",
     ],
   },
@@ -77,7 +77,7 @@ const About = () => {
       <div className="min-h-screen">
         <Header />
 
-        <main id="main-content" className="pt-24 lg:pt-32 pb-16 lg:pb-24">
+        <main id="main-content" className="pt-24 lg:pt-32">
           {/* Intro */}
           <section className="pb-14 sm:pb-16 bg-background">
             <div className="wrap">
@@ -239,7 +239,7 @@ const About = () => {
                         Throughout my career in product, technology and operations, I have turned business needs into practical, working solutions. That experience taught me to start with three questions: What problem are we solving? Why does it matter? What would a better outcome look like?
                       </p>
                       <p className="text-muted-foreground text-base leading-relaxed">
-                        That is how I approach your business. Not with a tool to sell, but with those three questions. Business owners need clarity about where to focus, what to invest in and how to make changes work in practice.
+                        Those same three questions guide how I approach your business. Business owners need clarity about where to focus, what to invest in and how to make changes work in practice.
                       </p>
                       <p className="text-muted-foreground text-base leading-relaxed">
                         I founded IntegroAI Consulting to bring that thinking to AI adoption.{" "}
