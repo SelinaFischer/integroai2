@@ -182,7 +182,7 @@ const About = () => {
           </section>
 
           {/* Proof from people who have worked with Selina. */}
-          <ClientTestimonials id="about-testimonials-title" heading="In our clients’ words" />
+          <ClientTestimonials id="about-testimonials-title" heading={<>Clear, Practical, <span className="italic text-brand-amber">Valuable.</span></>} />
 
           {/* Founder: fuller story. The homepage "Read Her Story" button lands here. */}
           <section id={SELINA_STORY_SECTION_ID} className="py-16 sm:py-20 bg-muted/30">
