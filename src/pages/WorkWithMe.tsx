@@ -32,9 +32,10 @@ type Stage = {
   stage: string;
   service: string;
   result: string;
-  doSteps: string[];
-  deliverable: string;
-  get: string[];
+  doSteps?: string[];
+  deliverable?: string;
+  get?: string[];
+  summary?: string;
   extra?: string;
 };
 
@@ -44,21 +45,8 @@ const stages: Stage[] = [
     stage: "Diagnose",
     service: "AI & Operations Diagnostic",
     result: "Know what is slowing your business down, what to fix first and where AI is worth the investment.",
-    doSteps: [
-      "Interview you and your key team members",
-      "Understand how work really gets done, and where it gets stuck",
-      "Identify the opportunities, the risks and what must stay in human hands",
-    ],
-    deliverable: "Key Findings Report, strategy, roadmap and recommendations",
-    get: [
-      "A clear picture of where your business stands today",
-      "The opportunities worth acting on, and the risks to manage",
-      "A strategy linked to your business goals",
-      "A roadmap showing what to do, in what order",
-      "Practical recommendations, with the reasons behind them",
-    ],
-    extra:
-      "Every Diagnostic is scoped to your business, the areas to review and the people involved. We agree the scope, deliverables and fee before work begins.",
+    summary:
+      "A consultant-led review shaped around your goals. You come away with clear findings and a recommended way forward.",
   },
   {
     number: "02",
@@ -66,7 +54,7 @@ const stages: Stage[] = [
     service: "Agree Your Priorities",
     result: "You choose what matters most right now, and we agree the next stage together.",
     doSteps: [
-      "Walk through the findings and recommendations with you",
+      "Walk through the findings with you",
       "Choose what to act on first, based on urgency, goals and resources",
       "Agree the scope, responsibilities and measures of success for the next stage",
     ],
@@ -130,7 +118,7 @@ const WorkWithMe = () => {
         <title>Work With Me | AI Consulting &amp; Operations Advisory | IntegroAI Consulting</title>
         <meta
           name="description"
-          content="Work with IntegroAI: start with the AI & Operations Diagnostic. Interviews with your key people lead to a Key Findings Report, strategy, roadmap and recommendations. You choose your priorities, then we prepare, implement and improve together. Independent and technology-agnostic."
+          content="Work with IntegroAI: start with the AI & Operations Diagnostic, a consultant-led review of your business. You choose your priorities, then we prepare, implement and improve together. Independent and technology-agnostic."
         />
         <link rel="canonical" href="https://integroai.tech/work-with-me" />
       </Helmet>
@@ -190,7 +178,7 @@ const WorkWithMe = () => {
                       I work with you to understand what is slowing your business down and identify where workflow improvements, AI or automation could make the biggest difference.
                     </p>
                     <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                      It starts with the AI &amp; Operations Diagnostic. I speak with you and your key people, then give you a Key Findings Report, strategy, roadmap and recommendations. You choose what to act on first, and we agree each next stage before it begins.
+                      It starts with the AI &amp; Operations Diagnostic, a consultant-led review of your business. You choose what to act on first, and we agree each next stage before it begins.
                     </p>
                   </div>
                 </div>
@@ -223,7 +211,7 @@ const WorkWithMe = () => {
               <div className="max-w-4xl mx-auto text-center mb-8 sm:mb-10">
                 <h2 className="font-heading text-3xl sm:text-4xl lg:text-[40px] mb-4">How We Can Work Together</h2>
                 <p className="text-muted-foreground text-sm sm:text-base leading-relaxed [text-wrap:balance]">
-                  Five stages, from diagnosis to ongoing support. We start by understanding your business, your people and your goals. You receive your findings, strategy and roadmap, choose your priorities, and I help you put them into practice. I lead every stage personally, and we agree the scope together before it begins.
+                  Five stages, from diagnosis to ongoing support. We start by understanding your business and your goals. You choose your priorities, and I help you put them into practice. I lead every stage personally, and we agree the scope together before it begins.
                 </p>
               </div>
 
@@ -283,11 +271,14 @@ const WorkWithMe = () => {
                       {/* forceMount keeps the details in the page HTML for search
                           engines and AI assistants while they are collapsed. */}
                       <Accordion.Content forceMount className="px-5 pb-6 data-[state=closed]:hidden sm:px-6 sm:pl-[80px]">
+                        {item.summary ? (
+                          <p className="border-t border-brand-sand pt-5 text-sm leading-relaxed text-brand-navy sm:text-[15px]">{item.summary}</p>
+                        ) : (
                         <div className="grid gap-6 border-t border-brand-sand pt-5 sm:grid-cols-2 sm:gap-8">
                           <div>
                             <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.12em] text-brand-slate">What we do</p>
                             <ol className="flex list-none flex-col gap-2.5">
-                              {item.doSteps.map((step, stepIndex) => (
+                              {item.doSteps?.map((step, stepIndex) => (
                                 <li key={step} className="flex items-start gap-3 text-sm leading-relaxed text-brand-navy sm:text-[15px]">
                                   <span className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-brand-chip text-[11px] font-bold text-brand-navy" aria-hidden="true">
                                     {stepIndex + 1}
@@ -301,7 +292,7 @@ const WorkWithMe = () => {
                             <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.12em] text-brand-slate">What you get</p>
                             <p className="mb-2.5 text-[15px] font-semibold text-brand-navy sm:text-base">{item.deliverable}</p>
                             <ul className="flex flex-col gap-2">
-                              {item.get.map((g) => (
+                              {item.get?.map((g) => (
                                 <li key={g} className="flex items-start gap-2 text-sm leading-relaxed text-brand-slate sm:text-[15px]">
                                   <CheckCircle2 className="mt-0.5 h-4 w-4 flex-none text-brand-teal" aria-hidden="true" />
                                   {g}
@@ -310,6 +301,7 @@ const WorkWithMe = () => {
                             </ul>
                           </div>
                         </div>
+                        )}
                         {item.extra && (
                           <p className="mt-5 text-[13px] leading-relaxed text-brand-slate sm:text-sm">{item.extra}</p>
                         )}
@@ -378,7 +370,7 @@ const WorkWithMe = () => {
                 </h2>
                 <div className="space-y-4 mb-10 text-left sm:text-center">
                   <p className="text-white/80 text-sm sm:text-base leading-relaxed">
-                    I lead every engagement personally, from the first interviews through to recommendations and delivery support.
+                    I lead every engagement personally, from diagnosis through to delivery support.
                   </p>
                   <p className="text-white/80 text-sm sm:text-base leading-relaxed">
                     My advice is independent and technology-agnostic. Recommendations follow the needs of your business, not a preferred platform, vendor or predetermined solution. Sometimes the right answer is a simpler process, not AI.
