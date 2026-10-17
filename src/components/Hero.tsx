@@ -20,10 +20,9 @@ const Hero = () => {
             Independent AI consultancy for founder-led service businesses
           </p>
 
-          <h1 className="text-[42px] font-semibold leading-none text-white sm:text-[56px] lg:text-[68px]">
-            Stop Automating
-            <br />
-            <span className="italic text-brand-amber">Broken Processes.</span>
+          <h1 className="text-[40px] font-semibold leading-[1.05] text-white sm:text-[52px] lg:text-[60px]">
+            <span className="block">Less firefighting.</span>
+            <span className="block italic text-brand-amber [text-wrap:balance]">More time for the work you love.</span>
           </h1>
 
           <p className="max-w-[600px] text-[17px] leading-normal text-brand-mist sm:text-[19px]">

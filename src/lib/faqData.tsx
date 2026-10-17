@@ -44,7 +44,7 @@ export const homepageFaqs: FaqItem[] = [
   {
     question: "What does a typical engagement with IntegroAI look like, and how is consulting priced?",
     answer:
-      "Most engagements begin with the free 5-Minute AI Readiness Assessment, followed where appropriate by a Discovery Call and, if needed, an AI & Operations Diagnostic to build a clear, evidence-based view of the business. From there, IntegroAI can support prioritisation, preparation, implementation or ongoing advisory, depending on what adds value. Pricing is scoped individually based on the nature and depth of the engagement, and there is no obligation until scope and cost are agreed.",
+      "Engagements start with the AI & Operations Diagnostic, a consultant-led review of the business. The client then chooses what to act on first, and each next stage, from preparation to implementation and ongoing advisory, is agreed before it begins. Fees are scoped individually and agreed before any work starts.",
   },
 ];
 

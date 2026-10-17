@@ -13,7 +13,7 @@ const RealityBand = () => {
       >
         <p className="eyebrow">The reality</p>
         <h2 className="display text-[30px] font-semibold leading-[1.1] text-white sm:text-[38px] lg:text-[46px]">
-          AI amplifies what already exists.
+          Stop automating broken processes.
           <br />
           <span className="italic text-brand-amber">Clarity comes first.</span>
         </h2>
