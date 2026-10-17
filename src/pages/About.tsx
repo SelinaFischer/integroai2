@@ -1,12 +1,13 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { Lightbulb, Shield, Award, BarChart3, ArrowRight, Linkedin, Target, Telescope } from "lucide-react";
+import { Lightbulb, Shield, Award, BarChart3, ArrowRight, Linkedin, CircleAlert, Sparkles, CheckCircle2 } from "lucide-react";
 import { m } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import { Button } from "@/components/ui/button";
 import { SELINA_STORY_SECTION_ID } from "@/lib/selinaStory";
+import ClientTestimonials from "@/components/ClientTestimonials";
 import selinaPhoto from "@/assets/selina-story-portrait.webp";
 import selinaPhoto480 from "@/assets/selina-story-portrait-480.webp";
 import selinaPhoto720 from "@/assets/selina-story-portrait-720.webp";
@@ -15,22 +16,49 @@ const values = [
   {
     icon: Lightbulb,
     title: "Clarity",
-    description: "We define the problem, agree priorities and establish what success looks like before work begins.",
+    description: "You know the problem, the priorities and what success looks like before work begins.",
   },
   {
     icon: Shield,
     title: "Integrity",
-    description: "We give honest advice, including when AI is not the right solution.",
+    description: "You get honest advice, including when AI is not the answer.",
   },
   {
     icon: Award,
     title: "Practicality",
-    description: "We recommend solutions that fit your workflows, resources and business priorities.",
+    description: "Recommendations fit your workflows, resources and business priorities.",
   },
   {
     icon: BarChart3,
     title: "Accountability",
-    description: "We agree who is responsible for what and measure progress against clear business outcomes.",
+    description: "You know who owns what, and progress is measured against clear business outcomes.",
+  },
+];
+
+// The two cards near the top: what the reader is living with, and what
+// better looks like.
+const situationCards = [
+  {
+    icon: CircleAlert,
+    label: "Sound familiar?",
+    title: "When the business runs on you",
+    points: [
+      "Decisions wait for you.",
+      "The same problems keep coming back.",
+      "Good people lose hours to manual, repetitive work.",
+      "AI feels urgent, but it is unclear where to start.",
+    ],
+  },
+  {
+    icon: Sparkles,
+    label: "What better looks like",
+    title: "A business that doesn't run on firefighting",
+    points: [
+      "You know what to fix first, and why.",
+      "Your team gets time back for client work.",
+      "AI takes on repetitive work. People keep the decisions that matter.",
+      "Progress is measured against outcomes you agreed.",
+    ],
   },
 ];
 
@@ -41,7 +69,7 @@ const About = () => {
         <title>About | IntegroAI Consulting</title>
         <meta
           name="description"
-          content="IntegroAI Consulting is an independent UK-based AI consultancy helping founder-led service businesses reduce repetitive work, improve operational control and create capacity for growth."
+          content="IntegroAI Consulting is an independent UK-based AI consultancy. Founder Selina Fischer helps founder-led service businesses cut firefighting and repetitive work, and reclaim time for the work they love."
         />
         <link rel="canonical" href="https://integroai.tech/about" />
       </Helmet>
@@ -63,25 +91,22 @@ const About = () => {
               >
                 <div className="text-center">
                 <span className="inline-block text-brand-label font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
-                  About
-                </span>
-                <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-foreground mb-6">
                   About IntegroAI Consulting
+                </span>
+                <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-foreground mb-6 [text-wrap:balance]">
+                  You started this business to do the work you love.
                 </h1>
                 </div>
 
                 <div className="mx-auto max-w-3xl space-y-5" data-intro-text>
                   <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                    IntegroAI Consulting is an independent AI consultancy helping founder-led service businesses reduce repetitive work, improve operational control and create capacity for growth.
+                    Then it grew. Now your week goes on chasing updates, fixing the same problems twice and answering questions only you can answer. Your team is busy, but not always on the work that grows the business.
                   </p>
                   <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                    We combine AI consulting with business and operations advisory. We start by understanding how work gets done, where problems recur and what needs to improve before recommending where AI or automation can add value.
-                  </p>
-                  <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                    We assess your workflows, data, systems and team readiness to identify practical opportunities. From there, we help you prioritise investment, plan implementation and agree how results will be measured.
+                    IntegroAI Consulting is an independent AI consultancy for founder-led service businesses. I help founders cut firefighting and repetitive work, and reclaim time for the work they love.
                   </p>
                   <p className="text-foreground text-sm sm:text-base leading-relaxed font-medium">
-                    Our advice is independent of any particular technology provider. Recommendations are shaped by your business goals, budget and existing systems.
+                    My advice is independent of any technology provider. Recommendations are shaped by your business goals, budget and existing systems.
                   </p>
                 </div>
               </m.div>
@@ -89,58 +114,51 @@ const About = () => {
             </div>
           </section>
 
-          {/* Mission & Vision: same card language as the Values below (white
-              card, flat amber icon tile), so the page reads as one system. */}
+          {/* The reader's situation and the outcome: same card language as the
+              list below (white card, flat amber icon tile), so the page reads as one system. */}
           <section className="py-12 sm:py-16 bg-subtle">
             <div className="wrap">
               <div className="max-w-5xl mx-auto grid gap-4 sm:grid-cols-2 sm:gap-5">
-                <m.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className="bg-card border border-border/40 rounded-2xl p-6 sm:p-8 shadow-sm"
-                >
-                  <div className="mb-4 flex items-center gap-3.5">
-                    <span className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-brand-amber sm:h-12 sm:w-12">
-                      <Target className="h-5 w-5 text-brand-navy sm:h-[22px] sm:w-[22px]" strokeWidth={2.2} aria-hidden="true" />
-                    </span>
-                    <h2 className="text-lg sm:text-xl font-bold text-foreground">Mission</h2>
-                  </div>
-                  <p className="text-base leading-relaxed text-[#42566A]">
-                    To help business leaders make confident AI decisions, reduce repetitive work and gain operational control.
-                  </p>
-                </m.div>
-
-                <m.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  className="bg-card border border-border/40 rounded-2xl p-6 sm:p-8 shadow-sm"
-                >
-                  <div className="mb-4 flex items-center gap-3.5">
-                    <span className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-brand-amber sm:h-12 sm:w-12">
-                      <Telescope className="h-5 w-5 text-brand-navy sm:h-[22px] sm:w-[22px]" strokeWidth={2.2} aria-hidden="true" />
-                    </span>
-                    <h2 className="text-lg sm:text-xl font-bold text-foreground">Vision</h2>
-                  </div>
-                  <p className="text-base leading-relaxed text-[#42566A]">
-                    A future where AI makes businesses easier to run and gives people more time for the work they do best.
-                  </p>
-                </m.div>
+                {situationCards.map((card, index) => (
+                  <m.div
+                    key={card.label}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="bg-card border border-border/40 rounded-2xl p-6 sm:p-8 shadow-sm"
+                  >
+                    <div className="mb-5 flex items-center gap-3.5">
+                      <span className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-brand-amber sm:h-12 sm:w-12">
+                        <card.icon className="h-5 w-5 text-brand-navy sm:h-[22px] sm:w-[22px]" strokeWidth={2.2} aria-hidden="true" />
+                      </span>
+                      <div>
+                        <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-brand-teal">{card.label}</p>
+                        <h2 className="text-lg sm:text-xl font-bold text-foreground leading-snug">{card.title}</h2>
+                      </div>
+                    </div>
+                    <ul className="flex flex-col gap-2.5">
+                      {card.points.map((point) => (
+                        <li key={point} className="flex items-start gap-2.5 text-[15px] leading-relaxed text-[#42566A] sm:text-base">
+                          <CheckCircle2 className="mt-1 h-4 w-4 flex-none text-brand-teal" aria-hidden="true" />
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </m.div>
+                ))}
               </div>
             </div>
           </section>
 
           {/* Values: one panel split by hairlines rather than four separate
-              cards, with soft icon tiles, so it sits quietly under the Mission
-              and Vision cards. */}
+              cards, with soft icon tiles, so it sits quietly under the two
+              situation cards. */}
           <section className="py-12 sm:py-16 bg-background">
             <div className="wrap">
               <div className="max-w-5xl mx-auto">
                 <h2 className="font-heading text-3xl sm:text-4xl font-semibold text-foreground text-center mb-8 sm:mb-10">
-                  Values
+                  What you can expect
                 </h2>
                 <m.div
                   initial={{ opacity: 0, y: 20 }}
@@ -163,7 +181,10 @@ const About = () => {
             </div>
           </section>
 
-          {/* Founder — fuller story. The homepage "Read Her Story" button lands here. */}
+          {/* Proof from people who have worked with Selina. */}
+          <ClientTestimonials id="about-testimonials-title" heading="In our clients’ words" />
+
+          {/* Founder: fuller story. The homepage "Read Her Story" button lands here. */}
           <section id={SELINA_STORY_SECTION_ID} className="py-16 sm:py-20 bg-muted/30">
             <div className="wrap">
               <m.div
@@ -174,10 +195,10 @@ const About = () => {
                 className="text-center mb-10 sm:mb-14"
               >
                 <span className="inline-block text-brand-label font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
-                  Leadership
-                </span>
-                <h2 className="font-heading text-3xl sm:text-4xl lg:text-[40px] font-semibold text-foreground">
                   Selina&apos;s Story
+                </span>
+                <h2 className="font-heading text-3xl sm:text-4xl lg:text-[40px] font-semibold text-foreground [text-wrap:balance]">
+                  Why I start with your problem, not the technology
                 </h2>
               </m.div>
 
@@ -218,7 +239,7 @@ const About = () => {
                         Throughout my career in product, technology and operations, I have turned business needs into practical, working solutions. That experience taught me to start with three questions: What problem are we solving? Why does it matter? What would a better outcome look like?
                       </p>
                       <p className="text-muted-foreground text-base leading-relaxed">
-                        Those questions now guide my approach to AI. Business owners need clarity about where to focus, what to invest in and how to make changes work in practice.
+                        That is how I approach your business. Not with a tool to sell, but with those three questions. Business owners need clarity about where to focus, what to invest in and how to make changes work in practice.
                       </p>
                       <p className="text-muted-foreground text-base leading-relaxed">
                         I founded IntegroAI Consulting to bring that thinking to AI adoption.{" "}
@@ -257,20 +278,20 @@ const About = () => {
                 transition={{ duration: 0.5 }}
                 className="max-w-2xl mx-auto text-center"
               >
-                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-6">
-                  Curious how an engagement would work for your business?
-                </p>
+                <h2 className="font-heading text-2xl sm:text-3xl font-semibold text-foreground mb-6 [text-wrap:balance]">
+                  Want to know where your time is really going?
+                </h2>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <Button variant="hero" size="lg" className="group w-full sm:w-auto" asChild>
-                    <Link to="/work-with-me">
-                      See How We Can Work Together
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </Button>
-                  <Button variant="outline" size="lg" className="w-full sm:w-auto" asChild>
                     <a href="https://calendly.com/integroai-tech/30min" target="_blank" rel="noopener noreferrer">
                       Book a Discovery Call
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </a>
+                  </Button>
+                  <Button variant="outline" size="lg" className="w-full sm:w-auto" asChild>
+                    <Link to="/work-with-me">
+                      See How We Can Work Together
+                    </Link>
                   </Button>
                 </div>
               </m.div>
