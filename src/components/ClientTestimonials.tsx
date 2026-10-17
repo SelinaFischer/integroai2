@@ -18,7 +18,8 @@ interface ClientTestimonialsProps {
 
 const ClientTestimonials = ({ id, heading, tone = "ivory", scale = "page", children }: ClientTestimonialsProps) => {
   const sectionBg = tone === "white" ? "bg-white" : "bg-brand-ivory";
-  const cardBg = tone === "white" ? "bg-brand-ivory" : "bg-white";
+  // Cards are always white, lifted by a soft shadow and an amber top edge,
+  // so they stand out on both white and ivory sections.
   return (
     <section aria-labelledby={id} className={`${sectionBg} py-12 sm:py-16`}>
       <div className="wrap flex flex-col items-center gap-9">
@@ -32,7 +33,7 @@ const ClientTestimonials = ({ id, heading, tone = "ivory", scale = "page", child
         <ul className="grid w-full list-none grid-cols-1 gap-5 md:grid-cols-2">
           {testimonials.map((testimonial, index) => (
             <m.li key={testimonial.name} {...fadeUpDelayed(index)} className="flex">
-              <figure className={`m-0 flex w-full flex-col rounded-[20px] border border-brand-sand ${cardBg} p-7 sm:p-8`}>
+              <figure className="m-0 flex w-full flex-col rounded-[20px] border border-brand-sand border-t-[3px] border-t-brand-amber bg-white p-7 shadow-[0_14px_36px_-14px_rgba(4,27,43,0.22)] sm:p-8">
                 <blockquote className="m-0 flex-1">
                   <p className="font-heading text-[19px] leading-[1.5] text-brand-navy sm:text-[20px]">
                     “{testimonial.quote}”
