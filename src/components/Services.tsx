@@ -19,7 +19,7 @@ const serviceGroups = [
     stages: [
       {
         number: "",
-        title: "AI Readiness Assessment",
+        title: "Free 5-Minute AI Readiness Assessment",
         description: "A free 5-minute self-assessment for a first indication of where you stand.",
       },
       {

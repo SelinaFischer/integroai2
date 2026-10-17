@@ -26,7 +26,7 @@ const Hero = () => {
           </h1>
 
           <p className="max-w-[600px] text-[17px] leading-normal text-brand-mist sm:text-[19px]">
-            Find where operational firefighting is draining time and capacity. Focus on where AI can make the biggest difference.
+            Understand what is slowing your business down, decide what to improve first, and use AI where it can make a practical difference.
           </p>
 
           {/* Buttons, with the free guide centred beneath them as a light teal text link
