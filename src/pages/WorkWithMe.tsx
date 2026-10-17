@@ -316,7 +316,7 @@ const WorkWithMe = () => {
           {/* Client testimonials: proof at the point of decision. */}
           <Framework titleClassName="font-heading text-3xl sm:text-4xl lg:text-[40px]" />
 
-          <ClientTestimonials id="client-testimonials-title" heading="In our clients’ words">
+          <ClientTestimonials id="client-testimonials-title" heading={<>Clear, Practical, <span className="italic text-brand-amber">Valuable.</span></>}>
             <div className="flex justify-center">
               <a
                 href="https://calendly.com/integroai-tech/30min"
