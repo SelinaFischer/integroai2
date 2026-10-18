@@ -21,7 +21,7 @@ const Index = () => {
     "@type": "LocalBusiness",
     "@id": "https://integroai.tech/#localbusiness",
     "name": "IntegroAI Consulting",
-    "description": "IntegroAI Consulting is an independent AI consultancy for founder-led service businesses. We help founders and leaders reduce operational firefighting and repetitive work, strengthen operational control and identify where AI can create measurable business value, through our Discover-Design-Validate-Deliver-Iterate operating framework. Engagements start with the AI & Operations Diagnostic, followed by foundations and responsible adoption, implementation, and ongoing advisory.",
+    "description": "IntegroAI Consulting is an independent AI consultancy for founder-led service businesses. We help founders and leaders reduce operational firefighting and repetitive work, strengthen operational control and identify where AI can create measurable business value. Engagements start with the AI & Operations Diagnostic, followed by foundations and responsible adoption, implementation, and ongoing advisory.",
     "url": "https://integroai.tech",
     "logo": "https://integroai.tech/apple-touch-icon.png",
     "image": "https://integroai.tech/og-image.png",
