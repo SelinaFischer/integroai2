@@ -13,7 +13,7 @@
 - [Homepage](https://integroai.tech/): what IntegroAI does, who it works with and frequently asked questions.
 - [Free 5-Minute AI Readiness Assessment](https://integroai.tech/assessment): gives an initial view of how ready a business is for AI, with a readiness score and the priority to focus on first.
 - [Work With Me](https://integroai.tech/work-with-me): how engagements work, stage by stage.
-- [About](https://integroai.tech/about): the consultancy, its mission, vision and values, and Selina's story.
+- [About](https://integroai.tech/about): who IntegroAI helps, what clients can expect, and Selina's story.
 - [Book a free 30-minute Discovery Call](https://calendly.com/integroai-tech/30min)
 
 ## Services
