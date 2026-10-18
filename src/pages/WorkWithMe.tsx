@@ -12,7 +12,6 @@ import selinaOffice480 from "@/assets/selina-work-portrait-480.webp";
 import selinaOffice640 from "@/assets/selina-work-portrait-640.webp";
 import { EXTRA_SERVICES_SECTION_ID } from "@/lib/extraServices";
 import ExtraServicesList from "@/components/ExtraServicesList";
-import Framework from "@/components/Framework";
 import ClientTestimonials from "@/components/ClientTestimonials";
 
 // The free 5-minute check is a separate, unnumbered entry row with a button.
@@ -314,9 +313,8 @@ const WorkWithMe = () => {
           </section>
 
           {/* Client testimonials: proof at the point of decision. */}
-          <Framework titleClassName="font-heading text-3xl sm:text-4xl lg:text-[40px]" />
 
-          <ClientTestimonials id="client-testimonials-title" heading={<>Clear, Practical, <span className="italic text-brand-amber">Valuable.</span></>}>
+          <ClientTestimonials id="client-testimonials-title" tone="white" heading={<>Clear, Practical, <span className="italic text-brand-amber">Valuable.</span></>}>
             <div className="flex justify-center">
               <a
                 href="https://calendly.com/integroai-tech/30min"
@@ -331,7 +329,7 @@ const WorkWithMe = () => {
           </ClientTestimonials>
 
           {/* Standalone services, kept brief on purpose. */}
-          <section id={EXTRA_SERVICES_SECTION_ID} className="bg-white py-12 sm:py-14">
+          <section id={EXTRA_SERVICES_SECTION_ID} className="bg-subtle py-12 sm:py-14">
             <div className="wrap">
               <m.div
                 initial={{ opacity: 0, y: 16 }}
