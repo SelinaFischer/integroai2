@@ -149,8 +149,8 @@ const Services = () => {
       <div className="wrap flex flex-col gap-10">
         <SectionHeader
           eyebrow="AI consulting services"
-          title="AI consulting services that cut firefighting, free up capacity and protect margin."
-          intro="IntegroAI provides AI strategy consulting, AI implementation and ongoing AI advisory, led from diagnosis through to delivery."
+          title="Make room for your next stage of growth."
+          intro="Strengthen how your business works, give your team more capacity and deliver a better customer experience. From assessment and strategy to implementation and ongoing support, we help you focus investment where it matters most."
         />
 
         {/* The free check and five stages drawn as one route with six stops, grouped into the
