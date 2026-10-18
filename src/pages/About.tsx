@@ -21,7 +21,7 @@ const values = [
   {
     icon: Shield,
     title: "Integrity",
-    description: "You get honest advice, including when AI is not the answer.",
+    description: "You understand the trade-offs, limitations and reasons behind each recommendation.",
   },
   {
     icon: Award,
@@ -94,19 +94,19 @@ const About = () => {
                   About IntegroAI Consulting
                 </span>
                 <h1 className="mx-auto max-w-2xl font-heading text-[30px] leading-tight sm:text-4xl font-semibold text-foreground mb-6 [text-wrap:balance]">
-                  You started this business to do the work you love.
+                  Your ambition needs a business that can support it.
                 </h1>
                 </div>
 
-                <div className="mx-auto max-w-3xl space-y-5" data-intro-text>
+                <div className="mx-auto max-w-2xl space-y-5" data-intro-text>
                   <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                    Then it grew. Now your week goes on chasing updates, fixing the same problems twice and answering questions only you can answer. Your team is busy, but not always on the work that grows the business.
+                    As your business grows, you need more than a team working harder. You need the capacity to serve customers well, make confident decisions and take on new opportunities.
                   </p>
                   <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                    IntegroAI Consulting is an independent AI consultancy for founder-led service businesses. I help founders cut firefighting and repetitive work, and reclaim time for the work they love.
+                    I founded IntegroAI Consulting to help founder-led service businesses make practical decisions about AI and how they work. The aim is to strengthen everyday operations while protecting the expertise, relationships and service your customers value.
                   </p>
                   <p className="text-foreground text-sm sm:text-base leading-relaxed font-medium">
-                    My advice is independent of any technology provider. Recommendations are shaped by your business goals, budget and existing systems.
+                    You receive independent advice shaped around your goals, budget and existing systems, including an honest view of where AI is worth using and where a simpler change would serve you better.
                   </p>
                 </div>
               </m.div>
