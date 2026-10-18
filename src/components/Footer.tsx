@@ -16,7 +16,6 @@ const Footer = () => {
   // sectionId scrolls to that section of /work-with-me after navigating.
   const solutionsLinks: { label: string; sectionId?: string }[] = [
     { label: "AI & Operations Diagnostic" },
-    { label: "AI Strategy & Prioritisation Roadmap" },
     { label: "AI Foundations & Responsible Adoption" },
     { label: "AI & Automation Implementation" },
     { label: "Ongoing AI & Operations Advisory" },

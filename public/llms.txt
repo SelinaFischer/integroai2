@@ -18,9 +18,8 @@
 
 ## Services
 
-- AI Readiness Assessment: a free self-assessment to see where a business stands before investing in AI.
-- AI & Operations Diagnostic: a clear, evidence-based view of how the business runs today and where the real priorities sit.
-- AI Strategy & Prioritisation Roadmap: decide what is worth solving and which opportunities to prioritise first.
+- AI Readiness Assessment: a free 5-minute self-assessment for a first indication of where a business stands.
+- AI & Operations Diagnostic: the starting point for every engagement. A consultant-led review that shows what is slowing the business down, what to fix first and where AI is worth the investment. The client then chooses what to act on first, and each next stage is agreed before it begins.
 - AI Foundations & Responsible Adoption: put the right foundations in place for AI to work safely, responsibly and sustainably.
 - AI & Automation Implementation: turn validated opportunities into working solutions with a clear business case.
 - Ongoing AI & Operations Advisory: keep implemented changes delivering value as the business and technology evolve.

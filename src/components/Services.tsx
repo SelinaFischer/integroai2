@@ -1,47 +1,48 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { m } from "framer-motion";
 import SectionHeader from "./SectionHeader";
 import { fadeUp } from "@/lib/motion";
 import ExtraServicesList from "./ExtraServicesList";
 
-// The six stages a client can engage, grouped into three service areas.
-// Stage numbers (01 to 06) match /work-with-me, where each stage is covered
-// in full. `description` is not shown on screen; it feeds the schema.org
-// microdata so search engines and AI assistants still get a full description.
+// The free check plus the five paid stages, grouped into three service areas.
+// Stage numbers (01 to 05) match /work-with-me, where each stage is covered in
+// full. The free check has no number and shows a clock instead. `description`
+// is not shown on screen; it feeds the schema.org microdata so search engines
+// and AI assistants still get a full description.
 const serviceGroups = [
   {
-    title: "AI Readiness & Operations Diagnostic",
-    outcome: "See where time and margin are leaking",
-    summary: "Find where time, capacity or control is being lost, before you spend on AI.",
+    title: "AI & Operations Diagnostic",
+    outcome: "Know what to fix first, before you invest",
+    summary: "A clear view of what is holding your business back, and where to start.",
     stages: [
       {
-        number: "01",
-        title: "AI Readiness Assessment",
-        description: "A 5-minute self-assessment to see where you stand before you invest in AI.",
+        number: "",
+        title: "Free 5-Minute AI Readiness Assessment",
+        description: "A free 5-minute self-assessment for a first indication of where you stand.",
       },
       {
-        number: "02",
+        number: "01",
         title: "AI & Operations Diagnostic",
-        description: "Identify the workflow bottlenecks costing you time, capacity or control.",
+        description: "A consultant-led review of the business that shows what is slowing it down, what to fix first and where AI is worth the investment.",
       },
     ],
   },
   {
-    title: "AI Strategy Consulting",
-    outcome: "Know what to fix first",
-    summary: "A clear, sequenced plan, so your budget goes to the opportunities that matter.",
+    title: "Priorities & Foundations",
+    outcome: "Agree what matters, then get ready for it",
+    summary: "You choose what to act on first. We prepare your workflows, data and team for it.",
     stages: [
       {
-        number: "03",
-        title: "AI Strategy & Prioritisation Roadmap",
-        description: "Identify which opportunities are worth pursuing first.",
+        number: "02",
+        title: "Agree Your Priorities",
+        description: "Choose what to act on first, and agree the scope and measures for the next stage.",
       },
       {
-        number: "04",
+        number: "03",
         title: "AI Foundations & Responsible Adoption",
-        description: "Get the foundations right before you adopt AI.",
+        description: "Prepare workflows, data, governance and your team for the changes you chose.",
       },
     ],
   },
@@ -51,12 +52,12 @@ const serviceGroups = [
     summary: "Working solutions your team actually uses, with people in control of the decisions that matter.",
     stages: [
       {
-        number: "05",
+        number: "04",
         title: "AI & Automation Implementation",
-        description: "Turn validated opportunities into working solutions.",
+        description: "Turn your agreed priorities into working solutions.",
       },
       {
-        number: "06",
+        number: "05",
         title: "Ongoing AI & Operations Advisory",
         description: "Review what's working, and refine what's next.",
       },
@@ -152,7 +153,7 @@ const Services = () => {
           intro="IntegroAI provides AI strategy consulting, AI implementation and ongoing AI advisory, led from diagnosis through to delivery."
         />
 
-        {/* The six stages drawn as one route with six stops, grouped into the
+        {/* The free check and five stages drawn as one route with six stops, grouped into the
             three service areas. The three headings and their descriptions are
             left-aligned and, on desktop, sit flush with the stage names beneath
             them (see usePanelEdges). Each stop sits centred over its name and the
@@ -201,7 +202,7 @@ const Services = () => {
                     const isLastStop = isLastInGroup && groupIndex === serviceGroups.length - 1;
                     return (
                       <li
-                        key={stage.number}
+                        key={stage.title}
                         className="relative flex gap-3.5 pb-5 last:pb-0 md:pr-5 lg:flex-col lg:items-center lg:gap-3 lg:px-2.5 lg:pb-0 lg:text-center"
                         itemScope
                         itemType="https://schema.org/Service"
@@ -221,7 +222,7 @@ const Services = () => {
                           aria-hidden="true"
                           className="relative z-10 flex h-8 w-8 flex-none items-center justify-center rounded-full bg-brand-amber text-xs font-semibold text-brand-navy ring-4 ring-brand-navy"
                         >
-                          {stage.number}
+                          {stage.number || <Clock className="h-4 w-4" strokeWidth={2.2} />}
                         </span>
                         <span data-stage-name className="pt-1.5 text-[15px] font-medium leading-snug text-white lg:pt-0" itemProp="name">
                           {stage.title}
@@ -236,7 +237,7 @@ const Services = () => {
           </ol>
         </m.div>
 
-        {/* Standalone services, separate from the six numbered stages. */}
+        {/* Standalone services, separate from the numbered stages. */}
         <m.div {...fadeUp} className="flex flex-col gap-5">
           <p className="eyebrow text-center">More practical solutions to support your business</p>
           <ExtraServicesList />
