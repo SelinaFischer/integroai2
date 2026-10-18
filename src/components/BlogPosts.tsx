@@ -1,4 +1,5 @@
 import { m } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import SectionHeader from "./SectionHeader";
 import { articles } from "@/lib/blogData";
@@ -24,22 +25,28 @@ const BlogPosts = ({ compact = false }: BlogPostsProps) => {
       <div className="wrap flex flex-col gap-8">
         <SectionHeader eyebrow="Blog" title="Practical AI guides for business leaders" />
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
           {latestPosts.map((post, index) => (
             <m.article key={post.slug} {...fadeUpDelayed(index)} className="flex">
               <Link
                 to={`/blog/${post.slug}`}
-                className="card-soft group flex flex-1 flex-col gap-3 p-7 transition-colors hover:border-brand-amber"
+                className="group flex flex-1 flex-col gap-4 rounded-[20px] border border-brand-sand bg-white px-7 pb-6 pt-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-amber/60 hover:shadow-[0_16px_36px_-18px_rgba(4,27,43,0.22)]"
               >
-                <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-brand-slate">{post.category}</p>
-                <h3 className="text-[19px] leading-tight">{post.title}</h3>
+                <p className="flex items-center gap-2 text-[10.5px] font-bold uppercase tracking-[0.16em] text-brand-teal">
+                  <span className="h-1.5 w-1.5 rounded-full bg-brand-amber" aria-hidden="true" />
+                  {post.category}
+                </p>
+                <h3 className="font-heading text-[21px] font-semibold leading-[1.25] text-brand-navy [text-wrap:balance] sm:text-[22px]">
+                  {post.title}
+                </h3>
                 {compact ? (
                   <span className="flex-1" />
                 ) : (
                   <p className="line-clamp-3 flex-1 text-[15px] leading-relaxed text-brand-slate">{post.excerpt}</p>
                 )}
-                <span className="py-2.5 text-[15px] font-semibold text-brand-navy underline underline-offset-4 group-hover:decoration-brand-amber">
+                <span className="mt-1 flex items-center gap-1.5 border-t border-brand-sand pt-4 text-[13.5px] font-medium text-brand-slate transition-colors group-hover:text-brand-navy">
                   Read article
+                  <ArrowRight className="h-3.5 w-3.5 text-brand-amber transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
                 </span>
               </Link>
             </m.article>
