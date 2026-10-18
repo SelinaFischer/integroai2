@@ -93,7 +93,7 @@ const About = () => {
                 <span className="inline-block text-brand-label font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
                   About IntegroAI Consulting
                 </span>
-                <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-foreground mb-6 [text-wrap:balance]">
+                <h1 className="mx-auto max-w-2xl font-heading text-[30px] leading-tight sm:text-4xl font-semibold text-foreground mb-6 [text-wrap:balance]">
                   You started this business to do the work you love.
                 </h1>
                 </div>
