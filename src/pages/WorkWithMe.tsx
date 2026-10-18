@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import * as Accordion from "@radix-ui/react-accordion";
-import { ArrowRight, CheckCircle2, Minus, Plus } from "lucide-react";
+import { ArrowRight, CheckCircle2, Clock, Minus, Plus } from "lucide-react";
 import { m } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -15,15 +15,14 @@ import ExtraServicesList from "@/components/ExtraServicesList";
 import Framework from "@/components/Framework";
 import ClientTestimonials from "@/components/ClientTestimonials";
 
-// Stage 01 is the free entry point and is shown as a single row with a
-// button. Stages 02 to 06 open one at a time: closed, each row shows the
-// stage, its name and the result; open, it shows what we do and what you get.
-// Each paid stage leads to one named deliverable.
+// The free 5-minute check is a separate, unnumbered entry row with a button.
+// The paid journey starts with the AI & Operations Diagnostic. Stages 01 to 05
+// open one at a time: closed, each row shows the stage, its name and the
+// result; open, it shows what we do and what you get.
 const assessment = {
-  number: "01",
-  stage: "Assess",
+  label: "Free · 5 minutes",
   service: "5-Minute AI Readiness Assessment",
-  result: "See where you stand before you invest in AI.",
+  result: "A quick first indication of where you stand, based on your answers.",
   ctaLabel: "Start the free assessment",
   ctaHref: "https://integroai.tech/assessment",
 };
@@ -33,61 +32,57 @@ type Stage = {
   stage: string;
   service: string;
   result: string;
-  doSteps: string[];
-  deliverable: string;
-  get: string[];
+  doSteps?: string[];
+  deliverable?: string;
+  get?: string[];
+  summary?: string;
   extra?: string;
 };
 
 const stages: Stage[] = [
   {
-    number: "02",
-    stage: "Understand",
+    number: "01",
+    stage: "Diagnose",
     service: "AI & Operations Diagnostic",
-    result: "Know where AI can make the biggest difference, and what to tackle first.",
+    result: "Know what is slowing your business down, what to fix first and where AI is worth the investment.",
+    summary:
+      "A consultant-led review shaped around your goals. You come away with clear findings and a recommended way forward.",
+  },
+  {
+    number: "02",
+    stage: "Decide",
+    service: "Agree Your Priorities",
+    result: "You choose what matters most right now, and we agree the next stage together.",
     doSteps: [
-      "Review how work flows today across people, processes, systems and data",
-      "Identify AI opportunities and risks",
-      "Agree and prioritise objectives with you",
+      "Walk through the findings with you",
+      "Choose what to act on first, based on urgency, goals and resources",
+      "Agree the scope, responsibilities and measures of success for the next stage",
     ],
-    deliverable: "Key Findings Report",
-    get: [
-      "A clear, actionable summary of where you stand",
-      "Strengths, weaknesses, opportunities and threats",
-      "The highest-leverage AI opportunities",
-      "Workflow suggestions and a strategic roadmap",
-      "The estimated impact of acting on them",
-    ],
+    deliverable: "An agreed plan for the next stage",
+    get: ["Your priorities, confirmed", "A clear scope and timeline", "Measures to judge success"],
   },
   {
     number: "03",
-    stage: "Prioritise",
-    service: "AI Strategy & Prioritisation Roadmap",
-    result: "A clear plan for what to do, in what order, and how the work will change.",
-    doSteps: [
-      "Interview you and key team members",
-      "Sequence initiatives by business value, feasibility and risk",
-      "Map the detailed workflow changes",
-    ],
-    deliverable: "Roadmap and workflow plan",
-    get: ["A practical, sequenced roadmap", "A detailed workflow plan", "Success measures for each initiative"],
-  },
-  {
-    number: "04",
     stage: "Prepare",
     service: "AI Foundations & Responsible Adoption",
-    result: "Your data, people and governance ready for AI to work safely.",
+    result: "Your workflows, data, people and governance ready for the changes you chose.",
     doSteps: [
+      "Map the detailed workflow changes for your chosen priorities",
       "Check and prepare your data",
-      "Agree governance, ownership and accountability",
+      "Agree ownership, approval points and accountability",
       "Prepare your team to adopt new ways of working",
     ],
-    deliverable: "Data and adoption readiness",
-    get: ["Data readiness actions", "Governance recommendations and accountability framework", "Training and upskilling for your team"],
+    deliverable: "Workflow plan and adoption readiness",
+    get: [
+      "A detailed workflow plan",
+      "Data readiness actions",
+      "Governance and accountability, agreed",
+      "Training and upskilling for your team",
+    ],
     extra: "Outputs reflect the agreed scope of the engagement.",
   },
   {
-    number: "05",
+    number: "04",
     stage: "Implement",
     service: "AI & Automation Implementation",
     result: "Working solutions your team uses, with human oversight built in.",
@@ -101,7 +96,7 @@ const stages: Stage[] = [
     extra: "For example: workflow automation, integrations, AI agents, voice AI agents, proof of concept and MVP. Technology follows the business requirement, not the other way round.",
   },
   {
-    number: "06",
+    number: "05",
     stage: "Evolve",
     service: "Ongoing AI & Operations Advisory",
     result: "Changes that keep delivering value as your business grows.",
@@ -123,7 +118,7 @@ const WorkWithMe = () => {
         <title>Work With Me | AI Consulting &amp; Operations Advisory | IntegroAI Consulting</title>
         <meta
           name="description"
-          content="How engagements with IntegroAI work: a free AI Readiness Assessment, AI & Operations Diagnostic, Opportunity & Strategy Roadmap, Foundations & Responsible Adoption, Implementation and ongoing advisory. Independent, technology-agnostic, tailored to your business."
+          content="Work with IntegroAI: start with the AI & Operations Diagnostic, a consultant-led review of your business. You choose your priorities, then we prepare, implement and improve together. Independent and technology-agnostic."
         />
         <link rel="canonical" href="https://integroai.tech/work-with-me" />
       </Helmet>
@@ -183,7 +178,7 @@ const WorkWithMe = () => {
                       I work with you to understand what is slowing your business down and identify where workflow improvements, AI or automation could make the biggest difference.
                     </p>
                     <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                      We agree your priorities, scope and measures of success before work begins. Support can include an AI readiness review, workflow analysis, an adoption plan, implementation and team training, depending on what your business needs.
+                      It starts with the AI &amp; Operations Diagnostic, a consultant-led review of your business. You choose what to act on first, and we agree each next stage before it begins.
                     </p>
                   </div>
                 </div>
@@ -210,13 +205,13 @@ const WorkWithMe = () => {
             </div>
           </section>
 
-          {/* Stages: one free entry row, then five stages that open one at a time. */}
+          {/* Stages: an unnumbered free entry row, then five stages that open one at a time. */}
           <section className="py-12 sm:py-16 bg-subtle">
             <div className="wrap">
               <div className="max-w-4xl mx-auto text-center mb-8 sm:mb-10">
                 <h2 className="font-heading text-3xl sm:text-4xl lg:text-[40px] mb-4">How We Can Work Together</h2>
                 <p className="text-muted-foreground text-sm sm:text-base leading-relaxed [text-wrap:balance]">
-                  Six stages, from a free assessment to ongoing support. We start by understanding your business challenges, goals and priorities. You receive a Key Findings Report and a tailored strategy, then I help you put it into practice. I lead every stage personally, and we agree the scope together before it begins.
+                  Five stages, from diagnosis to ongoing support. We start by understanding your business and your goals. You choose your priorities, and I help you put them into practice. I lead every stage personally, and we agree the scope together before it begins.
                 </p>
               </div>
 
@@ -227,15 +222,15 @@ const WorkWithMe = () => {
                 transition={{ duration: 0.5 }}
                 className="max-w-4xl mx-auto flex flex-col gap-3"
               >
-                {/* Stage 01: free, so it gets a button instead of details. */}
+                {/* Free check: separate from the paid stages, so it gets a button instead of details. */}
                 <div className="flex flex-col gap-4 rounded-[14px] border border-brand-amber bg-white px-5 py-5 sm:flex-row sm:items-center sm:px-6">
                   <div className="flex flex-1 items-start gap-4">
-                    <span className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-brand-amber text-sm font-semibold text-brand-navy" aria-hidden="true">
-                      {assessment.number}
+                    <span className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-brand-amber text-brand-navy" aria-hidden="true">
+                      <Clock className="h-[18px] w-[18px]" strokeWidth={2} />
                     </span>
                     <div>
                       <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-brand-teal">
-                        Stage {assessment.number} · {assessment.stage} · Free
+                        {assessment.label}
                       </p>
                       <h3 className="mt-1 text-base font-semibold leading-snug text-brand-navy sm:text-[17px]">{assessment.service}</h3>
                       <p className="mt-1 text-sm leading-relaxed text-brand-slate sm:text-[15px]">{assessment.result}</p>
@@ -276,11 +271,14 @@ const WorkWithMe = () => {
                       {/* forceMount keeps the details in the page HTML for search
                           engines and AI assistants while they are collapsed. */}
                       <Accordion.Content forceMount className="px-5 pb-6 data-[state=closed]:hidden sm:px-6 sm:pl-[80px]">
+                        {item.summary ? (
+                          <p className="border-t border-brand-sand pt-5 text-sm leading-relaxed text-brand-navy sm:text-[15px]">{item.summary}</p>
+                        ) : (
                         <div className="grid gap-6 border-t border-brand-sand pt-5 sm:grid-cols-2 sm:gap-8">
                           <div>
                             <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.12em] text-brand-slate">What we do</p>
                             <ol className="flex list-none flex-col gap-2.5">
-                              {item.doSteps.map((step, stepIndex) => (
+                              {item.doSteps?.map((step, stepIndex) => (
                                 <li key={step} className="flex items-start gap-3 text-sm leading-relaxed text-brand-navy sm:text-[15px]">
                                   <span className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-brand-chip text-[11px] font-bold text-brand-navy" aria-hidden="true">
                                     {stepIndex + 1}
@@ -294,7 +292,7 @@ const WorkWithMe = () => {
                             <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.12em] text-brand-slate">What you get</p>
                             <p className="mb-2.5 text-[15px] font-semibold text-brand-navy sm:text-base">{item.deliverable}</p>
                             <ul className="flex flex-col gap-2">
-                              {item.get.map((g) => (
+                              {item.get?.map((g) => (
                                 <li key={g} className="flex items-start gap-2 text-sm leading-relaxed text-brand-slate sm:text-[15px]">
                                   <CheckCircle2 className="mt-0.5 h-4 w-4 flex-none text-brand-teal" aria-hidden="true" />
                                   {g}
@@ -303,6 +301,7 @@ const WorkWithMe = () => {
                             </ul>
                           </div>
                         </div>
+                        )}
                         {item.extra && (
                           <p className="mt-5 text-[13px] leading-relaxed text-brand-slate sm:text-sm">{item.extra}</p>
                         )}
@@ -317,7 +316,7 @@ const WorkWithMe = () => {
           {/* Client testimonials: proof at the point of decision. */}
           <Framework titleClassName="font-heading text-3xl sm:text-4xl lg:text-[40px]" />
 
-          <ClientTestimonials id="client-testimonials-title" heading="In our clients’ words">
+          <ClientTestimonials id="client-testimonials-title" heading={<>Clear, Practical, <span className="italic text-brand-amber">Valuable.</span></>}>
             <div className="flex justify-center">
               <a
                 href="https://calendly.com/integroai-tech/30min"
@@ -371,26 +370,26 @@ const WorkWithMe = () => {
                 </h2>
                 <div className="space-y-4 mb-10 text-left sm:text-center">
                   <p className="text-white/80 text-sm sm:text-base leading-relaxed">
-                    Selina leads IntegroAI engagements personally, providing continuity from initial diagnosis through to recommendations and delivery support.
+                    I lead every engagement personally, from diagnosis through to delivery support.
                   </p>
                   <p className="text-white/80 text-sm sm:text-base leading-relaxed">
-                    Advice is independent and technology-agnostic. Recommendations are based on the needs of the business rather than a preferred platform, vendor or predetermined solution.
+                    My advice is independent and technology-agnostic. Recommendations follow the needs of your business, not a preferred platform, vendor or predetermined solution. Sometimes the right answer is a simpler process, not AI.
                   </p>
                   <p className="text-white/80 text-sm sm:text-base leading-relaxed">
-                    Engagements are tailored to the organisation's priorities, operational maturity and existing environment. The level of support can adapt as those needs evolve.
+                    Every engagement is scoped to your priorities, your team and your existing systems. Fees are agreed with you before work begins, and support adapts as your needs change.
                   </p>
                 </div>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <Button variant="hero" size="lg" className="group w-full sm:w-auto" asChild>
-                    <a href="https://integroai.tech/assessment" target="_blank" rel="noopener noreferrer">
-                      Start AI Readiness Assessment
+                    <a href="https://calendly.com/integroai-tech/30min" target="_blank" rel="noopener noreferrer">
+                      Book a Discovery Call
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </a>
                   </Button>
                   <Button variant="heroOutline" size="lg" className="w-full sm:w-auto" asChild>
-                    <a href="https://calendly.com/integroai-tech/30min" target="_blank" rel="noopener noreferrer">
-                      Book a Discovery Call
+                    <a href="https://integroai.tech/assessment" target="_blank" rel="noopener noreferrer">
+                      Start the free assessment
                     </a>
                   </Button>
                 </div>
