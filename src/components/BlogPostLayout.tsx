@@ -8,6 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 import { createScrollHandler } from "@/lib/scrollToSection";
 import Header from "./Header";
 import Footer from "./Footer";
+import BlogTitle from "./BlogTitle";
 
 interface BlogPostLayoutProps {
   title: string;
@@ -251,7 +252,7 @@ const BlogPostLayout = ({ title, subtitle, seoTitle, metaDescription, date, cate
               </div>
               
               <h1 className="text-3xl sm:text-4xl lg:text-[40px] font-bold text-primary-foreground leading-[1.15] mb-6 [text-wrap:balance]">
-                {title}
+                <BlogTitle title={title} />
               </h1>
               
               <p className="text-xl text-primary-foreground/80 leading-relaxed">
@@ -348,7 +349,7 @@ const BlogPostLayout = ({ title, subtitle, seoTitle, metaDescription, date, cate
                         <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-brand-slate">
                           {next.category} · {next.readTime}
                         </span>
-                        <span className="flex-1 text-[17px] font-medium leading-snug text-brand-navy">{next.title}</span>
+                        <span className="flex-1 text-[17px] font-medium leading-snug text-brand-navy"><BlogTitle title={next.title} /></span>
                         <span className="flex items-center gap-1.5 text-[15px] font-semibold text-brand-navy">
                           Read article
                           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />

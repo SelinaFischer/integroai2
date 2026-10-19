@@ -6,6 +6,7 @@ import { articles } from "@/lib/blogData";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GuideBanner from "@/components/GuideBanner";
+import BlogTitle from "@/components/BlogTitle";
 import { Button } from "@/components/ui/button";
 
 // All posts from blogData.tsx — single source of truth
@@ -123,8 +124,8 @@ const BlogPage = () => {
                       </div>
 
                       {/* Title */}
-                      <h2 className="text-base font-bold text-foreground group-hover:text-accent-warm transition-colors line-clamp-3 leading-snug">
-                        {post.title}
+                      <h2 className="text-base font-bold text-foreground group-hover:text-accent-warm transition-colors leading-snug">
+                        <BlogTitle title={post.title} />
                       </h2>
 
                       {/* Excerpt */}
