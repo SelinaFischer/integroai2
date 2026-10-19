@@ -14,6 +14,7 @@ import BlogPage from "./pages/Blog";
 import WorkWithMe from "./pages/WorkWithMe";
 import About from "./pages/About";
 import AiVisibilityGuide from "./pages/AiVisibilityGuide";
+import FreeResources from "./pages/FreeResources";
 
 // The "install this app" help page is rarely visited, so it loads on demand.
 const Install = lazy(() => import("./pages/Install"));
@@ -59,6 +60,7 @@ const App = ({ skipEntrance = false }: AppProps) => {
           <Route path="/work-with-me" element={<WorkWithMe />} />
           <Route path="/about" element={<About />} />
           <Route path="/ai-visibility-guide" element={<AiVisibilityGuide />} />
+          <Route path="/free-resources" element={<FreeResources />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/install" element={<Suspense fallback={null}><Install /></Suspense>} />

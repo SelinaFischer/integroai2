@@ -80,12 +80,13 @@ const Header = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [mobileMenuOpen]);
 
-  // Desktop shows the three main pages plus the assessment button. The
+  // Desktop shows the four main pages plus the assessment button. The
   // mobile menu adds Home, the assessment link and Contact.
   const primaryLinks = [
     { to: "/work-with-me", label: "Work With Me" },
     { to: "/about", label: "About" },
     { to: "/blog", label: "Blog" },
+    { to: "/free-resources", label: "Free Resources" },
   ];
 
   const menuLinks = [{ to: "/", label: "Home" }, ...primaryLinks];

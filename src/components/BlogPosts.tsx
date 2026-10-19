@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import SectionHeader from "./SectionHeader";
 import { articles } from "@/lib/blogData";
 import { fadeUp, fadeUpDelayed } from "@/lib/motion";
+import BlogTitle from "@/components/BlogTitle";
 
 // Homepage shows only the latest 3 articles, newest first. The full list
 // lives on /blog via "View all posts" below. Source of truth is articles in
@@ -37,7 +38,7 @@ const BlogPosts = ({ compact = false }: BlogPostsProps) => {
                   {post.category}
                 </p>
                 <h3 className="font-heading text-[21px] font-semibold leading-[1.25] text-brand-navy [text-wrap:balance] sm:text-[22px]">
-                  {post.title}
+                  <BlogTitle title={post.title} />
                 </h3>
                 {compact ? (
                   <span className="flex-1" />
