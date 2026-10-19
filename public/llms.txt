@@ -27,12 +27,14 @@
 - Website Design & Build: a professional website, designed, built and launched for the business.
 - AI Search Visibility (AEO & GEO): a review of how Google and AI tools see a business, then improvements to the clarity, consistency and content that help it get recommended.
 
-## Free guide
+## Free guides
 
 - [Does AI know your business exists?](https://integroai.tech/ai-visibility-guide): a practical guide and checklist on being found, understood and recommended in the age of AI search. Covers SEO, AEO and GEO: find me, answer me, recommend me.
+- [Find the work AI could do for you](https://forms.gle/q2ksSyLWjmReEmVRA): a free four-page AI cheat sheet for founders and business owners. Map your week, spot tasks AI could help with, brief AI clearly and check what it produces.
 
 ## Articles
 
+- [How Can AI Help Your Business? 4 Steps to Find the Work AI Could Do for You](https://integroai.tech/blog/how-can-ai-help-your-business)
 - [Why Do AI Initiatives Stall? A Six-Point AI Readiness Checklist](https://integroai.tech/blog/why-ai-initiatives-stall)
 - [Which Tasks Should a Business Automate With AI First?](https://integroai.tech/blog/which-tasks-to-automate-with-ai-first)
 - [How to Get Your Business Found by ChatGPT and Other AI Tools](https://integroai.tech/blog/how-to-get-your-business-found-on-chatgpt)

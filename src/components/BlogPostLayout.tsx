@@ -12,6 +12,10 @@ import Footer from "./Footer";
 interface BlogPostLayoutProps {
   title: string;
   subtitle: string;
+  /** Optional shorter title for the browser tab and search results. Falls back to the title. */
+  seoTitle?: string;
+  /** Optional meta description for search results. Falls back to the subtitle. */
+  metaDescription?: string;
   date: string;
   category: string;
   readTime: string;
@@ -24,7 +28,7 @@ interface BlogPostLayoutProps {
   children: React.ReactNode;
 }
 
-const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image, keepReading = [], faqs = [], children }: BlogPostLayoutProps) => {
+const BlogPostLayout = ({ title, subtitle, seoTitle, metaDescription, date, category, readTime, slug, image, keepReading = [], faqs = [], children }: BlogPostLayoutProps) => {
   const { toast } = useToast();
   const [copied, setCopied] = useState(false);
   const [readingProgress, setReadingProgress] = useState(0);
@@ -168,18 +172,18 @@ const BlogPostLayout = ({ title, subtitle, date, category, readTime, slug, image
   return (
     <>
       <Helmet>
-        <title>{title} | IntegroAI Consulting</title>
-        <meta name="description" content={subtitle} />
+        <title>{seoTitle ?? title} | IntegroAI Consulting</title>
+        <meta name="description" content={metaDescription ?? subtitle} />
         <link rel="canonical" href={`https://integroai.tech/blog/${slug}`} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={subtitle} />
+        <meta property="og:title" content={seoTitle ?? title} />
+        <meta property="og:description" content={metaDescription ?? subtitle} />
         <meta property="og:url" content={`https://integroai.tech/blog/${slug}`} />
         <meta property="og:type" content="article" />
         <meta property="og:image" content={articleImage} />
         <meta property="og:image:alt" content={title} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={subtitle} />
+        <meta name="twitter:title" content={seoTitle ?? title} />
+        <meta name="twitter:description" content={metaDescription ?? subtitle} />
         <meta name="twitter:image" content={articleImage} />
         <meta property="article:published_time" content={isoDate} />
         <meta property="article:author" content="Selina Fischer" />
