@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { GUIDE_FORM_URL, trackGuideClick } from "@/lib/guide";
 
 import { DISCOVERY_CALL_URL } from "@/lib/motion";
+import { CHEAT_SHEET_FORM_URL, trackCheatSheetClick } from "@/lib/cheatSheet";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // BLOG DATA FILE
@@ -13,6 +15,10 @@ export interface BlogArticle {
   slug: string;
   title: string;
   subtitle: string;
+  /** Optional shorter title for the browser tab and search results. */
+  seoTitle?: string;
+  /** Optional meta description for search results. Falls back to the subtitle. */
+  metaDescription?: string;
   date: string;
   category: string;
   readTime: string;
@@ -1662,6 +1668,23 @@ const WhichTasksToAutomateContent: React.FC = () => (
       That last check is easy to overlook.{" "}
       <strong>An AI draft that takes longer to fix than to write has saved no time.</strong>
     </p>
+    <p>
+      Want to map your own week first? The{" "}
+      <a
+        href={CHEAT_SHEET_FORM_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={() => trackCheatSheetClick("blog-which-tasks-inline")}
+        className={articleLink}
+      >
+        free AI cheat sheet
+      </a>{" "}
+      has a task-by-task worksheet, or read{" "}
+      <Link to="/blog/how-can-ai-help-your-business" className={articleLink}>
+        how AI can help your business in four steps
+      </Link>
+      .
+    </p>
 
     <h2>Step 3: Remove, simplify, then automate or hand off</h2>
     <p>Before any technology goes near a task, work through it in this order:</p>
@@ -1962,11 +1985,282 @@ const WhyAiInitiativesStallContent: React.FC = () => (
 );
 
 // ─────────────────────────────────────────────────────────────────────────────
+// HOW CAN AI HELP YOUR BUSINESS? (companion to the free AI cheat sheet, October 2026)
+// ─────────────────────────────────────────────────────────────────────────────
+
+const howCanAiHelpFaqs: Faq[] = [
+  {
+    question: "How can AI help my business?",
+    answer:
+      "AI helps most with tasks you already do. It can save you time, help you do the work better, or do something you could not do alone. Think meeting notes, weekly reports, follow-ups and customer FAQs, not a new system.",
+  },
+  {
+    question: "How can a UK SME start using AI?",
+    answer:
+      "Start with one task you already do every week, such as meeting notes, a weekly report or invoice chasers. Brief AI clearly, check the result, and measure whether it saved time. Then expand from there.",
+  },
+  {
+    question: "How do I know if a task is worth handing to AI?",
+    answer:
+      "Ask three questions. Do you do it again and again? Is it mostly words or numbers? Could you teach a new starter to do it? A yes to any one makes it worth a try.",
+  },
+  {
+    question: "How do I write a better AI prompt?",
+    answer:
+      "Brief AI like a new starter. Give it your intent, the evidence it needs, the task, your constraints and the format you want back. If you are stuck, ask AI to interview you first.",
+  },
+  {
+    question: "Is it safe to put client information into AI tools?",
+    answer:
+      "Be careful. Leave out client names, figures and personal details unless you know how your tool handles data. Some free tools may learn from what you type, so check the settings.",
+  },
+  {
+    question: "Should I automate a process before fixing it?",
+    answer:
+      "No. Get the process right first, then add AI. Automating a broken process only makes the mess faster.",
+  },
+];
+
+const aiWaysToHelp = [
+  { title: "Research and investigate", text: "Compare competitors, check suppliers, prepare for a client meeting." },
+  { title: "Think and brainstorm", text: "Talk through a challenge, test an assumption, shape an offer." },
+  { title: "Create and communicate", text: "Presentations, guides, images and videos, led by your direction." },
+  { title: "Plan your marketing", text: "Explore customer needs, shape campaigns, review results." },
+  { title: "Analyse and understand", text: "Spot trends in a spreadsheet, group customer feedback, build a report." },
+  { title: "Capture and organise", text: "Speak your thoughts into your phone and turn them into next actions." },
+  { title: "Improve how work happens", text: "Map a process, spot repeated steps, build checklists." },
+  { title: "Connect and automate", text: "With the right integrations and permissions, route enquiries and trigger reminders." },
+];
+
+const HowCanAiHelpContent: React.FC = () => (
+  <>
+    <div className="not-prose my-8 rounded-[14px] border border-brand-sand bg-brand-ivory p-6">
+      <p className={`${articleLabel} mb-3`}>The quick answer</p>
+      <p className="text-[17px] leading-relaxed text-brand-navy">
+        AI can help your business by taking repetitive work off your plate: meeting notes, weekly reports,
+        follow-ups, customer FAQs and first drafts. The best way to use AI in business is to start with tasks you
+        already do, not new systems. Follow four steps: <strong>discover</strong> what AI can do,{" "}
+        <strong>find</strong> repeated tasks in your week, <strong>brief</strong> AI like a new starter, and{" "}
+        <strong>check</strong> everything before you use it. Start with one small experiment.
+      </p>
+      <p className="mt-4 text-[15px] leading-relaxed text-brand-slate">
+        <a
+          href={CHEAT_SHEET_FORM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => trackCheatSheetClick("blog-how-can-ai-help-top")}
+          className={articleLink}
+        >
+          Get the free AI cheat sheet
+        </a>{" "}
+        with the worksheet, prompt template and checklist.
+      </p>
+    </div>
+
+    <h2>Most founders and business owners only use AI for emails</h2>
+    <p>
+      Most founders and business owners use AI to write emails. Maybe a LinkedIn post. That is a fine first step.
+      But it barely scratches what AI could take off your plate.
+    </p>
+    <p>
+      The real opportunity is not a new system or a big project. It is the work already sitting in your week. The
+      weekly plan. The meeting notes. The invoice chasers. The same five questions customers keep asking.
+    </p>
+    <p>
+      An AI opportunity is any task where AI could save you time, help you do it better, or do something you could
+      not do alone.
+    </p>
+    <p>
+      Most guides on AI for small business start with a list of tools. This one is for founders of UK service
+      businesses, and it starts with your week. No tech skills needed.
+    </p>
+    <p>
+      Here is a simple four-step way to find yours: <strong>Discover, Find, Brief, Check.</strong>
+    </p>
+
+    <h2>Step 1: What can AI do for your business?</h2>
+    <p>Before you look for tasks, widen the picture. AI can support a business in at least eight ways:</p>
+    <div className="not-prose my-8 grid gap-4 sm:grid-cols-2">
+      {aiWaysToHelp.map((way) => (
+        <div key={way.title} className={articleCard}>
+          <p className="mb-1 text-[16px] font-semibold text-brand-navy">{way.title}</p>
+          <p className="text-[15px] leading-relaxed text-brand-slate">{way.text}</p>
+        </div>
+      ))}
+    </div>
+    <p>
+      What each tool can actually do depends on the service you use and what it can access. So ask, and verify
+      what it produces.
+    </p>
+
+    <h2>Step 2: How to find which tasks to hand to AI</h2>
+    <p>Go through your week, task by task. Include the small, everyday ones. Then ask three questions:</p>
+    <ol>
+      <li><strong>Do you do it again and again?</strong> Weekly reports, follow-ups, the same answers.</li>
+      <li><strong>Is it mostly words or numbers?</strong> Reading, writing, sorting notes or spreadsheets.</li>
+      <li><strong>Could you teach a new starter to do it?</strong> And trust the result once you had checked it?</li>
+    </ol>
+    <p>Yes to any one? It is worth a try. It does not need all three.</p>
+    <p>
+      Next, decide what kind of help you want. AI can <strong>offload</strong> work (take it off your plate),{" "}
+      <strong>augment</strong> it (help you do it better) or take you <strong>beyond</strong> what you could do alone.
+    </p>
+    <p>
+      And before you hand anything over, ask the more important question: should this task exist at all? Some tasks
+      should be <strong>eliminated</strong>. Some <strong>automated</strong>. Some <strong>delegated</strong> to
+      someone on your team. Never automate a pointless task.
+    </p>
+    <p>Then pick one small experiment. One task, one week, one clear sign that it helped.</p>
+    <p>
+      Running a team? See{" "}
+      <Link to="/blog/which-tasks-to-automate-with-ai-first" className={articleLink}>
+        which tasks a business should automate with AI first
+      </Link>{" "}
+      for a five-step version with a worked example.
+    </p>
+
+    <div className="not-prose my-8 rounded-[14px] border border-brand-teal/40 bg-white p-6">
+      <p className="text-[17px] leading-relaxed text-brand-navy">
+        <strong>Map your week in one sitting.</strong> The free AI cheat sheet includes a task-by-task worksheet to
+        spot the work AI could do for you.{" "}
+        <a
+          href={CHEAT_SHEET_FORM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => trackCheatSheetClick("blog-how-can-ai-help-inline")}
+          className={articleLink}
+        >
+          Download it here
+        </a>
+        .
+      </p>
+    </div>
+
+    <h2>Step 3: How to write a clear AI prompt</h2>
+    <p>Most disappointing AI results come from a thin brief. “Write me a plan” gets you a generic plan.</p>
+    <p>
+      Brief AI the way you would brief a new starter on their first day. Give them everything they need to do it
+      right without coming back to you:
+    </p>
+    <ul>
+      <li><strong>Intent.</strong> What do you want to achieve?</li>
+      <li><strong>Evidence.</strong> What does it need to know, and what can you safely share?</li>
+      <li><strong>Task.</strong> Research, compare, analyse, create, organise or plan?</li>
+      <li><strong>Constraints.</strong> Limits, privacy needs and approval points.</li>
+      <li><strong>Format.</strong> What should it give back? A shortlist, a comparison, an action plan?</li>
+    </ul>
+    <p>
+      Stuck on the brief? Ask AI to interview you first:{" "}
+      <em>“Ask me questions about anything unclear before you start.”</em> Your answers become the brief.
+    </p>
+    <p>
+      Not right first time? Treat it as a first draft. Say what to change, as you would with a new starter. Then
+      save the prompt that works.
+    </p>
+    <p>
+      The cheat sheet includes a fill-in brief template with a worked example, plus a ready-made voice prompt you can
+      say straight into your phone.
+    </p>
+
+    <h2>Step 4: How to check AI output before you use it</h2>
+    <p>AI gives you a strong first draft. You make it right.</p>
+    <p>
+      Think of it as 80/20. AI drafts, sorts and structures. The last 20% is yours: your judgement, your knowledge of
+      your customers, your voice. That is where your value sits.
+    </p>
+    <p>Before you use anything AI produces, run a quick final check:</p>
+    <ul>
+      <li><strong>Facts checked.</strong> AI can sound sure and still be wrong. Check any figure, name, date or claim.</li>
+      <li>
+        <strong>Sensitive information protected.</strong> Leave out client names, figures and personal details. Some
+        free tools may learn from what you type, so check the settings.
+      </li>
+      <li><strong>Your judgement applied.</strong> Does it sound like you? Does it fit your customers?</li>
+      <li><strong>Actions approved by you.</strong> AI asks before it sends, books or updates anything.</li>
+    </ul>
+
+    <h2>Get the process right first. Then add AI.</h2>
+    <p>One warning before you start. Automating a broken process only makes the mess faster.</p>
+    <p>
+      If a task keeps going wrong, the fix is rarely a smarter tool. It is clarity on who owns it, what good looks
+      like and which steps actually matter. Get that right, and AI becomes a genuine time saver instead of another
+      thing to manage.
+    </p>
+
+    <div className="not-prose mt-12 rounded-[14px] border border-brand-sand bg-brand-ivory p-7">
+      <p className={`${articleLabel} mb-3`}>Free AI cheat sheet</p>
+      <p className="mb-3 text-[21px] font-medium leading-snug text-brand-navy">Find the work AI could do for you</p>
+      <p className="mb-3 text-[15px] leading-relaxed text-brand-slate">
+        Turn this article into action. The four-page cheat sheet helps you map your week and pick your first
+        experiment:
+      </p>
+      <ul className="mb-5 list-disc space-y-1 pl-5 text-[15px] leading-relaxed text-brand-slate">
+        <li>A task-by-task worksheet to spot the work AI could do for you</li>
+        <li>A fill-in brief template with a worked example</li>
+        <li>A ready-made voice prompt to plan your week</li>
+        <li>A final checklist before you use anything AI produces</li>
+      </ul>
+      <a
+        href={CHEAT_SHEET_FORM_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={() => trackCheatSheetClick("blog-how-can-ai-help-article")}
+        className="btn-amber"
+      >
+        Download the free AI cheat sheet
+      </a>
+    </div>
+
+    <p className="!mt-10">
+      Want to know how ready your business is for AI?{" "}
+      <a href="https://integroai.tech/assessment" className={articleLink}>
+        Take the free 5-minute AI Readiness Assessment
+      </a>{" "}
+      and get an instant scorecard.
+    </p>
+    <p>
+      Ready to talk it through?{" "}
+      <a href={DISCOVERY_CALL_URL} target="_blank" rel="noopener noreferrer" className={articleLink}>
+        Book a free AI Readiness Discovery Call
+      </a>
+      : a no-obligation chat about where AI fits your business.
+    </p>
+
+    <ArticleFaq faqs={howCanAiHelpFaqs} />
+
+    <p className="!mt-12 border-t border-brand-sand pt-6 !text-[15px] !leading-relaxed">
+      <strong>Selina Fischer</strong> is the founder of IntegroAI Consulting, a UK-based AI consultancy, and an AI
+      Adoption &amp; Transformation Consultant. She helps founders of service businesses cut firefighting and
+      repetitive work, and reclaim time for the work they love. Her background spans travel technology, aviation,
+      ecommerce and property tech, across product management, operations, data and marketing.{" "}
+      <a href="https://www.linkedin.com/in/selinafischer-ai/" target="_blank" rel="noopener noreferrer" className={articleLink}>
+        Connect on LinkedIn
+      </a>
+      .
+    </p>
+  </>
+);
+
+// ─────────────────────────────────────────────────────────────────────────────
 // MASTER ARTICLES ARRAY
 // Add new articles here. Everything else is automatic.
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const articles: BlogArticle[] = [
+  {
+    slug: "how-can-ai-help-your-business",
+    title: "How Can AI Help Your Business? 4 Steps to Find the Work AI Could Do for You",
+    subtitle: "Most founders only use AI for emails. Four simple steps to find the everyday tasks AI could take off your plate, brief it well and check what it gives back.",
+    seoTitle: "How Can AI Help Your Business? 4 Steps to Start",
+    metaDescription: "How can AI help your business? Learn how to use AI in business with 4 simple steps for UK service businesses. Free AI cheat sheet.",
+    date: "October 2026",
+    category: "AI Adoption",
+    readTime: "5 min read",
+    excerpt: "Most founders only use AI for emails. Four simple steps to find the everyday tasks AI could take off your plate, brief it well and check what it gives back.",
+    related: ["which-tasks-to-automate-with-ai-first", "why-ai-initiatives-stall"],
+    faqs: howCanAiHelpFaqs,
+    Content: HowCanAiHelpContent,
+  },
   {
     slug: "why-ai-initiatives-stall",
     title: "Why Do AI Initiatives Stall? A Six-Point AI Readiness Checklist",

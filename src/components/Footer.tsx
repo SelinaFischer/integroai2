@@ -8,6 +8,7 @@ import { ASSESSMENT_URL } from "@/lib/motion";
 import { scrollToSection } from "@/lib/scrollToSection";
 import { EXTRA_SERVICES_SECTION_ID } from "@/lib/extraServices";
 import { GUIDE_FORM_URL, trackGuideClick } from "@/lib/guide";
+import { CHEAT_SHEET_FORM_URL, trackCheatSheetClick } from "@/lib/cheatSheet";
 import { openCookieSettings } from "./CookieConsent";
 
 const Footer = () => {
@@ -96,6 +97,17 @@ const Footer = () => {
                   className={linkClass}
                 >
                   Free AI Visibility Guide
+                </a>
+              </li>
+              <li>
+                <a
+                  href={CHEAT_SHEET_FORM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackCheatSheetClick("footer")}
+                  className={linkClass}
+                >
+                  Free AI Cheat Sheet
                 </a>
               </li>
               <li>
