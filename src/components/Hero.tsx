@@ -4,7 +4,7 @@ import portrait from "@/assets/selina-hero-portrait.webp";
 import portrait340 from "@/assets/selina-hero-portrait-340.webp";
 import portrait510 from "@/assets/selina-hero-portrait-510.webp";
 import { ASSESSMENT_URL, DISCOVERY_CALL_URL } from "@/lib/motion";
-import { GUIDE_FORM_URL, trackGuideClick } from "@/lib/guide";
+import { CHEAT_SHEET_FORM_URL, trackCheatSheetClick } from "@/lib/cheatSheet";
 
 const Hero = () => {
   return (
@@ -29,7 +29,7 @@ const Hero = () => {
             Understand what is slowing your business down, decide what to improve first, and use AI where it can make a practical difference.
           </p>
 
-          {/* Buttons, with the free guide centred beneath them as a light teal text link
+          {/* Buttons, with the free AI cheat sheet centred beneath them as a light teal text link
               so the amber button stays the one main action. */}
           <div className="flex w-full flex-col gap-7 sm:w-fit">
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
@@ -53,17 +53,17 @@ const Hero = () => {
             </div>
 
             <a
-              href={GUIDE_FORM_URL}
+              href={CHEAT_SHEET_FORM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackGuideClick("hero")}
+              onClick={() => trackCheatSheetClick("hero")}
               className="group flex flex-col items-center gap-1 self-center text-center"
             >
               <span className="text-sm font-semibold leading-snug text-brand-seaglass sm:text-[15px]">
-                How visible is your business to AI?
+                How can AI help your business?
               </span>
               <span className="flex w-fit items-center gap-1.5 text-[13px] leading-snug text-brand-seafoam underline decoration-brand-seaglass/60 decoration-1 underline-offset-4 transition-colors duration-200 group-hover:text-white group-hover:decoration-white sm:text-sm">
-                Get your free AI visibility guide and checklist
+                Get your free AI cheat sheet
                 <ArrowRight className="h-3.5 w-3.5 flex-none transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
               </span>
             </a>
