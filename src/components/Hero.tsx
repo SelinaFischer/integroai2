@@ -37,7 +37,7 @@ const Hero = () => {
 
           {/* Buttons, with the free AI cheat sheet left-aligned beneath them as a light teal text link
               so the amber button stays the one main action. */}
-          <div className="flex w-full flex-col gap-7 sm:w-fit">
+          <div className="flex w-full flex-col gap-10 sm:w-fit sm:gap-12">
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               <a
                 href={ASSESSMENT_URL}
