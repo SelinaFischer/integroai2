@@ -35,9 +35,9 @@ const Hero = () => {
             IntegroAI Consulting is an independent UK AI consultancy helping founder-led service businesses cut repetitive work and decide where AI is worth investing.
           </p>
 
-          {/* Buttons, with the free AI cheat sheet left-aligned beneath them as a light teal text link
+          {/* Buttons, with the free AI cheat sheet centred beneath them as a light teal text link
               so the amber button stays the one main action. */}
-          <div className="flex w-full flex-col gap-7 sm:w-fit">
+          <div className="flex w-full flex-col gap-10 sm:w-fit sm:gap-12">
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
               <a
                 href={ASSESSMENT_URL}
@@ -63,7 +63,7 @@ const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackCheatSheetClick("hero")}
-              className="group flex flex-col items-start gap-1 self-start text-left"
+              className="group flex flex-col items-center gap-1 self-center text-center"
             >
               <span className="text-sm font-semibold leading-snug text-brand-seaglass sm:text-[15px]">
                 How can AI help my business?
