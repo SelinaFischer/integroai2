@@ -2,9 +2,10 @@ import { ArrowRight, Check } from "lucide-react";
 import { m } from "framer-motion";
 import { ASSESSMENT_URL, fadeUp } from "@/lib/motion";
 
-// Sample scorecard. The five dimensions, their /6 scores and the /30 total
-// match the real assessment (public/assessment.html); the numbers are
-// illustrative and labelled as a sample.
+// Sample scorecard. Only part of the real assessment's areas are shown on
+// purpose: what the assessment covers is revealed inside the assessment, not
+// on public pages. Never blur or mask; just list fewer. The /30 total is the
+// sample's full score; the numbers are illustrative and labelled as a sample.
 const SAMPLE_SCORE = 11;
 const MAX_SCORE = 30;
 const RING_RADIUS = 56;
@@ -14,10 +15,8 @@ const AREA_MAX = 6;
 
 const dimensions = [
   { label: "Business Direction", score: 3 },
-  { label: "Ownership & Capacity", score: 2 },
   { label: "Process Readiness", score: 3 },
   { label: "Systems & Information", score: 1, priority: true },
-  { label: "Responsible Use & Skills", score: 2 },
 ];
 
 // What the assessment gives you. Wording carried over from the previous site.
@@ -100,7 +99,7 @@ const AssessmentSection = () => {
           </div>
 
           <div className="flex flex-col border-t border-brand-sand pt-[18px]">
-            <p className="pb-2 text-xs font-bold uppercase tracking-[0.14em] text-brand-slate">Readiness by dimension</p>
+            <p className="pb-2 text-xs font-bold uppercase tracking-[0.14em] text-brand-slate">Readiness by dimension (extract)</p>
             {dimensions.map((dimension) => (
               <div
                 key={dimension.label}

@@ -18,7 +18,7 @@ const Founder = () => {
               Meet Selina, independent AI consultant
             </h2>
             <blockquote className="display max-w-[620px] text-[22px] font-semibold italic leading-tight text-brand-navy sm:text-[24px] sm:leading-[1.25]">
-              I help founders cut firefighting and repetitive work, and reclaim time for the work they love.
+              I help service business founders stop being the bottleneck by fixing messy workflows before adding AI or automation.
             </blockquote>
             <span aria-hidden="true" className="h-[3px] w-14 rounded-full bg-brand-amber" />
             <p className="text-base leading-relaxed text-[#42566A] sm:text-[17px]">

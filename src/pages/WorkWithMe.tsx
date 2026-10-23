@@ -169,7 +169,7 @@ const WorkWithMe = () => {
                   </p>
 
                   <p className="text-foreground text-base sm:text-[17px] font-semibold leading-snug mb-6">
-                    Cut firefighting and repetitive work, and reclaim time for the work you love.
+                    Stop being the bottleneck. I fix messy workflows before adding AI or automation.
                   </p>
 
                   <div className="space-y-4">
