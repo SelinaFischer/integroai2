@@ -165,7 +165,7 @@ const WorkWithMe = () => {
                     </h1>
                   </div>
                   <p className="text-base sm:text-[17px] text-accent-warm font-medium mb-4">
-                    AI Adoption &amp; Transformation Consultant for Founder-Led Service Businesses
+                    Founder | AI Adoption &amp; Transformation Consultant
                   </p>
 
                   <p className="text-foreground text-base sm:text-[17px] font-semibold leading-snug mb-6">
