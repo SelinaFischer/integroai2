@@ -16,116 +16,10 @@ import BackToTop from "@/components/BackToTop";
 
 
 const Index = () => {
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": "https://integroai.tech/#localbusiness",
-    "name": "IntegroAI Consulting",
-    "description": "IntegroAI Consulting is an independent AI consultancy for founder-led service businesses. We help founders and leaders reduce operational firefighting and repetitive work, strengthen operational control and identify where AI can create measurable business value. Engagements start with the AI & Operations Diagnostic, followed by foundations and responsible adoption, implementation, and ongoing advisory.",
-    "url": "https://integroai.tech",
-    "logo": "https://integroai.tech/apple-touch-icon.png",
-    "image": "https://integroai.tech/og-image.png",
-    "email": "info@integroai.tech",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "GB"
-    },
-    "areaServed": [
-      {
-        "@type": "Country",
-        "name": "United Kingdom"
-      },
-      {
-        "@type": "Place",
-        "name": "Worldwide"
-      }
-    ],
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "09:00",
-      "closes": "18:00"
-    },
-    "sameAs": [
-      "https://www.linkedin.com/company/integroai-consulting/",
-      "https://www.instagram.com/integroai.tech/"
-    ],
-    "founder": {
-      "@type": "Person",
-      "name": "Selina Fischer",
-      "jobTitle": "Founder | AI Adoption & Transformation Consultant",
-      "description": "AI Adoption & Transformation Consultant helping founder-led service businesses reduce repetitive work, strengthen operational control and adopt AI responsibly, with a human-led approach."
-    },
-    "knowsAbout": [
-      "Artificial Intelligence Strategy",
-      "AI Implementation for Founder-Led Service Businesses",
-      "AI Readiness Assessment",
-      "Business & Operations Advisory",
-      "Data Strategy",
-      "Machine Learning Consulting",
-      "AI Governance and Ethics",
-      "Workflow Automation",
-      "Technology-Agnostic AI Consulting"
-    ],
-    "makesOffer": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "AI & Operations Diagnostic",
-          "description": "A consultant-led review of the business that shows what is slowing it down, what to fix first and where AI is worth the investment."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "AI Foundations & Responsible Adoption",
-          "description": "Put the organisational and operational conditions in place for AI to be introduced responsibly and effectively."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "AI & Automation Implementation",
-          "description": "Support validated AI and automation opportunities through appropriate implementation, proof of concept, integration and delivery oversight."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Ongoing AI & Operations Advisory",
-          "description": "Review performance, strengthen adoption, refine priorities and identify where further operational or AI improvements can create value."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "AI Voice Receptionist",
-          "description": "An AI phone assistant that answers business calls 24/7, books appointments, takes messages and hands over to the team when a person is needed."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Website Design & Build",
-          "description": "A professional business website, designed, built and launched for the client."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "AI Search Visibility (AEO & GEO)",
-          "description": "A review of how search engines and AI tools find, understand and recommend a business, followed by improvements to the clarity, consistency and content of its website and online profiles. Covers SEO, answer engine optimisation (AEO) and generative engine optimisation (GEO)."
-        }
-      }
-    ]
-  };
+  // One business entity only: it is declared site-wide in index.html
+  // (Organization + ProfessionalService). A second LocalBusiness entity here
+  // split it in two, with conflicting service areas.
+
 
   // Breadcrumb schema for better navigation signals
   const breadcrumbSchema = {
@@ -145,9 +39,6 @@ const Index = () => {
     <>
       <Helmet>
         <link rel="canonical" href="https://integroai.tech/" />
-        <script type="application/ld+json">
-          {JSON.stringify(localBusinessSchema)}
-        </script>
         <script type="application/ld+json">
           {JSON.stringify(breadcrumbSchema)}
         </script>

@@ -133,14 +133,19 @@ const BlogPostLayout = ({ title, subtitle, seoTitle, metaDescription, date, cate
     "description": subtitle,
     "datePublished": isoDate,
     "dateModified": isoDate,
+    // Linked by @id to the Person and Organization declared site-wide in
+    // index.html, so search engines and AI tools treat them as one entity.
     "author": {
       "@type": "Person",
+      "@id": "https://integroai.tech/#founder",
       "name": "Selina Fischer",
-      "url": "https://integroai.tech/#founder",
-      "jobTitle": "Founder | AI Adoption & Transformation Consultant"
+      "url": "https://integroai.tech/about",
+      "jobTitle": "Founder | AI Adoption & Transformation Consultant",
+      "sameAs": ["https://www.linkedin.com/in/selinafischer-ai/"]
     },
     "publisher": {
       "@type": "Organization",
+      "@id": "https://integroai.tech/#organization",
       "name": "IntegroAI Consulting",
       "url": "https://integroai.tech",
       "logo": {
