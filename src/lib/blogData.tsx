@@ -2272,7 +2272,7 @@ const HowCanAiHelpContent: React.FC = () => (
     <p className="!mt-12 border-t border-brand-sand pt-6 !text-[15px] !leading-relaxed">
       <strong>Selina Fischer</strong> is the founder of IntegroAI Consulting, a UK-based AI consultancy, and an AI
       Adoption &amp; Transformation Consultant. She helps service business founders stop being the bottleneck by fixing
-      messy workflows before adding AI. Her background spans travel technology, aviation,
+      messy workflows before adding AI or automation. Her background spans travel technology, aviation,
       ecommerce and property tech, across product management, operations, data and marketing.{" "}
       <a href="https://www.linkedin.com/in/selinafischer-ai/" target="_blank" rel="noopener noreferrer" className={articleLink}>
         Connect on LinkedIn
