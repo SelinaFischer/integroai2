@@ -69,7 +69,7 @@ const Hero = () => {
                 How can AI help your business?
               </span>
               <span className="flex w-fit items-center gap-1.5 text-[13px] leading-snug text-brand-seafoam underline decoration-brand-seaglass/60 decoration-1 underline-offset-4 transition-colors duration-200 group-hover:text-white group-hover:decoration-white sm:text-sm">
-                Get your free AI cheat sheet
+                I want free AI Cheat Sheet
                 <ArrowRight className="h-3.5 w-3.5 flex-none transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
               </span>
             </a>
