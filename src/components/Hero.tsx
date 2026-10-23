@@ -66,7 +66,7 @@ const Hero = () => {
               className="group flex flex-col items-center gap-1 self-center text-center"
             >
               <span className="text-sm font-semibold leading-snug text-brand-seaglass sm:text-[15px]">
-                How can AI help your business?
+                How can AI help my business?
               </span>
               <span className="flex w-fit items-center gap-1.5 text-[13px] leading-snug text-brand-seafoam underline decoration-brand-seaglass/60 decoration-1 underline-offset-4 transition-colors duration-200 group-hover:text-white group-hover:decoration-white sm:text-sm">
                 I want the free AI Cheat Sheet
