@@ -55,7 +55,7 @@ const Footer = () => {
               Helping business leaders find where AI can save time, reduce cost and protect margin before they invest.
             </p>
             <p className="max-w-sm text-sm leading-relaxed text-[#42566A]">
-              IntegroAI Consulting is an independent AI consultancy for founder-led businesses, offering AI consulting across the UK: AI strategy consulting, AI advisory and business automation consulting.
+              IntegroAI Consulting is an independent AI consultancy for founder-led service businesses, offering AI consulting across the UK: AI strategy consulting, AI advisory and business automation consulting.
             </p>
           </div>
 

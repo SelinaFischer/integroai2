@@ -116,6 +116,10 @@ const chatgptFaqs: Faq[] = [
 
 const WhatIsAiReadinessAssessmentContent: React.FC = () => (
   <>
+    <QuickAnswer>
+      An AI Readiness Assessment is a structured check of whether your business is ready to benefit from AI, before you choose tools or commit budget. It shows where AI can help, where it can’t, and what to fix first. Tool choice comes later, once the problem and priorities are clear.
+    </QuickAnswer>
+
     <p>
       Most business leaders who approach AI consulting come in with the same question: which AI tool should we use? The more important question, and one that most businesses skip entirely, is whether their operations are actually ready for AI at all.
     </p>
@@ -203,6 +207,10 @@ const WhatIsAiReadinessAssessmentContent: React.FC = () => (
 
 const FiveSignsContent: React.FC = () => (
   <>
+    <QuickAnswer>
+      Your business may not be ready for AI if you can’t clearly describe the problem, your core processes are inconsistent, nobody clearly owns key decisions or data, past tools didn’t stick, or your team has no capacity to adopt something new. Not ready doesn’t mean no AI. Start small and fix the gaps first.
+    </QuickAnswer>
+
     <p>
       There is a common assumption that if a business is struggling with manual work, slow processes, or team capacity, AI is the answer. In some cases it is. But in many cases, the conditions that make AI valuable are simply not in place yet. And investing before those conditions exist leads to wasted budget, frustrated teams, and tools that get abandoned within months.
     </p>
@@ -298,6 +306,10 @@ const FiveSignsContent: React.FC = () => (
 
 const HowToMeasureAiROIContent: React.FC = () => (
   <>
+    <QuickAnswer>
+      Measure AI ROI against a baseline: how the process works today, how long it takes, who does it, the error rate and the cost. Once AI is in place, track time saved, capacity freed, errors and rework, decision quality and risk avoided. Then compare that value with the full cost, including setup and checking time.
+    </QuickAnswer>
+
     <p>
       Ask most business leaders whether their AI investment delivered a return and you will get one of two answers. Either "yes, it feels like it has made a difference" or "we are not really sure yet." Both answers point to the same underlying problem: ROI from AI is almost impossible to measure if you did not define the baseline before you started.
     </p>
@@ -424,6 +436,10 @@ const HowToMeasureAiROIContent: React.FC = () => (
 
 const ROTToResilienceContent: React.FC = () => (
   <>
+    <QuickAnswer>
+      ROT data is redundant, obsolete and trivial: duplicate copies, outdated versions and low-value items with no business purpose. It matters because AI works from the data it can reach. Clean it up in four steps: assess where it builds up, set retention policies, clean up systematically, and stop it building up again.
+    </QuickAnswer>
+
 <p className="!text-[15px] italic">This article draws on what I learnt at the IAPP web conference <a href="https://iapp.org/resources/article/rot-to-resilience-building-a-defensible-disposition-program-privacy-teams-trust" target="_blank" rel="noopener noreferrer">“ROT to resilience: Building a defensible disposition program privacy teams trust”</a> (November 2025).</p>
 <p>Your organisation's data contains a silent threat to AI success. It's not hackers, it's not budget constraints, and it's not technical complexity. It's ROT: <strong>Redundant, Obsolete, and Trivial</strong> data that accumulates in your systems year after year, degrading AI performance and multiplying risk.</p>
 
@@ -578,6 +594,10 @@ const ROTToResilienceContent: React.FC = () => (
 
 const WhyAIFailsContent: React.FC = () => (
   <>
+    <QuickAnswer>
+      Many AI projects fail because the technology works but the data isn’t ready. The five common gaps are data quality, availability, accessibility, volume and bias. Start with the business problem, then prepare the data that use case actually needs.
+    </QuickAnswer>
+
 <p>Everyone wants to talk about AI models, algorithms, and cutting-edge technology. But here's the uncomfortable truth that most consultants won't tell you: <strong>your AI project will fail or succeed based on your data, not your technology.</strong></p>
 
       {/* Stats Box */}
@@ -733,6 +753,10 @@ const WhyAIFailsContent: React.FC = () => (
 
 const BeyondChatbotsContent: React.FC = () => (
   <>
+    <QuickAnswer>
+      Traditional automation follows fixed rules. An AI agent works towards a goal, choosing its own steps and using tools within limits you set. Agents can help when inputs vary too much for fixed rules, but they still need a clearly defined task, the right access, agreed success measures and a named person overseeing them.
+    </QuickAnswer>
+
 {/* Highlight Box */}
       <div className="bg-muted/50 border-l-4 border-accent-warm p-6 rounded-r-lg my-8">
         <h3 className="text-foreground font-bold mt-0 mb-2">The Big Question</h3>
@@ -921,6 +945,10 @@ const BeyondChatbotsContent: React.FC = () => (
 
 const AiOrganisationalAmbiguityContent: React.FC = () => (
   <>
+    <QuickAnswer>
+      People quietly fill the gaps in unclear processes. Once AI does part of the work, unclear boundaries, expectations and ownership become much harder to work around. Before using AI, agree who owns each decision, what must be checked, and how much human review the work needs.
+    </QuickAnswer>
+
     <p>
       One framework from my recent <strong>Leadership &amp; Cultural Tech Adoption training</strong>,
       shared by our speaker <strong>Dr Lisa Hale</strong>, sparked a question that has stayed with me:
@@ -1165,8 +1193,21 @@ const articleCard = "rounded-[14px] border border-brand-sand bg-white p-5";
 const articleLabel = "text-[11px] font-bold uppercase tracking-[0.12em] text-brand-teal";
 const articleQuote = "text-[17px] leading-relaxed text-brand-navy";
 
+// "The quick answer" box: a direct answer to the article's question at the top
+// of the page, so search engines and AI tools can quote it (AEO).
+const QuickAnswer: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <div className="not-prose my-8 rounded-[14px] border border-brand-sand bg-brand-ivory p-6">
+    <p className={`${articleLabel} mb-3`}>The quick answer</p>
+    <p className="text-[17px] leading-relaxed text-brand-navy">{children}</p>
+  </div>
+);
+
 const GetFoundOnChatGPTContent: React.FC = () => (
   <>
+    <QuickAnswer>
+      Make your business easy for AI to understand and trust. Run five checks: clarity on what you do and who you help, consistency across your website and profiles, useful content that answers real customer questions, honest proof of expertise, and corroboration from other trusted sources. Nobody can guarantee AI will recommend you.
+    </QuickAnswer>
+
     <p>
       <strong>Does AI know your business exists?</strong> And if it does, does it understand who you help?
     </p>
