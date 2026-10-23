@@ -69,7 +69,7 @@ const About = () => {
         <title>About | IntegroAI Consulting</title>
         <meta
           name="description"
-          content="IntegroAI Consulting is an independent UK-based AI consultancy. Founder Selina Fischer helps founder-led service businesses cut firefighting and repetitive work, and reclaim time for the work they love."
+          content="IntegroAI Consulting is an independent UK-based AI consultancy. Founder Selina Fischer helps service business founders stop being the bottleneck by fixing messy workflows before adding AI."
         />
         <link rel="canonical" href="https://integroai.tech/about" />
       </Helmet>
