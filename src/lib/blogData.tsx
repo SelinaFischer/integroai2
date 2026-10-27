@@ -1612,6 +1612,16 @@ const whichTasksFaqs = [
       "Start with one frequent, low-risk task that involves reading or writing, such as drafting meeting summaries or CRM updates from call notes. Remove or simplify unnecessary work first, and check that reviewing the AI output takes less effort than doing the task yourself.",
   },
   {
+    question: "What are good AI pilot tasks?",
+    answer:
+      "Good AI pilot tasks are usually frequent, low-risk and built on reading or writing: meeting summaries, CRM updates from call notes, first drafts of proposals from approved templates, and one-page summaries of long documents. A person checks the result before it goes anywhere.",
+  },
+  {
+    question: "What should a consulting business automate with AI, and what should it keep?",
+    answer:
+      "Let AI draft the work around your expertise: meeting notes, follow-up emails, CRM updates, first drafts and pre-call research. Keep diagnosing the client’s problem, pricing and scope, key client conversations and final sign-off yourself.",
+  },
+  {
     question: "Should we cut tasks before automating them?",
     answer:
       "Yes. Remove what is unnecessary and simplify what remains. Automating a task nobody needs only makes waste run faster.",
@@ -1650,12 +1660,32 @@ const WhichTasksToAutomateContent: React.FC = () => (
   <>
     <div className="not-prose my-8 rounded-[14px] border border-brand-sand bg-brand-ivory p-6">
       <p className={`${articleLabel} mb-3`}>The quick answer</p>
+      <p className="mb-3 text-[20px] font-semibold leading-snug text-brand-navy">Don’t automate a mess.</p>
       <p className="text-[17px] leading-relaxed text-brand-navy">
-        Remove what’s unnecessary. Simplify what remains. Then pick one frequent, low-risk task that runs on reading
-        and writing, where checking the AI’s work is quicker than doing it yourself. Measure it, keep a person
-        checking, and only then expand.
+        Cut it. Simplify it. Then give AI one frequent, low-risk task you can check faster than you can do. Measure
+        it. Only then scale.
+      </p>
+      <p className="mt-3 text-[15px] leading-relaxed text-brand-navy/80">
+        Below: the tasks that make good first pilots, and the ones to keep for yourself.
       </p>
     </div>
+
+    <h2>Good first AI pilot tasks</h2>
+    <p>
+      Good AI pilot tasks are usually frequent, low-risk and built on reading or writing. Someone on your team
+      checks the result before it goes anywhere. For example:
+    </p>
+    <ul>
+      <li><strong>Meeting summaries and action lists</strong> from your notes</li>
+      <li><strong>CRM or project updates</strong> drafted from call notes</li>
+      <li><strong>First drafts of proposals</strong> from approved templates</li>
+      <li><strong>Replies to common client questions</strong>, drafted for approval</li>
+      <li><strong>One-page summaries</strong> of long documents or reports</li>
+    </ul>
+    <p>
+      Poor first pilots: anything client-facing that goes out unchecked, pricing or legal decisions, and tasks
+      where the information is scattered or unreliable.
+    </p>
 
     <p>Here’s how to find that first task in your own business, in five steps.</p>
 
@@ -1811,6 +1841,44 @@ const WhichTasksToAutomateContent: React.FC = () => (
     <p>
       The first move is simplifying, not buying a tool. One task needs no AI at all. And every AI draft has a
       named person checking it before it goes anywhere.
+    </p>
+
+    <h2>Running a consulting or service business? What to automate and what to keep</h2>
+    <p>
+      In a service business, your clients pay for your judgement. So the line is simple: let AI help with the
+      work around your expertise, and keep the expertise itself.
+    </p>
+    <p><strong>Good candidates for AI to draft or automate:</strong></p>
+    <ul>
+      <li>Meeting notes, action lists and follow-up emails</li>
+      <li>CRM and project updates from call notes</li>
+      <li>First drafts of proposals and reports from your own templates</li>
+      <li>Background research and summaries before a client call</li>
+    </ul>
+    <p><strong>Keep doing yourself:</strong></p>
+    <ul>
+      <li>Diagnosing the client’s real problem</li>
+      <li>Pricing, scope and judgement calls</li>
+      <li>Difficult conversations and key relationship moments</li>
+      <li>Final sign-off on anything with your name on it</li>
+    </ul>
+    <p>
+      <strong>A quick test:</strong> if a client would be unhappy to learn AI did it, keep it. If they would only
+      care that it was accurate and on time, it is a candidate for an AI first draft with your check.
+    </p>
+
+    <h3>Which marketing tasks to automate with AI first</h3>
+    <p>
+      Marketing follows the same rule. Start with tasks that reuse what you already have, where you edit the
+      result before it goes out:
+    </p>
+    <ul>
+      <li>Turning an article, talk or client-approved case study into social posts</li>
+      <li>Drafting a newsletter from your notes</li>
+      <li>Summarising campaign results into a short update</li>
+    </ul>
+    <p>
+      Keep your positioning, your opinions and the final edit. That is what makes your marketing sound like you.
     </p>
 
     <ArticleFaq faqs={whichTasksFaqs} />
@@ -2317,10 +2385,12 @@ export const articles: BlogArticle[] = [
   {
     slug: "which-tasks-to-automate-with-ai-first",
     title: "Which Tasks Should a Business Automate With AI First?",
+    seoTitle: "Which Tasks to Automate With AI First (With Examples)",
+    metaDescription: "Start with one frequent, low-risk task: CRM updates, meeting notes, first drafts. Good AI pilot tasks, what to keep doing yourself, and a worked example.",
     subtitle: "A five-step way to choose your first AI task: remove what’s unnecessary, simplify what remains, then test one task and measure it.",
     date: "October 2026",
     category: "AI Strategy",
-    readTime: "6 min read",
+    readTime: "8 min read",
     excerpt: "A five-step way to choose your first AI task: remove what’s unnecessary, simplify what remains, then test one task and measure it.",
     related: ["5-signs-your-business-is-not-ready-for-ai", "what-is-an-ai-readiness-assessment"],
     faqs: whichTasksFaqs,
