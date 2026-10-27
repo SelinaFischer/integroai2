@@ -1660,10 +1660,13 @@ const WhichTasksToAutomateContent: React.FC = () => (
   <>
     <div className="not-prose my-8 rounded-[14px] border border-brand-sand bg-brand-ivory p-6">
       <p className={`${articleLabel} mb-3`}>The quick answer</p>
+      <p className="mb-3 text-[20px] font-semibold leading-snug text-brand-navy">Don’t automate a mess.</p>
       <p className="text-[17px] leading-relaxed text-brand-navy">
-        Remove what’s unnecessary. Simplify what remains. Then pick one frequent, low-risk task that runs on reading
-        and writing, where checking the AI’s work is quicker than doing it yourself. Measure it, keep a person
-        checking, and only then expand.
+        Cut it. Simplify it. Then give AI one frequent, low-risk task you can check faster than you can do. Measure
+        it. Only then scale.
+      </p>
+      <p className="mt-3 text-[15px] leading-relaxed text-brand-navy/80">
+        Below: the tasks that make good first pilots, and the ones to keep for yourself.
       </p>
     </div>
 
