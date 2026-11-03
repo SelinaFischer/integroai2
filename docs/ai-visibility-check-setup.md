@@ -23,12 +23,12 @@ About 10 minutes. Everything here uses your own Google account.
 ## 4. Change the script later
 Use **Deploy > Manage deployments > Edit > Version: New version > Deploy**. This keeps the same URL. Saving the code alone does not update the live tool.
 
-## Optional: turn on Firecrawl later
-Firecrawl stays off unless you add a key. Before using it, get written confirmation from Firecrawl that this use is allowed.
-1. In Apps Script, open **Project Settings > Script Properties**.
-2. Add the property `FIRECRAWL_API_KEY` with your key as its value.
-3. Never paste the key into the code, the website, GitHub or a chat.
-4. Update the privacy policy to list Firecrawl.
+## 5. Add your Firecrawl key
+Firecrawl is the backup for sites the simple check can't read. It only runs when that check is blocked or finds very little text.
+1. In Firecrawl, copy your API key.
+2. In Apps Script, open **Project Settings > Script Properties**.
+3. Add the property `FIRECRAWL_API_KEY` with your key as its value, then save.
+4. Never paste the key into the code, the website, GitHub or a chat.
 
 ## Limits you can change
 At the top of `Code.gs`: 100 scans a day, 3 per email and 5 per website every 6 hours. Google also applies its own daily limits, which vary by account.

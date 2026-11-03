@@ -148,6 +148,11 @@ const PrivacyPolicy = () => {
                       policies.google.com/privacy
                     </a>
                   </li>
+                  <li><strong>Firecrawl:</strong> Reads the website address you enter when our simple check cannot read it. Their privacy policy is available at{" "}
+                    <a href="https://www.firecrawl.dev/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                      firecrawl.dev/privacy-policy
+                    </a>
+                  </li>
                   <li><strong>Google Forms and Google Sheets:</strong> Collect and store free guide sign-ups. Google&apos;s privacy policy is available at{" "}
                     <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                       policies.google.com/privacy
