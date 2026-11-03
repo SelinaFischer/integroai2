@@ -52,8 +52,8 @@ const outcomes = [
     text: "You choose what to act on first. Each next stage is agreed before it begins.",
   },
   {
-    title: "Changes that keep working",
-    text: "We prepare your workflows, data and people, then put the changes you chose in place. People stay in control at every stage.",
+    title: "Changes that keep delivering value",
+    text: "Your workflows, data, people and governance ready for the changes you chose. People stay in control at every stage.",
   },
 ];
 
@@ -71,7 +71,7 @@ const faqs = [
   {
     question: "Do I need to be technical to work with an AI consultant?",
     answer:
-      "No. You need to know your business and where the work gets stuck. Recommendations are explained in plain English, and tools are only chosen once the problem is clear.",
+      "No. You need to know your business and where the work gets stuck. Tool choice comes later, once the problem and priorities are clear.",
   },
   {
     question: "Is my business too small for AI consulting?",
