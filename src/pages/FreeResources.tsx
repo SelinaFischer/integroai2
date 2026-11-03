@@ -16,6 +16,25 @@ export const FREE_RESOURCES_PATH = "/free-resources";
 // are not walked round extra pages before they can sign up.
 const resources = [
   {
+    label: "Free AI visibility check",
+    title: "Can AI read your website?",
+    text: "Enter your website and get a score, a clear list of gaps and a report of what to fix first.",
+    cta: "Check my website",
+    href: VISIBILITY_CHECK_PATH,
+    onClick: undefined,
+    more: undefined,
+    note: "Takes about a minute.",
+  },
+  {
+    label: "Free 5-minute assessment",
+    title: "How ready is your business for AI?",
+    text: "Answer a few short questions and get an instant scorecard, with the priority to focus on first.",
+    cta: "Start the free assessment",
+    href: ASSESSMENT_URL,
+    onClick: undefined,
+    more: undefined,
+  },
+  {
     label: "Free AI cheat sheet",
     title: "How can AI help your business?",
     text: "Find the work AI could do for you. Map your week, brief AI clearly and check what it gives back.",
@@ -32,25 +51,6 @@ const resources = [
     href: GUIDE_FORM_URL,
     onClick: () => trackGuideClick("free-resources"),
     more: { to: GUIDE_PAGE_PATH, label: "What’s inside the guide" },
-  },
-  {
-    label: "Free 5-minute assessment",
-    title: "How ready is your business for AI?",
-    text: "Answer a few short questions and get an instant scorecard, with the priority to focus on first.",
-    cta: "Start the free assessment",
-    href: ASSESSMENT_URL,
-    onClick: undefined,
-    more: undefined,
-  },
-  {
-    label: "Free AI visibility check",
-    title: "Can AI read your website?",
-    text: "Enter your website and get a score, a clear list of gaps and a report of what to fix first.",
-    cta: "Check my website",
-    href: VISIBILITY_CHECK_PATH,
-    onClick: undefined,
-    more: undefined,
-    note: "Takes about a minute.",
   },
 ];
 
