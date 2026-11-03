@@ -8,6 +8,7 @@ import BackToTop from "@/components/BackToTop";
 import { ASSESSMENT_URL, DISCOVERY_CALL_URL, fadeUp, fadeUpDelayed } from "@/lib/motion";
 import { GUIDE_FORM_URL, GUIDE_PAGE_PATH, GUIDE_TITLE, trackGuideClick } from "@/lib/guide";
 import { CHEAT_SHEET_FORM_URL, trackCheatSheetClick } from "@/lib/cheatSheet";
+import { VISIBILITY_CHECK_PATH } from "@/lib/visibilityCheck";
 
 export const FREE_RESOURCES_PATH = "/free-resources";
 
@@ -41,12 +42,22 @@ const resources = [
     onClick: undefined,
     more: undefined,
   },
+  {
+    label: "Free AI visibility check",
+    title: "Can AI read your website?",
+    text: "Enter your website and get a score, a clear list of gaps and a report of what to fix first.",
+    cta: "Check my website",
+    href: VISIBILITY_CHECK_PATH,
+    onClick: undefined,
+    more: undefined,
+    note: "Takes about a minute.",
+  },
 ];
 
 const FreeResources = () => {
   const pageUrl = `https://integroai.tech${FREE_RESOURCES_PATH}`;
   const description =
-    "Free AI resources from IntegroAI Consulting, a UK-based AI consultancy: an AI cheat sheet, an AI visibility guide and checklist, and a 5-minute AI readiness assessment for founders and business owners.";
+    "Free AI resources from IntegroAI Consulting, a UK-based AI consultancy: an AI cheat sheet, an AI visibility guide and checklist, an AI visibility check, and a 5-minute AI readiness assessment for founders and business owners.";
 
   return (
     <>
@@ -84,7 +95,7 @@ const FreeResources = () => {
         </section>
 
         <section className="bg-brand-ivory py-14 sm:py-16">
-          <div className="wrap grid grid-cols-1 gap-5 md:grid-cols-3">
+          <div className="wrap grid grid-cols-1 gap-5 md:grid-cols-2">
             {resources.map((resource, index) => (
               <m.article
                 key={resource.title}
@@ -112,7 +123,7 @@ const FreeResources = () => {
                     {resource.more.label}
                   </Link>
                 ) : (
-                  <span className="text-[14px] text-brand-slate">Takes about five minutes.</span>
+                  <span className="text-[14px] text-brand-slate">{"note" in resource ? resource.note : "Takes about five minutes."}</span>
                 )}
               </m.article>
             ))}
