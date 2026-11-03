@@ -234,6 +234,7 @@ const AiVisibilityCheck = () => {
                 <h2 className="text-[34px] font-semibold leading-tight text-brand-navy sm:text-[42px]">
                   {result.score}/100: {result.band}
                 </h2>
+                <p className="text-[17px] font-medium text-brand-navy">Readable is step one. Being recommended takes more.</p>
                 <p className="break-words text-[15.5px] text-brand-slate">{result.url}</p>
                 <p className="text-[15.5px] text-brand-slate">
                   {result.emailSent
