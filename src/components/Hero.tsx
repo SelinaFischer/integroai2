@@ -17,7 +17,7 @@ const Hero = () => {
           className="flex min-w-0 flex-col items-start gap-6 lg:flex-[1.35]"
         >
           <p className="text-[11px] font-bold uppercase leading-relaxed tracking-[0.16em] text-brand-amber sm:text-xs">
-            Independent AI consultancy for founder-led service businesses
+            Independent UK AI consultancy for founder-led service businesses
           </p>
 
           <h1 className="text-[40px] font-semibold leading-[1.05] text-white sm:text-[52px] lg:text-[60px]">

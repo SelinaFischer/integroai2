@@ -28,6 +28,7 @@ const Footer = () => {
   const companyLinks = [
     { to: "/work-with-me", label: "Work With Me" },
     { to: "/about", label: "About" },
+    { to: "/ai-consultant-small-business-uk", label: "AI for Small Businesses" },
     { to: "/blog", label: "Blog" },
   ];
 
