@@ -56,6 +56,12 @@
 
   <!-- Blog articles — new (data-driven) -->
   <url>
+    <loc>https://integroai.tech/blog/what-is-a-company-brain</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://integroai.tech/blog/how-can-ai-help-your-business</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>

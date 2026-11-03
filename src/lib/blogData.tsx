@@ -2351,11 +2351,304 @@ const HowCanAiHelpContent: React.FC = () => (
 );
 
 // ─────────────────────────────────────────────────────────────────────────────
+// WHAT IS A COMPANY BRAIN? (November 2026)
+// ─────────────────────────────────────────────────────────────────────────────
+const companyBrainFaqs: Faq[] = [
+  {
+    question: "What is a company brain?",
+    answer:
+      "A company brain gives AI your current business knowledge and agreed ways of working, so nobody has to explain the basics every time. It can start as a small set of plain documents, each with a named owner.",
+  },
+  {
+    question: "Does every business need a company brain?",
+    answer:
+      "Not always. It tends to help when several people use AI for the same recurring work, or when customers get different answers depending on who they ask. If one person does most of the work, or AI use is occasional, a few well-kept documents may be enough.",
+  },
+  {
+    question: "How is a company brain different from a wiki or shared drive?",
+    answer:
+      "A wiki or shared drive stores information for people to find and read. A company brain is organised so AI can work from it too. It only earns the name if the information is agreed, current and has someone responsible for it.",
+  },
+  {
+    question: "What should go into a company brain first?",
+    answer:
+      "Start with one recurring task. Ask what your team keeps explaining to AI, then write those answers down. For many businesses, client or customer onboarding is a sensible place to start.",
+  },
+  {
+    question: "Do you need special software to build a company brain?",
+    answer:
+      "Not to start. Plain documents in folders you control are enough to test the idea on one task. Consider more specialist tools once you know what your team uses and what is hard to keep up to date.",
+  },
+  {
+    question: "How do you keep a company brain up to date?",
+    answer:
+      "Give every file a named owner and a last checked date. When someone finds a better way, update the shared version and retire the old one. Then review on a regular schedule to catch outdated files and workarounds.",
+  },
+  {
+    question: "Is it safe to put client information in a company brain?",
+    answer:
+      "Treat it with care. Keep core knowledge in the shared source, and limit client, employee and other sensitive information to the people who need it. Check how each AI tool handles your data before connecting anything to it.",
+  },
+];
+
+const CompanyBrainContent: React.FC = () => (
+  <>
+    <QuickAnswer>
+      A company brain gives AI your current business knowledge and agreed ways of working, so nobody has to explain the
+      basics every time. You don’t need a big system to start. Choose one recurring task,
+      write down what AI needs to know, and give each file a named owner and a “last checked” date. Getting started can
+      be simple. Keeping it accurate takes ongoing work.
+    </QuickAnswer>
+
+    <p>
+      <strong>What if your AI knew your business as well as your best person does?</strong>
+    </p>
+    <p>
+      That’s the idea behind a company brain. It’s getting plenty of attention, too.{" "}
+      <a
+        href="https://urbangeekz.com/2026/05/y-combinator-reveals-15-startup-ideas-it-wants-founders-to-build-in-summer-2026/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={articleLink}
+      >
+        Y Combinator listed it among its Summer 2026 startup ideas
+      </a>
+      . But much of the conversation is technical.
+    </p>
+    <p>This guide is the plain-English version for business leaders, whatever your sector or size.</p>
+
+    <h2>What problem does a company brain solve?</h2>
+    <p>
+      Here’s what many teams do today. They open a new AI chat and paste in the background. They explain the client,
+      the tone, the process.
+    </p>
+    <p>Then they do it all again tomorrow.</p>
+    <p>
+      The effort repeats. The context varies. And the people who know how things really work become the help desk for
+      everyone else.
+    </p>
+    <p>
+      In a smaller business, that help desk is often the founder. <strong>A company brain changes that.</strong>{" "}
+      The prompt matters less than the context behind it.
+    </p>
+
+    <h2>What does a company brain look like in practice?</h2>
+    <p>Take client onboarding. This example is illustrative, not a client story.</p>
+    <p>
+      Instead of someone rewriting the welcome email from memory, AI drafts it from the current service scope, the
+      approved welcome message and the handover checklist. It points out what’s missing, and a person checks it before
+      anything goes out.
+    </p>
+    <p>
+      The same approach could suit proposals, client updates or internal handovers: any recurring work where people
+      keep supplying the same background.
+    </p>
+
+    <h2>How is it different from a wiki or shared drive?</h2>
+    <p>You may already have some of this written down. The difference is what the information is set up to do.</p>
+    <div className="not-prose my-8 overflow-x-auto rounded-[14px] border border-brand-sand bg-white">
+      <table className="w-full min-w-[560px] border-collapse text-left text-[15px] leading-relaxed text-brand-navy">
+        <thead>
+          <tr className="border-b border-brand-sand bg-brand-ivory">
+            <th className="p-4 font-semibold"></th>
+            <th className="p-4 font-semibold">Shared drive</th>
+            <th className="p-4 font-semibold">Wiki</th>
+            <th className="p-4 font-semibold">Company brain</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="border-b border-brand-sand">
+            <th className="p-4 font-semibold">Main job</th>
+            <td className="p-4">Stores files</td>
+            <td className="p-4">Explains things to people</td>
+            <td className="p-4">Gives people and AI the same working knowledge</td>
+          </tr>
+          <tr className="border-b border-brand-sand">
+            <th className="p-4 font-semibold">Typical contents</th>
+            <td className="p-4">Anything, in any version</td>
+            <td className="p-4">Guides and policies</td>
+            <td className="p-4">Agreed facts, steps and rules for recurring work</td>
+          </tr>
+          <tr>
+            <th className="p-4 font-semibold">Common failure</th>
+            <td className="p-4">Nobody knows which version is right</td>
+            <td className="p-4">Pages go out of date unnoticed</td>
+            <td className="p-4">AI repeats outdated information with confidence</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      These are my working definitions, not industry standards. The term is new and people use it in different ways.
+    </p>
+
+    <h2>Does your business need one?</h2>
+    <p>
+      <strong>It’s worth trying if:</strong>
+    </p>
+    <ul>
+      <li>Several people use AI for the same recurring work</li>
+      <li>Your team keeps asking you how things are done</li>
+      <li>Customers get different answers depending on who they ask</li>
+    </ul>
+    <p>
+      <strong>You can probably wait if:</strong>
+    </p>
+    <ul>
+      <li>One person does most of the work and AI use is occasional</li>
+      <li>The process changes every time, or nobody agrees on it yet</li>
+    </ul>
+    <p>
+      If the process isn’t agreed, start there.{" "}
+      <Link to="/blog/why-ai-initiatives-stall" className={articleLink}>
+        Why AI initiatives stall
+      </Link>{" "}
+      covers the gaps worth checking first.
+    </p>
+
+    <h2>How do you build a company brain?</h2>
+    <p>You can start with the basics:</p>
+    <ul>
+      <li>
+        <strong>A home:</strong> folders and plain documents on who you serve, what you sell and how the work gets done
+      </li>
+      <li>
+        <strong>Your way of working:</strong> recurring tasks written as step-by-step instructions, so AI starts from
+        the agreed approach
+      </li>
+      <li>
+        <strong>Portability:</strong> files you own, so moving to another AI tool means adapting, not starting from
+        scratch
+      </li>
+    </ul>
+    <p>Connecting it to your everyday tools can come later, once the knowledge is right.</p>
+
+    <div className={`not-prose my-8 ${articleCard}`}>
+      <p className={`${articleLabel} mb-3`}>Example file (illustrative)</p>
+      <p className="mb-2 text-[17px] font-semibold text-brand-navy">Client onboarding: welcome email</p>
+      <ul className="space-y-1 text-[15px] leading-relaxed text-brand-navy">
+        <li><strong>Owner:</strong> Operations lead</li>
+        <li><strong>Last checked:</strong> the date someone last confirmed it was right</li>
+        <li><strong>Use this for:</strong> every new client, once the contract is signed</li>
+        <li><strong>Draw on:</strong> current service scope, approved welcome message, handover checklist</li>
+        <li><strong>Always check:</strong> names, dates, what’s included and any missing information</li>
+        <li><strong>Human review:</strong> the account lead approves it before it goes out</li>
+      </ul>
+    </div>
+
+    <h2>Why do company brains fail?</h2>
+    <p>For this to work, the information needs to stay current and consistent.</p>
+    <p>
+      A company brain only reflects what you give it. If three people do one task three ways, it has three answers to
+      choose from.
+    </p>
+    <p>And an out-of-date company brain answers confidently, from a business you no longer run.</p>
+    <p>
+      There’s early evidence for this. In{" "}
+      <a
+        href="https://slite.com/learn/company-brain-survey-findings"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={articleLink}
+      >
+        Slite’s July 2026 survey of 149 teams
+      </a>
+      , 55% of those who attempted a company brain gave up, with maintenance as the main reason. Accuracy was the top
+      concern (77%). A named human owner who verified the information was what people said they’d trust most (78%).
+    </p>
+    <p>
+      Treat those figures as directional. Slite sells knowledge software, the sample skews towards AI-forward teams and
+      nearly half work in tech or SaaS. So they may not reflect a typical business.
+    </p>
+
+    <h2>How do you keep it accurate?</h2>
+    <p>
+      <strong>It needs a rhythm, not a launch:</strong>
+    </p>
+    <ul>
+      <li>
+        <strong>One shared source</strong> for core knowledge, with client, employee and other sensitive information
+        kept to the people who need it
+      </li>
+      <li>
+        <strong>Two-way updates:</strong> when someone finds a better way, it goes back in and the old way is retired
+      </li>
+      <li>
+        <strong>Owners and dates:</strong> every file has a named owner and a “last checked” date
+      </li>
+      <li>
+        <strong>Regular reviews</strong> that catch outdated files and workarounds before they spread
+      </li>
+    </ul>
+    <p>
+      The right review schedule depends on how quickly the work changes. Set one you’ll actually keep, and start
+      with the file people use most.
+    </p>
+
+    <h2>What’s the first step?</h2>
+    <p>
+      AI doesn’t fix an unclear process. It repeats it, faster.{" "}
+      <strong>Get the process clear. Build the brain. Then keep it honest.</strong>
+    </p>
+    <p>
+      To start this week, choose one recurring task and ask: what do we keep explaining to AI? Use those answers to
+      create your first shared files. If you’re not sure which task to pick,{" "}
+      <Link to="/blog/which-tasks-to-automate-with-ai-first" className={articleLink}>
+        this guide to choosing your first AI task
+      </Link>{" "}
+      can help. If the files themselves are a mess,{" "}
+      <Link to="/blog/rot-to-resilience-data-cleanup" className={articleLink}>
+        start with the clean-up
+      </Link>
+      .
+    </p>
+
+    <ArticleFaq faqs={companyBrainFaqs} />
+
+    <div className="not-prose mt-12 rounded-[14px] border border-brand-sand bg-brand-ivory p-7">
+      <p className={`${articleLabel} mb-3`}>See where your business stands</p>
+      <p className="mb-5 text-[17px] leading-relaxed text-brand-navy">
+        The free 5-Minute AI Readiness Assessment gives you an initial view of how ready your business is for AI, with a
+        readiness score and the priority to focus on first.
+      </p>
+      <a href="https://integroai.tech/assessment" className="btn-amber">
+        Start the free assessment
+      </a>
+      <p className="mt-5 text-[15px] leading-relaxed text-brand-slate">
+        Prefer to talk it through?{" "}
+        <a href={DISCOVERY_CALL_URL} target="_blank" rel="noopener noreferrer" className={articleLink}>
+          Book a free 30-minute Discovery Call
+        </a>
+        .
+      </p>
+    </div>
+    <p className="!mt-12 border-t border-brand-sand pt-6 !text-[15px] !leading-relaxed">
+      <strong>Selina Fischer</strong> is the founder of IntegroAI Consulting and an AI Adoption &amp; Transformation
+      Consultant, with more than 20 years of experience across product, technology and operations.
+    </p>
+  </>
+);
+
+// ─────────────────────────────────────────────────────────────────────────────
 // MASTER ARTICLES ARRAY
 // Add new articles here. Everything else is automatic.
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const articles: BlogArticle[] = [
+  {
+    slug: "what-is-a-company-brain",
+    title: "What Is a Company Brain? A Practical Guide for Businesses",
+    subtitle: "A company brain gives AI your current business knowledge and agreed ways of working. Here’s what it means for your business, how to start small and how to keep it accurate.",
+    seoTitle: "What Is a Company Brain? A Practical Business Guide",
+    metaDescription: "What is a company brain, and does your business need one? How to start with one recurring task, and keep the knowledge behind your AI accurate.",
+    date: "November 2026",
+    category: "AI Adoption",
+    readTime: "7 min read",
+    excerpt: "A company brain gives AI your current business knowledge and agreed ways of working. Getting started can be simple. Keeping it accurate takes ongoing work.",
+    related: ["which-tasks-to-automate-with-ai-first", "why-ai-initiatives-stall"],
+    faqs: companyBrainFaqs,
+    Content: CompanyBrainContent,
+  },
   {
     slug: "how-can-ai-help-your-business",
     title: "How Can AI Help Your Business? 4 Steps to Find the Work AI Could Do for You",
