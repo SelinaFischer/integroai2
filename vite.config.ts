@@ -22,7 +22,7 @@ export default defineConfig(({ mode }) => ({
       manifest: {
         name: "IntegroAI Consulting",
         short_name: "IntegroAI",
-        description: "Independent AI consultancy for founder-led service businesses.",
+        description: "Independent UK AI consultancy for business owners.",
         theme_color: "#041B2B",
         background_color: "#ffffff",
         display: "standalone",

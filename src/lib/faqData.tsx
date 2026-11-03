@@ -24,7 +24,7 @@ export const homepageFaqs: FaqItem[] = [
   {
     question: "Who is IntegroAI best suited for?",
     answer:
-      "IntegroAI is best suited to founder-led service businesses, and the founders, leaders and operations teams within them, where manual work, fragmented processes or capacity pressure are affecting performance and where clarity is needed before any AI investment.",
+      "IntegroAI is best suited to business owners, and the leaders and operations teams within their businesses, where manual work, fragmented processes or capacity pressure are affecting performance and where clarity is needed before any AI investment.",
   },
   {
     question: "What is the 5-Minute AI Readiness Assessment, and what happens after I complete it?",

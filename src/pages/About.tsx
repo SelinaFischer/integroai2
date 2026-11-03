@@ -69,7 +69,7 @@ const About = () => {
         <title>About | IntegroAI Consulting</title>
         <meta
           name="description"
-          content="IntegroAI Consulting is an independent UK-based AI consultancy. Founder Selina Fischer helps service business founders stop being the bottleneck by fixing messy workflows before adding AI or automation."
+          content="IntegroAI Consulting is an independent UK-based AI consultancy. Founder Selina Fischer helps business owners stop being the bottleneck by fixing messy workflows before adding AI or automation."
         />
         <link rel="canonical" href="https://integroai.tech/about" />
       </Helmet>
@@ -103,7 +103,7 @@ const About = () => {
                     As your business grows, you need more than a team working harder. You need the capacity to serve customers well, make confident decisions and take on new opportunities.
                   </p>
                   <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                    I founded IntegroAI Consulting to help founder-led service businesses make practical decisions about AI and how they work. The aim is to strengthen everyday operations while protecting the expertise, relationships and service your customers value.
+                    I founded IntegroAI Consulting to help business owners make practical decisions about AI and how they work. The aim is to strengthen everyday operations while protecting the expertise, relationships and service your customers value.
                   </p>
                   <p className="text-foreground text-sm sm:text-base leading-relaxed font-medium">
                     You receive independent advice shaped around your goals, budget and existing systems, including an honest view of where AI is worth using and where a simpler change would serve you better.

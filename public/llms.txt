@@ -1,9 +1,9 @@
 # IntegroAI Consulting
 
-> IntegroAI Consulting is an independent, technology-agnostic AI consultancy based in the UK. It helps founder-led service businesses reduce repetitive work, improve operational control and create capacity for growth. The work starts with operational clarity: identifying what needs to improve before a business invests in an AI solution.
+> IntegroAI Consulting is an independent, technology-agnostic AI consultancy based in the UK. It helps business owners reduce repetitive work, improve operational control and create capacity for growth. The work starts with operational clarity: identifying what needs to improve before a business invests in an AI solution.
 
 - Founder: Selina Fischer, independent AI consultant, who leads every engagement personally.
-- Best suited to: founder-led service businesses, and the founders, leaders and operations teams within them.
+- Best suited to: business owners, and the leaders and operations teams within their businesses.
 - Approach: operational clarity before AI investment. Every engagement starts with the AI & Operations Diagnostic, and each next stage is agreed before it begins. People stay in control at every stage.
 - Pricing: scoped individually. There is no obligation until scope and cost are agreed.
 - Contact: info@integroai.tech
@@ -13,6 +13,7 @@
 - [Homepage](https://integroai.tech/): what IntegroAI does, who it works with and frequently asked questions.
 - [Free 5-Minute AI Readiness Assessment](https://integroai.tech/assessment): gives an initial view of how ready a business is for AI, with a readiness score and the priority to focus on first.
 - [Work With Me](https://integroai.tech/work-with-me): how engagements work, stage by stage.
+- [AI consulting for UK small businesses](https://integroai.tech/ai-consultant-small-business-uk): how business owners can find what is slowing them down, decide what to fix first and see where AI is worth the investment.
 - [About](https://integroai.tech/about): who IntegroAI helps, what clients can expect, and Selina's story.
 - [Book a free 30-minute Discovery Call](https://calendly.com/integroai-tech/30min)
 

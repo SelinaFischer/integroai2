@@ -28,6 +28,7 @@ const Footer = () => {
   const companyLinks = [
     { to: "/work-with-me", label: "Work With Me" },
     { to: "/about", label: "About" },
+    { to: "/ai-consultant-small-business-uk", label: "AI for Small Businesses" },
     { to: "/blog", label: "Blog" },
   ];
 
@@ -55,7 +56,7 @@ const Footer = () => {
               Helping business leaders find where AI can save time, reduce cost and protect margin before they invest.
             </p>
             <p className="max-w-sm text-sm leading-relaxed text-[#42566A]">
-              IntegroAI Consulting is an independent AI consultancy for founder-led service businesses, offering AI consulting across the UK: AI strategy consulting, AI advisory and business automation consulting.
+              IntegroAI Consulting is an independent AI consultancy for business owners, offering AI consulting across the UK: AI strategy consulting, AI advisory and business automation consulting.
             </p>
           </div>
 
