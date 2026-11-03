@@ -174,7 +174,7 @@ const WhatIsAiReadinessAssessmentContent: React.FC = () => (
 
     <h2>Who Should Do an AI Readiness Assessment</h2>
     <p>
-      Any business considering an AI investment, from a <Link to="/ai-consultant-small-business-uk" className={articleLink}>small business</Link> to a larger team, benefits from an assessment before committing budget. It is particularly valuable for founder-led service businesses where operational processes have grown organically, decisions are often informal, and there has been limited previous exposure to structured technology implementation.
+      Any business considering an AI investment, from a <Link to="/ai-consultant-small-business-uk" className={articleLink}>small business</Link> to a larger team, benefits from an assessment before committing budget. It is particularly valuable for businesses where operational processes have grown organically, decisions are often informal, and there has been limited previous exposure to structured technology implementation.
     </p>
     <p>
       It is also useful for businesses that have already tried AI tools and found they did not deliver the expected results. In most cases, an honest readiness review reveals that the tools were not the problem.
@@ -364,7 +364,7 @@ const HowToMeasureAiROIContent: React.FC = () => (
       Once your baseline is established, the post-implementation measurement should track the same variables, not different ones. This is where many businesses go wrong. They measure something before and something different after, which makes comparison meaningless.
     </p>
     <p>
-      The most commercially relevant measures of AI ROI for founder-led service businesses fall into five categories.
+      The most commercially relevant measures of AI ROI for most businesses fall into five categories.
     </p>
 
     <h3>Time Saved</h3>
@@ -394,7 +394,7 @@ const HowToMeasureAiROIContent: React.FC = () => (
 
     <h2>A Simple Framework for AI ROI Measurement</h2>
     <p>
-      For most founder-led service businesses, a straightforward four-step approach is sufficient.
+      For most businesses, a straightforward four-step approach is sufficient.
     </p>
     <p>
       Step one: define the specific problem. Identify one process or decision you want AI to improve and write down exactly what the problem is in measurable terms.
@@ -2194,8 +2194,8 @@ const HowCanAiHelpContent: React.FC = () => (
       not do alone.
     </p>
     <p>
-      Most guides on AI for small business start with a list of tools. This one is for founders of UK service
-      businesses, and it starts with your week. No tech skills needed.
+      Most guides on AI for small business start with a list of tools. This one is for UK business owners,
+      and it starts with your week. No tech skills needed.
     </p>
     <p>
       Here is a simple four-step way to find yours: <strong>Discover, Find, Brief, Check.</strong>
@@ -2353,7 +2353,7 @@ const HowCanAiHelpContent: React.FC = () => (
 
     <p className="!mt-12 border-t border-brand-sand pt-6 !text-[15px] !leading-relaxed">
       <strong>Selina Fischer</strong> is the founder of IntegroAI Consulting, a UK-based AI consultancy, and an AI
-      Adoption &amp; Transformation Consultant. She helps service business founders stop being the bottleneck by fixing
+      Adoption &amp; Transformation Consultant. She helps business owners stop being the bottleneck by fixing
       messy workflows before adding AI or automation. Her background spans travel technology, aviation,
       ecommerce and property tech, across product management, operations, data and marketing.{" "}
       <a href="https://www.linkedin.com/in/selinafischer-ai/" target="_blank" rel="noopener noreferrer" className={articleLink}>
@@ -2375,7 +2375,7 @@ export const articles: BlogArticle[] = [
     title: "How Can AI Help Your Business? 4 Steps to Find the Work AI Could Do for You",
     subtitle: "Most founders only use AI for emails. Four simple steps to find the everyday tasks AI could take off your plate, brief it well and check what it gives back.",
     seoTitle: "How Can AI Help Your Business? 4 Steps to Start",
-    metaDescription: "How can AI help your business? Learn how to use AI in business with 4 simple steps for UK service businesses. Free AI cheat sheet.",
+    metaDescription: "How can AI help your business? Learn how to use AI in business with 4 simple steps for UK businesses. Free AI cheat sheet.",
     date: "October 2026",
     category: "AI Adoption",
     readTime: "5 min read",

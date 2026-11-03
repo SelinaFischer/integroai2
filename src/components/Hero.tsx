@@ -17,7 +17,7 @@ const Hero = () => {
           className="flex min-w-0 flex-col items-start gap-6 lg:flex-[1.35]"
         >
           <p className="text-[11px] font-bold uppercase leading-relaxed tracking-[0.16em] text-brand-amber sm:text-xs">
-            Independent UK AI consultancy for founder-led service businesses
+            Independent UK AI consultancy for business owners
           </p>
 
           <h1 className="text-[40px] font-semibold leading-[1.05] text-white sm:text-[52px] lg:text-[60px]">
@@ -32,7 +32,7 @@ const Hero = () => {
           {/* One plain sentence saying who IntegroAI is, so search engines and AI
               tools can quote it as the answer (AEO). Kept small and quiet. */}
           <p className="max-w-[600px] text-[15px] leading-normal text-brand-mist/80">
-            IntegroAI Consulting is an independent UK AI consultancy helping founder-led service businesses cut repetitive work and decide where AI is worth investing.
+            IntegroAI Consulting is an independent UK AI consultancy helping business owners cut repetitive work and decide where AI is worth investing.
           </p>
 
           {/* Buttons, with the free AI cheat sheet centred beneath them as a light teal text link

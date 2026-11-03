@@ -169,7 +169,7 @@ const WorkWithMe = () => {
                   </p>
 
                   <p className="text-foreground text-base sm:text-[17px] font-semibold leading-snug mb-6">
-                    I help service business founders stop being the bottleneck by fixing messy workflows before adding AI or automation.
+                    I help business owners stop being the bottleneck by fixing messy workflows before adding AI or automation.
                   </p>
 
                   <div className="space-y-4">
