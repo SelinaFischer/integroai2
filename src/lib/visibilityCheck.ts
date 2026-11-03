@@ -1,7 +1,7 @@
 // Free AI visibility check. The scan runs in Google Apps Script (see
 // apps-script/ai-visibility-check and docs/ai-visibility-check-setup.md).
-// Paste the deployed web app URL here. It is public, so it is not a secret.
-export const VISIBILITY_CHECK_ENDPOINT = "";
+// The deployed web app URL. It is public, so it is not a secret.
+export const VISIBILITY_CHECK_ENDPOINT = "https://script.google.com/macros/s/AKfycbwMTcP3B317MIZ6v-Ihpps-RIv10zbeoay-RzkzwtpK0SRzBd39Mr4Wsx0_IuMUwyZe0w/exec";
 export const VISIBILITY_CHECK_PATH = "/ai-visibility-check";
 
 export type VisibilityCheckItem = {
