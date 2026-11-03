@@ -2362,7 +2362,7 @@ const companyBrainFaqs: Faq[] = [
   {
     question: "Does every business need a company brain?",
     answer:
-      "Not always. It tends to help when several people use AI for the same recurring work, or when customers get different answers depending on who they ask. If one person does most of the work, or AI use is occasional, a few well-kept documents may be enough.",
+      "Not always. The deciding factor is repeated work and repeated context, not the size of your team. It tends to help when you keep giving AI the same background for the same recurring work. If you rarely repeat a task with AI, it can wait.",
   },
   {
     question: "How is a company brain different from a wiki or shared drive?",
@@ -2478,6 +2478,7 @@ const CompanyBrainContent: React.FC = () => (
       </table>
     </div>
     <p>
+      A shared drive or wiki can supply the knowledge behind a company brain, so these aren’t either-or choices.
       These are my working definitions, not industry standards. The term is new and people use it in different ways.
     </p>
 
@@ -2486,7 +2487,7 @@ const CompanyBrainContent: React.FC = () => (
       <strong>It’s worth trying if:</strong>
     </p>
     <ul>
-      <li>Several people use AI for the same recurring work</li>
+      <li>You or your team keep giving AI the same background for the same recurring work</li>
       <li>Your team keeps asking you how things are done</li>
       <li>Customers get different answers depending on who they ask</li>
     </ul>
@@ -2494,7 +2495,7 @@ const CompanyBrainContent: React.FC = () => (
       <strong>You can probably wait if:</strong>
     </p>
     <ul>
-      <li>One person does most of the work and AI use is occasional</li>
+      <li>You rarely repeat the same task with AI</li>
       <li>The process changes every time, or nobody agrees on it yet</li>
     </ul>
     <p>
@@ -2520,6 +2521,10 @@ const CompanyBrainContent: React.FC = () => (
         scratch
       </li>
     </ul>
+    <p>
+      The files need to be made available to the AI tool you use, through its project files, knowledge feature or an
+      approved connection. A folder on your computer doesn’t give AI access by itself.
+    </p>
     <p>Connecting it to your everyday tools can come later, once the knowledge is right.</p>
 
     <div className={`not-prose my-8 ${articleCard}`}>
@@ -2552,7 +2557,7 @@ const CompanyBrainContent: React.FC = () => (
       >
         Slite’s July 2026 survey of 149 teams
       </a>
-      , 55% of those who attempted a company brain gave up, with maintenance as the main reason. Accuracy was the top
+      , 55% of teams that tried to build their own gave up, with maintenance as the main reason. Accuracy was the top
       concern (77%). A named human owner who verified the information was what people said they’d trust most (78%).
     </p>
     <p>
