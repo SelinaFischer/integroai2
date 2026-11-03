@@ -30,6 +30,7 @@ const Footer = () => {
     { to: "/about", label: "About" },
     { to: "/ai-consultant-small-business-uk", label: "AI for Small Businesses" },
     { to: "/blog", label: "Blog" },
+    { to: "/ai-visibility-check", label: "Free AI Visibility Check" },
   ];
 
   const headingClass = "mb-2 text-xs font-bold uppercase tracking-[0.14em] text-brand-navy";

@@ -31,7 +31,7 @@ const PrivacyPolicy = () => {
             <h1 className="text-3xl sm:text-4xl mb-6">Privacy Policy</h1>
             
             <p className="text-muted-foreground text-sm mb-8">
-              <strong>Last updated:</strong> October 2026
+              <strong>Last updated:</strong> November 2026
             </p>
 
             <div className="max-w-none text-[15px] text-foreground">
@@ -80,7 +80,12 @@ const PrivacyPolicy = () => {
                   When you request our free guide, we collect your email address and name, your business name if you choose to give it, whether you would like a free call, and whether you would like occasional follow-up emails. We only send follow-up emails if you tick the box asking for them.
                 </p>
 
-                <h3 className="text-base font-semibold mb-2 mt-5">3.4 Automatically Collected Information</h3>
+                <h3 className="text-base font-semibold mb-2 mt-5">3.4 Free AI Visibility Check</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  When you use our free AI visibility check, we collect your name, business name, email address, the website address you enter, its results, and whether you asked to receive AI tips. We read publicly available pages and files on that website to run the check, then email you the report.
+                </p>
+
+                <h3 className="text-base font-semibold mb-2 mt-5">3.5 Automatically Collected Information</h3>
                 <p className="text-muted-foreground leading-relaxed">
                   When you visit our website, we may automatically collect certain information including your IP address, browser type, device information, and pages visited. This data is collected to improve our website performance and user experience.
                 </p>
@@ -136,6 +141,16 @@ const PrivacyPolicy = () => {
                   <li><strong>Make and Google Sheets:</strong> Your assessment details are passed through Make to a Google Sheet so we can follow up. Make&apos;s privacy notice is available at{" "}
                     <a href="https://www.make.com/en/privacy-notice" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                       make.com/en/privacy-notice
+                    </a>
+                  </li>
+                  <li><strong>Google Apps Script, Gmail and Google Sheets:</strong> Run the free AI visibility check, email your report and store your request. Google&apos;s privacy policy is available at{" "}
+                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                      policies.google.com/privacy
+                    </a>
+                  </li>
+                  <li><strong>Firecrawl:</strong> Reads the website address you enter when our simple check cannot read it. Their privacy policy is available at{" "}
+                    <a href="https://www.firecrawl.dev/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                      firecrawl.dev/privacy-policy
                     </a>
                   </li>
                   <li><strong>Google Forms and Google Sheets:</strong> Collect and store free guide sign-ups. Google&apos;s privacy policy is available at{" "}
