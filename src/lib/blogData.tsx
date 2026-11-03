@@ -2447,9 +2447,8 @@ const CompanyBrainContent: React.FC = () => (
     </p>
 
     <h2>What does a company brain look like in practice?</h2>
-    <p>Take client onboarding. This example is illustrative, not a client story.</p>
     <p>
-      Instead of someone rewriting the welcome email from memory, AI drafts it from the current service scope, the
+      Instead of someone rewriting a new client’s welcome email from memory, AI drafts it from the current service scope, the
       approved welcome message and the handover checklist. It points out what’s missing, and a person checks it before
       anything goes out.
     </p>
