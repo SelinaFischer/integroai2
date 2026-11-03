@@ -2396,7 +2396,7 @@ const companyBrainFaqs: Faq[] = [
   {
     question: "How do you keep a company brain up to date?",
     answer:
-      "Give every file a named owner and a last checked date. When someone finds a better way, update the shared version and retire the old one. Then review on a regular schedule to catch outdated files and workarounds.",
+      "Give every file a named owner and a last checked date. When someone finds a better way, the process owner checks it, updates the shared version and retires the old instructions. Then review on a regular schedule to catch outdated files and workarounds.",
   },
   {
     question: "Is it safe to put client information in a company brain?",
@@ -2443,14 +2443,13 @@ const CompanyBrainContent: React.FC = () => (
     </p>
     <p>
       In a smaller business, that help desk is often the founder. <strong>A company brain changes that.</strong>{" "}
-      The prompt matters less than the context behind it.
+      A good prompt helps. Reliable business context makes it useful.
     </p>
 
     <h2>What does a company brain look like in practice?</h2>
     <p>
       Instead of someone rewriting a new client’s welcome email from memory, AI drafts it from the current service scope, the
-      approved welcome message and the handover checklist. It points out what’s missing, and a person checks it before
-      anything goes out.
+      approved welcome message and the handover checklist. AI is instructed to flag missing information, and a person checks the draft before anything goes out.
     </p>
     <p>
       The same approach could suit proposals, client updates or internal handovers: any recurring work where people
@@ -2492,7 +2491,7 @@ const CompanyBrainContent: React.FC = () => (
       </table>
     </div>
     <p>
-      A shared drive or wiki can supply the knowledge behind a company brain, so these aren’t either-or choices.
+      If you already have a shared drive or wiki, that can be the foundation. What matters is giving AI access to the relevant, agreed information, with someone responsible for keeping it current.
       These are my working definitions, not industry standards. The term is new and people use it in different ways.
     </p>
 
@@ -2539,7 +2538,7 @@ const CompanyBrainContent: React.FC = () => (
       The files need to be made available to the AI tool you use, through its project files, knowledge feature or an
       approved connection. A folder on your computer doesn’t give AI access by itself.
     </p>
-    <p>Connecting it to your everyday tools can come later, once the knowledge is right.</p>
+    <p>Connections that let AI take action in other tools can come later, once the knowledge is reliable.</p>
 
     <div className={`not-prose my-8 ${articleCard}`}>
       <p className={`${articleLabel} mb-3`}>Example file (illustrative)</p>
@@ -2557,12 +2556,11 @@ const CompanyBrainContent: React.FC = () => (
     <h2>Why do company brains fail?</h2>
     <p>For this to work, the information needs to stay current and consistent.</p>
     <p>
-      A company brain only reflects what you give it. If three people do one task three ways, it has three answers to
-      choose from.
+      A company brain only reflects what you give it. If three versions of a process exist and nobody has agreed which applies, AI may work from the wrong one.
     </p>
     <p>And an out-of-date company brain answers confidently, from a business you no longer run.</p>
     <p>
-      There’s early evidence for this. In{" "}
+      One early survey illustrates the maintenance challenge. In{" "}
       <a
         href="https://slite.com/learn/company-brain-survey-findings"
         target="_blank"
@@ -2589,7 +2587,7 @@ const CompanyBrainContent: React.FC = () => (
         kept to the people who need it
       </li>
       <li>
-        <strong>Two-way updates:</strong> when someone finds a better way, it goes back in and the old way is retired
+        <strong>Reviewed updates:</strong> when someone finds a better way, the process owner checks it, updates the shared version and retires the old instructions
       </li>
       <li>
         <strong>Owners and dates:</strong> every file has a named owner and a “last checked” date
