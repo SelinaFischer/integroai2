@@ -32,7 +32,7 @@ export const ApproachComparison = () => (
       <ul className="flex list-none flex-col gap-2.5 text-[15px] text-brand-slate">
         {wrongApproach.map((item) => (
           <li key={item} className="flex items-start gap-3">
-            <X className="mt-[3px] h-5 w-5 flex-none text-[#7B8A99]" strokeWidth={2.6} aria-hidden="true" />
+            <X className="mt-[3px] h-5 w-5 flex-none text-[#B4483C]" strokeWidth={2.6} aria-hidden="true" />
             <span>{item}</span>
           </li>
         ))}
