@@ -79,7 +79,7 @@ const AiVisibilityCheck = () => {
   const pageUrl = `https://integroai.tech${VISIBILITY_CHECK_PATH}`;
   const title = "Free AI Visibility Checker: Can ChatGPT See Your Website?";
   const description =
-    "Can AI tools read your website? Run a free AI visibility check, see what is helping or blocking them, and get a report of what to fix first.";
+    "Is your website invisible to ChatGPT? Run a free AI visibility check for issues that could stop AI tools from reading your site, and get a clear report showing what to fix first.";
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -156,7 +156,7 @@ const AiVisibilityCheck = () => {
                 <span className="block italic text-brand-amber">Get a clear answer for free.</span>
               </h1>
               <p className="max-w-[560px] text-[17px] leading-normal text-brand-mist sm:text-[19px]">
-                See what is helping or blocking AI tools from reading your site, then get a report of what to fix first.
+                Check for issues that could stop AI tools from reading your site, and get a clear report showing what to fix first.
               </p>
               <ul className="flex list-none flex-col gap-2.5 text-[15.5px] text-brand-mist">
                 {["Your score out of 100, on screen", "A clear list of what is in place and what is missing", "A report by email showing what to do next"].map((item) => (
