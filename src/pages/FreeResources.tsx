@@ -17,7 +17,7 @@ export const FREE_RESOURCES_PATH = "/free-resources";
 const resources = [
   {
     label: "Free AI visibility check",
-    title: "Can AI read your website?",
+    title: "Is your website invisible to ChatGPT?",
     text: "Enter your website and get a score, a clear list of gaps and a report of what to fix first.",
     cta: "Check my website",
     href: VISIBILITY_CHECK_PATH,
