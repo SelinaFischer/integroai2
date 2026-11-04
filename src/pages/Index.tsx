@@ -9,6 +9,7 @@ import Founder from "@/components/Founder";
 import AssessmentSection from "@/components/AssessmentSection";
 import FAQ from "@/components/FAQ";
 import VisibilityCheckBanner from "@/components/VisibilityCheckBanner";
+import GuideBanner from "@/components/GuideBanner";
 import BlogPosts from "@/components/BlogPosts";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
@@ -55,6 +56,7 @@ const Index = () => {
           <AssessmentSection />
           <Services />
           <FAQ />
+          <GuideBanner location="homepage" className="bg-white pt-14 sm:pt-16" />
           <BlogPosts compact />
           <FinalCTA />
         </main>
