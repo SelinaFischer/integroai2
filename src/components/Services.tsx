@@ -30,7 +30,7 @@ const serviceGroups = [
     ],
   },
   {
-    title: "Priorities & Foundations",
+    title: "AI Strategy & Foundations",
     outcome: "Agree what matters, then get ready for it",
     summary: "You choose what to act on first. We prepare your workflows, data and team for it.",
     stages: [
