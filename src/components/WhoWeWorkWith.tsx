@@ -35,7 +35,7 @@ const WhoWeWorkWith = () => {
               AI consulting for business owners
             </>
           }
-          intro="Your business has grown. Your ways of working haven't kept pace. We help business owners reduce repetitive work, improve operational control and create capacity for growth."
+          intro="Your business has grown. Your ways of working haven't kept pace."
         />
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">

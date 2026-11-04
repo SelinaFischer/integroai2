@@ -155,7 +155,7 @@ const SmallBusinessAiConsultant = () => {
               <span className="block italic text-brand-amber">Clarity before AI investment.</span>
             </h1>
             <p className="max-w-[640px] text-[17px] leading-normal text-brand-mist sm:text-[19px]">
-              Understand what is slowing your business down, decide what to improve first, and use AI where it can make a practical difference.
+              Understand what’s slowing your business down, prioritise what matters, and use AI and automation where they can free up time, delight customers and support growth.
             </p>
             <p className="max-w-[640px] text-[15px] leading-normal text-brand-mist/80">
               IntegroAI Consulting is an independent UK AI consultancy. Founder Selina Fischer helps business owners cut repetitive work and decide where AI is worth investing, before they spend on tools.

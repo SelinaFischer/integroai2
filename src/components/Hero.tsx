@@ -26,13 +26,7 @@ const Hero = () => {
           </h1>
 
           <p className="max-w-[600px] text-[17px] leading-normal text-brand-mist sm:text-[19px]">
-            Understand what is slowing your business down, decide what to improve first, and use AI where it can make a practical difference.
-          </p>
-
-          {/* One plain sentence saying who IntegroAI is, so search engines and AI
-              tools can quote it as the answer (AEO). Kept small and quiet. */}
-          <p className="max-w-[600px] text-[15px] leading-normal text-brand-mist/80">
-            IntegroAI Consulting is an independent UK AI consultancy helping business owners cut repetitive work and decide where AI is worth investing.
+            Understand what’s slowing your business down, prioritise what matters, and use AI and automation where they can free up time, delight customers and support growth.
           </p>
 
           {/* Buttons, with the free AI cheat sheet centred beneath them as a light teal text link
