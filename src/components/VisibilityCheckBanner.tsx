@@ -4,14 +4,14 @@ import { m } from "framer-motion";
 import { fadeUp } from "@/lib/motion";
 import { VISIBILITY_CHECK_PATH, trackVisibilityCheck } from "@/lib/visibilityCheck";
 
-// Homepage promotion for the free AI visibility check. The amber panel makes
-// it stand out from the other homepage sections.
+// Homepage promotion for the free AI visibility check. The soft peach panel
+// stands out from the other homepage sections without glare.
 const VisibilityCheckBanner = () => (
   <section aria-labelledby="visibility-check-banner" className="bg-white pb-14 sm:pb-16">
     <div className="wrap">
       <m.div
         {...fadeUp}
-        className="flex flex-col items-center gap-4 rounded-2xl bg-brand-amber px-6 py-5 text-center sm:px-8 md:flex-row md:gap-8 md:text-left"
+        className="flex flex-col items-center gap-4 rounded-2xl bg-brand-chip px-6 py-5 text-center sm:px-8 md:flex-row md:gap-8 md:text-left"
       >
         <div className="flex flex-1 flex-col gap-1">
           <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-brand-navy">Free AI visibility check</p>
