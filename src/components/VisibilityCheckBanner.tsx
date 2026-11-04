@@ -11,27 +11,27 @@ const VisibilityCheckBanner = () => (
     <div className="wrap">
       <m.div
         {...fadeUp}
-        className="flex flex-col items-center gap-6 rounded-[28px] bg-brand-amber px-6 py-9 text-center sm:px-10 md:flex-row md:gap-10 md:text-left"
+        className="flex flex-col items-center gap-4 rounded-2xl bg-brand-amber px-6 py-5 text-center sm:px-8 md:flex-row md:gap-8 md:text-left"
       >
-        <div className="flex flex-1 flex-col gap-2.5">
-          <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-navy">Free AI visibility check</p>
+        <div className="flex flex-1 flex-col gap-1">
+          <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-brand-navy">Free AI visibility check</p>
           <h2
             id="visibility-check-banner"
-            className="display text-[28px] font-semibold leading-[1.08] !text-brand-navy sm:text-[34px]"
+            className="display text-[22px] font-semibold leading-[1.15] !text-brand-navy sm:text-[25px]"
           >
             Is your website invisible to ChatGPT?
           </h2>
-          <p className="text-[15px] leading-relaxed text-brand-navy sm:text-base">
+          <p className="text-sm leading-snug text-brand-navy">
             Check for issues that could stop AI tools from reading your site, and get a clear report showing what to fix first.
           </p>
         </div>
         <Link
           to={VISIBILITY_CHECK_PATH}
           onClick={() => trackVisibilityCheck("visibility_check_banner_click")}
-          className="group inline-flex flex-none items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-[13px] text-[15px] font-semibold bg-brand-navy !text-white hover:opacity-90"
+          className="group inline-flex flex-none items-center justify-center gap-2 whitespace-nowrap rounded-full px-5 py-2.5 text-sm font-semibold bg-brand-navy !text-white hover:opacity-90"
         >
           Check my website
-          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
+          <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
         </Link>
       </m.div>
     </div>

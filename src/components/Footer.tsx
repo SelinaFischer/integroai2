@@ -7,8 +7,6 @@ import Tagline from "./Tagline";
 import { ASSESSMENT_URL } from "@/lib/motion";
 import { scrollToSection } from "@/lib/scrollToSection";
 import { EXTRA_SERVICES_SECTION_ID } from "@/lib/extraServices";
-import { GUIDE_FORM_URL, trackGuideClick } from "@/lib/guide";
-import { CHEAT_SHEET_FORM_URL, trackCheatSheetClick } from "@/lib/cheatSheet";
 import { openCookieSettings } from "./CookieConsent";
 
 const Footer = () => {
@@ -30,12 +28,12 @@ const Footer = () => {
     { to: "/about", label: "About" },
     { to: "/ai-consultant-small-business-uk", label: "AI for Small Businesses" },
     { to: "/blog", label: "Blog" },
-    { to: "/ai-visibility-check", label: "Free AI Visibility Check" },
+    { to: "/free-resources", label: "Free Resources" },
   ];
 
   const headingClass = "mb-2 text-xs font-bold uppercase tracking-[0.14em] text-brand-navy";
   const linkClass =
-    "block py-[5px] text-left text-[15px] text-[#42566A] underline-offset-4 transition-colors duration-200 hover:text-brand-navy hover:underline";
+    "block py-1 text-left text-sm text-[#42566A] underline-offset-4 transition-colors duration-200 hover:text-brand-navy hover:underline";
   const socialClass = `${linkClass} flex items-center gap-2.5`;
 
   // Extra space at the bottom below wide screens keeps the last row of links
@@ -53,7 +51,7 @@ const Footer = () => {
                 <span className="text-[13px] font-semibold leading-tight text-brand-teal [word-spacing:0.16em]"><Tagline /></span>
               </span>
             </div>
-            <p className="max-w-sm text-[15px] leading-relaxed text-[#42566A]">
+            <p className="max-w-sm text-sm leading-relaxed text-[#42566A]">
               Helping business leaders find where AI can save time, reduce cost and protect margin before they invest.
             </p>
             <p className="max-w-sm text-sm leading-relaxed text-[#42566A]">
@@ -90,28 +88,6 @@ const Footer = () => {
                   </Link>
                 </li>
               ))}
-              <li>
-                <a
-                  href={GUIDE_FORM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => trackGuideClick("footer")}
-                  className={linkClass}
-                >
-                  Free AI Visibility Guide
-                </a>
-              </li>
-              <li>
-                <a
-                  href={CHEAT_SHEET_FORM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => trackCheatSheetClick("footer")}
-                  className={linkClass}
-                >
-                  Free AI Cheat Sheet
-                </a>
-              </li>
               <li>
                 <a href={ASSESSMENT_URL} target="_blank" rel="noopener noreferrer" className={linkClass}>
                   AI Readiness Assessment
