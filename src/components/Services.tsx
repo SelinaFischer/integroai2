@@ -13,7 +13,7 @@ import ExtraServicesList from "./ExtraServicesList";
 // and AI assistants still get a full description.
 const serviceGroups = [
   {
-    title: "Diagnosis & Clarity",
+    title: "AI Readiness & Diagnostics",
     outcome: "Know what to fix first, before you invest",
     summary: "A clear view of what is holding your business back, and where to start.",
     stages: [
@@ -47,7 +47,7 @@ const serviceGroups = [
     ],
   },
   {
-    title: "Delivery & Support",
+    title: "AI Implementation & Support",
     outcome: "Get it working, and keep it working",
     summary: "Working solutions your team actually uses, with people in control of the decisions that matter.",
     stages: [
