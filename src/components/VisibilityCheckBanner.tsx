@@ -22,7 +22,7 @@ const VisibilityCheckBanner = () => (
             Is your website invisible to ChatGPT?
           </h2>
           <p className="text-[15px] leading-relaxed text-brand-navy sm:text-base">
-            See what is helping or blocking AI tools from reading your site, then get a report of what to fix first.
+            Check for issues that could stop AI tools from reading your site, and get a clear report showing what to fix first.
           </p>
         </div>
         <Link
