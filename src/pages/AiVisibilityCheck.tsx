@@ -77,7 +77,7 @@ const AiVisibilityCheck = () => {
   }, [result]);
 
   const pageUrl = `https://integroai.tech${VISIBILITY_CHECK_PATH}`;
-  const title = "Free AI Visibility Check for Your Website | IntegroAI Consulting";
+  const title = "Free AI Visibility Checker: Can ChatGPT See Your Website?";
   const description =
     "Can AI tools read your website? Run a free AI visibility check, see what is helping or blocking them, and get a report of what to fix first.";
 
@@ -152,7 +152,7 @@ const AiVisibilityCheck = () => {
                 Free AI visibility check
               </p>
               <h1 className="text-[38px] font-semibold leading-[1.08] text-white sm:text-[48px] lg:text-[54px]">
-                <span className="block">Can AI read your website?</span>
+                <span className="block">Is your website invisible to ChatGPT?</span>
                 <span className="block italic text-brand-amber">Get a clear answer for free.</span>
               </h1>
               <p className="max-w-[560px] text-[17px] leading-normal text-brand-mist sm:text-[19px]">
