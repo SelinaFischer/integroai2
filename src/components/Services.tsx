@@ -13,7 +13,7 @@ import ExtraServicesList from "./ExtraServicesList";
 // and AI assistants still get a full description.
 const serviceGroups = [
   {
-    title: "AI & Operations Diagnostic",
+    title: "Diagnosis & Clarity",
     outcome: "Know what to fix first, before you invest",
     summary: "A clear view of what is holding your business back, and where to start.",
     stages: [
@@ -47,7 +47,7 @@ const serviceGroups = [
     ],
   },
   {
-    title: "AI Implementation & Automation",
+    title: "Delivery & Support",
     outcome: "Get it working, and keep it working",
     summary: "Working solutions your team actually uses, with people in control of the decisions that matter.",
     stages: [
@@ -150,7 +150,7 @@ const Services = () => {
         <SectionHeader
           eyebrow="AI consulting services"
           title="Make room for your next stage of growth."
-          intro="Strengthen how your business works, give your team more capacity and deliver a better customer experience. From assessment and strategy to implementation and ongoing support, we help you focus investment where it matters most."
+          intro="Strengthen how your business works, give your team more capacity and deliver a better customer experience. We help you focus investment where it matters most."
         />
 
         {/* The free check and five stages drawn as one route with six stops, grouped into the
