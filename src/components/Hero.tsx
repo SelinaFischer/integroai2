@@ -62,14 +62,14 @@ const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackCheatSheetClick("hero")}
-              className="group flex flex-col items-center gap-1 self-center text-center"
+              className="lead-arrive group flex flex-col items-center gap-1 self-center text-center"
             >
               <span className="text-sm font-semibold leading-snug text-brand-seaglass sm:text-[15px]">
                 How can AI help my business?
               </span>
               <span className="flex w-fit items-center gap-1.5 text-[13px] leading-snug text-brand-seafoam underline decoration-brand-seaglass/60 decoration-1 underline-offset-4 transition-colors duration-200 group-hover:text-white group-hover:decoration-white sm:text-sm">
                 I want the free AI Cheat Sheet
-                <ArrowRight className="h-3.5 w-3.5 flex-none transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
+                <ArrowRight className="nudge-arrow h-3.5 w-3.5 flex-none transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
               </span>
             </a>
           </div>
