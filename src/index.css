@@ -541,6 +541,53 @@
     100% { opacity: 1; transform: translateY(0); }
   }
 
+  /* Pain-point cards (src/components/WhoWeWorkWith.tsx): point at one and it
+     stays sharp while the others soften, so the one you recognise stands out.
+     Mouse only. After the "Focus Cards" idea on ui.aceternity.com. */
+  @media (hover: hover) {
+    .focus-card {
+      transition: filter 0.35s ease, opacity 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .focus-group:has(.focus-card:hover) .focus-card:not(:hover) {
+      filter: blur(2.5px);
+      opacity: 0.55;
+    }
+
+    .focus-card:hover {
+      border-color: #FF9900;
+      box-shadow: var(--shadow-lg);
+    }
+  }
+
+  /* Work With Me stages: the stage nearest the middle of the screen lights up
+     as you scroll, so the five stages read as a route. */
+  .stage-chip {
+    transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .stage-row[data-passing] .stage-chip {
+    background-color: #FF9900;
+    color: #041B2B;
+    box-shadow: 0 0 0 5px rgba(255, 153, 0, 0.2);
+  }
+
+  /* AI visibility check, while it runs (src/components/CheckProgress.tsx). */
+  .check-progress-item,
+  .check-progress-dot {
+    transition: color 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .check-progress-item[data-current] {
+    color: #041B2B;
+    font-weight: 600;
+  }
+
+  .check-progress-item[data-current] .check-progress-dot {
+    background-color: #3B767C;
+    box-shadow: 0 0 0 4px rgba(59, 118, 124, 0.2);
+  }
+
   /* Sample scorecard (src/components/AssessmentSection.tsx): the ring and bars
      glide to their values when the card scrolls into view. */
   .scorecard[data-cue="go"] .scorecard-ring {

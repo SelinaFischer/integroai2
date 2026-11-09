@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import * as Accordion from "@radix-ui/react-accordion";
 import { ArrowRight, CheckCircle2, Clock, Minus, Plus } from "lucide-react";
@@ -111,6 +112,27 @@ const stages: Stage[] = [
 ];
 
 const WorkWithMe = () => {
+  // The stage nearest the middle of the screen lights up as the visitor scrolls.
+  // Skipped for reduced motion; the stages then look exactly as before.
+  const stagesRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const list = stagesRef.current;
+    if (!list || typeof IntersectionObserver === "undefined") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) entry.target.setAttribute("data-passing", "");
+          else entry.target.removeAttribute("data-passing");
+        }
+      },
+      // A thin band across the middle of the screen.
+      { rootMargin: "-42% 0px -42% 0px" },
+    );
+    list.querySelectorAll("[data-stage-row]").forEach((row) => observer.observe(row));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -241,17 +263,18 @@ const WorkWithMe = () => {
                   </a>
                 </div>
 
-                <Accordion.Root type="single" collapsible className="flex flex-col gap-3">
+                <Accordion.Root ref={stagesRef} type="single" collapsible className="flex flex-col gap-3">
                   {stages.map((item) => (
                     <Accordion.Item
                       key={item.number}
                       value={item.number}
-                      className="group rounded-[14px] border border-brand-sand bg-white transition-colors data-[state=open]:border-brand-amber data-[state=open]:ring-1 data-[state=open]:ring-brand-amber"
+                      data-stage-row
+                      className="stage-row group rounded-[14px] border border-brand-sand bg-white transition-colors data-[state=open]:border-brand-amber data-[state=open]:ring-1 data-[state=open]:ring-brand-amber"
                     >
                       <Accordion.Header asChild>
                         <h3 className="m-0">
                           <Accordion.Trigger className="flex w-full items-start gap-4 rounded-[14px] px-5 py-5 text-left sm:px-6">
-                            <span className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-brand-navy text-sm font-semibold text-white" aria-hidden="true">
+                            <span className="stage-chip flex h-10 w-10 flex-none items-center justify-center rounded-full bg-brand-navy text-sm font-semibold text-white" aria-hidden="true">
                               {item.number}
                             </span>
                             <span className="flex-1">
