@@ -58,6 +58,7 @@ const AssessmentSection = () => {
             ))}
           </ul>
           <a href={ASSESSMENT_URL} target="_blank" rel="noopener noreferrer" className="btn-amber btn-focus group">
+            <span className="sheen" aria-hidden="true" />
             Start the free assessment
             <ArrowRight className="nudge-arrow h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
           </a>
@@ -122,7 +123,7 @@ const AssessmentSection = () => {
                   <span
                     className={`scorecard-bar block h-2 rounded ${dimension.priority ? "bg-brand-amber" : "bg-brand-navy"}`}
                     style={{
-                      width: waiting ? "0%" : `${(dimension.score / AREA_MAX) * 100}%`,
+                      width: `${(dimension.score / AREA_MAX) * 100}%`,
                       transitionDelay: `${500 + index * 180}ms`,
                     }}
                   />

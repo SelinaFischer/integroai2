@@ -240,13 +240,13 @@
   /* A single streak of light crosses the main button on hover (mouse only).
      After the "Glare Hover" idea on reactbits.dev. */
   @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-    .btn-amber {
+    .btn-amber:not(.halo):not(.btn-focus) {
       position: relative;
       overflow: hidden;
       isolation: isolate;
     }
 
-    .btn-amber::after {
+    .btn-amber:not(.halo):not(.btn-focus)::after {
       content: "";
       position: absolute;
       inset: -20% auto -20% 0;
@@ -257,7 +257,7 @@
       pointer-events: none;
     }
 
-    .btn-amber:hover::after {
+    .btn-amber:not(.halo):not(.btn-focus):hover::after {
       transform: translateX(330%) skewX(-18deg);
       transition: transform 0.75s cubic-bezier(0.22, 0.61, 0.36, 1);
     }
@@ -324,37 +324,38 @@
       pointer-events: none;
     }
 
+    /* Soft-edged gradients, not a blur filter: a blur this size is costly
+       for slower laptops to draw. */
     .hero-light > span {
       position: absolute;
       border-radius: 50%;
-      filter: blur(60px);
       will-change: transform;
     }
 
     .hero-light > span:nth-child(1) {
-      left: 22%;
-      top: -42%;
-      width: 46%;
-      height: 95%;
-      background: rgba(86, 190, 196, 0.34);
+      left: 12%;
+      top: -62%;
+      width: 66%;
+      height: 135%;
+      background: radial-gradient(closest-side, rgba(86, 190, 196, 0.36), rgba(86, 190, 196, 0.2) 40%, rgba(86, 190, 196, 0) 100%);
       animation: heroDriftA 15s ease-in-out infinite alternate;
     }
 
     .hero-light > span:nth-child(2) {
-      right: -10%;
-      bottom: -48%;
-      width: 52%;
-      height: 105%;
-      background: rgba(52, 120, 196, 0.42);
+      right: -20%;
+      bottom: -70%;
+      width: 72%;
+      height: 150%;
+      background: radial-gradient(closest-side, rgba(52, 120, 196, 0.46), rgba(52, 120, 196, 0.25) 40%, rgba(52, 120, 196, 0) 100%);
       animation: heroDriftB 19s ease-in-out infinite alternate;
     }
 
     .hero-light > span:nth-child(3) {
-      left: 44%;
-      bottom: -30%;
-      width: 24%;
-      height: 48%;
-      background: rgba(255, 153, 0, 0.13);
+      left: 38%;
+      bottom: -45%;
+      width: 36%;
+      height: 75%;
+      background: radial-gradient(closest-side, rgba(255, 153, 0, 0.15), rgba(255, 153, 0, 0.07) 45%, rgba(255, 153, 0, 0) 100%);
       animation: heroDriftC 23s ease-in-out infinite alternate;
     }
   }
@@ -413,8 +414,26 @@
     }
 
     /* A ring of light spreads out from the button and fades. */
-    .halo {
+    /* Drawn as a separate layer that only scales and fades, so the browser
+       can animate it without redrawing the page. */
+    .halo,
+    .btn-focus {
       --halo: 255, 153, 0;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .halo::before,
+    .btn-focus::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      border-radius: inherit;
+      background: rgba(var(--halo), 0.5);
+      opacity: 0;
+      pointer-events: none;
+      will-change: transform, opacity;
       animation: haloPulse 2.6s ease-out infinite;
     }
 
@@ -445,41 +464,54 @@
 
   /* The main action, "Start the free assessment": the strongest cue on the
      page. A wider ring than the free offers, plus a streak of light that
-     crosses the button by itself every few seconds. */
+     crosses the button by itself every few seconds. The streak lives in a
+     small clipped layer (.sheen) inside the button. */
+  .sheen {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
   @media (prefers-reduced-motion: no-preference) {
-    .btn-focus {
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
+    .btn-focus::before {
+      background: rgba(255, 153, 0, 0.65);
       animation: focusPulse 2.4s ease-out infinite;
     }
 
-    .btn-focus::after {
+    .sheen::after {
       content: "";
       position: absolute;
       inset: -20% auto -20% 0;
-      z-index: -1;
       width: 45%;
       background: linear-gradient(100deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0) 100%);
       transform: translateX(-130%) skewX(-18deg);
-      pointer-events: none;
+      will-change: transform;
       animation: focusSheen 3.6s cubic-bezier(0.22, 0.61, 0.36, 1) infinite;
-    }
-
-    /* On hover the button keeps its own streak; pause the automatic one. */
-    .btn-focus:hover::after {
-      animation: none;
     }
   }
 
   @keyframes focusPulse {
-    0% { box-shadow: 0 0 0 0 rgba(255, 153, 0, 0.7); }
-    75%, 100% { box-shadow: 0 0 0 18px rgba(255, 153, 0, 0); }
+    0% { transform: scale(1); opacity: 0.9; }
+    75%, 100% { transform: scale(1.14, 1.75); opacity: 0; }
   }
 
   @keyframes focusSheen {
     0%, 60% { transform: translateX(-130%) skewX(-18deg); }
     85%, 100% { transform: translateX(330%) skewX(-18deg); }
+  }
+
+  /* Anything that loops is paused while it is off screen
+     (src/components/LoopPauser.tsx). */
+  [data-offscreen],
+  [data-offscreen]::before,
+  [data-offscreen]::after,
+  [data-offscreen] > span,
+  [data-offscreen] .sheen::after,
+  [data-offscreen] .nudge-arrow {
+    animation-play-state: paused !important;
   }
 
   @keyframes arrowNudge {
@@ -490,8 +522,8 @@
   }
 
   @keyframes haloPulse {
-    0% { box-shadow: 0 0 0 0 rgba(var(--halo), 0.55); }
-    70%, 100% { box-shadow: 0 0 0 14px rgba(var(--halo), 0); }
+    0% { transform: scale(1); opacity: 0.85; }
+    70%, 100% { transform: scale(1.1, 1.55); opacity: 0; }
   }
 
   @keyframes dotPing {
@@ -515,8 +547,16 @@
     transition: stroke-dasharray 1.4s cubic-bezier(0.22, 0.61, 0.36, 1);
   }
 
+  .scorecard-bar {
+    transform-origin: left;
+  }
+
+  .scorecard[data-cue="armed"] .scorecard-bar {
+    transform: scaleX(0);
+  }
+
   .scorecard[data-cue="go"] .scorecard-bar {
-    transition-property: width;
+    transition-property: transform;
     transition-duration: 0.9s;
     transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
   }

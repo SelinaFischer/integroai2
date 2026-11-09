@@ -44,6 +44,7 @@ const Hero = () => {
                 rel="noopener noreferrer"
                 className="btn-amber btn-focus group"
               >
+                <span className="sheen" aria-hidden="true" />
                 Start the free assessment
                 <ArrowRight className="nudge-arrow h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
               </a>
