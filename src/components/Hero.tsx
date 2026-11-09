@@ -9,7 +9,11 @@ import { CHEAT_SHEET_FORM_URL, trackCheatSheetClick } from "@/lib/cheatSheet";
 const Hero = () => {
   return (
     <section className="relative bg-midnight-glow pt-[104px] pb-16 sm:pt-[132px] sm:pb-20 lg:pt-[162px] lg:pb-[88px]">
-      <div className="hero-light" aria-hidden="true" />
+      <div className="hero-light" aria-hidden="true">
+        <span />
+        <span />
+        <span />
+      </div>
       <div className="wrap relative flex flex-col items-center gap-12 lg:flex-row lg:gap-14">
         <m.div
           initial={{ opacity: 0, y: 20 }}
@@ -21,7 +25,7 @@ const Hero = () => {
             Independent UK AI consultancy for business owners
           </p>
 
-          <h1 className="text-[40px] font-semibold leading-[1.05] text-white sm:text-[52px] lg:text-[60px]">
+          <h1 className="hero-headline text-[40px] font-semibold leading-[1.05] text-white sm:text-[52px] lg:text-[60px]">
             <span className="block">Less firefighting.</span>
             <span className="block italic text-brand-amber [text-wrap:balance]">More time for the work you love.</span>
           </h1>

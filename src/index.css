@@ -307,8 +307,8 @@
     transition: none;
   }
 
-  /* Hero light: two very faint pools of teal and blue drifting slowly behind
-     the hero text. Desktop only, and switched off for reduced motion. After
+  /* Hero light: three soft pools of teal, blue and a little amber drifting
+     behind the hero. Desktop only, and switched off for reduced motion. After
      the "Aurora" idea on reactbits.dev, drawn in plain CSS so it adds no
      graphics library and costs nothing on phones. */
   .hero-light {
@@ -324,41 +324,130 @@
       pointer-events: none;
     }
 
-    .hero-light::before,
-    .hero-light::after {
-      content: "";
+    .hero-light > span {
       position: absolute;
       border-radius: 50%;
+      filter: blur(60px);
       will-change: transform;
     }
 
-    .hero-light::before {
-      left: -8%;
-      top: -30%;
-      width: 62%;
-      height: 120%;
-      background: radial-gradient(closest-side, rgba(143, 211, 209, 0.16), rgba(143, 211, 209, 0) 100%);
-      animation: heroDriftA 26s ease-in-out infinite alternate;
+    .hero-light > span:nth-child(1) {
+      left: 22%;
+      top: -42%;
+      width: 46%;
+      height: 95%;
+      background: rgba(86, 190, 196, 0.34);
+      animation: heroDriftA 15s ease-in-out infinite alternate;
     }
 
-    .hero-light::after {
-      right: -12%;
-      bottom: -45%;
-      width: 58%;
-      height: 120%;
-      background: radial-gradient(closest-side, rgba(58, 118, 176, 0.22), rgba(58, 118, 176, 0) 100%);
-      animation: heroDriftB 32s ease-in-out infinite alternate;
+    .hero-light > span:nth-child(2) {
+      right: -10%;
+      bottom: -48%;
+      width: 52%;
+      height: 105%;
+      background: rgba(52, 120, 196, 0.42);
+      animation: heroDriftB 19s ease-in-out infinite alternate;
+    }
+
+    .hero-light > span:nth-child(3) {
+      left: 44%;
+      bottom: -30%;
+      width: 24%;
+      height: 48%;
+      background: rgba(255, 153, 0, 0.13);
+      animation: heroDriftC 23s ease-in-out infinite alternate;
     }
   }
 
   @keyframes heroDriftA {
-    0% { transform: translate3d(0, 0, 0) scale(1); }
-    100% { transform: translate3d(14%, 10%, 0) scale(1.12); }
+    0% { transform: translate3d(-22%, 0, 0) scale(1); }
+    100% { transform: translate3d(34%, 22%, 0) scale(1.25); }
   }
 
   @keyframes heroDriftB {
-    0% { transform: translate3d(0, 0, 0) scale(1.08); }
-    100% { transform: translate3d(-16%, -12%, 0) scale(0.95); }
+    0% { transform: translate3d(8%, 0, 0) scale(1.1); }
+    100% { transform: translate3d(-38%, -26%, 0) scale(0.9); }
+  }
+
+  @keyframes heroDriftC {
+    0% { transform: translate3d(-40%, 10%, 0) scale(0.9); }
+    100% { transform: translate3d(60%, -30%, 0) scale(1.3); }
+  }
+
+  /* Hero headline: each line comes into focus as the page opens, the amber
+     line a beat after the white one. Pure CSS, so it starts with the very
+     first paint and the saved page never flickers. It starts faint, not
+     invisible, so the headline still counts as shown straight away. */
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-headline > span {
+      animation: headlineFocus 1.1s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+    }
+
+    .hero-headline > span:nth-child(2) {
+      animation-delay: 0.45s;
+    }
+  }
+
+  @keyframes headlineFocus {
+    0% { opacity: 0.12; filter: blur(12px); transform: translateY(10px); }
+    100% { opacity: 1; filter: blur(0); transform: translateY(0); }
+  }
+
+  /* Sample scorecard (src/components/AssessmentSection.tsx): the ring and bars
+     glide to their values when the card scrolls into view. */
+  .scorecard[data-cue="go"] .scorecard-ring {
+    transition: stroke-dasharray 1.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .scorecard[data-cue="go"] .scorecard-bar {
+    transition-property: width;
+    transition-duration: 0.9s;
+    transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  /* Services route (src/components/Services.tsx): the stops appear one after
+     another and the amber line draws between them. --stop is 0 to 5. */
+  .route[data-cue="armed"] .route-stop,
+  .route[data-cue="armed"] .route-name {
+    opacity: 0;
+  }
+
+  .route[data-cue="armed"] .route-stop {
+    transform: scale(0.4);
+  }
+
+  .route[data-cue="armed"] .route-name {
+    transform: translateY(8px);
+  }
+
+  .route[data-cue="armed"] .route-line {
+    transform: scaleY(0);
+  }
+
+  .route-line {
+    transform-origin: top;
+  }
+
+  @media (min-width: 1024px) {
+    .route[data-cue="armed"] .route-line {
+      transform: scaleX(0);
+    }
+
+    .route-line {
+      transform-origin: left;
+    }
+  }
+
+  .route[data-cue="go"] .route-stop,
+  .route[data-cue="go"] .route-name,
+  .route[data-cue="go"] .route-line {
+    transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.4s ease-out;
+    transition-delay: calc(var(--stop) * 260ms + 150ms);
+  }
+
+  .route[data-cue="go"] .route-line {
+    transition-delay: calc(var(--stop) * 260ms + 330ms);
+    transition-duration: 0.32s;
   }
 
   .btn-outline-navy {

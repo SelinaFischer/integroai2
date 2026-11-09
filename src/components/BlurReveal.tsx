@@ -44,7 +44,7 @@ const BlurReveal = ({ text, className }: BlurRevealProps) => {
   return (
     <span ref={ref} className={`blur-reveal ${className ?? ""}`.trim()}>
       {words.map((word, index) => (
-        <span key={index} style={{ transitionDelay: `${index * 140}ms` }}>
+        <span key={index} style={{ transitionDelay: `${index * 220}ms` }}>
           {word}
           {index < words.length - 1 ? " " : ""}
         </span>
