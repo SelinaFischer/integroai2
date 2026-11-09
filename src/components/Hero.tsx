@@ -8,8 +8,9 @@ import { CHEAT_SHEET_FORM_URL, trackCheatSheetClick } from "@/lib/cheatSheet";
 
 const Hero = () => {
   return (
-    <section className="bg-midnight-glow pt-[104px] pb-16 sm:pt-[132px] sm:pb-20 lg:pt-[162px] lg:pb-[88px]">
-      <div className="wrap flex flex-col items-center gap-12 lg:flex-row lg:gap-14">
+    <section className="relative bg-midnight-glow pt-[104px] pb-16 sm:pt-[132px] sm:pb-20 lg:pt-[162px] lg:pb-[88px]">
+      <div className="hero-light" aria-hidden="true" />
+      <div className="wrap relative flex flex-col items-center gap-12 lg:flex-row lg:gap-14">
         <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
