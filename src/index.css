@@ -443,6 +443,45 @@
     }
   }
 
+  /* The main action, "Start the free assessment": the strongest cue on the
+     page. A wider ring than the free offers, plus a streak of light that
+     crosses the button by itself every few seconds. */
+  @media (prefers-reduced-motion: no-preference) {
+    .btn-focus {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      animation: focusPulse 2.4s ease-out infinite;
+    }
+
+    .btn-focus::after {
+      content: "";
+      position: absolute;
+      inset: -20% auto -20% 0;
+      z-index: -1;
+      width: 45%;
+      background: linear-gradient(100deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0) 100%);
+      transform: translateX(-130%) skewX(-18deg);
+      pointer-events: none;
+      animation: focusSheen 3.6s cubic-bezier(0.22, 0.61, 0.36, 1) infinite;
+    }
+
+    /* On hover the button keeps its own streak; pause the automatic one. */
+    .btn-focus:hover::after {
+      animation: none;
+    }
+  }
+
+  @keyframes focusPulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 153, 0, 0.7); }
+    75%, 100% { box-shadow: 0 0 0 18px rgba(255, 153, 0, 0); }
+  }
+
+  @keyframes focusSheen {
+    0%, 60% { transform: translateX(-130%) skewX(-18deg); }
+    85%, 100% { transform: translateX(330%) skewX(-18deg); }
+  }
+
   @keyframes arrowNudge {
     0%, 55%, 100% { transform: translateX(0); }
     65% { transform: translateX(6px); }

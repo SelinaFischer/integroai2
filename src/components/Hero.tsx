@@ -42,10 +42,10 @@ const Hero = () => {
                 href={ASSESSMENT_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-amber group"
+                className="btn-amber btn-focus group"
               >
                 Start the free assessment
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
+                <ArrowRight className="nudge-arrow h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
               </a>
               <a
                 href={DISCOVERY_CALL_URL}
