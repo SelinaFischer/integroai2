@@ -44,15 +44,6 @@ const partnerTypes = [
   },
 ];
 
-const clientGains = [
-  "Simpler operations",
-  "Less repetitive admin",
-  "A few hours back each week",
-  "More time on work that adds value",
-  "A better customer experience",
-  "Support for growth",
-];
-
 const businessTypes = [
   "Accountancy or bookkeeping",
   "Business coaching or advisory",
@@ -265,48 +256,22 @@ const Partnerships = () => {
             <p className="text-[11px] font-bold uppercase leading-relaxed tracking-[0.16em] text-brand-amber sm:text-xs">
               Referral partners
             </p>
-            <h1 className="text-[34px] font-semibold leading-[1.08] text-white sm:text-[44px] lg:text-[50px]">
-              <span className="block">Know a business owner who needs help with AI?</span>
-              <span className="block italic text-brand-amber">Introduce them to practical support.</span>
+            <h1 className="text-[34px] font-semibold leading-[1.08] text-white sm:text-[40px] lg:text-[46px]">
+              <span className="block">
+                <span className="whitespace-nowrap">Too much admin?</span>{" "}
+                <span className="whitespace-nowrap">Disconnected systems?</span>{" "}
+                <span className="whitespace-nowrap">Missed enquiries?</span>
+              </span>
+              <span className="block italic text-brand-amber">Introduce a business owner to practical AI support.</span>
             </h1>
             <div className="flex max-w-[640px] flex-col gap-3 text-[16px] leading-normal text-brand-mist sm:text-[17px]">
-              <p>
-                Your clients may be spending too much time on admin, struggling with disconnected systems or wondering
-                where to start with AI.
+              <p className="text-[17px] font-medium text-white sm:text-[19px]">
+                Less manual work. Smoother operations. Faster customer follow-up.
               </p>
-              <p>
-                We help business owners understand what is slowing them down, improve their processes and use AI and
-                automation where they can make a useful difference.
-              </p>
-              <p className="font-semibold text-white">
-                Earn a referral fee when your introduction leads to paid work.
-              </p>
+              <p className="font-semibold text-white">Earn a referral fee when your introduction leads to paid work.</p>
             </div>
             <PartnerButton />
           </m.div>
-        </section>
-
-        <section className="bg-white py-12 sm:py-16">
-          <div className="wrap">
-            <m.h2 {...fadeUp} className={h2}>
-              What your clients gain
-            </m.h2>
-            <m.p {...fadeUp} className="mt-2 max-w-[680px] text-[16px] leading-relaxed text-brand-slate">
-              AI adoption and transformation consulting, workflow automation and training for business owners.
-            </m.p>
-            <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {clientGains.map((g, i) => (
-                <m.li
-                  key={g}
-                  {...fadeUpDelayed(i)}
-                  className="flex items-start gap-3 rounded-[12px] border border-brand-sand bg-brand-ivory px-4 py-3.5 text-[15px] font-medium leading-snug text-brand-navy"
-                >
-                  <CheckCircle2 className="mt-0.5 h-[18px] w-[18px] shrink-0 text-brand-teal" aria-hidden="true" />
-                  <span>{g}</span>
-                </m.li>
-              ))}
-            </ul>
-          </div>
         </section>
 
         <section className="bg-brand-ivory py-12 sm:py-16">
