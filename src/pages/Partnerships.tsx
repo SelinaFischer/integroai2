@@ -24,15 +24,15 @@ const partnerTypes = [
   },
   {
     title: "Business coaches and advisers",
-    text: "You help owners identify what needs to change. I help turn operational priorities into practical improvements.",
+    text: "You help owners identify what needs to change. We help turn operational priorities into practical improvements.",
   },
   {
     title: "IT and cyber security providers",
-    text: "Your clients ask about AI, but may need help beyond the technology. I support workflow improvements and team adoption alongside your expertise.",
+    text: "Your clients ask about AI, but may need help beyond the technology. We support workflow improvements and team adoption alongside your expertise.",
   },
   {
     title: "HR consultants and service providers",
-    text: "You support business owners and their teams. When clients need help with AI, automation or everyday processes, I can provide complementary support.",
+    text: "You support business owners and their teams. When clients need help with AI, automation or everyday processes, we can provide complementary support.",
   },
   {
     title: "Hospitality professionals",
@@ -42,6 +42,15 @@ const partnerTypes = [
     title: "Property professionals",
     text: "You work in estate agency, lettings, property management or commercial property. Introduce business owners who need help simplifying processes and managing enquiries.",
   },
+];
+
+const clientGains = [
+  "Simpler operations",
+  "Less repetitive admin",
+  "A few hours back each week",
+  "More time on work that adds value",
+  "A better customer experience",
+  "Support for growth",
 ];
 
 const businessTypes = [
@@ -105,14 +114,14 @@ const ApplicationForm = () => {
         <CheckCircle2 className="h-8 w-8 text-brand-teal" aria-hidden="true" />
         <h3 className="font-heading text-[26px] font-semibold text-brand-navy">Thank you, your enquiry is in.</h3>
         <p className="text-[16px] leading-relaxed text-brand-slate">
-          I’ll be in touch to arrange a meeting.
+          We’ll be in touch to arrange a meeting.
         </p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="card-soft grid grid-cols-1 gap-5 p-7 sm:grid-cols-2 sm:p-9">
+    <form onSubmit={handleSubmit} className="card-soft grid grid-cols-1 gap-4 p-6 sm:grid-cols-2 sm:p-8">
       <input type="hidden" name="_subject" value="Partnership enquiry" />
       <input type="hidden" name="form" value="Partnership enquiry" />
       <div className="flex flex-col gap-2">
@@ -173,7 +182,7 @@ const ApplicationForm = () => {
       )}
       <div className="flex flex-col gap-2 sm:col-span-2">
         <Label htmlFor="p-about" className="text-[16px] font-semibold">
-          Tell me about your business
+          Tell us about your business
         </Label>
         <p id="p-about-help" className="text-[14px] leading-relaxed text-brand-slate">
           Briefly describe what you do and the clients you work with.
@@ -213,7 +222,7 @@ const ApplicationForm = () => {
           </p>
         )}
         <p className="text-[13px] leading-relaxed text-brand-slate">
-          I’ll use your details to respond to your partnership enquiry. See the{" "}
+          We’ll use your details to respond to your partnership enquiry. See the{" "}
           <Link to="/privacy-policy" className="underline decoration-brand-amber underline-offset-4">
             privacy policy
           </Link>
@@ -229,7 +238,7 @@ const Partnerships = () => {
   const description =
     "Become an IntegroAI Consulting referral partner. Know a business owner who needs help with AI? Introduce them to practical support with processes, AI and automation.";
 
-  const h2 = "font-heading text-[32px] font-semibold leading-[1.15] text-brand-navy sm:text-[40px]";
+  const h2 = "font-heading text-[28px] font-semibold leading-[1.15] text-brand-navy sm:text-[34px]";
 
   return (
     <>
@@ -246,59 +255,81 @@ const Partnerships = () => {
       <Header />
 
       <main id="main-content">
-        <section className="bg-midnight-glow pt-[104px] pb-14 sm:pt-[132px] sm:pb-16 lg:pt-[150px] lg:pb-20">
+        <section className="bg-midnight-glow pt-[96px] pb-10 sm:pt-[116px] sm:pb-12 lg:pt-[128px] lg:pb-14">
           <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="wrap flex flex-col items-start gap-6"
+            className="wrap flex flex-col items-start gap-5"
           >
             <p className="text-[11px] font-bold uppercase leading-relaxed tracking-[0.16em] text-brand-amber sm:text-xs">
               Referral partners
             </p>
-            <h1 className="text-[40px] font-semibold leading-[1.05] text-white sm:text-[52px] lg:text-[60px]">
+            <h1 className="text-[34px] font-semibold leading-[1.08] text-white sm:text-[44px] lg:text-[50px]">
               <span className="block">Know a business owner who needs help with AI?</span>
               <span className="block italic text-brand-amber">Introduce them to practical support.</span>
             </h1>
-            <div className="flex max-w-[660px] flex-col gap-4 text-[17px] leading-normal text-brand-mist sm:text-[19px]">
+            <div className="flex max-w-[640px] flex-col gap-3 text-[16px] leading-normal text-brand-mist sm:text-[17px]">
               <p>
                 Your clients may be spending too much time on admin, struggling with disconnected systems or wondering
                 where to start with AI.
               </p>
               <p>
-                I help business owners understand what is slowing them down, improve their processes and use AI and
+                We help business owners understand what is slowing them down, improve their processes and use AI and
                 automation where they can make a useful difference.
               </p>
               <p className="font-semibold text-white">
-                Earn a referral fee when your introduction leads to paid work, payable once the client’s payment has
-                been received.
+                Earn a referral fee when your introduction leads to paid work.
               </p>
             </div>
             <PartnerButton />
           </m.div>
         </section>
 
-        <section className="bg-brand-ivory py-14 sm:py-20">
+        <section className="bg-white py-12 sm:py-16">
           <div className="wrap">
             <m.h2 {...fadeUp} className={h2}>
-              Who I partner with
+              What your clients gain
             </m.h2>
-            <m.p {...fadeUp} className="mt-3 max-w-[680px] text-[17px] leading-relaxed text-brand-slate">
-              You know your clients and the challenges they face. I provide practical support when they need help
+            <m.p {...fadeUp} className="mt-2 max-w-[680px] text-[16px] leading-relaxed text-brand-slate">
+              AI adoption and transformation consulting, workflow automation and training for business owners.
+            </m.p>
+            <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {clientGains.map((g, i) => (
+                <m.li
+                  key={g}
+                  {...fadeUpDelayed(i)}
+                  className="flex items-start gap-3 rounded-[12px] border border-brand-sand bg-brand-ivory px-4 py-3.5 text-[15px] font-medium leading-snug text-brand-navy"
+                >
+                  <CheckCircle2 className="mt-0.5 h-[18px] w-[18px] shrink-0 text-brand-teal" aria-hidden="true" />
+                  <span>{g}</span>
+                </m.li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section className="bg-brand-ivory py-12 sm:py-16">
+          <div className="wrap">
+            <m.h2 {...fadeUp} className={h2}>
+              Who we partner with
+            </m.h2>
+            <m.p {...fadeUp} className="mt-2 max-w-[680px] text-[16px] leading-relaxed text-brand-slate">
+              You know your clients and the challenges they face. We provide practical support when they need help
               improving how they work or adopting AI.
             </m.p>
-            <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
               {partnerTypes.map((t, i) => (
-                <m.article key={t.title} {...fadeUpDelayed(i)} className="card-soft flex flex-col gap-2 p-7">
-                  <h3 className="font-heading text-[21px] font-semibold leading-[1.2] text-brand-navy">{t.title}</h3>
-                  <p className="text-[15.5px] leading-relaxed text-brand-slate">{t.text}</p>
+                <m.article key={t.title} {...fadeUpDelayed(i)} className="card-soft flex flex-col gap-1.5 p-5 sm:p-6">
+                  <h3 className="font-heading text-[19px] font-semibold leading-[1.2] text-brand-navy">{t.title}</h3>
+                  <p className="text-[14.5px] leading-relaxed text-brand-slate">{t.text}</p>
                 </m.article>
               ))}
             </div>
             <m.a
               {...fadeUp}
               href="#apply"
-              className="group relative mx-auto mt-8 flex max-w-[720px] flex-col items-center gap-4 overflow-hidden rounded-[16px] bg-brand-teal px-6 py-6 text-center sm:flex-row sm:gap-5 sm:px-7 sm:text-left"
+              className="group relative mx-auto mt-6 flex max-w-[720px] flex-col items-center gap-4 overflow-hidden rounded-[16px] bg-brand-teal px-6 py-5 text-center sm:flex-row sm:gap-5 sm:px-7 sm:text-left"
             >
               <span
                 className="pointer-events-none absolute -right-10 -top-12 h-36 w-36 rounded-full bg-white/15 blur-2xl"
@@ -315,7 +346,7 @@ const Partnerships = () => {
                   Not listed here?
                 </span>
                 <span className="text-[15px] leading-relaxed text-white">
-                  If you work with business owners and see a good fit, I’d welcome a conversation.
+                  If you work with business owners and see a good fit, we’d welcome a conversation.
                 </span>
               </span>
               <span className="flex shrink-0 items-center gap-1.5 text-[15px] font-semibold text-white">
@@ -330,18 +361,18 @@ const Partnerships = () => {
           </div>
         </section>
 
-        <section id="apply" className="scroll-mt-24 bg-white py-14 sm:py-20">
+        <section id="apply" className="scroll-mt-24 bg-white py-12 sm:py-16">
           <div className="wrap max-w-[860px]">
             <m.h2 {...fadeUp} className={h2}>
               Let’s explore working together
             </m.h2>
-            <div className="mb-8 mt-3 flex max-w-[680px] flex-col gap-4 text-[17px] leading-relaxed text-brand-slate">
+            <div className="mb-6 mt-2 flex max-w-[680px] flex-col gap-3 text-[16px] leading-relaxed text-brand-slate">
               <m.p {...fadeUp}>
-                If you work with business owners who could benefit from practical AI and automation support, I’d welcome
+                If you work with business owners who could benefit from practical AI and automation support, we’d welcome
                 a conversation.
               </m.p>
               <m.p {...fadeUp}>
-                Complete the form below and I’ll get in touch to arrange a meeting to discuss working together.
+                Complete the form below and we’ll get in touch to arrange a meeting to discuss working together.
               </m.p>
               <m.p {...fadeUp} className="flex flex-wrap items-center gap-x-2 gap-y-1 text-brand-navy">
                 <CalendarDays className="h-5 w-5 shrink-0 text-brand-teal" aria-hidden="true" />
