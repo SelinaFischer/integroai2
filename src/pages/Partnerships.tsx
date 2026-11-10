@@ -299,30 +299,30 @@ const Partnerships = () => {
             <m.a
               {...fadeUp}
               href="#apply"
-              className="group relative mx-auto mt-8 flex max-w-[720px] flex-col items-center gap-4 overflow-hidden rounded-[16px] bg-brand-navy px-6 py-6 text-center sm:flex-row sm:gap-5 sm:px-7 sm:text-left"
+              className="group relative mx-auto mt-8 flex max-w-[720px] flex-col items-center gap-4 overflow-hidden rounded-[16px] bg-brand-teal px-6 py-6 text-center sm:flex-row sm:gap-5 sm:px-7 sm:text-left"
             >
               <span
-                className="pointer-events-none absolute -right-10 -top-12 h-36 w-36 rounded-full bg-brand-amber/20 blur-2xl"
+                className="pointer-events-none absolute -right-10 -top-12 h-36 w-36 rounded-full bg-white/15 blur-2xl"
                 aria-hidden="true"
               />
               <span
-                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-brand-amber/60 text-brand-amber"
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/50 bg-white/10 text-brand-amber"
                 aria-hidden="true"
               >
                 <Plus className="h-5 w-5" strokeWidth={2} />
               </span>
               <span className="flex flex-1 flex-col gap-1">
-                <span className="font-heading text-[22px] font-semibold italic leading-[1.2] text-brand-amber">
+                <span className="font-heading text-[22px] font-semibold italic leading-[1.2] text-white">
                   Not listed here?
                 </span>
-                <span className="text-[15px] leading-relaxed text-brand-mist">
+                <span className="text-[15px] leading-relaxed text-white">
                   If you work with business owners and see a good fit, I’d welcome a conversation.
                 </span>
               </span>
               <span className="flex shrink-0 items-center gap-1.5 text-[15px] font-semibold text-white">
                 Let’s talk
                 <ArrowRight
-                  className="h-4 w-4 text-brand-amber transition-transform duration-200 group-hover:translate-x-1"
+                  className="h-4 w-4 text-white transition-transform duration-200 group-hover:translate-x-1"
                   strokeWidth={2.4}
                   aria-hidden="true"
                 />
