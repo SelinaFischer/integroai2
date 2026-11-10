@@ -227,7 +227,7 @@ const ApplicationForm = () => {
 const Partnerships = () => {
   const pageUrl = `https://integroai.tech${PARTNERSHIPS_PATH}`;
   const description =
-    "Become an IntegroAI Consulting referral partner. Know a business owner who needs help with AI? Introduce them to practical support with processes, AI and automation.";
+    "Become an IntegroAI referral partner. Introduce business owners facing too much admin, disconnected systems or missed enquiries to practical AI support.";
 
   const h2 = "font-heading text-[28px] font-semibold leading-[1.15] text-brand-navy sm:text-[34px]";
 
@@ -308,7 +308,7 @@ const Partnerships = () => {
               </span>
               <span className="flex flex-1 flex-col gap-1">
                 <span className="font-heading text-[22px] font-semibold italic leading-[1.2] text-white">
-                  Not listed here?
+                  Business type not listed here?
                 </span>
                 <span className="text-[15px] leading-relaxed text-white">
                   If you work with business owners and see a good fit, we’d welcome a conversation.
