@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { ArrowRight, CalendarDays, CheckCircle2, Loader2 } from "lucide-react";
+import { ArrowRight, CalendarDays, CheckCircle2, Loader2, Plus } from "lucide-react";
 import { m } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -173,11 +173,11 @@ const ApplicationForm = () => {
       )}
       <div className="flex flex-col gap-2 sm:col-span-2">
         <Label htmlFor="p-about" className="text-[16px] font-semibold">
-          Tell me about your business, and anyone you’d like to introduce
+          Who needs help, and with what?
         </Label>
         <p id="p-about-help" className="text-[14px] leading-relaxed text-brand-slate">
-          Share the kind of clients you support. If you already have a client in mind, tell me what they need help with.
-          Please leave out their name and contact details until they’ve agreed to an introduction.
+          Tell me what your client is struggling with and how you know them. No client in mind yet? Tell me about the
+          clients you support. Please leave out their name and contact details until they’ve agreed to an introduction.
         </p>
         <Textarea
           id="p-about"
@@ -185,7 +185,7 @@ const ApplicationForm = () => {
           required
           rows={6}
           aria-describedby="p-about-help"
-          placeholder="For example: I’m an accountant working with small hospitality businesses. One of my clients spends hours each week on manual bookings and follow-ups."
+          placeholder="For example: I’m their accountant. They run a small hotel, and the team spends hours each week chasing bookings and answering the same enquiries."
           className="rounded-lg border-2 border-[#BDB3A1] bg-white text-[15px] text-brand-navy placeholder:text-[#89898E] focus:border-brand-amber focus:ring-brand-amber/20"
         />
       </div>
@@ -296,15 +296,38 @@ const Partnerships = () => {
                 </m.article>
               ))}
             </div>
-            <m.div
+            <m.a
               {...fadeUp}
-              className="mx-auto mt-8 flex max-w-[620px] flex-col items-center gap-1.5 rounded-[14px] border border-brand-amber/70 bg-white px-6 py-6 text-center"
+              href="#apply"
+              className="group relative mx-auto mt-8 flex max-w-[720px] flex-col items-center gap-4 overflow-hidden rounded-[16px] bg-brand-teal px-6 py-6 text-center sm:flex-row sm:gap-5 sm:px-7 sm:text-left"
             >
-              <h3 className="font-heading text-[21px] font-semibold leading-[1.2] text-brand-navy">Not listed here?</h3>
-              <p className="text-[15.5px] leading-relaxed text-brand-slate">
-                If you work with business owners and see a good fit, I’d welcome a conversation.
-              </p>
-            </m.div>
+              <span
+                className="pointer-events-none absolute -right-10 -top-12 h-36 w-36 rounded-full bg-white/15 blur-2xl"
+                aria-hidden="true"
+              />
+              <span
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/50 bg-white/10 text-brand-amber"
+                aria-hidden="true"
+              >
+                <Plus className="h-5 w-5" strokeWidth={2} />
+              </span>
+              <span className="flex flex-1 flex-col gap-1">
+                <span className="font-heading text-[22px] font-semibold italic leading-[1.2] text-white">
+                  Not listed here?
+                </span>
+                <span className="text-[15px] leading-relaxed text-white">
+                  If you work with business owners and see a good fit, I’d welcome a conversation.
+                </span>
+              </span>
+              <span className="flex shrink-0 items-center gap-1.5 text-[15px] font-semibold text-white">
+                Let’s talk
+                <ArrowRight
+                  className="h-4 w-4 text-white transition-transform duration-200 group-hover:translate-x-1"
+                  strokeWidth={2.4}
+                  aria-hidden="true"
+                />
+              </span>
+            </m.a>
           </div>
         </section>
 
