@@ -237,6 +237,420 @@
     @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-amber px-6 py-[13px] text-[15px] font-semibold leading-tight text-brand-navy transition-colors duration-200 hover:bg-[#FFAA2B];
   }
 
+  /* A single streak of light crosses the main button on hover (mouse only).
+     After the "Glare Hover" idea on reactbits.dev. */
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .btn-amber:not(.halo):not(.btn-focus) {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .btn-amber:not(.halo):not(.btn-focus)::after {
+      content: "";
+      position: absolute;
+      inset: -20% auto -20% 0;
+      z-index: -1;
+      width: 45%;
+      background: linear-gradient(100deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
+      transform: translateX(-130%) skewX(-18deg);
+      pointer-events: none;
+    }
+
+    .btn-amber:not(.halo):not(.btn-focus):hover::after {
+      transform: translateX(330%) skewX(-18deg);
+      transition: transform 0.75s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+  }
+
+  /* A soft pool of light follows the pointer across a card (mouse only).
+     Position comes from src/components/Spotlight.tsx. */
+  .spotlight {
+    position: relative;
+    isolation: isolate;
+    --spot-colour: rgba(255, 153, 0, 0.13);
+  }
+
+  @media (hover: hover) {
+    .spotlight::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      border-radius: inherit;
+      background: radial-gradient(260px circle at var(--spot-x, 50%) var(--spot-y, 50%), var(--spot-colour), transparent 72%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      pointer-events: none;
+    }
+
+    .spotlight:hover::before {
+      opacity: 1;
+    }
+  }
+
+  /* A line that comes into focus word by word (src/components/BlurReveal.tsx).
+     Sharp by default; the soft state is only ever set in the browser. */
+  .blur-reveal > span {
+    display: inline-block;
+    white-space: pre;
+  }
+
+  .blur-reveal[data-blur] > span {
+    transition: filter 0.9s ease-out, opacity 0.9s ease-out;
+    will-change: filter, opacity;
+  }
+
+  .blur-reveal[data-blur="soft"] > span {
+    filter: blur(9px);
+    opacity: 0.25;
+    transition: none;
+  }
+
+  /* Hero light: three soft pools of teal, blue and a little amber drifting
+     behind the hero. Desktop only, and switched off for reduced motion. After
+     the "Aurora" idea on reactbits.dev, drawn in plain CSS so it adds no
+     graphics library and costs nothing on phones. */
+  .hero-light {
+    display: none;
+  }
+
+  @media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+    .hero-light {
+      display: block;
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    /* Soft-edged gradients, not a blur filter: a blur this size is costly
+       for slower laptops to draw. */
+    .hero-light > span {
+      position: absolute;
+      border-radius: 50%;
+      will-change: transform;
+    }
+
+    /* The pools stay in the corners. Nothing crosses the middle of the hero,
+       so the navy behind the headline keeps its full depth. */
+    .hero-light > span:nth-child(1) {
+      left: -24%;
+      top: -72%;
+      width: 52%;
+      height: 125%;
+      background: radial-gradient(closest-side, rgba(86, 190, 196, 0.2), rgba(86, 190, 196, 0.1) 40%, rgba(86, 190, 196, 0) 100%);
+      animation: heroDriftA 15s ease-in-out infinite alternate;
+    }
+
+    .hero-light > span:nth-child(2) {
+      right: -26%;
+      bottom: -80%;
+      width: 64%;
+      height: 150%;
+      background: radial-gradient(closest-side, rgba(52, 120, 196, 0.36), rgba(52, 120, 196, 0.18) 40%, rgba(52, 120, 196, 0) 100%);
+      animation: heroDriftB 19s ease-in-out infinite alternate;
+    }
+
+    .hero-light > span:nth-child(3) {
+      right: -8%;
+      top: -34%;
+      width: 28%;
+      height: 60%;
+      background: radial-gradient(closest-side, rgba(255, 153, 0, 0.1), rgba(255, 153, 0, 0.05) 45%, rgba(255, 153, 0, 0) 100%);
+      animation: heroDriftC 23s ease-in-out infinite alternate;
+    }
+  }
+
+  @keyframes heroDriftA {
+    0% { transform: translate3d(-6%, 0, 0) scale(1); }
+    100% { transform: translate3d(10%, 14%, 0) scale(1.12); }
+  }
+
+  @keyframes heroDriftB {
+    0% { transform: translate3d(6%, 0, 0) scale(1.05); }
+    100% { transform: translate3d(-10%, -12%, 0) scale(0.95); }
+  }
+
+  @keyframes heroDriftC {
+    0% { transform: translate3d(0, 0, 0) scale(0.95); }
+    100% { transform: translate3d(-18%, 16%, 0) scale(1.15); }
+  }
+
+  /* Hero headline: each line eases in as the page opens, the amber line just
+     after the white one. A soft fade with a very small rise and a long, slow
+     finish, so it settles into place with no sudden stop. No blur. Pure CSS, so
+     it starts with the first paint and the saved page never flickers. It
+     starts faint, not invisible, so the headline counts as shown straight away. */
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-headline > span {
+      animation: headlineSettle 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .hero-headline > span:nth-child(2) {
+      animation-delay: 0.18s;
+    }
+  }
+
+  @keyframes headlineSettle {
+    0% { opacity: 0.3; transform: translateY(5px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Lead-gen attention cues ─────────────────────────────────────────
+     Small repeating movements on the free offers (cheat sheet, visibility
+     check, guide) so the eye is drawn to them. All off for reduced motion. */
+  .live-dot {
+    position: relative;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    flex: none;
+    border-radius: 50%;
+    background: #3B767C;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    /* The arrow taps forward twice, then rests. */
+    .nudge-arrow {
+      animation: arrowNudge 2.8s ease-in-out infinite;
+    }
+
+    /* A ring of light spreads out from the button and fades. */
+    /* Drawn as a separate layer that only scales and fades, so the browser
+       can animate it without redrawing the page. */
+    .halo,
+    .btn-focus {
+      --halo: 255, 153, 0;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .halo::before,
+    .btn-focus::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      border-radius: inherit;
+      background: rgba(var(--halo), 0.5);
+      opacity: 0;
+      pointer-events: none;
+      will-change: transform, opacity;
+      animation: haloPulse 2.6s ease-out infinite;
+    }
+
+    .halo-navy {
+      --halo: 4, 27, 43;
+    }
+
+    .live-dot::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: #3B767C;
+      animation: dotPing 1.8s ease-out infinite;
+    }
+
+    /* The guide cover floats and straightens slightly, like a booklet held up. */
+    .float-cover {
+      animation: coverFloat 3.4s ease-in-out infinite alternate;
+    }
+
+    /* The hero's free cheat sheet link arrives last, after the headline, so
+       it is the final thing the eye lands on. */
+    .lead-arrive {
+      animation: leadArrive 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both;
+    }
+  }
+
+  /* The main action, "Start the free assessment": the strongest cue on the
+     page. A wider ring than the free offers, plus a streak of light that
+     crosses the button by itself every few seconds. The streak lives in a
+     small clipped layer (.sheen) inside the button. */
+  .sheen {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .btn-focus::before {
+      background: rgba(255, 153, 0, 0.65);
+      animation: focusPulse 2.4s ease-out infinite;
+    }
+
+    .sheen::after {
+      content: "";
+      position: absolute;
+      inset: -20% auto -20% 0;
+      width: 45%;
+      background: linear-gradient(100deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0) 100%);
+      transform: translateX(-130%) skewX(-18deg);
+      will-change: transform;
+      animation: focusSheen 3.6s cubic-bezier(0.22, 0.61, 0.36, 1) infinite;
+    }
+  }
+
+  @keyframes focusPulse {
+    0% { transform: scale(1); opacity: 0.9; }
+    75%, 100% { transform: scale(1.14, 1.75); opacity: 0; }
+  }
+
+  @keyframes focusSheen {
+    0%, 60% { transform: translateX(-130%) skewX(-18deg); }
+    85%, 100% { transform: translateX(330%) skewX(-18deg); }
+  }
+
+  /* Anything that loops is paused while it is off screen
+     (src/components/LoopPauser.tsx). */
+  [data-offscreen],
+  [data-offscreen]::before,
+  [data-offscreen]::after,
+  [data-offscreen] > span,
+  [data-offscreen] .sheen::after,
+  [data-offscreen] .nudge-arrow {
+    animation-play-state: paused !important;
+  }
+
+  @keyframes arrowNudge {
+    0%, 55%, 100% { transform: translateX(0); }
+    65% { transform: translateX(6px); }
+    75% { transform: translateX(0); }
+    85% { transform: translateX(6px); }
+  }
+
+  @keyframes haloPulse {
+    0% { transform: scale(1); opacity: 0.85; }
+    70%, 100% { transform: scale(1.1, 1.55); opacity: 0; }
+  }
+
+  @keyframes dotPing {
+    0% { transform: scale(1); opacity: 0.7; }
+    80%, 100% { transform: scale(3.2); opacity: 0; }
+  }
+
+  @keyframes coverFloat {
+    0% { transform: translateY(4px) rotate(-3deg); }
+    100% { transform: translateY(-8px) rotate(-0.5deg); }
+  }
+
+  @keyframes leadArrive {
+    0% { opacity: 0; transform: translateY(6px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Pain-point cards (src/components/WhoWeWorkWith.tsx): the card you point
+     at is highlighted with an amber edge and a deeper shadow. The other cards
+     stay exactly as they are. Mouse only. */
+  @media (hover: hover) {
+    .focus-card {
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .focus-card:hover {
+      border-color: #FF9900;
+      box-shadow: var(--shadow-lg);
+    }
+  }
+
+  /* Work With Me stages: the stage nearest the middle of the screen lights up
+     as you scroll, so the five stages read as a route. */
+  .stage-chip {
+    transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .stage-row[data-passing] .stage-chip {
+    background-color: #FF9900;
+    color: #041B2B;
+    box-shadow: 0 0 0 5px rgba(255, 153, 0, 0.2);
+  }
+
+  /* AI visibility check, while it runs (src/components/CheckProgress.tsx). */
+  .check-progress-item,
+  .check-progress-dot {
+    transition: color 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .check-progress-item[data-current] {
+    color: #041B2B;
+    font-weight: 600;
+  }
+
+  .check-progress-item[data-current] .check-progress-dot {
+    background-color: #3B767C;
+    box-shadow: 0 0 0 4px rgba(59, 118, 124, 0.2);
+  }
+
+  /* Sample scorecard (src/components/AssessmentSection.tsx): the ring and bars
+     glide to their values when the card scrolls into view. */
+  .scorecard[data-cue="go"] .scorecard-ring {
+    transition: stroke-dasharray 1.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .scorecard-bar {
+    transform-origin: left;
+  }
+
+  .scorecard[data-cue="armed"] .scorecard-bar {
+    transform: scaleX(0);
+  }
+
+  .scorecard[data-cue="go"] .scorecard-bar {
+    transition-property: transform;
+    transition-duration: 0.9s;
+    transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  /* Services route (src/components/Services.tsx): the stops appear one after
+     another and the amber line draws between them. --stop is 0 to 5. */
+  .route[data-cue="armed"] .route-stop,
+  .route[data-cue="armed"] .route-name {
+    opacity: 0;
+  }
+
+  .route[data-cue="armed"] .route-stop {
+    transform: scale(0.4);
+  }
+
+  .route[data-cue="armed"] .route-name {
+    transform: translateY(8px);
+  }
+
+  .route[data-cue="armed"] .route-line {
+    transform: scaleY(0);
+  }
+
+  .route-line {
+    transform-origin: top;
+  }
+
+  @media (min-width: 1024px) {
+    .route[data-cue="armed"] .route-line {
+      transform: scaleX(0);
+    }
+
+    .route-line {
+      transform-origin: left;
+    }
+  }
+
+  .route[data-cue="go"] .route-stop,
+  .route[data-cue="go"] .route-name,
+  .route[data-cue="go"] .route-line {
+    transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.4s ease-out;
+    transition-delay: calc(var(--stop) * 260ms + 150ms);
+  }
+
+  .route[data-cue="go"] .route-line {
+    transition-delay: calc(var(--stop) * 260ms + 330ms);
+    transition-duration: 0.32s;
+  }
+
   .btn-outline-navy {
     @apply inline-flex items-center justify-center gap-2 rounded-full border-[1.5px] border-brand-navy px-6 py-[11.5px] text-[15px] font-semibold leading-tight text-brand-navy transition-colors duration-200 hover:bg-brand-navy hover:text-white;
   }

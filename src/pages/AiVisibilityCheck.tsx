@@ -1,4 +1,5 @@
 import { useEffect, useState, type FormEvent } from "react";
+import CheckProgress from "@/components/CheckProgress";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { AlertTriangle, ArrowRight, Check, Info, Loader2, X } from "lucide-react";
@@ -218,6 +219,7 @@ const AiVisibilityCheck = () => {
                 We use your details to run the check, email your report and keep a record of your request. See our{" "}
                 <Link to="/privacy-policy" className="underline underline-offset-2 hover:text-brand-navy">privacy policy</Link>.
               </p>
+              {loading && <CheckProgress />}
               <div aria-live="polite">
                 {loading && <p className="text-sm text-brand-slate">This can take up to a minute.</p>}
                 {error && <p className="text-sm font-medium text-[#B4483C]">{error}</p>}

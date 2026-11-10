@@ -1,6 +1,7 @@
 import { m } from "framer-motion";
 import { fadeUp } from "@/lib/motion";
 import { ApproachComparison } from "./WhyIntegroAI";
+import BlurReveal from "./BlurReveal";
 
 // Full-width navy statement band after "Who we work with": the core belief,
 // then the tool-led vs business-led comparison that shows it.
@@ -15,7 +16,7 @@ const RealityBand = () => {
         <h2 className="display text-[30px] font-semibold leading-[1.1] text-white sm:text-[38px] lg:text-[46px]">
           Stop automating broken processes.
           <br />
-          <span className="italic text-brand-amber">Clarity comes first.</span>
+          <BlurReveal text="Clarity comes first." className="italic text-brand-amber" />
         </h2>
         <p className="max-w-[660px] text-base leading-relaxed text-brand-mist sm:text-[17px]">
           When foundations are unclear, AI amplifies inefficiency rather than value. That&apos;s why we start with operational clarity before any tools, automation or implementation.

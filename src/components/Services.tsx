@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { ArrowRight, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { m } from "framer-motion";
 import SectionHeader from "./SectionHeader";
 import { fadeUp } from "@/lib/motion";
+import { useScrollCue } from "@/hooks/use-scroll-cue";
 import ExtraServicesList from "./ExtraServicesList";
 
 // The free check plus the five paid stages, grouped into three service areas.
@@ -137,6 +138,8 @@ const usePanelEdges = () => {
 
 const Services = () => {
   const { listRef, edges } = usePanelEdges();
+  // The route draws itself, stop by stop, the first time it scrolls into view.
+  const { ref: routeRef, cue } = useScrollCue<HTMLDivElement>(0.2);
   const lastGroupIndex = serviceGroups.length - 1;
 
   return (
@@ -161,7 +164,7 @@ const Services = () => {
             on tablet and mobile each area shows its two stops joined top to bottom. Each area shares the same rows through CSS
             subgrid (label, heading, summary, stages), so labels, headings and the line
             stay level however the text above them wraps. */}
-        <m.div {...fadeUp} className="rounded-3xl bg-brand-navy px-6 py-8 sm:px-9 sm:py-10">
+        <m.div {...fadeUp} ref={routeRef} data-cue={cue} className="route rounded-3xl bg-brand-navy px-6 py-8 sm:px-9 sm:py-10">
           <ol
             ref={listRef}
             className="grid list-none grid-cols-1 gap-y-9 md:grid-cols-3 md:gap-y-7"
@@ -200,6 +203,8 @@ const Services = () => {
                   {group.stages.map((stage, stageIndex) => {
                     const isLastInGroup = stageIndex === group.stages.length - 1;
                     const isLastStop = isLastInGroup && groupIndex === serviceGroups.length - 1;
+                    // Position of this stop along the whole route (0 to 5), for the drawing order.
+                    const stopOrder = { "--stop": groupIndex * 2 + stageIndex } as CSSProperties;
                     return (
                       <li
                         key={stage.title}
@@ -213,18 +218,20 @@ const Services = () => {
                         {!isLastStop && (
                           <span
                             aria-hidden="true"
-                            className={`absolute bg-brand-amber ${
+                            style={stopOrder}
+                            className={`route-line absolute bg-brand-amber ${
                               isLastInGroup ? "hidden lg:block" : "left-[15px] top-0 h-full w-0.5"
                             } lg:left-1/2 lg:top-[15px] lg:h-0.5 lg:w-full`}
                           />
                         )}
                         <span
                           aria-hidden="true"
-                          className="relative z-10 flex h-8 w-8 flex-none items-center justify-center rounded-full bg-brand-amber text-xs font-semibold text-brand-navy ring-4 ring-brand-navy"
+                          style={stopOrder}
+                          className="route-stop relative z-10 flex h-8 w-8 flex-none items-center justify-center rounded-full bg-brand-amber text-xs font-semibold text-brand-navy ring-4 ring-brand-navy"
                         >
                           {stage.number || <Clock className="h-4 w-4" strokeWidth={2.2} />}
                         </span>
-                        <span data-stage-name className="pt-1.5 text-[15px] font-medium leading-snug text-white lg:pt-0" itemProp="name">
+                        <span data-stage-name style={stopOrder} className="route-name pt-1.5 text-[15px] font-medium leading-snug text-white lg:pt-0" itemProp="name">
                           {stage.title}
                         </span>
                         <meta itemProp="description" content={stage.description} />

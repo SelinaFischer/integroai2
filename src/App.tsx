@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import ScrollToTop from "./components/ScrollToTop";
 import CookieConsent from "./components/CookieConsent";
+import LoopPauser from "./components/LoopPauser";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -54,6 +55,7 @@ const App = ({ skipEntrance = false }: AppProps) => {
       <Toaster />
       <BrowserRouter>
         <ScrollToTop />
+        <LoopPauser />
 
         <main id="main-content" tabIndex={-1}>
         <Routes>
