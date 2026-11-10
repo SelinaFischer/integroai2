@@ -39,6 +39,7 @@ All free resources: https://integroai.tech/free-resources
 
 ## Articles
 
+- [What Is a Company Brain? A Practical Guide for Businesses](https://integroai.tech/blog/what-is-a-company-brain)
 - [How Can AI Help Your Business? 4 Steps to Find the Work AI Could Do for You](https://integroai.tech/blog/how-can-ai-help-your-business)
 - [Why Do AI Initiatives Stall? A Six-Point AI Readiness Checklist](https://integroai.tech/blog/why-ai-initiatives-stall)
 - [Which Tasks Should a Business Automate With AI First?](https://integroai.tech/blog/which-tasks-to-automate-with-ai-first)
