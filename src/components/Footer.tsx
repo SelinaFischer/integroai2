@@ -94,9 +94,6 @@ const Footer = () => {
                   AI Readiness Assessment
                 </a>
               </li>
-              <li>
-                <ContactFormModal trigger={<button className={`${linkClass} w-full`}>Contact</button>} />
-              </li>
             </ul>
           </nav>
 
@@ -131,7 +128,7 @@ const Footer = () => {
                   trigger={
                     <button className={`${socialClass} w-full`}>
                       <Mail className="h-[18px] w-[18px] flex-none text-brand-navy" strokeWidth={2} aria-hidden="true" />
-                      Send a Message
+                      Contact Us
                     </button>
                   }
                 />
