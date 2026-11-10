@@ -173,11 +173,11 @@ const ApplicationForm = () => {
       )}
       <div className="flex flex-col gap-2 sm:col-span-2">
         <Label htmlFor="p-about" className="text-[16px] font-semibold">
-          Tell me about your business, and anyone you’d like to introduce
+          Who needs help, and with what?
         </Label>
         <p id="p-about-help" className="text-[14px] leading-relaxed text-brand-slate">
-          Share the kind of clients you support. If you already have a client in mind, tell me what they need help with.
-          Please leave out their name and contact details until they’ve agreed to an introduction.
+          Tell me what your client is struggling with and how you know them. No client in mind yet? Tell me about the
+          clients you support. Please leave out their name and contact details until they’ve agreed to an introduction.
         </p>
         <Textarea
           id="p-about"
@@ -185,7 +185,7 @@ const ApplicationForm = () => {
           required
           rows={6}
           aria-describedby="p-about-help"
-          placeholder="For example: I’m an accountant working with small hospitality businesses. One of my clients spends hours each week on manual bookings and follow-ups."
+          placeholder="For example: I’m their accountant. They run a small hotel, and the team spends hours each week chasing bookings and answering the same enquiries."
           className="rounded-lg border-2 border-[#BDB3A1] bg-white text-[15px] text-brand-navy placeholder:text-[#89898E] focus:border-brand-amber focus:ring-brand-amber/20"
         />
       </div>
