@@ -2448,11 +2448,11 @@ const CompanyBrainContent: React.FC = () => (
     </p>
     <p>Then they do it all again tomorrow.</p>
     <p>
-      The effort repeats. The context varies. And the people who know how things really work become the help desk for
+      The effort repeats. The context varies. And the people who know how things really work become the helpdesk for
       everyone else.
     </p>
     <p>
-      In a smaller business, that help desk is often the founder. <strong>A company brain changes that.</strong>{" "}
+      In a smaller business, that helpdesk is often the founder. <strong>A company brain changes that.</strong>{" "}
       A good prompt helps. Reliable business context makes it useful.
     </p>
 
