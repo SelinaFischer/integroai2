@@ -377,26 +377,6 @@
     100% { transform: translate3d(-18%, 16%, 0) scale(1.15); }
   }
 
-  /* Hero headline: each line eases in as the page opens, the amber line just
-     after the white one. A soft fade with a very small rise and a long, slow
-     finish, so it settles into place with no sudden stop. No blur. Pure CSS, so
-     it starts with the first paint and the saved page never flickers. It
-     starts faint, not invisible, so the headline counts as shown straight away. */
-  @media (prefers-reduced-motion: no-preference) {
-    .hero-headline > span {
-      animation: headlineSettle 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
-    }
-
-    .hero-headline > span:nth-child(2) {
-      animation-delay: 0.18s;
-    }
-  }
-
-  @keyframes headlineSettle {
-    0% { opacity: 0.3; transform: translateY(5px); }
-    100% { opacity: 1; transform: translateY(0); }
-  }
-
   /* ── Lead-gen attention cues ─────────────────────────────────────────
      Small repeating movements on the free offers (cheat sheet, visibility
      check, guide) so the eye is drawn to them. All off for reduced motion. */
