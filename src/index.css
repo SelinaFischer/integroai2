@@ -569,7 +569,7 @@
   /* Sample scorecard (src/components/AssessmentSection.tsx): the ring and bars
      glide to their values when the card scrolls into view. */
   .scorecard[data-cue="go"] .scorecard-ring {
-    transition: stroke-dasharray 1.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition: stroke-dasharray 2.6s cubic-bezier(0.22, 0.61, 0.36, 1);
   }
 
   .scorecard-bar {
@@ -582,7 +582,7 @@
 
   .scorecard[data-cue="go"] .scorecard-bar {
     transition-property: transform;
-    transition-duration: 0.9s;
+    transition-duration: 1.6s;
     transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
   }
 

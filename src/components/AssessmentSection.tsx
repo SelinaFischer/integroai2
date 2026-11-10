@@ -33,7 +33,7 @@ const AssessmentSection = () => {
   // fills, the score counts up and the bars grow. The numbers shown at the end
   // are exactly the sample values above; only the way they arrive is animated.
   const { ref: cardRef, cue } = useScrollCue<HTMLDivElement>(0.3);
-  const shownScore = useCountUp(SAMPLE_SCORE, cue);
+  const shownScore = useCountUp(SAMPLE_SCORE, cue, 2600);
   const waiting = cue === "armed";
   const ringFill = waiting ? 0 : (SAMPLE_SCORE / MAX_SCORE) * RING_LENGTH;
 
@@ -124,7 +124,7 @@ const AssessmentSection = () => {
                     className={`scorecard-bar block h-2 rounded ${dimension.priority ? "bg-brand-amber" : "bg-brand-navy"}`}
                     style={{
                       width: `${(dimension.score / AREA_MAX) * 100}%`,
-                      transitionDelay: `${500 + index * 180}ms`,
+                      transitionDelay: `${900 + index * 350}ms`,
                     }}
                   />
                 </span>
