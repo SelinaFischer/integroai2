@@ -72,6 +72,7 @@ const inputClass =
 const ApplicationForm = () => {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [error, setError] = useState("");
+  const [businessType, setBusinessType] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -140,7 +141,8 @@ const ApplicationForm = () => {
           id="p-type"
           name="partner_type"
           required
-          defaultValue=""
+          value={businessType}
+          onChange={(e) => setBusinessType(e.target.value)}
           className={`${inputClass} w-full border px-3 text-[15px]`}
         >
           <option value="" disabled>
@@ -151,6 +153,12 @@ const ApplicationForm = () => {
           ))}
         </select>
       </div>
+      {businessType === "Other" && (
+        <div className="flex flex-col gap-2 sm:col-span-2">
+          <Label htmlFor="p-industry">Your industry</Label>
+          <Input id="p-industry" name="industry" required autoFocus className={inputClass} />
+        </div>
+      )}
       <div className="flex flex-col gap-2 sm:col-span-2">
         <Label htmlFor="p-about">Tell me briefly about your business and the clients you support.</Label>
         <Textarea
