@@ -80,13 +80,14 @@ const Header = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [mobileMenuOpen]);
 
-  // Desktop shows the four main pages plus the assessment button. The
+  // Desktop shows the five main pages plus the assessment button. The
   // mobile menu adds Home, the assessment link and Contact.
   const primaryLinks = [
     { to: "/work-with-me", label: "Work With Me" },
     { to: "/about", label: "About" },
     { to: "/blog", label: "Blog" },
     { to: "/free-resources", label: "Free Resources" },
+    { to: "/partnerships", label: "Partnerships" },
   ];
 
   const menuLinks = [{ to: "/", label: "Home" }, ...primaryLinks];
@@ -144,15 +145,15 @@ const Header = () => {
             </span>
           </Link>
 
-          <div className="flex items-center gap-1 min-[400px]:gap-1.5 sm:gap-2 lg:gap-9">
+          <div className="flex items-center gap-1 min-[400px]:gap-1.5 sm:gap-2 lg:gap-5 xl:gap-9">
             {/* Desktop navigation */}
-            <nav aria-label="Main" className="hidden items-center gap-9 lg:flex">
+            <nav aria-label="Main" className="hidden items-center gap-5 lg:flex xl:gap-9">
               {primaryLinks.map((link) => (
                 <Link
                   key={link.label}
                   to={link.to}
                   aria-current={isActive(link.to) ? "page" : undefined}
-                  className={`rounded py-3 text-base font-semibold text-brand-navy underline-offset-8 decoration-brand-amber decoration-2 hover:underline ${
+                  className={`whitespace-nowrap rounded py-3 text-[15px] font-semibold text-brand-navy xl:text-base underline-offset-8 decoration-brand-amber decoration-2 hover:underline ${
                     isActive(link.to) ? "underline" : ""
                   }`}
                 >
