@@ -67,7 +67,7 @@ const PartnerButton = () => (
 );
 
 const inputClass =
-  "bg-white border-brand-sand text-brand-navy placeholder:text-[#89898E] focus:border-brand-amber focus:ring-brand-amber/20 h-11 rounded-lg";
+  "bg-white border-[#BDB3A1] text-brand-navy placeholder:text-[#89898E] focus:border-brand-amber focus:ring-brand-amber/20 h-11 rounded-lg";
 
 const ApplicationForm = () => {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
@@ -164,16 +164,24 @@ const ApplicationForm = () => {
         </div>
       )}
       <div className="flex flex-col gap-2 sm:col-span-2">
-        <Label htmlFor="p-about">Tell me briefly about your business and the clients you support.</Label>
+        <Label htmlFor="p-about" className="text-[16px] font-semibold">
+          Tell me about your business, and anyone you’d like to introduce
+        </Label>
+        <p id="p-about-help" className="text-[14px] leading-relaxed text-brand-slate">
+          Share the kind of clients you support. If you already have a client in mind, tell me what they need help with.
+          Please leave out their name and contact details until they’ve agreed to an introduction.
+        </p>
         <Textarea
           id="p-about"
           name="message"
           required
-          rows={5}
-          className="rounded-lg border-brand-sand bg-white text-brand-navy focus:border-brand-amber focus:ring-brand-amber/20"
+          rows={6}
+          aria-describedby="p-about-help"
+          placeholder="For example: I’m an accountant working with small hospitality businesses. One of my clients spends hours each week on manual bookings and follow-ups."
+          className="rounded-lg border-2 border-[#BDB3A1] bg-white text-[15px] text-brand-navy placeholder:text-[#89898E] focus:border-brand-amber focus:ring-brand-amber/20"
         />
       </div>
-      <div className="flex flex-col items-start gap-4 sm:col-span-2">
+      <div className="flex flex-col items-center gap-4 text-center sm:col-span-2">
         <button type="submit" disabled={status === "sending"} className="btn-amber btn-focus group disabled:opacity-70">
           <span className="sheen" aria-hidden="true" />
           {status === "sending" ? (
