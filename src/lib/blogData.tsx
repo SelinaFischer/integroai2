@@ -2644,8 +2644,7 @@ const CompanyBrainContent: React.FC = () => (
       concern (77%). A named human owner who verified the information was what people said they’d trust most (78%).
     </p>
     <p>
-      Treat those figures as directional. Slite sells knowledge software, the sample skews towards AI-forward teams and
-      nearly half work in tech or SaaS. So they may not reflect a typical business.
+      Treat those figures as directional. The sample skews towards AI-forward teams, and nearly half work in tech or SaaS.
     </p>
 
     <h2>What’s the first step?</h2>
