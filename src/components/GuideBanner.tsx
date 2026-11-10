@@ -37,8 +37,9 @@ const GuideBanner = ({ location, className = "bg-white py-14 sm:py-16" }: GuideB
           rel="noopener noreferrer"
           aria-label="Get your free guide (opens the sign-up form in a new tab)"
           onClick={() => trackGuideClick(`banner-${location}`)}
-          className="btn-amber halo group flex-none whitespace-nowrap"
+          className="btn-amber btn-focus group flex-none whitespace-nowrap"
         >
+          <span className="sheen" aria-hidden="true" />
           Get your free guide
           <ArrowRight className="nudge-arrow h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
         </a>
