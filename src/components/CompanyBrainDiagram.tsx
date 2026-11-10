@@ -17,9 +17,8 @@ const CompanyBrainDiagram = () => (
         alt="A brain labelled Company Brain, connected to four branches: 01 Business context, 02 Instructions, 03 Start with one task and 04 Keep it up to date. Bubbles run in and out along each branch, and the result flows out below as consistent work."
       />
     </picture>
-    <figcaption className="mx-auto mt-5 max-w-[520px] text-center text-[15px] leading-relaxed text-brand-slate">
-      <strong className="text-brand-navy">Less explaining. More consistent work.</strong> People and AI work from the
-      same agreed knowledge.
+    <figcaption className="mx-auto mt-5 max-w-[520px] text-center text-[15px] font-bold leading-relaxed text-brand-navy">
+      Less explaining. More consistent work. People and AI work from the same agreed knowledge.
     </figcaption>
   </figure>
 );
