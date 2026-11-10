@@ -2,7 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { GUIDE_FORM_URL, trackGuideClick } from "@/lib/guide";
 
-import { DISCOVERY_CALL_URL } from "@/lib/motion";
+import { ASSESSMENT_URL, DISCOVERY_CALL_URL } from "@/lib/motion";
+import { ArrowRight } from "lucide-react";
+import CompanyBrainDiagram from "@/components/CompanyBrainDiagram";
 import { CHEAT_SHEET_FORM_URL, trackCheatSheetClick } from "@/lib/cheatSheet";
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -2374,6 +2376,11 @@ const companyBrainFaqs: Faq[] = [
       "A company brain gives AI your current business knowledge and agreed ways of working, so nobody has to explain the basics every time. It can start as a small set of plain documents, each with a named owner.",
   },
   {
+    question: "What are the four parts of a company brain?",
+    answer:
+      "Business context (who you serve, what you offer and how the work gets done), instructions (how to do each task, what to check and who approves the result), one recurring task to start with, and a routine for keeping it up to date.",
+  },
+  {
     question: "Does every business need a company brain?",
     answer:
       "Not always. The deciding factor is repeated work and repeated context, not the size of your team. It tends to help when you keep giving AI the same background for the same recurring work. If you rarely repeat a task with AI, it can wait.",
@@ -2391,12 +2398,12 @@ const companyBrainFaqs: Faq[] = [
   {
     question: "Do you need special software to build a company brain?",
     answer:
-      "Not to start. Plain documents in folders you control are enough to test the idea on one task. Consider more specialist tools once you know what your team uses and what is hard to keep up to date.",
+      "Not to start. Plain documents added to your AI tool’s project or knowledge feature are enough to test the idea on one task. Consider more specialist tools once you know what your team uses and what is hard to keep up to date.",
   },
   {
     question: "How do you keep a company brain up to date?",
     answer:
-      "Give every file a named owner and a last checked date. When someone finds a better way, the process owner checks it, updates the shared version and retires the old instructions. Then review on a regular schedule to catch outdated files and workarounds.",
+      "Give every file a named owner and a last checked date. When someone finds a better way, the process owner checks it, updates the shared version and retires the old instructions. Check the results AI produces, and fix the source file when something goes wrong.",
   },
   {
     question: "Is it safe to put client information in a company brain?",
@@ -2409,16 +2416,17 @@ const CompanyBrainContent: React.FC = () => (
   <>
     <QuickAnswer>
       A company brain gives AI your current business knowledge and agreed ways of working, so nobody has to explain the
-      basics every time. You don’t need a big system to start. Choose one recurring task,
-      write down what AI needs to know, and give each file a named owner and a “last checked” date. Getting started can
-      be simple. Keeping it accurate takes ongoing work.
+      basics every time. It has four parts: business context, instructions, one task to start with and a routine for
+      keeping it up to date. You don’t need a big system to start. Getting started can be simple. Keeping it accurate
+      takes ongoing work.
     </QuickAnswer>
 
     <p>
-      <strong>What if your AI knew your business as well as your best person does?</strong>
+      <strong>How many times have you explained your business to AI?</strong>
     </p>
     <p>
-      That’s the idea behind a company brain. It’s getting plenty of attention, too.{" "}
+      A company brain stops that. It gives AI current, agreed information it can work from. It’s getting plenty of
+      attention, too.{" "}
       <a
         href="https://urbangeekz.com/2026/05/y-combinator-reveals-15-startup-ideas-it-wants-founders-to-build-in-summer-2026/"
         target="_blank"
@@ -2430,6 +2438,8 @@ const CompanyBrainContent: React.FC = () => (
       . But much of the conversation is technical.
     </p>
     <p>This guide is the plain-English version for business leaders, whatever your sector or size.</p>
+
+    <CompanyBrainDiagram />
 
     <h2>What problem does a company brain solve?</h2>
     <p>
@@ -2448,8 +2458,9 @@ const CompanyBrainContent: React.FC = () => (
 
     <h2>What does a company brain look like in practice?</h2>
     <p>
-      Instead of someone rewriting a new client’s welcome email from memory, AI drafts it from the current service scope, the
-      approved welcome message and the handover checklist. AI is instructed to flag missing information, and a person checks the draft before anything goes out.
+      Instead of someone rewriting a new client’s welcome email from memory, AI drafts it from the current service
+      scope, the approved welcome message and the handover checklist. AI is instructed to flag missing information, and
+      a person checks the draft before anything goes out.
     </p>
     <p>
       The same approach could suit proposals, client updates or internal handovers: any recurring work where people
@@ -2491,8 +2502,9 @@ const CompanyBrainContent: React.FC = () => (
       </table>
     </div>
     <p>
-      If you already have a shared drive or wiki, that can be the foundation. What matters is giving AI access to the relevant, agreed information, with someone responsible for keeping it current.
-      These are my working definitions, not industry standards. The term is new and people use it in different ways.
+      If you already have a shared drive or wiki, that can be the foundation. What matters is giving AI access to the
+      relevant, agreed information, with someone responsible for keeping it current. These are my working definitions,
+      not industry standards. The term is new and people use it in different ways.
     </p>
 
     <h2>Does your business need one?</h2>
@@ -2519,27 +2531,37 @@ const CompanyBrainContent: React.FC = () => (
       covers the gaps worth checking first.
     </p>
 
-    <h2>How do you build a company brain?</h2>
-    <p>You can start with the basics:</p>
+    <h2>How do you build a company brain in four steps?</h2>
+
+    <h3>1. Give AI the right background</h3>
+    <p>AI needs current, agreed knowledge about your business:</p>
     <ul>
       <li>
-        <strong>A home:</strong> folders and plain documents on who you serve, what you sell and how the work gets done
+        <strong>Who you serve:</strong> your customers and the problems they need solved
       </li>
       <li>
-        <strong>Your way of working:</strong> recurring tasks written as step-by-step instructions, so AI starts from
-        the agreed approach
+        <strong>What you offer:</strong> your services, what is included and your delivery limits
       </li>
       <li>
-        <strong>Portability:</strong> files you own, so moving to another AI tool means adapting, not starting from
-        scratch
+        <strong>How work gets done:</strong> the current processes, policies and information people rely on
       </li>
     </ul>
-    <p>
-      The files need to be made available to the AI tool you use, through its project files, knowledge feature or an
-      approved connection. A folder on your computer doesn’t give AI access by itself.
-    </p>
-    <p>Connections that let AI take action in other tools can come later, once the knowledge is reliable.</p>
+    <p>For client onboarding, that means the current service scope and handover checklist.</p>
 
+    <h3>2. Show AI how to do the task</h3>
+    <p>Business knowledge becomes useful when AI knows how to apply it:</p>
+    <ul>
+      <li>
+        <strong>Set the steps:</strong> explain the task and what a good result should look like
+      </li>
+      <li>
+        <strong>Define the checks:</strong> tell AI what to verify and which gaps to flag
+      </li>
+      <li>
+        <strong>Keep a person in control:</strong> say when AI should ask for help and who approves the output
+      </li>
+    </ul>
+    <p>Here’s what that could look like for a welcome email:</p>
     <div className={`not-prose my-8 ${articleCard}`}>
       <p className={`${articleLabel} mb-3`}>Example file (illustrative)</p>
       <p className="mb-2 text-[17px] font-semibold text-brand-navy">Client onboarding: welcome email</p>
@@ -2553,12 +2575,61 @@ const CompanyBrainContent: React.FC = () => (
       </ul>
     </div>
 
-    <h2>Why do company brains fail?</h2>
-    <p>For this to work, the information needs to stay current and consistent.</p>
+    <h3>3. Start small and test real work</h3>
+    <p>You can test the idea with a few plain documents:</p>
+    <ul>
+      <li>
+        <strong>Choose recurring work:</strong> pick a task where you keep explaining the same background
+      </li>
+      <li>
+        <strong>Make the files accessible:</strong> add the relevant documents to your AI tool’s project or knowledge
+        feature, or use an approved connection
+      </li>
+      <li>
+        <strong>Test before expanding:</strong> check the results on real examples, then connect tools such as your CRM
+        or email when it adds value
+      </li>
+    </ul>
     <p>
-      A company brain only reflects what you give it. If three versions of a process exist and nobody has agreed which applies, AI may work from the wrong one.
+      A folder on your computer doesn’t give AI access by itself. Keep the files somewhere you own, so moving to another
+      AI tool means adapting, not starting from scratch.
     </p>
-    <p>And an out-of-date company brain answers confidently, from a business you no longer run.</p>
+
+    <h3>4. Keep it up to date</h3>
+    <p>
+      <strong>It needs a rhythm, not a launch:</strong>
+    </p>
+    <ul>
+      <li>
+        <strong>Name an owner:</strong> give each file a person responsible and a “last checked” date
+      </li>
+      <li>
+        <strong>Review and replace:</strong> when someone finds a better way, the process owner checks it, updates the
+        shared version and retires the old instructions
+      </li>
+      <li>
+        <strong>Check the results:</strong> review what AI produces, and fix the source file when something goes wrong
+        so the mistake isn’t repeated
+      </li>
+      <li>
+        <strong>Protect what’s sensitive:</strong> keep client, employee and other sensitive information to the people
+        who need it
+      </li>
+    </ul>
+    <p>
+      The right review schedule depends on how quickly the work changes. Set one you’ll actually keep, and start with
+      the file people use most.
+    </p>
+
+    <h2>Why do company brains fail?</h2>
+    <p>Step four is where most of the work sits. The information needs to stay current and consistent.</p>
+    <p>
+      A company brain only reflects what you give it. If three versions of a process exist and nobody has agreed which
+      applies, AI may work from the wrong one.
+    </p>
+    <p>
+      <strong>And an out-of-date company brain answers confidently, from a business you no longer run.</strong>
+    </p>
     <p>
       One early survey illustrates the maintenance challenge. In{" "}
       <a
@@ -2575,30 +2646,6 @@ const CompanyBrainContent: React.FC = () => (
     <p>
       Treat those figures as directional. Slite sells knowledge software, the sample skews towards AI-forward teams and
       nearly half work in tech or SaaS. So they may not reflect a typical business.
-    </p>
-
-    <h2>How do you keep it accurate?</h2>
-    <p>
-      <strong>It needs a rhythm, not a launch:</strong>
-    </p>
-    <ul>
-      <li>
-        <strong>One shared source</strong> for core knowledge, with client, employee and other sensitive information
-        kept to the people who need it
-      </li>
-      <li>
-        <strong>Reviewed updates:</strong> when someone finds a better way, the process owner checks it, updates the shared version and retires the old instructions
-      </li>
-      <li>
-        <strong>Owners and dates:</strong> every file has a named owner and a “last checked” date
-      </li>
-      <li>
-        <strong>Regular reviews</strong> that catch outdated files and workarounds before they spread
-      </li>
-    </ul>
-    <p>
-      The right review schedule depends on how quickly the work changes. Set one you’ll actually keep, and start
-      with the file people use most.
     </p>
 
     <h2>What’s the first step?</h2>
@@ -2624,11 +2671,17 @@ const CompanyBrainContent: React.FC = () => (
     <div className="not-prose mt-12 rounded-[14px] border border-brand-sand bg-brand-ivory p-7">
       <p className={`${articleLabel} mb-3`}>See where your business stands</p>
       <p className="mb-5 text-[17px] leading-relaxed text-brand-navy">
-        The free 5-Minute AI Readiness Assessment gives you an initial view of how ready your business is for AI, with a
-        readiness score and the priority to focus on first.
+        The free 5-Minute AI Readiness Assessment gives you clarity on where you stand, with a readiness score and the
+        priority to focus on first.
       </p>
-      <a href="https://integroai.tech/assessment" className="btn-amber">
+      <a href={ASSESSMENT_URL} target="_blank" rel="noopener noreferrer" className="btn-amber btn-focus group">
+        <span className="sheen" aria-hidden="true" />
         Start the free assessment
+        <ArrowRight
+          className="nudge-arrow h-4 w-4 transition-transform group-hover:translate-x-1"
+          strokeWidth={2.4}
+          aria-hidden="true"
+        />
       </a>
       <p className="mt-5 text-[15px] leading-relaxed text-brand-slate">
         Prefer to talk it through?{" "}
@@ -2654,12 +2707,13 @@ export const articles: BlogArticle[] = [
   {
     slug: "what-is-a-company-brain",
     title: "What Is a Company Brain? A Practical Guide for Businesses",
-    subtitle: "A company brain gives AI your current business knowledge and agreed ways of working. Here’s what it means for your business, how to start small and how to keep it accurate.",
+    subtitle: "A company brain gives AI your current business knowledge and agreed ways of working. Here’s what it is, the four steps to build one and how to keep it accurate.",
     seoTitle: "What Is a Company Brain? A Practical Business Guide",
-    metaDescription: "What is a company brain, and does your business need one? How to start with one recurring task, and keep the knowledge behind your AI accurate.",
+    metaDescription: "What is a company brain, and does your business need one? Build it in four steps, start with one recurring task and keep the knowledge behind your AI accurate.",
     date: "November 2026",
     category: "AI Adoption",
-    readTime: "7 min read",
+    readTime: "8 min read",
+    image: "/blog/company-brain-cover.png",
     excerpt: "A company brain gives AI your current business knowledge and agreed ways of working. Getting started can be simple. Keeping it accurate takes ongoing work.",
     related: ["which-tasks-to-automate-with-ai-first", "why-ai-initiatives-stall"],
     faqs: companyBrainFaqs,
