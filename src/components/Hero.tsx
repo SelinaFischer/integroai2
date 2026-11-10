@@ -25,7 +25,7 @@ const Hero = () => {
             Independent UK AI consultancy for business owners
           </p>
 
-          <h1 className="hero-headline text-[40px] font-semibold leading-[1.05] text-white sm:text-[52px] lg:text-[60px]">
+          <h1 className="text-[40px] font-semibold leading-[1.05] text-white sm:text-[52px] lg:text-[60px]">
             <span className="block">Less firefighting.</span>
             <span className="block italic text-brand-amber [text-wrap:balance]">More time for the work you love.</span>
           </h1>
