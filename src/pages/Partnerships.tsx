@@ -45,7 +45,7 @@ const partnerTypes = [
 ];
 
 const benefits = [
-  "A referral fee for every client you introduce who signs up",
+  "15% of the fee for any AI & Operations Diagnostic you introduce",
   "Your client gets clarity on what to fix first, and a plan they can act on",
   "I don’t compete for your work, and I refer it back to you when it comes up",
   "You stay informed about how your introduction is going",
@@ -192,7 +192,7 @@ const ApplicationForm = () => {
 const Partnerships = () => {
   const pageUrl = `https://integroai.tech${PARTNERSHIPS_PATH}`;
   const description =
-    "Become an IntegroAI Consulting referral partner. If your clients run service businesses, introduce them to clarity on AI and earn a referral fee for every client who signs up.";
+    "Become an IntegroAI Consulting referral partner. If your clients run service businesses, introduce them to clarity on AI and earn 15% of the fee for any AI & Operations Diagnostic you introduce.";
 
   return (
     <>
@@ -225,8 +225,8 @@ const Partnerships = () => {
             </h1>
             <p className="max-w-[640px] text-[17px] leading-normal text-brand-mist sm:text-[19px]">
               When your clients ask you about AI, send them to someone you can trust. I help service businesses fix the
-              work behind the bottleneck before adding AI. You earn a referral fee for every client you introduce who
-              signs up.
+              work behind the bottleneck before adding AI. You earn 15% of the fee for any AI &amp; Operations
+              Diagnostic you introduce.
             </p>
             <a href="#apply" className="btn-amber btn-focus group">
               <span className="sheen" aria-hidden="true" />
