@@ -49,7 +49,6 @@ const businessTypes = [
   "Business coaching or advisory",
   "IT or cyber security",
   "HR or people consultancy",
-  "Marketing, web or creative services",
   "Hospitality",
   "Property",
   "Other",
