@@ -24,15 +24,15 @@ const partnerTypes = [
   },
   {
     title: "Business coaches and advisers",
-    text: "You help owners identify what needs to change. I help turn operational priorities into practical improvements.",
+    text: "You help owners identify what needs to change. We help turn operational priorities into practical improvements.",
   },
   {
     title: "IT and cyber security providers",
-    text: "Your clients ask about AI, but may need help beyond the technology. I support workflow improvements and team adoption alongside your expertise.",
+    text: "Your clients ask about AI, but may need help beyond the technology. We support workflow improvements and team adoption alongside your expertise.",
   },
   {
     title: "HR consultants and service providers",
-    text: "You support business owners and their teams. When clients need help with AI, automation or everyday processes, I can provide complementary support.",
+    text: "You support business owners and their teams. When clients need help with AI, automation or everyday processes, we can provide complementary support.",
   },
   {
     title: "Hospitality professionals",
@@ -114,7 +114,7 @@ const ApplicationForm = () => {
         <CheckCircle2 className="h-8 w-8 text-brand-teal" aria-hidden="true" />
         <h3 className="font-heading text-[26px] font-semibold text-brand-navy">Thank you, your enquiry is in.</h3>
         <p className="text-[16px] leading-relaxed text-brand-slate">
-          I’ll be in touch to arrange a meeting.
+          We’ll be in touch to arrange a meeting.
         </p>
       </div>
     );
@@ -182,7 +182,7 @@ const ApplicationForm = () => {
       )}
       <div className="flex flex-col gap-2 sm:col-span-2">
         <Label htmlFor="p-about" className="text-[16px] font-semibold">
-          Tell me about your business
+          Tell us about your business
         </Label>
         <p id="p-about-help" className="text-[14px] leading-relaxed text-brand-slate">
           Briefly describe what you do and the clients you work with.
@@ -222,7 +222,7 @@ const ApplicationForm = () => {
           </p>
         )}
         <p className="text-[13px] leading-relaxed text-brand-slate">
-          I’ll use your details to respond to your partnership enquiry. See the{" "}
+          We’ll use your details to respond to your partnership enquiry. See the{" "}
           <Link to="/privacy-policy" className="underline decoration-brand-amber underline-offset-4">
             privacy policy
           </Link>
@@ -275,7 +275,7 @@ const Partnerships = () => {
                 where to start with AI.
               </p>
               <p>
-                I help business owners understand what is slowing them down, improve their processes and use AI and
+                We help business owners understand what is slowing them down, improve their processes and use AI and
                 automation where they can make a useful difference.
               </p>
               <p className="font-semibold text-white">
@@ -312,10 +312,10 @@ const Partnerships = () => {
         <section className="bg-brand-ivory py-12 sm:py-16">
           <div className="wrap">
             <m.h2 {...fadeUp} className={h2}>
-              Who I partner with
+              Who we partner with
             </m.h2>
             <m.p {...fadeUp} className="mt-2 max-w-[680px] text-[16px] leading-relaxed text-brand-slate">
-              You know your clients and the challenges they face. I provide practical support when they need help
+              You know your clients and the challenges they face. We provide practical support when they need help
               improving how they work or adopting AI.
             </m.p>
             <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -346,7 +346,7 @@ const Partnerships = () => {
                   Not listed here?
                 </span>
                 <span className="text-[15px] leading-relaxed text-white">
-                  If you work with business owners and see a good fit, I’d welcome a conversation.
+                  If you work with business owners and see a good fit, we’d welcome a conversation.
                 </span>
               </span>
               <span className="flex shrink-0 items-center gap-1.5 text-[15px] font-semibold text-white">
@@ -368,11 +368,11 @@ const Partnerships = () => {
             </m.h2>
             <div className="mb-6 mt-2 flex max-w-[680px] flex-col gap-3 text-[16px] leading-relaxed text-brand-slate">
               <m.p {...fadeUp}>
-                If you work with business owners who could benefit from practical AI and automation support, I’d welcome
+                If you work with business owners who could benefit from practical AI and automation support, we’d welcome
                 a conversation.
               </m.p>
               <m.p {...fadeUp}>
-                Complete the form below and I’ll get in touch to arrange a meeting to discuss working together.
+                Complete the form below and we’ll get in touch to arrange a meeting to discuss working together.
               </m.p>
               <m.p {...fadeUp} className="flex flex-wrap items-center gap-x-2 gap-y-1 text-brand-navy">
                 <CalendarDays className="h-5 w-5 shrink-0 text-brand-teal" aria-hidden="true" />
