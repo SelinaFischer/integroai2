@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
+import { ArrowRight, CalendarDays, CheckCircle2, Loader2 } from "lucide-react";
 import { m } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -9,7 +9,7 @@ import BackToTop from "@/components/BackToTop";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { fadeUp, fadeUpDelayed } from "@/lib/motion";
+import { DISCOVERY_CALL_URL, fadeUp, fadeUpDelayed } from "@/lib/motion";
 
 export const PARTNERSHIPS_PATH = "/partnerships";
 
@@ -124,6 +124,10 @@ const ApplicationForm = () => {
         <Input id="p-email" name="email" type="email" required autoComplete="email" className={inputClass} />
       </div>
       <div className="flex flex-col gap-2">
+        <Label htmlFor="p-phone">Phone (optional)</Label>
+        <Input id="p-phone" name="telephone" type="tel" autoComplete="tel" className={inputClass} />
+      </div>
+      <div className="flex flex-col gap-2">
         <Label htmlFor="p-company">Business name</Label>
         <Input id="p-company" name="company" required autoComplete="organization" className={inputClass} />
       </div>
@@ -135,7 +139,7 @@ const ApplicationForm = () => {
         <Label htmlFor="p-website">Website (optional)</Label>
         <Input id="p-website" name="website" type="url" placeholder="https://" className={inputClass} />
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 sm:col-span-2">
         <Label htmlFor="p-type">Type of business</Label>
         <select
           id="p-type"
@@ -278,10 +282,12 @@ const Partnerships = () => {
             </div>
             <m.div
               {...fadeUp}
-              className="mt-5 flex flex-col gap-1 rounded-[14px] border border-dashed border-brand-teal/50 bg-white/60 p-7 sm:flex-row sm:items-center sm:gap-4"
+              className="mt-8 flex flex-col items-center gap-2 rounded-[18px] border-2 border-brand-amber bg-brand-amber/10 px-7 py-9 text-center shadow-[0_10px_30px_-18px_rgba(4,27,43,0.35)] sm:py-10"
             >
-              <h3 className="font-heading text-[21px] font-semibold text-brand-navy">Not listed here?</h3>
-              <p className="text-[15.5px] leading-relaxed text-brand-slate">
+              <h3 className="font-heading text-[28px] font-semibold leading-[1.15] text-brand-navy sm:text-[32px]">
+                Not listed here?
+              </h3>
+              <p className="max-w-[560px] text-[17px] font-medium leading-relaxed text-brand-navy sm:text-[18px]">
                 If you work with business owners and see a good fit, I’d welcome a conversation.
               </p>
             </m.div>
@@ -301,6 +307,18 @@ const Partnerships = () => {
               <m.p {...fadeUp}>
                 Complete the form below and I’ll get in touch to arrange a meeting. We can discuss the partnership and
                 referral arrangements in more detail then.
+              </m.p>
+              <m.p {...fadeUp} className="flex flex-wrap items-center gap-x-2 gap-y-1 text-brand-navy">
+                <CalendarDays className="h-5 w-5 shrink-0 text-brand-teal" aria-hidden="true" />
+                <span>Prefer to pick a time now?</span>
+                <a
+                  href={DISCOVERY_CALL_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold underline decoration-brand-amber decoration-2 underline-offset-4 hover:text-brand-teal"
+                >
+                  Book a 30-minute call
+                </a>
               </m.p>
             </div>
             <ApplicationForm />
