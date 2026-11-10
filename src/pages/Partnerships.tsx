@@ -279,8 +279,7 @@ const Partnerships = () => {
                 automation where they can make a useful difference.
               </p>
               <p className="font-semibold text-white">
-                Earn a referral fee when your introduction leads to paid work, payable once the client’s payment has
-                been received.
+                Earn a referral fee when your introduction leads to paid work.
               </p>
             </div>
             <PartnerButton />
