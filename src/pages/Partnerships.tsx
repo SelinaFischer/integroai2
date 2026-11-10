@@ -124,7 +124,7 @@ const ApplicationForm = () => {
         <Input id="p-email" name="email" type="email" required autoComplete="email" className={inputClass} />
       </div>
       <div className="flex flex-col gap-2">
-        <Label htmlFor="p-phone">Phone (optional)</Label>
+        <Label htmlFor="p-phone">Phone</Label>
         <Input id="p-phone" name="telephone" type="tel" autoComplete="tel" className={inputClass} />
       </div>
       <div className="flex flex-col gap-2">
@@ -136,8 +136,16 @@ const ApplicationForm = () => {
         <Input id="p-role" name="role" autoComplete="organization-title" className={inputClass} />
       </div>
       <div className="flex flex-col gap-2">
-        <Label htmlFor="p-website">Website (optional)</Label>
-        <Input id="p-website" name="website" type="url" placeholder="https://" className={inputClass} />
+        <Label htmlFor="p-website">Website</Label>
+        <Input
+          id="p-website"
+          name="website"
+          type="text"
+          inputMode="url"
+          autoComplete="url"
+          placeholder="yourbusiness.co.uk"
+          className={inputClass}
+        />
       </div>
       <div className="flex flex-col gap-2 sm:col-span-2">
         <Label htmlFor="p-type">Type of business</Label>
@@ -290,12 +298,10 @@ const Partnerships = () => {
             </div>
             <m.div
               {...fadeUp}
-              className="mt-8 flex flex-col items-center gap-2 rounded-[18px] border-2 border-brand-amber bg-brand-amber/10 px-7 py-9 text-center shadow-[0_10px_30px_-18px_rgba(4,27,43,0.35)] sm:py-10"
+              className="mx-auto mt-8 flex max-w-[620px] flex-col items-center gap-1.5 rounded-[14px] border border-brand-amber/70 bg-white px-6 py-6 text-center"
             >
-              <h3 className="font-heading text-[28px] font-semibold leading-[1.15] text-brand-navy sm:text-[32px]">
-                Not listed here?
-              </h3>
-              <p className="max-w-[560px] text-[17px] font-medium leading-relaxed text-brand-navy sm:text-[18px]">
+              <h3 className="font-heading text-[21px] font-semibold leading-[1.2] text-brand-navy">Not listed here?</h3>
+              <p className="text-[15.5px] leading-relaxed text-brand-slate">
                 If you work with business owners and see a good fit, I’d welcome a conversation.
               </p>
             </m.div>
