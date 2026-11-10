@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 // tapping arrows, the floating guide cover, the hero light) is paused while it
 // is off screen and resumes when it scrolls back into view. Pausing is done in
 // CSS through the data-offscreen attribute (see src/index.css).
-const LOOPING = ".hero-light, .halo, .btn-focus, .float-cover, .live-dot, .lead-arrive";
+const LOOPING = ".hero-light, .halo, .btn-focus, .float-cover, .live-dot, .lead-arrive, .route";
 
 const LoopPauser = () => {
   const { pathname } = useLocation();
