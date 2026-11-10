@@ -52,10 +52,10 @@ const Footer = () => {
               </span>
             </div>
             <p className="max-w-sm text-sm leading-relaxed text-[#42566A]">
-              Helping business leaders find where AI can save time, reduce cost and protect margin before they invest.
+              IntegroAI Consulting is an independent AI adoption and transformation consultancy, supporting business owners across the UK.
             </p>
             <p className="max-w-sm text-sm leading-relaxed text-[#42566A]">
-              IntegroAI Consulting is an independent AI consultancy for business owners, offering AI consulting across the UK: AI strategy consulting, AI advisory and business automation consulting.
+              We help you simplify operations, cut repetitive admin and see where AI is worth the investment.
             </p>
           </div>
 
