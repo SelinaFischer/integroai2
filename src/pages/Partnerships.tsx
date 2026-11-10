@@ -55,34 +55,6 @@ const businessTypes = [
   "Other",
 ];
 
-const signals = [
-  "“We spend too much time on admin.”",
-  "“Enquiries and follow-ups keep slipping through.”",
-  "“Our systems don’t work well together.”",
-  "“We want to use AI, but don’t know where to start.”",
-  "“We’ve tried AI tools, but haven’t seen much benefit.”",
-];
-
-const expectations = [
-  {
-    title: "Practical help for your client",
-    text: "An honest assessment of their needs and clear next steps, including whether AI is appropriate.",
-  },
-  {
-    title: "Clear responsibilities",
-    text: "We discuss how my support fits alongside your services.",
-  },
-];
-
-const steps = [
-  { title: "Get in touch", text: "Complete the form below and tell me a little about your business." },
-  { title: "Let’s meet", text: "We’ll discuss how we could work together and talk through the referral arrangements." },
-  {
-    title: "Make an introduction",
-    text: "When you know a business that could benefit, introduce us with their permission. I’ll arrange a free 30-minute discovery call to understand their needs.",
-  },
-];
-
 const PartnerButton = () => (
   <a href="#apply" className="btn-amber btn-focus group w-fit">
     <span className="sheen" aria-hidden="true" />
@@ -309,83 +281,21 @@ const Partnerships = () => {
           </div>
         </section>
 
-        <section className="bg-white py-14 sm:py-20">
-          <div className="wrap">
-            <m.h2 {...fadeUp} className={h2}>
-              When to make an introduction
-            </m.h2>
-            <m.p {...fadeUp} className="mt-3 text-[17px] leading-relaxed text-brand-slate">
-              Listen for clients saying:
-            </m.p>
-            <ul className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {signals.map((q, i) => (
-                <m.li
-                  key={q}
-                  {...fadeUpDelayed(i)}
-                  className="rounded-[14px] border-l-4 border-brand-amber bg-brand-ivory px-5 py-4 text-[16.5px] font-medium leading-relaxed text-brand-navy"
-                >
-                  {q}
-                </m.li>
-              ))}
-            </ul>
-            <m.p {...fadeUp} className="mt-7 max-w-[680px] text-[16.5px] leading-relaxed text-brand-slate">
-              They do not need a technical brief or a particular tool in mind. A clear business problem is enough to start
-              a conversation.
-            </m.p>
-          </div>
-        </section>
-
-        <section className="bg-brand-ivory py-14 sm:py-20">
-          <div className="wrap grid grid-cols-1 gap-12 lg:grid-cols-2">
-            <div>
-              <m.h2 {...fadeUp} className={h2}>
-                What you can expect
-              </m.h2>
-              <div className="mt-7 flex flex-col gap-5">
-                {expectations.map((e, i) => (
-                  <m.div key={e.title} {...fadeUpDelayed(i)} className="card-soft flex gap-3 p-6">
-                    <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-brand-teal" aria-hidden="true" />
-                    <div>
-                      <h3 className="text-[17px] font-semibold text-brand-navy">{e.title}</h3>
-                      <p className="mt-1 text-[15.5px] leading-relaxed text-brand-slate">{e.text}</p>
-                    </div>
-                  </m.div>
-                ))}
-              </div>
-            </div>
-            <div>
-              <m.h2 {...fadeUp} className={h2}>
-                How it works
-              </m.h2>
-              <ol className="mt-7 flex flex-col gap-5">
-                {steps.map((s, i) => (
-                  <m.li key={s.title} {...fadeUpDelayed(i)} className="flex gap-4">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-amber font-semibold text-brand-navy">
-                      {i + 1}
-                    </span>
-                    <div>
-                      <p className="text-[17px] font-semibold text-brand-navy">{s.title}</p>
-                      <p className="mt-1 text-[15.5px] leading-relaxed text-brand-slate">{s.text}</p>
-                    </div>
-                  </m.li>
-                ))}
-              </ol>
-              <m.div {...fadeUp} className="mt-8">
-                <PartnerButton />
-              </m.div>
-            </div>
-          </div>
-        </section>
-
         <section id="apply" className="scroll-mt-24 bg-white py-14 sm:py-20">
           <div className="wrap max-w-[860px]">
             <m.h2 {...fadeUp} className={h2}>
-              Become a referral partner
+              Let’s explore working together
             </m.h2>
-            <m.p {...fadeUp} className="mb-8 mt-3 max-w-[640px] text-[17px] leading-relaxed text-brand-slate">
-              Interested in referring business to IntegroAI? Complete the form below and I’ll get in touch to arrange a
-              meeting.
-            </m.p>
+            <div className="mb-8 mt-3 flex max-w-[680px] flex-col gap-4 text-[17px] leading-relaxed text-brand-slate">
+              <m.p {...fadeUp}>
+                If you work with business owners who could benefit from practical AI and automation support, I’d welcome
+                a conversation.
+              </m.p>
+              <m.p {...fadeUp}>
+                Complete the form below and I’ll get in touch to arrange a meeting. We can discuss the partnership and
+                referral arrangements in more detail then.
+              </m.p>
+            </div>
             <ApplicationForm />
           </div>
         </section>
