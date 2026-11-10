@@ -124,7 +124,7 @@ const ApplicationForm = () => {
         <Input id="p-email" name="email" type="email" required autoComplete="email" className={inputClass} />
       </div>
       <div className="flex flex-col gap-2">
-        <Label htmlFor="p-phone">Phone (optional)</Label>
+        <Label htmlFor="p-phone">Phone</Label>
         <Input id="p-phone" name="telephone" type="tel" autoComplete="tel" className={inputClass} />
       </div>
       <div className="flex flex-col gap-2">
@@ -136,7 +136,7 @@ const ApplicationForm = () => {
         <Input id="p-role" name="role" autoComplete="organization-title" className={inputClass} />
       </div>
       <div className="flex flex-col gap-2">
-        <Label htmlFor="p-website">Website (optional)</Label>
+        <Label htmlFor="p-website">Website</Label>
         <Input
           id="p-website"
           name="website"
