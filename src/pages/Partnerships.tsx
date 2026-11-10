@@ -181,7 +181,7 @@ const ApplicationForm = () => {
           className="rounded-lg border-2 border-[#BDB3A1] bg-white text-[15px] text-brand-navy placeholder:text-[#89898E] focus:border-brand-amber focus:ring-brand-amber/20"
         />
       </div>
-      <div className="flex flex-col items-start gap-4 sm:col-span-2">
+      <div className="flex flex-col items-center gap-4 text-center sm:col-span-2">
         <button type="submit" disabled={status === "sending"} className="btn-amber btn-focus group disabled:opacity-70">
           <span className="sheen" aria-hidden="true" />
           {status === "sending" ? (
