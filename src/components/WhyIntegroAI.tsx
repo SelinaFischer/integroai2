@@ -2,6 +2,7 @@ import { Check, X } from "lucide-react";
 import { m } from "framer-motion";
 import SectionHeader from "./SectionHeader";
 import { ASSESSMENT_URL, DISCOVERY_CALL_URL, fadeUp } from "@/lib/motion";
+import { spotlight } from "./Spotlight";
 
 const wrongApproach = [
   "The tool arrives before the problem is understood",
@@ -41,7 +42,8 @@ export const ApproachComparison = () => (
 
     <m.div
       {...fadeUp}
-      className="flex flex-col gap-3.5 rounded-[20px] border-2 border-brand-amber bg-white p-[23px] sm:p-[29px]"
+      {...spotlight}
+      className="spotlight flex flex-col gap-3.5 rounded-[20px] border-2 border-brand-amber bg-white p-[23px] sm:p-[29px]"
     >
       <p className="self-start rounded-full bg-brand-amber px-3 py-[5px] text-xs font-bold uppercase tracking-[0.14em] text-brand-navy">
         What we do

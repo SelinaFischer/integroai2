@@ -1,6 +1,7 @@
 import { ArrowRight, Check } from "lucide-react";
 import { m } from "framer-motion";
 import { ASSESSMENT_URL, fadeUp } from "@/lib/motion";
+import { useCountUp, useScrollCue } from "@/hooks/use-scroll-cue";
 
 // Sample scorecard. Only part of the real assessment's areas are shown on
 // purpose: what the assessment covers is revealed inside the assessment, not
@@ -28,6 +29,14 @@ const benefits = [
 ];
 
 const AssessmentSection = () => {
+  // The sample card draws itself the first time it scrolls into view: the ring
+  // fills, the score counts up and the bars grow. The numbers shown at the end
+  // are exactly the sample values above; only the way they arrive is animated.
+  const { ref: cardRef, cue } = useScrollCue<HTMLDivElement>(0.3);
+  const shownScore = useCountUp(SAMPLE_SCORE, cue);
+  const waiting = cue === "armed";
+  const ringFill = waiting ? 0 : (SAMPLE_SCORE / MAX_SCORE) * RING_LENGTH;
+
   return (
     <section id="assessment" className="bg-brand-cream py-14 sm:py-16">
       <div className="wrap grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
@@ -48,16 +57,19 @@ const AssessmentSection = () => {
               </li>
             ))}
           </ul>
-          <a href={ASSESSMENT_URL} target="_blank" rel="noopener noreferrer" className="btn-amber group">
+          <a href={ASSESSMENT_URL} target="_blank" rel="noopener noreferrer" className="btn-amber btn-focus group">
+            <span className="sheen" aria-hidden="true" />
             Start the free assessment
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
+            <ArrowRight className="nudge-arrow h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
           </a>
           <p className="text-sm font-semibold text-[#42566A]">A free AI readiness quiz. 5 minutes.</p>
         </m.div>
 
         <m.div
           {...fadeUp}
-          className="flex flex-col gap-5 rounded-[20px] border border-brand-sand bg-white p-6 sm:p-[30px]"
+          ref={cardRef}
+          data-cue={cue}
+          className="scorecard flex flex-col gap-5 rounded-[20px] border border-brand-sand bg-white p-6 sm:p-[30px]"
           style={{ boxShadow: "var(--shadow-lg)" }}
           role="img"
           aria-label="Sample AI Readiness Assessment result: 11 out of 30, Early Explorer. Priority focus: Systems and Information."
@@ -81,12 +93,13 @@ const AssessmentSection = () => {
                   stroke="#FF9900"
                   strokeWidth="10"
                   strokeLinecap="round"
-                  strokeDasharray={`${(SAMPLE_SCORE / MAX_SCORE) * RING_LENGTH} ${RING_LENGTH}`}
+                  className="scorecard-ring"
+                  strokeDasharray={`${ringFill} ${RING_LENGTH}`}
                   transform="rotate(-90 66 66)"
                 />
               </svg>
               <div className="absolute inset-0 flex items-baseline justify-center gap-[3px] pt-[42px]">
-                <span className="text-[46px] font-bold leading-none tracking-tight text-brand-navy">{SAMPLE_SCORE}</span>
+                <span className="text-[46px] font-bold leading-none tracking-tight text-brand-navy [font-variant-numeric:tabular-nums]">{shownScore}</span>
                 <span className="text-[17px] font-semibold text-brand-slate">/{MAX_SCORE}</span>
               </div>
             </div>
@@ -100,7 +113,7 @@ const AssessmentSection = () => {
 
           <div className="flex flex-col border-t border-brand-sand pt-[18px]">
             <p className="pb-2 text-xs font-bold uppercase tracking-[0.14em] text-brand-slate">Readiness by dimension (extract)</p>
-            {dimensions.map((dimension) => (
+            {dimensions.map((dimension, index) => (
               <div
                 key={dimension.label}
                 className="grid grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)_44px] items-center gap-3.5 py-[9px]"
@@ -108,8 +121,11 @@ const AssessmentSection = () => {
                 <span className="text-[15px] font-semibold text-brand-navy">{dimension.label}</span>
                 <span className="h-2 rounded bg-brand-track">
                   <span
-                    className={`block h-2 rounded ${dimension.priority ? "bg-brand-amber" : "bg-brand-navy"}`}
-                    style={{ width: `${(dimension.score / AREA_MAX) * 100}%` }}
+                    className={`scorecard-bar block h-2 rounded ${dimension.priority ? "bg-brand-amber" : "bg-brand-navy"}`}
+                    style={{
+                      width: `${(dimension.score / AREA_MAX) * 100}%`,
+                      transitionDelay: `${500 + index * 180}ms`,
+                    }}
                   />
                 </span>
                 <span className="text-right text-[15px] font-bold text-brand-navy">

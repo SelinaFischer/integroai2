@@ -20,7 +20,7 @@ const GuideBanner = ({ location, className = "bg-white py-14 sm:py-16" }: GuideB
         {...fadeUp}
         className="flex flex-col items-center gap-7 overflow-hidden rounded-[28px] bg-brand-navy px-6 py-9 text-center sm:px-10 md:flex-row md:gap-10 md:text-left"
       >
-        <GuideCover className="w-[132px] -rotate-3 md:w-[150px]" />
+        <GuideCover className="float-cover w-[132px] -rotate-3 md:w-[150px]" />
         <div className="flex flex-1 flex-col gap-2.5">
           <p className="eyebrow">Free guide and checklist</p>
           <h2
@@ -37,10 +37,10 @@ const GuideBanner = ({ location, className = "bg-white py-14 sm:py-16" }: GuideB
           rel="noopener noreferrer"
           aria-label="Get your free guide (opens the sign-up form in a new tab)"
           onClick={() => trackGuideClick(`banner-${location}`)}
-          className="btn-amber group flex-none whitespace-nowrap"
+          className="btn-amber halo group flex-none whitespace-nowrap"
         >
           Get your free guide
-          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
+          <ArrowRight className="nudge-arrow h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
         </a>
       </m.div>
     </div>

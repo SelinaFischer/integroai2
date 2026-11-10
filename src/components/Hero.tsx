@@ -8,8 +8,13 @@ import { CHEAT_SHEET_FORM_URL, trackCheatSheetClick } from "@/lib/cheatSheet";
 
 const Hero = () => {
   return (
-    <section className="bg-midnight-glow pt-[104px] pb-16 sm:pt-[132px] sm:pb-20 lg:pt-[162px] lg:pb-[88px]">
-      <div className="wrap flex flex-col items-center gap-12 lg:flex-row lg:gap-14">
+    <section className="relative bg-midnight-glow pt-[104px] pb-16 sm:pt-[132px] sm:pb-20 lg:pt-[162px] lg:pb-[88px]">
+      <div className="hero-light" aria-hidden="true">
+        <span />
+        <span />
+        <span />
+      </div>
+      <div className="wrap relative flex flex-col items-center gap-12 lg:flex-row lg:gap-14">
         <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -20,7 +25,7 @@ const Hero = () => {
             Independent UK AI consultancy for business owners
           </p>
 
-          <h1 className="text-[40px] font-semibold leading-[1.05] text-white sm:text-[52px] lg:text-[60px]">
+          <h1 className="hero-headline text-[40px] font-semibold leading-[1.05] text-white sm:text-[52px] lg:text-[60px]">
             <span className="block">Less firefighting.</span>
             <span className="block italic text-brand-amber [text-wrap:balance]">More time for the work you love.</span>
           </h1>
@@ -37,10 +42,11 @@ const Hero = () => {
                 href={ASSESSMENT_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-amber group"
+                className="btn-amber btn-focus group"
               >
+                <span className="sheen" aria-hidden="true" />
                 Start the free assessment
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
+                <ArrowRight className="nudge-arrow h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
               </a>
               <a
                 href={DISCOVERY_CALL_URL}
@@ -57,14 +63,14 @@ const Hero = () => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackCheatSheetClick("hero")}
-              className="group flex flex-col items-center gap-1 self-center text-center"
+              className="lead-arrive group flex flex-col items-center gap-1 self-center text-center"
             >
               <span className="text-sm font-semibold leading-snug text-brand-seaglass sm:text-[15px]">
                 How can AI help my business?
               </span>
               <span className="flex w-fit items-center gap-1.5 text-[13px] leading-snug text-brand-seafoam underline decoration-brand-seaglass/60 decoration-1 underline-offset-4 transition-colors duration-200 group-hover:text-white group-hover:decoration-white sm:text-sm">
                 I want the free AI Cheat Sheet
-                <ArrowRight className="h-3.5 w-3.5 flex-none transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
+                <ArrowRight className="nudge-arrow h-3.5 w-3.5 flex-none transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
               </span>
             </a>
           </div>
