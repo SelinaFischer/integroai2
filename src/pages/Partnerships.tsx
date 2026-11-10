@@ -124,7 +124,7 @@ const ApplicationForm = () => {
         <Input id="p-email" name="email" type="email" required autoComplete="email" className={inputClass} />
       </div>
       <div className="flex flex-col gap-2">
-        <Label htmlFor="p-phone">Phone</Label>
+        <Label htmlFor="p-phone">Phone (optional)</Label>
         <Input id="p-phone" name="telephone" type="tel" autoComplete="tel" className={inputClass} />
       </div>
       <div className="flex flex-col gap-2">
@@ -136,7 +136,7 @@ const ApplicationForm = () => {
         <Input id="p-role" name="role" autoComplete="organization-title" className={inputClass} />
       </div>
       <div className="flex flex-col gap-2">
-        <Label htmlFor="p-website">Website</Label>
+        <Label htmlFor="p-website">Website (optional)</Label>
         <Input
           id="p-website"
           name="website"
@@ -173,19 +173,18 @@ const ApplicationForm = () => {
       )}
       <div className="flex flex-col gap-2 sm:col-span-2">
         <Label htmlFor="p-about" className="text-[16px] font-semibold">
-          Who needs help, and with what?
+          Tell me about your business
         </Label>
         <p id="p-about-help" className="text-[14px] leading-relaxed text-brand-slate">
-          Tell me what your client is struggling with and how you know them. No client in mind yet? Tell me about the
-          clients you support. Please leave out their name and contact details until they’ve agreed to an introduction.
+          Briefly describe what you do and the clients you work with.
         </p>
         <Textarea
           id="p-about"
           name="message"
           required
-          rows={6}
+          rows={4}
           aria-describedby="p-about-help"
-          placeholder="For example: I’m their accountant. They run a small hotel, and the team spends hours each week chasing bookings and answering the same enquiries."
+          placeholder="For example: I run an accountancy practice supporting small hospitality businesses."
           className="rounded-lg border-2 border-[#BDB3A1] bg-white text-[15px] text-brand-navy placeholder:text-[#89898E] focus:border-brand-amber focus:ring-brand-amber/20"
         />
       </div>
@@ -342,8 +341,7 @@ const Partnerships = () => {
                 a conversation.
               </m.p>
               <m.p {...fadeUp}>
-                Complete the form below and I’ll get in touch to arrange a meeting. We can discuss the partnership and
-                referral arrangements in more detail then.
+                Complete the form below and I’ll get in touch to arrange a meeting to discuss working together.
               </m.p>
               <m.p {...fadeUp} className="flex flex-wrap items-center gap-x-2 gap-y-1 text-brand-navy">
                 <CalendarDays className="h-5 w-5 shrink-0 text-brand-teal" aria-hidden="true" />
