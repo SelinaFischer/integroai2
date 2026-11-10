@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { ArrowRight, CalendarDays, CheckCircle2, Loader2 } from "lucide-react";
+import { ArrowRight, CalendarDays, CheckCircle2, Loader2, Plus } from "lucide-react";
 import { m } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -296,15 +296,38 @@ const Partnerships = () => {
                 </m.article>
               ))}
             </div>
-            <m.div
+            <m.a
               {...fadeUp}
-              className="mx-auto mt-8 flex max-w-[620px] flex-col items-center gap-1.5 rounded-[14px] border border-brand-amber/70 bg-white px-6 py-6 text-center"
+              href="#apply"
+              className="group relative mx-auto mt-8 flex max-w-[720px] flex-col items-center gap-4 overflow-hidden rounded-[16px] bg-brand-navy px-6 py-6 text-center sm:flex-row sm:gap-5 sm:px-7 sm:text-left"
             >
-              <h3 className="font-heading text-[21px] font-semibold leading-[1.2] text-brand-navy">Not listed here?</h3>
-              <p className="text-[15.5px] leading-relaxed text-brand-slate">
-                If you work with business owners and see a good fit, I’d welcome a conversation.
-              </p>
-            </m.div>
+              <span
+                className="pointer-events-none absolute -right-10 -top-12 h-36 w-36 rounded-full bg-brand-amber/20 blur-2xl"
+                aria-hidden="true"
+              />
+              <span
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-brand-amber/60 text-brand-amber"
+                aria-hidden="true"
+              >
+                <Plus className="h-5 w-5" strokeWidth={2} />
+              </span>
+              <span className="flex flex-1 flex-col gap-1">
+                <span className="font-heading text-[22px] font-semibold italic leading-[1.2] text-brand-amber">
+                  Not listed here?
+                </span>
+                <span className="text-[15px] leading-relaxed text-brand-mist">
+                  If you work with business owners and see a good fit, I’d welcome a conversation.
+                </span>
+              </span>
+              <span className="flex shrink-0 items-center gap-1.5 text-[15px] font-semibold text-white">
+                Let’s talk
+                <ArrowRight
+                  className="h-4 w-4 text-brand-amber transition-transform duration-200 group-hover:translate-x-1"
+                  strokeWidth={2.4}
+                  aria-hidden="true"
+                />
+              </span>
+            </m.a>
           </div>
         </section>
 
