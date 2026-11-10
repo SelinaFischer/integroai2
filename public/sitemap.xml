@@ -38,6 +38,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://integroai.tech/partnerships</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://integroai.tech/free-resources</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>

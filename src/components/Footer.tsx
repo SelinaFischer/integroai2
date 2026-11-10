@@ -29,6 +29,7 @@ const Footer = () => {
     { to: "/ai-consultant-small-business-uk", label: "AI for Small Businesses" },
     { to: "/blog", label: "Blog" },
     { to: "/free-resources", label: "Free Resources" },
+    { to: "/partnerships", label: "Partnerships" },
   ];
 
   const headingClass = "mb-2 text-xs font-bold uppercase tracking-[0.14em] text-brand-navy";

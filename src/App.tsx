@@ -16,6 +16,7 @@ import WorkWithMe from "./pages/WorkWithMe";
 import About from "./pages/About";
 import AiVisibilityGuide from "./pages/AiVisibilityGuide";
 import FreeResources from "./pages/FreeResources";
+import Partnerships from "./pages/Partnerships";
 import SmallBusinessAiConsultant from "./pages/SmallBusinessAiConsultant";
 import AiVisibilityCheck from "./pages/AiVisibilityCheck";
 
@@ -65,6 +66,7 @@ const App = ({ skipEntrance = false }: AppProps) => {
           <Route path="/about" element={<About />} />
           <Route path="/ai-visibility-guide" element={<AiVisibilityGuide />} />
           <Route path="/free-resources" element={<FreeResources />} />
+          <Route path="/partnerships" element={<Partnerships />} />
           <Route path="/ai-consultant-small-business-uk" element={<SmallBusinessAiConsultant />} />
           <Route path="/ai-visibility-check" element={<AiVisibilityCheck />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
