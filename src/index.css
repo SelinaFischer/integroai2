@@ -464,6 +464,12 @@
       animation: focusPulse 2.4s ease-out infinite;
     }
 
+    /* The navy "Check my website" button: same motion, with a navy ring so it
+       suits the button's own colour. */
+    .btn-focus.halo-navy::before {
+      background: rgba(4, 27, 43, 0.45);
+    }
+
     .sheen::after {
       content: "";
       position: absolute;

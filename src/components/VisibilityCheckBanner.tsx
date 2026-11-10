@@ -32,8 +32,9 @@ const VisibilityCheckBanner = () => (
         <Link
           to={VISIBILITY_CHECK_PATH}
           onClick={() => trackVisibilityCheck("visibility_check_banner_click")}
-          className="halo halo-navy group inline-flex flex-none items-center justify-center gap-2 whitespace-nowrap rounded-full px-5 py-2.5 text-sm font-semibold bg-brand-navy !text-white hover:opacity-90"
+          className="btn-focus halo-navy group inline-flex flex-none items-center justify-center gap-2 whitespace-nowrap rounded-full px-5 py-2.5 text-sm font-semibold bg-brand-navy !text-white hover:opacity-90"
         >
+          <span className="sheen" aria-hidden="true" />
           Check my website
           <ArrowRight className="nudge-arrow h-3.5 w-3.5 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
         </Link>
