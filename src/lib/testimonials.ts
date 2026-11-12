@@ -4,7 +4,7 @@ export const testimonials = [
   {
     quote:
       "Selina did an excellent job with the AI Readiness Assessment and Key Findings Report. Her clear explanations helped me understand the recommendations and feel more confident about the next steps for my business.",
-    name: "Fabrice",
+    name: "Frank",
     role: "Founder & CEO, Consultancy Firm",
   },
   {
