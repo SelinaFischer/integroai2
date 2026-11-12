@@ -81,13 +81,13 @@ const FreeResources = () => {
             transition={{ duration: 0.6 }}
             className="wrap flex flex-col items-start gap-6"
           >
-            <p className="text-[11px] font-bold uppercase leading-relaxed tracking-[0.16em] text-brand-amber sm:text-xs">
-              Free resources
-            </p>
-            <h1 className="text-[40px] font-semibold leading-[1.05] text-white sm:text-[52px] lg:text-[60px]">
+            <h1 className="font-sans text-[11px] font-bold uppercase leading-relaxed tracking-[0.16em] text-brand-amber sm:text-xs [text-wrap:wrap]">
+              Free AI resources for business owners
+            </h1>
+            <p className="text-[40px] font-semibold leading-[1.05] text-white sm:text-[52px] lg:text-[60px] font-heading tracking-[-0.005em] [font-variant-numeric:lining-nums] [text-wrap:balance]">
               <span className="block">Get clarity on AI.</span>
               <span className="block italic text-brand-amber">Free, practical, yours to keep.</span>
-            </h1>
+            </p>
             <p className="max-w-[620px] text-[17px] leading-normal text-brand-mist sm:text-[19px]">
               Practical tools for founders and business owners. Pick the one that fits where you are today.
             </p>

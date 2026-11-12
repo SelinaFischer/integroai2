@@ -136,7 +136,7 @@ const WorkWithMe = () => {
   return (
     <>
       <Helmet>
-        <title>Work With Me | AI Consulting &amp; Operations Advisory | IntegroAI Consulting</title>
+        <title>AI Consulting Services for UK Business Owners | IntegroAI</title>
         <meta
           name="description"
           content="Work with IntegroAI: start with the AI & Operations Diagnostic, a consultant-led review of your business. You choose your priorities, then we prepare, implement and improve together. Independent and technology-agnostic."
@@ -179,12 +179,12 @@ const WorkWithMe = () => {
 
                 <div className="sm:order-1">
                   <div className="text-center">
-                    <span className="inline-block text-brand-label font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
-                      How Engagements Work
-                    </span>
-                    <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-foreground mb-4">
-                      Work With Me
+                    <h1 className="font-sans inline-block text-brand-label font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
+                      AI consulting services
                     </h1>
+                    <p className="text-3xl sm:text-4xl lg:text-[44px] font-bold text-foreground mb-4 font-heading tracking-[-0.005em] [font-variant-numeric:lining-nums] [text-wrap:balance]">
+                      Work With Me
+                    </p>
                   </div>
                   <p className="text-center text-base sm:text-[17px] text-accent-warm font-medium mb-4">
                     Founder | AI Adoption &amp; Transformation Consultant
