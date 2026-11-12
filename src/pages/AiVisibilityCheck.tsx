@@ -149,13 +149,13 @@ const AiVisibilityCheck = () => {
               transition={{ duration: 0.6 }}
               className="flex min-w-0 flex-col items-start gap-6"
             >
-              <p className="text-[11px] font-bold uppercase leading-relaxed tracking-[0.16em] text-brand-amber sm:text-xs">
-                Free AI visibility check
-              </p>
-              <h1 className="text-[38px] font-semibold leading-[1.08] text-white sm:text-[48px] lg:text-[54px]">
+              <h1 className="font-sans text-[11px] font-bold uppercase leading-relaxed tracking-[0.16em] text-brand-amber sm:text-xs [text-wrap:wrap]">
+                Free AI visibility checker
+              </h1>
+              <p className="text-[38px] font-semibold leading-[1.08] text-white sm:text-[48px] lg:text-[54px] font-heading tracking-[-0.005em] [font-variant-numeric:lining-nums] [text-wrap:balance]">
                 <span className="block">Is your website invisible to ChatGPT?</span>
                 <span className="block italic text-brand-amber">Get a clear answer for free.</span>
-              </h1>
+              </p>
               <p className="max-w-[560px] text-[17px] leading-normal text-brand-mist sm:text-[19px]">
                 Check for issues that could stop AI tools from reading your site, and get a clear report showing what to fix first.
               </p>

@@ -62,7 +62,7 @@ const Footer = () => {
 
           {/* Column 2: solutions */}
           <nav aria-label="Solutions we offer">
-            <h2 className={`${headingClass}`}>Solutions We Offer</h2>
+            <h3 className={`${headingClass}`}>Solutions We Offer</h3>
             <ul className="list-none">
               {solutionsLinks.map(({ label, sectionId }) => (
                 <li key={label}>
@@ -80,7 +80,7 @@ const Footer = () => {
 
           {/* Column 3: company */}
           <nav aria-label="Company">
-            <h2 className={`${headingClass}`}>Company</h2>
+            <h3 className={`${headingClass}`}>Company</h3>
             <ul className="list-none">
               {companyLinks.map((link) => (
                 <li key={link.label}>
@@ -99,7 +99,7 @@ const Footer = () => {
 
           {/* Column 4: get in touch */}
           <div>
-            <h2 className={`${headingClass}`}>Get in Touch</h2>
+            <h3 className={`${headingClass}`}>Get in Touch</h3>
             <ul className="list-none">
               <li>
                 <a

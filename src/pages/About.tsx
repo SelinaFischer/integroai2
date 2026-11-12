@@ -66,7 +66,7 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>About | IntegroAI Consulting</title>
+        <title>AI Adoption &amp; Transformation Consultant UK | About IntegroAI</title>
         <meta
           name="description"
           content="IntegroAI Consulting is an independent UK-based AI consultancy. Founder Selina Fischer helps business owners stop being the bottleneck by fixing messy workflows before adding AI or automation."
@@ -90,12 +90,12 @@ const About = () => {
                 className="text-left"
               >
                 <div className="text-center">
-                <span className="inline-block text-brand-label font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
-                  About IntegroAI Consulting
-                </span>
-                <h1 className="mx-auto max-w-2xl font-heading text-[30px] leading-tight sm:text-4xl font-semibold text-foreground mb-6 [text-wrap:balance]">
-                  Your ambition needs a business that can support it.
+                <h1 className="font-sans inline-block text-brand-label font-semibold text-xs uppercase tracking-widest mb-4 px-3 py-1 bg-accent-warm/10 rounded-full">
+                  AI adoption &amp; transformation consultancy
                 </h1>
+                <p className="mx-auto max-w-2xl font-heading text-[30px] leading-tight sm:text-4xl font-semibold text-foreground mb-6 tracking-[-0.005em] [font-variant-numeric:lining-nums] [text-wrap:balance]">
+                  Your ambition needs a business that can support it.
+                </p>
                 </div>
 
                 <div className="mx-auto max-w-2xl space-y-5" data-intro-text>

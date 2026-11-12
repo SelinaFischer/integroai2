@@ -21,14 +21,15 @@ const Hero = () => {
           transition={{ duration: 0.6 }}
           className="flex min-w-0 flex-col items-start gap-6 lg:flex-[1.35]"
         >
-          <p className="text-[11px] font-bold uppercase leading-relaxed tracking-[0.16em] text-brand-amber sm:text-xs">
+          {/* The keyword line is the page H1; the headline below is styled text. */}
+          <h1 className="font-sans text-[11px] font-bold uppercase leading-relaxed tracking-[0.16em] text-brand-amber sm:text-xs [text-wrap:wrap]">
             Independent UK AI consultancy for business owners
-          </p>
+          </h1>
 
-          <h1 className="text-[40px] font-semibold leading-[1.05] text-white sm:text-[52px] lg:text-[60px]">
+          <p className="text-[40px] font-semibold leading-[1.05] text-white sm:text-[52px] lg:text-[60px] font-heading tracking-[-0.005em] [font-variant-numeric:lining-nums] [text-wrap:balance]">
             <span className="block">Less firefighting.</span>
             <span className="block italic text-brand-amber [text-wrap:balance]">More time for the work you love.</span>
-          </h1>
+          </p>
 
           <p className="max-w-[600px] text-[17px] leading-normal text-brand-mist sm:text-[19px]">
             Understand what’s slowing your business down, prioritise what matters, and use AI and automation where they can free up time, delight customers and support growth.
