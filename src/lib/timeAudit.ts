@@ -6,8 +6,8 @@ import data from "@/data/time-audit.json";
 
 export const TIME_AUDIT_PATH = "/ai-time-audit-small-business";
 // The deployed Apps Script web app URL (ends in /exec). Public by design.
-// Leave empty until it is set up: the page then works without the email step.
-export const TIME_AUDIT_ENDPOINT = "";
+// If it is ever emptied, the page still works without the email step.
+export const TIME_AUDIT_ENDPOINT = "https://script.google.com/macros/s/AKfycbzO1BTwkKqRj2dwNPXu3JzkFfS-QfY1Fjzdkrx97YOB5ri6Nd6w9dXbDZ_Ik_DXaXca/exec";
 
 export type Task = {
   t: string;
