@@ -49,11 +49,11 @@ var TIME_AUDIT_DATA = {
           "r": "medium",
           "fix": "Turn the emails you answer most often into reply templates you can reuse.",
           "steps": [
-            "Find five emails you answer again and again, and remove personal details.",
+            "Find five examples of emails you commonly receive, and remove personal details.",
             "Use the prompt to turn them into reply templates.",
-            "Save each template in your email so it is one click away."
+            "Save each template in your email so it is ready to reuse."
           ],
-          "prompt": "Here are five emails I answer often, with personal details removed: [paste]. For each one, write a reusable reply template. Put anything that changes each time in [square brackets]. Keep each under 120 words and end with one clear next step."
+          "prompt": "Here are five emails I answer often, with personal details removed: [paste]. For each one, write a reusable reply template. Put anything that changes each time in [square brackets]. Keep each under 120 words and end with one clear next step. Do not invent prices, policies, deadlines or commitments. Use placeholders for missing information."
         },
         {
           "t": "Booking meetings and moving calendar slots",
@@ -61,8 +61,8 @@ var TIME_AUDIT_DATA = {
           "r": "low",
           "fix": "Send one booking link instead of trading emails about times.",
           "steps": [
-            "Block out the times you are free each week.",
-            "Turn on a booking page in your calendar, or use a scheduling tool.",
+            "Set your available booking hours.",
+            "Turn on a booking page in your calendar, or use a scheduling tool. Connect it to your calendar and check that existing appointments cannot be double-booked.",
             "Add the link to your email signature and save the reply below as a template."
           ],
           "template": "Hi [name],\n\nThanks for getting in touch. To save going back and forth, you can pick a time that suits you here: [booking link]\n\nIf none of those times work, just reply and we will find another.\n\n[Your name]\n[Business name]"
@@ -427,11 +427,11 @@ var TIME_AUDIT_DATA = {
   "getNeed": {
     "admin-0": [
       "Reply templates for your most common emails",
-      "Five emails you answer again and again"
+      "Five examples of emails you commonly receive"
     ],
     "admin-1": [
       "A booking link and a ready reply",
-      "The times you are free each week"
+      "Your available booking hours"
     ],
     "admin-2": [
       "A plan to enter details once",

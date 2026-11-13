@@ -195,7 +195,7 @@ function buildEmail_(lead, plan) {
   var box = function (label, body) {
     html.push('<div style="margin:0 0 14px;border:1px solid ' + sand + ';border-radius:10px">' +
       '<div style="padding:8px 12px;border-bottom:1px solid ' + sand + ';font-size:11px;font-weight:bold;letter-spacing:.08em;text-transform:uppercase;color:' + slate + '">' + esc_(label) + '</div>' +
-      '<div style="padding:10px 12px;font-size:14px;line-height:1.55;color:' + navy + ';white-space:pre-wrap">' + esc_(body) + '</div></div>');
+      '<div style="padding:10px 12px;font-size:14px;line-height:1.55;color:' + navy + '">' + esc_(body).replace(/\n/g, '<br>') + '</div></div>');
   };
 
   var section = function (row, isLead) {
@@ -239,14 +239,13 @@ function buildEmail_(lead, plan) {
   };
 
   p('Hi ' + esc_(lead.name) + ',');
-  p('Here is your full action plan from the IntegroAI AI time audit.');
-  text.push('Hi ' + lead.name + ',', '', 'Here is your full action plan from the IntegroAI AI time audit.');
+  p('Here is your full action plan from the IntegroAI Time Audit.');
+  text.push('Hi ' + lead.name + ',', '', 'Here is your full action plan from the IntegroAI Time Audit.');
   if (plan.total) {
     var totalLine = 'The tasks you ticked take up about ' + fmtHours_(plan.total) + ' hours a month of your own time today. This is time spent now, not a promised saving.';
     p(esc_(totalLine));
     text.push(totalLine);
   }
-  p('Nothing in this plan sends, posts or changes anything. You stay in control.', 'color:' + teal + ';font-weight:bold');
 
   section(plan.lead, true);
   if (plan.rows.length > 1) {
@@ -255,28 +254,28 @@ function buildEmail_(lead, plan) {
     plan.rows.slice(1).forEach(function (row) { section(row, false); });
   }
 
-  h('Your house prompt', 19);
+  h('Your reusable business prompt', 19);
   p('Paste this at the start of any AI chat, so the answers sound like your business. Fill in the parts in brackets once and keep it.');
   box('Use it every time', houseText_(lead));
-  text.push('', 'YOUR HOUSE PROMPT', houseText_(lead));
+  text.push('', 'YOUR REUSABLE BUSINESS PROMPT', houseText_(lead));
 
   h('Record your time before and after', 19);
-  p('Fill this in this week, then again after two weeks of trying the fix.');
+  p('Fill in your weekly time now, then again after trying the change for two weeks.');
   html.push('<table style="border-collapse:collapse;width:100%;font-size:14px;color:' + navy + '"><tr>' +
-    ['Task', 'Time this week', 'Time after two weeks'].map(function (c) { return '<th style="text-align:left;border:1px solid ' + sand + ';padding:8px">' + c + '</th>'; }).join('') + '</tr>' +
+    ['Task', 'Weekly time now', 'Weekly time after trying the change'].map(function (c) { return '<th style="text-align:left;border:1px solid ' + sand + ';padding:8px">' + c + '</th>'; }).join('') + '</tr>' +
     plan.rows.map(function (r) { return '<tr><td style="border:1px solid ' + sand + ';padding:8px">' + esc_(r.task.t) + '</td><td style="border:1px solid ' + sand + ';padding:8px">&nbsp;</td><td style="border:1px solid ' + sand + ';padding:8px">&nbsp;</td></tr>'; }).join('') +
     '</table>');
   text.push('', 'RECORD YOUR TIME BEFORE AND AFTER');
-  plan.rows.forEach(function (r) { text.push(r.task.t + ': this week ____  after two weeks ____'); });
+  plan.rows.forEach(function (r) { text.push(r.task.t + ': weekly time now ____  weekly time after trying the change ____'); });
 
-  var task = plan.lead.task.t.charAt(0).toLowerCase() + plan.lead.task.t.slice(1);
-  h('Want help setting it up?', 19);
-  p('If you would rather have ' + esc_(task) + ' set up properly with you, book a free 30-minute call.');
+  h('Want help putting your plan into practice?', 19);
+  p('Book a free 30-minute discovery call to discuss your biggest time drain and how to tackle it.');
   html.push('<p style="margin:0 0 20px"><a href="' + CONFIG.CALL_URL + '" style="display:inline-block;background:#FF9900;color:' + navy + ';font-weight:bold;text-decoration:none;padding:12px 20px;border-radius:8px">Book your AI Readiness Discovery Call</a></p>');
-  text.push('', 'Want help setting it up? Book your AI Readiness Discovery Call: ' + CONFIG.CALL_URL);
-  p('This is a self-check, not advice. Remove personal and client details before pasting anything into an AI tool, and check every result before you use it.', 'font-size:13px;color:' + slate);
+  text.push('', 'Want help putting your plan into practice?', 'Book a free 30-minute discovery call to discuss your biggest time drain and how to tackle it: ' + CONFIG.CALL_URL);
+  var disclaimer = 'This plan provides general suggestions based on your answers. Remove personal, client and confidential business information before pasting content into an AI tool, and check each result before using it.';
+  p(disclaimer, 'font-size:13px;color:' + slate);
   p('Selina Fischer<br>IntegroAI Consulting<br><a href="https://integroai.tech" style="color:' + teal + '">integroai.tech</a>');
-  text.push('', 'This is a self-check, not advice. Remove personal and client details before pasting anything into an AI tool, and check every result before you use it.', '', 'Selina Fischer', 'IntegroAI Consulting', 'https://integroai.tech');
+  text.push('', disclaimer, '', 'Selina Fischer', 'IntegroAI Consulting', 'https://integroai.tech');
 
   return {
     subject: 'Your AI time audit action plan',
