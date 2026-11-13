@@ -14,6 +14,7 @@
 - [Free 5-Minute AI Readiness Assessment](https://integroai.tech/assessment): gives an initial view of how ready a business is for AI, with a readiness score and the priority to focus on first.
 - [Work With Me](https://integroai.tech/work-with-me): how engagements work, stage by stage.
 - [AI consulting for UK small businesses](https://integroai.tech/ai-consultant-small-business-uk): how business owners can find what is slowing them down, decide what to fix first and see where AI is worth the investment.
+- [Free business time audit](https://integroai.tech/business-time-audit): a business owner ticks the tasks that take up their week and gets an action plan with one place to start, simple steps and AI prompts or templates. The hours shown are time spent now, not a promised saving.
 - [Free AI visibility check](https://integroai.tech/ai-visibility-check): checks whether a website is easy for AI tools to read, with a score and a report of what to fix. It does not test whether AI tools recommend a business.
 - [About](https://integroai.tech/about): who IntegroAI helps, what clients can expect, and Selina's story.
 - [Book a free 30-minute Discovery Call](https://calendly.com/integroai-tech/30min)

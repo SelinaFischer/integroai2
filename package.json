@@ -8,7 +8,8 @@
     "build": "vite build && node scripts/prerender.mjs",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:time-audit-gs": "node scripts/build-time-audit-gs.mjs"
   },
   "dependencies": {
     "@fontsource/cormorant-garamond": "^5.3.0",
