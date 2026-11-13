@@ -74,6 +74,7 @@ function cleanLead_(input) {
     business: text_(input.business, 120),
     what: text_(input.what, 160),
     tone: tone,
+    website: cleanWebsite_(input.website),
     tips: input.tips === true,
     selections: selections,
     fit: {
@@ -142,9 +143,20 @@ function fmtHours_(n) {
   return n < 10 ? String(Math.round(n * 2) / 2) : String(Math.round(n));
 }
 
+// Mirrors cleanWebsite in src/lib/timeAudit.ts.
+function cleanWebsite_(value) {
+  var s = text_(value, 220).replace(/^https?:\/\//i, '').replace(/\/$/, '');
+  return s.length <= 200 && /^[a-z0-9-]+(\.[a-z0-9-]+)*\.[a-z]{2,}(\/\S*)?$/i.test(s) ? 'https://' + s : '';
+}
+
+function websiteLine_(lead) {
+  return lead.website ? 'Our website is ' + lead.website + ". Use it to match how we write. If you can't open it, ask me to paste a short paragraph from it." : '';
+}
+
 function context_(lead) {
   var intro = (lead.business ? 'I run ' + lead.business + '.' : 'I run a small business.') + (lead.what ? ' What we do: ' + lead.what + '.' : '');
-  return intro + ' Write in a ' + lead.tone + ' tone, in British English.';
+  var site = websiteLine_(lead);
+  return intro + ' Write in a ' + lead.tone + ' tone, in British English.' + (site ? ' ' + site : '');
 }
 
 function promptFor_(row, lead, fit) {
@@ -162,6 +174,7 @@ function stepsFor_(row, fit) {
 
 function houseText_(lead) {
   return 'I run ' + (lead.business || '[business name]') + '. What we do: ' + (lead.what || '[what you do, in one line]') + '.\n' +
+    (lead.website ? websiteLine_(lead) + '\n' : '') +
     'Our customers are [who your customers are].\n' +
     'Write in a ' + lead.tone + ' tone, in British English with British spelling.\n' +
     'Avoid these words and phrases: [words to avoid].\n' +
@@ -296,8 +309,10 @@ function logLead_(lead, plan, emailSent) {
   var sheet = spreadsheet.getSheetByName(CONFIG.SHEET_NAME) || spreadsheet.insertSheet(CONFIG.SHEET_NAME);
   if (sheet.getLastRow() === 0) {
     sheet.appendRow(['Date', 'First name', 'Email', 'Business', 'What they do', 'Tone', 'Areas', 'Tasks and time a week',
-      'Hours a month', 'Start here', 'Uses for it', 'What makes it hard', 'Plan emailed', 'Wants tips']);
+      'Hours a month', 'Start here', 'Uses for it', 'What makes it hard', 'Plan emailed', 'Wants tips', 'Website']);
     sheet.setFrozenRows(1);
+  } else if (sheet.getRange(1, 15).getValue() === '') {
+    sheet.getRange(1, 15).setValue('Website'); // added after launch
   }
   var areas = {};
   plan.rows.forEach(function (r) { areas[D.areas[r.area].short] = true; });
@@ -307,7 +322,7 @@ function logLead_(lead, plan, emailSent) {
   sheet.appendRow([new Date(), safeCell_(lead.name), safeCell_(lead.email), safeCell_(lead.business), safeCell_(lead.what), lead.tone,
     Object.keys(areas).join(', '), safeCell_(tasks), Math.round(plan.total), safeCell_(plan.lead.task.t),
     plan.fit.tool ? D.fitTool[plan.fit.tool] : '', plan.fit.hard ? D.fitHard[plan.fit.hard] : '',
-    emailSent ? 'Yes' : 'No', lead.tips ? 'Yes' : 'No']);
+    emailSent ? 'Yes' : 'No', lead.tips ? 'Yes' : 'No', safeCell_(lead.website)]);
 }
 
 // Stops a cell from being read as a formula.

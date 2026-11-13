@@ -132,7 +132,7 @@ const TimeAudit = () => {
   const [pickerOpen, setPickerOpen] = useState(true);
   const [areas, setAreas] = useState<string[]>([]);
   const [selected, setSelected] = useState<Record<string, string>>({});
-  const [about, setAbout] = useState<About>({ name: "", what: "", tone: TONES[1].value });
+  const [about, setAbout] = useState<About>({ name: "", what: "", tone: TONES[1].value, website: "" });
   const [fit, setFit] = useState<Record<string, Fit>>({});
   const [openKeys, setOpenKeys] = useState<Record<string, boolean>>({});
   const [shown, setShown] = useState(false);
@@ -193,6 +193,7 @@ const TimeAudit = () => {
         business: about.name,
         what: about.what,
         tone: about.tone,
+        website: about.website,
         tips: form.get("tips") === "on",
         company_website: form.get("company_website"),
         selections: rows.map((r) => ({ key: r.key, band: r.band })),
@@ -451,6 +452,11 @@ const TimeAudit = () => {
                   <select id="ta-tone" value={about.tone} onChange={(e) => setAbout({ ...about, tone: e.target.value })} className={`${inputClass} py-[13px]`}>
                     {TONES.map((t) => <option key={t.value} value={t.value}>{t.label}</option>)}
                   </select>
+                </div>
+                <div className="min-w-0 sm:col-span-3">
+                  <label htmlFor="ta-website" className={labelClass}>Your website <span className="font-normal text-brand-slate">(optional)</span></label>
+                  <input id="ta-website" type="url" inputMode="url" maxLength={200} value={about.website} onChange={(e) => setAbout({ ...about, website: e.target.value })} placeholder="e.g. brightpathevents.co.uk" autoComplete="url" className={inputClass} />
+                  <p className="mt-1.5 text-[13px] text-brand-slate">Your prompts will ask the AI tool to match how your website is written.</p>
                 </div>
               </div>
               <button type="button" onClick={showPlan} className="btn-amber btn-focus group mt-2 w-fit">
