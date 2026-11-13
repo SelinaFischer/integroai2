@@ -9,12 +9,24 @@ import { ASSESSMENT_URL, DISCOVERY_CALL_URL, fadeUp, fadeUpDelayed } from "@/lib
 import { GUIDE_FORM_URL, GUIDE_PAGE_PATH, GUIDE_TITLE, trackGuideClick } from "@/lib/guide";
 import { CHEAT_SHEET_FORM_URL, trackCheatSheetClick } from "@/lib/cheatSheet";
 import { VISIBILITY_CHECK_PATH } from "@/lib/visibilityCheck";
+import { TIME_AUDIT_PATH } from "@/lib/timeAudit";
 
 export const FREE_RESOURCES_PATH = "/free-resources";
 
 // Each button opens the resource's own form or tool directly, so visitors
 // are not walked round extra pages before they can sign up.
 const resources = [
+  {
+    label: "Free AI time audit",
+    title: "Find out where your business could save time",
+    text: "Choose the tasks that take up your week. Get a practical action plan with simple steps and AI prompts to help you get started.",
+    cta: "Start the time audit",
+    href: TIME_AUDIT_PATH,
+    onClick: undefined,
+    more: undefined,
+    note: "Your plan shows on screen. No sign-up needed.",
+    wide: true,
+  },
   {
     label: "Free AI visibility check",
     title: "Is your website invisible to ChatGPT?",
@@ -57,7 +69,7 @@ const resources = [
 const FreeResources = () => {
   const pageUrl = `https://integroai.tech${FREE_RESOURCES_PATH}`;
   const description =
-    "Free AI resources from IntegroAI Consulting, a UK-based AI consultancy: an AI cheat sheet, an AI visibility guide and checklist, an AI visibility check, and a 5-minute AI readiness assessment for founders and business owners.";
+    "Free AI resources from IntegroAI Consulting, a UK-based AI consultancy: an AI time audit for small businesses, an AI cheat sheet, an AI visibility guide and checklist, an AI visibility check, and a 5-minute AI readiness assessment for founders and business owners.";
 
   return (
     <>
@@ -100,7 +112,7 @@ const FreeResources = () => {
               <m.article
                 key={resource.title}
                 {...fadeUpDelayed(index)}
-                className="card-soft flex flex-col gap-3 p-7"
+                className={`card-soft flex flex-col gap-3 p-7${"wide" in resource && resource.wide ? " md:col-span-2" : ""}`}
               >
                 <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-brand-teal">{resource.label}</p>
                 <h2 className="font-heading text-[26px] font-semibold leading-[1.15] text-brand-navy">{resource.title}</h2>

@@ -19,6 +19,7 @@ import FreeResources from "./pages/FreeResources";
 import Partnerships from "./pages/Partnerships";
 import SmallBusinessAiConsultant from "./pages/SmallBusinessAiConsultant";
 import AiVisibilityCheck from "./pages/AiVisibilityCheck";
+import TimeAudit from "./pages/TimeAudit";
 
 // The "install this app" help page is rarely visited, so it loads on demand.
 const Install = lazy(() => import("./pages/Install"));
@@ -69,6 +70,7 @@ const App = ({ skipEntrance = false }: AppProps) => {
           <Route path="/partnerships" element={<Partnerships />} />
           <Route path="/ai-consultant-small-business-uk" element={<SmallBusinessAiConsultant />} />
           <Route path="/ai-visibility-check" element={<AiVisibilityCheck />} />
+          <Route path="/ai-time-audit-small-business" element={<TimeAudit />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/install" element={<Suspense fallback={null}><Install /></Suspense>} />
