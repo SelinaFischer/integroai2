@@ -59,11 +59,11 @@
           "r": "low",
           "fix": "Send one booking link instead of trading emails about times.",
           "steps": [
-            "Set your available booking hours.",
-            "Turn on a booking page in your calendar, or use a scheduling tool. Connect it to your calendar and check that existing appointments cannot be double-booked.",
-            "Add the link to your email signature and save the reply below as a template."
+            "Check whether your existing calendar or email service includes a booking page.",
+            "Set your available hours and meeting length. Connect your calendar so existing appointments block out unavailable times.",
+            "Copy your booking link into your email signature and the reply template below. Where available, include a link that lets clients reschedule their appointment themselves."
           ],
-          "template": "Hi [name],\n\nThanks for getting in touch. To save going back and forth, you can pick a time that suits you here: [booking link]\n\nIf none of those times work, just reply and we will find another.\n\n[Your name]\n[Business name]"
+          "template": "Hi [name],\n\nThanks for getting in touch. To save going back and forth, you can pick a time that suits you here: [booking link]\n\nIf you need to change the time later, you can reschedule here: [reschedule link]\n\nIf none of those times work, just reply and we will find another.\n\n[Your name]\n[Business name]"
         },
         {
           "t": "Typing the same details into more than one place",
@@ -428,7 +428,7 @@
       "Five examples of emails you commonly receive"
     ],
     "admin-1": [
-      "A booking link and a ready reply",
+      "Your own booking link and a reusable reply",
       "Your available booking hours"
     ],
     "admin-2": [
