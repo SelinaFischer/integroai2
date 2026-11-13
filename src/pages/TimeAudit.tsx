@@ -362,7 +362,7 @@ const TimeAudit = () => {
             <m.div {...fadeUp} className="flex flex-col gap-3">
               <p className={stepLabel}>Step 1 of 3</p>
               <h2 className="text-[24px] font-semibold leading-tight text-brand-navy sm:text-[28px]">Where would you most like AI to save you time?</h2>
-              <div className="max-w-[520px]">
+              <div>
                 <button
                   type="button"
                   aria-expanded={pickerOpen}
