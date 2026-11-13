@@ -315,7 +315,7 @@ const TimeAudit = () => {
   const callLead = lead
     ? leadFit.hard
       ? `Stuck on ${lowerFirst(D.fitHard[leadFit.hard])}? We can set up ${lowerFirst(lead.t)} with you, so it works without you chasing it.`
-      : `Want help setting up ${lowerFirst(lead.t)} properly?`
+      : "Want help putting your plan into practice?"
     : "";
 
   return (
@@ -518,9 +518,9 @@ const TimeAudit = () => {
               )}
 
               <m.div {...fadeUp} className="flex flex-col gap-2 border-t border-brand-sand pt-6">
-                <h3 className="text-[19px] font-semibold text-brand-navy">Your house prompt</h3>
+                <h3 className="text-[19px] font-semibold text-brand-navy">Your reusable business prompt</h3>
                 <p className="text-[14.5px] text-brand-slate">Paste this at the start of any AI chat, so the answers sound like your business. Fill in the parts in brackets once and keep it.</p>
-                <CopyBox heading="Use it every time" label="Copy house prompt" text={houseText(about)} />
+                <CopyBox heading="Use it every time" label="Copy business prompt" text={houseText(about)} />
               </m.div>
 
               <m.div {...fadeUp} className="flex flex-col gap-3 rounded-2xl border border-brand-sand bg-brand-ivory p-5 sm:p-6">
@@ -584,7 +584,7 @@ const TimeAudit = () => {
                   onClick={() => trackTimeAudit("time_audit_call_click")}
                   className="font-semibold underline decoration-brand-amber decoration-2 underline-offset-4 hover:text-brand-teal"
                 >
-                  Book your AI Readiness Discovery Call
+                  Book a free discovery call
                 </a>
               </p>
               <p className="text-[13.5px] text-brand-slate">This is a self-check, not advice. Remove personal and client details before pasting anything into an AI tool.</p>

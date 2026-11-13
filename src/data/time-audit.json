@@ -47,11 +47,11 @@
           "r": "medium",
           "fix": "Turn the emails you answer most often into reply templates you can reuse.",
           "steps": [
-            "Find five emails you answer again and again, and remove personal details.",
+            "Find five examples of emails you commonly receive, and remove personal details.",
             "Use the prompt to turn them into reply templates.",
-            "Save each template in your email so it is one click away."
+            "Save each template in your email so it is ready to reuse."
           ],
-          "prompt": "Here are five emails I answer often, with personal details removed: [paste]. For each one, write a reusable reply template. Put anything that changes each time in [square brackets]. Keep each under 120 words and end with one clear next step."
+          "prompt": "Here are five emails I answer often, with personal details removed: [paste]. For each one, write a reusable reply template. Put anything that changes each time in [square brackets]. Keep each under 120 words and end with one clear next step. Do not invent prices, policies, deadlines or commitments. Use placeholders for missing information."
         },
         {
           "t": "Booking meetings and moving calendar slots",
@@ -59,11 +59,11 @@
           "r": "low",
           "fix": "Send one booking link instead of trading emails about times.",
           "steps": [
-            "Block out the times you are free each week.",
-            "Turn on a booking page in your calendar, or use a scheduling tool.",
-            "Add the link to your email signature and save the reply below as a template."
+            "Check whether your existing calendar or email service includes a booking page.",
+            "Set your available hours and meeting length. Connect your calendar so existing appointments block out unavailable times.",
+            "Copy your booking link into your email signature and the reply template below. Where available, include a link that lets clients reschedule their appointment themselves."
           ],
-          "template": "Hi [name],\n\nThanks for getting in touch. To save going back and forth, you can pick a time that suits you here: [booking link]\n\nIf none of those times work, just reply and we will find another.\n\n[Your name]\n[Business name]"
+          "template": "Hi [name],\n\nThanks for getting in touch. To save going back and forth, you can pick a time that suits you here: [booking link]\n\nIf you need to change the time later, you can reschedule here: [reschedule link]\n\nIf none of those times work, just reply and we will find another.\n\n[Your name]\n[Business name]"
         },
         {
           "t": "Typing the same details into more than one place",
@@ -425,11 +425,11 @@
   "getNeed": {
     "admin-0": [
       "Reply templates for your most common emails",
-      "Five emails you answer again and again"
+      "Five examples of emails you commonly receive"
     ],
     "admin-1": [
-      "A booking link and a ready reply",
-      "The times you are free each week"
+      "Your own booking link and a reusable reply",
+      "Your available booking hours"
     ],
     "admin-2": [
       "A plan to enter details once",
