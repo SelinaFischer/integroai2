@@ -270,7 +270,7 @@ function buildEmail_(lead, plan) {
 
   h('Want help putting your plan into practice?', 19);
   p('Book a free 30-minute discovery call to discuss your biggest time drain and how to tackle it.');
-  html.push('<p style="margin:0 0 20px"><a href="' + CONFIG.CALL_URL + '" style="display:inline-block;background:#FF9900;color:' + navy + ';font-weight:bold;text-decoration:none;padding:12px 20px;border-radius:8px">Book your AI Readiness Discovery Call</a></p>');
+  html.push('<p style="margin:0 0 20px"><a href="' + CONFIG.CALL_URL + '" style="display:inline-block;background:#FF9900;color:' + navy + ';font-weight:bold;text-decoration:none;padding:12px 20px;border-radius:8px">Book a free discovery call</a></p>');
   text.push('', 'Want help putting your plan into practice?', 'Book a free 30-minute discovery call to discuss your biggest time drain and how to tackle it: ' + CONFIG.CALL_URL);
   var disclaimer = 'This plan provides general suggestions based on your answers. Remove personal, client and confidential business information before pasting content into an AI tool, and check each result before using it.';
   p(disclaimer, 'font-size:13px;color:' + slate);

@@ -584,7 +584,7 @@ const TimeAudit = () => {
                   onClick={() => trackTimeAudit("time_audit_call_click")}
                   className="font-semibold underline decoration-brand-amber decoration-2 underline-offset-4 hover:text-brand-teal"
                 >
-                  Book your AI Readiness Discovery Call
+                  Book a free discovery call
                 </a>
               </p>
               <p className="text-[13.5px] text-brand-slate">This is a self-check, not advice. Remove personal and client details before pasting anything into an AI tool.</p>
