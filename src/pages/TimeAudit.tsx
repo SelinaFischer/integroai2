@@ -52,6 +52,16 @@ const fallbackError = "We couldn't send your plan. Please try again in a moment.
 
 const faqs = [
   {
+    question: "What is a time audit for a small business?",
+    answer:
+      "A time audit shows where your working week goes, task by task, so you can see which jobs take the most time and fix those first. This free AI time audit adds a practical action plan: simple steps, plus AI prompts or templates you can use straight away.",
+  },
+  {
+    question: "How can AI save time in a small business?",
+    answer:
+      "AI can draft routine emails, proposals and social posts, summarise meeting notes and answer questions from your spreadsheets. It works best on repeated tasks with a person checking every result. Some fixes need no AI at all, such as templates, booking links or features in software you already pay for.",
+  },
+  {
     question: "What does the time audit do?",
     answer:
       "You tick the tasks that take up most of your time and roughly how long each takes. You get a rough monthly total and an action plan: one clear place to start, plus two more, each with simple steps and a prompt or template you can use straight away.",
@@ -202,9 +212,9 @@ const TimeAudit = () => {
   };
 
   const pageUrl = `https://integroai.tech${TIME_AUDIT_PATH}`;
-  const title = "Free Business Time Audit: Find Where Your Business Could Save Time";
+  const title = "Free AI Time Audit for Small Businesses | IntegroAI Consulting";
   const description =
-    "Choose the tasks that take up your week and get a free, practical action plan with simple steps and AI prompts to help you get started. No sign-up needed to see your results.";
+    "A free AI time audit for small businesses. Choose the tasks that take up your week and get a practical action plan with simple steps and AI prompts to help you save time. No sign-up needed.";
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -334,7 +344,7 @@ const TimeAudit = () => {
             className="wrap flex flex-col items-start gap-6"
           >
             <h1 className="font-sans text-[11px] font-bold uppercase leading-relaxed tracking-[0.16em] text-brand-amber sm:text-xs [text-wrap:wrap]">
-              Free business time audit
+              Free AI time audit for small businesses
             </h1>
             <p className="text-[38px] font-semibold leading-[1.08] text-white sm:text-[48px] lg:text-[54px] font-heading tracking-[-0.005em] [text-wrap:balance]">
               <span className="block">Find out where your business</span>
@@ -584,7 +594,7 @@ const TimeAudit = () => {
 
         <section className="bg-white py-14 sm:py-16">
           <div className="wrap flex flex-col gap-8">
-            <m.h2 {...fadeUp} className="text-[30px] font-semibold leading-tight text-brand-navy sm:text-[36px]">Business time audit questions</m.h2>
+            <m.h2 {...fadeUp} className="text-[30px] font-semibold leading-tight text-brand-navy sm:text-[36px]">AI time audit questions</m.h2>
             <div className="grid grid-cols-1 gap-x-12 gap-y-7 md:grid-cols-2">
               {faqs.map((faq) => (
                 <div key={faq.question} className="flex flex-col gap-2">

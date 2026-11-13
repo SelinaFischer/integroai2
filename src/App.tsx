@@ -70,7 +70,7 @@ const App = ({ skipEntrance = false }: AppProps) => {
           <Route path="/partnerships" element={<Partnerships />} />
           <Route path="/ai-consultant-small-business-uk" element={<SmallBusinessAiConsultant />} />
           <Route path="/ai-visibility-check" element={<AiVisibilityCheck />} />
-          <Route path="/business-time-audit" element={<TimeAudit />} />
+          <Route path="/ai-time-audit-small-business" element={<TimeAudit />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/install" element={<Suspense fallback={null}><Install /></Suspense>} />

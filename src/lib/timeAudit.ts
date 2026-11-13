@@ -1,10 +1,10 @@
-// Free business time audit.
+// Free AI time audit for small businesses.
 // All task content lives in src/data/time-audit.json, which is also copied into
 // the Apps Script (npm run build:time-audit-gs) so the emailed plan matches the page.
 // The ranking below is mirrored in apps-script/time-audit/Code.gs. Change both together.
 import data from "@/data/time-audit.json";
 
-export const TIME_AUDIT_PATH = "/business-time-audit";
+export const TIME_AUDIT_PATH = "/ai-time-audit-small-business";
 // The deployed Apps Script web app URL (ends in /exec). Public by design.
 // Leave empty until it is set up: the page then works without the email step.
 export const TIME_AUDIT_ENDPOINT = "";

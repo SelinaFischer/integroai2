@@ -1,9 +1,9 @@
-# Business time audit: setup guide
+# AI time audit: setup guide
 
 About 10 minutes. Everything here uses your own Google account. Until this is done, the page still works: visitors see their action plan on screen, and the email form tells them emailing isn't switched on yet.
 
 ## 1. Create the Sheet and script
-1. Create a new Google Sheet called `Business Time Audit Leads`.
+1. Create a new Google Sheet called `AI Time Audit Leads`.
 2. Open **Extensions > Apps Script**.
 3. Delete the sample code and paste in everything from `apps-script/time-audit/Code.gs`.
 4. Click the **+** next to Files, choose **Script**, and name it `Data`.
