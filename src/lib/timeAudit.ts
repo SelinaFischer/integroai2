@@ -22,7 +22,7 @@ export type Area = { name: string; short: string; tasks: Task[] };
 export type BandKey = keyof typeof data.bands;
 export type Row = Task & { key: string; area: string; band: string; hours: number; score: number };
 export type Fit = { tool?: string; hard?: string };
-export type About = { name: string; what: string; tone: string };
+export type About = { name: string; what: string; tone: string; customers?: string; sample?: string };
 
 export const TIME_AUDIT = data as unknown as {
   bands: Record<string, { label: string; h: number }>;
@@ -96,9 +96,17 @@ export const stepsFor = (row: Row, fit?: Fit) => {
   return extra ? [extra, ...row.steps] : row.steps;
 };
 
+const trimDot = (s: string) => s.trim().replace(/[.\s]+$/, "");
+
+/** One line on how we write. Mirrored in Code.gs (styleLine_). */
+export const styleLine = (about: About) =>
+  about.sample?.trim() ? `Match the style of this example of how we write: "${about.sample.trim()}"` : "";
+
 export const context = (about: About) => {
-  const intro = (about.name ? `I run ${about.name}.` : "I run a small business.") + (about.what ? ` What we do: ${about.what}.` : "");
-  return `${intro} Write in a ${about.tone} tone, in British English.`;
+  const intro = (about.name ? `I run ${about.name}.` : "I run a small business.") + (about.what ? ` What we do: ${trimDot(about.what)}.` : "");
+  const customers = about.customers?.trim() ? ` Our customers are ${trimDot(about.customers)}.` : "";
+  const style = styleLine(about);
+  return `${intro}${customers} Write in a ${about.tone} tone, in British English.${style ? " " + style : ""}`;
 };
 
 export const textFor = (row: Row, about: About, fit?: Fit) => {
@@ -111,9 +119,10 @@ export const firstMove = (fit?: Fit) =>
   [fit?.tool && D.fitToolLine[fit.tool], fit?.hard && D.fitHardLine[fit.hard]].filter(Boolean).join(" ");
 
 export const houseText = (about: About) =>
-  `I run ${about.name || "[business name]"}. What we do: ${about.what || "[what you do, in one line]"}.\n` +
-  "Our customers are [who your customers are].\n" +
+  `I run ${about.name || "[business name]"}. What we do: ${about.what ? trimDot(about.what) : "[what you do, in one line]"}.\n` +
+  `Our customers are ${about.customers?.trim() ? trimDot(about.customers) : "[who your customers are]"}.\n` +
   `Write in a ${about.tone} tone, in British English with British spelling.\n` +
+  (styleLine(about) ? styleLine(about) + "\n" : "") +
   "Avoid these words and phrases: [words to avoid].\n" +
   "Keep it plain and specific. Do not make up facts, figures or quotes. If you need information you don't have, ask me.";
 

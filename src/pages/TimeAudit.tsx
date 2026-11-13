@@ -132,7 +132,7 @@ const TimeAudit = () => {
   const [pickerOpen, setPickerOpen] = useState(true);
   const [areas, setAreas] = useState<string[]>([]);
   const [selected, setSelected] = useState<Record<string, string>>({});
-  const [about, setAbout] = useState<About>({ name: "", what: "", tone: TONES[1].value });
+  const [about, setAbout] = useState<About>({ name: "", what: "", tone: TONES[1].value, customers: "", sample: "" });
   const [fit, setFit] = useState<Record<string, Fit>>({});
   const [openKeys, setOpenKeys] = useState<Record<string, boolean>>({});
   const [shown, setShown] = useState(false);
@@ -193,6 +193,8 @@ const TimeAudit = () => {
         business: about.name,
         what: about.what,
         tone: about.tone,
+        customers: about.customers,
+        sample: about.sample,
         tips: form.get("tips") === "on",
         company_website: form.get("company_website"),
         selections: rows.map((r) => ({ key: r.key, band: r.band })),
@@ -451,6 +453,15 @@ const TimeAudit = () => {
                   <select id="ta-tone" value={about.tone} onChange={(e) => setAbout({ ...about, tone: e.target.value })} className={`${inputClass} py-[13px]`}>
                     {TONES.map((t) => <option key={t.value} value={t.value}>{t.label}</option>)}
                   </select>
+                </div>
+                <div className="min-w-0 sm:col-span-3">
+                  <label htmlFor="ta-customers" className={labelClass}>Who your customers are <span className="font-normal text-brand-slate">(optional)</span></label>
+                  <input id="ta-customers" maxLength={150} value={about.customers} onChange={(e) => setAbout({ ...about, customers: e.target.value })} placeholder="e.g. HR managers at mid-sized firms planning team events" className={inputClass} />
+                </div>
+                <div className="min-w-0 sm:col-span-3">
+                  <label htmlFor="ta-sample" className={labelClass}>A short example of how you write <span className="font-normal text-brand-slate">(optional)</span></label>
+                  <textarea id="ta-sample" rows={3} maxLength={600} value={about.sample} onChange={(e) => setAbout({ ...about, sample: e.target.value })} placeholder="Paste two or three sentences from an email or post you were happy with." className={`${inputClass} resize-y`} />
+                  <p className="mt-1.5 text-[13px] text-brand-slate">This is the best guide to your voice. Remove names and client details first.</p>
                 </div>
               </div>
               <button type="button" onClick={showPlan} className="btn-amber btn-focus group mt-2 w-fit">

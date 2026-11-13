@@ -73,6 +73,8 @@ function cleanLead_(input) {
     email: email,
     business: text_(input.business, 120),
     what: text_(input.what, 160),
+    customers: text_(input.customers, 150),
+    sample: text_(input.sample, 600),
     tone: tone,
     tips: input.tips === true,
     selections: selections,
@@ -143,8 +145,10 @@ function fmtHours_(n) {
 }
 
 function context_(lead) {
-  var intro = (lead.business ? 'I run ' + lead.business + '.' : 'I run a small business.') + (lead.what ? ' What we do: ' + lead.what + '.' : '');
-  return intro + ' Write in a ' + lead.tone + ' tone, in British English.';
+  var intro = (lead.business ? 'I run ' + lead.business + '.' : 'I run a small business.') + (lead.what ? ' What we do: ' + trimDot_(lead.what) + '.' : '');
+  var customers = lead.customers ? ' Our customers are ' + trimDot_(lead.customers) + '.' : '';
+  var style = styleLine_(lead);
+  return intro + customers + ' Write in a ' + lead.tone + ' tone, in British English.' + (style ? ' ' + style : '');
 }
 
 function promptFor_(row, lead, fit) {
@@ -160,10 +164,20 @@ function stepsFor_(row, fit) {
   return extra ? [extra].concat(row.task.steps) : row.task.steps;
 }
 
+function trimDot_(s) {
+  return String(s).trim().replace(/[.\s]+$/, '');
+}
+
+// Mirrors styleLine in src/lib/timeAudit.ts.
+function styleLine_(lead) {
+  return lead.sample ? 'Match the style of this example of how we write: "' + lead.sample + '"' : '';
+}
+
 function houseText_(lead) {
-  return 'I run ' + (lead.business || '[business name]') + '. What we do: ' + (lead.what || '[what you do, in one line]') + '.\n' +
-    'Our customers are [who your customers are].\n' +
+  return 'I run ' + (lead.business || '[business name]') + '. What we do: ' + (lead.what ? trimDot_(lead.what) : '[what you do, in one line]') + '.\n' +
+    'Our customers are ' + (lead.customers ? trimDot_(lead.customers) : '[who your customers are]') + '.\n' +
     'Write in a ' + lead.tone + ' tone, in British English with British spelling.\n' +
+    (styleLine_(lead) ? styleLine_(lead) + '\n' : '') +
     'Avoid these words and phrases: [words to avoid].\n' +
     "Keep it plain and specific. Do not make up facts, figures or quotes. If you need information you don't have, ask me.";
 }
@@ -296,7 +310,7 @@ function logLead_(lead, plan, emailSent) {
   var sheet = spreadsheet.getSheetByName(CONFIG.SHEET_NAME) || spreadsheet.insertSheet(CONFIG.SHEET_NAME);
   if (sheet.getLastRow() === 0) {
     sheet.appendRow(['Date', 'First name', 'Email', 'Business', 'What they do', 'Tone', 'Areas', 'Tasks and time a week',
-      'Hours a month', 'Start here', 'Uses for it', 'What makes it hard', 'Plan emailed', 'Wants tips']);
+      'Hours a month', 'Start here', 'Uses for it', 'What makes it hard', 'Plan emailed', 'Wants tips', 'Customers', 'Gave writing example']);
     sheet.setFrozenRows(1);
   }
   var areas = {};
@@ -307,7 +321,8 @@ function logLead_(lead, plan, emailSent) {
   sheet.appendRow([new Date(), safeCell_(lead.name), safeCell_(lead.email), safeCell_(lead.business), safeCell_(lead.what), lead.tone,
     Object.keys(areas).join(', '), safeCell_(tasks), Math.round(plan.total), safeCell_(plan.lead.task.t),
     plan.fit.tool ? D.fitTool[plan.fit.tool] : '', plan.fit.hard ? D.fitHard[plan.fit.hard] : '',
-    emailSent ? 'Yes' : 'No', lead.tips ? 'Yes' : 'No']);
+    emailSent ? 'Yes' : 'No', lead.tips ? 'Yes' : 'No', safeCell_(lead.customers), lead.sample ? 'Yes' : 'No']);
+  if (!sheet.getRange(1, 15).getValue()) sheet.getRange(1, 15, 1, 2).setValues([['Customers', 'Gave writing example']]);
 }
 
 // Stops a cell from being read as a formula.
