@@ -368,7 +368,7 @@ const TimeAudit = () => {
                   aria-expanded={pickerOpen}
                   aria-controls="ta-areas"
                   onClick={() => setPickerOpen((o) => !o)}
-                  className="flex w-full items-center justify-between gap-3 rounded-xl border-2 border-brand-amber bg-brand-chip px-4 py-3 text-left text-[16px] font-semibold text-brand-navy shadow-[0_2px_0_#FF9900] transition-colors hover:bg-brand-amber"
+                  className="flex w-full max-w-[520px] items-center justify-between gap-3 rounded-xl border-2 border-brand-amber bg-brand-chip px-4 py-3 text-left text-[16px] font-semibold text-brand-navy shadow-[0_2px_0_#FF9900] transition-colors hover:bg-brand-amber"
                 >
                   <span>{areas.length ? `${areas.length} area${areas.length > 1 ? "s" : ""} chosen` : "Choose one or more areas"}</span>
                   <ChevronDown className={`h-5 w-5 flex-none transition-transform ${pickerOpen ? "rotate-180" : ""}`} strokeWidth={2.6} aria-hidden="true" />
