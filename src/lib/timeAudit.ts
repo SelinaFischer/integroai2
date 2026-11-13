@@ -22,7 +22,7 @@ export type Area = { name: string; short: string; tasks: Task[] };
 export type BandKey = keyof typeof data.bands;
 export type Row = Task & { key: string; area: string; band: string; hours: number; score: number };
 export type Fit = { tool?: string; hard?: string };
-export type About = { name: string; what: string; tone: string };
+export type About = { name: string; what: string; tone: string; website?: string };
 
 export const TIME_AUDIT = data as unknown as {
   bands: Record<string, { label: string; h: number }>;
@@ -96,9 +96,21 @@ export const stepsFor = (row: Row, fit?: Fit) => {
   return extra ? [extra, ...row.steps] : row.steps;
 };
 
+/** Tidies a website address, or returns "" if it doesn't look like one. Mirrored in Code.gs. */
+export const cleanWebsite = (value?: string) => {
+  const s = (value || "").trim().replace(/^https?:\/\//i, "").replace(/\/$/, "");
+  return s.length <= 200 && /^[a-z0-9-]+(\.[a-z0-9-]+)*\.[a-z]{2,}(\/\S*)?$/i.test(s) ? `https://${s}` : "";
+};
+
+export const websiteLine = (about: About) => {
+  const url = cleanWebsite(about.website);
+  return url ? `Our website is ${url}. Use it to match how we write. If you can't open it, ask me to paste a short paragraph from it.` : "";
+};
+
 export const context = (about: About) => {
   const intro = (about.name ? `I run ${about.name}.` : "I run a small business.") + (about.what ? ` What we do: ${about.what}.` : "");
-  return `${intro} Write in a ${about.tone} tone, in British English.`;
+  const site = websiteLine(about);
+  return `${intro} Write in a ${about.tone} tone, in British English.${site ? " " + site : ""}`;
 };
 
 export const textFor = (row: Row, about: About, fit?: Fit) => {
@@ -112,6 +124,7 @@ export const firstMove = (fit?: Fit) =>
 
 export const houseText = (about: About) =>
   `I run ${about.name || "[business name]"}. What we do: ${about.what || "[what you do, in one line]"}.\n` +
+  (websiteLine(about) ? websiteLine(about) + "\n" : "") +
   "Our customers are [who your customers are].\n" +
   `Write in a ${about.tone} tone, in British English with British spelling.\n` +
   "Avoid these words and phrases: [words to avoid].\n" +
