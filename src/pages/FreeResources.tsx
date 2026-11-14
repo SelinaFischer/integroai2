@@ -24,7 +24,7 @@ const resources = [
     href: TIME_AUDIT_PATH,
     onClick: undefined,
     more: undefined,
-    note: "Your plan shows on screen. No sign-up needed.",
+    note: "No sign-up needed.",
     wide: true,
   },
   {
