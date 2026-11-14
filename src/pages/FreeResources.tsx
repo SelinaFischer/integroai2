@@ -19,7 +19,7 @@ const resources = [
   {
     label: "Free AI time audit",
     title: "Find out where your business could save time",
-    text: "Choose the tasks that take up your week. Get a practical action plan with simple steps and AI prompts to help you get started.",
+    text: "Choose the tasks that take up your working week. Get a practical action plan with simple steps and AI prompts to help you get started.",
     cta: "Start the time audit",
     href: TIME_AUDIT_PATH,
     onClick: undefined,

@@ -215,7 +215,7 @@ const TimeAudit = () => {
   const pageUrl = `https://integroai.tech${TIME_AUDIT_PATH}`;
   const title = "Free AI Time Audit for Small Businesses | IntegroAI Consulting";
   const description =
-    "A free AI time audit for small businesses. Choose the tasks that take up your week and get a practical action plan with simple steps and AI prompts to help you save time. No sign-up needed.";
+    "A free AI time audit for small businesses. Choose the tasks that take up your working week and get a practical action plan with simple steps and AI prompts to help you save time. No sign-up needed.";
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -315,8 +315,8 @@ const TimeAudit = () => {
 
   const callLead = lead
     ? leadFit.hard
-      ? `Stuck on ${lowerFirst(D.fitHard[leadFit.hard])}? We can set up ${lowerFirst(lead.t)} with you, so it works without you chasing it.`
-      : "Want help putting your plan into practice?"
+      ? `Stuck on ${lowerFirst(D.fitHard[leadFit.hard])}? Book an AI Made Simple session: we sit down together and set up your Start here fix, in plain English, with no tech skills needed. 1 hour on your own with me, or 90 minutes in a group.`
+      : "Want help putting this into practice? Book an AI Made Simple session: we sit down together and set up your Start here fix, in plain English, with no tech skills needed. 1 hour on your own with me, or 90 minutes in a group."
     : "";
 
   return (
@@ -352,7 +352,7 @@ const TimeAudit = () => {
               <span className="block italic text-brand-amber">could save time.</span>
             </p>
             <p className="max-w-[620px] text-[17px] leading-normal text-brand-mist sm:text-[19px]">
-              Choose the tasks that take up your week. Get a practical action plan with simple steps and AI prompts to help you get started.
+              Choose the tasks that take up your working week. Get a practical action plan with simple steps and AI prompts to help you get started.
             </p>
           </m.div>
         </section>
@@ -437,7 +437,7 @@ const TimeAudit = () => {
             {/* Step 3 */}
             <m.div {...fadeUpDelayed(2)} className="flex flex-col gap-3">
               <p className={stepLabel}>Step 3 of 3</p>
-              <h2 className="text-[24px] font-semibold leading-tight text-brand-navy sm:text-[28px]">So your prompts sound like you</h2>
+              <h2 className="text-[24px] font-semibold leading-tight text-brand-navy sm:text-[28px]">Tailor your plan to your business</h2>
               <div className="grid grid-cols-1 gap-4 rounded-2xl border border-brand-sand bg-white p-5 sm:grid-cols-[1fr_1.4fr_1fr]">
                 <div className="min-w-0">
                   <label htmlFor="ta-name" className={labelClass}>Business name</label>
@@ -456,7 +456,7 @@ const TimeAudit = () => {
                 <div className="min-w-0 sm:col-span-3">
                   <label htmlFor="ta-website" className={labelClass}>Your website <span className="font-normal text-brand-slate">(optional)</span></label>
                   <input id="ta-website" type="url" inputMode="url" maxLength={200} value={about.website} onChange={(e) => setAbout({ ...about, website: e.target.value })} placeholder="e.g. brightpathevents.co.uk" autoComplete="url" className={inputClass} />
-                  <p className="mt-1.5 text-[13px] text-brand-slate">Your prompts will ask the AI tool to match how your website is written.</p>
+                  <p className="mt-1.5 text-[13px] text-brand-slate">We don't read your website. We add the address to your prompts so your AI tool can match how it's written.</p>
                 </div>
               </div>
               <button type="button" onClick={showPlan} className="btn-amber btn-focus group mt-2 w-fit">
@@ -478,10 +478,15 @@ const TimeAudit = () => {
                 </h2>
                 {total > 0 ? (
                   <p className="text-[16.5px] text-brand-navy">
-                    The tasks you ticked take up about <strong className="font-heading text-[26px]">{fmtHours(total)}</strong> hours a month of your own time today.
+                    The tasks you ticked take up about <strong className="font-heading text-[26px]">{fmtHours(total)}</strong> hours a month of your own time today. This is time spent now, not a promised saving.
                   </p>
                 ) : (
                   <p className="text-[15px] text-brand-slate">Add a time range to your tasks to see how much of your month they take up.</p>
+                )}
+                {total / D.weeks > 45 && (
+                  <p className="text-[14px] font-medium text-[#B4483C]">
+                    That is over {Math.round(total / D.weeks)} hours a week, more than most working weeks. Check you haven't counted the same time under two tasks.
+                  </p>
                 )}
                 {missing > 0 && total > 0 && (
                   <p className="text-[14px] text-brand-slate">
@@ -491,7 +496,7 @@ const TimeAudit = () => {
                 <details className="text-[14px] text-brand-slate">
                   <summary className="cursor-pointer font-semibold text-brand-teal">How we worked this out</summary>
                   <p className="mt-1.5 leading-relaxed">
-                    This is time spent now, not a promised saving. Each range counts as one figure a week: under 1 hour as 30 minutes, 1 to 3 hours as 2, 3 to 5 hours as 4, 5 to 10 hours as 7.5, and over 10 hours as 12. A month is taken as 4.33 weeks. Treat it as a rough guide.
+                    Each range counts as one figure a week: under 1 hour as 30 minutes, 1 to 3 hours as 2, 3 to 5 hours as 4, 5 to 10 hours as 7.5, and over 10 hours as 12. A month is taken as 4.33 weeks. Treat it as a rough guide.
                   </p>
                 </details>
                 <p className="text-[14.5px] font-medium text-brand-teal">Nothing here sends, posts or changes anything. You stay in control.</p>
@@ -590,7 +595,7 @@ const TimeAudit = () => {
                   onClick={() => trackTimeAudit("time_audit_call_click")}
                   className="font-semibold underline decoration-brand-amber decoration-2 underline-offset-4 hover:text-brand-teal"
                 >
-                  Book a free discovery call
+                  Book a free call to talk it through
                 </a>
               </p>
               <p className="text-[13.5px] text-brand-slate">This is a self-check, not advice. Remove personal and client details before pasting anything into an AI tool.</p>
