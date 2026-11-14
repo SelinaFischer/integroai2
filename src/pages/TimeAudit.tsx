@@ -483,6 +483,11 @@ const TimeAudit = () => {
                 ) : (
                   <p className="text-[15px] text-brand-slate">Add a time range to your tasks to see how much of your month they take up.</p>
                 )}
+                {total / D.weeks > 45 && (
+                  <p className="text-[14px] font-medium text-[#B4483C]">
+                    That is over {Math.round(total / D.weeks)} hours a week, more than most working weeks. Check you haven't counted the same time under two tasks.
+                  </p>
+                )}
                 {missing > 0 && total > 0 && (
                   <p className="text-[14px] text-brand-slate">
                     {missing} task{missing > 1 ? "s have" : " has"} no time range yet, so {missing > 1 ? "they are" : "it is"} not counted.
