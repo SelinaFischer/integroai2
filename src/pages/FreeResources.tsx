@@ -101,7 +101,7 @@ const FreeResources = () => {
               <span className="block italic text-brand-amber">Free tools that save you time.</span>
             </p>
             <p className="max-w-[620px] text-[17px] leading-normal text-brand-mist sm:text-[19px]">
-              Free tools and guides built to give small businesses clarity on AI and how it can support their operations and growth.
+              Free tools and guides built to give small businesses clarity on AI and more time back to spend on their customers.
             </p>
           </m.div>
         </section>
