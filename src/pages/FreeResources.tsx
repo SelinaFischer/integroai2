@@ -98,10 +98,10 @@ const FreeResources = () => {
             </h1>
             <p className="text-[40px] font-semibold leading-[1.05] text-white sm:text-[52px] lg:text-[60px] font-heading tracking-[-0.005em] [font-variant-numeric:lining-nums] [text-wrap:balance]">
               <span className="block">Get clarity on AI.</span>
-              <span className="block italic text-brand-amber">Free, practical, yours to keep.</span>
+              <span className="block italic text-brand-amber">Free, practical, ready to use.</span>
             </p>
             <p className="max-w-[620px] text-[17px] leading-normal text-brand-mist sm:text-[19px]">
-              Practical tools for founders and business owners. Pick the one that fits where you are today.
+              Tools and guides for founders and business owners. Pick the one that fits where you are today.
             </p>
           </m.div>
         </section>
