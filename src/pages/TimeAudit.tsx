@@ -315,8 +315,8 @@ const TimeAudit = () => {
 
   const callLead = lead
     ? leadFit.hard
-      ? `Stuck on ${lowerFirst(D.fitHard[leadFit.hard])}? We can set up ${lowerFirst(lead.t)} with you, so it works without you chasing it.`
-      : "Want help putting your plan into practice?"
+      ? `Stuck on ${lowerFirst(D.fitHard[leadFit.hard])}? I run hands-on Time-Back Sessions to set up your Start here fix with you: 1 hour 1:1, or 90 minutes as a group.`
+      : "Want help putting this into practice? I run hands-on Time-Back Sessions to set up your Start here fix with you: 1 hour 1:1, or 90 minutes as a group."
     : "";
 
   return (
@@ -595,7 +595,7 @@ const TimeAudit = () => {
                   onClick={() => trackTimeAudit("time_audit_call_click")}
                   className="font-semibold underline decoration-brand-amber decoration-2 underline-offset-4 hover:text-brand-teal"
                 >
-                  Book a free discovery call
+                  Book a free call to talk it through
                 </a>
               </p>
               <p className="text-[13.5px] text-brand-slate">This is a self-check, not advice. Remove personal and client details before pasting anything into an AI tool.</p>
