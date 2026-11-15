@@ -148,11 +148,6 @@ const PrivacyPolicy = () => {
                       policies.google.com/privacy
                     </a>
                   </li>
-                  <li><strong>Cloudflare Turnstile:</strong> Checks that a request to email you an action plan from our free AI time audit comes from a person, not an automated bot. Their privacy policy is available at{" "}
-                    <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                      cloudflare.com/privacypolicy
-                    </a>
-                  </li>
                   <li><strong>Firecrawl:</strong> Reads the website address you enter when our simple check cannot read it. Their privacy policy is available at{" "}
                     <a href="https://www.firecrawl.dev/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                       firecrawl.dev/privacy-policy

@@ -75,7 +75,7 @@
             "Use the prompt to find the simplest way to enter it once, starting with tools you already use.",
             "Try the simplest option on one week of real entries before changing anything else."
           ],
-          "prompt": "I copy this information by hand: [what it is]. It starts in [tool] and I retype it into [tool] and [tool]. In plain English, explain the simplest ways to stop retyping it, starting with options inside tools I already use. Say clearly where you are not sure a feature exists."
+          "prompt": "I copy this information manually: [what it is]. It starts in [tool] and I retype it into [tool] and [tool]. In plain English, explain the simplest ways to stop retyping it, starting with options inside tools I already use. Say clearly where you are not sure a feature exists."
         },
         {
           "t": "Writing up meeting notes and actions",
@@ -257,11 +257,11 @@
           "r": "medium",
           "fix": "Let people fill in a form that writes straight into the sheet.",
           "steps": [
-            "List the columns you fill in by hand.",
+            "List the columns you fill in manually.",
             "Make a form with one question per column. Google Forms and Microsoft Forms can both save to a spreadsheet.",
             "Share the form instead of the sheet."
           ],
-          "prompt": "I fill in this spreadsheet by hand. The columns are: [list]. The information comes from [where]. Suggest the simplest way to stop typing it in, starting with tools I already use: [list]. Say where you are not sure."
+          "prompt": "I enter data into this spreadsheet manually. The columns are: [list]. The data comes from: [source]. The tools I currently use are: [list].\n\nSuggest the simplest way to reduce manual data entry, starting with my existing tools. Explain the steps, highlight any assumptions and ask for any missing information you need."
         },
         {
           "t": "Building weekly or monthly reports",
@@ -307,7 +307,7 @@
           "steps": [
             "Make sure both sheets share one column, such as an invoice number.",
             "Use the prompt to get the exact formula.",
-            "Review every flagged row by hand."
+            "Review every flagged row manually."
           ],
           "prompt": "I have two sheets. Sheet A has these columns: [list]. Sheet B has: [list]. Both share [column]. Give me a formula for [Excel or Google Sheets] that flags rows that do not match, and explain it in plain English."
         }
@@ -558,7 +558,7 @@
     "docs-3": "Review your templates every few months, so old prices or details don't keep going out.",
     "docs-4": "AI may change your meaning while fixing grammar. Read the list of changes, not just the final version.",
     "data-0": "Test the form with a few real entries first, so nothing lands in the wrong column.",
-    "data-1": "Check the summary against one month you did by hand before you trust it.",
+    "data-1": "Check the summary against one month you calculated manually before you trust it.",
     "data-2": "Keep a copy of the original data before cleaning, in case something is removed by mistake.",
     "data-3": "AI can misread columns. Spot-check a couple of numbers against the sheet before you act.",
     "data-4": "A formula only flags differences. A person still decides which version is right.",
