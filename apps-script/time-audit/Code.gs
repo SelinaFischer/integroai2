@@ -242,6 +242,28 @@ function context_(lead) {
   ].filter(function (x) { return x; }).join(' ');
 }
 
+// Mirrors whyThisOne in src/lib/timeAudit.ts.
+function whyThisOne_(leadRow, rows) {
+  var D = TIME_AUDIT_DATA;
+  var timed = rows.filter(function (r) { return r.hours > 0; }).sort(function (a, b) { return b.hours - a.hours; });
+  var top = timed[0];
+  var lt = leadRow.task;
+  var quicker = top && D.effort[lt.e] < D.effort[top.task.e];
+  var safer = top && D.risk[lt.r] < D.risk[top.task.r];
+  var why;
+  if (top && top.key !== leadRow.key && top.hours > leadRow.hours && (quicker || safer)) {
+    var reason = quicker && safer ? 'quicker to change and lower risk' : quicker ? 'quicker to change' : 'lower risk to hand to AI';
+    why = 'You estimated that ' + top.task.t.charAt(0).toLowerCase() + top.task.t.slice(1) + ' takes longer (' + D.bands[top.band].label.toLowerCase() + ' a week). We have put this one first because it is usually ' + reason + ', so it makes a good first step. That task is next in your plan.';
+  } else if (!top) {
+    why = 'Without time estimates, we have started with the change that is usually quickest and lowest risk.';
+  } else if (top.key === leadRow.key) {
+    why = 'Of the tasks you selected, this one takes up the most time, so it is a sensible place to start.';
+  } else {
+    why = 'This change is usually quick and low risk, so it makes a good first step. Your other tasks follow in your plan.';
+  }
+  return why + (lt.r === 'high' ? ' Mistakes here matter, so check every result carefully before using it.' : ' Check each result before using it.');
+}
+
 function promptFor_(row, lead, fit) {
   var D = TIME_AUDIT_DATA;
   var t = row.task;
@@ -297,39 +319,69 @@ function buildEmail_(lead, plan) {
       '<div style="padding:10px 12px;font-size:14px;line-height:1.55;color:' + navy + '">' + esc_(body).replace(/\n/g, '<br>') + '</div></div>');
   };
 
-  var section = function (row, isLead) {
+  var amber = '#FF9900', chip = '#FFE9C2';
+  var num = function (n) {
+    return '<span style="display:inline-block;width:22px;height:22px;line-height:22px;border-radius:11px;background:' + navy + ';color:#fff;text-align:center;font-size:12px;letter-spacing:0;margin-right:6px">' + n + '</span>';
+  };
+  var info = function (label, body) {
+    html.push('<p style="margin:0 0 6px;font-size:14px;line-height:1.55;color:' + slate + '"><strong style="color:' + navy + '">' + esc_(label) + ':</strong> ' + esc_(body) + '</p>');
+    text.push(label + ': ' + body);
+  };
+
+  // Mirrors the page: a numbered label, the task with a tick, then information, then next steps.
+  var section = function (row, index) {
     var t = row.task;
+    var isLead = index === 0;
     var fit = isLead ? plan.fit : null;
-    h((isLead ? 'Start here: ' : '') + t.t, isLead ? 21 : 18);
-    text.push('', (isLead ? 'START HERE: ' : '') + t.t.toUpperCase());
-    var said = row.hours ? 'You estimated ' + D.bands[row.band].label.toLowerCase() + ' a week on this task. Estimated time spent: ' + fmtHours_(row.hours) + ' hours per month.' : 'You selected this as one of your most time-consuming tasks.';
-    p(esc_(said), 'color:' + slate);
+    var label = 'Recommendation ' + (index + 1) + (isLead ? ' · Start here' : '');
+    html.push('<p style="margin:28px 0 4px;font-size:11px;font-weight:bold;letter-spacing:.12em;text-transform:uppercase;color:' + teal + '">' + num(index + 1) + esc_(label) + '</p>');
+    html.push('<h2 style="margin:0 0 6px;font-size:' + (isLead ? 21 : 18) + 'px;line-height:1.3;color:' + navy + '"><span style="color:' + teal + '">&#10003;</span> ' + esc_(t.t) + '</h2>');
+    text.push('', label.toUpperCase(), '✓ ' + t.t);
+    if (row.hours) {
+      p('Estimated time spent: ' + fmtHours_(row.hours) + ' hours per month', 'font-size:14px;font-weight:bold;color:' + teal);
+      text.push('Estimated time spent: ' + fmtHours_(row.hours) + ' hours per month');
+    }
     p('<strong>' + esc_(t.fix) + '</strong>');
-    text.push(said, t.fix);
+    text.push(t.fix);
+
+    html.push('<p style="margin:0 0 6px;font-size:11px;font-weight:bold;letter-spacing:.12em;text-transform:uppercase;color:' + slate + '">About this recommendation</p>');
+    text.push('', 'About this recommendation');
+    var said = row.hours ? 'You estimated ' + D.bands[row.band].label.toLowerCase() + ' a week on this task.' : 'You selected this as one of your most time-consuming tasks.';
+    html.push('<p style="margin:0 0 6px;font-size:14px;line-height:1.55;color:' + slate + '">' + esc_(said) + '</p>');
+    text.push(said);
     var gn = D.getNeed[row.key];
-    if (gn) {
-      p('<strong>What you’ll get:</strong> ' + esc_(gn[0]) + '<br><strong>What you’ll need:</strong> ' + esc_(gn[1]));
-      text.push("What you'll get: " + gn[0], "What you'll need: " + gn[1]);
-    }
-    var steps = stepsFor_(row);
-    html.push('<ol style="margin:0 0 12px;padding-left:20px;font-size:15px;line-height:1.55;color:' + navy + '">' +
-      steps.map(function (s) { return '<li>' + esc_(s) + '</li>'; }).join('') + '</ol>');
-    steps.forEach(function (s, i) { text.push((i + 1) + '. ' + s); });
-    if (t.r === 'high') {
-      p('A person should stay in charge here. Check every result before anything is sent.', 'font-weight:bold');
-      text.push('A person should stay in charge here. Check every result before anything is sent.');
-    }
-    if (D.watch[row.key]) {
-      p('<strong>Before you begin:</strong> ' + esc_(D.watch[row.key]));
-      text.push('Before you begin: ' + D.watch[row.key]);
-    }
-    var prompt = promptFor_(row, lead, fit);
-    box(t.template ? 'Ready-to-use template' : 'Prompt for your AI assistant', prompt);
-    text.push('', prompt);
+    if (gn) { info('What you’ll get', gn[0]); info('What you’ll need', gn[1]); }
     if (isLead) {
-      p('<strong>How to measure the improvement:</strong> record how long this task takes now. After using the new approach for two weeks, compare the time spent. Change one thing at a time so you can see what made the difference.');
-      text.push('How to measure the improvement: record how long this task takes now. After using the new approach for two weeks, compare the time spent. Change one thing at a time so you can see what made the difference.');
+      info('Why start here', whyThisOne_(row, plan.rows));
+      info('How to measure the improvement', 'record how long this task takes now. After using the new approach for two weeks, compare the time spent. Change one thing at a time so you can see what made the difference.');
     }
+
+    // Next steps panel.
+    var steps = stepsFor_(row);
+    var prompt = promptFor_(row, lead, fit);
+    var hint = t.template
+      ? 'Copy this template, replace anything in [square brackets] with your details, then send it.'
+      : 'Copy this prompt into your AI assistant, such as ChatGPT, Microsoft Copilot or Gemini. Replace anything in [square brackets] with your own details.';
+    var panel = '<div style="margin:12px 0 6px;border:1px solid ' + sand + ';border-left:4px solid ' + amber + ';border-radius:10px;padding:14px 16px">' +
+      '<p style="margin:0 0 10px;font-size:15px;font-weight:bold;color:' + navy + '">Your next steps</p>';
+    if (D.watch[row.key]) {
+      panel += '<p style="margin:0 0 10px;padding:8px 10px;border-radius:8px;background:' + chip + ';font-size:14px;line-height:1.5;color:' + navy + '"><strong>Before you begin:</strong> ' + esc_(D.watch[row.key]) + '</p>';
+    }
+    panel += '<ol style="margin:0 0 10px;padding-left:20px;font-size:15px;line-height:1.55;color:' + navy + '">' +
+      steps.map(function (s) { return '<li>' + esc_(s) + '</li>'; }).join('') + '</ol>';
+    if (t.r === 'high') {
+      panel += '<p style="margin:0 0 10px;font-size:14px;font-weight:bold;color:' + navy + '">A person should stay in charge here. Check every result before anything is sent.</p>';
+    }
+    panel += '<div style="border:1px solid ' + sand + ';border-radius:10px">' +
+      '<div style="padding:8px 12px;border-bottom:1px solid ' + sand + ';font-size:11px;font-weight:bold;letter-spacing:.08em;text-transform:uppercase;color:' + slate + '">' + (t.template ? 'Ready-to-use template' : 'Prompt for your AI assistant') + '</div>' +
+      '<div style="padding:8px 12px;border-bottom:1px solid ' + sand + ';background:#FBF7F1;font-size:13px;line-height:1.5;color:' + navy + '">' + esc_(hint) + '</div>' +
+      '<div style="padding:10px 12px;font-size:14px;line-height:1.55;color:' + navy + '">' + esc_(prompt).replace(/\n/g, '<br>') + '</div></div></div>';
+    html.push(panel);
+    text.push('', 'YOUR NEXT STEPS');
+    if (D.watch[row.key]) text.push('Before you begin: ' + D.watch[row.key]);
+    steps.forEach(function (s, n) { text.push((n + 1) + '. ' + s); });
+    if (t.r === 'high') text.push('A person should stay in charge here. Check every result before anything is sent.');
+    text.push('', hint, '', prompt);
   };
 
   p('Hi ' + esc_(lead.name) + ',');
@@ -344,11 +396,20 @@ function buildEmail_(lead, plan) {
     text.push(totalLine);
   }
 
-  section(plan.lead, true);
+  // Plan at a glance: every task in the plan, numbered to match the sections below.
+  h('Your plan covers ' + (plan.rows.length === 1 ? 'this task' : 'these ' + plan.rows.length + ' tasks'), 19);
+  html.push('<ol style="margin:0 0 12px;padding-left:22px;font-size:15px;line-height:1.7;color:' + navy + '">' +
+    plan.rows.map(function (r, n) {
+      return '<li><strong>' + esc_(r.task.t) + '</strong>' + (n === 0 ? ' <span style="background:' + chip + ';border-radius:10px;padding:1px 8px;font-size:12px;font-weight:bold">Start here</span>' : '') + '</li>';
+    }).join('') + '</ol>');
+  text.push('', 'YOUR PLAN COVERS ' + (plan.rows.length === 1 ? 'THIS TASK' : 'THESE ' + plan.rows.length + ' TASKS'));
+  plan.rows.forEach(function (r, n) { text.push((n + 1) + '. ' + r.task.t + (n === 0 ? ' (Start here)' : '')); });
+
+  section(plan.lead, 0);
   if (plan.rows.length > 1) {
-    h('Other recommended improvements', 20);
-    text.push('', 'OTHER RECOMMENDED IMPROVEMENTS');
-    plan.rows.slice(1).forEach(function (row) { section(row, false); });
+    h(plan.rows.length === 2 ? 'Another recommended improvement' : 'Other recommended improvements', 20);
+    text.push('', plan.rows.length === 2 ? 'ANOTHER RECOMMENDED IMPROVEMENT' : 'OTHER RECOMMENDED IMPROVEMENTS');
+    plan.rows.slice(1).forEach(function (row, n) { section(row, n + 1); });
   }
 
   h('Your reusable business context', 19);
