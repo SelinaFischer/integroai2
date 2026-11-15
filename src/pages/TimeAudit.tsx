@@ -20,6 +20,9 @@ import {
   saidLine,
   sendTimeAudit,
   stepsFor,
+  blanksFor,
+  fillBlanks,
+  type Blank,
   textFor,
   trackTimeAudit,
   whyThisOne,
@@ -117,14 +120,9 @@ const CopyButton = ({ getText, label }: { getText: () => string; label: string }
       await navigator.clipboard.writeText(getText());
       setState("Copied");
     } catch {
-      const text = ref.current?.closest("[data-copy-box]")?.querySelector("[data-copy-text]");
-      if (text) {
-        const range = document.createRange();
-        range.selectNodeContents(text);
-        const sel = window.getSelection();
-        sel?.removeAllRanges();
-        sel?.addRange(range);
-      }
+      const text = ref.current?.closest("[data-copy-box]")?.querySelector<HTMLTextAreaElement>("[data-copy-text]");
+      text?.focus();
+      text?.select();
       setState("Selected, press copy");
     }
     window.setTimeout(() => setState(label), 2000);
@@ -142,18 +140,70 @@ const CopyButton = ({ getText, label }: { getText: () => string; label: string }
   );
 };
 
-const CopyBox = ({ heading, text, label, hint }: { heading: string; text: string; label: string; hint?: string }) => (
-  <div data-copy-box className="overflow-hidden rounded-xl border border-brand-sand bg-white">
-    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-brand-sand px-4 py-2.5">
-      <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-brand-slate">{heading}</span>
-      <CopyButton getText={() => text} label={label} />
+// An editable box: visitors can fill in [square brackets] before copying.
+// Their edits are kept until they press Reset, even if the generated text changes.
+const CopyBox = ({ heading, text, label, hint, blanks = [] }: { heading: string; text: string; label: string; hint?: string; blanks?: Blank[] }) => {
+  const [edited, setEdited] = useState<string | null>(null);
+  const [answers, setAnswers] = useState<Record<string, string>>({});
+  const value = fillBlanks(edited ?? text, answers);
+  const changed = edited !== null || Object.values(answers).some((v) => v.trim());
+  const areaRef = useRef<HTMLTextAreaElement>(null);
+  useEffect(() => {
+    const el = areaRef.current;
+    if (!el) return;
+    el.style.height = "auto";
+    el.style.height = `${el.scrollHeight + 2}px`;
+  }, [value]);
+  return (
+    <div data-copy-box className="overflow-hidden rounded-xl border border-brand-sand bg-white">
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-brand-sand px-4 py-2.5">
+        <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-brand-slate">{heading}</span>
+        <div className="flex items-center gap-3">
+          {changed && (
+            <button type="button" onClick={() => { setEdited(null); setAnswers({}); }} className="text-[13px] font-semibold text-brand-teal underline underline-offset-4">
+              Reset
+            </button>
+          )}
+          <CopyButton getText={() => value} label={label} />
+        </div>
+      </div>
+      {hint && <p className="border-b border-brand-sand bg-brand-ivory px-4 py-2 text-[13.5px] text-brand-navy">{hint} You can edit the text below before copying.</p>}
+      {blanks.length > 0 && (
+        <div className="flex flex-col gap-3 border-b border-brand-sand px-4 py-3">
+          <p className="text-[13px] font-semibold text-brand-navy">
+            Fill in the blanks <span className="font-normal text-brand-slate">(optional). Your answers go straight into the text below.</span>
+          </p>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {blanks.map((b) => {
+              const id = `blank-${heading}-${b.token}`.replace(/[^a-z0-9-]/gi, "-");
+              const set = (v: string) => setAnswers((a) => ({ ...a, [b.token]: v }));
+              return (
+                <div key={b.token} className={`min-w-0 ${b.long ? "sm:col-span-2" : ""}`}>
+                  <label htmlFor={id} className="mb-1 block text-[13px] font-medium text-brand-slate">{b.label}</label>
+                  {b.long ? (
+                    <textarea id={id} rows={3} value={answers[b.token] || ""} onChange={(e) => set(e.target.value)} className={`${inputClass} py-2 text-[14.5px]`} />
+                  ) : (
+                    <input id={id} value={answers[b.token] || ""} onChange={(e) => set(e.target.value)} className={`${inputClass} py-2 text-[14.5px]`} />
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+      <textarea
+        ref={areaRef}
+        data-copy-text
+        aria-label={`${heading}, editable`}
+        value={value}
+        onChange={(e) => setEdited(e.target.value)}
+        rows={4}
+        spellCheck
+        className="block w-full resize-none overflow-hidden px-4 py-3 text-[14.5px] leading-relaxed text-brand-navy outline-none focus:bg-brand-ivory/40 focus:ring-2 focus:ring-inset focus:ring-brand-teal/30"
+      />
     </div>
-    {hint && <p className="border-b border-brand-sand bg-brand-ivory px-4 py-2 text-[13.5px] text-brand-navy">{hint}</p>}
-    <p data-copy-text className="whitespace-pre-wrap px-4 py-3 text-[14.5px] leading-relaxed text-brand-navy">
-      {text}
-    </p>
-  </div>
-);
+  );
+};
 
 const TimeAudit = () => {
   const [pickerOpen, setPickerOpen] = useState(true);
@@ -374,6 +424,8 @@ const TimeAudit = () => {
             </ol>
             {careLine(row)}
             <CopyBox
+              key={row.key}
+              blanks={blanksFor(row.template || row.prompt || "", !!row.template)}
               heading={row.template ? "Ready-to-use template" : "Prompt for your AI assistant"}
               label={row.template ? "Copy template" : "Copy prompt"}
               hint={
