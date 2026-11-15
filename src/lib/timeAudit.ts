@@ -194,6 +194,67 @@ export const blanksFor = (text: string, isTemplate: boolean): Blank[] => {
 export const fillBlanks = (text: string, values: Record<string, string>) =>
   Object.entries(values).reduce((t, [token, v]) => (v.trim() ? t.split(token).join(v.trim()) : t), text);
 
+/* ---------- calendar reminders. Mirrored in Code.gs. ---------- */
+
+export const AUDIT_URL = `https://integroai.tech${TIME_AUDIT_PATH}`;
+
+/** The calendar event for one recommendation: a title and a description with the steps. */
+export const calendarEvent = (row: Row) => ({
+  title: `Time audit: ${row.t}`,
+  details: [
+    row.fix,
+    "",
+    "Your next steps:",
+    ...row.steps.map((s, i) => `${i + 1}. ${s}`),
+    "",
+    `Your ${row.template ? "template" : "prompt"} is in your emailed plan. Or run the audit again: ${AUDIT_URL}`,
+  ].join("\n"),
+});
+
+/** The next weekday after the given date, plus extra weekdays. Recommendation 1 gets the next one, 2 the one after, and so on. */
+export const suggestedDay = (from: Date, extra = 0) => {
+  const d = new Date(from.getFullYear(), from.getMonth(), from.getDate());
+  let left = extra + 1;
+  while (left > 0) {
+    d.setDate(d.getDate() + 1);
+    if (d.getDay() !== 0 && d.getDay() !== 6) left -= 1;
+  }
+  return d;
+};
+
+const utcStamp = (d: Date) => d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+
+export const googleCalendarUrl = (title: string, details: string, start: Date, end: Date) =>
+  `https://calendar.google.com/calendar/render?${new URLSearchParams({ action: "TEMPLATE", text: title, details, dates: `${utcStamp(start)}/${utcStamp(end)}` })}`;
+
+export const outlookCalendarUrl = (title: string, details: string, start: Date, end: Date) =>
+  `https://outlook.live.com/calendar/0/action/compose?${new URLSearchParams({ rru: "addevent", subject: title, body: details, startdt: start.toISOString(), enddt: end.toISOString() })}`;
+
+const icsEscape = (s: string) => s.replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace(/,/g, "\\,").replace(/\r?\n/g, "\\n");
+// Calendar files ask for lines of at most 75 characters; longer ones continue on a line starting with a space.
+const icsFold = (line: string) => line.match(/.{1,73}/g)!.join("\r\n ");
+
+/** A calendar file (.ics) that Apple Calendar, Outlook and most other calendars can open. */
+export const icsFile = (events: { title: string; details: string; start: Date; end: Date; uid: string }[]) =>
+  [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "PRODID:-//IntegroAI//Time Audit//EN",
+    "CALSCALE:GREGORIAN",
+    ...events.flatMap((e) => [
+      "BEGIN:VEVENT",
+      `UID:${e.uid}@integroai.tech`,
+      `DTSTAMP:${utcStamp(new Date())}`,
+      `DTSTART:${utcStamp(e.start)}`,
+      `DTEND:${utcStamp(e.end)}`,
+      icsFold(`SUMMARY:${icsEscape(e.title)}`),
+      icsFold(`DESCRIPTION:${icsEscape(e.details)}`),
+      "END:VEVENT",
+    ]),
+    "END:VCALENDAR",
+    "",
+  ].join("\r\n");
+
 // Sends events to Google Tag Manager, like the visibility check.
 export const trackTimeAudit = (event: string) => {
   try {

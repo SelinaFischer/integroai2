@@ -293,6 +293,73 @@ function houseText_(lead) {
   ].filter(function (x) { return x; }).join('\n');
 }
 
+/* ---------- calendar reminders. Mirrors calendarEvent and friends in src/lib/timeAudit.ts. ---------- */
+
+var AUDIT_URL = 'https://integroai.tech/ai-time-audit-small-business';
+
+function calendarEvent_(row) {
+  var t = row.task;
+  return {
+    title: 'Time audit: ' + t.t,
+    details: [t.fix, '', 'Your next steps:'].concat(t.steps.map(function (s, i) { return (i + 1) + '. ' + s; }))
+      .concat(['', 'Your ' + (t.template ? 'template' : 'prompt') + ' is in your emailed plan. Or run the audit again: ' + AUDIT_URL]).join('\n')
+  };
+}
+
+// A 30-minute slot at 9am UK time on the next weekday after today, plus extra weekdays.
+function calendarSlot_(extra) {
+  var zone = 'Europe/London';
+  var d = new Date();
+  var left = (extra || 0) + 1;
+  while (left > 0) {
+    d = new Date(d.getTime() + 24 * 60 * 60 * 1000);
+    var dow = Number(Utilities.formatDate(d, zone, 'u')); // 1 = Monday ... 7 = Sunday
+    if (dow < 6) left -= 1;
+  }
+  var day = Utilities.formatDate(d, zone, 'yyyy-MM-dd');
+  var offset = Utilities.formatDate(new Date(day + 'T12:00:00Z'), zone, 'XXX');
+  var start = new Date(day + 'T09:00:00' + (offset === 'Z' ? 'Z' : offset));
+  return { start: start, end: new Date(start.getTime() + 30 * 60 * 1000), label: Utilities.formatDate(start, zone, 'EEEE d MMMM') };
+}
+
+function utcStamp_(d) {
+  return Utilities.formatDate(d, 'UTC', "yyyyMMdd'T'HHmmss'Z'");
+}
+
+function query_(params) {
+  return Object.keys(params).map(function (k) { return k + '=' + encodeURIComponent(params[k]); }).join('&');
+}
+
+function googleCalendarUrl_(title, details, start, end) {
+  return 'https://calendar.google.com/calendar/render?' + query_({ action: 'TEMPLATE', text: title, details: details, dates: utcStamp_(start) + '/' + utcStamp_(end) });
+}
+
+function outlookCalendarUrl_(title, details, start, end) {
+  return 'https://outlook.live.com/calendar/0/action/compose?' + query_({ rru: 'addevent', subject: title, body: details, startdt: start.toISOString(), enddt: end.toISOString() });
+}
+
+function icsEscape_(s) {
+  return String(s).replace(/\\/g, '\\\\').replace(/;/g, '\;').replace(/,/g, '\\,').replace(/\r?\n/g, '\\n');
+}
+
+function icsFold_(line) {
+  return line.match(/.{1,73}/g).join('\r\n ');
+}
+
+// One calendar file with a reminder for each recommendation, on the same suggested days as the links.
+function icsFile_(rows) {
+  var lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//IntegroAI//Time Audit//EN', 'CALSCALE:GREGORIAN'];
+  rows.forEach(function (row, i) {
+    var slot = calendarSlot_(i);
+    var ev = calendarEvent_(row);
+    lines.push('BEGIN:VEVENT', 'UID:' + row.key + '-' + slot.start.getTime() + '@integroai.tech', 'DTSTAMP:' + utcStamp_(new Date()),
+      'DTSTART:' + utcStamp_(slot.start), 'DTEND:' + utcStamp_(slot.end),
+      icsFold_('SUMMARY:' + icsEscape_(ev.title)), icsFold_('DESCRIPTION:' + icsEscape_(ev.details)), 'END:VEVENT');
+  });
+  lines.push('END:VCALENDAR', '');
+  return lines.join('\r\n');
+}
+
 /* ---------- email ---------- */
 
 function sendPlan_(lead, plan) {
@@ -302,7 +369,10 @@ function sendPlan_(lead, plan) {
     MailApp.sendEmail({
       to: lead.email, subject: email.subject, body: email.text, htmlBody: email.html,
       name: CONFIG.SENDER_NAME, replyTo: CONFIG.REPLY_TO,
-      attachments: [Utilities.newBlob(trackerCsv_(plan), 'text/csv', 'time-tracker.csv')]
+      attachments: [
+        Utilities.newBlob(trackerCsv_(plan), 'text/csv', 'time-tracker.csv'),
+        Utilities.newBlob(icsFile_(plan.rows), 'text/calendar', 'time-audit-reminders.ics')
+      ]
     });
     return true;
   } catch (err) {
@@ -399,6 +469,15 @@ function buildEmail_(lead, plan) {
     steps.forEach(function (s, n) { text.push((n + 1) + '. ' + s); });
     if (t.r === 'high') text.push('A person should stay in charge here. Check every result before anything is sent.');
     text.push('', hint, '', prompt);
+
+    // Calendar reminder on a suggested weekday at 9am. Recommendation 1 gets the next weekday, 2 the one after, and so on.
+    var slot = calendarSlot_(index);
+    var ev = calendarEvent_(row);
+    var g = googleCalendarUrl_(ev.title, ev.details, slot.start, slot.end);
+    var o = outlookCalendarUrl_(ev.title, ev.details, slot.start, slot.end);
+    var calLink = function (href, label) { return '<a href="' + esc_(href) + '" style="color:' + teal + ';font-weight:bold">' + label + '</a>'; };
+    p('<strong>Add a reminder to your calendar</strong> (suggested for ' + esc_(slot.label) + ' at 9am, change it in your calendar if you like): ' + calLink(g, 'Google Calendar') + ' · ' + calLink(o, 'Outlook') + '. For Apple Calendar and others, open the attached time-audit-reminders.ics file.', 'font-size:14px;padding:10px 12px;border-radius:8px;background:#FBF7F1');
+    text.push('', 'Add a reminder to your calendar (suggested for ' + slot.label + ' at 9am):', 'Google Calendar: ' + g, 'Outlook: ' + o, 'For Apple Calendar and others, open the attached time-audit-reminders.ics file.');
   };
 
   p('Hi ' + esc_(lead.name) + ',');
