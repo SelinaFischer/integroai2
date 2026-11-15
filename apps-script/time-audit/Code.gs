@@ -445,14 +445,16 @@ function buildEmail_(lead, plan) {
   text.push('', 'TRACK YOUR TIME BEFORE AND AFTER', 'A copy of this table is attached as a spreadsheet (time-tracker.csv).');
   plan.rows.forEach(function (r) { text.push(r.task.t + ': weekly time now ____  weekly time after trying the change ____'); });
 
-  h('Need help implementing your plan?', 19);
-  p('An AI Made Simple session provides practical support to put your first recommendation into action. Choose a one-hour individual session or a 90-minute group session. No technical experience is needed.');
+  h('Need help getting started?', 19);
+  p('Book a free 30-minute discovery call to discuss your results, identify where to start and explore how IntegroAI can help.');
   html.push('<p style="margin:0 0 20px"><a href="' + CONFIG.CALL_URL + '" style="display:inline-block;background:#FF9900;color:' + navy + ';font-weight:bold;text-decoration:none;padding:12px 20px;border-radius:8px">Book a free discovery call</a></p>');
-  text.push('', 'Need help implementing your plan?', 'An AI Made Simple session provides practical support to put your first recommendation into action. Choose a one-hour individual session or a 90-minute group session. No technical experience is needed.', 'Book a free discovery call: ' + CONFIG.CALL_URL);
-  var disclaimer = 'This plan provides general suggestions based on your answers. Remove personal, client and confidential business information before pasting content into an AI tool, and check each result before using it.';
+  text.push('', 'Need help getting started?', 'Book a free 30-minute discovery call to discuss your results, identify where to start and explore how IntegroAI can help.', 'Book a free discovery call: ' + CONFIG.CALL_URL);
+  var disclaimer = 'Your plan offers general suggestions based on your answers.';
+  var aiNote = 'Before using an AI tool, remove any personal or confidential information from the content you share.';
   p(disclaimer, 'font-size:13px;color:' + slate);
+  p(aiNote, 'font-size:13px;color:' + slate);
   p('Selina Fischer<br>IntegroAI Consulting<br><a href="https://integroai.tech" style="color:' + teal + '">integroai.tech</a>');
-  text.push('', disclaimer, '', 'Selina Fischer', 'IntegroAI Consulting', 'https://integroai.tech');
+  text.push('', disclaimer, aiNote, '', 'Selina Fischer', 'IntegroAI Consulting', 'https://integroai.tech');
 
   return {
     subject: 'Your AI time audit action plan',
