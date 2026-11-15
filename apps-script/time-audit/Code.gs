@@ -298,13 +298,26 @@ function sendPlan_(lead, plan) {
     var email = buildEmail_(lead, plan);
     MailApp.sendEmail({
       to: lead.email, subject: email.subject, body: email.text, htmlBody: email.html,
-      name: CONFIG.SENDER_NAME, replyTo: CONFIG.REPLY_TO
+      name: CONFIG.SENDER_NAME, replyTo: CONFIG.REPLY_TO,
+      attachments: [Utilities.newBlob(trackerCsv_(plan), 'text/csv', 'time-tracker.csv')]
     });
     return true;
   } catch (err) {
     console.error(err);
     return false;
   }
+}
+
+// The before-and-after tracker as a spreadsheet file, listing the visitor's own tasks.
+function trackerCsv_(plan) {
+  var D = TIME_AUDIT_DATA;
+  var cell = function (v) { return '"' + String(v).replace(/"/g, '""') + '"'; };
+  var lines = [['Task', 'Area', 'Your estimate per week', 'Weekly time now (hours)', 'Weekly time after the change (hours)', 'Notes'].map(cell).join(',')];
+  plan.rows.forEach(function (r) {
+    lines.push([r.task.t, D.areas[r.area].short, r.band ? D.bands[r.band].label : 'Not given', '', '', ''].map(cell).join(','));
+  });
+  // The byte order mark helps Excel open the file with the right characters.
+  return '\ufeff' + lines.join('\r\n') + '\r\n';
 }
 
 function buildEmail_(lead, plan) {
@@ -424,12 +437,12 @@ function buildEmail_(lead, plan) {
   text.push('', 'YOUR REUSABLE BUSINESS CONTEXT', houseText_(lead));
 
   h('Track your time before and after', 19);
-  p('Record your weekly time now, then again after using the new approach for two weeks.');
+  p('Record your weekly time now, then again after using the new approach for two weeks. A copy of this table is attached as a spreadsheet (time-tracker.csv), ready to open in Excel or Google Sheets.');
   html.push('<table style="border-collapse:collapse;width:100%;font-size:14px;color:' + navy + '"><tr>' +
     ['Task', 'Weekly time now', 'Weekly time after trying the change'].map(function (c) { return '<th style="text-align:left;border:1px solid ' + sand + ';padding:8px">' + c + '</th>'; }).join('') + '</tr>' +
     plan.rows.map(function (r) { return '<tr><td style="border:1px solid ' + sand + ';padding:8px">' + esc_(r.task.t) + '</td><td style="border:1px solid ' + sand + ';padding:8px">&nbsp;</td><td style="border:1px solid ' + sand + ';padding:8px">&nbsp;</td></tr>'; }).join('') +
     '</table>');
-  text.push('', 'RECORD YOUR TIME BEFORE AND AFTER');
+  text.push('', 'TRACK YOUR TIME BEFORE AND AFTER', 'A copy of this table is attached as a spreadsheet (time-tracker.csv).');
   plan.rows.forEach(function (r) { text.push(r.task.t + ': weekly time now ____  weekly time after trying the change ____'); });
 
   h('Need help implementing your plan?', 19);

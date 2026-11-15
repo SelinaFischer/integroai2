@@ -697,8 +697,8 @@ const TimeAudit = () => {
                 <h3 className="text-[21px] font-semibold text-brand-navy">{rows.length > 3 ? "Get your complete action plan" : "Email your action plan"}</h3>
                 <p className="text-[14.5px] text-brand-slate">
                   {rows.length > 3
-                    ? `Receive recommendations, practical steps and AI prompts for all ${rows.length} selected tasks, plus a simple tracker to compare your time before and after making changes.`
-                    : "Receive your recommendations, practical steps and AI prompts by email, plus a simple tracker to compare your time before and after making changes."}
+                    ? `Receive recommendations, practical steps and AI prompts for all ${rows.length} selected tasks, plus a time tracker spreadsheet to compare your time before and after making changes.`
+                    : "Receive your recommendations, practical steps and AI prompts by email, plus a time tracker spreadsheet to compare your time before and after making changes."}
                 </p>
                 {sentTo ? (
                   <p className="flex items-start gap-2 text-[15.5px] font-medium text-brand-navy">
