@@ -470,7 +470,7 @@ const TimeAudit = () => {
                   <p className="mt-1.5 text-[13px] text-brand-slate">We add it to your prompts so your AI tool can match your style.</p>
                 </div>
                 <div className="min-w-0 rounded-xl bg-brand-ivory px-4 py-3 text-[14px] text-brand-navy sm:col-span-2">
-                  <p><strong className="font-semibold">Have a business overview or brand guide?</strong> Attach it in your AI tool when you paste a prompt. No website or document? The details above are enough.</p>
+                  <p><strong className="font-semibold">Tip:</strong> The more context your AI has, the more relevant its answers. Attach your business overview or brand guide when you paste a prompt.</p>
                 </div>
               </div>
               <button type="button" onClick={showPlan} className="btn-amber btn-focus group mt-2 w-fit">
