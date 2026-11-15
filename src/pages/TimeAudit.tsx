@@ -244,7 +244,6 @@ const PromptWorkspace = ({
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const headingRef = useRef<HTMLHeadingElement>(null);
   const filled = blanks.filter((b) => answers[b.token]?.trim());
-  const togo = blanks.length - filled.length;
   const fieldId = (b: Blank) => `gap-${row.key}-${b.token}`.replace(/[^a-z0-9-]/gi, "-");
   const filledBody = fillBlanks(body, answers);
   const copyText = intro ? `${intro}\n\n${filledBody}` : filledBody;
@@ -371,39 +370,12 @@ const PromptWorkspace = ({
                 <p className="text-[15px] font-semibold text-brand-navy">{gn[0]}</p>
               </div>
             )}
-            {blanks.length > 0 && (
-              <div className="flex flex-col gap-1.5">
-                <p className="text-[13px] font-semibold text-brand-slate">{togo ? `${togo} gap${togo > 1 ? "s" : ""} to go` : "All gaps filled"}</p>
-                <ul className="flex flex-col gap-1.5">
-                  {blanks.map((b) => {
-                    const done = !!answers[b.token]?.trim();
-                    return (
-                      <li key={b.token} className="flex items-center justify-between gap-2 text-[14px] text-brand-navy">
-                        <span className="flex min-w-0 items-center gap-2">
-                          {done ? (
-                            <Check className="h-4 w-4 flex-none text-brand-teal" strokeWidth={3} aria-label="Filled" />
-                          ) : (
-                            <span className="h-4 w-4 flex-none rounded-full border-2 border-brand-sand" aria-label="Not filled yet" />
-                          )}
-                          <span className="truncate">{b.label}</span>
-                        </span>
-                        {!done && (
-                          <button type="button" onClick={() => document.getElementById(fieldId(b))?.focus()} className="flex-none text-[13px] font-semibold text-brand-teal underline underline-offset-4">
-                            Go to it
-                          </button>
-                        )}
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            )}
             <span data-copy-text className="sr-only">{copyText}</span>
             <CopyButton big getText={() => copyText} label={isTemplate ? "Copy template" : "Copy prompt"} />
             <p className="text-[13px] leading-relaxed text-brand-slate">
               {isTemplate
                 ? "Replace anything still in [square brackets], such as the client's name, each time you send it."
-                : "Paste it into your AI assistant. If a gap is still empty, it will ask you for it. Check the result before using it."}
+                : "Paste it into your AI assistant. Any gap you leave empty, it will ask you about. Check the result before using it."}
             </p>
           </div>
         </div>
