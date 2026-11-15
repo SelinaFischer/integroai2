@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { ArrowRight, CalendarPlus, Check, ChevronDown, Copy, Info, Lightbulb, ListChecks, Loader2 } from "lucide-react";
+import { ArrowRight, Check, ChevronDown, Copy, Info, Lightbulb, ListChecks, Loader2 } from "lucide-react";
 import { m } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -21,12 +21,7 @@ import {
   sendTimeAudit,
   stepsFor,
   blanksFor,
-  calendarEvent,
   fillBlanks,
-  googleCalendarUrl,
-  icsFile,
-  outlookCalendarUrl,
-  suggestedDay,
   type Blank,
   textFor,
   trackTimeAudit,
@@ -218,68 +213,6 @@ const CopyBox = ({ heading, text, label, hint, blanks = [] }: { heading: string;
         spellCheck
         className="block w-full resize-none overflow-hidden px-4 py-3 text-[14.5px] leading-relaxed text-brand-navy outline-none focus:bg-brand-ivory/40 focus:ring-2 focus:ring-inset focus:ring-brand-teal/30"
       />
-    </div>
-  );
-};
-
-const pad = (n: number) => String(n).padStart(2, "0");
-const dayValue = (d: Date) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
-
-// Lets the visitor pick a day and time for this step and add it to their own calendar.
-// Nothing is sent to us: the links open their calendar, and the file is made in their browser.
-const CalendarPicker = ({ row, order }: { row: Row; order: number }) => {
-  const [day, setDay] = useState(() => dayValue(suggestedDay(new Date(), order)));
-  const [time, setTime] = useState("09:00");
-  const start = new Date(`${day}T${time || "09:00"}`);
-  const valid = !Number.isNaN(start.getTime());
-  const end = new Date(start.getTime() + 30 * 60 * 1000);
-  const { title, details } = calendarEvent(row);
-  const id = `cal-${row.key}`;
-  const link =
-    "inline-flex items-center gap-1.5 rounded-lg border border-brand-sand bg-white px-3 py-1.5 text-[14px] font-semibold text-brand-navy hover:border-brand-teal hover:bg-brand-ivory";
-  const downloadIcs = () => {
-    const blob = new Blob([icsFile([{ title, details, start, end, uid: `${row.key}-${start.getTime()}` }])], { type: "text/calendar;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "time-audit-step.ics";
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
-    trackTimeAudit("time_audit_calendar");
-  };
-  return (
-    <div className="flex flex-col gap-2.5 rounded-xl border border-brand-sand bg-brand-ivory p-4">
-      <p className="flex items-center gap-2 text-[15px] font-bold text-brand-navy">
-        <CalendarPlus className="h-5 w-5 text-brand-teal" aria-hidden="true" /> Add a reminder to your calendar
-      </p>
-      <p className="text-[14px] leading-relaxed text-brand-slate">Pick when you'll do this. The reminder includes your next steps.</p>
-      <div className="flex flex-wrap items-end gap-3">
-        <div className="flex flex-col gap-1">
-          <label htmlFor={`${id}-day`} className="text-[13px] font-semibold text-brand-navy">Day</label>
-          <input id={`${id}-day`} type="date" value={day} onChange={(e) => setDay(e.target.value)} className={`${inputClass} w-auto py-2`} />
-        </div>
-        <div className="flex flex-col gap-1">
-          <label htmlFor={`${id}-time`} className="text-[13px] font-semibold text-brand-navy">Time</label>
-          <input id={`${id}-time`} type="time" value={time} onChange={(e) => setTime(e.target.value)} className={`${inputClass} w-auto py-2`} />
-        </div>
-      </div>
-      {valid ? (
-        <div className="flex flex-wrap gap-2">
-          <a href={googleCalendarUrl(title, details, start, end)} target="_blank" rel="noopener noreferrer" className={link} onClick={() => trackTimeAudit("time_audit_calendar")}>
-            Google Calendar
-          </a>
-          <a href={outlookCalendarUrl(title, details, start, end)} target="_blank" rel="noopener noreferrer" className={link} onClick={() => trackTimeAudit("time_audit_calendar")}>
-            Outlook
-          </a>
-          <button type="button" onClick={downloadIcs} className={link}>
-            Apple or other calendar
-          </button>
-        </div>
-      ) : (
-        <p className="text-[14px] text-brand-slate">Choose a day and time to add the reminder.</p>
-      )}
     </div>
   );
 };
@@ -602,7 +535,7 @@ const TimeAudit = () => {
       </p>
     ) : null;
 
-  const fixDetail = (row: Row, isLead: boolean, order: number) => {
+  const fixDetail = (row: Row, isLead: boolean) => {
     // The lead task always shows its next steps; the others open on request.
     const open = isLead || !!openKeys[row.key];
     const rowFit = isLead ? leadFit : undefined;
@@ -692,7 +625,6 @@ const TimeAudit = () => {
               intro={row.template ? "" : textFor(row, about, rowFit).split("\n\n")[0]}
               text={textFor(row, about, rowFit)}
             />
-            <CalendarPicker row={row} order={order} />
           </div>
         )}
       </>
@@ -989,7 +921,7 @@ const TimeAudit = () => {
                   <span className="rounded-full border border-brand-sand bg-white px-2.5 py-0.5 text-[12.5px] text-brand-navy">{D.areas[lead.area].short}</span>
                   {lead.hours > 0 && <span className="text-[14px] font-semibold text-brand-teal">Estimated time spent: {fmtHours(lead.hours)} hours per month</span>}
                 </div>
-                {fixDetail(lead, true, 0)}
+                {fixDetail(lead, true)}
               </m.div>
 
               {others.length > 0 && (
@@ -1009,7 +941,7 @@ const TimeAudit = () => {
                         <span className="rounded-full border border-brand-sand bg-brand-ivory px-2.5 py-0.5 text-[12.5px] text-brand-navy">{D.areas[row.area].short}</span>
                         {row.hours > 0 && <span className="text-[14px] font-semibold text-brand-teal">Estimated time spent: {fmtHours(row.hours)} hours per month</span>}
                       </div>
-                      {fixDetail(row, false, index + 1)}
+                      {fixDetail(row, false)}
                     </m.div>
                   ))}
                 </div>
