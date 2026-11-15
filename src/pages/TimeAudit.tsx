@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { ArrowRight, Check, ChevronDown, Copy, Loader2 } from "lucide-react";
+import { ArrowRight, Check, ChevronDown, Copy, Info, ListChecks, Loader2 } from "lucide-react";
 import { m } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -177,11 +177,6 @@ const TimeAudit = () => {
   const missing = rows.filter((r) => !r.hours).length;
   const leadFit = lead ? fit[lead.key] || {} : {};
 
-  // The first fix opens with its steps showing.
-  useEffect(() => {
-    if (lead && openKeys[lead.key] === undefined) setOpenKeys((o) => ({ ...o, [lead.key]: true }));
-  }, [lead, openKeys]);
-
   const toggleArea = (key: string) =>
     setAreas((a) => (a.includes(key) ? a.filter((k) => k !== key) : [...a, key]));
 
@@ -294,63 +289,84 @@ const TimeAudit = () => {
     ) : null;
 
   const fixDetail = (row: Row, isLead: boolean) => {
-    const open = !!openKeys[row.key];
+    // The lead task always shows its next steps; the others open on request.
+    const open = isLead || !!openKeys[row.key];
     const rowFit = isLead ? leadFit : undefined;
     const gn = D.getNeed[row.key];
+    const info = (label: string, text: string) => (
+      <p className="text-[14.5px] leading-relaxed text-brand-slate">
+        <span className="font-semibold text-brand-navy">{label}:</span> {text}
+      </p>
+    );
     return (
       <>
-        <p className="text-[15px] text-brand-navy">{saidLine(row)}</p>
+        {/* Information: what this is and why. Read only, deliberately quiet. */}
         <p className="text-[16.5px] font-semibold leading-snug text-brand-navy">{row.fix}</p>
-        {gn && (
-          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-            {[["What you'll get", gn[0]], ["What you'll need", gn[1]]].map(([k, v]) => (
-              <div key={k} className="min-w-0 rounded-lg border border-brand-sand bg-white px-3 py-2">
-                <span className="block text-[10.5px] font-bold uppercase tracking-[0.12em] text-brand-slate">{k}</span>
-                <span className="text-[14.5px] text-brand-navy">{v}</span>
-              </div>
-            ))}
-          </div>
-        )}
-        {isLead && !row.template && (
-          <div className="flex flex-col gap-1.5 rounded-xl border border-brand-sand bg-white p-3">
-            <label htmlFor="ta-tools" className="text-[14px] font-semibold text-brand-navy">
-              Which tools do you use for this task? <span className="font-normal text-brand-slate">(optional)</span>
-            </label>
-            <input
-              id="ta-tools"
-              maxLength={120}
-              value={rowFit?.tools || ""}
-              onChange={(e) => setFit((f) => ({ ...f, [row.key]: { tools: e.target.value } }))}
-              placeholder="e.g. Microsoft Teams, Outlook, Google Sheets"
-              className={inputClass}
-            />
-            <p className="text-[13px] text-brand-slate">We add these to your prompt so the suggestions fit the tools you already use.</p>
-          </div>
-        )}
-        {isLead && (
-          <>
-            <p className="text-[14.5px] leading-relaxed text-brand-slate"><strong className="text-brand-navy">Why start here:</strong> {whyThisOne(row, rows)}</p>
-            <p className="text-[14.5px] leading-relaxed text-brand-slate">
-              <strong className="text-brand-navy">How to measure the improvement:</strong> record how long this task takes now. After using the new approach for two weeks, compare the time spent. Change one thing at a time so you can see what made the difference.
-            </p>
-          </>
-        )}
-        {D.watch[row.key] && (
-          <p className="rounded-r-lg border-l-[3px] border-brand-teal bg-white px-3 py-2 text-[14.5px] text-brand-navy">
-            <strong>Before you begin:</strong> {D.watch[row.key]}
+        <div className="flex flex-col gap-1.5">
+          <p className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-brand-slate">
+            <Info className="h-3.5 w-3.5" aria-hidden="true" /> About this recommendation
           </p>
+          <p className="text-[14.5px] leading-relaxed text-brand-slate">{saidLine(row)}</p>
+          {gn && info("What you'll get", gn[0])}
+          {gn && info("What you'll need", gn[1])}
+          {isLead && info("Why start here", whyThisOne(row, rows))}
+          {isLead &&
+            info(
+              "How to measure the improvement",
+              "record how long this task takes now. After using the new approach for two weeks, compare the time spent. Change one thing at a time so you can see what made the difference.",
+            )}
+        </div>
+
+        {/* Actions: what the visitor does next. */}
+        {!isLead && !open && (
+          <button
+            type="button"
+            aria-expanded={false}
+            onClick={() => setOpenKeys((o) => ({ ...o, [row.key]: true }))}
+            className="inline-flex w-fit items-center gap-2 rounded-lg border-2 border-brand-amber bg-white px-3.5 py-1.5 text-[14px] font-semibold text-brand-navy hover:bg-brand-chip"
+          >
+            <ListChecks className="h-4 w-4" aria-hidden="true" /> View next steps
+          </button>
         )}
-        <button
-          type="button"
-          aria-expanded={open}
-          onClick={() => setOpenKeys((o) => ({ ...o, [row.key]: !open }))}
-          className="w-fit rounded-lg border border-brand-teal px-3.5 py-1.5 text-[14px] font-semibold text-brand-teal hover:bg-brand-teal hover:text-white"
-        >
-          {open ? "Hide steps" : "View steps"}
-        </button>
         {open && (
-          <div className="flex flex-col gap-3">
-            <ol className="list-decimal space-y-1 pl-5 text-[15px] leading-relaxed text-brand-navy">
+          <div className="flex flex-col gap-3 rounded-xl border border-brand-sand border-l-4 border-l-brand-amber bg-white p-4 sm:p-5">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <p className="flex items-center gap-2 text-[15px] font-bold text-brand-navy">
+                <ListChecks className="h-5 w-5 text-brand-amber" aria-hidden="true" /> Your next steps
+              </p>
+              {!isLead && (
+                <button
+                  type="button"
+                  aria-expanded={true}
+                  onClick={() => setOpenKeys((o) => ({ ...o, [row.key]: false }))}
+                  className="text-[13.5px] font-semibold text-brand-teal underline underline-offset-4"
+                >
+                  Hide steps
+                </button>
+              )}
+            </div>
+            {D.watch[row.key] && (
+              <p className="rounded-lg bg-brand-chip/60 px-3 py-2 text-[14px] text-brand-navy">
+                <strong>Before you begin:</strong> {D.watch[row.key]}
+              </p>
+            )}
+            {isLead && !row.template && (
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="ta-tools" className="text-[14px] font-semibold text-brand-navy">
+                  Which tools do you use for this task? <span className="font-normal text-brand-slate">(optional)</span>
+                </label>
+                <input
+                  id="ta-tools"
+                  maxLength={120}
+                  value={rowFit?.tools || ""}
+                  onChange={(e) => setFit((f) => ({ ...f, [row.key]: { tools: e.target.value } }))}
+                  placeholder="e.g. Microsoft Teams, Outlook, Google Sheets"
+                  className={inputClass}
+                />
+                <p className="text-[13px] text-brand-slate">We add these to your prompt so the suggestions fit the tools you already use.</p>
+              </div>
+            )}
+            <ol className="list-decimal space-y-1 pl-5 text-[15px] leading-relaxed text-brand-navy marker:font-semibold">
               {stepsFor(row).map((s) => <li key={s}>{s}</li>)}
             </ol>
             {careLine(row)}
