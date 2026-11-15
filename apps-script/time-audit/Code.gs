@@ -97,8 +97,7 @@ function cleanLead_(input) {
     selections: selections,
     fit: {
       key: String(fit.key || ''),
-      tool: D.fitToolLine[fit.tool] ? String(fit.tool) : '',
-      hard: D.fitHardLine[fit.hard] ? String(fit.hard) : ''
+      tools: text_(fit.tools, 120)
     }
   };
 }
@@ -187,7 +186,7 @@ function buildPlan_(lead) {
   // Tasks with a time range always come before tasks without one. Mirrors rankRows in src/lib/timeAudit.ts.
   rows.sort(function (a, b) { return (b.hours > 0 ? 1 : 0) - (a.hours > 0 ? 1 : 0) || b.score - a.score; });
   var total = rows.reduce(function (s, r) { return s + r.hours; }, 0);
-  var fit = lead.fit.key === rows[0].key ? lead.fit : { tool: '', hard: '' };
+  var fit = lead.fit.key === rows[0].key ? lead.fit : { tools: '' };
   return { rows: rows, lead: rows[0], total: total, fit: fit };
 }
 
@@ -247,13 +246,13 @@ function promptFor_(row, lead, fit) {
   var D = TIME_AUDIT_DATA;
   var t = row.task;
   if (t.template) return lead.business ? t.template.split('[Business name]').join(lead.business) : t.template;
-  var add = [fit && D.fitToolPrompt[fit.tool], fit && D.fitHardPrompt[fit.hard]].filter(function (x) { return x; }).join(' ');
+  var tools = clause_(fit && fit.tools);
+  var add = tools ? 'For this task I currently use ' + tools + '. Suggest options that work with these tools first.' : '';
   return context_(lead) + (add ? ' ' + add : '') + '\n\n' + t.prompt;
 }
 
-function stepsFor_(row, fit) {
-  var extra = fit && fit.hard ? TIME_AUDIT_DATA.fitHardStep[fit.hard] : '';
-  return extra ? [extra].concat(row.task.steps) : row.task.steps;
+function stepsFor_(row) {
+  return row.task.steps;
 }
 
 function houseText_(lead) {
@@ -312,12 +311,7 @@ function buildEmail_(lead, plan) {
       p('<strong>What you’ll get:</strong> ' + esc_(gn[0]) + '<br><strong>What you’ll need:</strong> ' + esc_(gn[1]));
       text.push("What you'll get: " + gn[0], "What you'll need: " + gn[1]);
     }
-    if (fit && (fit.tool || fit.hard)) {
-      var move = [D.fitToolLine[fit.tool], D.fitHardLine[fit.hard]].filter(function (x) { return x; }).join(' ');
-      p('<strong>Recommended first step:</strong> ' + esc_(move));
-      text.push('Recommended first step: ' + move);
-    }
-    var steps = stepsFor_(row, fit);
+    var steps = stepsFor_(row);
     html.push('<ol style="margin:0 0 12px;padding-left:20px;font-size:15px;line-height:1.55;color:' + navy + '">' +
       steps.map(function (s) { return '<li>' + esc_(s) + '</li>'; }).join('') + '</ol>');
     steps.forEach(function (s, i) { text.push((i + 1) + '. ' + s); });
@@ -341,6 +335,9 @@ function buildEmail_(lead, plan) {
   p('Hi ' + esc_(lead.name) + ',');
   p('Here is your full action plan from the IntegroAI Time Audit.');
   text.push('Hi ' + lead.name + ',', '', 'Here is your full action plan from the IntegroAI Time Audit.');
+  var howTo = 'Copy each prompt into your AI assistant, such as ChatGPT, Microsoft Copilot or Gemini. Replace anything in [square brackets] with your own details, and review each result before using it.';
+  p(esc_(howTo));
+  text.push(howTo);
   if (plan.total) {
     var totalLine = 'Based on the times you entered, you spend around ' + fmtHours_(plan.total) + ' hours a month on these tasks. This is your current workload, not an estimate of time you could save.';
     p(esc_(totalLine));
@@ -411,7 +408,7 @@ function logLead_(lead, plan, emailSent) {
   }).join('; ');
   sheet.appendRow([new Date(), safeCell_(lead.name), safeCell_(lead.email), safeCell_(lead.business), safeCell_(lead.what), lead.tone,
     Object.keys(areas).join(', '), safeCell_(tasks), Math.round(plan.total), safeCell_(plan.lead.task.t),
-    plan.fit.tool ? D.fitTool[plan.fit.tool] : '', plan.fit.hard ? D.fitHard[plan.fit.hard] : '',
+    safeCell_(plan.fit.tools), '',
     emailSent ? 'Yes' : 'No', lead.tips ? 'Yes' : 'No', safeCell_(lead.website), safeCell_(lead.customers), safeCell_(lead.notes)]);
 }
 

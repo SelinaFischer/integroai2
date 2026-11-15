@@ -23,7 +23,8 @@ export type Task = {
 export type Area = { name: string; short: string; tasks: Task[] };
 export type BandKey = keyof typeof data.bands;
 export type Row = Task & { key: string; area: string; band: string; hours: number; score: number };
-export type Fit = { tool?: string; hard?: string };
+/** What the visitor typed about the tools they use for their Start here task. */
+export type Fit = { tools?: string };
 export type About = { name: string; what: string; tone: string; website?: string; customers?: string; notes?: string };
 
 export const TIME_AUDIT = data as unknown as {
@@ -34,13 +35,6 @@ export const TIME_AUDIT = data as unknown as {
   areas: Record<string, Area>;
   getNeed: Record<string, [string, string]>;
   watch: Record<string, string>;
-  fitTool: Record<string, string>;
-  fitToolLine: Record<string, string>;
-  fitToolPrompt: Record<string, string>;
-  fitHard: Record<string, string>;
-  fitHardLine: Record<string, string>;
-  fitHardStep: Record<string, string>;
-  fitHardPrompt: Record<string, string>;
 };
 
 const D = TIME_AUDIT;
@@ -100,10 +94,7 @@ export const saidLine = (row: Row) =>
     ? `You estimated ${D.bands[row.band].label.toLowerCase()} a week on this task.`
     : "You selected this as one of your most time-consuming tasks.";
 
-export const stepsFor = (row: Row, fit?: Fit) => {
-  const extra = fit?.hard ? D.fitHardStep[fit.hard] : "";
-  return extra ? [extra, ...row.steps] : row.steps;
-};
+export const stepsFor = (row: Row) => row.steps;
 
 /** Tidies a website address, or returns "" if it doesn't look like one. Mirrored in Code.gs. */
 export const cleanWebsite = (value?: string) => {
@@ -155,12 +146,11 @@ export const context = (about: About) =>
 
 export const textFor = (row: Row, about: About, fit?: Fit) => {
   if (row.template) return about.name ? row.template.split("[Business name]").join(about.name) : row.template;
-  const add = [fit?.tool && D.fitToolPrompt[fit.tool], fit?.hard && D.fitHardPrompt[fit.hard]].filter(Boolean).join(" ");
+  const tools = clause(fit?.tools);
+  const add = tools ? `For this task I currently use ${tools}. Suggest options that work with these tools first.` : "";
   return `${context(about)}${add ? " " + add : ""}\n\n${row.prompt}`;
 };
 
-export const firstMove = (fit?: Fit) =>
-  [fit?.tool && D.fitToolLine[fit.tool], fit?.hard && D.fitHardLine[fit.hard]].filter(Boolean).join(" ");
 
 export const houseText = (about: About) =>
   [
