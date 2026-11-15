@@ -32,5 +32,19 @@ All task wording lives in `src/data/time-audit.json`, so the page and the email 
 ## What the Sheet records
 Date, first name, email, business, what they do, tone, areas, each task with its time range, total hours a month, the "Start here" task, what they use for it, what makes it hard, whether the plan was emailed, and whether they want tips.
 
-## Limits you can change
-At the top of `Code.gs`: 100 emailed plans a day and 3 per email address every 6 hours. Google also applies its own daily email limits, which vary by account.
+## Bot protection and limits
+At the top of `Code.gs` you can change:
+- 100 emailed plans a day in total (a safety net under Google's own daily email limit, which varies by account).
+- 10 plans per email address per day. Your own addresses in `ALLOW` are never limited.
+- Forms sent within 5 seconds of the page loading are ignored as bots.
+- The same plan to the same address within 10 minutes is sent once.
+
+### Cloudflare Turnstile (free)
+1. In the Cloudflare dashboard, open **Turnstile** and click **Add widget**.
+2. Name it `Time audit`, add the hostname `integroai.tech`, and choose **Managed** mode.
+3. Copy the **site key** and send it to Claude, or paste it into `TURNSTILE_SITE_KEY` in `src/lib/timeAudit.ts`. It is public by design.
+4. Wait until the site key is live on the website.
+5. In Apps Script, open **Project Settings > Script Properties**, add `TURNSTILE_SECRET` and paste the **secret key**. Never put the secret key in code or send it to anyone.
+6. The script needs permission to contact Cloudflare: choose `doGet`, click **Run**, and allow the new permission. Then deploy a new version.
+
+Until `TURNSTILE_SECRET` is set, the bot check is skipped and everything else still works.

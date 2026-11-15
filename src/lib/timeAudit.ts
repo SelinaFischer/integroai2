@@ -7,6 +7,8 @@ import data from "@/data/time-audit.json";
 export const TIME_AUDIT_PATH = "/ai-time-audit-small-business";
 // The deployed Apps Script web app URL (ends in /exec). Public by design.
 // If it is ever emptied, the page still works without the email step.
+// Cloudflare Turnstile site key (public by design). Empty means the bot check is off.
+export const TURNSTILE_SITE_KEY = "";
 export const TIME_AUDIT_ENDPOINT = "https://script.google.com/macros/s/AKfycbzO1BTwkKqRj2dwNPXu3JzkFfS-QfY1Fjzdkrx97YOB5ri6Nd6w9dXbDZ_Ik_DXaXca/exec";
 
 export type Task = {
