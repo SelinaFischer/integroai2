@@ -45,7 +45,7 @@ function doPost(e) {
 
     if (!passesTurnstile_(input.turnstile)) return jsonOut_({ ok: false, error: 'bot' });
 
-    var dupKey = 'dup:' + hash_(lead.email + JSON.stringify(lead.selections) + JSON.stringify(lead.fit));
+    var dupKey = 'dup:' + hash_(lead.email + JSON.stringify(lead.selections) + JSON.stringify(lead.own) + JSON.stringify(lead.fit));
     var cache = CacheService.getScriptCache();
     if (cache.get(dupKey)) return jsonOut_({ ok: true, emailSent: true, status: 'duplicate' });
 
@@ -82,7 +82,12 @@ function cleanLead_(input) {
     var band = String(s.band || '');
     return { key: String(s.key), band: D.bands[band] && band !== '' ? band : '' };
   });
-  if (!selections.length) return { error: 'tasks' };
+  // Up to three tasks the visitor added themselves. They get a general prompt and are never ranked.
+  var own = (Array.isArray(input.own_tasks) ? input.own_tasks : []).slice(0, OWN_LIMIT).map(function (o) {
+    var band = String((o && o.band) || '');
+    return { name: cleanOwnName_(o && o.name), band: D.bands[band] && band !== '' ? band : '' };
+  }).filter(function (o) { return o.name; });
+  if (!selections.length && !own.length) return { error: 'tasks' };
 
   var fit = input.fit || {};
   var tone = CONFIG.TONES.indexOf(String(input.tone)) > -1 ? String(input.tone) : CONFIG.TONES[0];
@@ -97,7 +102,10 @@ function cleanLead_(input) {
     website: cleanWebsite_(input.website),
     tips: input.tips === true,
     reminder: input.reminder === true,
-    missingTask: text_(input.missing_task, 200),
+    missingTask: own.length
+      ? own.map(function (o) { return o.name + ' (' + (o.band ? D.bands[o.band].label : 'no time given') + ')'; }).join('; ')
+      : text_(input.missing_task, 200),
+    own: own,
     selections: selections,
     fit: {
       key: String(fit.key || ''),
@@ -189,9 +197,41 @@ function buildPlan_(lead) {
   });
   // Tasks with a time range always come before tasks without one. Mirrors rankRows in src/lib/timeAudit.ts.
   rows.sort(function (a, b) { return (b.hours > 0 ? 1 : 0) - (a.hours > 0 ? 1 : 0) || b.score - a.score; });
-  var total = rows.reduce(function (s, r) { return s + r.hours; }, 0);
-  var fit = lead.fit.key === rows[0].key ? lead.fit : { tools: '' };
-  return { rows: rows, lead: rows[0], total: total, fit: fit };
+  var own = (lead.own || []).map(ownRow_);
+  var total = rows.concat(own).reduce(function (s, r) { return s + r.hours; }, 0);
+  var fit = rows.length && lead.fit.key === rows[0].key ? lead.fit : { tools: '' };
+  return { rows: rows, own: own, lead: rows[0] || null, total: total, fit: fit };
+}
+
+/* ---------- your own tasks. Mirrors ownPrompt and friends in src/lib/timeAudit.ts. ---------- */
+
+var OWN_LIMIT = 3;
+var OWN_FIX = "This task isn't in our audit yet, so here is a general prompt to help you find where AI could save you time.";
+var OWN_STEPS = [
+  'Fill the gaps with how you do the task now and the tools you use.',
+  'Paste the prompt into your AI assistant and answer any questions it asks.',
+  'Try the simplest suggestion first, and check every result before relying on it.'
+];
+
+function cleanOwnName_(name) {
+  return String(name == null ? '' : name).replace(/[\[\]]/g, '').replace(/\s+/g, ' ').trim().slice(0, 80);
+}
+
+function ownPrompt_(o) {
+  var D = TIME_AUDIT_DATA;
+  var name = cleanOwnName_(o.name);
+  var time = D.bands[o.band] && D.bands[o.band].h ? ' I spend about ' + D.bands[o.band].label.toLowerCase() + ' a week on it.' : '';
+  return 'A task that takes up my time is: ' + softLower_(name) + '.' + time +
+    ' This is how I do it now: [how you do it now]. The tools I use for it are: [tools you use]. Suggest three practical ways to reduce the time it takes, starting with the simplest. For each one, explain which parts AI could do, which parts a person should still check, and what I need to get started. Ask me questions if anything is unclear.';
+}
+
+function ownRow_(o, i) {
+  var D = TIME_AUDIT_DATA;
+  return {
+    key: 'own-' + i, area: 'own', band: o.band, own: true,
+    hours: (D.bands[o.band] ? D.bands[o.band].h : 0) * D.weeks,
+    task: { t: cleanOwnName_(o.name), e: 'medium', r: 'medium', fix: OWN_FIX, steps: OWN_STEPS, prompt: ownPrompt_(o) }
+  };
 }
 
 function fmtHours_(n) {
@@ -316,8 +356,8 @@ function trackerCsv_(plan) {
   var D = TIME_AUDIT_DATA;
   var cell = function (v) { return '"' + String(v).replace(/"/g, '""') + '"'; };
   var lines = [['Task', 'Area', 'Your estimate per week', 'Weekly time now (hours)', 'Weekly time after the change (hours)', 'Notes'].map(cell).join(',')];
-  plan.rows.forEach(function (r) {
-    lines.push([r.task.t, D.areas[r.area].short, r.band ? D.bands[r.band].label : 'Not given', '', '', ''].map(cell).join(','));
+  plan.rows.concat(plan.own).forEach(function (r) {
+    lines.push([r.task.t, r.own ? 'Your own task' : D.areas[r.area].short, r.band ? D.bands[r.band].label : 'Not given', '', '', ''].map(cell).join(','));
   });
   // The byte order mark helps Excel open the file with the right characters.
   return '\ufeff' + lines.join('\r\n') + '\r\n';
@@ -348,9 +388,9 @@ function buildEmail_(lead, plan) {
   // Mirrors the page: a numbered label, the task with a tick, then information, then next steps.
   var section = function (row, index) {
     var t = row.task;
-    var isLead = index === 0;
+    var isLead = index === 0 && !row.own;
     var fit = isLead ? plan.fit : null;
-    var label = 'Recommendation ' + (index + 1) + (isLead ? ' · Start here' : '');
+    var label = row.own ? 'Your own task' : 'Recommendation ' + (index + 1) + (isLead ? ' · Start here' : '');
     html.push('<p style="margin:28px 0 4px;font-size:11px;font-weight:bold;letter-spacing:.12em;text-transform:uppercase;color:' + teal + '">' + num(index + 1) + esc_(label) + '</p>');
     html.push('<h2 style="margin:0 0 6px;font-size:' + (isLead ? 21 : 18) + 'px;line-height:1.3;color:' + navy + '"><span style="color:' + teal + '">&#10003;</span> ' + esc_(t.t) + '</h2>');
     text.push('', label.toUpperCase(), '✓ ' + t.t);
@@ -399,6 +439,10 @@ function buildEmail_(lead, plan) {
     steps.forEach(function (s, n) { text.push((n + 1) + '. ' + s); });
     if (t.r === 'high') text.push('A person should stay in charge here. Check every result before anything is sent.');
     text.push('', hint, '', prompt);
+    if (row.own) {
+      p('Want a tailored plan for this? <a href="' + CONFIG.CALL_URL + '" style="color:' + teal + ';font-weight:bold">Book a free discovery call</a>.', 'font-size:14px');
+      text.push('', 'Want a tailored plan for this? Book a free discovery call: ' + CONFIG.CALL_URL);
+    }
   };
 
   p('Hi ' + esc_(lead.name) + ',');
@@ -414,24 +458,31 @@ function buildEmail_(lead, plan) {
   }
 
   // Plan at a glance: every task in the plan, numbered to match the sections below.
-  h('Your plan covers ' + (plan.rows.length === 1 ? 'this task' : 'these ' + plan.rows.length + ' tasks'), 19);
+  var all = plan.rows.concat(plan.own);
+  h('Your plan covers ' + (all.length === 1 ? 'this task' : 'these ' + all.length + ' tasks'), 19);
   html.push('<ol style="margin:0 0 12px;padding-left:22px;font-size:15px;line-height:1.7;color:' + navy + '">' +
-    plan.rows.map(function (r, n) {
-      return '<li><strong>' + esc_(r.task.t) + '</strong>' + (n === 0 ? ' <span style="background:' + chip + ';border-radius:10px;padding:1px 8px;font-size:12px;font-weight:bold">Start here</span>' : '') + '</li>';
+    all.map(function (r, n) {
+      var tag = r.own ? 'Your own task' : n === 0 ? 'Start here' : '';
+      return '<li><strong>' + esc_(r.task.t) + '</strong>' + (tag ? ' <span style="background:' + chip + ';border-radius:10px;padding:1px 8px;font-size:12px;font-weight:bold">' + tag + '</span>' : '') + '</li>';
     }).join('') + '</ol>');
-  text.push('', 'YOUR PLAN COVERS ' + (plan.rows.length === 1 ? 'THIS TASK' : 'THESE ' + plan.rows.length + ' TASKS'));
-  plan.rows.forEach(function (r, n) { text.push((n + 1) + '. ' + r.task.t + (n === 0 ? ' (Start here)' : '')); });
+  text.push('', 'YOUR PLAN COVERS ' + (all.length === 1 ? 'THIS TASK' : 'THESE ' + all.length + ' TASKS'));
+  all.forEach(function (r, n) { text.push((n + 1) + '. ' + r.task.t + (r.own ? ' (Your own task)' : n === 0 ? ' (Start here)' : '')); });
   if (plan.rows.length > CONFIG.FOCUS_LIMIT) {
     var tip = 'Tip: you selected ' + plan.rows.length + ' tasks. Start with the first three, then work through the rest once those changes are in place.';
     p(esc_(tip), 'padding:8px 10px;border-radius:8px;background:#FBF7F1;font-size:14px');
     text.push('', tip);
   }
 
-  section(plan.lead, 0);
+  if (plan.lead) section(plan.lead, 0);
   if (plan.rows.length > 1) {
     h(plan.rows.length === 2 ? 'Another recommended improvement' : 'Other recommended improvements', 20);
     text.push('', plan.rows.length === 2 ? 'ANOTHER RECOMMENDED IMPROVEMENT' : 'OTHER RECOMMENDED IMPROVEMENTS');
     plan.rows.slice(1).forEach(function (row, n) { section(row, n + 1); });
+  }
+  if (plan.own.length) {
+    h(plan.own.length === 1 ? 'Your own task' : 'Your own tasks', 20);
+    text.push('', plan.own.length === 1 ? 'YOUR OWN TASK' : 'YOUR OWN TASKS');
+    plan.own.forEach(function (row, n) { section(row, plan.rows.length + n); });
   }
 
   h('Your reusable business context', 19);
@@ -443,10 +494,10 @@ function buildEmail_(lead, plan) {
   p('Record your weekly time now, then again after using the new approach for two weeks. A copy of this table is attached as a spreadsheet (time-tracker.csv), ready to open in Excel or Google Sheets.');
   html.push('<table style="border-collapse:collapse;width:100%;font-size:14px;color:' + navy + '"><tr>' +
     ['Task', 'Weekly time now', 'Weekly time after trying the change'].map(function (c) { return '<th style="text-align:left;border:1px solid ' + sand + ';padding:8px">' + c + '</th>'; }).join('') + '</tr>' +
-    plan.rows.map(function (r) { return '<tr><td style="border:1px solid ' + sand + ';padding:8px">' + esc_(r.task.t) + '</td><td style="border:1px solid ' + sand + ';padding:8px">&nbsp;</td><td style="border:1px solid ' + sand + ';padding:8px">&nbsp;</td></tr>'; }).join('') +
+    all.map(function (r) { return '<tr><td style="border:1px solid ' + sand + ';padding:8px">' + esc_(r.task.t) + '</td><td style="border:1px solid ' + sand + ';padding:8px">&nbsp;</td><td style="border:1px solid ' + sand + ';padding:8px">&nbsp;</td></tr>'; }).join('') +
     '</table>');
   text.push('', 'TRACK YOUR TIME BEFORE AND AFTER', 'A copy of this table is attached as a spreadsheet (time-tracker.csv).');
-  plan.rows.forEach(function (r) { text.push(r.task.t + ': weekly time now ____  weekly time after trying the change ____'); });
+  all.forEach(function (r) { text.push(r.task.t + ': weekly time now ____  weekly time after trying the change ____'); });
 
   h('Need help getting started?', 19);
   p('Book a free 30-minute discovery call to discuss your results, identify where to start and explore how IntegroAI can help.');
@@ -492,7 +543,7 @@ function logLead_(lead, plan, emailSent) {
     return r.task.t + ' (' + (r.band ? D.bands[r.band].label : 'no time given') + ')';
   }).join('; ');
   sheet.appendRow([new Date(), safeCell_(lead.name), safeCell_(lead.email), safeCell_(lead.business), safeCell_(lead.what), lead.tone,
-    Object.keys(areas).join(', '), safeCell_(tasks), Math.round(plan.total), safeCell_(plan.lead.task.t),
+    Object.keys(areas).join(', '), safeCell_(tasks), Math.round(plan.total), safeCell_(plan.lead ? plan.lead.task.t : plan.own[0].task.t + ' (own task)'),
     safeCell_(plan.fit.tools), '',
     emailSent ? 'Yes' : 'No', lead.tips ? 'Yes' : 'No', safeCell_(lead.website), safeCell_(lead.customers), safeCell_(lead.notes),
     safeCell_(lead.missingTask), lead.reminder && emailSent ? 'Yes' : 'No', '']);

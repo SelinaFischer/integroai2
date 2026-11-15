@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight, Check, ChevronDown, Copy, Info, Lightbulb, ListChecks, Loader2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Plus, X, ChevronDown, Copy, Info, Lightbulb, ListChecks, Loader2 } from "lucide-react";
 import { m } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -21,6 +21,10 @@ import {
   sendTimeAudit,
   stepsFor,
   blanksFor,
+  OWN_LIMIT,
+  cleanOwnName,
+  ownRow,
+  type Own,
   fillBlanks,
   type Blank,
   textFor,
@@ -409,7 +413,8 @@ const TimeAudit = () => {
   const [selected, setSelected] = useState<Record<string, string>>({});
   const [about, setAbout] = useState<About>({ name: "", what: "", tone: TONES[0].value, website: "", customers: "", notes: "" });
   const [fit, setFit] = useState<Record<string, Fit>>({});
-  const [missingTask, setMissingTask] = useState("");
+  const [own, setOwn] = useState<Own[]>([]);
+  const [ownDraft, setOwnDraft] = useState("");
   const [openKeys, setOpenKeys] = useState<Record<string, boolean>>({});
   const [workspace, setWorkspace] = useState("");
   const closeWorkspace = useCallback(() => setWorkspace(""), []);
@@ -427,7 +432,14 @@ const TimeAudit = () => {
   const lead = ranked[0];
   const others = ranked.slice(1, 3);
   const planRows = ranked.slice(0, 3);
-  const total = rows.reduce((s, r) => s + r.hours, 0);
+  const ownRows = useMemo(() => own.map((o, i) => ownRow(o, i)), [own]);
+  const total = rows.reduce((s, r) => s + r.hours, 0) + ownRows.reduce((s, r) => s + r.hours, 0);
+  const addOwn = () => {
+    const name = cleanOwnName(ownDraft);
+    if (!name || own.length >= OWN_LIMIT) return;
+    setOwn((o) => [...o, { name, band: "" }]);
+    setOwnDraft("");
+  };
   const missing = rows.filter((r) => !r.hours).length;
   const leadFit = lead ? fit[lead.key] || {} : {};
 
@@ -445,8 +457,8 @@ const TimeAudit = () => {
     });
 
   const showPlan = () => {
-    if (!rows.length) {
-      setFormMsg("Tick at least one task in step 2 so we can build your action plan.");
+    if (!rows.length && !own.length) {
+      setFormMsg("Tick at least one task, or add your own, in step 2 so we can build your action plan.");
       return;
     }
     setFormMsg("");
@@ -506,7 +518,8 @@ const TimeAudit = () => {
         notes: about.notes,
         tips: form.get("tips") === "on",
         reminder: form.get("reminder") === "on",
-        missing_task: missingTask,
+        missing_task: own.map((o) => o.name).join("; "),
+        own_tasks: own,
         company_website: form.get("company_website"),
         elapsed: Date.now() - pageLoadedAt.current,
         turnstile: turnstileToken,
@@ -604,7 +617,7 @@ const TimeAudit = () => {
     );
   };
 
-  const wsRow = planRows.find((r) => r.key === workspace);
+  const wsRow = [...planRows, ...ownRows].find((r) => r.key === workspace);
   const wsFit = wsRow ? fit[wsRow.key] || {} : {};
   const wsText = wsRow ? textFor(wsRow, about, wsFit) : "";
   const wsSplit = wsRow && !wsRow.template ? wsText.indexOf("\n\n") : -1;
@@ -746,23 +759,52 @@ const TimeAudit = () => {
               ))}
             </m.div>
 
-            {/* Wishlist: tasks we don't cover yet. Saved with the lead when they email their plan. */}
-            {areas.length > 0 && (
-              <div className="flex flex-col gap-1.5">
-                <label htmlFor="ta-missing" className="text-[15px] font-semibold text-brand-navy">
-                  Can't see a task that takes up your time? <span className="font-normal text-brand-slate">(optional)</span>
-                </label>
-                <input
-                  id="ta-missing"
-                  maxLength={200}
-                  value={missingTask}
-                  onChange={(e) => setMissingTask(e.target.value)}
-                  placeholder="e.g. Writing job adverts"
-                  className={inputClass}
-                />
-                <p className="text-[13px] text-brand-slate">Tell us and we'll consider adding it to the audit.</p>
+            {/* Your own tasks: an a la carte option for tasks we don't list. They get a general prompt, not a ranking. */}
+            <div className="flex flex-col gap-3 rounded-2xl border border-brand-sand bg-white px-5 py-4">
+              <div className="flex flex-col gap-1">
+                <h3 className="text-[17px] font-semibold text-brand-navy">Can't see your task? Add your own <span className="text-[14px] font-normal text-brand-slate">(optional)</span></h3>
+                <p className="text-[14px] text-brand-slate">Add up to {OWN_LIMIT} tasks. We include them in your total and give you a prompt to help with each one.</p>
               </div>
-            )}
+              {own.map((o, i) => (
+                <div key={i} className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t border-brand-sand pt-2.5">
+                  <span className="flex min-w-0 flex-1 basis-[220px] items-center gap-2 text-[15.5px] text-brand-navy">
+                    <Check className="h-4 w-4 flex-none text-brand-teal" strokeWidth={3} aria-hidden="true" />
+                    <span className="min-w-0 break-words">{o.name}</span>
+                  </span>
+                  <span className="flex items-center gap-2">
+                    <select
+                      aria-label={`Hours per week on ${o.name}`}
+                      value={o.band}
+                      onChange={(e) => setOwn((list) => list.map((x, j) => (j === i ? { ...x, band: e.target.value } : x)))}
+                      className={o.band ? selectClass : selectEmptyClass}
+                    >
+                      <option value="" disabled>Select hours per week</option>
+                      {BAND_KEYS.map((b) => <option key={b} value={b}>{D.bands[b].label}</option>)}
+                    </select>
+                    <button type="button" aria-label={`Remove ${o.name}`} onClick={() => setOwn((list) => list.filter((_, j) => j !== i))} className="rounded-full p-1.5 text-brand-slate hover:bg-brand-ivory hover:text-brand-navy">
+                      <X className="h-4 w-4" aria-hidden="true" />
+                    </button>
+                  </span>
+                </div>
+              ))}
+              {own.length < OWN_LIMIT && (
+                <div className="flex flex-wrap gap-2">
+                  <label htmlFor="ta-own" className="sr-only">Your task</label>
+                  <input
+                    id="ta-own"
+                    maxLength={80}
+                    value={ownDraft}
+                    onChange={(e) => setOwnDraft(e.target.value)}
+                    onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); addOwn(); } }}
+                    placeholder="e.g. Writing job adverts"
+                    className={`${inputClass} min-w-0 flex-1 basis-[220px]`}
+                  />
+                  <button type="button" onClick={addOwn} disabled={!cleanOwnName(ownDraft)} className="inline-flex items-center gap-1.5 rounded-xl border-2 border-brand-amber bg-white px-4 py-2.5 text-[15px] font-semibold text-brand-navy hover:bg-brand-chip disabled:cursor-not-allowed disabled:opacity-50">
+                    <Plus className="h-4 w-4" aria-hidden="true" /> Add task
+                  </button>
+                </div>
+              )}
+            </div>
 
             {/* Friendly nudge when many tasks are ticked. */}
             {Object.keys(selected).length > FOCUS_LIMIT && (
@@ -820,7 +862,7 @@ const TimeAudit = () => {
           </div></div>
         </section>
 
-        {shown && lead && (
+        {shown && (lead || ownRows.length > 0) && (
           <section id="your-plan" className="scroll-mt-20 bg-white py-14 sm:py-16">
             <div className="wrap"><div className="flex max-w-[860px] flex-col gap-6">
               <div className="flex flex-col gap-2">
@@ -858,7 +900,7 @@ const TimeAudit = () => {
               {/* Plan at a glance: ties each recommendation to a task the visitor ticked. */}
               <div className="flex flex-col gap-3 rounded-2xl border border-brand-sand p-5 sm:p-6">
                 <h3 className="text-[17px] font-semibold text-brand-navy">
-                  Your plan covers {planRows.length === 1 ? "this task" : `these ${planRows.length} tasks`}
+                  Your plan covers {planRows.length + ownRows.length === 1 ? "this task" : `these ${planRows.length + ownRows.length} tasks`}
                 </h3>
                 <ol className="flex flex-col gap-2">
                   {planRows.map((row, i) => (
@@ -868,6 +910,17 @@ const TimeAudit = () => {
                         <span className="pt-0.5">
                           <span className="font-semibold underline-offset-4 group-hover:underline">{row.t}</span>
                           {i === 0 && <span className="ml-2 rounded-full bg-brand-chip px-2 py-0.5 text-[12px] font-semibold text-brand-navy">Start here</span>}
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                  {ownRows.map((row, i) => (
+                    <li key={row.key}>
+                      <a href={`#rec-${row.key}`} className="group flex items-start gap-3 text-[15.5px] text-brand-navy">
+                        <span className="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-brand-navy text-[13px] font-bold text-white">{planRows.length + i + 1}</span>
+                        <span className="pt-0.5">
+                          <span className="font-semibold underline-offset-4 group-hover:underline">{row.t}</span>
+                          <span className="ml-2 rounded-full border border-brand-sand px-2 py-0.5 text-[12px] font-semibold text-brand-navy">Your own task</span>
                         </span>
                       </a>
                     </li>
@@ -887,6 +940,7 @@ const TimeAudit = () => {
                 )}
               </div>
 
+              {lead && (
               <m.div {...fadeUp} id={`rec-${lead.key}`} className="flex scroll-mt-28 flex-col gap-3 rounded-2xl bg-brand-ivory p-5 sm:p-6">
                 <span className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.14em] text-brand-teal">
                   <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-navy text-[12px] tracking-normal text-white">1</span>
@@ -902,6 +956,7 @@ const TimeAudit = () => {
                 </div>
                 {fixDetail(lead, true)}
               </m.div>
+              )}
 
               {others.length > 0 && (
                 <div className="flex flex-col">
@@ -926,6 +981,34 @@ const TimeAudit = () => {
                 </div>
               )}
 
+              {ownRows.length > 0 && (
+                <div className="flex flex-col">
+                  <h3 className="mb-1 text-[19px] font-semibold text-brand-navy">{ownRows.length === 1 ? "Your own task" : "Your own tasks"}</h3>
+                  {ownRows.map((row, index) => (
+                    <m.div key={row.key} {...fadeUpDelayed(index)} id={`rec-${row.key}`} className="flex scroll-mt-28 flex-col gap-2.5 border-t border-brand-sand py-5">
+                      <span className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.14em] text-brand-teal">
+                        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-navy text-[12px] tracking-normal text-white">{planRows.length + index + 1}</span>
+                        Your own task
+                      </span>
+                      <h4 className="flex items-start gap-2 text-[17.5px] font-semibold leading-snug text-brand-navy">
+                        <Check className="mt-0.5 h-5 w-5 flex-none text-brand-teal" strokeWidth={2.6} aria-label="Your task" />
+                        {row.t}
+                      </h4>
+                      {row.hours > 0 && <span className="text-[14px] font-semibold text-brand-teal">Estimated time spent: {fmtHours(row.hours)} hours per month</span>}
+                      <p className="text-[15px] leading-relaxed text-brand-slate">{row.fix}</p>
+                      <div className="flex flex-wrap items-center gap-x-5 gap-y-3 pt-1">
+                        <button type="button" onClick={() => setWorkspace(row.key)} className="btn-amber !py-2 text-[15px]">
+                          Fill in and copy the prompt <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                        </button>
+                        <a href={DISCOVERY_CALL_URL} target="_blank" rel="noopener noreferrer" className="text-[14.5px] font-semibold text-brand-teal underline underline-offset-4">
+                          Want a tailored plan for this? Book a free discovery call
+                        </a>
+                      </div>
+                    </m.div>
+                  ))}
+                </div>
+              )}
+
               <m.div {...fadeUp} className="flex flex-col gap-2 border-t border-brand-sand pt-6">
                 <h3 className="text-[19px] font-semibold text-brand-navy">Your reusable business context</h3>
                 <p className="text-[14.5px] text-brand-slate">Give your AI assistant a brief introduction to your business so it can provide more relevant responses. Copy the text below, review the details and reuse it for business tasks.</p>
@@ -933,10 +1016,10 @@ const TimeAudit = () => {
               </m.div>
 
               <m.div {...fadeUp} className="flex flex-col gap-3 rounded-2xl border border-brand-sand bg-brand-ivory p-5 sm:p-6">
-                <h3 className="text-[21px] font-semibold text-brand-navy">{rows.length > 3 ? "Get your complete action plan" : "Email your action plan"}</h3>
+                <h3 className="text-[21px] font-semibold text-brand-navy">{rows.length + own.length > 3 ? "Get your complete action plan" : "Email your action plan"}</h3>
                 <p className="text-[14.5px] text-brand-slate">
-                  {rows.length > 3
-                    ? `Receive recommendations, practical steps and AI prompts for all ${rows.length} selected tasks, plus a time tracker spreadsheet to compare your time before and after making changes.`
+                  {rows.length + own.length > 3
+                    ? `Receive recommendations, practical steps and AI prompts for all ${rows.length + own.length} selected tasks, plus a time tracker spreadsheet to compare your time before and after making changes.`
                     : "Receive your recommendations, practical steps and AI prompts by email, plus a time tracker spreadsheet to compare your time before and after making changes."}
                 </p>
                 {sentTo ? (
