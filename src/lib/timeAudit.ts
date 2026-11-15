@@ -166,6 +166,41 @@ export const houseText = (about: About) =>
     .filter(Boolean)
     .join("\n");
 
+/* ---------- your own tasks (a la carte). Mirrored in Code.gs. ---------- */
+
+/** A task the visitor adds that isn't in our list. It gets a general prompt and is never ranked. */
+export type Own = { name: string; band: string };
+export const OWN_LIMIT = 3;
+
+export const cleanOwnName = (name: string) => name.replace(/[[\]]/g, "").replace(/\s+/g, " ").trim().slice(0, 80);
+
+export const ownPrompt = (o: Own) => {
+  const time = D.bands[o.band]?.h ? ` I spend about ${D.bands[o.band].label.toLowerCase()} a week on it.` : "";
+  return `A task that takes up my time is: ${softLower(cleanOwnName(o.name))}.${time} This is how I do it now: [how you do it now]. The tools I use for it are: [tools you use]. Suggest three practical ways to reduce the time it takes, starting with the simplest. For each one, explain which parts AI could do, which parts a person should still check, and what I need to get started. Ask me questions if anything is unclear.`;
+};
+
+export const OWN_FIX = "This task isn't in our audit yet, so here is a general prompt to help you find where AI could save you time.";
+export const OWN_STEPS = [
+  "Fill the gaps with how you do the task now and the tools you use.",
+  "Paste the prompt into your AI assistant and answer any questions it asks.",
+  "Try the simplest suggestion first, and check every result before relying on it.",
+];
+
+/** Turns an own task into a plan row so it can use the same fill-in-and-copy screen. */
+export const ownRow = (o: Own, i: number): Row => ({
+  t: cleanOwnName(o.name),
+  e: "medium",
+  r: "medium",
+  fix: OWN_FIX,
+  steps: OWN_STEPS,
+  prompt: ownPrompt(o),
+  key: `own-${i}`,
+  area: "own",
+  band: o.band,
+  hours: (D.bands[o.band]?.h || 0) * D.weeks,
+  score: 0,
+});
+
 export type Blank = { token: string; label: string; long: boolean };
 
 // Template blanks worth filling once. Others, such as [name] or [amount], change every time, so they stay.
