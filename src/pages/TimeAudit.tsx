@@ -749,9 +749,9 @@ const TimeAudit = () => {
               </m.div>
 
               <div className="flex flex-col gap-3 rounded-2xl border border-brand-sand bg-brand-ivory p-5 sm:p-6">
-                <h3 className="text-[21px] font-semibold text-brand-navy">Need help implementing your plan?</h3>
+                <h3 className="text-[21px] font-semibold text-brand-navy">Need help getting started?</h3>
                 <p className="text-[16px] leading-relaxed text-brand-navy">
-                  An AI Made Simple session provides practical support to put your first recommendation into action. Choose a one-hour individual session or a 90-minute group session. No technical experience is needed.
+                  Book a free 30-minute discovery call to discuss your results, identify where to start and explore how IntegroAI can help.
                 </p>
                 <a
                   href={DISCOVERY_CALL_URL}
@@ -764,7 +764,10 @@ const TimeAudit = () => {
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
                 </a>
               </div>
-              <p className="text-[13.5px] text-brand-slate">This plan provides general suggestions based on your answers. Remove personal, client and confidential information before pasting content into an AI tool.</p>
+              <div className="flex flex-col gap-1 text-[13.5px] text-brand-slate">
+                <p>Your plan offers general suggestions based on your answers.</p>
+                <p>Before using an AI tool, remove any personal or confidential information from the content you share.</p>
+              </div>
             </div></div>
           </section>
         )}
