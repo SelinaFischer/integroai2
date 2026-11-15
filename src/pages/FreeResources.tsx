@@ -69,15 +69,15 @@ const resources = [
 const FreeResources = () => {
   const pageUrl = `https://integroai.tech${FREE_RESOURCES_PATH}`;
   const description =
-    "Free AI resources from IntegroAI Consulting, a UK-based AI consultancy: an AI time audit for small businesses, an AI cheat sheet, an AI visibility guide and checklist, an AI visibility check, and a 5-minute AI readiness assessment for founders and business owners.";
+    "Free AI tools and guides for UK small businesses from IntegroAI Consulting: an AI time audit, an AI cheat sheet, an AI visibility guide and checklist, an AI visibility check, and a 5-minute AI readiness assessment. No jargon, and no sign-up needed for the time audit.";
 
   return (
     <>
       <Helmet>
-        <title>Free AI Resources for Business Owners | IntegroAI Consulting</title>
+        <title>Free AI Tools and Guides for Small Businesses | IntegroAI Consulting</title>
         <meta name="description" content={description} />
         <link rel="canonical" href={pageUrl} />
-        <meta property="og:title" content="Free AI resources for business owners" />
+        <meta property="og:title" content="Free AI tools and guides for small businesses" />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={pageUrl} />
         <meta property="og:type" content="website" />
@@ -94,14 +94,14 @@ const FreeResources = () => {
             className="wrap flex flex-col items-start gap-6"
           >
             <h1 className="font-sans text-[11px] font-bold uppercase leading-relaxed tracking-[0.16em] text-brand-amber sm:text-xs [text-wrap:wrap]">
-              Free AI resources for business owners
+              Free AI tools and guides for small businesses
             </h1>
             <p className="text-[40px] font-semibold leading-[1.05] text-white sm:text-[52px] lg:text-[60px] font-heading tracking-[-0.005em] [font-variant-numeric:lining-nums] [text-wrap:balance]">
               <span className="block">Get clarity on AI.</span>
-              <span className="block italic text-brand-amber">Free tools that save you time.</span>
+              <span className="block italic text-brand-amber">Know where to start.</span>
             </p>
             <p className="max-w-[620px] text-[17px] leading-normal text-brand-mist sm:text-[19px]">
-              Free tools and guides built to give small businesses clarity on AI and more time back to spend on their customers.
+              Find ways to save time, check your AI readiness and help customers find your business online. Clear next steps, no jargon, no tech skills needed.
             </p>
           </m.div>
         </section>
