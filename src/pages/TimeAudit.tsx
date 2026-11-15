@@ -397,7 +397,7 @@ const TimeAudit = () => {
             </m.div>
 
             {/* Step 2 */}
-            <m.div {...fadeUpDelayed(1)} className="flex flex-col gap-3">
+            <m.div {...fadeUpDelayed(1)} id="ta-step2" className="flex scroll-mt-24 flex-col gap-3">
               <p className={stepLabel}>Step 2 of 3</p>
               <h2 className="text-[24px] font-semibold leading-tight text-brand-navy sm:text-[28px]">Tick the tasks that take up most of your time</h2>
               <p className="text-[15px] leading-relaxed text-brand-slate">
@@ -481,17 +481,22 @@ const TimeAudit = () => {
                     The tasks you ticked take up about <strong className="font-heading text-[26px]">{fmtHours(total)}</strong> hours a month of your own time today. This is time spent now, not a promised saving.
                   </p>
                 ) : (
-                  <p className="text-[15px] text-brand-slate">Add a time range to your tasks to see how much of your month they take up.</p>
+                  <div role="alert" className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-xl border-2 border-[#E2602B] bg-[#FFF1E8] px-4 py-3 text-[15px] font-semibold text-brand-navy">
+                    <span>⚠ You didn't add any times, so your plan is ranked by how quick and low-risk each change is, not by the time it takes you.</span>
+                    <button type="button" onClick={() => document.getElementById("ta-step2")?.scrollIntoView({ behavior: "smooth" })} className="font-semibold text-[#B4483C] underline underline-offset-4">Add your times</button>
+                  </div>
                 )}
                 {total / D.weeks > 45 && (
-                  <p className="text-[14px] font-medium text-[#B4483C]">
-                    That is over {Math.round(total / D.weeks)} hours a week, more than most working weeks. Check you haven't counted the same time under two tasks.
-                  </p>
+                  <div role="alert" className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-xl border-2 border-[#E2602B] bg-[#FFF1E8] px-4 py-3 text-[15px] font-semibold text-brand-navy">
+                    <span>⚠ That is over {Math.round(total / D.weeks)} hours a week, more than most working weeks. Check you haven't counted the same time under two tasks.</span>
+                    <button type="button" onClick={() => document.getElementById("ta-step2")?.scrollIntoView({ behavior: "smooth" })} className="font-semibold text-[#B4483C] underline underline-offset-4">Check your times</button>
+                  </div>
                 )}
                 {missing > 0 && total > 0 && (
-                  <p className="text-[14px] text-brand-slate">
-                    {missing} task{missing > 1 ? "s have" : " has"} no time range yet, so {missing > 1 ? "they are" : "it is"} not counted.
-                  </p>
+                  <div role="alert" className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-xl border-2 border-[#E2602B] bg-[#FFF1E8] px-4 py-3 text-[15px] font-semibold text-brand-navy">
+                    <span>⚠ {missing} task{missing > 1 ? "s have" : " has"} no time range yet, so {missing > 1 ? "they are" : "it is"} not counted and {missing > 1 ? "come" : "comes"} after your timed tasks.</span>
+                    <button type="button" onClick={() => document.getElementById("ta-step2")?.scrollIntoView({ behavior: "smooth" })} className="font-semibold text-[#B4483C] underline underline-offset-4">Add your times</button>
+                  </div>
                 )}
                 <details className="text-[14px] text-brand-slate">
                   <summary className="cursor-pointer font-semibold text-brand-teal">How we worked this out</summary>
