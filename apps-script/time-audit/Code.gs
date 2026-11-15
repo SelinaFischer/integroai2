@@ -18,6 +18,7 @@ var CONFIG = {
   DUPLICATE_SECONDS: 600,     // the same plan to the same address within 10 minutes is sent once
   // Your own addresses skip the per-address limit, so testing always works.
   ALLOW: ['info@integroai.tech', 'integroai.tech@gmail.com'],
+  FOCUS_LIMIT: 5,             // above this many tasks, the email suggests starting with the first three
   CALL_URL: 'https://calendly.com/integroai-tech/30min',
   REPLY_TO: 'info@integroai.tech',
   SENDER_NAME: 'Selina Fischer, IntegroAI Consulting',
@@ -404,6 +405,11 @@ function buildEmail_(lead, plan) {
     }).join('') + '</ol>');
   text.push('', 'YOUR PLAN COVERS ' + (plan.rows.length === 1 ? 'THIS TASK' : 'THESE ' + plan.rows.length + ' TASKS'));
   plan.rows.forEach(function (r, n) { text.push((n + 1) + '. ' + r.task.t + (n === 0 ? ' (Start here)' : '')); });
+  if (plan.rows.length > CONFIG.FOCUS_LIMIT) {
+    var tip = 'Tip: you selected ' + plan.rows.length + ' tasks. Start with the first three, then work through the rest once those changes are in place.';
+    p(esc_(tip), 'padding:8px 10px;border-radius:8px;background:#FBF7F1;font-size:14px');
+    text.push('', tip);
+  }
 
   section(plan.lead, 0);
   if (plan.rows.length > 1) {
