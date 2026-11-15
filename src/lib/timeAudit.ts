@@ -165,6 +165,34 @@ export const houseText = (about: About) =>
     .filter(Boolean)
     .join("\n");
 
+export type Blank = { token: string; label: string; long: boolean };
+
+// Template blanks worth filling once. Others, such as [name] or [amount], change every time, so they stay.
+const TEMPLATE_BLANKS = ["[Your name]", "[booking link]", "[review link]", "[payment details]", "[email address]"];
+// Sentences that tell the AI how to use brackets are instructions, not blanks to fill.
+const INSTRUCTION = /square brackets|placeholders|mark anything|leave every/i;
+
+/** The [square bracket] blanks a visitor can fill in on the page, in order and without repeats. */
+export const blanksFor = (text: string, isTemplate: boolean): Blank[] => {
+  const seen = new Set<string>();
+  const out: Blank[] = [];
+  for (const sentence of text.split(/(?<=[.!?])\s+(?![^[]*\])|\n+/)) {
+    if (INSTRUCTION.test(sentence)) continue;
+    for (const token of sentence.match(/\[[^\]]+\]/g) || []) {
+      if (seen.has(token) || token === "[Business name]") continue;
+      if (isTemplate && !TEMPLATE_BLANKS.includes(token)) continue;
+      seen.add(token);
+      const inner = token.slice(1, -1);
+      out.push({ token, label: inner.charAt(0).toUpperCase() + inner.slice(1), long: /^paste/i.test(inner) });
+    }
+  }
+  return out;
+};
+
+/** Puts the visitor's answers into the text wherever the matching blank appears. */
+export const fillBlanks = (text: string, values: Record<string, string>) =>
+  Object.entries(values).reduce((t, [token, v]) => (v.trim() ? t.split(token).join(v.trim()) : t), text);
+
 // Sends events to Google Tag Manager, like the visibility check.
 export const trackTimeAudit = (event: string) => {
   try {

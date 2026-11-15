@@ -51,7 +51,7 @@
             "Use the prompt to turn them into reply templates.",
             "Save each template in your email so it is ready to reuse."
           ],
-          "prompt": "Here are five emails I often receive, with personal details removed: [paste]. For each one, write a reusable reply template. Put anything that changes each time in [square brackets]. Keep each under 120 words and end with one clear next step. Do not invent prices, policies, deadlines or commitments. Use placeholders for missing information."
+          "prompt": "Here are five emails I often receive, with personal details removed: [paste your five emails]. For each one, write a reusable reply template. Put anything that changes each time in [square brackets]. Keep each under 120 words and end with one clear next step. Do not invent prices, policies, deadlines or commitments. Use placeholders for missing information."
         },
         {
           "t": "Booking and rescheduling meetings",
@@ -75,7 +75,7 @@
             "Use the prompt to find the simplest way to enter it once, starting with tools you already use.",
             "Try the simplest option on one week of real entries before changing anything else."
           ],
-          "prompt": "I copy this information manually: [what it is]. It starts in [tool] and I retype it into [tool] and [tool]. In plain English, explain the simplest ways to stop retyping it, starting with options inside tools I already use. Say clearly where you are not sure a feature exists."
+          "prompt": "I copy this information manually: [what the information is]. It starts in [where the information starts] and I retype it into [where you retype it]. In plain English, explain the simplest ways to stop retyping it, starting with options inside tools I already use. Say clearly where you are not sure a feature exists."
         },
         {
           "t": "Writing up meeting notes and actions",
@@ -87,7 +87,7 @@
             "Paste them into the prompt.",
             "Check the actions, then share the summary."
           ],
-          "prompt": "Turn these rough meeting notes into a three-line summary, the decisions made, and a list of actions with owner and date. Use only what is in the notes. Mark anything unclear with [check]. Notes: [paste notes]."
+          "prompt": "Turn these rough meeting notes into a three-line summary, the decisions made, and a list of actions with owner and date. Use only what is in the notes. Mark anything unclear with [check]. Notes: [paste your notes]."
         },
         {
           "t": "Finding saved files and documents",
@@ -99,7 +99,7 @@
             "Use the prompt to draft five to seven main folders and one file naming rule.",
             "Agree the structure with your team before moving any files."
           ],
-          "prompt": "Design a simple shared folder structure for my business. We have [number] people and mainly store [list]. No more than seven main folders. Include one file naming rule and an example file name for each folder."
+          "prompt": "Design a simple shared folder structure for my business. We have [number of people] people and mainly store [what you store]. No more than seven main folders. Include one file naming rule and an example file name for each folder."
         },
         {
           "t": "Repeatedly explaining the same tasks to your team",
@@ -111,7 +111,7 @@
             "Note the steps, or record yourself talking them through, while you complete the task.",
             "Use the prompt to turn your notes into a checklist."
           ],
-          "prompt": "Turn these rough notes on how we do [job] into a step-by-step checklist someone new could follow. Number the steps, flag any step that needs a decision, and mark anything unclear with [check]. Notes: [paste notes]."
+          "prompt": "Turn these rough notes on how we do [the task] into a step-by-step checklist someone new could follow. Number the steps, flag any step that needs a decision, and mark anything unclear with [check]. Notes: [paste your notes]."
         }
       ]
     },
@@ -129,7 +129,7 @@
             "Use the prompt to draft eight posts.",
             "Edit them to match your voice, then schedule them."
           ],
-          "prompt": "Customers often ask: [three questions]. Write eight short social posts, one idea each: four tips, two stories I can fill in and two common mistakes. No more than three hashtags each. Do not make up statistics."
+          "prompt": "Customers often ask: [three customer questions]. Write eight short social posts, one idea each: four tips, two stories I can fill in and two common mistakes. No more than three hashtags each. Do not make up statistics."
         },
         {
           "t": "Repurposing blogs, talks or videos for other channels",
@@ -141,7 +141,7 @@
             "Paste it into the prompt.",
             "Edit the drafts, then schedule them."
           ],
-          "prompt": "Here is something I created: [paste]. Turn it into three short social posts, each on a different point, one email introduction and five one-line quotes. Use only ideas from the original and keep my wording where you can. Do not add facts, examples or claims that are not in the original."
+          "prompt": "Here is something I created: [paste your content]. Turn it into three short social posts, each on a different point, one email introduction and five one-line quotes. Use only ideas from the original and keep my wording where you can. Do not add facts, examples or claims that are not in the original."
         },
         {
           "t": "Replying to reviews and comments",
@@ -153,7 +153,7 @@
             "Read the draft and adjust anything personal.",
             "Send it yourself. Never let a reply go out unchecked."
           ],
-          "prompt": "Draft a reply to this customer review: [paste]. Thank them, answer their point honestly, and offer one next step if they were unhappy. Under 80 words. Do not promise anything I have not confirmed."
+          "prompt": "Draft a reply to this customer review: [paste the review]. Thank them, answer their point honestly, and offer one next step if they were unhappy. Under 80 words. Do not promise anything I have not confirmed."
         },
         {
           "t": "Writing your email newsletter",
@@ -165,7 +165,7 @@
             "Collect notes between issues.",
             "Use the prompt to turn your notes into the issue."
           ],
-          "prompt": "Write my email newsletter from these notes: [paste]. Sections: [section 1], [section 2], [section 3]. Give three subject line options. Under 300 words. Do not add facts that are not in my notes."
+          "prompt": "Write my email newsletter from these notes: [paste your notes]. Sections: [section 1], [section 2], [section 3]. Give three subject line options. Under 300 words. Do not add facts that are not in my notes."
         },
         {
           "t": "Reviewing the results of posts and campaigns",
@@ -177,7 +177,7 @@
             "Paste them into the prompt.",
             "Focus on what performed best and reduce what performed worst."
           ],
-          "prompt": "Here are last month's post results: [paste]. Tell me the two posts that did best and the two that did worst, and what each pair has in common. Five bullet points at most. Use only the numbers I gave you."
+          "prompt": "Here are last month's post results: [paste your results]. Tell me the two posts that did best and the two that did worst, and what each pair has in common. Five bullet points at most. Use only the numbers I gave you."
         }
       ]
     },
@@ -195,7 +195,7 @@
             "Paste them into the prompt with the key points for the new email.",
             "Check the facts, then send."
           ],
-          "prompt": "Here are emails I have written that sound like me: [paste two or three]. Now write an email to [who] about [topic]. Key points: [list]. Match my tone and length. Do not add facts I have not given you."
+          "prompt": "Here are emails I have written that sound like me: [paste two or three of your emails]. Now write an email to [who it is for] about [topic]. Key points: [your key points]. Match my tone and length. Do not add facts I have not given you."
         },
         {
           "t": "Preparing proposals and quotes",
@@ -207,7 +207,7 @@
             "Paste it into the prompt with your new call notes.",
             "Check every price and date yourself before sending."
           ],
-          "prompt": "Here is the structure of a proposal I have used before, with client details removed: [paste]. Here are my notes from a call with a new client: [paste]. Draft a proposal in the same structure. Leave every price and date as [to confirm]. List any questions I should answer before sending."
+          "prompt": "Here is the structure of a proposal I have used before, with client details removed: [paste your past proposal]. Here are my notes from a call with a new client: [paste your call notes]. Draft a proposal in the same structure. Leave every price and date as [to confirm]. List any questions I should answer before sending."
         },
         {
           "t": "Preparing reports and client documents",
@@ -219,7 +219,7 @@
             "Paste your notes into the prompt.",
             "Review the draft and add your professional judgement."
           ],
-          "prompt": "Turn these notes into a client report with these headings: [list]. Notes: [paste]. Use only what is in my notes. Mark anything you are unsure about with [check]."
+          "prompt": "Turn these notes into a client report with these headings: [your headings]. Notes: [paste your notes]. Use only what is in my notes. Mark anything you are unsure about with [check]."
         },
         {
           "t": "Recreating standard letters and emails each time",
@@ -231,7 +231,7 @@
             "Use the prompt to turn each one into a template.",
             "Save them where you write your emails."
           ],
-          "prompt": "Turn this letter into a reusable template. Replace anything that changes each time with [square brackets]. Letter: [paste]."
+          "prompt": "Turn this letter into a reusable template. Replace anything that changes each time with [square brackets]. Letter: [paste the letter]."
         },
         {
           "t": "Proofreading and formatting documents before sending",
@@ -243,7 +243,7 @@
             "Paste the rules and your text into the prompt.",
             "Accept only the changes you agree with."
           ],
-          "prompt": "Proofread this text. My rules: [your rules]. Fix spelling, grammar and consistency only. Do not change my meaning. List your changes. Text: [paste]."
+          "prompt": "Proofread this text. My rules: [your rules]. Fix spelling, grammar and consistency only. Do not change my meaning. List your changes. Text: [paste your text]."
         }
       ]
     },
@@ -261,7 +261,7 @@
             "If the information comes from customers or colleagues, create a form with one question per column. Google Forms and Microsoft Forms can both save responses to a spreadsheet.",
             "If it comes from invoices, emails or another system, use the prompt to find the simplest alternative."
           ],
-          "prompt": "I enter data into this spreadsheet manually. The columns are: [list]. The data comes from: [source]. The tools I currently use are: [list].\n\nSuggest the simplest way to reduce manual data entry, starting with my existing tools. Explain the steps, highlight any assumptions and ask for any missing information you need."
+          "prompt": "I enter data into this spreadsheet manually. The columns are: [your column headings]. The data comes from: [where the data comes from]. The tools I currently use are: [tools you use].\n\nSuggest the simplest way to reduce manual data entry, starting with my existing tools. Explain the steps, highlight any assumptions and ask for any missing information you need."
         },
         {
           "t": "Compiling weekly or monthly reports",
@@ -273,7 +273,7 @@
             "Use the prompt to build a summary tab.",
             "Each month, add the new data and the summary will update."
           ],
-          "prompt": "Every month I build a report from data with these columns: [list]. The numbers I need are: [list]. Give me step-by-step instructions to build a summary tab in [Excel or Google Sheets] that updates when I paste in new data. Explain each formula in plain English."
+          "prompt": "Every month I build a report from data with these columns: [your column headings]. The numbers I need are: [the figures you need]. Give me step-by-step instructions to build a summary tab in [Excel or Google Sheets] that updates when I paste in new data. Explain each formula in plain English."
         },
         {
           "t": "Correcting inconsistent data and removing duplicates",
@@ -285,7 +285,7 @@
             "Use the prompt to get correction steps.",
             "Add dropdown lists or a form to keep future entries consistent."
           ],
-          "prompt": "Here is a sample of my messy data, with personal details removed: [paste]. Tell me what is inconsistent, then give step-by-step instructions to clean it in [Excel or Google Sheets]. Suggest one way to stop it happening again."
+          "prompt": "Here is a sample of my messy data, with personal details removed: [paste a sample of your data]. Tell me what is inconsistent, then give step-by-step instructions to clean it in [Excel or Google Sheets]. Suggest one way to stop it happening again."
         },
         {
           "t": "Analysing data to answer business questions",
@@ -297,7 +297,7 @@
             "Upload it to your AI assistant with the prompt.",
             "Check the answer against the sheet."
           ],
-          "prompt": "I have attached a spreadsheet of [what it is]. My question: [your question]. Show how you worked out each number. If the data cannot answer the question, say so."
+          "prompt": "I have attached a spreadsheet of [what the spreadsheet contains]. My question: [your question]. Show how you worked out each number. If the data cannot answer the question, say so."
         },
         {
           "t": "Checking spreadsheets against each other for errors",
@@ -309,7 +309,7 @@
             "Use the prompt to get the exact formula.",
             "Review every flagged row manually."
           ],
-          "prompt": "I have two sheets. Sheet A has these columns: [list]. Sheet B has: [list]. Both share [column]. Give me a formula for [Excel or Google Sheets] that flags rows that do not match, and explain it in plain English."
+          "prompt": "I have two sheets. Sheet A has these columns: [Sheet A columns]. Sheet B has: [Sheet B columns]. Both share [the shared column]. Give me a formula for [Excel or Google Sheets] that flags rows that do not match, and explain it in plain English."
         }
       ]
     },
@@ -381,7 +381,7 @@
             "Save a first reply that answers them and offers a next step, such as a call.",
             "Use the prompt for any enquiry that does not fit."
           ],
-          "prompt": "Here is a new enquiry, with personal details removed: [paste]. Draft a short first reply that thanks them, answers what they asked and offers a next step: [e.g. a call or booking link]. Under 100 words. If you need information you don't have, list it instead of guessing."
+          "prompt": "Here is a new enquiry, with personal details removed: [paste the enquiry]. Draft a short first reply that thanks them, answers what they asked and offers a next step: [your next step, e.g. a call or booking link]. Under 100 words. If you need information you don't have, list it instead of guessing."
         },
         {
           "t": "Following up quotes with no response",
