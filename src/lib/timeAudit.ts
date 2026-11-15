@@ -22,7 +22,7 @@ export type Area = { name: string; short: string; tasks: Task[] };
 export type BandKey = keyof typeof data.bands;
 export type Row = Task & { key: string; area: string; band: string; hours: number; score: number };
 export type Fit = { tool?: string; hard?: string };
-export type About = { name: string; what: string; tone: string; website?: string };
+export type About = { name: string; what: string; tone: string; website?: string; customers?: string; notes?: string };
 
 export const TIME_AUDIT = data as unknown as {
   bands: Record<string, { label: string; h: number }>;
@@ -44,9 +44,10 @@ export const TIME_AUDIT = data as unknown as {
 const D = TIME_AUDIT;
 
 export const TONES = [
-  { value: "warm and friendly", label: "Friendly" },
   { value: "professional and clear", label: "Professional" },
-  { value: "direct and to the point", label: "Direct" },
+  { value: "warm and friendly", label: "Friendly" },
+  { value: "relaxed and conversational", label: "Conversational" },
+  { value: "formal and polished", label: "Formal" },
 ];
 
 export const lowerFirst = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
@@ -113,10 +114,20 @@ export const websiteLine = (about: About) => {
   return url ? `Our website is ${url}. Use it to match how we write. If you can't open it, ask me to paste a short paragraph from it.` : "";
 };
 
+/** Trims a typed answer and drops its final full stop, so we can add our own. Mirrored in Code.gs. */
+const clause = (value?: string) => (value || "").trim().replace(/[.!\s]+$/, "");
+
 export const context = (about: About) => {
-  const intro = (about.name ? `I run ${about.name}.` : "I run a small business.") + (about.what ? ` What we do: ${about.what}.` : "");
-  const site = websiteLine(about);
-  return `${intro} Write in a ${about.tone} tone, in British English.${site ? " " + site : ""}`;
+  const what = clause(about.what), customers = clause(about.customers), notes = clause(about.notes);
+  const parts = [
+    about.name ? `I run ${about.name.trim()}.` : "I run a small business.",
+    what && `What we do: ${what}.`,
+    customers && `Our customers: ${customers}.`,
+    `Write in a ${about.tone} tone, in British English.`,
+    websiteLine(about),
+    notes && `Also keep in mind: ${notes}.`,
+  ];
+  return parts.filter(Boolean).join(" ");
 };
 
 export const textFor = (row: Row, about: About, fit?: Fit) => {
@@ -129,11 +140,11 @@ export const firstMove = (fit?: Fit) =>
   [fit?.tool && D.fitToolLine[fit.tool], fit?.hard && D.fitHardLine[fit.hard]].filter(Boolean).join(" ");
 
 export const houseText = (about: About) =>
-  `I run ${about.name || "[business name]"}. What we do: ${about.what || "[what you do, in one line]"}.\n` +
+  `I run ${about.name?.trim() || "[business name]"}. What we do: ${clause(about.what) || "[what your business does]"}.\n` +
+  `Our customers: ${clause(about.customers) || "[who your customers are]"}.\n` +
   (websiteLine(about) ? websiteLine(about) + "\n" : "") +
-  "Our customers are [who your customers are].\n" +
   `Write in a ${about.tone} tone, in British English with British spelling.\n` +
-  "Avoid these words and phrases: [words to avoid].\n" +
+  (clause(about.notes) ? `Also keep in mind: ${clause(about.notes)}.\n` : "Avoid these words and phrases: [words to avoid].\n") +
   "Keep it plain and specific. Do not make up facts, figures or quotes. If you need information you don't have, ask me.";
 
 // Sends events to Google Tag Manager, like the visibility check.

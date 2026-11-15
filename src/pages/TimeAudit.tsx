@@ -132,7 +132,7 @@ const TimeAudit = () => {
   const [pickerOpen, setPickerOpen] = useState(true);
   const [areas, setAreas] = useState<string[]>([]);
   const [selected, setSelected] = useState<Record<string, string>>({});
-  const [about, setAbout] = useState<About>({ name: "", what: "", tone: TONES[1].value, website: "" });
+  const [about, setAbout] = useState<About>({ name: "", what: "", tone: TONES[0].value, website: "", customers: "", notes: "" });
   const [fit, setFit] = useState<Record<string, Fit>>({});
   const [openKeys, setOpenKeys] = useState<Record<string, boolean>>({});
   const [shown, setShown] = useState(false);
@@ -194,6 +194,8 @@ const TimeAudit = () => {
         what: about.what,
         tone: about.tone,
         website: about.website,
+        customers: about.customers,
+        notes: about.notes,
         tips: form.get("tips") === "on",
         company_website: form.get("company_website"),
         selections: rows.map((r) => ({ key: r.key, band: r.band })),
@@ -438,25 +440,37 @@ const TimeAudit = () => {
             <m.div {...fadeUpDelayed(2)} className="flex flex-col gap-3">
               <p className={stepLabel}>Step 3 of 3</p>
               <h2 className="text-[24px] font-semibold leading-tight text-brand-navy sm:text-[28px]">Tailor your plan to your business</h2>
-              <div className="grid grid-cols-1 gap-4 rounded-2xl border border-brand-sand bg-white p-5 sm:grid-cols-[1fr_1.4fr_1fr]">
+              <p className="text-[16px] text-brand-slate">Add a few details to make your prompts more relevant to your business.</p>
+              <div className="grid grid-cols-1 gap-4 rounded-2xl border border-brand-sand bg-white p-5 sm:grid-cols-2">
                 <div className="min-w-0">
                   <label htmlFor="ta-name" className={labelClass}>Business name</label>
                   <input id="ta-name" maxLength={120} value={about.name} onChange={(e) => setAbout({ ...about, name: e.target.value })} placeholder="e.g. Bright Path Events" autoComplete="organization" className={inputClass} />
                 </div>
                 <div className="min-w-0">
-                  <label htmlFor="ta-what" className={labelClass}>What you do, in one line</label>
-                  <input id="ta-what" maxLength={160} value={about.what} onChange={(e) => setAbout({ ...about, what: e.target.value })} placeholder="e.g. corporate event planning" className={inputClass} />
+                  <label htmlFor="ta-what" className={labelClass}>What does your business do?</label>
+                  <input id="ta-what" maxLength={160} value={about.what} onChange={(e) => setAbout({ ...about, what: e.target.value })} placeholder="e.g. We organise weddings and corporate events." className={inputClass} />
                 </div>
                 <div className="min-w-0">
-                  <label htmlFor="ta-tone" className={labelClass}>Your tone</label>
+                  <label htmlFor="ta-customers" className={labelClass}>Who are your customers?</label>
+                  <input id="ta-customers" maxLength={160} value={about.customers} onChange={(e) => setAbout({ ...about, customers: e.target.value })} placeholder="e.g. Couples and small businesses in London." className={inputClass} />
+                </div>
+                <div className="min-w-0">
+                  <label htmlFor="ta-tone" className={labelClass}>Your tone of voice</label>
                   <select id="ta-tone" value={about.tone} onChange={(e) => setAbout({ ...about, tone: e.target.value })} className={`${inputClass} py-[13px]`}>
                     {TONES.map((t) => <option key={t.value} value={t.value}>{t.label}</option>)}
                   </select>
                 </div>
-                <div className="min-w-0 sm:col-span-3">
-                  <label htmlFor="ta-website" className={labelClass}>Your website <span className="font-normal text-brand-slate">(optional)</span></label>
+                <div className="min-w-0 sm:col-span-2">
+                  <label htmlFor="ta-notes" className={labelClass}>Anything else your AI should know? <span className="font-normal text-brand-slate">(optional)</span></label>
+                  <textarea id="ta-notes" rows={3} maxLength={400} value={about.notes} onChange={(e) => setAbout({ ...about, notes: e.target.value })} placeholder="Add your priorities, what makes your business different or any wording to avoid." className={`${inputClass} resize-y`} />
+                </div>
+                <div className="min-w-0 sm:col-span-2">
+                  <label htmlFor="ta-website" className={labelClass}>Website <span className="font-normal text-brand-slate">(optional)</span></label>
                   <input id="ta-website" type="url" inputMode="url" maxLength={200} value={about.website} onChange={(e) => setAbout({ ...about, website: e.target.value })} placeholder="e.g. brightpathevents.co.uk" autoComplete="url" className={inputClass} />
-                  <p className="mt-1.5 text-[13px] text-brand-slate">We don't read your website. We add the address to your prompts so your AI tool can match how it's written.</p>
+                  <p className="mt-1.5 text-[13px] text-brand-slate">We add it to your prompts so your AI tool can match your style. We don't read it ourselves.</p>
+                </div>
+                <div className="min-w-0 rounded-xl bg-brand-ivory px-4 py-3 text-[14px] text-brand-navy sm:col-span-2">
+                  <p><strong className="font-semibold">Have a business overview or brand guide?</strong> Attach it in your AI tool when you paste a prompt. No website or document? The details above are enough.</p>
                 </div>
               </div>
               <button type="button" onClick={showPlan} className="btn-amber btn-focus group mt-2 w-fit">

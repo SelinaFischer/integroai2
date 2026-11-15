@@ -17,7 +17,8 @@ var CONFIG = {
   CALL_URL: 'https://calendly.com/integroai-tech/30min',
   REPLY_TO: 'info@integroai.tech',
   SENDER_NAME: 'Selina Fischer, IntegroAI Consulting',
-  TONES: ['warm and friendly', 'professional and clear', 'direct and to the point']
+  // 'direct and to the point' is kept so older page versions still work.
+  TONES: ['professional and clear', 'warm and friendly', 'relaxed and conversational', 'formal and polished', 'direct and to the point']
 };
 
 function doGet() {
@@ -67,12 +68,14 @@ function cleanLead_(input) {
   if (!selections.length) return { error: 'tasks' };
 
   var fit = input.fit || {};
-  var tone = CONFIG.TONES.indexOf(String(input.tone)) > -1 ? String(input.tone) : CONFIG.TONES[1];
+  var tone = CONFIG.TONES.indexOf(String(input.tone)) > -1 ? String(input.tone) : CONFIG.TONES[0];
   return {
     name: name,
     email: email,
     business: text_(input.business, 120),
     what: text_(input.what, 160),
+    customers: text_(input.customers, 160),
+    notes: text_(input.notes, 400),
     tone: tone,
     website: cleanWebsite_(input.website),
     tips: input.tips === true,
@@ -154,10 +157,21 @@ function websiteLine_(lead) {
   return lead.website ? 'Our website is ' + lead.website + ". Use it to match how we write. If you can't open it, ask me to paste a short paragraph from it." : '';
 }
 
+// Mirrors clause() in src/lib/timeAudit.ts.
+function clause_(value) {
+  return String(value || '').trim().replace(/[.!\s]+$/, '');
+}
+
 function context_(lead) {
-  var intro = (lead.business ? 'I run ' + lead.business + '.' : 'I run a small business.') + (lead.what ? ' What we do: ' + lead.what + '.' : '');
-  var site = websiteLine_(lead);
-  return intro + ' Write in a ' + lead.tone + ' tone, in British English.' + (site ? ' ' + site : '');
+  var what = clause_(lead.what), customers = clause_(lead.customers), notes = clause_(lead.notes);
+  return [
+    lead.business ? 'I run ' + lead.business + '.' : 'I run a small business.',
+    what ? 'What we do: ' + what + '.' : '',
+    customers ? 'Our customers: ' + customers + '.' : '',
+    'Write in a ' + lead.tone + ' tone, in British English.',
+    websiteLine_(lead),
+    notes ? 'Also keep in mind: ' + notes + '.' : ''
+  ].filter(function (x) { return x; }).join(' ');
 }
 
 function promptFor_(row, lead, fit) {
@@ -174,11 +188,11 @@ function stepsFor_(row, fit) {
 }
 
 function houseText_(lead) {
-  return 'I run ' + (lead.business || '[business name]') + '. What we do: ' + (lead.what || '[what you do, in one line]') + '.\n' +
+  return 'I run ' + (lead.business || '[business name]') + '. What we do: ' + (clause_(lead.what) || '[what your business does]') + '.\n' +
+    'Our customers: ' + (clause_(lead.customers) || '[who your customers are]') + '.\n' +
     (lead.website ? websiteLine_(lead) + '\n' : '') +
-    'Our customers are [who your customers are].\n' +
     'Write in a ' + lead.tone + ' tone, in British English with British spelling.\n' +
-    'Avoid these words and phrases: [words to avoid].\n' +
+    (clause_(lead.notes) ? 'Also keep in mind: ' + clause_(lead.notes) + '.\n' : 'Avoid these words and phrases: [words to avoid].\n') +
     "Keep it plain and specific. Do not make up facts, figures or quotes. If you need information you don't have, ask me.";
 }
 
@@ -310,10 +324,13 @@ function logLead_(lead, plan, emailSent) {
   var sheet = spreadsheet.getSheetByName(CONFIG.SHEET_NAME) || spreadsheet.insertSheet(CONFIG.SHEET_NAME);
   if (sheet.getLastRow() === 0) {
     sheet.appendRow(['Date', 'First name', 'Email', 'Business', 'What they do', 'Tone', 'Areas', 'Tasks and time a week',
-      'Hours a month', 'Start here', 'Uses for it', 'What makes it hard', 'Plan emailed', 'Wants tips', 'Website']);
+      'Hours a month', 'Start here', 'Uses for it', 'What makes it hard', 'Plan emailed', 'Wants tips', 'Website', 'Customers', 'Anything else']);
     sheet.setFrozenRows(1);
-  } else if (sheet.getRange(1, 15).getValue() === '') {
-    sheet.getRange(1, 15).setValue('Website'); // added after launch
+  } else {
+    // Columns added after launch.
+    [[15, 'Website'], [16, 'Customers'], [17, 'Anything else']].forEach(function (c) {
+      if (sheet.getRange(1, c[0]).getValue() === '') sheet.getRange(1, c[0]).setValue(c[1]);
+    });
   }
   var areas = {};
   plan.rows.forEach(function (r) { areas[D.areas[r.area].short] = true; });
@@ -323,7 +340,7 @@ function logLead_(lead, plan, emailSent) {
   sheet.appendRow([new Date(), safeCell_(lead.name), safeCell_(lead.email), safeCell_(lead.business), safeCell_(lead.what), lead.tone,
     Object.keys(areas).join(', '), safeCell_(tasks), Math.round(plan.total), safeCell_(plan.lead.task.t),
     plan.fit.tool ? D.fitTool[plan.fit.tool] : '', plan.fit.hard ? D.fitHard[plan.fit.hard] : '',
-    emailSent ? 'Yes' : 'No', lead.tips ? 'Yes' : 'No', safeCell_(lead.website)]);
+    emailSent ? 'Yes' : 'No', lead.tips ? 'Yes' : 'No', safeCell_(lead.website), safeCell_(lead.customers), safeCell_(lead.notes)]);
 }
 
 // Stops a cell from being read as a formula.
