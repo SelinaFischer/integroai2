@@ -21,8 +21,9 @@ var CONFIG = {
   CALL_URL: 'https://calendly.com/integroai-tech/30min',
   REPLY_TO: 'info@integroai.tech',
   SENDER_NAME: 'Selina Fischer, IntegroAI Consulting',
-  // 'direct and to the point' is kept so older page versions still work.
-  TONES: ['professional and clear', 'warm and friendly', 'relaxed and conversational', 'formal and polished', 'direct and to the point']
+  // Older tone values are kept so earlier page versions still work.
+  TONES: ['clear, professional', 'warm, friendly', 'relaxed, conversational', 'formal, polished',
+    'professional and clear', 'warm and friendly', 'relaxed and conversational', 'formal and polished', 'direct and to the point']
 };
 
 function doGet() {
@@ -209,15 +210,36 @@ function clause_(value) {
   return String(value || '').trim().replace(/[.!\s]+$/, '');
 }
 
+// The helpers below mirror softLower, capital, sentence, whatSentence and customerSentence in src/lib/timeAudit.ts.
+function softLower_(s) {
+  return s.length > 1 && s[1] === s[1].toLowerCase() ? s.charAt(0).toLowerCase() + s.slice(1) : s;
+}
+function capital_(s) {
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+function sentence_(value) {
+  var s = String(value || '').trim();
+  return s ? capital_(/[.!?]$/.test(s) ? s : s + '.') : '';
+}
+function whatSentence_(what) {
+  var w = clause_(what);
+  if (!w) return '';
+  return /^(we|i|our)\b/i.test(w) ? capital_(w) + '.' : 'We provide ' + softLower_(w) + '.';
+}
+function customerSentence_(customers) {
+  var c = clause_(customers);
+  if (!c) return '';
+  return /^(our|we)\b/i.test(c) ? capital_(c) + '.' : 'Our customers are ' + softLower_(c) + '.';
+}
+
 function context_(lead) {
-  var what = clause_(lead.what), customers = clause_(lead.customers), notes = clause_(lead.notes);
   return [
     lead.business ? 'I run ' + lead.business + '.' : 'I run a small business.',
-    what ? 'What we do: ' + what + '.' : '',
-    customers ? 'Our customers: ' + customers + '.' : '',
-    'Write in a ' + lead.tone + ' tone, in British English.',
+    whatSentence_(lead.what),
+    customerSentence_(lead.customers),
+    'Use a ' + lead.tone + ' tone and British English.',
     websiteLine_(lead),
-    notes ? 'Also keep in mind: ' + notes + '.' : ''
+    sentence_(lead.notes)
   ].filter(function (x) { return x; }).join(' ');
 }
 
@@ -235,12 +257,15 @@ function stepsFor_(row, fit) {
 }
 
 function houseText_(lead) {
-  return 'I run ' + (lead.business || '[business name]') + '. What we do: ' + (clause_(lead.what) || '[what your business does]') + '.\n' +
-    'Our customers: ' + (clause_(lead.customers) || '[who your customers are]') + '.\n' +
-    (lead.website ? websiteLine_(lead) + '\n' : '') +
-    'Write in a ' + lead.tone + ' tone, in British English with British spelling.\n' +
-    (clause_(lead.notes) ? 'Also keep in mind: ' + clause_(lead.notes) + '.\n' : 'Avoid these words and phrases: [words to avoid].\n') +
-    "Keep it plain and specific. Do not make up facts, figures or quotes. If you need information you don't have, ask me.";
+  return [
+    'I run ' + (lead.business || '[business name]') + '.',
+    whatSentence_(lead.what) || 'We provide [what your business does].',
+    customerSentence_(lead.customers) || 'Our customers are [who your customers are].',
+    'Use a ' + lead.tone + ' tone and British English, with British spelling.',
+    websiteLine_(lead),
+    sentence_(lead.notes) || 'Avoid these words and phrases: [words to avoid].',
+    'Keep the language clear and specific. Do not invent facts, figures or quotes. If you need information you do not have, ask me.'
+  ].filter(function (x) { return x; }).join('\n');
 }
 
 /* ---------- email ---------- */
@@ -278,7 +303,7 @@ function buildEmail_(lead, plan) {
     var fit = isLead ? plan.fit : null;
     h((isLead ? 'Start here: ' : '') + t.t, isLead ? 21 : 18);
     text.push('', (isLead ? 'START HERE: ' : '') + t.t.toUpperCase());
-    var said = row.hours ? 'You said this takes up ' + D.bands[row.band].label.toLowerCase() + ' a week (about ' + fmtHours_(row.hours) + ' hours a month).' : 'You ticked this as one of the tasks that take up most of your time.';
+    var said = row.hours ? 'You estimated ' + D.bands[row.band].label.toLowerCase() + ' a week on this task. Estimated time spent: ' + fmtHours_(row.hours) + ' hours per month.' : 'You selected this as one of your most time-consuming tasks.';
     p(esc_(said), 'color:' + slate);
     p('<strong>' + esc_(t.fix) + '</strong>');
     text.push(said, t.fix);
@@ -289,27 +314,27 @@ function buildEmail_(lead, plan) {
     }
     if (fit && (fit.tool || fit.hard)) {
       var move = [D.fitToolLine[fit.tool], D.fitHardLine[fit.hard]].filter(function (x) { return x; }).join(' ');
-      p('<strong>Your first move:</strong> ' + esc_(move));
-      text.push('Your first move: ' + move);
+      p('<strong>Recommended first step:</strong> ' + esc_(move));
+      text.push('Recommended first step: ' + move);
     }
     var steps = stepsFor_(row, fit);
     html.push('<ol style="margin:0 0 12px;padding-left:20px;font-size:15px;line-height:1.55;color:' + navy + '">' +
       steps.map(function (s) { return '<li>' + esc_(s) + '</li>'; }).join('') + '</ol>');
     steps.forEach(function (s, i) { text.push((i + 1) + '. ' + s); });
     if (t.r === 'high') {
-      p('Keep a person in charge here. Always check before anything goes out.', 'font-weight:bold');
-      text.push('Keep a person in charge here. Always check before anything goes out.');
+      p('A person should stay in charge here. Check every result before anything is sent.', 'font-weight:bold');
+      text.push('A person should stay in charge here. Check every result before anything is sent.');
     }
     if (D.watch[row.key]) {
-      p('<strong>Watch out:</strong> ' + esc_(D.watch[row.key]));
-      text.push('Watch out: ' + D.watch[row.key]);
+      p('<strong>Before you begin:</strong> ' + esc_(D.watch[row.key]));
+      text.push('Before you begin: ' + D.watch[row.key]);
     }
     var prompt = promptFor_(row, lead, fit);
-    box(t.template ? 'Ready-to-use template' : 'Copy into your AI assistant', prompt);
+    box(t.template ? 'Ready-to-use template' : 'Prompt for your AI assistant', prompt);
     text.push('', prompt);
     if (isLead) {
-      p('<strong>How to tell it helped:</strong> note how long this task takes this week. Try the fix for two weeks, then compare. Change one thing at a time, so you know what made the difference.');
-      text.push('How to tell it helped: note how long this task takes this week. Try the fix for two weeks, then compare. Change one thing at a time, so you know what made the difference.');
+      p('<strong>How to measure the improvement:</strong> record how long this task takes now. After using the new approach for two weeks, compare the time spent. Change one thing at a time so you can see what made the difference.');
+      text.push('How to measure the improvement: record how long this task takes now. After using the new approach for two weeks, compare the time spent. Change one thing at a time so you can see what made the difference.');
     }
   };
 
@@ -324,18 +349,18 @@ function buildEmail_(lead, plan) {
 
   section(plan.lead, true);
   if (plan.rows.length > 1) {
-    h('The rest of your tasks', 20);
-    text.push('', 'THE REST OF YOUR TASKS');
+    h('Other recommended improvements', 20);
+    text.push('', 'OTHER RECOMMENDED IMPROVEMENTS');
     plan.rows.slice(1).forEach(function (row) { section(row, false); });
   }
 
-  h('Your reusable business prompt', 19);
-  p('Paste this at the start of any AI chat, so the answers sound like your business. Fill in the parts in brackets once and keep it.');
-  box('Use it every time', houseText_(lead));
-  text.push('', 'YOUR REUSABLE BUSINESS PROMPT', houseText_(lead));
+  h('Your reusable business context', 19);
+  p('Give your AI assistant a brief introduction to your business so it can provide more relevant responses. Copy the text below, review the details and reuse it for business tasks.');
+  box('Business context', houseText_(lead));
+  text.push('', 'YOUR REUSABLE BUSINESS CONTEXT', houseText_(lead));
 
-  h('Record your time before and after', 19);
-  p('Fill in your weekly time now, then again after trying the change for two weeks.');
+  h('Track your time before and after', 19);
+  p('Record your weekly time now, then again after using the new approach for two weeks.');
   html.push('<table style="border-collapse:collapse;width:100%;font-size:14px;color:' + navy + '"><tr>' +
     ['Task', 'Weekly time now', 'Weekly time after trying the change'].map(function (c) { return '<th style="text-align:left;border:1px solid ' + sand + ';padding:8px">' + c + '</th>'; }).join('') + '</tr>' +
     plan.rows.map(function (r) { return '<tr><td style="border:1px solid ' + sand + ';padding:8px">' + esc_(r.task.t) + '</td><td style="border:1px solid ' + sand + ';padding:8px">&nbsp;</td><td style="border:1px solid ' + sand + ';padding:8px">&nbsp;</td></tr>'; }).join('') +
@@ -343,10 +368,10 @@ function buildEmail_(lead, plan) {
   text.push('', 'RECORD YOUR TIME BEFORE AND AFTER');
   plan.rows.forEach(function (r) { text.push(r.task.t + ': weekly time now ____  weekly time after trying the change ____'); });
 
-  h('Want help putting your plan into practice?', 19);
-  p('Book a free 30-minute discovery call to discuss your biggest time drain and how to tackle it.');
+  h('Need help implementing your plan?', 19);
+  p('An AI Made Simple session provides practical support to put your first recommendation into action. Choose a one-hour individual session or a 90-minute group session. No technical experience is needed.');
   html.push('<p style="margin:0 0 20px"><a href="' + CONFIG.CALL_URL + '" style="display:inline-block;background:#FF9900;color:' + navy + ';font-weight:bold;text-decoration:none;padding:12px 20px;border-radius:8px">Book a free discovery call</a></p>');
-  text.push('', 'Want help putting your plan into practice?', 'Book a free 30-minute discovery call to discuss your biggest time drain and how to tackle it: ' + CONFIG.CALL_URL);
+  text.push('', 'Need help implementing your plan?', 'An AI Made Simple session provides practical support to put your first recommendation into action. Choose a one-hour individual session or a 90-minute group session. No technical experience is needed.', 'Book a free discovery call: ' + CONFIG.CALL_URL);
   var disclaimer = 'This plan provides general suggestions based on your answers. Remove personal, client and confidential business information before pasting content into an AI tool, and check each result before using it.';
   p(disclaimer, 'font-size:13px;color:' + slate);
   p('Selina Fischer<br>IntegroAI Consulting<br><a href="https://integroai.tech" style="color:' + teal + '">integroai.tech</a>');
