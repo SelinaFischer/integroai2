@@ -173,6 +173,7 @@ const TimeAudit = () => {
   const ranked = useMemo(() => rankRows(rows), [rows]);
   const lead = ranked[0];
   const others = ranked.slice(1, 3);
+  const planRows = ranked.slice(0, 3);
   const total = rows.reduce((s, r) => s + r.hours, 0);
   const missing = rows.filter((r) => !r.hours).length;
   const leadFit = lead ? fit[lead.key] || {} : {};
@@ -603,9 +604,41 @@ const TimeAudit = () => {
                 )}
               </div>
 
-              <m.div {...fadeUp} className="flex flex-col gap-3 rounded-2xl bg-brand-ivory p-5 sm:p-6">
-                <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-brand-teal">Start here</span>
-                <h3 className="text-[21px] font-semibold leading-snug text-brand-navy">{lead.t}</h3>
+              {/* Plan at a glance: ties each recommendation to a task the visitor ticked. */}
+              <div className="flex flex-col gap-3 rounded-2xl border border-brand-sand p-5 sm:p-6">
+                <h3 className="text-[17px] font-semibold text-brand-navy">
+                  Your plan covers {planRows.length === 1 ? "this task" : `these ${planRows.length} tasks`}
+                </h3>
+                <ol className="flex flex-col gap-2">
+                  {planRows.map((row, i) => (
+                    <li key={row.key}>
+                      <a href={`#rec-${row.key}`} className="group flex items-start gap-3 text-[15.5px] text-brand-navy">
+                        <span className="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-brand-navy text-[13px] font-bold text-white">{i + 1}</span>
+                        <span className="pt-0.5">
+                          <span className="font-semibold underline-offset-4 group-hover:underline">{row.t}</span>
+                          {i === 0 && <span className="ml-2 rounded-full bg-brand-chip px-2 py-0.5 text-[12px] font-semibold text-brand-navy">Start here</span>}
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+                {ranked.length > planRows.length && (
+                  <p className="text-[14px] leading-relaxed text-brand-slate">
+                    <span className="font-semibold text-brand-navy">Also in your emailed plan ({ranked.length - planRows.length} more):</span>{" "}
+                    {ranked.slice(planRows.length).map((r) => r.t).join("; ")}.
+                  </p>
+                )}
+              </div>
+
+              <m.div {...fadeUp} id={`rec-${lead.key}`} className="flex scroll-mt-28 flex-col gap-3 rounded-2xl bg-brand-ivory p-5 sm:p-6">
+                <span className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.14em] text-brand-teal">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-navy text-[12px] tracking-normal text-white">1</span>
+                  Recommendation 1 · Start here
+                </span>
+                <h3 className="flex items-start gap-2 text-[21px] font-semibold leading-snug text-brand-navy">
+                  <Check className="mt-1 h-5 w-5 flex-none text-brand-teal" strokeWidth={2.6} aria-label="Your selected task" />
+                  {lead.t}
+                </h3>
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="rounded-full border border-brand-sand bg-white px-2.5 py-0.5 text-[12.5px] text-brand-navy">{D.areas[lead.area].short}</span>
                   {lead.hours > 0 && <span className="text-[14px] font-semibold text-brand-teal">Estimated time spent: {fmtHours(lead.hours)} hours per month</span>}
@@ -617,8 +650,15 @@ const TimeAudit = () => {
                 <div className="flex flex-col">
                   <h3 className="mb-1 text-[19px] font-semibold text-brand-navy">{others.length === 1 ? "Another recommended improvement" : "Other recommended improvements"}</h3>
                   {others.map((row, index) => (
-                    <m.div key={row.key} {...fadeUpDelayed(index)} className="flex flex-col gap-2.5 border-t border-brand-sand py-5">
-                      <h4 className="text-[17.5px] font-semibold leading-snug text-brand-navy">{row.t}</h4>
+                    <m.div key={row.key} {...fadeUpDelayed(index)} id={`rec-${row.key}`} className="flex scroll-mt-28 flex-col gap-2.5 border-t border-brand-sand py-5">
+                      <span className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.14em] text-brand-teal">
+                        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-navy text-[12px] tracking-normal text-white">{index + 2}</span>
+                        Recommendation {index + 2}
+                      </span>
+                      <h4 className="flex items-start gap-2 text-[17.5px] font-semibold leading-snug text-brand-navy">
+                        <Check className="mt-0.5 h-5 w-5 flex-none text-brand-teal" strokeWidth={2.6} aria-label="Your selected task" />
+                        {row.t}
+                      </h4>
                       <div className="flex flex-wrap items-center gap-2">
                         <span className="rounded-full border border-brand-sand bg-brand-ivory px-2.5 py-0.5 text-[12.5px] text-brand-navy">{D.areas[row.area].short}</span>
                         {row.hours > 0 && <span className="text-[14px] font-semibold text-brand-teal">Estimated time spent: {fmtHours(row.hours)} hours per month</span>}
