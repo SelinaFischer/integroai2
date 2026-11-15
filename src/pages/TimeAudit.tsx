@@ -13,7 +13,6 @@ import {
   TURNSTILE_SITE_KEY,
   TONES,
   buildRows,
-  firstMove,
   fmtHours,
   houseText,
   lowerFirst,
@@ -311,32 +310,20 @@ const TimeAudit = () => {
             ))}
           </div>
         )}
-        {isLead && (
-          <div className="flex flex-col gap-2 rounded-xl border border-brand-sand bg-white p-3">
-            <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-brand-slate">Tailor this recommendation</span>
-            <div className="flex flex-wrap gap-2">
-              {(["tool", "hard"] as const).map((kind) => {
-                const options = kind === "tool" ? D.fitTool : D.fitHard;
-                return (
-                  <select
-                    key={kind}
-                    aria-label={options[""]}
-                    value={rowFit?.[kind] || ""}
-                    onChange={(e) => setFit((f) => ({ ...f, [row.key]: { ...f[row.key], [kind]: e.target.value } }))}
-                    className={`${selectClass} min-w-0 flex-1 basis-[220px]`}
-                  >
-                    {Object.entries(options).map(([v, l]) => (
-                      <option key={v} value={v} disabled={v === ""}>{l}</option>
-                    ))}
-                  </select>
-                );
-              })}
-            </div>
-            {firstMove(rowFit) && (
-              <p className="rounded-r-lg border-l-[3px] border-brand-amber bg-brand-chip/60 px-3 py-2 text-[14.5px] text-brand-navy">
-                <strong>Recommended first step:</strong> {firstMove(rowFit)}
-              </p>
-            )}
+        {isLead && !row.template && (
+          <div className="flex flex-col gap-1.5 rounded-xl border border-brand-sand bg-white p-3">
+            <label htmlFor="ta-tools" className="text-[14px] font-semibold text-brand-navy">
+              Which tools do you use for this task? <span className="font-normal text-brand-slate">(optional)</span>
+            </label>
+            <input
+              id="ta-tools"
+              maxLength={120}
+              value={rowFit?.tools || ""}
+              onChange={(e) => setFit((f) => ({ ...f, [row.key]: { tools: e.target.value } }))}
+              placeholder="e.g. Microsoft Teams, Outlook, Google Sheets"
+              className={inputClass}
+            />
+            <p className="text-[13px] text-brand-slate">We add these to your prompt so the suggestions fit the tools you already use.</p>
           </div>
         )}
         {isLead && (
@@ -363,7 +350,7 @@ const TimeAudit = () => {
         {open && (
           <div className="flex flex-col gap-3">
             <ol className="list-decimal space-y-1 pl-5 text-[15px] leading-relaxed text-brand-navy">
-              {stepsFor(row, rowFit).map((s) => <li key={s}>{s}</li>)}
+              {stepsFor(row).map((s) => <li key={s}>{s}</li>)}
             </ol>
             {careLine(row)}
             <CopyBox
