@@ -18,6 +18,7 @@ var CONFIG = {
   DUPLICATE_SECONDS: 600,     // the same plan to the same address within 10 minutes is sent once
   // Your own addresses skip the per-address limit, so testing always works.
   ALLOW: ['info@integroai.tech', 'integroai.tech@gmail.com'],
+  REMINDER_DAYS: 14,          // the optional reminder is sent this many days after the plan
   FOCUS_LIMIT: 5,             // above this many tasks, the email suggests starting with the first three
   CALL_URL: 'https://calendly.com/integroai-tech/30min',
   REPLY_TO: 'info@integroai.tech',
@@ -95,6 +96,8 @@ function cleanLead_(input) {
     tone: tone,
     website: cleanWebsite_(input.website),
     tips: input.tips === true,
+    reminder: input.reminder === true,
+    missingTask: text_(input.missing_task, 200),
     selections: selections,
     fit: {
       key: String(fit.key || ''),
@@ -475,11 +478,11 @@ function logLead_(lead, plan, emailSent) {
   var sheet = spreadsheet.getSheetByName(CONFIG.SHEET_NAME) || spreadsheet.insertSheet(CONFIG.SHEET_NAME);
   if (sheet.getLastRow() === 0) {
     sheet.appendRow(['Date', 'First name', 'Email', 'Business', 'What they do', 'Tone', 'Areas', 'Tasks and time a week',
-      'Hours a month', 'Start here', 'Uses for it', 'What makes it hard', 'Plan emailed', 'Wants tips', 'Website', 'Customers', 'Anything else']);
+      'Hours a month', 'Start here', 'Uses for it', 'What makes it hard', 'Plan emailed', 'Wants tips', 'Website', 'Customers', 'Anything else', 'Missing task', 'Reminder wanted', 'Reminder sent']);
     sheet.setFrozenRows(1);
   } else {
     // Columns added after launch.
-    [[15, 'Website'], [16, 'Customers'], [17, 'Anything else']].forEach(function (c) {
+    [[15, 'Website'], [16, 'Customers'], [17, 'Anything else'], [18, 'Missing task'], [19, 'Reminder wanted'], [20, 'Reminder sent']].forEach(function (c) {
       if (sheet.getRange(1, c[0]).getValue() === '') sheet.getRange(1, c[0]).setValue(c[1]);
     });
   }
@@ -491,7 +494,8 @@ function logLead_(lead, plan, emailSent) {
   sheet.appendRow([new Date(), safeCell_(lead.name), safeCell_(lead.email), safeCell_(lead.business), safeCell_(lead.what), lead.tone,
     Object.keys(areas).join(', '), safeCell_(tasks), Math.round(plan.total), safeCell_(plan.lead.task.t),
     safeCell_(plan.fit.tools), '',
-    emailSent ? 'Yes' : 'No', lead.tips ? 'Yes' : 'No', safeCell_(lead.website), safeCell_(lead.customers), safeCell_(lead.notes)]);
+    emailSent ? 'Yes' : 'No', lead.tips ? 'Yes' : 'No', safeCell_(lead.website), safeCell_(lead.customers), safeCell_(lead.notes),
+    safeCell_(lead.missingTask), lead.reminder && emailSent ? 'Yes' : 'No', '']);
 }
 
 // Stops a cell from being read as a formula.
@@ -502,4 +506,53 @@ function safeCell_(value) {
 
 function jsonOut_(data) {
   return ContentService.createTextOutput(JSON.stringify(data)).setMimeType(ContentService.MimeType.JSON);
+}
+
+/* ---------- two-week reminder ---------- */
+
+// Run once by hand (choose setUpReminders, then Run) to check for due reminders every morning.
+function setUpReminders() {
+  ScriptApp.getProjectTriggers().forEach(function (t) {
+    if (t.getHandlerFunction() === 'sendReminders') ScriptApp.deleteTrigger(t);
+  });
+  ScriptApp.newTrigger('sendReminders').timeBased().everyDays(1).atHour(9).create();
+}
+
+// Sends one reminder to each person who asked for it, 14 days after their plan was emailed.
+function sendReminders() {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(CONFIG.SHEET_NAME);
+  if (!sheet || sheet.getLastRow() < 2) return;
+  var rows = sheet.getRange(2, 1, sheet.getLastRow() - 1, 20).getValues();
+  var due = Date.now() - CONFIG.REMINDER_DAYS * 24 * 60 * 60 * 1000;
+  rows.forEach(function (r, i) {
+    var date = r[0], name = r[1], email = r[2], startHere = r[9], emailed = r[12], wanted = r[18], sent = r[19];
+    if (wanted !== 'Yes' || emailed !== 'Yes' || sent || Object.prototype.toString.call(date) !== '[object Date]' || date.getTime() > due) return;
+    if (MailApp.getRemainingDailyQuota() < 1) return;
+    try {
+      var msg = reminderEmail_(String(name), String(startHere));
+      MailApp.sendEmail({ to: String(email), subject: msg.subject, body: msg.text, htmlBody: msg.html, name: CONFIG.SENDER_NAME, replyTo: CONFIG.REPLY_TO });
+      sheet.getRange(i + 2, 20).setValue(new Date());
+    } catch (err) {
+      console.error(err);
+    }
+  });
+}
+
+function reminderEmail_(name, startHere) {
+  var navy = '#041B2B', teal = '#3B767C', slate = '#4A6080';
+  var p = function (s, style) { return '<p style="margin:0 0 12px;font-size:15px;line-height:1.55;color:' + navy + ';' + (style || '') + '">' + s + '</p>'; };
+  var lines = [
+    'Hi ' + name + ',',
+    'Two weeks ago you started with: ' + startHere + '.',
+    'Take a minute to record your weekly time now in the tracker attached to your plan, and compare it with before.',
+    'If it helped, keep going with the next task in your plan. If it didn’t, reply to this email and tell me what got in the way.',
+    'Need help getting started? Book a free 30-minute discovery call to discuss your results, identify where to start and explore how IntegroAI can help.'
+  ];
+  var html = '<div style="font-family:Arial,Helvetica,sans-serif;max-width:640px;margin:0 auto;padding:8px">' +
+    lines.map(function (l) { return p(esc_(l)); }).join('') +
+    '<p style="margin:0 0 20px"><a href="' + CONFIG.CALL_URL + '" style="display:inline-block;background:#FF9900;color:' + navy + ';font-weight:bold;text-decoration:none;padding:12px 20px;border-radius:8px">Book a free discovery call</a></p>' +
+    p('This is the only reminder we’ll send.', 'font-size:13px;color:' + slate) +
+    p('Selina Fischer<br>IntegroAI Consulting<br><a href="https://integroai.tech" style="color:' + teal + '">integroai.tech</a>') + '</div>';
+  var text = lines.concat(['Book a free discovery call: ' + CONFIG.CALL_URL, 'This is the only reminder we’ll send.', 'Selina Fischer\nIntegroAI Consulting\nhttps://integroai.tech']).join('\n\n');
+  return { subject: 'How is your first time-saving change going?', html: html, text: text };
 }
