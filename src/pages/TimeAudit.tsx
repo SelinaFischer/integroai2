@@ -79,7 +79,7 @@ const faqs = [
   {
     question: "Do I need to give my email?",
     answer:
-      "No. Your action plan appears on screen straight away. Add your email only if you want the full plan for every task you ticked, plus a simple sheet to record your time before and after.",
+      "No. Your action plan appears on screen straight away. Add your email only if you want a copy in your inbox, with every task you ticked and a simple table to record your time before and after.",
   },
 ];
 
@@ -535,9 +535,11 @@ const TimeAudit = () => {
               </m.div>
 
               <m.div {...fadeUp} className="flex flex-col gap-3 rounded-2xl border border-brand-sand bg-brand-ivory p-5 sm:p-6">
-                <h3 className="text-[21px] font-semibold text-brand-navy">Get the full action plan for every task you ticked</h3>
+                <h3 className="text-[21px] font-semibold text-brand-navy">{rows.length > 3 ? `Email me my full plan for all ${rows.length} tasks` : "Email me a copy of my plan"}</h3>
                 <p className="text-[14.5px] text-brand-slate">
-                  Your plan keeps your first fix at the top, then the steps and prompts for the rest of the {rows.length} task{rows.length > 1 ? "s" : ""} you ticked, plus a simple sheet to record your time before and after.
+                  {rows.length > 3
+                    ? `Your email includes the steps and prompts for all ${rows.length} tasks you ticked, not just the three shown here, plus a simple table to record your time before and after.`
+                    : "Keep your plan, steps and prompts in your inbox, plus a simple table to record your time before and after."}
                 </p>
                 {sentTo ? (
                   <p className="flex items-start gap-2 text-[15.5px] font-medium text-brand-navy">
@@ -572,7 +574,7 @@ const TimeAudit = () => {
                         </>
                       ) : (
                         <>
-                          Email me my full action plan
+                          {rows.length > 3 ? "Email me my full plan" : "Email me my plan"}
                           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
                         </>
                       )}

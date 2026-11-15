@@ -133,7 +133,8 @@ function buildPlan_(lead) {
       score: (hours || 1) / (D.effort[t.e] * D.risk[t.r])
     };
   });
-  rows.sort(function (a, b) { return b.score - a.score; });
+  // Tasks with a time range always come before tasks without one. Mirrors rankRows in src/lib/timeAudit.ts.
+  rows.sort(function (a, b) { return (b.hours > 0 ? 1 : 0) - (a.hours > 0 ? 1 : 0) || b.score - a.score; });
   var total = rows.reduce(function (s, r) { return s + r.hours; }, 0);
   var fit = lead.fit.key === rows[0].key ? lead.fit : { tool: '', hard: '' };
   return { rows: rows, lead: rows[0], total: total, fit: fit };
