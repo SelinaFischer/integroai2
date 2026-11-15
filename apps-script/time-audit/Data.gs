@@ -47,7 +47,7 @@ var TIME_AUDIT_DATA = {
           "t": "Sorting and replying to routine emails",
           "e": "low",
           "r": "medium",
-          "fix": "Turn the emails you answer most often into reply templates you can reuse.",
+          "fix": "Turn your most common emails into reusable reply templates.",
           "steps": [
             "Find five examples of emails you commonly receive, and remove personal details.",
             "Use the prompt to turn them into reply templates.",
@@ -59,7 +59,7 @@ var TIME_AUDIT_DATA = {
           "t": "Booking and rescheduling meetings",
           "e": "low",
           "r": "low",
-          "fix": "Send one booking link instead of trading emails about times.",
+          "fix": "Share a booking link so clients can choose a time without back-and-forth emails.",
           "steps": [
             "Check whether your existing calendar or email service includes a booking page.",
             "Set your available hours and meeting length. Connect your calendar so existing appointments block out unavailable times.",
@@ -68,10 +68,10 @@ var TIME_AUDIT_DATA = {
           "template": "Hi [name],\n\nThanks for getting in touch. To save going back and forth, you can pick a time that suits you here: [booking link]\n\nIf none of those times work, just reply and we will find another.\n\n[Your name]\n[Business name]"
         },
         {
-          "t": "Typing the same details into more than one place",
+          "t": "Entering the same details in more than one place",
           "e": "medium",
           "r": "low",
-          "fix": "Collect information once, in one place, and stop retyping it.",
+          "fix": "Capture information once, in one place, so it does not need to be retyped.",
           "steps": [
             "Write down where the information starts and everywhere you retype it.",
             "Use the prompt to find the simplest way to enter it once, starting with tools you already use.",
@@ -83,19 +83,19 @@ var TIME_AUDIT_DATA = {
           "t": "Writing up meeting notes and actions",
           "e": "low",
           "r": "low",
-          "fix": "Turn rough notes into a clean summary with decisions and actions.",
+          "fix": "Use AI to turn rough notes into a clear summary of decisions and actions.",
           "steps": [
-            "Jot rough notes during the meeting.",
+            "Take rough notes during the meeting.",
             "Paste them into the prompt.",
-            "Check the actions, then send."
+            "Check the actions, then share the summary."
           ],
           "prompt": "Turn these rough meeting notes into a three-line summary, the decisions made, and a list of actions with owner and date. Use only what is in the notes. Mark anything unclear with [check]. Notes: [paste notes]."
         },
         {
-          "t": "Searching for files you know you saved somewhere",
+          "t": "Finding saved files and documents",
           "e": "medium",
           "r": "low",
-          "fix": "Set up one simple folder system that everyone uses.",
+          "fix": "Set up a simple shared folder structure and one file naming rule.",
           "steps": [
             "List what you store, such as quotes, invoices and client files.",
             "Use the prompt to draft five to seven main folders and one file naming rule.",
@@ -107,10 +107,10 @@ var TIME_AUDIT_DATA = {
           "t": "Repeatedly explaining the same tasks to your team",
           "e": "medium",
           "r": "low",
-          "fix": "Write it down once as a simple SOP (a step-by-step guide), so others can follow it without asking you.",
+          "fix": "Document the task once as a standard operating procedure (SOP), so others can follow it without asking you.",
           "steps": [
-            "Pick one job people often ask you about.",
-            "Jot the steps down, or talk them through, while you do it.",
+            "Choose one task people often ask you about.",
+            "Note the steps, or record yourself talking them through, while you complete the task.",
             "Use the prompt to turn your notes into a checklist."
           ],
           "prompt": "Turn these rough notes on how we do [job] into a step-by-step checklist someone new could follow. Number the steps, flag any step that needs a decision, and mark anything unclear with [check]. Notes: [paste notes]."
@@ -122,22 +122,22 @@ var TIME_AUDIT_DATA = {
       "short": "Marketing",
       "tasks": [
         {
-          "t": "Coming up with and writing social posts",
+          "t": "Planning and writing social media posts",
           "e": "low",
           "r": "medium",
-          "fix": "Draft eight posts in one sitting instead of starting from scratch each time.",
+          "fix": "Draft eight posts in one session instead of starting from scratch each time.",
           "steps": [
-            "Pick three questions your customers often ask.",
+            "Choose three questions your customers often ask.",
             "Use the prompt to draft eight posts.",
-            "Edit them to sound like you, then schedule them."
+            "Edit them to match your voice, then schedule them."
           ],
           "prompt": "Customers often ask: [three questions]. Write eight short social posts, one idea each: four tips, two stories I can fill in and two common mistakes. No more than three hashtags each. Do not make up statistics."
         },
         {
-          "t": "Reusing a blog, talk or video across other channels",
+          "t": "Repurposing blogs, talks or videos for other channels",
           "e": "low",
           "r": "low",
-          "fix": "Turn one piece you have already created into social posts, an email introduction and quotes.",
+          "fix": "Repurpose one existing piece into social posts, an email introduction and short quotes.",
           "steps": [
             "Pick one blog, long post, or the transcript of a talk or video.",
             "Paste it into the prompt.",
@@ -149,7 +149,7 @@ var TIME_AUDIT_DATA = {
           "t": "Replying to reviews and comments",
           "e": "low",
           "r": "high",
-          "fix": "Get a draft reply in seconds, but always send it yourself.",
+          "fix": "Use AI to draft replies, then review and send each one yourself.",
           "steps": [
             "Paste the review or comment into the prompt.",
             "Read the draft and adjust anything personal.",
@@ -161,7 +161,7 @@ var TIME_AUDIT_DATA = {
           "t": "Writing your email newsletter",
           "e": "medium",
           "r": "medium",
-          "fix": "Use a fixed template so each issue is quicker to write.",
+          "fix": "Use a fixed structure so each issue is quicker to write.",
           "steps": [
             "Agree three regular sections, such as a tip, news and an offer.",
             "Collect notes between issues.",
@@ -170,14 +170,14 @@ var TIME_AUDIT_DATA = {
           "prompt": "Write my email newsletter from these notes: [paste]. Sections: [section 1], [section 2], [section 3]. Give three subject line options. Under 300 words. Do not add facts that are not in my notes."
         },
         {
-          "t": "Reviewing which posts and campaigns got results",
+          "t": "Reviewing the results of posts and campaigns",
           "e": "medium",
           "r": "low",
-          "fix": "Check a few key numbers each month, then do more of what brought enquiries.",
+          "fix": "Review a few key figures each month and focus on what generates enquiries.",
           "steps": [
             "Export last month's post results.",
             "Paste them into the prompt.",
-            "Do more of what worked best and drop what worked least."
+            "Focus on what performed best and reduce what performed worst."
           ],
           "prompt": "Here are last month's post results: [paste]. Tell me the two posts that did best and the two that did worst, and what each pair has in common. Five bullet points at most. Use only the numbers I gave you."
         }
@@ -191,7 +191,7 @@ var TIME_AUDIT_DATA = {
           "t": "Drafting detailed replies to clients",
           "e": "low",
           "r": "medium",
-          "fix": "Let AI write the first draft, then you polish it.",
+          "fix": "Use AI to write the first draft, then review and refine it.",
           "steps": [
             "Find two or three emails you are happy with.",
             "Paste them into the prompt with the key points for the new email.",
@@ -200,10 +200,10 @@ var TIME_AUDIT_DATA = {
           "prompt": "Here are emails I have written that sound like me: [paste two or three]. Now write an email to [who] about [topic]. Key points: [list]. Match my tone and length. Do not add facts I have not given you."
         },
         {
-          "t": "Putting together proposals and quotes",
+          "t": "Preparing proposals and quotes",
           "e": "medium",
           "r": "medium",
-          "fix": "Build your proposal structure once, then fill it from your call notes.",
+          "fix": "Create a standard proposal structure and complete it from your call notes.",
           "steps": [
             "Take your best past proposal and remove the client details.",
             "Paste it into the prompt with your new call notes.",
@@ -215,11 +215,11 @@ var TIME_AUDIT_DATA = {
           "t": "Preparing reports and client documents",
           "e": "medium",
           "r": "medium",
-          "fix": "Give every report the same headings and let AI draft from your notes.",
+          "fix": "Use standard headings and let AI draft the report from your notes.",
           "steps": [
             "Decide your standard headings.",
             "Paste your notes into the prompt.",
-            "Check it and add your own judgement."
+            "Review the draft and add your professional judgement."
           ],
           "prompt": "Turn these notes into a client report with these headings: [list]. Notes: [paste]. Use only what is in my notes. Mark anything you are unsure about with [check]."
         },
@@ -227,7 +227,7 @@ var TIME_AUDIT_DATA = {
           "t": "Recreating standard letters and emails each time",
           "e": "low",
           "r": "low",
-          "fix": "Save each repeated letter once, as a template with blanks.",
+          "fix": "Save each recurring letter as a template with fields to complete.",
           "steps": [
             "List the letters you send more than once a month.",
             "Use the prompt to turn each one into a template.",
@@ -236,10 +236,10 @@ var TIME_AUDIT_DATA = {
           "prompt": "Turn this letter into a reusable template. Replace anything that changes each time with [square brackets]. Letter: [paste]."
         },
         {
-          "t": "Proofreading and tidying the layout before sending",
+          "t": "Proofreading and formatting documents before sending",
           "e": "low",
           "r": "low",
-          "fix": "Check your writing against your own house rules before it goes out.",
+          "fix": "Use AI to check your writing against your own house style.",
           "steps": [
             "Write three to five house rules, such as British spelling.",
             "Paste the rules and your text into the prompt.",
@@ -257,43 +257,43 @@ var TIME_AUDIT_DATA = {
           "t": "Entering data into spreadsheets manually",
           "e": "medium",
           "r": "medium",
-          "fix": "Let people fill in a form that writes straight into the sheet.",
+          "fix": "Collect information through a form linked to your spreadsheet.",
           "steps": [
             "List the columns you fill in manually.",
-            "Make a form with one question per column. Google Forms and Microsoft Forms can both save to a spreadsheet.",
-            "Share the form instead of the sheet."
+            "If the information comes from customers or colleagues, create a form with one question per column. Google Forms and Microsoft Forms can both save responses to a spreadsheet.",
+            "If it comes from invoices, emails or another system, use the prompt to find the simplest alternative."
           ],
           "prompt": "I enter data into this spreadsheet manually. The columns are: [list]. The data comes from: [source]. The tools I currently use are: [list].\n\nSuggest the simplest way to reduce manual data entry, starting with my existing tools. Explain the steps, highlight any assumptions and ask for any missing information you need."
         },
         {
-          "t": "Building weekly or monthly reports",
+          "t": "Compiling weekly or monthly reports",
           "e": "medium",
           "r": "medium",
-          "fix": "Build the report once, then just refresh the numbers.",
+          "fix": "Build the report once, then update it with new data each period.",
           "steps": [
-            "Pick the five numbers you actually look at.",
+            "Choose the five figures you review most often.",
             "Use the prompt to build a summary tab.",
-            "Each month, paste in new data and the summary updates."
+            "Each month, add the new data and the summary will update."
           ],
           "prompt": "Every month I build a report from data with these columns: [list]. The numbers I need are: [list]. Give me step-by-step instructions to build a summary tab in [Excel or Google Sheets] that updates when I paste in new data. Explain each formula in plain English."
         },
         {
-          "t": "Cleaning up messy or duplicate data",
+          "t": "Correcting inconsistent data and removing duplicates",
           "e": "medium",
           "r": "medium",
-          "fix": "Clean the data once with clear rules, then stop the mess at the source.",
+          "fix": "Standardise your data and remove duplicates, then introduce checks to prevent recurring errors.",
           "steps": [
-            "Copy a sample of the messy data, with personal details removed.",
-            "Use the prompt to get clean-up steps.",
-            "Add a dropdown or form so it stays clean."
+            "Copy a sample of the data, with personal details removed.",
+            "Use the prompt to get correction steps.",
+            "Add dropdown lists or a form to keep future entries consistent."
           ],
           "prompt": "Here is a sample of my messy data, with personal details removed: [paste]. Tell me what is inconsistent, then give step-by-step instructions to clean it in [Excel or Google Sheets]. Suggest one way to stop it happening again."
         },
         {
-          "t": "Digging through numbers to answer a question",
+          "t": "Analysing data to answer business questions",
           "e": "low",
           "r": "medium",
-          "fix": "Ask your question in plain English and get the answer with the working shown.",
+          "fix": "Use an AI assistant to analyse your spreadsheet and explain the calculations behind its findings.",
           "steps": [
             "Remove personal and client details from the file.",
             "Upload it to your AI assistant with the prompt.",
@@ -302,10 +302,10 @@ var TIME_AUDIT_DATA = {
           "prompt": "I have attached a spreadsheet of [what it is]. My question: [your question]. Show how you worked out each number. If the data cannot answer the question, say so."
         },
         {
-          "t": "Checking one spreadsheet against another for mistakes",
+          "t": "Checking spreadsheets against each other for errors",
           "e": "medium",
           "r": "high",
-          "fix": "Use a lookup formula to flag differences, then check every flag yourself.",
+          "fix": "Use a lookup formula to flag differences, then review each one.",
           "steps": [
             "Make sure both sheets share one column, such as an invoice number.",
             "Use the prompt to get the exact formula.",
@@ -323,7 +323,7 @@ var TIME_AUDIT_DATA = {
           "t": "Creating and sending invoices",
           "e": "low",
           "r": "medium",
-          "fix": "Save your invoice details and email as a template, and repeat invoices for any regular clients.",
+          "fix": "Save your invoice details and email as templates, and set up repeat invoices for regular clients.",
           "steps": [
             "Save your standard invoice layout and payment details once.",
             "If any clients pay the same amount regularly, check your accounting software for repeating invoices.",
@@ -335,11 +335,11 @@ var TIME_AUDIT_DATA = {
           "t": "Chasing late payments",
           "e": "low",
           "r": "medium",
-          "fix": "Write your reminders once and send them on a set schedule.",
+          "fix": "Prepare a set of reminder emails and send them on a fixed schedule.",
           "steps": [
             "Check your accounting software for automatic reminders.",
             "If it has none, use the prompt to write a set of three.",
-            "Decide at what point you pick up the phone instead."
+            "Decide at which point you will call the client instead."
           ],
           "prompt": "Write three payment reminder emails for an overdue invoice: a friendly one at 7 days late, a firmer one at 14 days and a final one at 30 days. Under 80 words each. Use [invoice number], [amount] and [due date] as placeholders. Polite, never threatening."
         },
@@ -347,7 +347,7 @@ var TIME_AUDIT_DATA = {
           "t": "Matching payments to invoices",
           "e": "medium",
           "r": "high",
-          "fix": "Let your bank feed suggest matches, and approve each one yourself.",
+          "fix": "Use your accounting software's bank feed to suggest matches, and approve each one yourself.",
           "steps": [
             "Check whether your accounting software has a bank feed.",
             "Set rules for regular payments.",
@@ -359,7 +359,7 @@ var TIME_AUDIT_DATA = {
           "t": "Collecting expense receipts",
           "e": "low",
           "r": "low",
-          "fix": "Capture each receipt the day you get it, ideally with your accounting software's receipt app.",
+          "fix": "Capture each receipt on the day, ideally with your accounting software's receipt app.",
           "steps": [
             "Check whether your accounting software has a receipt app, and set it up on your phone.",
             "If it has none, photograph each receipt into one shared folder the same day.",
@@ -374,10 +374,10 @@ var TIME_AUDIT_DATA = {
       "short": "Leads",
       "tasks": [
         {
-          "t": "Answering the same questions from new enquiries",
+          "t": "Answering common questions from new enquiries",
           "e": "low",
           "r": "medium",
-          "fix": "Have a ready first reply, so every new enquiry hears back the same day.",
+          "fix": "Prepare a standard first reply so every new enquiry receives a response the same day.",
           "steps": [
             "List the questions new enquiries usually ask.",
             "Save a first reply that answers them and offers a next step, such as a call.",
@@ -386,10 +386,10 @@ var TIME_AUDIT_DATA = {
           "prompt": "Here is a new enquiry, with personal details removed: [paste]. Draft a short first reply that thanks them, answers what they asked and offers a next step: [e.g. a call or booking link]. Under 100 words. If you need information you don't have, list it instead of guessing."
         },
         {
-          "t": "Following up quotes that went quiet",
+          "t": "Following up quotes with no response",
           "e": "low",
           "r": "medium",
-          "fix": "Set a follow-up rhythm for every quote, so none go cold by accident.",
+          "fix": "Set a follow-up schedule for every quote so none are forgotten.",
           "steps": [
             "List your open quotes and the date each was sent.",
             "Follow up at 3, 7 and 14 days.",
@@ -401,7 +401,7 @@ var TIME_AUDIT_DATA = {
           "t": "Returning missed calls from potential clients",
           "e": "medium",
           "r": "medium",
-          "fix": "Make sure every missed call gets a reply the same day.",
+          "fix": "Make sure every missed call receives a response the same day.",
           "steps": [
             "Check whether your phone system can send a text after a missed call.",
             "Use the message below.",
@@ -410,10 +410,10 @@ var TIME_AUDIT_DATA = {
           "template": "Sorry we missed your call. We will call you back by [time]. If it is easier, book a time here: [booking link] or email [email address]. [Business name]"
         },
         {
-          "t": "Asking happy clients for reviews",
+          "t": "Asking satisfied clients for reviews",
           "e": "low",
           "r": "low",
-          "fix": "Ask at the moment the client is happiest, with one link that makes it easy.",
+          "fix": "Ask for a review when the client is most satisfied, using a direct link.",
           "steps": [
             "Decide the moment to ask, such as when a job is signed off.",
             "Get the direct link to your review page.",
@@ -434,23 +434,23 @@ var TIME_AUDIT_DATA = {
       "Your available booking hours"
     ],
     "admin-2": [
-      "A plan to enter details once",
-      "A list of where you retype the same details"
+      "A plan to enter information once",
+      "A list of where you enter the same details"
     ],
     "admin-3": [
-      "A clean summary with actions and owners",
+      "A clear summary with actions, owners and dates",
       "Your rough meeting notes"
     ],
     "admin-4": [
-      "A simple folder structure and naming rule",
-      "A list of what you store"
+      "A folder structure and file naming rule",
+      "A list of the documents you store"
     ],
     "admin-5": [
       "A step-by-step checklist others can follow",
-      "Rough notes on how you do one job"
+      "Rough notes on how you complete one task"
     ],
     "marketing-0": [
-      "Eight draft social posts",
+      "Eight draft social media posts",
       "Three questions customers often ask"
     ],
     "marketing-1": [
@@ -458,7 +458,7 @@ var TIME_AUDIT_DATA = {
       "One blog, long post, or the transcript of a talk or video"
     ],
     "marketing-2": [
-      "A calm draft reply to check and send",
+      "A considered draft reply to review and send",
       "The review or comment"
     ],
     "marketing-3": [
@@ -466,7 +466,7 @@ var TIME_AUDIT_DATA = {
       "Your notes since the last issue"
     ],
     "marketing-4": [
-      "Your best and worst posts, and why",
+      "Your strongest and weakest posts, and what they have in common",
       "Last month's post results"
     ],
     "docs-0": [
@@ -478,43 +478,43 @@ var TIME_AUDIT_DATA = {
       "A past proposal and your call notes"
     ],
     "docs-2": [
-      "A draft report under your headings",
+      "A draft report under your standard headings",
       "Your notes and standard headings"
     ],
     "docs-3": [
-      "Reusable templates with blanks",
+      "Reusable templates with fields to complete",
       "The letters you send most often"
     ],
     "docs-4": [
       "A checked version and a list of changes",
-      "Your text and a few house rules"
+      "Your text and a few house style rules"
     ],
     "data-0": [
-      "A form that fills your sheet",
-      "Your spreadsheet's column headings"
+      "A form that saves responses directly to your spreadsheet, reducing manual data entry",
+      "Your spreadsheet's column headings and a list of the information you need to collect"
     ],
     "data-1": [
       "A summary tab that updates when you add new data",
-      "The five numbers you check most"
+      "The five figures you check most often"
     ],
     "data-2": [
-      "Clean-up steps and a way to keep it tidy",
-      "A sample of the messy data"
+      "A clear process for correcting existing data and maintaining consistent entries",
+      "A sample of the data, with personal details removed"
     ],
     "data-3": [
-      "An answer with the working shown",
+      "An answer supported by clear calculations and relevant data",
       "The spreadsheet, with personal details removed"
     ],
     "data-4": [
-      "A formula that flags mismatches",
+      "A formula that flags mismatched rows",
       "Two sheets that share one column"
     ],
     "paid-0": [
-      "A ready invoice email",
+      "A ready-to-send invoice email",
       "Your invoice and payment details"
     ],
     "paid-1": [
-      "Three reminder emails on a schedule",
+      "Three reminder emails on a set schedule",
       "Your overdue invoice details"
     ],
     "paid-2": [
@@ -522,98 +522,98 @@ var TIME_AUDIT_DATA = {
       "The name of your accounting software"
     ],
     "paid-3": [
-      "A simple routine to capture receipts as you go",
-      "Your accounting software or your phone"
+      "A simple routine for capturing receipts",
+      "Your accounting software or phone"
     ],
     "leads-0": [
-      "A ready first reply for new enquiries",
+      "A standard first reply for new enquiries",
       "The questions new enquiries usually ask"
     ],
     "leads-1": [
-      "Three follow-up messages for quiet quotes",
+      "Three follow-up messages for unanswered quotes",
       "A list of your open quotes"
     ],
     "leads-2": [
-      "A ready text for missed calls",
-      "Your booking link or email"
+      "A ready-to-send text for missed calls",
+      "Your booking link or email address"
     ],
     "leads-3": [
-      "A ready review request",
+      "A ready-to-send review request",
       "Your review page link"
     ]
   },
   "watch": {
-    "admin-0": "If you edit every template heavily each time, they are too general. Make fewer, more specific ones.",
-    "admin-1": "Keep a few slots free for clients who need a quick call, so the link doesn't slow down urgent work.",
-    "admin-2": "Don't connect tools until the manual process is clear. Automating a muddle just makes it faster.",
-    "admin-3": "Check names, dates and owners. AI summaries can drop or mix up actions.",
-    "admin-4": "A new folder system only works if everyone uses it. Agree it with the team before moving files.",
-    "admin-5": "Ask the person who does the job to check the checklist. People skip steps they do out of habit, so AI can't know they are missing.",
-    "marketing-0": "If every draft needs heavy rewriting, give the AI two of your own posts first so it learns your style.",
-    "marketing-1": "Check each draft still makes sense on its own, without the original beside it.",
-    "marketing-2": "A reply that sounds generic can do more harm than no reply. Always add one personal detail.",
-    "marketing-3": "If you rewrite most of it, your notes were too thin. Add one real story or example to each issue.",
-    "marketing-4": "Small numbers can mislead. Look for patterns over a few months before changing direction.",
-    "docs-0": "Check every fact, date and promise. AI writes confidently even when it is guessing.",
-    "docs-1": "Never send a price, date or scope the AI wrote without checking it against your own notes.",
-    "docs-2": "Your judgement is what the client pays for. Use AI for structure, not conclusions.",
-    "docs-3": "Review your templates every few months, so old prices or details don't keep going out.",
-    "docs-4": "AI may change your meaning while fixing grammar. Read the list of changes, not just the final version.",
-    "data-0": "Test the form with a few real entries first, so nothing lands in the wrong column.",
-    "data-1": "Check the summary against one month you calculated manually before you trust it.",
-    "data-2": "Keep a copy of the original data before cleaning, in case something is removed by mistake.",
-    "data-3": "AI can misread columns. Spot-check a couple of numbers against the sheet before you act.",
-    "data-4": "A formula only flags differences. A person still decides which version is right.",
+    "admin-0": "If you need to edit a template heavily each time, it is too general. Create fewer, more specific templates.",
+    "admin-1": "Keep some time free for urgent calls, so the booking link does not delay priority work.",
+    "admin-2": "Make sure the manual process is clear before connecting tools. Automating an unclear process only repeats the problem faster.",
+    "admin-3": "Check names, dates and owners. AI summaries can omit or confuse actions.",
+    "admin-4": "Agree the structure with your team before moving files. It only works if everyone uses it.",
+    "admin-5": "Ask the person who does the task to review the checklist. People often skip steps they do out of habit.",
+    "marketing-0": "If most drafts need heavy rewriting, share two of your own posts first so the AI can match your style.",
+    "marketing-1": "Check that each draft makes sense on its own, without the original alongside it.",
+    "marketing-2": "A generic reply can do more harm than no reply. Add at least one personal detail.",
+    "marketing-3": "If you rewrite most of the draft, your notes need more detail. Include one real example in each issue.",
+    "marketing-4": "Small numbers can be misleading. Look for patterns over several months before changing direction.",
+    "docs-0": "Check every fact, date and commitment. AI can sound confident even when it is wrong.",
+    "docs-1": "Never send a price, date or scope written by AI without checking it against your own notes.",
+    "docs-2": "Your professional judgement is what clients pay for. Use AI for structure, not conclusions.",
+    "docs-3": "Review your templates regularly, so outdated prices or details are not sent.",
+    "docs-4": "AI can change your meaning while correcting grammar. Review the list of changes, not just the final text.",
+    "data-0": "Test a few sample responses to confirm that each answer appears in the correct column.",
+    "data-1": "Compare the summary with one month you calculated manually before relying on it.",
+    "data-2": "Keep a copy of the original data before making changes, in case anything is removed by mistake.",
+    "data-3": "Verify key figures and calculations against the original spreadsheet before using the findings.",
+    "data-4": "A formula only flags differences. You still need to decide which version is correct.",
     "paid-0": "Check the invoice number, amount and due date every time. These are the details clients notice.",
-    "paid-1": "Automatic reminders can upset good clients. Pause them for anyone on different agreed terms.",
-    "paid-2": "Wrong matches can hide real problems. Never approve matches in bulk without a look.",
-    "paid-3": "An app only helps if you use it on the day. If receipts still pile up, the habit is the fix, not the tool.",
-    "leads-0": "A fast reply that misses their question loses the lead. Make sure it answers what they asked.",
-    "leads-1": "Stop after three follow-ups. More can damage the relationship.",
+    "paid-1": "Automatic reminders can upset good clients. Pause them for anyone on agreed alternative terms.",
+    "paid-2": "Incorrect matches can hide real problems. Review matches individually rather than approving them in bulk.",
+    "paid-3": "An app only helps if it is used on the day. If receipts still build up, the routine needs attention, not the tool.",
+    "leads-0": "A fast reply that misses the question can lose the enquiry. Make sure it answers what was asked.",
+    "leads-1": "Stop after three follow-ups. Further messages can damage the relationship.",
     "leads-2": "Only promise a call-back time you can keep.",
-    "leads-3": "Never write or edit reviews for clients, and never offer rewards for them."
+    "leads-3": "Never write or edit reviews for clients, and never offer incentives for them."
   },
   "fitTool": {
-    "": "What do you use for this today?",
+    "": "Which tools do you currently use?",
     "email": "Email",
     "sheet": "A spreadsheet",
     "software": "Accounting or booking software",
     "crm": "A CRM or project tool",
-    "paper": "Pen, paper or memory",
+    "paper": "Paper notes or memory",
     "nothing": "Nothing yet"
   },
   "fitToolLine": {
     "email": "Check what your email already offers, such as templates or rules, before adding anything new.",
-    "sheet": "Keep it in your spreadsheet for now. Tidy the layout first, then use the prompt with it.",
+    "sheet": "Keep it in your spreadsheet for now. Organise the layout first, then use the prompt.",
     "software": "Check your software's settings first. It may already handle part of this.",
     "crm": "Check your CRM or project tool first. Many have templates, reminders or automations built in.",
-    "paper": "Move it into one shared place first, such as a spreadsheet or shared document. That comes before any AI.",
-    "nothing": "Start simple. A template and a checklist come before any new tool."
+    "paper": "Move it into one shared place first, such as a spreadsheet or shared document, before introducing AI.",
+    "nothing": "Start simply. A template and a checklist come before any new tool."
   },
   "fitToolPrompt": {
     "email": "I currently handle this in email.",
     "sheet": "I currently handle this in a spreadsheet.",
     "software": "I currently handle this in accounting or booking software.",
     "crm": "I currently handle this in a CRM or project tool.",
-    "paper": "I currently handle this with pen and paper or from memory.",
+    "paper": "I currently handle this with paper notes or from memory.",
     "nothing": "I don't use any tool for this yet."
   },
   "fitHard": {
-    "": "What makes it hard?",
+    "": "What is your main challenge?",
     "scratch": "Starting from scratch every time",
-    "retype": "Typing the same thing again",
+    "retype": "Re-entering the same information",
     "waiting": "Waiting on information from others",
-    "chasing": "Chasing people",
-    "forgetting": "Forgetting until it's late",
-    "quality": "Not sure it's done right"
+    "chasing": "Following up with people",
+    "forgetting": "Leaving it until the last minute",
+    "quality": "Uncertainty about quality"
   },
   "fitHardLine": {
-    "scratch": "Save your best version once as a template. Next time you edit instead of write.",
-    "retype": "Capture it once, in one place, so nobody types it twice. A form or shared sheet often does this.",
+    "scratch": "Save your best version as a template, so next time you edit rather than write from scratch.",
+    "retype": "Capture the information once, in one place, so nobody enters it twice. A form or shared spreadsheet often works well.",
     "waiting": "Ask for everything up front with a short checklist or form, so nothing comes back half done.",
-    "chasing": "Write your follow-ups once and set reminders, so chasing happens on time without relying on memory.",
-    "forgetting": "Give it a fixed slot in your calendar with a reminder. A routine beats remembering.",
-    "quality": "Write down what good looks like in three points, and check every result against them before it goes out."
+    "chasing": "Prepare your follow-up messages once and set reminders, so follow-ups happen on time.",
+    "forgetting": "Schedule a fixed time in your calendar with a reminder. A routine is more reliable than memory.",
+    "quality": "Define what a good result looks like in three points, and check every result against them before it is sent."
   },
   "fitHardStep": {
     "scratch": "Find your best past example and save it as your starting template.",
@@ -626,9 +626,9 @@ var TIME_AUDIT_DATA = {
   "fitHardPrompt": {
     "scratch": "I keep starting from scratch, so give me a version I can save and reuse as a template.",
     "retype": "I keep typing the same details again, so put anything that changes in [square brackets] I can fill in quickly.",
-    "waiting": "My main difficulty is waiting on information from others. Start with a short checklist of what I should ask for up front.",
-    "chasing": "My main difficulty is chasing people. Add two short, polite follow-up messages I can send if I get no reply.",
-    "forgetting": "This task often gets left until it is late. Keep it short enough to do in one sitting and suggest a simple weekly routine.",
-    "quality": "I am never sure it is done right. End with a short checklist I can use to check the result before it goes out."
+    "waiting": "My main challenge is waiting on information from others. Start with a short checklist of what I should ask for up front.",
+    "chasing": "My main challenge is following up with people. Add two short, polite follow-up messages I can send if I get no reply.",
+    "forgetting": "This task is often left until the last minute. Keep it short enough to complete in one session and suggest a simple weekly routine.",
+    "quality": "I want to be confident the result is right. End with a short checklist I can use to review it before it is sent."
   }
 };

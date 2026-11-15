@@ -89,12 +89,12 @@ const faqs = [
   {
     question: "What does the time audit do?",
     answer:
-      "You tick the tasks that take up most of your time and roughly how long each takes. You get a rough monthly total and an action plan: one clear place to start, plus two more, each with simple steps and a prompt or template you can use straight away.",
+      "You select the tasks that take up most of your time and roughly how long each takes. You receive an estimated monthly total and an action plan: a recommended starting point and up to two further recommendations, each with practical steps and a prompt or template you can use straight away.",
   },
   {
-    question: "Is the hours figure a saving?",
+    question: "Does the total show how much time I could save?",
     answer:
-      "No. It is a rough estimate of the time those tasks take you now, worked out from the ranges you choose. Nobody can promise how much time a change will save, which is why the plan asks you to time the task before and after.",
+      "No. The total estimates how much time you currently spend on the selected tasks. To measure any savings, compare the time spent before and after implementing a recommendation.",
   },
   {
     question: "Which AI tool do the prompts work with?",
@@ -102,9 +102,9 @@ const faqs = [
       "Any AI assistant, such as ChatGPT, Claude, Gemini or Copilot. Remove personal and client details before pasting anything in, and check every result before you use it.",
   },
   {
-    question: "Do I need to give my email?",
+    question: "Do I need to provide my email address?",
     answer:
-      "No. Your action plan appears on screen straight away. Add your email only if you want a copy in your inbox, with every task you ticked and a simple table to record your time before and after.",
+      "No. You can view up to three recommendations immediately without providing your email address. Enter your email if you would like the complete plan covering all your selected tasks.",
   },
 ];
 
@@ -289,7 +289,7 @@ const TimeAudit = () => {
   const careLine = (row: Row) =>
     row.r === "high" ? (
       <p className="rounded-lg bg-brand-chip px-3 py-2 text-[14px] font-medium text-brand-navy">
-        Keep a person in charge here. Always check before anything goes out.
+        A person should stay in charge here. Check every result before anything is sent.
       </p>
     ) : null;
 
@@ -313,7 +313,7 @@ const TimeAudit = () => {
         )}
         {isLead && (
           <div className="flex flex-col gap-2 rounded-xl border border-brand-sand bg-white p-3">
-            <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-brand-slate">Make this fit your business</span>
+            <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-brand-slate">Tailor this recommendation</span>
             <div className="flex flex-wrap gap-2">
               {(["tool", "hard"] as const).map((kind) => {
                 const options = kind === "tool" ? D.fitTool : D.fitHard;
@@ -334,22 +334,22 @@ const TimeAudit = () => {
             </div>
             {firstMove(rowFit) && (
               <p className="rounded-r-lg border-l-[3px] border-brand-amber bg-brand-chip/60 px-3 py-2 text-[14.5px] text-brand-navy">
-                <strong>Your first move:</strong> {firstMove(rowFit)}
+                <strong>Recommended first step:</strong> {firstMove(rowFit)}
               </p>
             )}
           </div>
         )}
         {isLead && (
           <>
-            <p className="text-[14.5px] leading-relaxed text-brand-slate"><strong className="text-brand-navy">Why this one:</strong> {whyThisOne(row, rows)}</p>
+            <p className="text-[14.5px] leading-relaxed text-brand-slate"><strong className="text-brand-navy">Why start here:</strong> {whyThisOne(row, rows)}</p>
             <p className="text-[14.5px] leading-relaxed text-brand-slate">
-              <strong className="text-brand-navy">How to tell it helped:</strong> note how long this task takes this week. Try the fix for two weeks, then compare. Change one thing at a time, so you know what made the difference.
+              <strong className="text-brand-navy">How to measure the improvement:</strong> record how long this task takes now. After using the new approach for two weeks, compare the time spent. Change one thing at a time so you can see what made the difference.
             </p>
           </>
         )}
         {D.watch[row.key] && (
           <p className="rounded-r-lg border-l-[3px] border-brand-teal bg-white px-3 py-2 text-[14.5px] text-brand-navy">
-            <strong>Watch out:</strong> {D.watch[row.key]}
+            <strong>Before you begin:</strong> {D.watch[row.key]}
           </p>
         )}
         <button
@@ -358,7 +358,7 @@ const TimeAudit = () => {
           onClick={() => setOpenKeys((o) => ({ ...o, [row.key]: !open }))}
           className="w-fit rounded-lg border border-brand-teal px-3.5 py-1.5 text-[14px] font-semibold text-brand-teal hover:bg-brand-teal hover:text-white"
         >
-          {open ? "Hide steps" : "Show me how"}
+          {open ? "Hide steps" : "View steps"}
         </button>
         {open && (
           <div className="flex flex-col gap-3">
@@ -367,7 +367,7 @@ const TimeAudit = () => {
             </ol>
             {careLine(row)}
             <CopyBox
-              heading={row.template ? "Ready-to-use template" : "Copy into your AI assistant"}
+              heading={row.template ? "Ready-to-use template" : "Prompt for your AI assistant"}
               label={row.template ? "Copy template" : "Copy prompt"}
               text={textFor(row, about, rowFit)}
             />
@@ -377,11 +377,6 @@ const TimeAudit = () => {
     );
   };
 
-  const callLead = lead
-    ? leadFit.hard
-      ? `Stuck on ${lowerFirst(D.fitHard[leadFit.hard])}? Book an AI Made Simple session: we sit down together and set up your Start here fix, in plain English, with no tech skills needed. 1 hour on your own with me, or 90 minutes in a group.`
-      : "Want help putting this into practice? Book an AI Made Simple session: we sit down together and set up your Start here fix, in plain English, with no tech skills needed. 1 hour on your own with me, or 90 minutes in a group."
-    : "";
 
   return (
     <>
@@ -551,7 +546,7 @@ const TimeAudit = () => {
               <div className="flex flex-col gap-2">
                 <p className={stepLabel}>Your action plan</p>
                 <h2 className="text-[30px] font-semibold leading-tight text-brand-navy sm:text-[38px]">
-                  Here's where to start
+                  Your recommended starting point
                 </h2>
                 {total > 0 ? (
                   <p className="text-[16.5px] text-brand-navy">
@@ -593,20 +588,20 @@ const TimeAudit = () => {
                 <h3 className="text-[21px] font-semibold leading-snug text-brand-navy">{lead.t}</h3>
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="rounded-full border border-brand-sand bg-white px-2.5 py-0.5 text-[12.5px] text-brand-navy">{D.areas[lead.area].short}</span>
-                  {lead.hours > 0 && <span className="text-[14px] font-semibold text-brand-teal">about {fmtHours(lead.hours)} hrs a month now</span>}
+                  {lead.hours > 0 && <span className="text-[14px] font-semibold text-brand-teal">Estimated time spent: {fmtHours(lead.hours)} hours per month</span>}
                 </div>
                 {fixDetail(lead, true)}
               </m.div>
 
               {others.length > 0 && (
                 <div className="flex flex-col">
-                  <h3 className="mb-1 text-[19px] font-semibold text-brand-navy">{others.length === 1 ? "One more" : "Two more"} worth doing</h3>
+                  <h3 className="mb-1 text-[19px] font-semibold text-brand-navy">{others.length === 1 ? "Another recommended improvement" : "Other recommended improvements"}</h3>
                   {others.map((row, index) => (
                     <m.div key={row.key} {...fadeUpDelayed(index)} className="flex flex-col gap-2.5 border-t border-brand-sand py-5">
                       <h4 className="text-[17.5px] font-semibold leading-snug text-brand-navy">{row.t}</h4>
                       <div className="flex flex-wrap items-center gap-2">
                         <span className="rounded-full border border-brand-sand bg-brand-ivory px-2.5 py-0.5 text-[12.5px] text-brand-navy">{D.areas[row.area].short}</span>
-                        {row.hours > 0 && <span className="text-[14px] font-semibold text-brand-teal">about {fmtHours(row.hours)} hrs a month now</span>}
+                        {row.hours > 0 && <span className="text-[14px] font-semibold text-brand-teal">Estimated time spent: {fmtHours(row.hours)} hours per month</span>}
                       </div>
                       {fixDetail(row, false)}
                     </m.div>
@@ -615,17 +610,17 @@ const TimeAudit = () => {
               )}
 
               <m.div {...fadeUp} className="flex flex-col gap-2 border-t border-brand-sand pt-6">
-                <h3 className="text-[19px] font-semibold text-brand-navy">Your reusable business prompt</h3>
-                <p className="text-[14.5px] text-brand-slate">Paste this at the start of any AI chat, so the answers sound like your business. Fill in the parts in brackets once and keep it.</p>
-                <CopyBox heading="Use it every time" label="Copy business prompt" text={houseText(about)} />
+                <h3 className="text-[19px] font-semibold text-brand-navy">Your reusable business context</h3>
+                <p className="text-[14.5px] text-brand-slate">Give your AI assistant a brief introduction to your business so it can provide more relevant responses. Copy the text below, review the details and reuse it for business tasks.</p>
+                <CopyBox heading="Business context" label="Copy business context" text={houseText(about)} />
               </m.div>
 
               <m.div {...fadeUp} className="flex flex-col gap-3 rounded-2xl border border-brand-sand bg-brand-ivory p-5 sm:p-6">
-                <h3 className="text-[21px] font-semibold text-brand-navy">{rows.length > 3 ? `Email me my full plan for all ${rows.length} tasks` : "Email me a copy of my plan"}</h3>
+                <h3 className="text-[21px] font-semibold text-brand-navy">{rows.length > 3 ? "Get your complete action plan" : "Email your action plan"}</h3>
                 <p className="text-[14.5px] text-brand-slate">
                   {rows.length > 3
-                    ? `Your email includes the steps and prompts for all ${rows.length} tasks you ticked, not just the three shown here, plus a simple table to record your time before and after.`
-                    : "Keep your plan, steps and prompts in your inbox, plus a simple table to record your time before and after."}
+                    ? `Receive recommendations, practical steps and AI prompts for all ${rows.length} selected tasks, plus a simple tracker to compare your time before and after making changes.`
+                    : "Receive your recommendations, practical steps and AI prompts by email, plus a simple tracker to compare your time before and after making changes."}
                 </p>
                 {sentTo ? (
                   <p className="flex items-start gap-2 text-[15.5px] font-medium text-brand-navy">
@@ -651,7 +646,7 @@ const TimeAudit = () => {
                     {TURNSTILE_SITE_KEY && <div ref={turnstileRef} />}
                     <label className="flex items-start gap-2.5 text-sm leading-snug text-brand-slate">
                       <input type="checkbox" name="tips" className="mt-0.5 h-4 w-4 flex-none accent-brand-teal" />
-                      <span>Send me occasional practical AI tips. Optional.</span>
+                      <span>I'd also like occasional practical AI tips from IntegroAI Consulting.</span>
                     </label>
                     <button type="submit" disabled={sending} className="btn-amber btn-focus group w-fit disabled:opacity-70">
                       {sending ? (
@@ -661,7 +656,7 @@ const TimeAudit = () => {
                         </>
                       ) : (
                         <>
-                          {rows.length > 3 ? "Email me my full plan" : "Email me my plan"}
+                          Email my action plan
                           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
                         </>
                       )}
@@ -675,26 +670,30 @@ const TimeAudit = () => {
                 )}
               </m.div>
 
-              <p className="text-[16px] leading-relaxed text-brand-navy">
-                {callLead}{" "}
+              <div className="flex flex-col gap-3 rounded-2xl border border-brand-sand bg-brand-ivory p-5 sm:p-6">
+                <h3 className="text-[21px] font-semibold text-brand-navy">Need help implementing your plan?</h3>
+                <p className="text-[16px] leading-relaxed text-brand-navy">
+                  An AI Made Simple session provides practical support to put your first recommendation into action. Choose a one-hour individual session or a 90-minute group session. No technical experience is needed.
+                </p>
                 <a
                   href={DISCOVERY_CALL_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackTimeAudit("time_audit_call_click")}
-                  className="font-semibold underline decoration-brand-amber decoration-2 underline-offset-4 hover:text-brand-teal"
+                  className="btn-amber group w-fit"
                 >
-                  Book a free call to talk it through
+                  Book a free discovery call
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
                 </a>
-              </p>
-              <p className="text-[13.5px] text-brand-slate">This is a self-check, not advice. Remove personal and client details before pasting anything into an AI tool.</p>
+              </div>
+              <p className="text-[13.5px] text-brand-slate">This plan provides general suggestions based on your answers. Remove personal, client and confidential information before pasting content into an AI tool.</p>
             </div></div>
           </section>
         )}
 
         <section className="bg-white py-14 sm:py-16">
           <div className="wrap flex flex-col gap-8">
-            <m.h2 {...fadeUp} className="text-[30px] font-semibold leading-tight text-brand-navy sm:text-[36px]">AI time audit questions</m.h2>
+            <m.h2 {...fadeUp} className="text-[30px] font-semibold leading-tight text-brand-navy sm:text-[36px]">Frequently asked questions</m.h2>
             <div className="grid grid-cols-1 gap-x-12 gap-y-7 md:grid-cols-2">
               {faqs.map((faq) => (
                 <div key={faq.question} className="flex flex-col gap-2">

@@ -46,10 +46,10 @@ export const TIME_AUDIT = data as unknown as {
 const D = TIME_AUDIT;
 
 export const TONES = [
-  { value: "professional and clear", label: "Professional" },
-  { value: "warm and friendly", label: "Friendly" },
-  { value: "relaxed and conversational", label: "Conversational" },
-  { value: "formal and polished", label: "Formal" },
+  { value: "clear, professional", label: "Professional" },
+  { value: "warm, friendly", label: "Friendly" },
+  { value: "relaxed, conversational", label: "Conversational" },
+  { value: "formal, polished", label: "Formal" },
 ];
 
 export const lowerFirst = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
@@ -84,21 +84,21 @@ export const whyThisOne = (lead: Row, rows: Row[]) => {
   let why: string;
   if (top && top.key !== lead.key && top.hours > lead.hours && (quicker || safer)) {
     const reason = quicker && safer ? "quicker to change and lower risk" : quicker ? "quicker to change" : "lower risk to hand to AI";
-    why = `You said ${lowerFirst(top.t)} takes longer (${D.bands[top.band].label.toLowerCase()} a week). We put this one first because it is usually ${reason}, so it makes a good first experiment. Then come back to that one, which is also in your plan.`;
+    why = `You estimated that ${lowerFirst(top.t)} takes longer (${D.bands[top.band].label.toLowerCase()} a week). We have put this one first because it is usually ${reason}, so it makes a good first step. That task is next in your plan.`;
   } else if (!top) {
-    why = "Without times, we started with the change that is usually quickest and lowest risk to try.";
+    why = "Without time estimates, we have started with the change that is usually quickest and lowest risk.";
   } else if (top.key === lead.key) {
-    why = "Of the tasks you ticked, this one takes up the most time and is a sensible place to start.";
+    why = "Of the tasks you selected, this one takes up the most time, so it is a sensible place to start.";
   } else {
-    why = "This change is usually quick and low risk, so it makes a good first experiment. Your other tasks follow in your plan.";
+    why = "This change is usually quick and low risk, so it makes a good first step. Your other tasks follow in your plan.";
   }
-  return why + (lead.r === "high" ? " Mistakes here matter, so you check every result before it is used." : " You still check each result before it is used.");
+  return why + (lead.r === "high" ? " Mistakes here matter, so check every result carefully before using it." : " Check each result before using it.");
 };
 
 export const saidLine = (row: Row) =>
   row.band && D.bands[row.band]?.h
-    ? `You said this takes up ${D.bands[row.band].label.toLowerCase()} a week.`
-    : "You ticked this as one of the tasks that take up most of your time.";
+    ? `You estimated ${D.bands[row.band].label.toLowerCase()} a week on this task.`
+    : "You selected this as one of your most time-consuming tasks.";
 
 export const stepsFor = (row: Row, fit?: Fit) => {
   const extra = fit?.hard ? D.fitHardStep[fit.hard] : "";
@@ -119,18 +119,39 @@ export const websiteLine = (about: About) => {
 /** Trims a typed answer and drops its final full stop, so we can add our own. Mirrored in Code.gs. */
 const clause = (value?: string) => (value || "").trim().replace(/[.!\s]+$/, "");
 
-export const context = (about: About) => {
-  const what = clause(about.what), customers = clause(about.customers), notes = clause(about.notes);
-  const parts = [
-    about.name ? `I run ${about.name.trim()}.` : "I run a small business.",
-    what && `What we do: ${what}.`,
-    customers && `Our customers: ${customers}.`,
-    `Write in a ${about.tone} tone, in British English.`,
-    websiteLine(about),
-    notes && `Also keep in mind: ${notes}.`,
-  ];
-  return parts.filter(Boolean).join(" ");
+/** Lowercases the first letter unless the first word looks like an acronym, such as UK. Mirrored in Code.gs. */
+const softLower = (s: string) => (s.length > 1 && s[1] === s[1].toLowerCase() ? s.charAt(0).toLowerCase() + s.slice(1) : s);
+const capital = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+/** Ends a typed answer with a full stop unless it already ends with one, a question mark or an exclamation mark. */
+const sentence = (value?: string) => {
+  const s = (value || "").trim();
+  return s ? capital(/[.!?]$/.test(s) ? s : `${s}.`) : "";
 };
+
+// Turns the form answers into full sentences. Mirrored in Code.gs.
+const whatSentence = (what?: string) => {
+  const w = clause(what);
+  if (!w) return "";
+  return /^(we|i|our)\b/i.test(w) ? `${capital(w)}.` : `We provide ${softLower(w)}.`;
+};
+const customerSentence = (customers?: string) => {
+  const c = clause(customers);
+  if (!c) return "";
+  return /^(our|we)\b/i.test(c) ? `${capital(c)}.` : `Our customers are ${softLower(c)}.`;
+};
+const toneSentence = (tone: string) => `Use a ${tone} tone and British English.`;
+
+export const context = (about: About) =>
+  [
+    about.name?.trim() ? `I run ${about.name.trim()}.` : "I run a small business.",
+    whatSentence(about.what),
+    customerSentence(about.customers),
+    toneSentence(about.tone),
+    websiteLine(about),
+    sentence(about.notes),
+  ]
+    .filter(Boolean)
+    .join(" ");
 
 export const textFor = (row: Row, about: About, fit?: Fit) => {
   if (row.template) return about.name ? row.template.split("[Business name]").join(about.name) : row.template;
@@ -142,12 +163,17 @@ export const firstMove = (fit?: Fit) =>
   [fit?.tool && D.fitToolLine[fit.tool], fit?.hard && D.fitHardLine[fit.hard]].filter(Boolean).join(" ");
 
 export const houseText = (about: About) =>
-  `I run ${about.name?.trim() || "[business name]"}. What we do: ${clause(about.what) || "[what your business does]"}.\n` +
-  `Our customers: ${clause(about.customers) || "[who your customers are]"}.\n` +
-  (websiteLine(about) ? websiteLine(about) + "\n" : "") +
-  `Write in a ${about.tone} tone, in British English with British spelling.\n` +
-  (clause(about.notes) ? `Also keep in mind: ${clause(about.notes)}.\n` : "Avoid these words and phrases: [words to avoid].\n") +
-  "Keep it plain and specific. Do not make up facts, figures or quotes. If you need information you don't have, ask me.";
+  [
+    `I run ${about.name?.trim() || "[business name]"}.`,
+    whatSentence(about.what) || "We provide [what your business does].",
+    customerSentence(about.customers) || "Our customers are [who your customers are].",
+    `Use a ${about.tone} tone and British English, with British spelling.`,
+    websiteLine(about),
+    sentence(about.notes) || "Avoid these words and phrases: [words to avoid].",
+    "Keep the language clear and specific. Do not invent facts, figures or quotes. If you need information you do not have, ask me.",
+  ]
+    .filter(Boolean)
+    .join("\n");
 
 // Sends events to Google Tag Manager, like the visibility check.
 export const trackTimeAudit = (event: string) => {
