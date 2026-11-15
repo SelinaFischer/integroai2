@@ -112,7 +112,7 @@ const faqs = [
   },
 ];
 
-const CopyButton = ({ getText, label }: { getText: () => string; label: string }) => {
+const CopyButton = ({ getText, label, big = false }: { getText: () => string; label: string; big?: boolean }) => {
   const [state, setState] = useState(label);
   const ref = useRef<HTMLButtonElement>(null);
   const copy = async () => {
@@ -120,9 +120,17 @@ const CopyButton = ({ getText, label }: { getText: () => string; label: string }
       await navigator.clipboard.writeText(getText());
       setState("Copied");
     } catch {
-      const text = ref.current?.closest("[data-copy-box]")?.querySelector<HTMLTextAreaElement>("[data-copy-text]");
-      text?.focus();
-      text?.select();
+      const text = ref.current?.closest("[data-copy-box]")?.querySelector<HTMLElement>("[data-copy-text]");
+      if (text instanceof HTMLTextAreaElement) {
+        text.focus();
+        text.select();
+      } else if (text) {
+        const range = document.createRange();
+        range.selectNodeContents(text);
+        const sel = window.getSelection();
+        sel?.removeAllRanges();
+        sel?.addRange(range);
+      }
       setState("Selected, press copy");
     }
     window.setTimeout(() => setState(label), 2000);
@@ -132,9 +140,13 @@ const CopyButton = ({ getText, label }: { getText: () => string; label: string }
       ref={ref}
       type="button"
       onClick={copy}
-      className="inline-flex items-center gap-1.5 rounded-lg bg-brand-navy px-3 py-1.5 text-[13px] font-semibold text-white hover:bg-brand-ink"
+      className={
+        big
+          ? "btn-amber w-full justify-center"
+          : "inline-flex items-center gap-1.5 rounded-lg bg-brand-navy px-3 py-1.5 text-[13px] font-semibold text-white hover:bg-brand-ink"
+      }
     >
-      <Copy className="h-3.5 w-3.5" aria-hidden="true" />
+      <Copy className={big ? "h-4 w-4" : "h-3.5 w-3.5"} aria-hidden="true" />
       {state}
     </button>
   );
@@ -201,6 +213,185 @@ const CopyBox = ({ heading, text, label, hint, blanks = [] }: { heading: string;
         spellCheck
         className="block w-full resize-none overflow-hidden px-4 py-3 text-[14.5px] leading-relaxed text-brand-navy outline-none focus:bg-brand-ivory/40 focus:ring-2 focus:ring-inset focus:ring-brand-teal/30"
       />
+    </div>
+  );
+};
+
+const escapeRe = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+// Two steps, inspired by fill-the-gaps tools: 1. fill the gaps, seeing exactly where each answer goes,
+// 2. copy the finished prompt into your own AI assistant. Nothing is sent anywhere from here.
+const PromptBuilder = ({
+  rowKey,
+  text,
+  intro,
+  blanks,
+  isTemplate,
+}: {
+  rowKey: string;
+  text: string;
+  intro: string;
+  blanks: Blank[];
+  isTemplate: boolean;
+}) => {
+  const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [edited, setEdited] = useState<string | null>(null);
+  const editRef = useRef<HTMLTextAreaElement>(null);
+  const value = edited ?? fillBlanks(text, answers);
+  const filled = blanks.filter((b) => answers[b.token]?.trim());
+  const togo = blanks.length - filled.length;
+  const fieldId = (b: Blank) => `gap-${rowKey}-${b.token}`.replace(/[^a-z0-9-]/gi, "-");
+  const changed = edited !== null || filled.length > 0;
+
+  useEffect(() => {
+    const el = editRef.current;
+    if (!el) return;
+    el.style.height = "auto";
+    el.style.height = `${el.scrollHeight + 2}px`;
+  }, [edited]);
+
+  // The prompt with your details marked in teal, gaps still to fill in amber, and your answers in teal.
+  const preview = () => {
+    const hasIntro = !!intro && text.startsWith(intro);
+    const body = hasIntro ? text.slice(intro.length) : text;
+    const tokens = blanks.map((b) => b.token);
+    const parts = tokens.length ? body.split(new RegExp(`(${tokens.map(escapeRe).join("|")})`)) : [body];
+    return (
+      <>
+        {hasIntro && <span className="rounded-sm bg-brand-teal/10 underline decoration-brand-teal decoration-dotted underline-offset-4">{intro}</span>}
+        {parts.map((part, i) => {
+          if (!tokens.includes(part)) return <span key={i}>{part}</span>;
+          const answer = answers[part]?.trim();
+          return answer ? (
+            <span key={i} className="rounded-sm bg-brand-teal/10 font-semibold text-brand-navy underline decoration-brand-teal underline-offset-4">{answer}</span>
+          ) : (
+            <span key={i} className="rounded border border-dashed border-[#E2602B] bg-[#FFF1E8] px-1 font-semibold text-[#B4483C]">{part}</span>
+          );
+        })}
+      </>
+    );
+  };
+
+  return (
+    <div data-copy-box className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
+      {/* Step 1: fill the gaps */}
+      <div className="flex min-w-0 flex-col gap-3">
+        <p className="flex items-center gap-2 text-[15px] font-bold text-brand-navy">
+          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-navy text-[12px] text-white">1</span>
+          {blanks.length ? "Fill the gaps" : isTemplate ? "Your template" : "Your prompt"}
+        </p>
+        <div className="overflow-hidden rounded-xl border border-brand-sand bg-brand-ivory">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-brand-sand px-4 py-2">
+            <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-brand-slate">
+              {isTemplate ? "Your template" : "Your prompt"} · ready to copy
+            </span>
+            <span className="flex items-center gap-3">
+              {changed && (
+                <button type="button" onClick={() => { setAnswers({}); setEdited(null); }} className="text-[13px] font-semibold text-brand-teal underline underline-offset-4">
+                  Reset
+                </button>
+              )}
+              {edited === null ? (
+                <button type="button" onClick={() => setEdited(value)} className="text-[13px] font-semibold text-brand-teal underline underline-offset-4">
+                  Edit the full text
+                </button>
+              ) : null}
+            </span>
+          </div>
+          {edited === null ? (
+            <p data-copy-text className="whitespace-pre-wrap px-4 py-3 text-[14.5px] leading-relaxed text-brand-navy">{preview()}</p>
+          ) : (
+            <textarea
+              ref={editRef}
+              data-copy-text
+              aria-label="Edit the full text"
+              value={edited}
+              onChange={(e) => setEdited(e.target.value)}
+              rows={6}
+              className="block w-full resize-none overflow-hidden bg-white px-4 py-3 text-[14.5px] leading-relaxed text-brand-navy outline-none focus:ring-2 focus:ring-inset focus:ring-brand-teal/30"
+            />
+          )}
+          {edited === null && (blanks.length > 0 || (intro && text.startsWith(intro))) && (
+            <p className="flex flex-wrap gap-x-4 gap-y-1 border-t border-brand-sand px-4 py-2 text-[12.5px] text-brand-slate">
+              {intro && text.startsWith(intro) && (
+                <span className="flex items-center gap-1.5"><span className="inline-block h-3 w-3 rounded-sm bg-brand-teal/20 ring-1 ring-brand-teal" />From your details</span>
+              )}
+              {blanks.length > 0 && (
+                <span className="flex items-center gap-1.5"><span className="inline-block h-3 w-3 rounded-sm border border-dashed border-[#E2602B] bg-[#FFF1E8]" />You add ({togo})</span>
+              )}
+            </p>
+          )}
+        </div>
+        {edited === null && blanks.length > 0 && (
+          <div className="flex flex-col gap-3">
+            {blanks.map((b) => {
+              const set = (v: string) => setAnswers((a) => ({ ...a, [b.token]: v }));
+              return (
+                <div key={b.token} className="min-w-0">
+                  <label htmlFor={fieldId(b)} className="mb-1 block text-[14px] font-semibold text-brand-navy">{b.label}</label>
+                  {b.long ? (
+                    <textarea id={fieldId(b)} rows={3} value={answers[b.token] || ""} onChange={(e) => set(e.target.value)} className={`${inputClass} py-2 text-[15px]`} />
+                  ) : (
+                    <input id={fieldId(b)} value={answers[b.token] || ""} onChange={(e) => set(e.target.value)} className={`${inputClass} py-2 text-[15px]`} />
+                  )}
+                </div>
+              );
+            })}
+            {blanks.some((b) => D.examples[b.token]) && (
+              <button
+                type="button"
+                onClick={() => setAnswers(Object.fromEntries(blanks.map((b) => [b.token, D.examples[b.token] || ""])))}
+                className="w-fit text-[14px] font-semibold text-brand-teal underline underline-offset-4"
+              >
+                Fill it with an example
+              </button>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* Step 2: copy it into your AI assistant */}
+      <div className="flex min-w-0 flex-col gap-3 self-start rounded-xl border border-brand-sand bg-brand-ivory p-4">
+        <p className="flex items-center justify-between gap-2 text-[15px] font-bold text-brand-navy">
+          <span className="flex items-center gap-2">
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-navy text-[12px] text-white">2</span>
+            {isTemplate ? "Copy and send it" : "Copy it into your AI assistant"}
+          </span>
+        </p>
+        {blanks.length > 0 && edited === null && (
+          <>
+            <p className="text-[13px] font-semibold text-brand-slate">{togo ? `${togo} gap${togo > 1 ? "s" : ""} to go` : "All gaps filled"}</p>
+            <ul className="flex flex-col gap-1.5">
+              {blanks.map((b) => {
+                const done = !!answers[b.token]?.trim();
+                return (
+                  <li key={b.token} className="flex items-center justify-between gap-2 text-[14px] text-brand-navy">
+                    <span className="flex min-w-0 items-center gap-2">
+                      {done ? (
+                        <Check className="h-4 w-4 flex-none text-brand-teal" strokeWidth={3} aria-label="Filled" />
+                      ) : (
+                        <span className="h-4 w-4 flex-none rounded-full border-2 border-brand-sand" aria-label="Not filled yet" />
+                      )}
+                      <span className="truncate">{b.label}</span>
+                    </span>
+                    {!done && (
+                      <button type="button" onClick={() => document.getElementById(fieldId(b))?.focus()} className="flex-none text-[13px] font-semibold text-brand-teal underline underline-offset-4">
+                        Go to it
+                      </button>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </>
+        )}
+        <CopyButton big getText={() => value} label={isTemplate ? "Copy template" : "Copy prompt"} />
+        <p className="text-[13px] leading-relaxed text-brand-slate">
+          {isTemplate
+            ? "Replace anything still in [square brackets], such as the client's name, each time you send it."
+            : "Paste it into ChatGPT, Microsoft Copilot, Gemini or the AI tool you use. If a gap is still empty, your AI assistant will ask you for it."}
+        </p>
+      </div>
     </div>
   );
 };
@@ -423,16 +614,12 @@ const TimeAudit = () => {
               {stepsFor(row).map((s) => <li key={s}>{s}</li>)}
             </ol>
             {careLine(row)}
-            <CopyBox
+            <PromptBuilder
               key={row.key}
+              rowKey={row.key}
+              isTemplate={!!row.template}
               blanks={blanksFor(row.template || row.prompt || "", !!row.template)}
-              heading={row.template ? "Ready-to-use template" : "Prompt for your AI assistant"}
-              label={row.template ? "Copy template" : "Copy prompt"}
-              hint={
-                row.template
-                  ? "Copy this template, replace anything in [square brackets] with your details, then send it."
-                  : "Copy this prompt into your AI assistant, such as ChatGPT, Microsoft Copilot or Gemini. Replace anything in [square brackets] with your own details."
-              }
+              intro={row.template ? "" : textFor(row, about, rowFit).split("\n\n")[0]}
               text={textFor(row, about, rowFit)}
             />
           </div>

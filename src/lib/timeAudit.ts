@@ -35,6 +35,7 @@ export const TIME_AUDIT = data as unknown as {
   areas: Record<string, Area>;
   getNeed: Record<string, [string, string]>;
   watch: Record<string, string>;
+  examples: Record<string, string>;
 };
 
 const D = TIME_AUDIT;
