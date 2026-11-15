@@ -425,13 +425,13 @@ const TimeAudit = () => {
                         </label>
                         {ticked && (
                           <select
-                            aria-label={`Time spent per week on ${task.t}`}
+                            aria-label={`Hours per week on ${task.t}`}
                             value={selected[key]}
                             onChange={(e) => setSelected((s) => ({ ...s, [key]: e.target.value }))}
                             ref={(el) => { if (el && justTicked.current === key) { justTicked.current = ""; el.focus({ preventScroll: true }); } }}
                             className={selected[key] ? selectClass : selectEmptyClass}
                           >
-                            <option value="" disabled>Time spent per week</option>
+                            <option value="" disabled>Select hours per week</option>
                             {BAND_KEYS.map((b) => <option key={b} value={b}>{D.bands[b].label}</option>)}
                           </select>
                         )}
@@ -498,7 +498,7 @@ const TimeAudit = () => {
                 </h2>
                 {total > 0 ? (
                   <p className="text-[16.5px] text-brand-navy">
-                    The tasks you ticked take up about <strong className="font-heading text-[26px]">{fmtHours(total)}</strong> hours a month of your own time today. This is time spent now, not a promised saving.
+                    Based on the times you entered, you spend around <strong className="font-heading text-[26px]">{fmtHours(total)}</strong> hours a month on these tasks. This is your current workload, not an estimate of time you could save.
                   </p>
                 ) : (
                   <div role="alert" className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-xl border-2 border-[#E2602B] bg-[#FFF1E8] px-4 py-3 text-[15px] font-semibold text-brand-navy">
@@ -514,8 +514,11 @@ const TimeAudit = () => {
                 )}
                 {missing > 0 && total > 0 && (
                   <div role="alert" className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-xl border-2 border-[#E2602B] bg-[#FFF1E8] px-4 py-3 text-[15px] font-semibold text-brand-navy">
-                    <span>⚠ {missing} task{missing > 1 ? "s have" : " has"} no time range yet, so {missing > 1 ? "they are" : "it is"} not counted and {missing > 1 ? "come" : "comes"} after your timed tasks.</span>
-                    <button type="button" onClick={() => document.getElementById("ta-step2")?.scrollIntoView({ behavior: "smooth" })} className="font-semibold text-[#B4483C] underline underline-offset-4">Add your times</button>
+                    <span className="flex flex-col gap-1">
+                      <span>⚠ How much time do you spend on the other {missing > 1 ? `${missing} tasks` : "task"}?</span>
+                      <span className="font-normal">Choose a weekly time range for {missing > 1 ? "each so they" : "it so it"} can be included in your total and prioritised in your plan.</span>
+                    </span>
+                    <button type="button" onClick={() => document.getElementById("ta-step2")?.scrollIntoView({ behavior: "smooth" })} className="font-semibold text-[#B4483C] underline underline-offset-4">Add missing times</button>
                   </div>
                 )}
                 {total > 0 && (

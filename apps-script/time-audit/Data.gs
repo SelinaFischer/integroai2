@@ -3,7 +3,7 @@
 var TIME_AUDIT_DATA = {
   "bands": {
     "": {
-      "label": "Time spent per week",
+      "label": "Select hours per week",
       "h": 0
     },
     "u1": {
@@ -56,7 +56,7 @@ var TIME_AUDIT_DATA = {
           "prompt": "Here are five emails I often receive, with personal details removed: [paste]. For each one, write a reusable reply template. Put anything that changes each time in [square brackets]. Keep each under 120 words and end with one clear next step. Do not invent prices, policies, deadlines or commitments. Use placeholders for missing information."
         },
         {
-          "t": "Booking meetings and moving calendar slots",
+          "t": "Booking and rescheduling meetings",
           "e": "low",
           "r": "low",
           "fix": "Send one booking link instead of trading emails about times.",

@@ -270,7 +270,7 @@ function buildEmail_(lead, plan) {
   p('Here is your full action plan from the IntegroAI Time Audit.');
   text.push('Hi ' + lead.name + ',', '', 'Here is your full action plan from the IntegroAI Time Audit.');
   if (plan.total) {
-    var totalLine = 'The tasks you ticked take up about ' + fmtHours_(plan.total) + ' hours a month of your own time today. This is time spent now, not a promised saving.';
+    var totalLine = 'Based on the times you entered, you spend around ' + fmtHours_(plan.total) + ' hours a month on these tasks. This is your current workload, not an estimate of time you could save.';
     p(esc_(totalLine));
     text.push(totalLine);
   }
