@@ -143,9 +143,14 @@ const PrivacyPolicy = () => {
                       make.com/en/privacy-notice
                     </a>
                   </li>
-                  <li><strong>Google Apps Script, Gmail and Google Sheets:</strong> Run the free AI visibility check, email your report and store your request. Google&apos;s privacy policy is available at{" "}
+                  <li><strong>Google Apps Script, Gmail and Google Sheets:</strong> Run the free AI visibility check and AI time audit, email your report or action plan, and store your request. Google&apos;s privacy policy is available at{" "}
                     <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                       policies.google.com/privacy
+                    </a>
+                  </li>
+                  <li><strong>Cloudflare Turnstile:</strong> Checks that a request to email you an action plan from our free AI time audit comes from a person, not an automated bot. Their privacy policy is available at{" "}
+                    <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                      cloudflare.com/privacypolicy
                     </a>
                   </li>
                   <li><strong>Firecrawl:</strong> Reads the website address you enter when our simple check cannot read it. Their privacy policy is available at{" "}

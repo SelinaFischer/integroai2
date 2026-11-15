@@ -7,13 +7,17 @@
  * src/data/time-audit.json by `npm run build:time-audit-gs`. Never edit Data.gs by hand.
  * The email is built only from that data, never from text sent by the browser,
  * so the form cannot be used to send someone else's words.
- * No secrets belong in this file.
+ * No secrets belong in this file. The Cloudflare Turnstile secret lives in
+ * Project Settings > Script Properties as TURNSTILE_SECRET. Until it is set, the bot check is skipped.
  */
 var CONFIG = {
   SHEET_NAME: 'Leads',
-  DAILY_LIMIT: 100,
-  PER_EMAIL_LIMIT: 3,
-  LIMIT_WINDOW_SECONDS: 21600,
+  DAILY_LIMIT: 100,           // safety net under Google's own daily email limit
+  PER_EMAIL_PER_DAY: 10,      // stops one inbox being flooded; real prospects never get near it
+  MIN_SECONDS: 5,             // forms sent faster than this after the page loads are treated as bots
+  DUPLICATE_SECONDS: 600,     // the same plan to the same address within 10 minutes is sent once
+  // Your own addresses skip the per-address limit, so testing always works.
+  ALLOW: ['info@integroai.tech', 'integroai.tech@gmail.com'],
   CALL_URL: 'https://calendly.com/integroai-tech/30min',
   REPLY_TO: 'info@integroai.tech',
   SENDER_NAME: 'Selina Fischer, IntegroAI Consulting',
@@ -29,15 +33,25 @@ function doPost(e) {
   try {
     var input = JSON.parse((e && e.postData && e.postData.contents) || '{}');
     if (input.company_website) return jsonOut_({ ok: true, status: 'ignored' }); // honeypot
+    if (typeof input.elapsed === 'number' && input.elapsed < CONFIG.MIN_SECONDS * 1000) {
+      return jsonOut_({ ok: true, status: 'ignored' }); // too fast to be a person
+    }
 
     var lead = cleanLead_(input);
     if (lead.error) return jsonOut_({ ok: false, error: lead.error });
+
+    if (!passesTurnstile_(input.turnstile)) return jsonOut_({ ok: false, error: 'bot' });
+
+    var dupKey = 'dup:' + hash_(lead.email + JSON.stringify(lead.selections) + JSON.stringify(lead.fit));
+    var cache = CacheService.getScriptCache();
+    if (cache.get(dupKey)) return jsonOut_({ ok: true, emailSent: true, status: 'duplicate' });
 
     var limit = checkLimits_(lead);
     if (limit) return jsonOut_({ ok: false, error: limit });
 
     var plan = buildPlan_(lead);
     var emailSent = sendPlan_(lead, plan);
+    if (emailSent) cache.put(dupKey, '1', CONFIG.DUPLICATE_SECONDS);
     logLead_(lead, plan, emailSent);
     return jsonOut_({ ok: true, emailSent: emailSent });
   } catch (err) {
@@ -92,26 +106,59 @@ function text_(value, max) {
   return String(value == null ? '' : value).replace(/[\u0000-\u001f]/g, ' ').trim().slice(0, max);
 }
 
+// Checks the Cloudflare Turnstile token. Skipped until TURNSTILE_SECRET is set.
+function passesTurnstile_(token) {
+  var secret = PropertiesService.getScriptProperties().getProperty('TURNSTILE_SECRET');
+  if (!secret) return true;
+  if (!token) return false;
+  try {
+    var res = UrlFetchApp.fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'post',
+      payload: { secret: secret, response: String(token).slice(0, 2048) },
+      muteHttpExceptions: true
+    });
+    return JSON.parse(res.getContentText()).success === true;
+  } catch (err) {
+    console.error('Turnstile check failed', err);
+    return true; // if Cloudflare cannot be reached, real people are not blocked
+  }
+}
+
 function checkLimits_(lead) {
   var lock = LockService.getScriptLock();
   lock.waitLock(10000);
   try {
-    var cache = CacheService.getScriptCache();
-    var emailKey = 'e:' + hash_(lead.email);
-    var emailCount = Number(cache.get(emailKey) || 0);
-    if (emailCount >= CONFIG.PER_EMAIL_LIMIT) return 'too_many';
-
     var props = PropertiesService.getScriptProperties();
-    var dayKey = 'day:' + Utilities.formatDate(new Date(), 'GMT', 'yyyy-MM-dd');
+    var today = Utilities.formatDate(new Date(), 'GMT', 'yyyy-MM-dd');
+    clearOldDays_(props, today);
+
+    var dayKey = 'day:' + today;
     var dayCount = Number(props.getProperty(dayKey) || 0);
     if (dayCount >= CONFIG.DAILY_LIMIT) return 'busy';
 
+    var allowed = CONFIG.ALLOW.indexOf(lead.email) > -1;
+    var emailKey = 'ed:' + today + ':' + hash_(lead.email);
+    var emailCount = Number(props.getProperty(emailKey) || 0);
+    if (!allowed && emailCount >= CONFIG.PER_EMAIL_PER_DAY) return 'too_many';
+
     props.setProperty(dayKey, String(dayCount + 1));
-    cache.put(emailKey, String(emailCount + 1), CONFIG.LIMIT_WINDOW_SECONDS);
+    if (!allowed) props.setProperty(emailKey, String(emailCount + 1));
     return '';
   } finally {
     lock.releaseLock();
   }
+}
+
+// Removes yesterday's per-address counts once a day, so the store stays small.
+function clearOldDays_(props, today) {
+  if (props.getProperty('counts_day') === today) return;
+  var all = props.getProperties();
+  Object.keys(all).forEach(function (key) {
+    if ((key.indexOf('ed:') === 0 && key.indexOf('ed:' + today + ':') !== 0) || (key.indexOf('day:') === 0 && key !== 'day:' + today)) {
+      props.deleteProperty(key);
+    }
+  });
+  props.setProperty('counts_day', today);
 }
 
 function hash_(value) {

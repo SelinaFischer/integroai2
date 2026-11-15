@@ -10,6 +10,7 @@ import { DISCOVERY_CALL_URL, fadeUp, fadeUpDelayed } from "@/lib/motion";
 import {
   TIME_AUDIT,
   TIME_AUDIT_PATH,
+  TURNSTILE_SITE_KEY,
   TONES,
   buildRows,
   firstMove,
@@ -46,10 +47,31 @@ const errorMessages: Record<string, string> = {
   details: "Please add your first name.",
   email: "Please enter a valid email address.",
   tasks: "Please tick at least one task first.",
-  too_many: "This email has been used several times recently. Please try again in a few hours.",
+  too_many: "This email address has reached today's limit for emailed plans. Please try again tomorrow.",
+  bot: "We couldn't confirm you're a person. Please refresh the page and try again.",
+  checking: "Just a moment while we check you're a person, then try again.",
   busy: "We have reached today's limit for emailed plans. Please try again tomorrow.",
   not_configured: "Emailing your plan isn't switched on yet. Please keep a copy of this page for now.",
   server: "Something went wrong on our side. Please try again.",
+};
+type TurnstileApi = {
+  render: (el: HTMLElement, options: Record<string, unknown>) => string;
+  reset: (id: string) => void;
+};
+let turnstileLoading: Promise<TurnstileApi | undefined> | null = null;
+// Loads Cloudflare's script once, only when the email form appears.
+const loadTurnstile = () => {
+  if (!turnstileLoading) {
+    turnstileLoading = new Promise((resolve) => {
+      const s = document.createElement("script");
+      s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+      s.async = true;
+      s.onload = () => resolve((window as unknown as { turnstile?: TurnstileApi }).turnstile);
+      s.onerror = () => resolve(undefined);
+      document.head.appendChild(s);
+    });
+  }
+  return turnstileLoading;
 };
 const fallbackError = "We couldn't send your plan. Please try again in a moment.";
 
@@ -184,10 +206,42 @@ const TimeAudit = () => {
     window.setTimeout(() => document.getElementById("your-plan")?.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
   };
 
+  // Bot protection: when the page loaded, and the Cloudflare Turnstile check.
+  const pageLoadedAt = useRef(Date.now());
+  const turnstileRef = useRef<HTMLDivElement | null>(null);
+  const turnstileId = useRef<string | null>(null);
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const resetTurnstile = () => {
+    setTurnstileToken("");
+    const ts = (window as unknown as { turnstile?: TurnstileApi }).turnstile;
+    if (ts && turnstileId.current) ts.reset(turnstileId.current);
+  };
+  useEffect(() => {
+    if (!TURNSTILE_SITE_KEY || !shown || sentTo) return;
+    let cancelled = false;
+    loadTurnstile().then((ts) => {
+      if (cancelled || !ts || !turnstileRef.current || turnstileId.current) return;
+      turnstileId.current = ts.render(turnstileRef.current, {
+        sitekey: TURNSTILE_SITE_KEY,
+        appearance: "interaction-only",
+        callback: (token: string) => setTurnstileToken(token),
+        "expired-callback": () => setTurnstileToken(""),
+        "error-callback": () => setTurnstileToken(""),
+      });
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [shown, sentTo]);
+
   const handleSend = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
     const email = String(form.get("email") || "");
+    if (TURNSTILE_SITE_KEY && !turnstileToken) {
+      setSendError(errorMessages.checking);
+      return;
+    }
     setSending(true);
     setSendError("");
     trackTimeAudit("time_audit_email_submit");
@@ -203,6 +257,8 @@ const TimeAudit = () => {
         notes: about.notes,
         tips: form.get("tips") === "on",
         company_website: form.get("company_website"),
+        elapsed: Date.now() - pageLoadedAt.current,
+        turnstile: turnstileToken,
         selections: rows.map((r) => ({ key: r.key, band: r.band })),
         fit: lead ? { key: lead.key, ...leadFit } : {},
       });
@@ -216,6 +272,7 @@ const TimeAudit = () => {
       setSendError(fallbackError);
     } finally {
       setSending(false);
+      resetTurnstile(); // each token works once
     }
   };
 
@@ -591,6 +648,7 @@ const TimeAudit = () => {
                       <label htmlFor="ta-company-website">Leave this empty</label>
                       <input id="ta-company-website" name="company_website" tabIndex={-1} autoComplete="off" />
                     </div>
+                    {TURNSTILE_SITE_KEY && <div ref={turnstileRef} />}
                     <label className="flex items-start gap-2.5 text-sm leading-snug text-brand-slate">
                       <input type="checkbox" name="tips" className="mt-0.5 h-4 w-4 flex-none accent-brand-teal" />
                       <span>Send me occasional practical AI tips. Optional.</span>
