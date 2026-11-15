@@ -63,9 +63,9 @@ var TIME_AUDIT_DATA = {
           "steps": [
             "Check whether your existing calendar or email service includes a booking page.",
             "Set your available hours and meeting length. Connect your calendar so existing appointments block out unavailable times.",
-            "Copy your booking link into your email signature and the reply template below. Where available, include a link that lets clients reschedule their appointment themselves."
+            "Copy your booking link into your email signature and the reply template below. Check that your booking tool's confirmation email lets clients cancel or reschedule. In some tools this is a setting you need to turn on."
           ],
-          "template": "Hi [name],\n\nThanks for getting in touch. To save going back and forth, you can pick a time that suits you here: [booking link]\n\nIf you need to change the time later, you can reschedule here: [reschedule link]\n\nIf none of those times work, just reply and we will find another.\n\n[Your name]\n[Business name]"
+          "template": "Hi [name],\n\nThanks for getting in touch. To save going back and forth, you can pick a time that suits you here: [booking link]\n\nIf none of those times work, just reply and we will find another.\n\n[Your name]\n[Business name]"
         },
         {
           "t": "Typing the same details into more than one place",
