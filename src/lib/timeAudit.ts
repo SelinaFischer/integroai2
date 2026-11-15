@@ -70,7 +70,9 @@ export const buildRows = (selected: Record<string, string>): Row[] =>
     })
     .filter(Boolean) as Row[];
 
-export const rankRows = (rows: Row[]) => [...rows].sort((a, b) => b.score - a.score);
+/** Tasks with a time range always come before tasks without one. Mirrored in Code.gs. */
+export const rankRows = (rows: Row[]) =>
+  [...rows].sort((a, b) => Number(b.hours > 0) - Number(a.hours > 0) || b.score - a.score);
 
 export const whyThisOne = (lead: Row, rows: Row[]) => {
   const top = [...rows].filter((r) => r.hours > 0).sort((a, b) => b.hours - a.hours)[0];
@@ -80,8 +82,12 @@ export const whyThisOne = (lead: Row, rows: Row[]) => {
   if (top && top.key !== lead.key && top.hours > lead.hours && (quicker || safer)) {
     const reason = quicker && safer ? "quicker to change and lower risk" : quicker ? "quicker to change" : "lower risk to hand to AI";
     why = `You said ${lowerFirst(top.t)} takes longer (${D.bands[top.band].label.toLowerCase()} a week). We put this one first because it is usually ${reason}, so it makes a good first experiment. Then come back to that one, which is also in your plan.`;
-  } else {
+  } else if (!top) {
+    why = "Without times, we started with the change that is usually quickest and lowest risk to try.";
+  } else if (top.key === lead.key) {
     why = "Of the tasks you ticked, this one takes up the most time and is a sensible place to start.";
+  } else {
+    why = "This change is usually quick and low risk, so it makes a good first experiment. Your other tasks follow in your plan.";
   }
   return why + (lead.r === "high" ? " Mistakes here matter, so you check every result before it is used." : " You still check each result before it is used.");
 };

@@ -53,7 +53,7 @@ var TIME_AUDIT_DATA = {
             "Use the prompt to turn them into reply templates.",
             "Save each template in your email so it is ready to reuse."
           ],
-          "prompt": "Here are five emails I answer often, with personal details removed: [paste]. For each one, write a reusable reply template. Put anything that changes each time in [square brackets]. Keep each under 120 words and end with one clear next step. Do not invent prices, policies, deadlines or commitments. Use placeholders for missing information."
+          "prompt": "Here are five emails I often receive, with personal details removed: [paste]. For each one, write a reusable reply template. Put anything that changes each time in [square brackets]. Keep each under 120 words and end with one clear next step. Do not invent prices, policies, deadlines or commitments. Use placeholders for missing information."
         },
         {
           "t": "Booking meetings and moving calendar slots",
@@ -74,8 +74,8 @@ var TIME_AUDIT_DATA = {
           "fix": "Collect information once, in one place, and stop retyping it.",
           "steps": [
             "Write down where the information starts and everywhere you retype it.",
-            "Replace the first step with a form that saves to a sheet.",
-            "Use the prompt to see which of your tools can connect directly."
+            "Use the prompt to find the simplest way to enter it once, starting with tools you already use.",
+            "Try the simplest option on one week of real entries before changing anything else."
           ],
           "prompt": "I copy this information by hand: [what it is]. It starts in [tool] and I retype it into [tool] and [tool]. In plain English, explain the simplest ways to stop retyping it, starting with options inside tools I already use. Say clearly where you are not sure a feature exists."
         },
@@ -83,7 +83,7 @@ var TIME_AUDIT_DATA = {
           "t": "Writing up meeting notes and actions",
           "e": "low",
           "r": "low",
-          "fix": "Turn rough notes into a clean summary in two minutes.",
+          "fix": "Turn rough notes into a clean summary with decisions and actions.",
           "steps": [
             "Jot rough notes during the meeting.",
             "Paste them into the prompt.",
@@ -97,9 +97,9 @@ var TIME_AUDIT_DATA = {
           "r": "low",
           "fix": "Set up one simple folder system that everyone uses.",
           "steps": [
-            "Agree five to seven main folders.",
-            "Name every file the same way: date, client, document.",
-            "Use the prompt to design the structure for your business."
+            "List what you store, such as quotes, invoices and client files.",
+            "Use the prompt to draft five to seven main folders and one file naming rule.",
+            "Agree the structure with your team before moving any files."
           ],
           "prompt": "Design a simple shared folder structure for my business. We have [number] people and mainly store [list]. No more than seven main folders. Include one file naming rule and an example file name for each folder."
         },
@@ -125,10 +125,10 @@ var TIME_AUDIT_DATA = {
           "t": "Coming up with and writing social posts",
           "e": "low",
           "r": "medium",
-          "fix": "Plan a month of posts in one sitting instead of starting from scratch each time.",
+          "fix": "Draft eight posts in one sitting instead of starting from scratch each time.",
           "steps": [
             "Pick three questions your customers often ask.",
-            "Use the prompt to draft a month of posts.",
+            "Use the prompt to draft eight posts.",
             "Edit them to sound like you, then schedule them."
           ],
           "prompt": "Customers often ask: [three questions]. Write eight short social posts, one idea each: four tips, two stories I can fill in and two common mistakes. No more than three hashtags each. Do not make up statistics."
@@ -137,13 +137,13 @@ var TIME_AUDIT_DATA = {
           "t": "Reusing a blog, talk or video across other channels",
           "e": "low",
           "r": "low",
-          "fix": "Turn one thing you have already written into a week of content.",
+          "fix": "Turn one piece you have already created into social posts, an email introduction and quotes.",
           "steps": [
-            "Pick one blog, talk or long post.",
+            "Pick one blog, long post, or the transcript of a talk or video.",
             "Paste it into the prompt.",
-            "Choose the best versions and schedule them."
+            "Edit the drafts, then schedule them."
           ],
-          "prompt": "Here is something I wrote: [paste]. Turn it into three short social posts, one email introduction and five one-line quotes. Use only ideas from the original and keep my wording where you can."
+          "prompt": "Here is something I created: [paste]. Turn it into three short social posts, each on a different point, one email introduction and five one-line quotes. Use only ideas from the original and keep my wording where you can. Do not add facts, examples or claims that are not in the original."
         },
         {
           "t": "Replying to reviews and comments",
@@ -161,13 +161,13 @@ var TIME_AUDIT_DATA = {
           "t": "Writing your email newsletter",
           "e": "medium",
           "r": "medium",
-          "fix": "Use a fixed template so each issue takes minutes to fill.",
+          "fix": "Use a fixed template so each issue is quicker to write.",
           "steps": [
             "Agree three regular sections, such as a tip, news and an offer.",
-            "Collect notes during the month.",
+            "Collect notes between issues.",
             "Use the prompt to turn your notes into the issue."
           ],
-          "prompt": "Write my monthly newsletter from these notes: [paste]. Sections: [section 1], [section 2], [section 3]. Give three subject line options. Under 300 words. Do not add facts that are not in my notes."
+          "prompt": "Write my email newsletter from these notes: [paste]. Sections: [section 1], [section 2], [section 3]. Give three subject line options. Under 300 words. Do not add facts that are not in my notes."
         },
         {
           "t": "Reviewing which posts and campaigns got results",
@@ -221,7 +221,7 @@ var TIME_AUDIT_DATA = {
             "Paste your notes into the prompt.",
             "Check it and add your own judgement."
           ],
-          "prompt": "Turn these notes into a client report with these headings: [list]. Notes: [paste]. Mark anything you are unsure about with [check]."
+          "prompt": "Turn these notes into a client report with these headings: [list]. Notes: [paste]. Use only what is in my notes. Mark anything you are unsure about with [check]."
         },
         {
           "t": "Recreating standard letters and emails each time",
@@ -239,7 +239,7 @@ var TIME_AUDIT_DATA = {
           "t": "Proofreading and tidying the layout before sending",
           "e": "low",
           "r": "low",
-          "fix": "Ask AI to check your writing against your own rules.",
+          "fix": "Check your writing against your own house rules before it goes out.",
           "steps": [
             "Write three to five house rules, such as British spelling.",
             "Paste the rules and your text into the prompt.",
@@ -450,20 +450,20 @@ var TIME_AUDIT_DATA = {
       "Rough notes on how you do one job"
     ],
     "marketing-0": [
-      "A month of draft social posts",
+      "Eight draft social posts",
       "Three questions customers often ask"
     ],
     "marketing-1": [
-      "Posts, an email intro and quotes from one piece",
-      "One blog, talk or long post"
+      "Three social posts, an email introduction and five quotes",
+      "One blog, long post, or the transcript of a talk or video"
     ],
     "marketing-2": [
       "A calm draft reply to check and send",
       "The review or comment"
     ],
     "marketing-3": [
-      "A ready-to-edit newsletter",
-      "Your notes for the month"
+      "A draft newsletter ready to edit",
+      "Your notes since the last issue"
     ],
     "marketing-4": [
       "Your best and worst posts, and why",
@@ -494,7 +494,7 @@ var TIME_AUDIT_DATA = {
       "Your spreadsheet's column headings"
     ],
     "data-1": [
-      "A summary tab that updates itself",
+      "A summary tab that updates when you add new data",
       "The five numbers you check most"
     ],
     "data-2": [
@@ -548,11 +548,11 @@ var TIME_AUDIT_DATA = {
     "admin-2": "Don't connect tools until the manual process is clear. Automating a muddle just makes it faster.",
     "admin-3": "Check names, dates and owners. AI summaries can drop or mix up actions.",
     "admin-4": "A new folder system only works if everyone uses it. Agree it with the team before moving files.",
-    "admin-5": "Ask the person who does the job to check the checklist. AI can't know the steps people do without thinking.",
+    "admin-5": "Ask the person who does the job to check the checklist. People skip steps they do out of habit, so AI can't know they are missing.",
     "marketing-0": "If every draft needs heavy rewriting, give the AI two of your own posts first so it learns your style.",
-    "marketing-1": "Ask for three versions, not thirty. Reviewing too many options costs more time than it saves.",
+    "marketing-1": "Check each draft still makes sense on its own, without the original beside it.",
     "marketing-2": "A reply that sounds generic can do more harm than no reply. Always add one personal detail.",
-    "marketing-3": "If you rewrite most of it, your notes were too thin. Add one real story or example each month.",
+    "marketing-3": "If you rewrite most of it, your notes were too thin. Add one real story or example to each issue.",
     "marketing-4": "Small numbers can mislead. Look for patterns over a few months before changing direction.",
     "docs-0": "Check every fact, date and promise. AI writes confidently even when it is guessing.",
     "docs-1": "Never send a price, date or scope the AI wrote without checking it against your own notes.",

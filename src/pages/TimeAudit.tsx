@@ -79,7 +79,7 @@ const faqs = [
   {
     question: "Do I need to give my email?",
     answer:
-      "No. Your action plan appears on screen straight away. Add your email only if you want the full plan for every task you ticked, plus a simple sheet to record your time before and after.",
+      "No. Your action plan appears on screen straight away. Add your email only if you want a copy in your inbox, with every task you ticked and a simple table to record your time before and after.",
   },
 ];
 
@@ -397,7 +397,7 @@ const TimeAudit = () => {
             </m.div>
 
             {/* Step 2 */}
-            <m.div {...fadeUpDelayed(1)} className="flex flex-col gap-3">
+            <m.div {...fadeUpDelayed(1)} id="ta-step2" className="flex scroll-mt-24 flex-col gap-3">
               <p className={stepLabel}>Step 2 of 3</p>
               <h2 className="text-[24px] font-semibold leading-tight text-brand-navy sm:text-[28px]">Tick the tasks that take up most of your time</h2>
               <p className="text-[15px] leading-relaxed text-brand-slate">
@@ -481,17 +481,22 @@ const TimeAudit = () => {
                     The tasks you ticked take up about <strong className="font-heading text-[26px]">{fmtHours(total)}</strong> hours a month of your own time today. This is time spent now, not a promised saving.
                   </p>
                 ) : (
-                  <p className="text-[15px] text-brand-slate">Add a time range to your tasks to see how much of your month they take up.</p>
+                  <div role="alert" className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-xl border-2 border-[#E2602B] bg-[#FFF1E8] px-4 py-3 text-[15px] font-semibold text-brand-navy">
+                    <span>⚠ Add your weekly times for a sharper plan. For now, we've put the quickest, lowest-risk changes first.</span>
+                    <button type="button" onClick={() => document.getElementById("ta-step2")?.scrollIntoView({ behavior: "smooth" })} className="font-semibold text-[#B4483C] underline underline-offset-4">Add your times</button>
+                  </div>
                 )}
                 {total / D.weeks > 45 && (
-                  <p className="text-[14px] font-medium text-[#B4483C]">
-                    That is over {Math.round(total / D.weeks)} hours a week, more than most working weeks. Check you haven't counted the same time under two tasks.
-                  </p>
+                  <div role="alert" className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-xl border-2 border-[#E2602B] bg-[#FFF1E8] px-4 py-3 text-[15px] font-semibold text-brand-navy">
+                    <span>⚠ That is over {Math.round(total / D.weeks)} hours a week, more than most working weeks. Check you haven't counted the same time under two tasks.</span>
+                    <button type="button" onClick={() => document.getElementById("ta-step2")?.scrollIntoView({ behavior: "smooth" })} className="font-semibold text-[#B4483C] underline underline-offset-4">Check your times</button>
+                  </div>
                 )}
                 {missing > 0 && total > 0 && (
-                  <p className="text-[14px] text-brand-slate">
-                    {missing} task{missing > 1 ? "s have" : " has"} no time range yet, so {missing > 1 ? "they are" : "it is"} not counted.
-                  </p>
+                  <div role="alert" className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-xl border-2 border-[#E2602B] bg-[#FFF1E8] px-4 py-3 text-[15px] font-semibold text-brand-navy">
+                    <span>⚠ {missing} task{missing > 1 ? "s have" : " has"} no time range yet, so {missing > 1 ? "they are" : "it is"} not counted and {missing > 1 ? "come" : "comes"} after your timed tasks.</span>
+                    <button type="button" onClick={() => document.getElementById("ta-step2")?.scrollIntoView({ behavior: "smooth" })} className="font-semibold text-[#B4483C] underline underline-offset-4">Add your times</button>
+                  </div>
                 )}
                 <details className="text-[14px] text-brand-slate">
                   <summary className="cursor-pointer font-semibold text-brand-teal">How we worked this out</summary>
@@ -535,9 +540,11 @@ const TimeAudit = () => {
               </m.div>
 
               <m.div {...fadeUp} className="flex flex-col gap-3 rounded-2xl border border-brand-sand bg-brand-ivory p-5 sm:p-6">
-                <h3 className="text-[21px] font-semibold text-brand-navy">Get the full action plan for every task you ticked</h3>
+                <h3 className="text-[21px] font-semibold text-brand-navy">{rows.length > 3 ? `Email me my full plan for all ${rows.length} tasks` : "Email me a copy of my plan"}</h3>
                 <p className="text-[14.5px] text-brand-slate">
-                  Your plan keeps your first fix at the top, then the steps and prompts for the rest of the {rows.length} task{rows.length > 1 ? "s" : ""} you ticked, plus a simple sheet to record your time before and after.
+                  {rows.length > 3
+                    ? `Your email includes the steps and prompts for all ${rows.length} tasks you ticked, not just the three shown here, plus a simple table to record your time before and after.`
+                    : "Keep your plan, steps and prompts in your inbox, plus a simple table to record your time before and after."}
                 </p>
                 {sentTo ? (
                   <p className="flex items-start gap-2 text-[15.5px] font-medium text-brand-navy">
@@ -572,7 +579,7 @@ const TimeAudit = () => {
                         </>
                       ) : (
                         <>
-                          Email me my full action plan
+                          {rows.length > 3 ? "Email me my full plan" : "Email me my plan"}
                           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
                         </>
                       )}
