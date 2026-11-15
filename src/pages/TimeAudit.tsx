@@ -482,7 +482,7 @@ const TimeAudit = () => {
                   </p>
                 ) : (
                   <div role="alert" className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-xl border-2 border-[#E2602B] bg-[#FFF1E8] px-4 py-3 text-[15px] font-semibold text-brand-navy">
-                    <span>⚠ You didn't add any times, so your plan is ranked by how quick and low-risk each change is, not by the time it takes you.</span>
+                    <span>⚠ Add your weekly times for a sharper plan. For now, we've put the quickest, lowest-risk changes first.</span>
                     <button type="button" onClick={() => document.getElementById("ta-step2")?.scrollIntoView({ behavior: "smooth" })} className="font-semibold text-[#B4483C] underline underline-offset-4">Add your times</button>
                   </div>
                 )}

@@ -83,7 +83,7 @@ export const whyThisOne = (lead: Row, rows: Row[]) => {
     const reason = quicker && safer ? "quicker to change and lower risk" : quicker ? "quicker to change" : "lower risk to hand to AI";
     why = `You said ${lowerFirst(top.t)} takes longer (${D.bands[top.band].label.toLowerCase()} a week). We put this one first because it is usually ${reason}, so it makes a good first experiment. Then come back to that one, which is also in your plan.`;
   } else if (!top) {
-    why = "You didn't add times, so we started with the change that is usually quickest and lowest risk. Add time ranges to rank your tasks by the time they take.";
+    why = "Without times, we started with the change that is usually quickest and lowest risk to try.";
   } else if (top.key === lead.key) {
     why = "Of the tasks you ticked, this one takes up the most time and is a sensible place to start.";
   } else {
