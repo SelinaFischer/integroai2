@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { ArrowRight, Check, ChevronDown, Copy, Info, ListChecks, Loader2 } from "lucide-react";
+import { ArrowRight, Check, ChevronDown, Copy, Info, Lightbulb, ListChecks, Loader2 } from "lucide-react";
 import { m } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -39,6 +39,8 @@ const selectClass =
 // An empty time box stands out in amber so it isn't missed after ticking a task.
 const selectEmptyClass =
   "rounded-lg border-2 border-brand-amber bg-brand-chip px-3 py-2 text-[15px] font-semibold text-brand-navy shadow-[0_0_0_4px_rgba(255,153,0,0.18)] outline-none focus:ring-2 focus:ring-brand-amber/40";
+// Above this many ticked tasks, we gently suggest focusing on fewer. Mirrored in Code.gs.
+const FOCUS_LIMIT = 5;
 const labelClass = "mb-1.5 block text-sm font-semibold text-brand-navy";
 const stepLabel = "text-[11px] font-bold uppercase tracking-[0.14em] text-brand-teal";
 
@@ -523,6 +525,16 @@ const TimeAudit = () => {
               ))}
             </m.div>
 
+            {/* Friendly nudge when many tasks are ticked. */}
+            {Object.keys(selected).length > FOCUS_LIMIT && (
+              <p role="status" className="flex items-start gap-2.5 rounded-xl border border-brand-teal/40 bg-white px-4 py-3 text-[15px] leading-relaxed text-brand-navy">
+                <Lightbulb className="mt-0.5 h-5 w-5 flex-none text-brand-teal" aria-hidden="true" />
+                <span>
+                  You've selected {Object.keys(selected).length} tasks. For a clearer plan, we recommend focusing on your three to five most time-consuming tasks. You can always come back for the rest.
+                </span>
+              </p>
+            )}
+
             {/* Step 3 */}
             <m.div {...fadeUpDelayed(2)} className="flex flex-col gap-3">
               <p className={stepLabel}>Step 3 of 3</p>
@@ -626,6 +638,12 @@ const TimeAudit = () => {
                   <p className="text-[14px] leading-relaxed text-brand-slate">
                     <span className="font-semibold text-brand-navy">Also in your emailed plan ({ranked.length - planRows.length} more):</span>{" "}
                     {ranked.slice(planRows.length).map((r) => r.t).join("; ")}.
+                  </p>
+                )}
+                {ranked.length > FOCUS_LIMIT && (
+                  <p className="flex items-start gap-2 rounded-lg bg-brand-ivory px-3 py-2 text-[14px] leading-relaxed text-brand-navy">
+                    <Lightbulb className="mt-0.5 h-4 w-4 flex-none text-brand-teal" aria-hidden="true" />
+                    <span>Tip: you selected {ranked.length} tasks. Start with the first three, then work through the rest once those changes are in place.</span>
                   </p>
                 )}
               </div>
