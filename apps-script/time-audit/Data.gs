@@ -254,7 +254,7 @@ var TIME_AUDIT_DATA = {
       "short": "Spreadsheets",
       "tasks": [
         {
-          "t": "Typing data into spreadsheets by hand",
+          "t": "Entering data into spreadsheets manually",
           "e": "medium",
           "r": "medium",
           "fix": "Let people fill in a form that writes straight into the sheet.",
