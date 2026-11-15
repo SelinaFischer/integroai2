@@ -402,6 +402,7 @@ const TimeAudit = () => {
   const [selected, setSelected] = useState<Record<string, string>>({});
   const [about, setAbout] = useState<About>({ name: "", what: "", tone: TONES[0].value, website: "", customers: "", notes: "" });
   const [fit, setFit] = useState<Record<string, Fit>>({});
+  const [missingTask, setMissingTask] = useState("");
   const [openKeys, setOpenKeys] = useState<Record<string, boolean>>({});
   const [shown, setShown] = useState(false);
   const [formMsg, setFormMsg] = useState("");
@@ -495,6 +496,8 @@ const TimeAudit = () => {
         customers: about.customers,
         notes: about.notes,
         tips: form.get("tips") === "on",
+        reminder: form.get("reminder") === "on",
+        missing_task: missingTask,
         company_website: form.get("company_website"),
         elapsed: Date.now() - pageLoadedAt.current,
         turnstile: turnstileToken,
@@ -764,6 +767,24 @@ const TimeAudit = () => {
               ))}
             </m.div>
 
+            {/* Wishlist: tasks we don't cover yet. Saved with the lead when they email their plan. */}
+            {areas.length > 0 && (
+              <div className="flex flex-col gap-1.5">
+                <label htmlFor="ta-missing" className="text-[15px] font-semibold text-brand-navy">
+                  Can't see a task that takes up your time? <span className="font-normal text-brand-slate">(optional)</span>
+                </label>
+                <input
+                  id="ta-missing"
+                  maxLength={200}
+                  value={missingTask}
+                  onChange={(e) => setMissingTask(e.target.value)}
+                  placeholder="e.g. Writing job adverts"
+                  className={inputClass}
+                />
+                <p className="text-[13px] text-brand-slate">Tell us and we'll consider adding it to the audit.</p>
+              </div>
+            )}
+
             {/* Friendly nudge when many tasks are ticked. */}
             {Object.keys(selected).length > FOCUS_LIMIT && (
               <p role="status" className="flex items-start gap-2.5 rounded-xl border border-brand-teal/40 bg-white px-4 py-3 text-[15px] leading-relaxed text-brand-navy">
@@ -961,6 +982,10 @@ const TimeAudit = () => {
                       <input id="ta-company-website" name="company_website" tabIndex={-1} autoComplete="off" />
                     </div>
                     {TURNSTILE_SITE_KEY && <div ref={turnstileRef} />}
+                    <label className="flex items-start gap-2.5 text-sm leading-snug text-brand-slate">
+                      <input type="checkbox" name="reminder" className="mt-0.5 h-4 w-4 flex-none accent-brand-teal" />
+                      <span>Remind me in two weeks to record my time after the change. (Optional, one email only.)</span>
+                    </label>
                     <label className="flex items-start gap-2.5 text-sm leading-snug text-brand-slate">
                       <input type="checkbox" name="tips" className="mt-0.5 h-4 w-4 flex-none accent-brand-teal" />
                       <span>I'd also like occasional practical AI tips from IntegroAI Consulting.</span>

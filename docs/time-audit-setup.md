@@ -48,3 +48,11 @@ At the top of `Code.gs` you can change:
 6. The script needs permission to contact Cloudflare: choose `doGet`, click **Run**, and allow the new permission. Then deploy a new version.
 
 Until `TURNSTILE_SECRET` is set, the bot check is skipped and everything else still works.
+
+## Two-week reminder (optional for visitors)
+Visitors can tick "Remind me in two weeks" on the email form. To switch the reminders on:
+1. In Apps Script, choose `setUpReminders` in the function menu and click **Run**.
+2. Allow the new permission if Google asks. This sets a daily check at about 9am.
+3. Reminders go out once, 14 days after the plan, and the date is recorded in the **Reminder sent** column.
+Change `REMINDER_DAYS` at the top of `Code.gs` to use a different gap.
+
