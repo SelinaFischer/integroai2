@@ -467,7 +467,7 @@ const TimeAudit = () => {
                 <div className="min-w-0 sm:col-span-2">
                   <label htmlFor="ta-website" className={labelClass}>Website <span className="font-normal text-brand-slate">(optional)</span></label>
                   <input id="ta-website" type="url" inputMode="url" maxLength={200} value={about.website} onChange={(e) => setAbout({ ...about, website: e.target.value })} placeholder="e.g. brightpathevents.co.uk" autoComplete="url" className={inputClass} />
-                  <p className="mt-1.5 text-[13px] text-brand-slate">We add it to your prompts so your AI tool can match your style. We don't read it ourselves.</p>
+                  <p className="mt-1.5 text-[13px] text-brand-slate">We add it to your prompts so your AI tool can match your style.</p>
                 </div>
                 <div className="min-w-0 rounded-xl bg-brand-ivory px-4 py-3 text-[14px] text-brand-navy sm:col-span-2">
                   <p><strong className="font-semibold">Have a business overview or brand guide?</strong> Attach it in your AI tool when you paste a prompt. No website or document? The details above are enough.</p>
