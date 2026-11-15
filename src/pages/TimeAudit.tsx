@@ -36,6 +36,9 @@ const inputClass =
   "w-full rounded-xl border border-brand-sand bg-white px-4 py-3 text-[16px] text-brand-navy outline-none transition-colors focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20";
 const selectClass =
   "rounded-lg border border-brand-sand bg-white px-3 py-2 text-[15px] text-brand-navy outline-none focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20";
+// An empty time box stands out in amber so it isn't missed after ticking a task.
+const selectEmptyClass =
+  "rounded-lg border-2 border-brand-amber bg-brand-chip px-3 py-2 text-[15px] font-semibold text-brand-navy shadow-[0_0_0_4px_rgba(255,153,0,0.18)] outline-none focus:ring-2 focus:ring-brand-amber/40";
 const labelClass = "mb-1.5 block text-sm font-semibold text-brand-navy";
 const stepLabel = "text-[11px] font-bold uppercase tracking-[0.14em] text-brand-teal";
 
@@ -160,11 +163,13 @@ const TimeAudit = () => {
   const toggleArea = (key: string) =>
     setAreas((a) => (a.includes(key) ? a.filter((k) => k !== key) : [...a, key]));
 
+  // The task just ticked, so its time box can take focus.
+  const justTicked = useRef("");
   const toggleTask = (key: string) =>
     setSelected((s) => {
       const next = { ...s };
       if (key in next) delete next[key];
-      else next[key] = "";
+      else { next[key] = ""; justTicked.current = key; }
       return next;
     });
 
@@ -420,12 +425,13 @@ const TimeAudit = () => {
                         </label>
                         {ticked && (
                           <select
-                            aria-label={`Time spent per week on ${task.t}`}
+                            aria-label={`Hours per week on ${task.t}`}
                             value={selected[key]}
                             onChange={(e) => setSelected((s) => ({ ...s, [key]: e.target.value }))}
-                            className={selectClass}
+                            ref={(el) => { if (el && justTicked.current === key) { justTicked.current = ""; el.focus({ preventScroll: true }); } }}
+                            className={selected[key] ? selectClass : selectEmptyClass}
                           >
-                            <option value="" disabled>Time spent per week</option>
+                            <option value="" disabled>Select hours per week</option>
                             {BAND_KEYS.map((b) => <option key={b} value={b}>{D.bands[b].label}</option>)}
                           </select>
                         )}
@@ -488,11 +494,11 @@ const TimeAudit = () => {
               <div className="flex flex-col gap-2">
                 <p className={stepLabel}>Your action plan</p>
                 <h2 className="text-[30px] font-semibold leading-tight text-brand-navy sm:text-[38px]">
-                  {others.length ? `Start here, then ${others.length === 1 ? "one more" : "two more"}` : "Start here"}
+                  Here's where to start
                 </h2>
                 {total > 0 ? (
                   <p className="text-[16.5px] text-brand-navy">
-                    The tasks you ticked take up about <strong className="font-heading text-[26px]">{fmtHours(total)}</strong> hours a month of your own time today. This is time spent now, not a promised saving.
+                    Based on the times you entered, you spend around <strong className="font-heading text-[26px]">{fmtHours(total)}</strong> hours a month on these tasks. This is your current workload, not an estimate of time you could save.
                   </p>
                 ) : (
                   <div role="alert" className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-xl border-2 border-[#E2602B] bg-[#FFF1E8] px-4 py-3 text-[15px] font-semibold text-brand-navy">
@@ -508,17 +514,21 @@ const TimeAudit = () => {
                 )}
                 {missing > 0 && total > 0 && (
                   <div role="alert" className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-xl border-2 border-[#E2602B] bg-[#FFF1E8] px-4 py-3 text-[15px] font-semibold text-brand-navy">
-                    <span>⚠ {missing} task{missing > 1 ? "s have" : " has"} no time range yet, so {missing > 1 ? "they are" : "it is"} not counted and {missing > 1 ? "come" : "comes"} after your timed tasks.</span>
-                    <button type="button" onClick={() => document.getElementById("ta-step2")?.scrollIntoView({ behavior: "smooth" })} className="font-semibold text-[#B4483C] underline underline-offset-4">Add your times</button>
+                    <span className="flex flex-col gap-1">
+                      <span>⚠ How much time do you spend on the other {missing > 1 ? `${missing} tasks` : "task"}?</span>
+                      <span className="font-normal">Choose a weekly time range for {missing > 1 ? "each so they" : "it so it"} can be included in your total and prioritised in your plan.</span>
+                    </span>
+                    <button type="button" onClick={() => document.getElementById("ta-step2")?.scrollIntoView({ behavior: "smooth" })} className="font-semibold text-[#B4483C] underline underline-offset-4">Add missing times</button>
                   </div>
                 )}
+                {total > 0 && (
                 <details className="text-[14px] text-brand-slate">
                   <summary className="cursor-pointer font-semibold text-brand-teal">How we worked this out</summary>
                   <p className="mt-1.5 leading-relaxed">
                     Each range counts as one figure a week: under 1 hour as 30 minutes, 1 to 3 hours as 2, 3 to 5 hours as 4, 5 to 10 hours as 7.5, and over 10 hours as 12. A month is taken as 4.33 weeks. Treat it as a rough guide.
                   </p>
                 </details>
-                <p className="text-[14.5px] font-medium text-brand-teal">Nothing here sends, posts or changes anything. You stay in control.</p>
+                )}
               </div>
 
               <m.div {...fadeUp} className="flex flex-col gap-3 rounded-2xl bg-brand-ivory p-5 sm:p-6">
