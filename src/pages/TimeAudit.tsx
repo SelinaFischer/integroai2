@@ -140,12 +140,13 @@ const CopyButton = ({ getText, label }: { getText: () => string; label: string }
   );
 };
 
-const CopyBox = ({ heading, text, label }: { heading: string; text: string; label: string }) => (
+const CopyBox = ({ heading, text, label, hint }: { heading: string; text: string; label: string; hint?: string }) => (
   <div data-copy-box className="overflow-hidden rounded-xl border border-brand-sand bg-white">
     <div className="flex flex-wrap items-center justify-between gap-2 border-b border-brand-sand px-4 py-2.5">
       <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-brand-slate">{heading}</span>
       <CopyButton getText={() => text} label={label} />
     </div>
+    {hint && <p className="border-b border-brand-sand bg-brand-ivory px-4 py-2 text-[13.5px] text-brand-navy">{hint}</p>}
     <p data-copy-text className="whitespace-pre-wrap px-4 py-3 text-[14.5px] leading-relaxed text-brand-navy">
       {text}
     </p>
@@ -356,6 +357,11 @@ const TimeAudit = () => {
             <CopyBox
               heading={row.template ? "Ready-to-use template" : "Prompt for your AI assistant"}
               label={row.template ? "Copy template" : "Copy prompt"}
+              hint={
+                row.template
+                  ? "Copy this template, replace anything in [square brackets] with your details, then send it."
+                  : "Copy this prompt into your AI assistant, such as ChatGPT, Microsoft Copilot or Gemini. Replace anything in [square brackets] with your own details."
+              }
               text={textFor(row, about, rowFit)}
             />
           </div>
@@ -405,6 +411,25 @@ const TimeAudit = () => {
 
         <section className="bg-brand-ivory py-14 sm:py-16">
           <div className="wrap"><div className="flex max-w-[860px] flex-col gap-10">
+            {/* How it works */}
+            <m.div {...fadeUp} className="flex flex-col gap-4">
+              <p className={stepLabel}>How it works</p>
+              <ol className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                {[
+                  ["Choose your tasks", "Select the tasks that take up your week and estimate the time you spend on each."],
+                  ["Get your action plan", "See where to start, with practical steps and ready-made prompts tailored to your business."],
+                  ["Use the prompts in your AI assistant", "Copy each prompt into the AI tool you already use, such as ChatGPT, Microsoft Copilot or Gemini, then review the result."],
+                ].map(([title, body], i) => (
+                  <li key={title} className="flex min-w-0 flex-col gap-1.5 rounded-xl border border-brand-sand bg-white p-4">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-brand-navy text-[13px] font-bold text-white">{i + 1}</span>
+                    <span className="text-[16px] font-semibold leading-snug text-brand-navy">{title}</span>
+                    <span className="text-[14.5px] leading-relaxed text-brand-slate">{body}</span>
+                  </li>
+                ))}
+              </ol>
+              <p className="text-[14px] text-brand-slate">This tool prepares your plan and prompts. It does not connect to your AI assistant or make any changes for you.</p>
+            </m.div>
+
             {/* Step 1 */}
             <m.div {...fadeUp} className="flex flex-col gap-3">
               <p className={stepLabel}>Step 1 of 3</p>
@@ -591,7 +616,7 @@ const TimeAudit = () => {
               <m.div {...fadeUp} className="flex flex-col gap-2 border-t border-brand-sand pt-6">
                 <h3 className="text-[19px] font-semibold text-brand-navy">Your reusable business context</h3>
                 <p className="text-[14.5px] text-brand-slate">Give your AI assistant a brief introduction to your business so it can provide more relevant responses. Copy the text below, review the details and reuse it for business tasks.</p>
-                <CopyBox heading="Business context" label="Copy business context" text={houseText(about)} />
+                <CopyBox heading="Business context" label="Copy business context" hint="Paste this at the start of a new conversation in your AI assistant, then add your request." text={houseText(about)} />
               </m.div>
 
               <m.div {...fadeUp} className="flex flex-col gap-3 rounded-2xl border border-brand-sand bg-brand-ivory p-5 sm:p-6">

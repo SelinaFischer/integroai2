@@ -335,6 +335,9 @@ function buildEmail_(lead, plan) {
   p('Hi ' + esc_(lead.name) + ',');
   p('Here is your full action plan from the IntegroAI Time Audit.');
   text.push('Hi ' + lead.name + ',', '', 'Here is your full action plan from the IntegroAI Time Audit.');
+  var howTo = 'Copy each prompt into your AI assistant, such as ChatGPT, Microsoft Copilot or Gemini. Replace anything in [square brackets] with your own details, and review each result before using it.';
+  p(esc_(howTo));
+  text.push(howTo);
   if (plan.total) {
     var totalLine = 'Based on the times you entered, you spend around ' + fmtHours_(plan.total) + ' hours a month on these tasks. This is your current workload, not an estimate of time you could save.';
     p(esc_(totalLine));
