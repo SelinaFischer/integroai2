@@ -460,7 +460,7 @@ const TimeAudit = () => {
               <p className={stepLabel}>Step 2 of 3</p>
               <h2 className="text-[24px] font-semibold leading-tight text-brand-navy sm:text-[28px]">Tick the tasks that take up most of your time</h2>
               <p className="text-[15px] leading-relaxed text-brand-slate">
-                Start with the three tasks that take up most of your time. You can add more. Count your own time only, and don't count the same time under two tasks.
+                Select your three most time-consuming tasks. You can add more if needed. For each task, estimate the time you personally spend each week. If tasks overlap, count that time only once.
               </p>
               {!areas.length && <p className="text-[15px] text-brand-slate">Choose an area above to see its tasks.</p>}
               {AREA_KEYS.filter((k) => areas.includes(k)).map((areaKey) => (
