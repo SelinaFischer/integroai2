@@ -573,14 +573,6 @@ const TimeAudit = () => {
                     <button type="button" onClick={() => document.getElementById("ta-step2")?.scrollIntoView({ behavior: "smooth" })} className="font-semibold text-[#B4483C] underline underline-offset-4">Add missing times</button>
                   </div>
                 )}
-                {total > 0 && (
-                <details className="text-[14px] text-brand-slate">
-                  <summary className="cursor-pointer font-semibold text-brand-teal">How we worked this out</summary>
-                  <p className="mt-1.5 leading-relaxed">
-                    Each range counts as one figure a week: under 1 hour as 30 minutes, 1 to 3 hours as 2, 3 to 5 hours as 4, 5 to 10 hours as 7.5, and over 10 hours as 12. A month is taken as 4.33 weeks. Treat it as a rough guide.
-                  </p>
-                </details>
-                )}
               </div>
 
               <m.div {...fadeUp} className="flex flex-col gap-3 rounded-2xl bg-brand-ivory p-5 sm:p-6">
