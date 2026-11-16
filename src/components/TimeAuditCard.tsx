@@ -22,7 +22,7 @@ const TimeAuditCard = () => (
         <div className="relative grid grid-cols-1 items-center gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
           <div className="flex min-w-0 flex-col items-start gap-4">
             <span className="inline-flex items-center gap-2 rounded-full bg-brand-amber px-3 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-brand-navy">
-              New · Free time audit
+              New · Free time audit for small businesses
             </span>
             <h2 id="time-audit-card" className="display text-[30px] font-semibold leading-[1.08] !text-white sm:text-[40px] [text-wrap:balance]">
               Find out where your business could save time

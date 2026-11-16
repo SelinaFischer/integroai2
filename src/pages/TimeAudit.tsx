@@ -87,7 +87,7 @@ const faqs = [
   {
     question: "What is a time audit for a small business?",
     answer:
-      "A time audit shows where your working week goes, task by task, so you can see which jobs take the most time and fix those first. This free AI time audit adds a practical action plan: simple steps, plus AI prompts or templates you can use straight away.",
+      "A time audit shows where your working week goes, task by task, so you can see which jobs take the most time and fix those first. This free time audit adds a practical action plan: simple steps, plus AI prompts or templates you can use straight away.",
   },
   {
     question: "How can AI save time in a small business?",
@@ -541,9 +541,24 @@ const TimeAudit = () => {
   };
 
   const pageUrl = `https://integroai.tech${TIME_AUDIT_PATH}`;
-  const title = "Free AI Time Audit for Small Businesses | IntegroAI Consulting";
+  const title = "Free Time Audit for Small Businesses | IntegroAI Consulting";
   const description =
-    "A free AI time audit for small businesses. Choose the tasks that take up your working week and get a practical action plan with simple steps and AI prompts to help you save time. No sign-up needed.";
+    "Free time audit for small businesses. See where your working week goes and get a practical plan showing where AI could save you time, with ready-to-use prompts.";
+  // Names the tool as a free web app from IntegroAI, so search engines and AI assistants can cite it.
+  const appSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "@id": `${pageUrl}#tool`,
+    name: "Free Time Audit for Small Businesses",
+    url: pageUrl,
+    description,
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Any web browser",
+    isAccessibleForFree: true,
+    offers: { "@type": "Offer", price: "0", priceCurrency: "GBP" },
+    audience: { "@type": "BusinessAudience", name: "Small business owners in the UK" },
+    provider: { "@id": "https://integroai.tech/#organization" },
+  };
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -636,6 +651,7 @@ const TimeAudit = () => {
         <meta property="og:type" content="website" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
+        <script type="application/ld+json">{JSON.stringify(appSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
@@ -650,7 +666,7 @@ const TimeAudit = () => {
             className="wrap flex flex-col items-start gap-6"
           >
             <h1 className="font-sans text-[11px] font-bold uppercase leading-relaxed tracking-[0.16em] text-brand-amber sm:text-xs [text-wrap:wrap]">
-              Free AI time audit for small businesses
+              Free time audit for small businesses
             </h1>
             <p className="text-[38px] font-semibold leading-[1.08] text-white sm:text-[48px] lg:text-[54px] font-heading tracking-[-0.005em] [text-wrap:balance]">
               <span className="block">Find out where your business</span>

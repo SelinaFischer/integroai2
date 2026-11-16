@@ -17,7 +17,7 @@ export const FREE_RESOURCES_PATH = "/free-resources";
 // are not walked round extra pages before they can sign up.
 const resources = [
   {
-    label: "Free AI time audit",
+    label: "Free time audit for small businesses",
     title: "Find out where your business could save time",
     text: "Choose the tasks that take up your working week. Get a practical action plan with simple steps and AI prompts to help you get started.",
     cta: "Start the time audit",
@@ -69,7 +69,7 @@ const resources = [
 const FreeResources = () => {
   const pageUrl = `https://integroai.tech${FREE_RESOURCES_PATH}`;
   const description =
-    "Free AI tools and guides for UK small businesses from IntegroAI Consulting: an AI time audit, an AI cheat sheet, an AI visibility guide and checklist, an AI visibility check, and a 5-minute AI readiness assessment. No jargon, and no sign-up needed for the time audit.";
+    "Free AI tools and guides for UK small businesses from IntegroAI Consulting: a time audit, an AI cheat sheet, an AI visibility guide and checklist, an AI visibility check, and a 5-minute AI readiness assessment. No jargon, and no sign-up needed for the time audit.";
 
   return (
     <>
