@@ -32,7 +32,7 @@ const WhoWeWorkWith = () => {
           eyebrow="Who we work with"
           title={
             <>
-              AI consulting for business owners
+              AI consulting for business owners and leaders
             </>
           }
           intro="Your business has grown. Your ways of working haven't kept pace."
