@@ -15,8 +15,8 @@ const preview = [
 // A bold teal panel so it stands apart from the dark hero and the light sections below.
 const TimeAuditCard = () => (
   <section aria-labelledby="time-audit-card" className="bg-white pt-10 sm:pt-14">
-    {/* Full width, like the hero above it. */}
-    <div className="relative overflow-hidden bg-[linear-gradient(135deg,#3B767C_0%,#2B5E66_55%,#0E273A_100%)] py-10 sm:py-14">
+    {/* Almost as wide as the hero, with rounded corners so it reads as a featured tool, not part of the hero. */}
+    <div className="mx-[max(16px,env(safe-area-inset-left,0px))] relative overflow-hidden rounded-3xl bg-[linear-gradient(135deg,#3B767C_0%,#2B5E66_55%,#0E273A_100%)] py-10 shadow-[0_18px_40px_-18px_rgba(4,27,43,0.55)] sm:mx-6 sm:py-14 lg:mx-8">
       <span aria-hidden="true" className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-brand-amber/20 blur-3xl" />
       <m.div {...fadeUp} className="wrap">
         <div className="relative grid grid-cols-1 items-center gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
