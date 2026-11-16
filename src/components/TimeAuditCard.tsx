@@ -8,7 +8,7 @@ import { TIME_AUDIT_PATH, trackTimeAudit } from "@/lib/timeAudit";
 const preview = [
   { task: "Drafting detailed replies to clients", time: "3 to 5 hours", start: true },
   { task: "Preparing proposals and quotes", time: "1 to 3 hours" },
-  { task: "Booking and rescheduling meetings", time: "1 to 3 hours" },
+  { task: "Compiling weekly or monthly reports", time: "1 to 3 hours" },
 ];
 
 // Homepage feature for the free AI time audit, straight after the hero.
@@ -30,7 +30,7 @@ const TimeAuditCard = () => (
             <p className="max-w-[520px] text-[16px] leading-relaxed text-brand-seafoam sm:text-[17px]">
               Tick the tasks that take up your week and get a practical plan showing where to start, with ready-to-use AI prompts.
             </p>
-            <div className="flex flex-col items-start gap-2 pt-1">
+            <div className="pt-1">
               <Link
                 to={TIME_AUDIT_PATH}
                 onClick={() => trackTimeAudit("time_audit_home_card_click")}
@@ -40,7 +40,6 @@ const TimeAuditCard = () => (
                 Start my time audit
                 <ArrowRight className="nudge-arrow h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.4} aria-hidden="true" />
               </Link>
-              <span className="text-[13.5px] text-brand-seafoam">No sign-up needed.</span>
             </div>
           </div>
 
