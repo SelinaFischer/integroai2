@@ -143,7 +143,7 @@ const PrivacyPolicy = () => {
                       make.com/en/privacy-notice
                     </a>
                   </li>
-                  <li><strong>Google Apps Script, Gmail and Google Sheets:</strong> Run the free AI visibility check and AI time audit, email your report or action plan, send a one-off reminder if you ask for one, and store your request. Google&apos;s privacy policy is available at{" "}
+                  <li><strong>Google Apps Script, Gmail and Google Sheets:</strong> Run the free AI visibility check and time audit, email your report or action plan, send a one-off reminder if you ask for one, and store your request. Google&apos;s privacy policy is available at{" "}
                     <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                       policies.google.com/privacy
                     </a>

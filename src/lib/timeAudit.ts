@@ -1,4 +1,4 @@
-// Free AI time audit for small businesses.
+// Free time audit for small businesses.
 // All task content lives in src/data/time-audit.json, which is also copied into
 // the Apps Script (npm run build:time-audit-gs) so the emailed plan matches the page.
 // The ranking below is mirrored in apps-script/time-audit/Code.gs. Change both together.

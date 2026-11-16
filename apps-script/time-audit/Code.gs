@@ -1,5 +1,5 @@
 /**
- * IntegroAI free AI time audit for small businesses.
+ * IntegroAI free time audit for small businesses.
  * Runs as a Google Apps Script web app attached to a Google Sheet.
  * Setup steps: docs/time-audit-setup.md
  *
@@ -511,7 +511,7 @@ function buildEmail_(lead, plan) {
   text.push('', disclaimer, aiNote, '', 'Selina Fischer', 'IntegroAI Consulting', 'https://integroai.tech');
 
   return {
-    subject: 'Your AI time audit action plan',
+    subject: 'Your free time audit action plan',
     html: '<div style="font-family:Arial,Helvetica,sans-serif;max-width:640px;margin:0 auto;padding:8px">' + html.join('') + '</div>',
     text: text.join('\n')
   };
