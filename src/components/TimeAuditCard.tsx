@@ -6,9 +6,9 @@ import { TIME_AUDIT_PATH, trackTimeAudit } from "@/lib/timeAudit";
 
 // Example of what the audit gives you. Illustrative only, not real results.
 const preview = [
-  { task: "Drafting detailed replies to clients", time: "3 to 5 hours", start: true },
+  { task: "Compiling weekly or monthly reports", time: "3 to 5 hours", start: true },
+  { task: "Drafting detailed replies to clients", time: "1 to 3 hours" },
   { task: "Preparing proposals and quotes", time: "1 to 3 hours" },
-  { task: "Compiling weekly or monthly reports", time: "1 to 3 hours" },
 ];
 
 // Homepage feature for the free AI time audit, straight after the hero.
