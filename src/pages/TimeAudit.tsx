@@ -1046,7 +1046,7 @@ const TimeAudit = () => {
                     {TURNSTILE_SITE_KEY && <div ref={turnstileRef} />}
                     <label className="flex items-start gap-2.5 text-sm leading-snug text-brand-slate">
                       <input type="checkbox" name="reminder" className="mt-0.5 h-4 w-4 flex-none accent-brand-teal" />
-                      <span>Remind me in two weeks to record my time after the change. (Optional, one email only.)</span>
+                      <span>Send me a reminder in two weeks to check how much time I've saved. (One email only.)</span>
                     </label>
                     <label className="flex items-start gap-2.5 text-sm leading-snug text-brand-slate">
                       <input type="checkbox" name="tips" className="mt-0.5 h-4 w-4 flex-none accent-brand-teal" />
