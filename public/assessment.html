@@ -401,6 +401,11 @@ a{color:inherit}
 .focus-box{background:var(--cream);border:1px solid var(--sand);border-radius:var(--radius);padding:16px 18px;display:flex;flex-direction:column;gap:6px}
 .focus-name{font-size:18px;font-weight:700;color:var(--navy)}
 .focus-p{font-size:15px;line-height:1.6;color:var(--body)}
+.flag-box{margin-top:16px;background:#FEF3F2;border:1px solid #FECDCA;border-radius:var(--radius);padding:16px 18px}
+.flag-box .lbl{color:#B42318}
+.flag-box ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.flag-box li{position:relative;padding-left:18px;font-size:15px;line-height:1.55;color:var(--navy)}
+.flag-box li::before{content:'';position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;background:#B42318}
 .next-p{font-size:15px;line-height:1.65;color:var(--body);margin-top:16px}
 
 .cta{background:var(--gradient-hero);border-radius:24px;color:#fff;padding:36px 22px;text-align:center}
@@ -861,7 +866,6 @@ a{color:inherit}
         <p class="eyebrow">Your AI Readiness Score</p>
         <p class="big-score"><b id="r-score">0</b><span>/30</span></p>
         <p class="tier-pill" id="r-tier"></p>
-        <p class="strip-verdict" id="r-verdict"></p>
         <p class="strip-calc">Based on 10 questions across 5 AI readiness dimensions. Maximum score: 30. This self-assessment indicates readiness foundations; it does not confirm that a particular AI solution is suitable.</p>
         <h2 class="strip-name" id="r-name" tabindex="-1"></h2>
         <p class="eyebrow strip-stage">Your AI readiness stage</p>
@@ -885,32 +889,16 @@ a{color:inherit}
             <p class="lbl">Recommended Next Step</p>
             <p class="focus-p" id="r-opp" style="color:var(--navy);font-weight:500"></p>
           </div>
+          <div class="flag-box" id="r-flags" hidden>
+            <p class="lbl">Important to address</p>
+            <ul id="r-flag-list"></ul>
+          </div>
         </div>
       </div>
 
       <div class="card r-panel">
         <p class="lbl">Score by dimension <span style="font-weight:500;letter-spacing:.04em;text-transform:none">(2 questions × max 3 pts = max 6 per dimension)</span></p>
         <div id="dim-bars" style="margin-top:8px"></div>
-        <div id="r-flags" hidden>
-          <p class="visually-hidden">Important to address</p>
-          <ul class="warn-list" id="r-flag-list"></ul>
-        </div>
-      </div>
-
-      <div class="card r-panel move" id="r-move">
-        <p class="lbl move-lbl" id="mv-lbl"></p>
-        <h3 class="move-h" id="mv-h"></h3>
-        <p class="move-p" id="mv-p"></p>
-        <dl class="move-rows">
-          <div><dt>Who leads it</dt><dd id="mv-who"></dd></div>
-          <div><dt>You'll know it worked when</dt><dd id="mv-done"></dd></div>
-        </dl>
-        <div class="prompt-box">
-          <p class="lbl">Your prompt: copy it into any AI assistant</p>
-          <p class="prompt-txt" id="mv-prompt"></p>
-          <button type="button" class="btn-amber" id="mv-copy" onclick="copyPrompt()">Copy this prompt</button>
-          <p class="prompt-note" id="mv-guard"></p>
-        </div>
       </div>
 
       <div class="cta on-dark">
@@ -1706,18 +1694,9 @@ function buildResults(){
   document.getElementById('r-cta-p').textContent=getCtaSub(tier);
   document.getElementById('r-opp').textContent=diag.opp;
   document.getElementById('radar-summary').textContent=buildSummaryLine(sc.dims);
-  document.getElementById('r-verdict').textContent=VERDICTS[tier]||'';
   var flags=getFlags(sc.raw),fb=document.getElementById('r-flags');
   fb.hidden=!flags.length;
-  document.getElementById('r-flag-list').innerHTML=flags.map(function(f){return '<li><span class="warn-i" aria-hidden="true">!</span><span>'+f+'</span></li>'}).join('');
-  var wi=getWeakestIdx(sc.dims),mv=MOVES[wi];
-  document.getElementById('mv-lbl').textContent='Your first move · '+DIM_NAMES[wi];
-  document.getElementById('mv-h').textContent=mv.h;
-  document.getElementById('mv-p').textContent=mv.p;
-  document.getElementById('mv-who').textContent=WHO_LEADS[sizeKey]||WHO_LEADS.small;
-  document.getElementById('mv-done').textContent=mv.done;
-  document.getElementById('mv-prompt').textContent=mv.prompt;
-  document.getElementById('mv-guard').textContent=mv.guard;
+  document.getElementById('r-flag-list').innerHTML=flags.map(function(f){return '<li>'+f+'</li>'}).join('');
   document.getElementById('cta-bullets-list').innerHTML=getCtaBullets(tier).map(function(b){
     return '<li><span class="tick">'+TICK_SVG+'</span><span>'+b+'</span></li>';
   }).join('');
