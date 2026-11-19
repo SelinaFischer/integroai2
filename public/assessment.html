@@ -886,7 +886,7 @@ a{color:inherit}
           <p class="lbl">Your Diagnosis</p>
           <p class="diag-p" id="r-diag"></p>
           <div class="focus-box">
-            <p class="lbl">Recommended Next Step</p>
+            <p class="lbl">Your recommended next step</p>
             <p class="focus-p" id="r-opp" style="color:var(--navy);font-weight:500"></p>
           </div>
           <div class="flag-box" id="r-flags" hidden>
@@ -1420,12 +1420,18 @@ function calcScores(){
 function getFlags(raw){
   return FLAG_RULES.filter(function(f){return raw[f.q]<=f.max}).map(function(f){return f.text});
 }
-/* Ready to Pilot also needs the basics for a safe trial: an owner (Q3),
-   time and resources (Q4) and at least some rules for using AI (Q9).
-   Without them a high score is shown as Focused Experimenter. The score
-   itself is unchanged. */
+/* Ready to Pilot also needs the basics for a safe trial: an agreed owner
+   (Q3 at least 2), time and resources available (Q4 = 3) and at least
+   informal rules for using AI (Q9 at least 2). Without them a high score is
+   shown as Focused Experimenter. The score itself is unchanged. */
+function pilotGap(raw){
+  if(raw[8]<2) return 8;   /* safe use first */
+  if(raw[2]<2) return 2;   /* then ownership */
+  if(raw[3]<3) return 3;   /* then time and resources */
+  return -1;
+}
 function getTier(t,raw){
-  if(t>=25&&raw&&(raw[2]<1||raw[3]<1||raw[8]<1)) return 'Focused Experimenter';
+  if(t>=25&&raw&&pilotGap(raw)>=0) return 'Focused Experimenter';
   if(t<=9) return 'Not Yet Ready';
   if(t<=17) return 'Early Explorer';
   if(t<=24) return 'Focused Experimenter';
@@ -1436,6 +1442,35 @@ function getWeakestIdx(dims){
   var mi=0;
   dims.forEach(function(v,i){if((v/DIM_MAX[i])<(dims[mi]/DIM_MAX[mi]))mi=i});
   return mi;
+}
+/* RECOMMENDED NEXT STEP: one practical action chosen from the answers.
+   Order: a missing pilot condition (score 25+), then blockers (no AI rules,
+   no owner, no time or resources), then the lowest-scoring question (ties go
+   to the earliest question). Full marks everywhere gets the last line. */
+var STEPS=[
+  'Choose one business improvement to focus on, such as faster client responses or less admin, and set a target you can measure.',
+  'Before picking a task to automate, write down what customers value about it and where personal attention or judgement must stay.',
+  'Agree who will lead a small AI trial and how decisions will be made.',
+  'Choose one task to test and decide how much time you can set aside for it and what costs, if any, you need to cover.',
+  'Map one recurring job step by step, including handoffs and common exceptions, and check it against a real example.',
+  'Pick one recurring problem and track it for a week: how often it happens and how much time it costs.',
+  'Note where details are copied between tools, and how often that causes delays or rework.',
+  'Pick one type of information you often have to look up, such as pricing or templates. Decide where the current version lives and who keeps it up to date.',
+  'Agree simple rules for what information can go into AI tools and what a person must check before anything is used or sent.',
+  'Practise drafting a routine reply with AI using a made-up example. Check the draft for accuracy and tone before you use it.'
+];
+var STEP_ALL_STRONG='Choose one small, clearly scoped test and agree how you will measure success before you start.';
+function getNextStep(raw,total){
+  if(total>=25){var g=pilotGap(raw);if(g>=0)return STEPS[g];}
+  if(raw[8]<=1) return STEPS[8];
+  if(raw[2]===0) return STEPS[2];
+  if(raw[3]===0) return STEPS[3];
+  var mi=0;raw.forEach(function(v,i){if(v<raw[mi])mi=i});
+  return raw[mi]>=3?STEP_ALL_STRONG:STEPS[mi];
+}
+function weakestTied(dims){
+  var r=dims.map(function(v,i){return v/DIM_MAX[i]}),m=Math.min.apply(null,r);
+  return r.filter(function(x){return x===m}).length>1;
 }
 function getWeakest(dims){
   var mi=0;
@@ -1448,7 +1483,7 @@ function highlightLegend(tier){
 }
 
 /* DIAGNOSIS COPY */
-function getDiag(tier,dims){
+function getDiag(tier,dims,raw,total){
   var w=getWeakest(dims);
   var c={
     'Not Yet Ready':{
@@ -1456,7 +1491,7 @@ function getDiag(tier,dims){
       opp:'The most valuable next step is to clarify where the real operational pain is and map how that work runs today. '+w+' is the dimension showing the most room to strengthen first. A structured conversation would help you identify exactly what to address and in what order.'
     },
     'Early Explorer':{
-      diag:'You have some of the right foundations in place, but there are gaps that would limit the return from any AI investment made right now. The area with the most room to improve relative to its potential is '+w+'. Addressing this before committing to AI tools would meaningfully change your readiness position and reduce implementation risk.',
+      diag:'You have some of the right foundations in place, but there are gaps that would limit the return from any AI investment made right now. '+(weakestTied(dims)?'One area to strengthen is '+w+'.':'The area with the most room to improve relative to its potential is '+w+'.')+' Addressing this before committing to AI tools would meaningfully change your readiness position and reduce implementation risk.',
       opp:'Strengthening '+w+' is the highest-value move at this stage. It is the constraint most likely to limit the impact of any AI investment you make. An AI Readiness Discovery Call would help you define a clear, prioritised action plan.'
     },
     'Focused Experimenter':{
@@ -1464,11 +1499,13 @@ function getDiag(tier,dims){
       opp:'Sharpening your position in '+w+' would increase your confidence and reduce your deployment risk. An AI Readiness Discovery Call would help you move from exploring to investing with a clear, prioritised plan.'
     },
     'Ready to Pilot':{
-      diag:'Your assessment shows strong foundations across direction, operations, and readiness. You have a defined goal, structured processes, accessible data, and clear ownership. Your answers suggest you may be ready to test one clearly scoped improvement. Validate the workflow, information and safeguards before starting a pilot. The primary risk at this stage is selecting the wrong starting point or underinvesting in implementation planning.',
+      diag:'Your answers show strong foundations, including an agreed owner, time for a trial and rules for safe use. Your answers suggest you may be ready to test one clearly scoped improvement. Validate the workflow, information and safeguards before starting a pilot. The primary risk at this stage is selecting the wrong starting point or underinvesting in implementation planning.',
       opp:'An AI & Operations Diagnostic would validate your priorities in '+w+' and produce a deployment plan that protects the investment you are ready to make, with agreed measures for business value and customer experience.'
     }
   };
-  return c[tier];
+  var out=c[tier];
+  if(raw) out={diag:out.diag,opp:getNextStep(raw,total)};
+  return out;
 }
 function getCtaSub(tier){
   var m={
@@ -1720,7 +1757,7 @@ function sendEmail(score,tier,diag,opp,dims){
 
 /* BUILD RESULTS */
 function buildResults(){
-  var sc=calcScores(),tier=getTier(sc.total,sc.raw),diag=getDiag(tier,sc.dims);
+  var sc=calcScores(),tier=getTier(sc.total,sc.raw),diag=getDiag(tier,sc.dims,sc.raw,sc.total);
   document.getElementById('r-score').textContent=sc.total;
   document.getElementById('r-tier').textContent=tier;
   document.getElementById('r-name').textContent=contact.firstName+', here are your AI Readiness results.';
