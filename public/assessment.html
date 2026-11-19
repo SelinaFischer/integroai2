@@ -1050,7 +1050,7 @@ function validatePhone(p){
 var QS=[
   /* ── SECTION 1: BUSINESS DIRECTION ─────────────────── */
   {
-  "sec": "Section 1 of 3: Business direction",
+  "sec": "Section 1 of 3: Priorities and resources",
   "title": "How clearly have you defined the business improvement you want to achieve?",
   "hint": "For example: faster client responses, fewer errors, less admin or more capacity to serve customers.",
   "opts": [
@@ -1077,7 +1077,7 @@ var QS=[
   ]
 },
   {
-  "sec": "Section 1 of 3: Business direction",
+  "sec": "Section 1 of 3: Priorities and resources",
   "title": "How do you decide which activities to improve or automate?",
   "hint": "Consider the business benefit, what customers value and any personal attention or judgement that needs to be preserved.",
   "opts": [
@@ -1103,7 +1103,7 @@ var QS=[
     }
   ]
 },
-  {sec:'Section 1 of 3: Business direction',
+  {sec:'Section 1 of 3: Priorities and resources',
    title:'Who would be responsible for moving an AI project forward?',
    hint:'This could be you, a team member or an external partner.',
    opts:[
@@ -1112,7 +1112,7 @@ var QS=[
      {t:'Potential owner',            s:'Someone could lead, but this has not been agreed.',v:1},
      {t:'No owner identified',        s:'We do not yet know who would lead.',v:0}
    ]},
-  {sec:'Section 1 of 3: Business direction',
+  {sec:'Section 1 of 3: Priorities and resources',
    title:'What time and resources could you commit to testing AI on one task?',
    hint:'Include setup, learning, testing and any necessary costs or outside support.',
    opts:[
@@ -1420,7 +1420,12 @@ function calcScores(){
 function getFlags(raw){
   return FLAG_RULES.filter(function(f){return raw[f.q]<=f.max}).map(function(f){return f.text});
 }
-function getTier(t){
+/* Ready to Pilot also needs the basics for a safe trial: an owner (Q3),
+   time and resources (Q4) and at least some rules for using AI (Q9).
+   Without them a high score is shown as Focused Experimenter. The score
+   itself is unchanged. */
+function getTier(t,raw){
+  if(t>=25&&raw&&(raw[2]<1||raw[3]<1||raw[8]<1)) return 'Focused Experimenter';
   if(t<=9) return 'Not Yet Ready';
   if(t<=17) return 'Early Explorer';
   if(t<=24) return 'Focused Experimenter';
@@ -1447,7 +1452,7 @@ function getDiag(tier,dims){
   var w=getWeakest(dims);
   var c={
     'Not Yet Ready':{
-      diag:'Your results suggest the operational and strategic foundations need attention before an AI investment will deliver a return. This is not unusual: most businesses exploring AI are at a similar stage. The risk of investing now is that AI will scale existing gaps rather than resolve them. The steps required to become ready do not need to be large or costly.',
+      diag:'Your results suggest the operational and strategic foundations need attention before an AI investment will deliver a return. The risk of investing now is that AI will scale existing gaps rather than resolve them. The steps required to become ready do not need to be large or costly.',
       opp:'The most valuable next step is to clarify where the real operational pain is and map how that work runs today. '+w+' is the dimension showing the most room to strengthen first. A structured conversation would help you identify exactly what to address and in what order.'
     },
     'Early Explorer':{
@@ -1469,7 +1474,7 @@ function getCtaSub(tier){
   var m={
     'Not Yet Ready':'Your results show exactly where to focus. Fixing the right foundations now means any AI investment you make later will actually stick and deliver a return. Book your AI Readiness Discovery Call to review your results, pinpoint the gaps that matter most, and leave with a clear action plan.',
     'Early Explorer':'You are on the right track, and your results give you something concrete to act on. The gaps holding you back are identifiable and addressable. Book your AI Readiness Discovery Call to review your results, understand what to strengthen first, and build a clear path to an AI investment that delivers.',
-    'Focused Experimenter':'You are in a stronger position than most businesses at this stage. Your results show real readiness in several areas and a clear picture of where to focus next. Book your AI Readiness Discovery Call to review your results, identify the highest-value starting point, and scope an AI & Operations Diagnostic that turns your readiness into results.',
+    'Focused Experimenter':'Your results show real readiness in several areas and a clear picture of where to focus next. Book your AI Readiness Discovery Call to review your results, identify the highest-value starting point, and scope an AI & Operations Diagnostic that turns your readiness into results.',
     'Ready to Pilot':'Your foundations are strong and your results reflect that. The priority now is to focus your AI investment on the opportunity most likely to create measurable business value. Book your AI Readiness Discovery Call to review your results, identify the AI opportunity with the strongest business case, and define the right scope for an AI & Operations Diagnostic before implementation.'
   };
   return m[tier];
@@ -1585,7 +1590,7 @@ function toggleMsgForm(){
   panel.style.display=opening?'block':'none';
   document.getElementById('msg-toggle').setAttribute('aria-expanded',opening?'true':'false');
   if(opening){
-    var sc=calcScores(),tier=getTier(sc.total);
+    var sc=calcScores(),tier=getTier(sc.total,sc.raw);
     document.getElementById('msg-body').value='Hi IntegroAI Consulting,\n\nI just completed the AI Readiness Assessment. My score was '+sc.total+'/30 ('+tier+').\n\nI would love to understand what this means for my business and explore what a good next step looks like.\n\nLooking forward to connecting,\n'+contact.firstName+(contact.lastName?' '+contact.lastName:'')+(contact.company?'\n'+contact.company:'');
     document.getElementById('msg-err').style.display='none';
     document.getElementById('msg-ok').style.display='none';
@@ -1595,7 +1600,7 @@ function toggleMsgForm(){
 function sendMessage(){
   var ta=document.getElementById('msg-body'),errEl=document.getElementById('msg-err'),okEl=document.getElementById('msg-ok'),btn=document.getElementById('msg-send');
   if(!ta.value.trim()){errEl.textContent='Please write a message before sending.';errEl.style.display='block';return}
-  var sc=calcScores(),tier=getTier(sc.total);
+  var sc=calcScores(),tier=getTier(sc.total,sc.raw);
   btn.disabled=true;btn.textContent='Sending...';errEl.style.display='none';
   function done(ok){
     btn.disabled=false;btn.textContent='Send message';
@@ -1715,7 +1720,7 @@ function sendEmail(score,tier,diag,opp,dims){
 
 /* BUILD RESULTS */
 function buildResults(){
-  var sc=calcScores(),tier=getTier(sc.total),diag=getDiag(tier,sc.dims);
+  var sc=calcScores(),tier=getTier(sc.total,sc.raw),diag=getDiag(tier,sc.dims);
   document.getElementById('r-score').textContent=sc.total;
   document.getElementById('r-tier').textContent=tier;
   document.getElementById('r-name').textContent=contact.firstName+', here are your AI Readiness results.';
