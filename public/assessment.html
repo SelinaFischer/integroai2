@@ -219,6 +219,10 @@ a{color:inherit}
    on purpose; never blur or mask. */
 .sc{width:100%;background:#fff;border:1px solid var(--sand);border-radius:20px;box-shadow:0 1px 2px rgba(4,27,43,.04),0 24px 48px rgba(0,0,0,.28);padding:24px;display:flex;flex-direction:column;gap:20px;color:var(--navy)}
 @media(min-width:640px){.sc{padding:30px}}
+/* Tilted placement with the amber offset frame, as in the previous design */
+.sc{width:calc(100% - 10px);align-self:flex-start;box-shadow:10px 10px 0 var(--amber);border-color:transparent;transform:rotate(3deg);transform-origin:50% 40%}
+@media(min-width:640px){.sc{width:calc(100% - 14px);box-shadow:14px 14px 0 var(--amber)}}
+@media(min-width:768px){.sc{transform:rotate(5deg)}.hero-visual{padding-top:12px}}
 .sc-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .sc-lbl{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--slate)}
 .sc-lbl.sm{font-size:11px}
