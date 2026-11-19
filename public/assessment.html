@@ -941,7 +941,6 @@ a{color:inherit}
         </div>
       </div>
 
-      <p class="r-foot">This self-assessment is based on your answers. To explore what it means for your business, <a href="https://calendly.com/integroai-tech/30min" target="_blank" rel="noopener noreferrer" onclick="track('discovery_call_click')">book a free AI Readiness Discovery Call</a>.</p>
 
     </div>
   </div>
@@ -1462,7 +1461,8 @@ function submitContact(){
   }
   if(!consent) return formError('Please tick the consent box so we can send your results.');
   document.getElementById('form-err').style.display='none';
-  contact={firstName:first,lastName:last,email:email,company:company,phone:phone,
+  var cap=function(x){return x?x.charAt(0).toUpperCase()+x.slice(1):x};
+  contact={firstName:cap(first),lastName:cap(last),email:email,company:company,phone:phone,
            size:size,industry:industry,motivation:motivate,role:role,timeline:timeline,situation:situation};
   buildResults();
 }
