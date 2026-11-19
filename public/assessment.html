@@ -532,6 +532,28 @@ a{color:inherit}
 
 .cta-meta{font-size:13px;font-weight:600;color:var(--amber);margin-top:14px;letter-spacing:.02em}
 
+/* BUTTON MOTION: same as the main site (src/index.css).
+   Main actions (start, book a call): a ring of light spreads out, a streak of
+   light crosses the button every few seconds and the arrow taps forward.
+   Other amber buttons: one streak of light on hover (mouse only). Paused
+   when off screen; off for visitors who prefer reduced motion. */
+.sheen{position:absolute;inset:0;z-index:-1;overflow:hidden;border-radius:inherit;pointer-events:none}
+@media (prefers-reduced-motion:no-preference){
+  .nudge-arrow{animation:arrowNudge 2.8s ease-in-out infinite}
+  .btn-focus{position:relative;isolation:isolate}
+  .btn-focus::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;background:rgba(255,153,0,.65);opacity:0;pointer-events:none;will-change:transform,opacity;animation:focusPulse 2.4s ease-out infinite}
+  .sheen::after{content:"";position:absolute;inset:-20% auto -20% 0;width:45%;background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.6) 50%,rgba(255,255,255,0) 100%);transform:translateX(-130%) skewX(-18deg);will-change:transform;animation:focusSheen 3.6s cubic-bezier(.22,.61,.36,1) infinite}
+}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){
+  .btn-amber:not(.btn-focus){position:relative;overflow:hidden;isolation:isolate}
+  .btn-amber:not(.btn-focus)::after{content:"";position:absolute;inset:-20% auto -20% 0;z-index:-1;width:45%;background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.5) 50%,rgba(255,255,255,0) 100%);transform:translateX(-130%) skewX(-18deg);pointer-events:none}
+  .btn-amber:not(.btn-focus):not(:disabled):hover::after{transform:translateX(330%) skewX(-18deg);transition:transform .75s cubic-bezier(.22,.61,.36,1)}
+}
+@keyframes focusPulse{0%{transform:scale(1);opacity:.9}75%,100%{transform:scale(1.14,1.75);opacity:0}}
+@keyframes focusSheen{0%,60%{transform:translateX(-130%) skewX(-18deg)}85%,100%{transform:translateX(330%) skewX(-18deg)}}
+@keyframes arrowNudge{0%,55%,100%{transform:translateX(0)}65%{transform:translateX(6px)}75%{transform:translateX(0)}85%{transform:translateX(6px)}}
+[data-offscreen]::before,[data-offscreen] .sheen::after,[data-offscreen] .nudge-arrow{animation-play-state:paused!important}
+
 /* message: what goes with it */
 .msg-what{margin-top:14px;font-size:14px;color:var(--slate)}
 .msg-what summary{cursor:pointer;font-weight:600;color:var(--navy);text-underline-offset:4px;text-decoration:underline}
@@ -654,9 +676,10 @@ a{color:inherit}
         <h1 id="welcome-title" class="h1-wrap"><span class="pill"><i aria-hidden="true"></i>Free AI Readiness Assessment</span><span class="visually-hidden">: </span><span class="h1-main">Is your business<br><em>ready for AI?</em></span></h1>
         <p class="hero-sub">Operational clarity before AI investment.</p>
         <p class="hero-body">See where your business stands, what is holding it back and the first thing to fix, before you spend money on AI tools.</p>
-        <button type="button" class="btn-amber" onclick="startAssessment()">
+        <button type="button" class="btn-amber btn-focus" onclick="startAssessment()">
+          <span class="sheen" aria-hidden="true"></span>
           Get My AI Readiness Score
-          <svg class="arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="arrow nudge-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <ul class="facts">
           <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M7 5h9M7 10h9M7 15h9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="3.5" cy="5" r="1.2" fill="currentColor"/><circle cx="3.5" cy="10" r="1.2" fill="currentColor"/><circle cx="3.5" cy="15" r="1.2" fill="currentColor"/></svg>10 questions</li>
@@ -934,9 +957,10 @@ a{color:inherit}
         <p class="cta-p" id="r-cta-p"></p>
         <div class="cta-btns">
           <!-- CALENDLY_LINK -->
-          <a href="https://calendly.com/integroai-tech/30min" class="btn-amber" target="_blank" rel="noopener noreferrer" onclick="track('discovery_call_click')">
+          <a href="https://calendly.com/integroai-tech/30min" class="btn-amber btn-focus" target="_blank" rel="noopener noreferrer" onclick="track('discovery_call_click')">
+            <span class="sheen" aria-hidden="true"></span>
             Book your free discovery call
-            <svg class="arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="arrow nudge-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
           <button type="button" class="btn-outline-light" onclick="toggleMsgForm()" aria-controls="msg-panel" id="msg-toggle">
             Not ready to book? Send a message
@@ -1049,6 +1073,12 @@ document.getElementById('yr').textContent=new Date().getFullYear();
   var choice=null;
   try{choice=window.localStorage.getItem('integroai-cookie-consent')}catch(e){}
   if(!choice) setTimeout(function(){document.getElementById('cookie').classList.add('show')},1500);
+})();
+/* Pause looping button motion while it is off screen (as on the main site) */
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.removeAttribute('data-offscreen');else e.target.setAttribute('data-offscreen','')})});
+  document.querySelectorAll('.btn-focus').forEach(function(b){io.observe(b)});
 })();
 function openCookieSettings(){document.getElementById('cookie').classList.add('show')}
 function cookieChoice(c){
