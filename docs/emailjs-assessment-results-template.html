@@ -22,7 +22,9 @@
     {{next_opportunity}}
     {{company}} {{phone}} {{org_size}} {{industry}} {{motivation}}
     {{decision_role}} {{timeline}} {{situation}}
-    {{{flags_block}}}  (the "Important to address" box as HTML, or empty)
+    flags_block (THREE brackets)  (the "Important to address" box as HTML, or empty)
+    areas_block (THREE brackets)  (readiness by area: summary line and bars, as HTML)
+    phone_row (THREE brackets)    (the Phone row, or empty when no number was given)
   Same build rules as v1: inline styles only, no @media queries, no CSS
   classes, single column, 480px max. Logo is the PNG hosted on the site.
 -->
@@ -78,44 +80,9 @@
           </td>
         </tr>
 
-        <!-- Readiness by dimension -->
-        <tr>
-          <td style="padding:0 20px 20px;">
-            <p style="margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#3B767C;">Your readiness by area</p>
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #E9E1D3;border-radius:10px;">
-              <!-- Business Direction -->
-              <tr>
-                <td style="padding:12px 8px 12px 14px;font-size:14px;font-weight:600;color:#041B2B;border-bottom:1px solid #EFE8DC;">Business Direction</td>
-                <td style="padding:12px 4px;font-size:14px;font-weight:700;color:#041B2B;text-align:center;white-space:nowrap;border-bottom:1px solid #EFE8DC;">{{business_direction_score}}</td>
-                <td style="padding:12px 14px 12px 4px;text-align:right;border-bottom:1px solid #EFE8DC;"><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:100px;background:#F5EFE4;color:#041B2B;white-space:nowrap;">{{business_direction_band}}</span></td>
-              </tr>
-              <!-- Ownership & Capacity -->
-              <tr>
-                <td style="padding:12px 8px 12px 14px;font-size:14px;font-weight:600;color:#041B2B;border-bottom:1px solid #EFE8DC;">Ownership &amp; Capacity</td>
-                <td style="padding:12px 4px;font-size:14px;font-weight:700;color:#041B2B;text-align:center;white-space:nowrap;border-bottom:1px solid #EFE8DC;">{{ownership_capacity_score}}</td>
-                <td style="padding:12px 14px 12px 4px;text-align:right;border-bottom:1px solid #EFE8DC;"><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:100px;background:#F5EFE4;color:#041B2B;white-space:nowrap;">{{ownership_capacity_band}}</span></td>
-              </tr>
-              <!-- Process Readiness -->
-              <tr>
-                <td style="padding:12px 8px 12px 14px;font-size:14px;font-weight:600;color:#041B2B;border-bottom:1px solid #EFE8DC;">Process Readiness</td>
-                <td style="padding:12px 4px;font-size:14px;font-weight:700;color:#041B2B;text-align:center;white-space:nowrap;border-bottom:1px solid #EFE8DC;">{{process_readiness_score}}</td>
-                <td style="padding:12px 14px 12px 4px;text-align:right;border-bottom:1px solid #EFE8DC;"><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:100px;background:#F5EFE4;color:#041B2B;white-space:nowrap;">{{process_readiness_band}}</span></td>
-              </tr>
-              <!-- Systems & Information -->
-              <tr>
-                <td style="padding:12px 8px 12px 14px;font-size:14px;font-weight:600;color:#041B2B;border-bottom:1px solid #EFE8DC;">Systems &amp; Information</td>
-                <td style="padding:12px 4px;font-size:14px;font-weight:700;color:#041B2B;text-align:center;white-space:nowrap;border-bottom:1px solid #EFE8DC;">{{systems_information_score}}</td>
-                <td style="padding:12px 14px 12px 4px;text-align:right;border-bottom:1px solid #EFE8DC;"><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:100px;background:#F5EFE4;color:#041B2B;white-space:nowrap;">{{systems_information_band}}</span></td>
-              </tr>
-              <!-- Responsible Use & Skills -->
-              <tr>
-                <td style="padding:12px 8px 12px 14px;font-size:14px;font-weight:600;color:#041B2B;">Responsible Use &amp; Skills</td>
-                <td style="padding:12px 4px;font-size:14px;font-weight:700;color:#041B2B;text-align:center;white-space:nowrap;">{{responsible_use_skills_score}}</td>
-                <td style="padding:12px 14px 12px 4px;text-align:right;"><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:100px;background:#F5EFE4;color:#041B2B;white-space:nowrap;">{{responsible_use_skills_band}}</span></td>
-              </tr>
-            </table>
-          </td>
-        </tr>
+        <!-- Readiness by area: summary line + a bar per area, built by the page
+             (email-safe tables, no images). Three brackets so it is not escaped. -->
+        {{{areas_block}}}
 
         <!-- Diagnosis -->
         <tr>
@@ -153,10 +120,7 @@
                 <p style="margin:0 0 2px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#4A6080;">Company</p>
                 <p style="margin:0;font-size:14px;color:#041B2B;word-wrap:break-word;">{{company}}</p>
               </td></tr>
-              <tr><td style="padding:11px 16px;border-bottom:1px solid #EFE8DC;">
-                <p style="margin:0 0 2px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#4A6080;">Phone</p>
-                <p style="margin:0;font-size:14px;color:#041B2B;word-wrap:break-word;">{{phone}}</p>
-              </td></tr>
+              {{{phone_row}}}
               <tr><td style="padding:11px 16px;border-bottom:1px solid #EFE8DC;">
                 <p style="margin:0 0 2px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#4A6080;">Organisation size</p>
                 <p style="margin:0;font-size:14px;color:#041B2B;word-wrap:break-word;">{{org_size}}</p>
