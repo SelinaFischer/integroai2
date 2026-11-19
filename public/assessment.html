@@ -1515,8 +1515,8 @@ function buildSummaryLine(dims){
   function ls(arr){if(!arr.length)return'';if(arr.length===1)return arr[0];return arr.slice(0,-1).join(', ')+' and '+arr[arr.length-1]}
   var parts=[];
   if(high.length)parts.push('Strong '+ls(high)+'.');
-  if(med.length&&!low.length)parts.push(ls(med)+' is developing well.');
-  if(low.length)parts.push(ls(low)+' need the most attention.');
+  if(med.length&&!low.length)parts.push(ls(med)+(med.length===1?' is':' are')+' developing well.');
+  if(low.length)parts.push(ls(low)+(low.length===1?' needs':' need')+' the most attention.');
   return parts.join(' ')||'Review your dimension scores below.';
 }
 
