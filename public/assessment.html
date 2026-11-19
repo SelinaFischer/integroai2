@@ -506,6 +506,8 @@ a{color:inherit}
 .prompt-txt{font-size:15px;line-height:1.65;color:var(--navy);margin:8px 0 14px;white-space:pre-wrap}
 .prompt-note{font-size:13px;color:var(--slate);margin-top:10px}
 
+.cta-meta{font-size:13px;font-weight:600;color:var(--amber);margin-top:14px;letter-spacing:.02em}
+
 /* message: what goes with it */
 .msg-what{margin-top:14px;font-size:14px;color:var(--slate)}
 .msg-what summary{cursor:pointer;font-weight:600;color:var(--navy);text-underline-offset:4px;text-decoration:underline}
@@ -908,13 +910,15 @@ a{color:inherit}
         <div class="cta-btns">
           <!-- CALENDLY_LINK -->
           <a href="https://calendly.com/integroai-tech/30min" class="btn-amber" target="_blank" rel="noopener noreferrer" onclick="track('discovery_call_click')">
-            Book Your AI Readiness Discovery Call
+            Book your free discovery call
             <svg class="arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
           <button type="button" class="btn-outline-light" onclick="toggleMsgForm()" aria-controls="msg-panel" id="msg-toggle">
             Not ready to book? Send a message
           </button>
         </div>
+
+        <p class="cta-meta">30 minutes · No obligation</p>
 
         <div id="msg-panel" class="card msg-panel">
           <h3>Send IntegroAI Consulting a message</h3>
@@ -1900,7 +1904,7 @@ function buildResults(){
   document.getElementById('r-tier').textContent=tier;
   document.getElementById('r-name').textContent=contact.firstName+', here are your results';
   document.getElementById('r-diag').textContent=diag.diag;
-  document.getElementById('r-cta-p').textContent='Book a free AI Readiness Discovery Call to talk through your results and identify which improvements could make the biggest difference to your business. We\u2019ll discuss what matters most to you and see whether an AI & Operations Diagnostic would help you take the next step.';
+  document.getElementById('r-cta-p').textContent='Book a free AI Readiness Discovery Call to talk through your results and identify which improvements could make the biggest difference to your business. We\u2019ll also see whether an AI & Operations Diagnostic would help you understand what\u2019s slowing your business down.';
   document.getElementById('r-opp').textContent=diag.opp;
   document.getElementById('radar-summary').textContent=buildSummaryLine(sc.dims);
   var flags=getFlags(sc.raw),fb=document.getElementById('r-flags');
