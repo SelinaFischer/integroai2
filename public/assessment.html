@@ -1662,6 +1662,33 @@ function flagsBlock(list){
     +list.map(function(f,i){return '<p style="margin:'+(i===list.length-1?'0':'0 0 10px')+';font-size:14px;color:#041B2B;line-height:1.6;word-wrap:break-word;"><span style="color:#B42318;font-weight:700;">&bull;</span>&nbsp; '+f+'</p>'}).join('')
     +'</td></tr></table></td></tr>';
 }
+/* EMAIL: "Your readiness by area" with a summary line and a bar per area,
+   as email-safe HTML tables (no images, no scripts), so it shows in Gmail,
+   Outlook and Apple Mail. Used in the EmailJS template as {{{areas_block}}}. */
+function areasBlock(dims){
+  var rows=DIM_NAMES.map(function(name,i){
+    var v=dims[i],band=getScoreBand(v),col=getBandColor(band),pct=Math.round(v/6*100),last=i===DIM_NAMES.length-1;
+    var bar='<table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:8px;border-collapse:separate;"><tr>'
+      +(pct>0?'<td width="'+pct+'%" style="background-color:'+col+';height:8px;line-height:8px;font-size:0;border-radius:4px;">&nbsp;</td>':'')
+      +(pct<100?'<td width="'+(100-pct)+'%" style="background-color:#EFE8DC;height:8px;line-height:8px;font-size:0;border-radius:4px;">&nbsp;</td>':'')
+      +'</tr></table>';
+    return '<tr><td style="padding:12px 14px;'+(last?'':'border-bottom:1px solid #EFE8DC;')+'">'
+      +'<table width="100%" cellpadding="0" cellspacing="0" border="0"><tr>'
+      +'<td style="font-size:14px;font-weight:600;color:#041B2B;">'+name.replace('&','&amp;')+'</td>'
+      +'<td align="right" style="white-space:nowrap;font-size:14px;font-weight:700;color:'+col+';">'+v+'/6&nbsp;&nbsp;<span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:100px;background:#F5EFE4;color:#041B2B;">'+band+'</span></td>'
+      +'</tr></table>'+bar+'</td></tr>';
+  }).join('');
+  return '<tr><td style="padding:0 20px 20px;">'
+    +'<p style="margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#3B767C;">Your readiness by area</p>'
+    +'<p style="margin:0 0 12px;font-size:14px;color:#42566A;line-height:1.6;">'+buildSummaryLine(dims).replace(/&/g,'&amp;')+'</p>'
+    +'<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid #E9E1D3;border-radius:10px;">'+rows+'</table>'
+    +'</td></tr>';
+}
+/* EMAIL: the Phone row, left out when no number was given. {{{phone_row}}} */
+function phoneRow(){
+  if(!contact.phone) return '';
+  return '<tr><td style="padding:11px 16px;border-bottom:1px solid #EFE8DC;"><p style="margin:0 0 2px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#4A6080;">Phone</p><p style="margin:0;font-size:14px;color:#041B2B;word-wrap:break-word;">'+contact.phone.replace(/[<>&]/g,'')+'</p></td></tr>';
+}
 function sendEmail(score,tier,diag,opp,dims){
   if(!ejsReady)return;
   var bands=dims.map(getScoreBand);
@@ -1680,7 +1707,9 @@ function sendEmail(score,tier,diag,opp,dims){
     systems_information_score:dims[3]+'/6',      systems_information_band:bands[3],
     responsible_use_skills_score:dims[4]+'/6',   responsible_use_skills_band:bands[4],
     flags:flagList.join(' | ')||'None',
-    flags_block:flagsBlock(flagList)
+    flags_block:flagsBlock(flagList),
+    areas_block:areasBlock(dims),
+    phone_row:phoneRow()
   }).then(function(){showToast('Results sent to '+contact.email)}).catch(function(err){console.error('EmailJS:',err)});
 }
 
