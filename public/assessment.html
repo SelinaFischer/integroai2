@@ -212,45 +212,43 @@ a{color:inherit}
 .facts svg{width:18px;height:18px;flex:none;color:var(--amber)}
 .hero-note{font-size:14px;color:var(--mist);margin-top:-8px}
 /* right-hand visual: sample scorecard in the same amber offset frame as the homepage portrait */
-.hero-visual{display:flex;flex-direction:column;align-items:center;gap:26px;width:100%;max-width:380px;justify-self:center;min-width:0}
+.hero-visual{display:flex;flex-direction:column;align-items:center;width:100%;max-width:440px;justify-self:center;min-width:0}
 @media(min-width:768px){.hero-visual{justify-self:end}}
-.mock{position:relative;overflow:hidden;width:calc(100% - 10px);align-self:flex-start;background:#fff;border-radius:24px;box-shadow:10px 10px 0 var(--amber);padding:22px;display:flex;flex-direction:column;gap:16px;color:var(--navy)}
-@media(min-width:640px){.mock{width:calc(100% - 14px);box-shadow:14px 14px 0 var(--amber);padding:24px}}
-.mock-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.mock .ring-row{gap:18px}
-.mock .ring-txt{min-width:140px}
-.mock-bars{display:flex;flex-direction:column;border-top:1px solid var(--sand);padding-top:14px}
-.mock-bar{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) 30px;align-items:center;gap:12px;padding:6px 0}
-.mock-bar span:first-child{font-size:14px;font-weight:600;color:var(--navy);line-height:1.3}
-.mock-bar i{display:block;height:7px;border-radius:6px;background:var(--track);overflow:hidden}
-.mock-bar i b{display:block;height:100%;border-radius:6px;background:var(--navy)}
-.mock-bar.pri i b{background:var(--amber)}
-.mock-bar em{font-style:normal;font-size:14px;font-weight:700;color:var(--navy);text-align:right}
-.mock-focus{background:var(--cream);border:1px solid var(--sand);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:3px}
-.mock-focus p:last-child{font-size:16px;font-weight:700;color:var(--navy)}
-.mock .ring{width:96px;height:96px}
-.mock .ring-val{padding-top:29px}
-.mock .ring-val b{font-size:32px}
-.mock .ring-txt .serif{font-size:25px}
-/* finer, smaller type inside the sample card */
-.mock .lbl{font-size:9.5px;letter-spacing:.12em;font-weight:600}
-.mock .chip{font-size:9.5px;font-weight:600;padding:4px 10px}
-.mock .ring{width:84px;height:84px}
-.mock .ring-val{padding-top:27px}
-.mock .ring-val b{font-size:26px;font-weight:600}
-.mock .ring-val span{font-size:12px;font-weight:500}
-.mock .ring-txt{min-width:120px;gap:4px}
-.mock .ring-txt .serif{font-size:20px}
-.mock .ring-txt p{font-size:12.5px;line-height:1.45;font-weight:400}
-.mock-bar{padding:7px 0}
-.mock-bar span:first-child{font-size:12px;font-weight:500}
-.mock-bar i{height:5px}
-.mock-bar em{font-size:12px;font-weight:600}
-.mock{gap:18px;padding-top:28px;padding-bottom:30px}
-.mock{transform:rotate(3deg);transform-origin:50% 40%}
-@media(min-width:768px){.mock{transform:rotate(5deg)}.hero-visual{padding-top:12px}}
-.hero-caption{margin-top:10px}
-.hero-caption{font-size:14px;color:var(--mist);text-align:center}
+/* Sample result card: same content, layout and motion as the homepage card
+   (src/components/AssessmentSection.tsx). Only part of the areas are shown,
+   on purpose; never blur or mask. */
+.sc{width:100%;background:#fff;border:1px solid var(--sand);border-radius:20px;box-shadow:0 1px 2px rgba(4,27,43,.04),0 24px 48px rgba(0,0,0,.28);padding:24px;display:flex;flex-direction:column;gap:20px;color:var(--navy)}
+@media(min-width:640px){.sc{padding:30px}}
+.sc-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.sc-lbl{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--slate)}
+.sc-lbl.sm{font-size:11px}
+.sc-chip{background:var(--amber);color:var(--navy);border-radius:999px;padding:5px 12px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.sc-score{display:flex;flex-wrap:wrap;align-items:center;gap:22px}
+.sc-ring{position:relative;width:132px;height:132px;flex:none}
+.sc-ring svg{display:block;width:100%;height:100%}
+.sc-num{position:absolute;inset:0;display:flex;align-items:baseline;justify-content:center;gap:3px;padding-top:42px}
+.sc-num b{font-size:46px;font-weight:700;line-height:1;letter-spacing:-.02em;color:var(--navy);font-variant-numeric:tabular-nums}
+.sc-num span{font-size:17px;font-weight:600;color:var(--slate)}
+.sc-tier{flex:1;min-width:170px;display:flex;flex-direction:column;gap:6px}
+.sc-tier-name{font-family:var(--serif);font-weight:600;font-size:24px;line-height:1;color:var(--navy)}
+.sc-tier-txt{font-size:15px;line-height:1.5;color:var(--slate)}
+.sc-bars{display:flex;flex-direction:column;border-top:1px solid var(--sand);padding-top:18px}
+.sc-bars .sc-lbl{padding-bottom:8px}
+.sc-row{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr) 40px;align-items:center;gap:14px;padding:9px 0}
+.sc-row span{font-size:15px;font-weight:600;color:var(--navy);line-height:1.3}
+.sc-row i{display:block;height:8px;border-radius:6px;background:var(--track)}
+.sc-row i b{display:block;height:8px;border-radius:6px;background:var(--navy);transform-origin:left}
+.sc-row.pri i b{background:var(--amber)}
+.sc-row em{font-style:normal;font-size:15px;font-weight:700;color:var(--navy);text-align:right}
+.sc-focus{background:var(--cream);border:1px solid var(--sand);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.sc-focus-name{font-size:17px;font-weight:700;color:var(--navy)}
+.sc-focus-txt{font-size:15px;line-height:1.5;color:var(--slate)}
+.sc-note{font-size:13px;color:var(--slate)}
+/* motion: ring fills, score counts up, bars grow, when the card comes into view */
+.sc[data-cue="armed"] .sc-row i b{transform:scaleX(0)}
+.sc[data-cue="go"] #sc-ring{transition:stroke-dasharray 2.6s cubic-bezier(.22,.61,.36,1)}
+.sc[data-cue="go"] .sc-row i b{transition:transform 1.6s cubic-bezier(.22,.61,.36,1)}
+@media(max-width:400px){.sc-row{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) 34px;gap:10px}.sc-row span,.sc-row em{font-size:14px}}
 
 /* sample result card (same as the homepage assessment card) */
 .card{background:#fff;border:1px solid var(--sand);border-radius:20px;box-shadow:var(--shadow-lg);color:var(--navy)}
@@ -635,32 +633,37 @@ a{color:inherit}
       </div>
 
       <div class="hero-visual">
-        <div class="mock" role="img" aria-label="Sample AI Readiness result: 11 out of 30, Early Explorer.">
-          <div class="mock-top">
-            <p class="lbl">Your AI Readiness Score</p>
-            <p class="chip">Sample result</p>
+        <div class="sc" id="sample-card" data-cue="idle" role="img" aria-label="Sample AI Readiness Assessment result: 11 out of 30, Early Explorer. Priority focus: Systems and Information.">
+          <div class="sc-top">
+            <p class="sc-lbl">AI Readiness Score</p>
+            <p class="sc-chip">Sample result</p>
           </div>
-          <div class="ring-row">
-            <div class="ring">
-              <svg viewBox="0 0 112 112" aria-hidden="true">
-                <circle cx="56" cy="56" r="47" fill="none" stroke="#EFE8DC" stroke-width="9"/>
-                <circle cx="56" cy="56" r="47" fill="none" stroke="#FF9900" stroke-width="9" stroke-linecap="round" stroke-dasharray="108.3 295.3" transform="rotate(-90 56 56)"/>
+          <div class="sc-score">
+            <div class="sc-ring">
+              <svg viewBox="0 0 132 132" aria-hidden="true">
+                <circle cx="66" cy="66" r="56" fill="none" stroke="#EFE8DC" stroke-width="10"/>
+                <circle id="sc-ring" cx="66" cy="66" r="56" fill="none" stroke="#FF9900" stroke-width="10" stroke-linecap="round" stroke-dasharray="129 352" transform="rotate(-90 66 66)"/>
               </svg>
-              <div class="ring-val"><b>11</b><span>/30</span></div>
+              <div class="sc-num"><b id="sc-num">11</b><span>/30</span></div>
             </div>
-            <div class="ring-txt">
-              <p class="serif">Early Explorer</p>
-              <p>Some foundations in place, with gaps to close before investing.</p>
+            <div class="sc-tier">
+              <p class="sc-tier-name">Early Explorer</p>
+              <p class="sc-tier-txt">You're making progress. Clear gaps identified before AI investment.</p>
             </div>
           </div>
-          <div class="mock-bars">
-            <p class="lbl" style="padding-bottom:6px">Score by dimension</p>
-              <div class="mock-bar"><span>Business Direction</span><i><b style="width:50%"></b></i><em>3/6</em></div>
-              <div class="mock-bar"><span>Process Readiness</span><i><b style="width:50%"></b></i><em>3/6</em></div>
-              <div class="mock-bar pri"><span>Systems &amp; Information</span><i><b style="width:17%"></b></i><em>1/6</em></div>
+          <div class="sc-bars">
+            <p class="sc-lbl">Readiness by dimension (extract)</p>
+            <div class="sc-row"><span>Business Direction</span><i><b style="width:50%;transition-delay:900ms"></b></i><em>3/6</em></div>
+            <div class="sc-row"><span>Process Readiness</span><i><b style="width:50%;transition-delay:1250ms"></b></i><em>3/6</em></div>
+            <div class="sc-row pri"><span>Systems &amp; Information</span><i><b style="width:17%;transition-delay:1600ms"></b></i><em>1/6</em></div>
           </div>
+          <div class="sc-focus">
+            <p class="sc-lbl sm">Priority focus</p>
+            <p class="sc-focus-name">Systems &amp; Information</p>
+            <p class="sc-focus-txt">Strengthening Systems &amp; Information is the highest-value move at this stage.</p>
+          </div>
+          <p class="sc-note">Sample result. Your score comes from your own answers.</p>
         </div>
-        <p class="hero-caption">A sample result.</p>
       </div>
     </div>
   </div>
@@ -974,6 +977,29 @@ a{color:inherit}
      ============================================================ -->
 <script>
 document.getElementById('yr').textContent=new Date().getFullYear();
+
+/* SAMPLE CARD MOTION: the ring fills, the score counts up and the bars grow
+   the first time the card comes into view. Final values are always the
+   sample values; reduced-motion visitors see them straight away. */
+(function(){
+  var card=document.getElementById('sample-card');
+  if(!card||!('IntersectionObserver' in window)) return;
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var ring=document.getElementById('sc-ring'),num=document.getElementById('sc-num');
+  var TARGET=11,FULL='129 352';
+  card.setAttribute('data-cue','armed');ring.style.strokeDasharray='0 352';num.textContent='0';
+  var io=new IntersectionObserver(function(entries){
+    if(!entries[0].isIntersecting) return;
+    io.disconnect();
+    requestAnimationFrame(function(){
+      card.setAttribute('data-cue','go');
+      requestAnimationFrame(function(){ring.style.strokeDasharray=FULL});
+      var start=performance.now(),dur=2600;
+      (function tick(now){var p=Math.min(1,(now-start)/dur);num.textContent=Math.round(TARGET*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(tick)})(start);
+    });
+  },{threshold:.3});
+  io.observe(card);
+})();
 
 /* COOKIE BANNER: shown only to visitors who have not chosen yet (shared with the main site) */
 (function(){
