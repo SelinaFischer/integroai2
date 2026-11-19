@@ -362,10 +362,7 @@ a{color:inherit}
 .big-score span{font-size:30px;font-weight:600;color:var(--mist)}
 @media(min-width:640px){.big-score b{font-size:104px}}
 .tier-pill{background:var(--amber);color:var(--navy);border-radius:999px;padding:6px 16px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
-.strip-calc{font-size:14px;color:var(--mist)}
 .strip-note{font-size:13px;line-height:1.5;color:rgba(203,213,225,.75);max-width:600px;margin-top:4px}
-.r-foot{font-size:12.5px;line-height:1.6;color:var(--slate);text-align:center;max-width:640px;margin:4px auto 0}
-.r-foot a{color:var(--navy);font-weight:600;text-underline-offset:3px}
 .strip-name{font-family:var(--sans);font-size:18px;font-weight:600;color:#fff;letter-spacing:0;margin-top:2px}
 .strip-stage{margin-top:12px}
 .score-strip .legend{width:100%;max-width:640px;border-color:rgba(203,213,225,.28);margin-top:0}
@@ -417,8 +414,6 @@ a{color:inherit}
 .cta h2 em{color:var(--amber);font-style:italic}
 @media(min-width:640px){.cta h2{font-size:42px}}
 .cta-p{font-size:17px;line-height:1.6;color:var(--mist);max-width:600px;margin:0 auto 22px}
-.cta-bullets{list-style:none;max-width:520px;margin:0 auto 28px;text-align:left;display:flex;flex-direction:column;gap:12px}
-.cta-bullets li{display:flex;gap:12px;align-items:flex-start;font-size:16px;color:#fff;line-height:1.5}
 .cta-btns{display:flex;flex-direction:column;align-items:center;gap:12px}
 @media(min-width:560px){.cta-btns{flex-direction:row;justify-content:center;flex-wrap:wrap}}
 @media(max-width:559px){.cta-btns a,.cta-btns button{width:100%;max-width:340px}}
@@ -457,9 +452,6 @@ a{color:inherit}
 .ft-legal{display:flex;flex-wrap:wrap;gap:8px 24px}
 .ft-legal a,.ft-legal button{padding:6px 0;font-size:14px;color:#42566A;text-decoration:none;text-underline-offset:4px;background:none;border:0;cursor:pointer;font-family:inherit}
 .ft-legal a:hover,.ft-legal button:hover{color:var(--navy);text-decoration:underline}
-.footer-link{font-size:13px;color:var(--slate);text-decoration:none;text-underline-offset:4px}
-.footer-link:hover{color:var(--navy);text-decoration:underline}
-.footer-copy{font-size:13px;color:var(--slate)}
 
 /* cookie banner (same wording and look as the main site) */
 .cookie{position:fixed;left:16px;right:16px;bottom:16px;z-index:60;background:var(--navy);color:#fff;border:1px solid rgba(255,255,255,.1);border-radius:12px;box-shadow:0 20px 40px rgba(4,27,43,.25);padding:16px;display:none}
@@ -505,30 +497,6 @@ a{color:inherit}
 .size-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:24px}
 @media(min-width:720px){.size-grid{grid-template-columns:repeat(3,1fr)}}
 .size-grid .a-card{padding:18px 20px}
-
-/* results: verdict line */
-.strip-verdict{font-family:var(--serif);font-style:italic;font-weight:600;font-size:23px;line-height:1.25;color:#fff;max-width:560px;text-wrap:balance}
-@media(min-width:640px){.strip-verdict{font-size:27px}}
-
-/* results: warnings under the bars */
-.warn-list{list-style:none;margin-top:14px;padding-top:14px;border-top:1px solid var(--track);display:flex;flex-direction:column;gap:10px}
-.warn-list li{display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.55;color:var(--navy)}
-.warn-i{flex:none;width:20px;height:20px;margin-top:1px;border-radius:50%;background:var(--red);color:#fff;font-size:12px;font-weight:700;line-height:1;display:flex;align-items:center;justify-content:center}
-
-/* results: your first move */
-.move{border:1.5px solid var(--amber)}
-.move-lbl{color:var(--band-med)}
-.move-h{font-family:var(--serif);font-weight:600;font-size:28px;line-height:1.15;color:var(--ink);margin:8px 0 10px;text-wrap:balance}
-@media(min-width:640px){.move-h{font-size:32px}}
-.move-p{font-size:16px;line-height:1.65;color:var(--body)}
-.move-rows{margin:18px 0 20px;border-top:1px solid var(--track)}
-.move-rows div{display:grid;grid-template-columns:1fr;gap:2px;padding:10px 0;border-bottom:1px solid var(--track)}
-@media(min-width:560px){.move-rows div{grid-template-columns:200px 1fr;gap:16px}}
-.move-rows dt{font-size:13px;font-weight:600;color:var(--slate)}
-.move-rows dd{font-size:15px;line-height:1.55;color:var(--navy)}
-.prompt-box{background:var(--cream);border:1px solid var(--sand);border-radius:var(--radius);padding:16px 18px}
-.prompt-txt{font-size:15px;line-height:1.65;color:var(--navy);margin:8px 0 14px;white-space:pre-wrap}
-.prompt-note{font-size:13px;color:var(--slate);margin-top:10px}
 
 .cta-meta{font-size:13px;font-weight:600;color:var(--amber);margin-top:14px;letter-spacing:.02em}
 
@@ -675,7 +643,7 @@ a{color:inherit}
       <div class="hero-copy">
         <h1 id="welcome-title" class="h1-wrap"><span class="pill"><i aria-hidden="true"></i>Free AI Readiness Assessment</span><span class="visually-hidden">: </span><span class="h1-main">Is your business<br><em>ready for AI?</em></span></h1>
         <p class="hero-sub">Operational clarity before AI investment.</p>
-        <p class="hero-body">See where your business stands, what is holding it back and the first thing to fix, before you spend money on AI tools.</p>
+        <p class="hero-body">See where your business stands, what is holding it back and where to focus first, before you spend money on AI tools.</p>
         <button type="button" class="btn-amber btn-focus" onclick="startAssessment()">
           <span class="sheen" aria-hidden="true"></span>
           Get My AI Readiness Score
@@ -1339,54 +1307,6 @@ var INTRO_BY_SIZE={
   growing:'Choose the answer that best reflects your business today. Include the teams involved in delivering your services.'
 };
 
-/* VERDICT LINE under the stage in the score strip */
-var VERDICTS={
-  'Not Yet Ready':'The foundations come first. AI can wait.',
-  'Early Explorer':'Some pieces are in place. They\'re not joined up yet.',
-  'Focused Experimenter':'You\'re close. A few targeted fixes stand between you and a pilot.',
-  'Ready to Pilot':'You\'re ready to test one thing properly.'
-};
-
-/* YOUR FIRST MOVE: one card per dimension, shown for the weakest one */
-var WHO_LEADS={
-  solo:'You',
-  small:'One named person, with an hour a week set aside',
-  growing:'A named owner who can make decisions'
-};
-var MOVES=[
-  {h:'Pick one problem and put a number on it.',
-   p:'Choose the task that costs most time or causes most mistakes, and write down how long it takes today. That number is how you will judge any AI tool.',
-   done:'you can say in one sentence what you want AI to fix, and by how much.',
-   prompt:'I run a [type of business] with [number] people. These tasks take most of our time: [list]. Help me choose ONE to improve first. For each, ask me how often it happens, how long it takes and what goes wrong, then recommend one and explain why. Do not recommend any software. If you need more information, ask me questions first.',
-   guard:'The last two sentences stop it jumping to tools before the problem is clear.'},
-  {h:'Name one owner and protect their time.',
-   p:'Decide who leads one small trial, and give them a fixed slot each week. Progress stalls when AI is everyone\'s job and nobody\'s priority.',
-   done:'one person can tell you what has been tried this month and what happened.',
-   prompt:'Help me plan a 4-week trial of AI on one task: [task]. The person leading it has [hours] a week. Give me a week-by-week plan with one goal per week and what to record. Keep it realistic for a small business. Ask me what tools we already use before suggesting any, and do not suggest paid tools before week 3.',
-   guard:'The last sentence keeps the trial cheap and built on what you already have.'},
-  {h:'Write down how one job really gets done.',
-   p:'List every step, who does it and where it goes wrong. Much of the fix shows up here, before any AI.',
-   done:'someone new could follow your steps without asking you.',
-   prompt:'Here is how we do [task], in my own words: [describe it, messy is fine]. Turn this into numbered steps. Mark each step as manual, repeated or judgement, and highlight handoffs and places things get missed. Do not invent steps I have not described. If something is unclear, list your questions instead of guessing.',
-   guard:'The last two sentences stop it making up a tidier process than the one you really have.'},
-  {h:'Find where information gets typed twice.',
-   p:'Follow one client from first contact to invoice, and note every time the same details are retyped. That is where errors and lost time hide.',
-   done:'you have a short list of copy-and-paste points, ranked by how often they happen.',
-   prompt:'We use these tools: [list]. A new client moves through them like this: [describe]. List every point where the same information is typed in more than once, ranked by likely time lost. Do not recommend new software yet. Ask me questions if you need to understand how a tool is used.',
-   guard:'The last two sentences keep the focus on your process, not on buying something.'},
-  {h:'Agree three simple rules for using AI.',
-   p:'Agree what must never go into AI, what a person must check, and who to ask when unsure. One page is enough.',
-   done:'everyone who uses AI can repeat the three rules.',
-   prompt:'Draft a one-page AI use policy for a [type] business with [number] people. Cover only: what must never be entered into AI tools, what a person must check before any AI output is used or sent, and who to ask when unsure. Use plain English. Do not claim it meets any law or regulation. Flag anything I should check with an adviser.',
-   guard:'The last two sentences stop it inventing legal claims.'}
-];
-function copyPrompt(){
-  var txt=document.getElementById('mv-prompt').textContent,btn=document.getElementById('mv-copy');
-  function ok(){btn.textContent='Copied';showToast('Prompt copied. Paste it into any AI assistant.');track('prompt_copied');setTimeout(function(){btn.textContent='Copy this prompt'},2500)}
-  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(ok,fallback)}else{fallback()}
-  function fallback(){var t=document.createElement('textarea');t.value=txt;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy');ok()}catch(e){showToast('Select the prompt text to copy it.')}document.body.removeChild(t)}
-}
-
 /* STATE */
 var curQ=0, picks=new Array(QS.length).fill(null), contact={};
 
@@ -1447,12 +1367,6 @@ var QS_SOLO={
 var FLAG_SOLO={
   2:'You have not yet committed to leading an AI trial yourself. Without that, progress is likely to stall.',
   8:'You have no set rules for using AI safely. Decide what information can be entered into AI and what you must check before an output is used.'
-};
-var STEP_SOLO={
-  2:'Decide to lead one small AI trial yourself, and note where you might need outside help.',
-  4:'Map one recurring job step by step, including common exceptions, and check it against a real example.',
-  7:'Pick one type of information you often have to look up, such as pricing or templates, and decide where the current version lives.',
-  8:'Set simple rules for what information you put into AI tools and what you check before anything is used or sent.'
 };
 function getQ(i){
   var base=QS[i],o=sizeKey==='solo'&&QS_SOLO[i];
@@ -1614,79 +1528,6 @@ function getTier(t,raw){
   return 'Ready to Pilot';
 }
 var TIERS=['Not Yet Ready','Early Explorer','Focused Experimenter','Ready to Pilot'];
-function getWeakestIdx(dims){
-  var mi=0;
-  dims.forEach(function(v,i){if((v/DIM_MAX[i])<(dims[mi]/DIM_MAX[mi]))mi=i});
-  return mi;
-}
-/* RECOMMENDED NEXT STEP: one practical action chosen from the answers.
-   Order: a missing pilot condition (score 25+), then blockers (no AI rules,
-   no owner, no time or resources), then the lowest-scoring question (ties go
-   to the earliest question). Full marks everywhere gets the last line. */
-var STEPS=[
-  'Choose one business improvement to focus on, such as faster client responses or less admin, and set a target you can measure.',
-  'Before picking a task to automate, write down what customers value about it and where personal attention or judgement must stay.',
-  'Agree who will lead a small AI trial and how decisions will be made.',
-  'Choose one task to test and decide how much time you can set aside for it and what costs, if any, you need to cover.',
-  'Map one recurring job step by step, including handoffs and common exceptions, and check it against a real example.',
-  'Pick one recurring problem and track it for a week: how often it happens and how much time it costs.',
-  'Note where details are copied between tools, and how often that causes delays or rework.',
-  'Pick one type of information you often have to look up, such as pricing or templates. Decide where the current version lives and who keeps it up to date.',
-  'Agree simple rules for what information can go into AI tools and what a person must check before anything is used or sent.',
-  'Practise drafting a routine reply with AI using a made-up example. Check the draft for accuracy and tone before you use it.'
-];
-var STEP_ALL_STRONG='Choose one small, clearly scoped test and agree how you will measure success before you start.';
-/* Which question the next step comes from (-1 = full marks everywhere) */
-function getNextStepIdx(raw,total){
-  if(total>=25){var g=pilotGap(raw);if(g>=0)return g;}
-  if(raw[8]<=1) return 8;
-  if(raw[2]===0) return 2;
-  if(raw[3]===0) return 3;
-  var mi=0;raw.forEach(function(v,i){if(v<raw[mi])mi=i});
-  return raw[mi]>=3?-1:mi;
-}
-function getNextStep(raw,total){
-  var i=getNextStepIdx(raw,total);
-  return i<0?STEP_ALL_STRONG:((sizeKey==='solo'&&STEP_SOLO[i])||STEPS[i]);
-}
-/* WHAT YOUR RESULTS MEAN: strongest area (only if it scores 5 or 6), then
-   why the recommended next step comes first, then the stage paragraph. */
-var STRONG_LINES=[
-  'You know what you want to improve and how to choose where to start.',
-  'You have someone to lead a trial and time and resources to run it.',
-  'You understand how your core work runs and where it costs you.',
-  'Your information is easy to find and moves reliably between tools.',
-  'You have rules for using AI safely and people ready to use it.'
-];
-var STRONG_SOLO={1:'You can make the decisions and have time to run a trial.',4:'You have rules for using AI safely and the skills to use it.'};
-var WHY_FIRST=[
-  'Without a clear target, it is hard to tell whether any AI tool is worth paying for.',
-  'Automating the wrong task can save time but cost you the personal touch customers value.',
-  'Trials without a named owner tend to stall before they show results.',
-  'Without time set aside, a trial gets squeezed out by day-to-day work.',
-  'AI speeds up whatever process it is given, including the gaps in it.',
-  'Knowing what a problem costs is how you will judge whether a fix worked.',
-  'Retyped details are where errors and wasted time usually hide.',
-  'AI is only as reliable as the information you give it.',
-  'Before testing AI on business tasks, you need clear rules for what you share and how you check the results.',
-  'A little practice on a low-risk task builds the confidence to use AI well.'
-];
-var WHY_SOLO={2:'A trial needs you to commit to it, or it gets pushed aside.'};
-var WHY_ALL_STRONG='Your foundations are in place, so the priority is choosing the right first test.';
-function resultsMeaning(dims,raw,total){
-  var mx=Math.max.apply(null,dims),si=dims.indexOf(mx);
-  var even=dims.every(function(v){return v===mx});
-  var strong=mx>=5?(even?'Every area scores strongly.':((sizeKey==='solo'&&STRONG_SOLO[si])||STRONG_LINES[si])):'No single area stands out yet.';
-  var ni=getNextStepIdx(raw,total);
-  var why=ni<0?WHY_ALL_STRONG:((sizeKey==='solo'&&WHY_SOLO[ni])||WHY_FIRST[ni]);
-  return strong+' '+why;
-}
-/* Warnings shown to the prospect, minus the one already given as the next step */
-function getProspectFlags(raw,total){
-  var skip=getNextStepIdx(raw,total);
-  return FLAG_RULES.filter(function(f){return raw[f.q]<=f.max&&f.q!==skip}).map(function(f){return (sizeKey==='solo'&&FLAG_SOLO[f.q])||f.text});
-}
-
 function weakestTied(dims){
   var r=dims.map(function(v,i){return v/DIM_MAX[i]}),m=Math.min.apply(null,r);
   return r.filter(function(x){return x===m}).length>1;
@@ -1725,41 +1566,6 @@ function getDiag(tier,dims,raw,total){
   var out=c[tier];
   return out;
 }
-function getCtaSub(tier){
-  var m={
-    'Not Yet Ready':'Your results show exactly where to focus. Fixing the right foundations now means any AI investment you make later will actually stick and deliver a return. Book your AI Readiness Discovery Call to review your results, pinpoint the gaps that matter most, and leave with a clear action plan.',
-    'Early Explorer':'You are on the right track, and your results give you something concrete to act on. The gaps holding you back are identifiable and addressable. Book your AI Readiness Discovery Call to review your results, understand what to strengthen first, and build a clear path to an AI investment that delivers.',
-    'Focused Experimenter':'Your results show real readiness in several areas and a clear picture of where to focus next. Book your AI Readiness Discovery Call to review your results, identify the highest-value starting point, and scope an AI & Operations Diagnostic that turns your readiness into results.',
-    'Ready to Pilot':'Your foundations are strong and your results reflect that. The priority now is to focus your AI investment on the opportunity most likely to create measurable business value. Book your AI Readiness Discovery Call to review your results, identify the AI opportunity with the strongest business case, and define the right scope for an AI & Operations Diagnostic before implementation.'
-  };
-  return m[tier];
-}
-function getCtaBullets(tier){
-  var b={
-    'Not Yet Ready':[
-      'Understand which operational gaps are creating the most friction right now',
-      'Identify what needs to be fixed before AI can add real business value',
-      'Confirm the right starting point for an AI & Operations Diagnostic'
-    ],
-    'Early Explorer':[
-      'Identify which gaps could reduce the return on any AI investment',
-      'Clarify what needs to be strengthened before committing time or budget',
-      'Define how an AI & Operations Diagnostic can help you move forward faster'
-    ],
-    'Focused Experimenter':[
-      'Confirm which areas are ready and which still carry deployment risk',
-      'Identify the highest-value starting point for your first AI project',
-      'Scope the right AI & Operations Diagnostic to sharpen your plan before you invest'
-    ],
-    'Ready to Pilot':[
-      'Identify which AI opportunity is likely to deliver the strongest return',
-      'Review the implementation risks that could affect your first deployment',
-      'Agree on a practical next step before moving from assessment to investment'
-    ]
-  };
-  return b[tier]||b['Focused Experimenter'];
-}
-
 /* SCORE BANDS */
 function getScoreBand(v){return v>=5?'Strong':v>=3?'Developing':'Needs attention'}
 function getBandColor(b){return b==='Strong'?'#2F6B70':b==='Developing'?'#9A5B00':'#B42318'}
