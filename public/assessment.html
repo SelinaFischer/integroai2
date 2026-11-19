@@ -431,8 +431,32 @@ a{color:inherit}
 .msg-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 
 /* footer */
-.site-footer{background:#fff;border-top:1px solid var(--sand);padding:20px 0}
-.site-footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between}
+/* Footer: same content and layout as the main site footer (src/components/Footer.tsx) */
+.site-footer{background:#fff;border-top:1px solid var(--sand);padding:56px 0 36px}
+.ft{display:flex;flex-direction:column;gap:40px}
+.ft-grid{display:grid;grid-template-columns:1fr;gap:36px}
+@media(min-width:640px){.ft-grid{grid-template-columns:1fr 1fr}.ft-brand{grid-column:1/-1}}
+@media(min-width:1024px){.ft-grid{grid-template-columns:1.3fr 1.2fr .8fr .8fr}.ft-brand{grid-column:auto}}
+.ft-brand{display:flex;flex-direction:column;gap:12px}
+.ft-logo{display:flex;align-items:center;gap:12px;color:var(--navy)}
+.ft-logo img{width:50px;height:50px;object-fit:contain}
+.ft-name{display:block;font-size:20px;font-weight:700;line-height:1.1;letter-spacing:.01em}
+.ft-logo .tagline{font-size:13px;margin-top:3px;display:block}
+.ft-brand p{max-width:24rem;font-size:14px;line-height:1.65;color:#42566A}
+.ft h3{margin-bottom:8px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--navy);font-family:var(--sans)}
+.ft ul{list-style:none}
+.ft-a{display:flex;align-items:center;gap:10px;padding:4px 0;font-size:14px;color:#42566A;text-decoration:none;text-underline-offset:4px;background:none;border:0;cursor:pointer;font-family:inherit;text-align:left}
+.ft-a:hover{color:var(--navy);text-decoration:underline}
+.ft-a svg{width:18px;height:18px;flex:none;color:var(--navy)}
+.ft-badges{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px 20px;border-top:1px solid var(--sand);padding-top:24px}
+.ft-badges a{display:inline-flex;border-radius:12px;overflow:hidden;transition:transform .2s}
+.ft-badges a:hover{transform:scale(1.03)}
+.ft-badges img{display:block;height:55px;width:auto}
+.ft-bottom{display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:12px 28px;border-top:1px solid var(--sand);padding-top:24px;font-size:14px;color:#42566A}
+@media(min-width:640px){.ft-bottom{flex-direction:row}}
+.ft-legal{display:flex;flex-wrap:wrap;gap:8px 24px}
+.ft-legal a,.ft-legal button{padding:6px 0;font-size:14px;color:#42566A;text-decoration:none;text-underline-offset:4px;background:none;border:0;cursor:pointer;font-family:inherit}
+.ft-legal a:hover,.ft-legal button:hover{color:var(--navy);text-decoration:underline}
 .footer-link{font-size:13px;color:var(--slate);text-decoration:none;text-underline-offset:4px}
 .footer-link:hover{color:var(--navy);text-decoration:underline}
 .footer-copy{font-size:13px;color:var(--slate)}
@@ -681,7 +705,7 @@ a{color:inherit}
   <div class="info">
     <div class="wrap"><div class="info-inner">
       <h2 class="info-h">About the AI Readiness Assessment</h2>
-      <p class="info-p">The AI Readiness Assessment from IntegroAI is a free self-check for business owners and leaders. Your results show your readiness stage, your strongest and weakest areas, and one practical first step with a ready-to-use AI prompt.</p>
+      <p class="info-p">The AI Readiness Assessment from IntegroAI is a free self-check for business owners and leaders. Your results show your readiness stage, your strongest and weakest areas, and the area to explore first.</p>
       <h2 class="faq-h">Questions business owners ask</h2>
       <div class="faq">
         <details class="faq-item"><summary><h3>What is an AI readiness assessment?</h3></summary><p>A short check of whether your business is ready to get value from AI, before you choose tools or commit budget. It shows where the gaps are and what to fix first.</p></details>
@@ -949,9 +973,45 @@ a{color:inherit}
 </main>
 
 <footer class="site-footer">
-  <div class="wrap">
-    <p class="footer-copy">&copy; <span id="yr"></span> IntegroAI Consulting</p>
-    <a class="footer-link" href="https://integroai.tech/privacy-policy">Privacy Policy</a>
+  <div class="wrap ft">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <div class="ft-logo">
+          <img src="assessment-assets/logo-mark.webp" alt="" width="50" height="50" loading="lazy" decoding="async">
+          <span><span class="ft-name">IntegroAI Consulting</span><span class="tagline">Simplify <span class="dot">&middot;</span> Prioritise <span class="dot">&middot;</span> Grow</span></span>
+        </div>
+        <p>IntegroAI Consulting is an independent AI adoption and transformation consultancy, supporting business owners across the UK.</p>
+        <p>We help you simplify operations, cut repetitive admin and see where AI is worth the investment.</p>
+      </div>
+      <nav aria-label="Solutions we offer">
+        <h3>Solutions We Offer</h3>
+        <ul><li><a class="ft-a" href="https://integroai.tech/work-with-me">AI &amp; Operations Diagnostic</a></li><li><a class="ft-a" href="https://integroai.tech/work-with-me">AI Foundations &amp; Responsible Adoption</a></li><li><a class="ft-a" href="https://integroai.tech/work-with-me">AI &amp; Automation Implementation</a></li><li><a class="ft-a" href="https://integroai.tech/work-with-me">Ongoing AI &amp; Operations Advisory</a></li><li><a class="ft-a" href="https://integroai.tech/work-with-me">AI Voice Receptionist</a></li><li><a class="ft-a" href="https://integroai.tech/work-with-me">Website Design &amp; Build</a></li><li><a class="ft-a" href="https://integroai.tech/work-with-me">AI Search Visibility (AEO &amp; GEO)</a></li></ul>
+      </nav>
+      <nav aria-label="Company">
+        <h3>Company</h3>
+        <ul><li><a class="ft-a" href="https://integroai.tech/work-with-me">Work With Me</a></li><li><a class="ft-a" href="https://integroai.tech/about">About</a></li><li><a class="ft-a" href="https://integroai.tech/ai-consultant-small-business-uk">AI for Small Businesses</a></li><li><a class="ft-a" href="https://integroai.tech/blog">Blog</a></li><li><a class="ft-a" href="https://integroai.tech/free-resources">Free Resources</a></li><li><a class="ft-a" href="https://integroai.tech/partnerships">Partnerships</a></li><li><a class="ft-a" href="https://integroai.tech/assessment">AI Readiness Assessment</a></li></ul>
+      </nav>
+      <div>
+        <h3>Get in Touch</h3>
+        <ul>
+          <li><a class="ft-a" href="https://www.linkedin.com/company/integroai-consulting/about/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></li>
+          <li><a class="ft-a" href="https://www.instagram.com/integroai_tech/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>Instagram</a></li>
+          <li><a class="ft-a" href="mailto:info@integroai.tech"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-badges">
+      <a href="https://aiblmedia.com/ai-enablement-directory/integroai-consulting/" target="_blank" rel="noopener noreferrer" aria-label="IntegroAI Consulting, aibl Verified AI Enablement Partner 2026. View our directory listing."><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 110" width="170" height="55" aria-hidden="true"><defs><clipPath id="badge-clip"><rect width="340" height="110" rx="10" ry="10"/></clipPath></defs><rect width="340" height="110" rx="10" ry="10" fill="#0B1829"/><rect y="96" width="340" height="14" fill="#00D4C8" clip-path="url(#badge-clip)"/><text x="38" y="54" font-family="Arial, sans-serif" font-weight="700" font-size="26" fill="#FFFFFF">aibl</text><rect x="38" y="60" width="44" height="3" fill="#00D4C8"/><rect x="100" y="18" width="1.5" height="64" fill="#00D4C8" opacity="0.7"/><text x="118" y="45" font-family="Arial, sans-serif" font-weight="700" font-size="18" fill="#C8F000">AI Enablement</text><text x="118" y="67" font-family="Arial, sans-serif" font-weight="700" font-size="18" fill="#C8F000">Directory</text><text x="118" y="86" font-family="Arial, sans-serif" font-weight="400" font-size="11" fill="#FFFFFF" opacity="0.9">Verified partner 2026</text></svg></a>
+      <a href="https://hillingdonchamber.co.uk/" target="_blank" rel="noopener noreferrer" aria-label="IntegroAI Consulting is a member of Hillingdon Chamber of Commerce"><img src="assessment-assets/hillingdon-chamber-logo.png" alt="Hillingdon Chamber of Commerce member" width="170" height="55" loading="lazy" decoding="async"></a>
+    </div>
+    <div class="ft-bottom">
+      <p>&copy; <span id="yr"></span> IntegroAI Consulting. All rights reserved.</p>
+      <div class="ft-legal">
+        <a href="https://integroai.tech/privacy-policy">Privacy Policy</a>
+        <a href="https://integroai.tech/terms-of-service">Terms of Service</a>
+        <button type="button" onclick="openCookieSettings()">Cookie settings</button>
+      </div>
+    </div>
   </div>
 </footer>
 
@@ -990,6 +1050,7 @@ document.getElementById('yr').textContent=new Date().getFullYear();
   try{choice=window.localStorage.getItem('integroai-cookie-consent')}catch(e){}
   if(!choice) setTimeout(function(){document.getElementById('cookie').classList.add('show')},1500);
 })();
+function openCookieSettings(){document.getElementById('cookie').classList.add('show')}
 function cookieChoice(c){
   try{window.localStorage.setItem('integroai-cookie-consent',c)}catch(e){}
   document.getElementById('cookie').classList.remove('show');
