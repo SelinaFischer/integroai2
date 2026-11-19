@@ -363,6 +363,8 @@ a{color:inherit}
 @media(min-width:640px){.big-score b{font-size:104px}}
 .tier-pill{background:var(--amber);color:var(--navy);border-radius:999px;padding:6px 16px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
 .strip-calc{font-size:14px;color:var(--mist)}
+.strip-note{font-size:13px;line-height:1.5;color:rgba(203,213,225,.75);max-width:600px;margin-top:4px}
+.r-foot{font-size:12.5px;line-height:1.6;color:var(--slate);text-align:center;max-width:640px;margin:4px auto 0}
 .strip-name{font-family:var(--sans);font-size:18px;font-weight:600;color:#fff;letter-spacing:0;margin-top:2px}
 .strip-stage{margin-top:12px}
 .score-strip .legend{width:100%;max-width:640px;border-color:rgba(203,213,225,.28);margin-top:0}
@@ -862,11 +864,10 @@ a{color:inherit}
     <div class="r-wrap">
 
       <div class="score-strip on-dark">
+        <h2 class="strip-name" id="r-name" tabindex="-1"></h2>
         <p class="eyebrow">Your AI Readiness Score</p>
         <p class="big-score"><b id="r-score">0</b><span>/30</span></p>
         <p class="tier-pill" id="r-tier"></p>
-        <p class="strip-calc">Based on 10 questions across 5 AI readiness dimensions. Maximum score: 30. This self-assessment indicates readiness foundations; it does not confirm that a particular AI solution is suitable.</p>
-        <h2 class="strip-name" id="r-name" tabindex="-1"></h2>
         <p class="eyebrow strip-stage">Your AI readiness stage</p>
         <div class="legend" id="tier-legend" aria-label="The four readiness stages">
           <div class="lg-cell" id="tl-0"><span class="lg-name">Not Yet Ready</span><span class="lg-range">0 – 9</span></div>
@@ -874,6 +875,7 @@ a{color:inherit}
           <div class="lg-cell" id="tl-2"><span class="lg-name">Focused Experimenter</span><span class="lg-range">18 – 24</span></div>
           <div class="lg-cell" id="tl-3"><span class="lg-name">Ready to Pilot</span><span class="lg-range">25 – 30</span></div>
         </div>
+        <p class="strip-note">Ready to Pilot needs a score of 25 or more, someone to lead a trial, time and resources to run it, and basic rules for using AI safely.</p>
       </div>
 
       <div class="r-cols">
@@ -889,21 +891,20 @@ a{color:inherit}
             <p class="focus-p" id="r-opp" style="color:var(--navy);font-weight:500"></p>
           </div>
           <div class="flag-box" id="r-flags" hidden>
-            <p class="lbl">Important to address</p>
+            <p class="lbl">Also worth addressing</p>
             <ul id="r-flag-list"></ul>
           </div>
         </div>
       </div>
 
       <div class="card r-panel">
-        <p class="lbl">Score by dimension <span style="font-weight:500;letter-spacing:.04em;text-transform:none">(2 questions × max 3 pts = max 6 per dimension)</span></p>
+        <p class="lbl">Scores by area</p>
         <div id="dim-bars" style="margin-top:8px"></div>
       </div>
 
       <div class="cta on-dark">
-        <h2>Your results are ready. <em>Here is your recommended next step.</em></h2>
+        <h2>Want help acting on <em>your results?</em></h2>
         <p class="cta-p" id="r-cta-p"></p>
-        <ul class="cta-bullets" id="cta-bullets-list"></ul>
         <div class="cta-btns">
           <!-- CALENDLY_LINK -->
           <a href="https://calendly.com/integroai-tech/30min" class="btn-amber" target="_blank" rel="noopener noreferrer" onclick="track('discovery_call_click')">
@@ -934,6 +935,8 @@ a{color:inherit}
           </details>
         </div>
       </div>
+
+      <p class="r-foot">This is a self-assessment based on your answers. It does not confirm that a particular AI solution is suitable.</p>
 
     </div>
   </div>
@@ -1507,14 +1510,23 @@ var STEPS=[
   'Practise drafting a routine reply with AI using a made-up example. Check the draft for accuracy and tone before you use it.'
 ];
 var STEP_ALL_STRONG='Choose one small, clearly scoped test and agree how you will measure success before you start.';
-function getNextStep(raw,total){
-  var st=function(i){return (sizeKey==='solo'&&STEP_SOLO[i])||STEPS[i]};
-  if(total>=25){var g=pilotGap(raw);if(g>=0)return st(g);}
-  if(raw[8]<=1) return st(8);
-  if(raw[2]===0) return st(2);
-  if(raw[3]===0) return st(3);
+/* Which question the next step comes from (-1 = full marks everywhere) */
+function getNextStepIdx(raw,total){
+  if(total>=25){var g=pilotGap(raw);if(g>=0)return g;}
+  if(raw[8]<=1) return 8;
+  if(raw[2]===0) return 2;
+  if(raw[3]===0) return 3;
   var mi=0;raw.forEach(function(v,i){if(v<raw[mi])mi=i});
-  return raw[mi]>=3?STEP_ALL_STRONG:st(mi);
+  return raw[mi]>=3?-1:mi;
+}
+function getNextStep(raw,total){
+  var i=getNextStepIdx(raw,total);
+  return i<0?STEP_ALL_STRONG:((sizeKey==='solo'&&STEP_SOLO[i])||STEPS[i]);
+}
+/* Warnings shown to the prospect, minus the one already given as the next step */
+function getProspectFlags(raw,total){
+  var skip=getNextStepIdx(raw,total);
+  return FLAG_RULES.filter(function(f){return raw[f.q]<=f.max&&f.q!==skip}).map(function(f){return (sizeKey==='solo'&&FLAG_SOLO[f.q])||f.text});
 }
 
 function weakestTied(dims){
@@ -1592,23 +1604,15 @@ function getCtaBullets(tier){
 }
 
 /* SCORE BANDS */
-function getScoreBand(v){return v>=5?'Stronger foundations':v>=3?'Developing':'Needs attention'}
-function getBandColor(b){return b==='Stronger foundations'?'#2F6B70':b==='Developing'?'#9A5B00':'#B42318'}
+function getScoreBand(v){return v>=5?'Strong':v>=3?'Developing':'Needs attention'}
+function getBandColor(b){return b==='Strong'?'#2F6B70':b==='Developing'?'#9A5B00':'#B42318'}
 
 function buildSummaryLine(dims){
-  var high=[],med=[],low=[];
-  dims.forEach(function(v,i){
-    var b=getScoreBand(v);
-    if(b==='Stronger foundations')high.push(DIM_NAMES[i]);
-    else if(b==='Developing')med.push(DIM_NAMES[i]);
-    else low.push(DIM_NAMES[i]);
-  });
-  function ls(arr){if(!arr.length)return'';if(arr.length===1)return arr[0];return arr.slice(0,-1).join(', ')+' and '+arr[arr.length-1]}
-  var parts=[];
-  if(high.length)parts.push('Strong '+ls(high)+'.');
-  if(med.length&&!low.length)parts.push(ls(med)+(med.length===1?' is':' are')+' developing well.');
-  if(low.length)parts.push(ls(low)+(low.length===1?' needs':' need')+' the most attention.');
-  return parts.join(' ')||'Review your dimension scores below.';
+  var mx=Math.max.apply(null,dims),top=[];
+  dims.forEach(function(v,i){if(v===mx)top.push(DIM_NAMES[i])});
+  if(top.length===dims.length) return 'Your scores are even across all five areas.';
+  function ls(arr){if(arr.length===1)return arr[0];return arr.slice(0,-1).join(', ')+' and '+arr[arr.length-1]}
+  return ls(top)+(top.length===1?' is your strongest area.':' are your strongest areas.');
 }
 
 /* RADAR (pentagon, light theme) */
@@ -1803,7 +1807,7 @@ function flagsBlock(list){
   if(!list.length) return '';
   return '<tr><td style="padding:0 20px 24px;">'
     +'<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FEF3F2;border:1px solid #FECDCA;border-radius:12px;"><tr><td style="padding:16px 18px;">'
-    +'<p style="margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#B42318;">Important to address</p>'
+    +'<p style="margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#B42318;">Also worth addressing</p>'
     +list.map(function(f,i){return '<p style="margin:'+(i===list.length-1?'0':'0 0 10px')+';font-size:14px;color:#041B2B;line-height:1.6;word-wrap:break-word;"><span style="color:#B42318;font-weight:700;">&bull;</span>&nbsp; '+f+'</p>'}).join('')
     +'</td></tr></table></td></tr>';
 }
@@ -1837,7 +1841,7 @@ function phoneRow(){
 function sendEmail(score,tier,diag,opp,dims){
   if(!ejsReady)return;
   var bands=dims.map(getScoreBand);
-  var flagList=getFlags(calcScores().raw);
+  var _sc=calcScores(),flagList=getProspectFlags(_sc.raw,_sc.total);
   emailjs.send(EJS_SERVICE,EJS_TEMPLATE,{
     to_name:contact.firstName,to_email:contact.email,
     score:score,tier:tier,diagnosis:diag,next_opportunity:opp,
@@ -1863,17 +1867,14 @@ function buildResults(){
   var sc=calcScores(),tier=getTier(sc.total,sc.raw),diag=getDiag(tier,sc.dims,sc.raw,sc.total);
   document.getElementById('r-score').textContent=sc.total;
   document.getElementById('r-tier').textContent=tier;
-  document.getElementById('r-name').textContent=contact.firstName+', here are your AI Readiness results.';
+  document.getElementById('r-name').textContent=contact.firstName+', here are your results';
   document.getElementById('r-diag').textContent=diag.diag;
-  document.getElementById('r-cta-p').textContent=getCtaSub(tier);
+  document.getElementById('r-cta-p').textContent='In an AI Readiness Discovery Call, we\'ll review your answers, discuss one task you\'d like to improve, and work out what to do first.';
   document.getElementById('r-opp').textContent=diag.opp;
   document.getElementById('radar-summary').textContent=buildSummaryLine(sc.dims);
-  var flags=getFlags(sc.raw),fb=document.getElementById('r-flags');
+  var flags=getProspectFlags(sc.raw,sc.total),fb=document.getElementById('r-flags');
   fb.hidden=!flags.length;
   document.getElementById('r-flag-list').innerHTML=flags.map(function(f){return '<li>'+f+'</li>'}).join('');
-  document.getElementById('cta-bullets-list').innerHTML=getCtaBullets(tier).map(function(b){
-    return '<li><span class="tick">'+TICK_SVG+'</span><span>'+b+'</span></li>';
-  }).join('');
   highlightLegend(tier);
   drawRadar(sc.dims);
   renderDimBars(sc.dims);
