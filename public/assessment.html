@@ -41,6 +41,30 @@
 -->
 <link rel="preload" href="assessment-assets/cormorant-garamond-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assessment-assets/instrument-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Google Tag Manager: same container and rule as the main site (index.html).
+     Loads only after the visitor accepts analytics cookies. The choice is shared
+     with the main site, so anyone who accepted there is counted here too. -->
+<script>
+  (function () {
+    var loaded = false;
+    window.__loadAnalytics = function () {
+      if (loaded) return;
+      loaded = true;
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+      var f = document.getElementsByTagName("script")[0];
+      var j = document.createElement("script");
+      j.async = true;
+      j.src = "https://www.googletagmanager.com/gtm.js?id=GTM-KQCJ7DCJ&l=dataLayer";
+      f.parentNode.insertBefore(j, f);
+    };
+    var accepted = false;
+    try { accepted = window.localStorage.getItem("integroai-cookie-consent") === "accepted"; } catch (e) {}
+    if (!accepted) return;
+    window.addEventListener("load", function () { setTimeout(window.__loadAnalytics, 2000); });
+  })();
+</script>
+<!-- End Google Tag Manager -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
 /* ============================================================
@@ -117,8 +141,8 @@ a{color:inherit}
 .top-nav{display:none;align-items:center;gap:32px}
 .top-nav a{font-size:16px;font-weight:600;color:var(--navy);text-decoration:none;padding:12px 0;text-underline-offset:8px;text-decoration-color:var(--amber);text-decoration-thickness:2px;white-space:nowrap}
 .top-nav a:hover{text-decoration-line:underline}
-@media(min-width:768px){.top-nav{display:flex}.site-header .back-link{display:none}}
-@media(min-width:768px) and (max-width:1023px){.top-nav{gap:22px}.top-nav a{font-size:15px}}
+@media(min-width:1024px){.top-nav{display:flex}.site-header .back-link{display:none}}
+@media(min-width:1024px) and (max-width:1279px){.top-nav{gap:22px}.top-nav a{font-size:15px}}
 @media(min-width:640px){
   .site-header .wrap{height:72px}
   .brand img{width:42px;height:42px}
@@ -208,7 +232,6 @@ a{color:inherit}
 .mock .ring-val{padding-top:29px}
 .mock .ring-val b{font-size:32px}
 .mock .ring-txt .serif{font-size:25px}
-.mock .hide{filter:blur(3px);opacity:.55;user-select:none}
 /* finer, smaller type inside the sample card */
 .mock .lbl{font-size:9.5px;letter-spacing:.12em;font-weight:600}
 .mock .chip{font-size:9.5px;font-weight:600;padding:4px 10px}
@@ -227,7 +250,6 @@ a{color:inherit}
 .mock{transform:rotate(3deg);transform-origin:50% 40%}
 @media(min-width:768px){.mock{transform:rotate(5deg)}.hero-visual{padding-top:12px}}
 .hero-caption{margin-top:10px}
-.mock-veil{position:absolute;left:0;right:0;bottom:0;height:40%;display:flex;align-items:flex-end;justify-content:center;padding-bottom:0;background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.75) 45%,#fff 80%);pointer-events:none}
 .hero-caption{font-size:14px;color:var(--mist);text-align:center}
 
 /* sample result card (same as the homepage assessment card) */
@@ -385,6 +407,19 @@ a{color:inherit}
 .footer-link:hover{color:var(--navy);text-decoration:underline}
 .footer-copy{font-size:13px;color:var(--slate)}
 
+/* cookie banner (same wording and look as the main site) */
+.cookie{position:fixed;left:16px;right:16px;bottom:16px;z-index:60;background:var(--navy);color:#fff;border:1px solid rgba(255,255,255,.1);border-radius:12px;box-shadow:0 20px 40px rgba(4,27,43,.25);padding:16px;display:none}
+.cookie.show{display:block;animation:fadeUp .45s cubic-bezier(.16,1,.3,1) both}
+@media(min-width:640px){.cookie{left:auto;right:24px;bottom:24px;max-width:448px;padding:20px}}
+.cookie p{font-size:14px;line-height:1.6;color:rgba(255,255,255,.9)}
+.cookie a{color:var(--amber);font-weight:500;text-decoration:none}
+.cookie a:hover{text-decoration:underline}
+.cookie-btns{display:flex;justify-content:flex-end;align-items:center;gap:8px;margin-top:12px}
+.cookie-no{background:none;border:none;color:rgba(255,255,255,.7);font-size:12px;font-weight:500;padding:8px 12px;cursor:pointer}
+.cookie-no:hover{color:#fff}
+.cookie-yes{background:var(--amber);border:none;color:#fff;font-size:12px;font-weight:600;padding:8px 16px;border-radius:8px;cursor:pointer}
+.cookie-yes:hover{background:var(--amber-hover)}
+
 /* toast */
 .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(12px);background:var(--navy);color:#fff;padding:12px 20px;font-size:14px;font-weight:500;border-radius:999px;opacity:0;transition:all .3s ease;pointer-events:none;z-index:999;max-width:90vw;box-shadow:var(--shadow-lg)}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
@@ -426,6 +461,14 @@ a{color:inherit}
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+<div class="cookie" id="cookie" role="dialog" aria-labelledby="cookie-title">
+  <p id="cookie-title">We'd like to use Google Analytics cookies to see how this site is used. They're only set if you accept. <a href="https://integroai.tech/privacy-policy">Read our privacy policy</a></p>
+  <div class="cookie-btns">
+    <button type="button" class="cookie-no" onclick="cookieChoice('declined')">Decline</button>
+    <button type="button" class="cookie-yes" onclick="cookieChoice('accepted')">Accept</button>
+  </div>
+</div>
+
 <!-- ============================================================
      HEADER
      ============================================================ -->
@@ -442,6 +485,8 @@ a{color:inherit}
       <a href="https://integroai.tech/work-with-me">Work With Me</a>
       <a href="https://integroai.tech/about">About</a>
       <a href="https://integroai.tech/blog">Blog</a>
+      <a href="https://integroai.tech/free-resources">Free Resources</a>
+      <a href="https://integroai.tech/partnerships">Partnerships</a>
     </nav>
     <a class="back-link" href="https://integroai.tech">
       <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -497,16 +542,9 @@ a{color:inherit}
           <div class="mock-bars">
             <p class="lbl" style="padding-bottom:6px">Score by dimension</p>
               <div class="mock-bar"><span>Business Direction</span><i><b style="width:50%"></b></i><em>3/6</em></div>
-              <div class="mock-bar"><span>Ownership &amp; Capacity</span><i><b style="width:33%"></b></i><em>2/6</em></div>
               <div class="mock-bar"><span>Process Readiness</span><i><b style="width:50%"></b></i><em>3/6</em></div>
-              <div class="mock-bar pri hide"><span>Systems &amp; Information</span><i><b style="width:17%"></b></i><em>1/6</em></div>
-              <div class="mock-bar hide"><span>Responsible Use &amp; Skills</span><i><b style="width:33%"></b></i><em>2/6</em></div>
+              <div class="mock-bar pri"><span>Systems &amp; Information</span><i><b style="width:17%"></b></i><em>1/6</em></div>
           </div>
-          <div class="mock-focus hide">
-            <p class="lbl">Recommended next step</p>
-            <p>Systems &amp; Information</p>
-          </div>
-          <div class="mock-veil" aria-hidden="true"></div>
         </div>
         <p class="hero-caption">A sample result.</p>
       </div>
@@ -766,6 +804,18 @@ a{color:inherit}
      ============================================================ -->
 <script>
 document.getElementById('yr').textContent=new Date().getFullYear();
+
+/* COOKIE BANNER: shown only to visitors who have not chosen yet (shared with the main site) */
+(function(){
+  var choice=null;
+  try{choice=window.localStorage.getItem('integroai-cookie-consent')}catch(e){}
+  if(!choice) setTimeout(function(){document.getElementById('cookie').classList.add('show')},1500);
+})();
+function cookieChoice(c){
+  try{window.localStorage.setItem('integroai-cookie-consent',c)}catch(e){}
+  document.getElementById('cookie').classList.remove('show');
+  if(c==='accepted'&&window.__loadAnalytics) window.__loadAnalytics();
+}
 
 /* Sends (email, lead notification, Google Sheet) only run on the live site,
    so previews and local testing never create real leads. */
@@ -1347,9 +1397,21 @@ function sendToSheets(score,tier,diag){
     })
   }).catch(function(e){console.error('Sheets webhook:',e)});
 }
+/* The email's "Important to address" box, as ready-made email HTML. Empty when
+   there are no warnings, so the box is left out of the email altogether.
+   Used in the EmailJS template as {{{flags_block}}} (three brackets). */
+function flagsBlock(list){
+  if(!list.length) return '';
+  return '<tr><td style="padding:0 20px 24px;">'
+    +'<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FEF3F2;border:1px solid #FECDCA;border-radius:12px;"><tr><td style="padding:16px 18px;">'
+    +'<p style="margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#B42318;">Important to address</p>'
+    +list.map(function(f,i){return '<p style="margin:'+(i===list.length-1?'0':'0 0 10px')+';font-size:14px;color:#041B2B;line-height:1.6;word-wrap:break-word;"><span style="color:#B42318;font-weight:700;">&bull;</span>&nbsp; '+f+'</p>'}).join('')
+    +'</td></tr></table></td></tr>';
+}
 function sendEmail(score,tier,diag,opp,dims){
   if(!ejsReady)return;
   var bands=dims.map(getScoreBand);
+  var flagList=getFlags(calcScores().raw);
   emailjs.send(EJS_SERVICE,EJS_TEMPLATE,{
     to_name:contact.firstName,to_email:contact.email,
     score:score,tier:tier,diagnosis:diag,next_opportunity:opp,
@@ -1363,7 +1425,8 @@ function sendEmail(score,tier,diag,opp,dims){
     process_readiness_score:dims[2]+'/6',        process_readiness_band:bands[2],
     systems_information_score:dims[3]+'/6',      systems_information_band:bands[3],
     responsible_use_skills_score:dims[4]+'/6',   responsible_use_skills_band:bands[4],
-    flags:getFlags(calcScores().raw).join(' | ')||'None'
+    flags:flagList.join(' | ')||'None',
+    flags_block:flagsBlock(flagList)
   }).then(function(){showToast('Results sent to '+contact.email)}).catch(function(err){console.error('EmailJS:',err)});
 }
 
