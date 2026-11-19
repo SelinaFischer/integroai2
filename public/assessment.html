@@ -1119,13 +1119,13 @@ var QS=[
      {t:'No owner identified',        s:'We do not yet know who would lead.',v:0}
    ]},
   {sec:'Section 1 of 3: Priorities and resources',
-   title:'What time and resources could you commit to testing AI on one task?',
-   hint:'Include setup, learning, testing and any necessary costs or outside support.',
+   title:'Can your business make time and cover any costs needed to test AI on one task?',
+   hint:'Think about who would set up and run the trial. That could be you, someone on your team or an external partner. Include time to learn the tool and check the results.',
    opts:[
-     {t:'Available',               s:'We can set aside regular time and cover the resources needed for a small trial.',v:3},
-     {t:'Possible but not agreed', s:'We could make time and resources available, but have not committed them.',v:2},
-     {t:'Limited',                 s:'We could manage occasional testing, but regular time or necessary spending would be difficult.',v:1},
-     {t:'Unavailable currently',   s:'We cannot currently commit time or resources to a trial.',v:0}
+     {t:'Ready to commit',               s:'We can set aside the time and cover any costs needed to run a small trial.',v:3},
+     {t:'Possible, but still to agree', s:'We could make time and cover any costs, but these still need to be agreed.',v:2},
+     {t:'Limited capacity',                 s:'We could do some initial testing, but finding enough time or covering the costs for a full trial would be difficult.',v:1},
+     {t:'Unavailable right now',   s:'We can’t currently set aside the time or cover the costs needed for a trial.',v:0}
    ]},
   /* ── SECTION 2: EVERYDAY OPERATIONS ────────────────── */
   {
@@ -1323,6 +1323,13 @@ var TICK_SVG='<svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M
    only the words change, so every score stays comparable. Teams (small and
    growing) see QS unchanged. */
 var QS_SOLO={
+  3:{title:'Can you make time and cover any costs needed to test AI on one task?',
+     hint:'Think about who would set up and run the trial. That could be you or an external partner. Include time to learn the tool and check the results.',
+     opts:[
+       {s:'I can set aside the time and cover any costs needed to run a small trial.'},
+       {t:'Possible, not yet committed',s:'I could make time and cover any costs, but have not committed to it yet.'},
+       {s:'I could do some initial testing, but finding enough time or covering the costs for a full trial would be difficult.'},
+       {s:'I can\u2019t currently set aside the time or cover the costs needed for a trial.'}]},
   2:{title:'Can you make the decisions and get any outside support needed to run a small AI trial?',
      hint:'Think about decisions, approvals and any outside help you might need.',
      opts:[
