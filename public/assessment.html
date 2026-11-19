@@ -876,7 +876,6 @@ a{color:inherit}
           <div class="lg-cell" id="tl-2"><span class="lg-name">Focused Experimenter</span><span class="lg-range">18 – 24</span></div>
           <div class="lg-cell" id="tl-3"><span class="lg-name">Ready to Pilot</span><span class="lg-range">25 – 30</span></div>
         </div>
-        <p class="strip-note">Ready to Pilot needs a score of 25 or more, someone to lead a trial, time and resources to run it, and basic rules for using AI safely.</p>
       </div>
 
       <div class="r-cols">
@@ -892,7 +891,7 @@ a{color:inherit}
             <p class="focus-p" id="r-opp" style="color:var(--navy);font-weight:500"></p>
           </div>
           <div class="flag-box" id="r-flags" hidden>
-            <p class="lbl">Also worth addressing</p>
+            <p class="lbl">Important to address</p>
             <ul id="r-flag-list"></ul>
           </div>
         </div>
@@ -1598,7 +1597,6 @@ function getDiag(tier,dims,raw,total){
     }
   };
   var out=c[tier];
-  if(raw) out={diag:resultsMeaning(dims,raw,total)+' '+out.diag,opp:getNextStep(raw,total)};
   return out;
 }
 function getCtaSub(tier){
@@ -1840,7 +1838,7 @@ function flagsBlock(list){
   if(!list.length) return '';
   return '<tr><td style="padding:0 20px 24px;">'
     +'<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FEF3F2;border:1px solid #FECDCA;border-radius:12px;"><tr><td style="padding:16px 18px;">'
-    +'<p style="margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#B42318;">Also worth addressing</p>'
+    +'<p style="margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#B42318;">Important to address</p>'
     +list.map(function(f,i){return '<p style="margin:'+(i===list.length-1?'0':'0 0 10px')+';font-size:14px;color:#041B2B;line-height:1.6;word-wrap:break-word;"><span style="color:#B42318;font-weight:700;">&bull;</span>&nbsp; '+f+'</p>'}).join('')
     +'</td></tr></table></td></tr>';
 }
@@ -1874,7 +1872,7 @@ function phoneRow(){
 function sendEmail(score,tier,diag,opp,dims){
   if(!ejsReady)return;
   var bands=dims.map(getScoreBand);
-  var _sc=calcScores(),flagList=getProspectFlags(_sc.raw,_sc.total);
+  var flagList=getFlags(calcScores().raw);
   emailjs.send(EJS_SERVICE,EJS_TEMPLATE,{
     to_name:contact.firstName,to_email:contact.email,
     score:score,tier:tier,diagnosis:diag,next_opportunity:opp,
@@ -1905,7 +1903,7 @@ function buildResults(){
   document.getElementById('r-cta-p').textContent='In an AI Readiness Discovery Call, we\'ll review your answers, discuss one task you\'d like to improve, and work out what to do first.';
   document.getElementById('r-opp').textContent=diag.opp;
   document.getElementById('radar-summary').textContent=buildSummaryLine(sc.dims);
-  var flags=getProspectFlags(sc.raw,sc.total),fb=document.getElementById('r-flags');
+  var flags=getFlags(sc.raw),fb=document.getElementById('r-flags');
   fb.hidden=!flags.length;
   document.getElementById('r-flag-list').innerHTML=flags.map(function(f){return '<li>'+f+'</li>'}).join('');
   highlightLegend(tier);
