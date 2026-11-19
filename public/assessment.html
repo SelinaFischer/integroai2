@@ -342,7 +342,7 @@ a{color:inherit}
 .fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(4,27,43,.08)}
 .fld .inline-err{display:none;color:var(--red);font-size:13px;font-weight:500;margin-top:6px}
 .fld input.invalid{border-color:var(--red)}
-#f-motivation-other{display:none;margin-top:8px}
+#f-motivation-other,#f-industry-other{display:none;margin-top:8px}
 .gdpr-row{display:flex;align-items:flex-start;gap:10px;margin:6px 0 14px}
 .gdpr-row input{width:18px;height:18px;flex:none;margin-top:2px;accent-color:var(--navy);cursor:pointer}
 .gdpr-text{font-size:13px;color:var(--body);line-height:1.55}
@@ -778,7 +778,7 @@ a{color:inherit}
 
       <div class="fld">
           <label for="f-industry">Industry / business type *</label>
-          <select id="f-industry">
+          <select id="f-industry" onchange="toggleIndustryOther(this.value)">
             <option value="">Select industry...</option>
             <option>Professional services (legal, accounting, consulting)</option>
             <option>Marketing, creative and agencies</option>
@@ -789,9 +789,9 @@ a{color:inherit}
             <option>Trades, construction and field services</option>
             <option>Technology and software</option>
             <option>Retail and eCommerce</option>
-            <option>Other services</option>
-            <option>Other</option>
+            <option value="Other">Other (please specify)</option>
           </select>
+          <input type="text" id="f-industry-other" placeholder="For example: dental practice, charity, logistics..." aria-label="Your industry or type of business">
         </div>
       <div class="fld">
         <label for="f-motivation">Why are you exploring AI right now? *</label>
@@ -1414,6 +1414,12 @@ function nextQ(){
 }
 function prevQ(){if(curQ>0){curQ--;renderQ(true);window.scrollTo(0,0)}else{show('s-size','size-title')}}
 
+/* INDUSTRY "OTHER" */
+function toggleIndustryOther(val){
+  var el=document.getElementById('f-industry-other');
+  el.style.display=val==='Other'?'block':'none';
+  if(val!=='Other')el.value='';
+}
 /* MOTIVATION "OTHER" */
 function toggleMotivationOther(val){
   var el=document.getElementById('f-motivation-other');
@@ -1454,6 +1460,11 @@ function submitContact(){
   var phoneErr=validatePhone(phone); if(phoneErr) return formError(phoneErr);
   if(!industry||!motivate) return formError('Please complete all required fields.');
   if(!role||!timeline||!situation) return formError('Please answer all three questions in the Business context section.');
+  if(industry==='Other'){
+    var otherInd=val('f-industry-other');
+    if(!otherInd) return formError('Please tell us your industry or type of business.');
+    industry='Other: '+otherInd;
+  }
   if(motivate==='Other'){
     var other=val('f-motivation-other');
     if(!other) return formError('Please tell us what is driving your interest in AI.');
