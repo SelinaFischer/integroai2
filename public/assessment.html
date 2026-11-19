@@ -878,6 +878,7 @@ a{color:inherit}
           <div class="lg-cell" id="tl-2"><span class="lg-name">Focused Experimenter</span><span class="lg-range">18 – 24</span></div>
           <div class="lg-cell" id="tl-3"><span class="lg-name">Ready to Pilot</span><span class="lg-range">25 – 30</span></div>
         </div>
+        <p class="strip-note" id="r-pilot-note" hidden></p>
       </div>
 
       <div class="r-cols">
@@ -1491,6 +1492,18 @@ function pilotGap(raw){
   if(raw[3]<3) return 3;   /* then time and resources */
   return -1;
 }
+/* Shown under the stage scale only when the score is 25+ but a pilot basic
+   is missing, so the scale never looks wrong. */
+function pilotNote(raw,total){
+  if(total<25) return '';
+  var m=[];
+  if(raw[8]<2) m.push('basic rules for using AI safely');
+  if(raw[2]<2) m.push(sizeKey==='solo'?'to commit to leading the trial yourself':'someone agreed to lead the trial');
+  if(raw[3]<3) m.push('time and resources set aside for the trial');
+  if(!m.length) return '';
+  var list=m.length===1?m[0]:m.slice(0,-1).join(', ')+' and '+m[m.length-1];
+  return 'Your score is in the Ready to Pilot range. To get there, you\u2019ll also need '+list+'.';
+}
 function getTier(t,raw){
   if(t>=25&&raw&&pilotGap(raw)>=0) return 'Focused Experimenter';
   if(t<=9) return 'Not Yet Ready';
@@ -1918,6 +1931,7 @@ function buildResults(){
   fb.hidden=!flags.length;
   document.getElementById('r-flag-list').innerHTML=flags.map(function(f){return '<li>'+f+'</li>'}).join('');
   highlightLegend(tier);
+  var pn=pilotNote(sc.raw,sc.total),pe=document.getElementById('r-pilot-note');pe.textContent=pn;pe.hidden=!pn;
   drawRadar(sc.dims);
   renderDimBars(sc.dims);
   show('s-results','r-name');
