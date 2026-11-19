@@ -686,7 +686,7 @@ a{color:inherit}
   <div class="info">
     <div class="wrap"><div class="info-inner">
       <h2 class="info-h">About the AI Readiness Assessment</h2>
-      <p class="info-p">The IntegroAI AI Readiness Assessment is a free self-check for business owners and leaders, from solo businesses to teams of 250. Your results show your readiness stage, your strongest and weakest areas, and one practical first step with a ready-to-use AI prompt.</p>
+      <p class="info-p">The IntegroAI AI Readiness Assessment is a free self-check for business owners and leaders. Your results show your readiness stage, your strongest and weakest areas, and one practical first step with a ready-to-use AI prompt.</p>
       <h2 class="faq-h">Questions business owners ask</h2>
       <div class="faq">
         <details class="faq-item"><summary><h3>What is an AI readiness assessment?</h3></summary><p>A short check of whether your business is ready to get value from AI, before you choose tools or commit budget. It shows where the gaps are and what to fix first.</p></details>
@@ -717,7 +717,7 @@ a{color:inherit}
       <div class="size-grid">
         <button type="button" class="a-card" onclick="pickSize('solo')"><span class="a-main">Just me</span><span class="a-sub">I run the business on my own</span></button>
         <button type="button" class="a-card" onclick="pickSize('small')"><span class="a-main">A small team</span><span class="a-sub">2 to 20 people</span></button>
-        <button type="button" class="a-card" onclick="pickSize('growing')"><span class="a-main">A growing business</span><span class="a-sub">21 to 250 people</span></button>
+        <button type="button" class="a-card" onclick="pickSize('growing')"><span class="a-main">A growing business</span><span class="a-sub">21 people or more</span></button>
       </div>
     </div>
   </div>
@@ -1263,7 +1263,7 @@ function track(ev,params){
 }
 
 /* BUSINESS SIZE: chosen on the first screen; tailors wording only */
-var SIZE_LABELS={solo:'Just me',small:'Small team (2–20 people)',growing:'Growing business (21–250 people)'};
+var SIZE_LABELS={solo:'Just me',small:'Small team (2–20 people)',growing:'Growing business (21+ people)'};
 var sizeKey=null;
 var INTRO_BY_SIZE={
   solo:'Choose the answer that best reflects your business today. Answer for yourself.',
