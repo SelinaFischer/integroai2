@@ -61,7 +61,7 @@ const readinessFaqs: Faq[] = [
   { question: "Why assess readiness before buying AI tools?", answer: "AI amplifies what already exists. If processes, ownership or data are unclear, AI gives you faster, more expensive versions of the same problems." },
   { question: "Should a readiness assessment recommend specific AI tools?", answer: "Not as its starting point. Its job is to establish the problem, how ready you are and what to prioritise. Tool choice follows once those are clear." },
   { question: "How long does IntegroAI’s assessment take, and what does it cost?", answer: "The free online assessment takes about five minutes and gives an initial indication of your readiness. A more detailed assessment, such as mapping specific workflows, is separate consultancy work, scoped and priced individually." },
-  { question: "Is an AI readiness audit the same as an AI readiness assessment?", answer: "The terms are often used interchangeably, and what is included varies by provider. Check who carries it out, what evidence it uses and what you receive at the end." },
+  { question: "Is an AI readiness audit the same as an AI readiness assessment?", answer: "Yes. The two terms mean the same thing. What matters is what is included: who carries it out, what evidence it uses and what you receive at the end." },
   { question: "Is a free AI readiness assessment enough?", answer: "It is a useful first indication. It works from your own answers, so it cannot test them against evidence from your operations. If you are about to commit budget, a consultant-led review gives you firmer ground." },
 ];
 
@@ -164,7 +164,7 @@ const WhatIsAiReadinessAssessmentContent: React.FC = () => (
 
     <h2>Free Online Assessment or Consultant-Led Review: Which Do You Need?</h2>
     <p>
-      An AI readiness assessment can mean a short online quiz or a full consultant-led review, sometimes called an AI readiness audit. They do different jobs.
+      An AI readiness assessment, also called an AI readiness audit, can be a short online quiz or a full consultant-led review. They do different jobs.
     </p>
     <ul>
       <li><strong>Choose a free online assessment</strong> if you are still exploring and want a first indication of where you stand. It takes minutes and is based on your own answers.</li>

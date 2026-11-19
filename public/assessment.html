@@ -28,7 +28,7 @@
   ================================================================
   WHERE RESULTS GO (unchanged from v5):
   1. EmailJS  : emails the prospect their results (template_ljgaepz)
-  2. Formspree: lead notification (maqvrwzj) and inline message (xeedqvpk)
+  2. Formspree: lead notification and inline message (both xgoqlpdy)
   3. Make.com webhook: writes a row to the Google Sheet
   Sends only run on integroai.tech, so previews and local testing
   never create real leads or emails.
@@ -552,7 +552,7 @@ a{color:inherit}
     <div class="card panel">
       <div class="c-head">
         <p class="eyebrow">Almost there</p>
-        <h2 class="c-title" id="c-title" tabindex="-1">Where should we send your <em>AI Readiness</em> report?</h2>
+        <h2 class="c-title" id="c-title" tabindex="-1">Where should we send your <em>AI Readiness Assessment</em> results?</h2>
         <p class="c-sub">Enter your details to see your personalised score and receive a copy by email.</p>
       </div>
       <div class="waiting-bar"><span class="waiting-dot" aria-hidden="true"></span>Your score is calculated and waiting</div>
@@ -781,7 +781,7 @@ try{ emailjs.init({publicKey:EJS_KEY}); ejsReady=true; }catch(e){}
 
 /* FORMSPREE */
 var FORMSPREE_ID = 'xgoqlpdy';
-var MSG_FORMSPREE_ID = 'xeedqvpk';
+var MSG_FORMSPREE_ID = 'xgoqlpdy';
 
 /* FREE DOMAIN BLOCKLIST (business emails only) */
 var FREE_DOMAINS = new Set([
@@ -1152,12 +1152,12 @@ function getDiag(tier,dims){
       opp:'Strengthening '+w+' is the highest-value move at this stage. It is the constraint most likely to limit the impact of any AI investment you make. An AI Readiness Discovery Call would help you define a clear, prioritised action plan.'
     },
     'Focused Experimenter':{
-      diag:'Your foundations are reasonably strong. You have direction, some process structure, and the decision-making capacity needed to move forward. The gaps that remain are addressable with targeted work. A structured AI Readiness Assessment would confirm your priorities and define the right sequence to maximise your return.',
+      diag:'Your foundations are reasonably strong. You have direction, some process structure, and the decision-making capacity needed to move forward. The gaps that remain are addressable with targeted work. An AI & Operations Diagnostic would confirm your priorities and define the right sequence to maximise your return.',
       opp:'Sharpening your position in '+w+' would increase your confidence and reduce your deployment risk. An AI Readiness Discovery Call would help you move from exploring to investing with a clear, prioritised plan.'
     },
     'Ready to Pilot':{
       diag:'Your assessment shows strong foundations across direction, operations, and readiness. You have a defined goal, structured processes, accessible data, and clear ownership. Your answers suggest you may be ready to test one clearly scoped improvement. Validate the workflow, information and safeguards before starting a pilot. The primary risk at this stage is selecting the wrong starting point or underinvesting in implementation planning.',
-      opp:'A full AI Readiness Assessment would validate your priorities in '+w+' and produce a deployment plan that protects the investment you are ready to make, with agreed measures for business value and customer experience.'
+      opp:'An AI & Operations Diagnostic would validate your priorities in '+w+' and produce a deployment plan that protects the investment you are ready to make, with agreed measures for business value and customer experience.'
     }
   };
   return c[tier];
@@ -1166,8 +1166,8 @@ function getCtaSub(tier){
   var m={
     'Not Yet Ready':'Your results show exactly where to focus. Fixing the right foundations now means any AI investment you make later will actually stick and deliver a return. Book your AI Readiness Discovery Call to review your results, pinpoint the gaps that matter most, and leave with a clear action plan.',
     'Early Explorer':'You are on the right track, and your results give you something concrete to act on. The gaps holding you back are identifiable and addressable. Book your AI Readiness Discovery Call to review your results, understand what to strengthen first, and build a clear path to an AI investment that delivers.',
-    'Focused Experimenter':'You are in a stronger position than most businesses at this stage. Your results show real readiness in several areas and a clear picture of where to focus next. Book your AI Readiness Discovery Call to review your results, identify the highest-value starting point, and scope a full AI Readiness Audit that turns your readiness into results.',
-    'Ready to Pilot':'Your foundations are strong and your results reflect that. The priority now is to focus your AI investment on the opportunity most likely to create measurable business value. Book your AI Readiness Discovery Call to review your results, identify the AI opportunity with the strongest business case, and define the right scope for a full AI Readiness Audit before implementation.'
+    'Focused Experimenter':'You are in a stronger position than most businesses at this stage. Your results show real readiness in several areas and a clear picture of where to focus next. Book your AI Readiness Discovery Call to review your results, identify the highest-value starting point, and scope an AI & Operations Diagnostic that turns your readiness into results.',
+    'Ready to Pilot':'Your foundations are strong and your results reflect that. The priority now is to focus your AI investment on the opportunity most likely to create measurable business value. Book your AI Readiness Discovery Call to review your results, identify the AI opportunity with the strongest business case, and define the right scope for an AI & Operations Diagnostic before implementation.'
   };
   return m[tier];
 }
@@ -1176,17 +1176,17 @@ function getCtaBullets(tier){
     'Not Yet Ready':[
       'Understand which operational gaps are creating the most friction right now',
       'Identify what needs to be fixed before AI can add real business value',
-      'Confirm the right starting point for a structured AI Readiness Audit'
+      'Confirm the right starting point for an AI & Operations Diagnostic'
     ],
     'Early Explorer':[
       'Identify which gaps could reduce the return on any AI investment',
       'Clarify what needs to be strengthened before committing time or budget',
-      'Define how a deeper AI Readiness Audit can help you move forward faster'
+      'Define how an AI & Operations Diagnostic can help you move forward faster'
     ],
     'Focused Experimenter':[
       'Confirm which areas are ready and which still carry deployment risk',
       'Identify the highest-value starting point for your first AI project',
-      'Scope the right AI Readiness Audit to sharpen your plan before you invest'
+      'Scope the right AI & Operations Diagnostic to sharpen your plan before you invest'
     ],
     'Ready to Pilot':[
       'Identify which AI opportunity is likely to deliver the strongest return',
@@ -1305,7 +1305,7 @@ function sendMessage(){
     method:'POST',
     headers:{'Accept':'application/json','Content-Type':'application/json'},
     body:JSON.stringify({
-      _subject:'Message from '+contact.firstName+' '+contact.lastName+' — '+tier+' ('+sc.total+'/30)',
+      _subject:'Message from '+contact.firstName+' '+contact.lastName+': '+tier+' ('+sc.total+'/30)',
       email:contact.email,_replyto:contact.email,type:'prospect_message',
       first_name:contact.firstName,last_name:contact.lastName,phone:contact.phone||'',
       company:contact.company||'',org_size:contact.size||'',industry:contact.industry||'',
@@ -1322,7 +1322,7 @@ function sendToFormspree(score,tier,dims){
     headers:{'Accept':'application/json','Content-Type':'application/json'},
     body:JSON.stringify({
       email:contact.email,_replyto:contact.email,
-      _subject:'AI Readiness Lead: '+contact.firstName+' '+contact.lastName+' — '+tier+' ('+score+'/30)',
+      _subject:'AI Readiness Lead: '+contact.firstName+' '+contact.lastName+': '+tier+' ('+score+'/30)',
       first_name:contact.firstName,last_name:contact.lastName,phone:contact.phone||'',
       company:contact.company||'',org_size:contact.size||'',industry:contact.industry||'',
       motivation:contact.motivation||'',decision_role:contact.role||'',timeline:contact.timeline||'',
