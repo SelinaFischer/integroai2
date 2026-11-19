@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free AI Readiness Assessment | IntegroAI Consulting</title>
-<meta name="description" content="Take IntegroAI's free AI readiness assessment for business owners. Answer 10 questions in 5 minutes to identify gaps before investing in AI.">
+<meta name="description" content="Find out how ready your business is for AI and what to focus on before you spend money on new tools. Free, 10 questions, about 5 minutes.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#050F1B">
 <link rel="canonical" href="https://integroai.tech/assessment">
@@ -13,7 +13,7 @@
 <meta property="og:locale" content="en_GB">
 <meta property="og:url" content="https://integroai.tech/assessment">
 <meta property="og:title" content="Free AI Readiness Assessment | IntegroAI Consulting">
-<meta property="og:description" content="Take IntegroAI's free AI readiness assessment for business owners. Answer 10 questions in 5 minutes to identify gaps before investing in AI.">
+<meta property="og:description" content="Find out how ready your business is for AI and what to focus on before you spend money on new tools. Free, 10 questions, about 5 minutes.">
 <meta property="og:image" content="https://integroai.tech/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/x-icon" href="https://integroai.tech/favicon.ico">
@@ -373,11 +373,6 @@ a{color:inherit}
 .diag-p{font-size:16px;line-height:1.7;color:var(--body);margin:10px 0 20px}
 .focus-box{background:var(--cream);border:1px solid var(--sand);border-radius:var(--radius);padding:16px 18px;display:flex;flex-direction:column;gap:6px}
 .focus-name{font-size:18px;font-weight:700;color:var(--navy)}
-.flag-box{margin-top:16px;background:#FEF3F2;border:1px solid #FECDCA;border-radius:var(--radius);padding:16px 18px}
-.flag-box .lbl{color:#B42318}
-.flag-box ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:8px}
-.flag-box li{position:relative;padding-left:18px;font-size:15px;line-height:1.55;color:var(--navy)}
-.flag-box li::before{content:'';position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;background:#B42318}
 .focus-p{font-size:15px;line-height:1.6;color:var(--body)}
 .next-p{font-size:15px;line-height:1.65;color:var(--body);margin-top:16px}
 
@@ -420,6 +415,64 @@ a{color:inherit}
 .cookie-yes{background:var(--amber);border:none;color:#fff;font-size:12px;font-weight:600;padding:8px 16px;border-radius:8px;cursor:pointer}
 .cookie-yes:hover{background:var(--amber-hover)}
 
+/* H1 carries the keyword label and the headline */
+.hero h1.h1-wrap{display:flex;flex-direction:column;align-items:flex-start;gap:24px}
+.hero h1 .pill{font-family:var(--sans);line-height:1.2;font-style:normal;font-variant-numeric:normal}
+.hero h1 .h1-main{display:block}
+
+/* crawlable answer section under the hero */
+.info{padding:56px 0 64px}
+@media(min-width:1024px){.info{padding:80px 0 88px}}
+.info-inner{max-width:880px}
+.info-h{font-family:var(--serif);font-weight:600;font-size:30px;line-height:1.15;color:var(--ink);text-wrap:balance}
+@media(min-width:640px){.info-h{font-size:36px}}
+.info-p{font-size:17px;line-height:1.7;color:var(--body);margin-top:16px;max-width:720px}
+.faq-h{font-family:var(--serif);font-weight:600;font-size:26px;line-height:1.2;color:var(--ink);margin:48px 0 18px}
+.faq{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:760px){.faq{grid-template-columns:1fr 1fr}}
+.faq-item{background:#fff;border:1px solid var(--sand);border-radius:var(--radius);padding:18px 20px}
+.faq-item h3{font-size:16px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:6px}
+.faq-item p{font-size:15px;line-height:1.6;color:var(--body)}
+.faq-item a{color:var(--navy);font-weight:600;text-underline-offset:3px}
+.related{margin-top:32px;display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center}
+.related .lbl{width:100%}
+.related a{font-size:15px;font-weight:600;color:var(--navy);text-underline-offset:5px;text-decoration-color:var(--amber);text-decoration-thickness:2px}
+.info-cta{margin-top:36px}
+
+/* size step */
+.size-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:24px}
+@media(min-width:720px){.size-grid{grid-template-columns:repeat(3,1fr)}}
+.size-grid .a-card{padding:18px 20px}
+
+/* results: verdict line */
+.strip-verdict{font-family:var(--serif);font-style:italic;font-weight:600;font-size:23px;line-height:1.25;color:#fff;max-width:560px;text-wrap:balance}
+@media(min-width:640px){.strip-verdict{font-size:27px}}
+
+/* results: warnings under the bars */
+.warn-list{list-style:none;margin-top:14px;padding-top:14px;border-top:1px solid var(--track);display:flex;flex-direction:column;gap:10px}
+.warn-list li{display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.55;color:var(--navy)}
+.warn-i{flex:none;width:20px;height:20px;margin-top:1px;border-radius:50%;background:var(--red);color:#fff;font-size:12px;font-weight:700;line-height:1;display:flex;align-items:center;justify-content:center}
+
+/* results: your first move */
+.move{border:1.5px solid var(--amber)}
+.move-lbl{color:var(--band-med)}
+.move-h{font-family:var(--serif);font-weight:600;font-size:28px;line-height:1.15;color:var(--ink);margin:8px 0 10px;text-wrap:balance}
+@media(min-width:640px){.move-h{font-size:32px}}
+.move-p{font-size:16px;line-height:1.65;color:var(--body)}
+.move-rows{margin:18px 0 20px;border-top:1px solid var(--track)}
+.move-rows div{display:grid;grid-template-columns:1fr;gap:2px;padding:10px 0;border-bottom:1px solid var(--track)}
+@media(min-width:560px){.move-rows div{grid-template-columns:200px 1fr;gap:16px}}
+.move-rows dt{font-size:13px;font-weight:600;color:var(--slate)}
+.move-rows dd{font-size:15px;line-height:1.55;color:var(--navy)}
+.prompt-box{background:var(--cream);border:1px solid var(--sand);border-radius:var(--radius);padding:16px 18px}
+.prompt-txt{font-size:15px;line-height:1.65;color:var(--navy);margin:8px 0 14px;white-space:pre-wrap}
+.prompt-note{font-size:13px;color:var(--slate);margin-top:10px}
+
+/* message: what goes with it */
+.msg-what{margin-top:14px;font-size:14px;color:var(--slate)}
+.msg-what summary{cursor:pointer;font-weight:600;color:var(--navy);text-underline-offset:4px;text-decoration:underline}
+.msg-what p{margin-top:6px;line-height:1.55}
+
 /* toast */
 .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(12px);background:var(--navy);color:#fff;padding:12px 20px;font-size:14px;font-weight:500;border-radius:999px;opacity:0;transition:all .3s ease;pointer-events:none;z-index:999;max-width:90vw;box-shadow:var(--shadow-lg)}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
@@ -441,7 +494,7 @@ a{color:inherit}
       "@id": "https://integroai.tech/assessment#webpage",
       "url": "https://integroai.tech/assessment",
       "name": "Free AI Readiness Assessment | IntegroAI Consulting",
-      "description": "Take IntegroAI's free AI readiness assessment for business owners. Answer 10 questions in 5 minutes to identify gaps before investing in AI.",
+      "description": "Find out how ready your business is for AI and what to focus on before you spend money on new tools. Free, 10 questions, about 5 minutes.",
       "inLanguage": "en-GB",
       "publisher": {
         "@type": "Organization",
@@ -452,6 +505,68 @@ a{color:inherit}
         "@type": "Thing",
         "name": "Business AI readiness"
       }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://integroai.tech/assessment#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an AI readiness assessment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A short check of whether your business is ready to get value from AI, before you choose tools or commit budget. It shows where the gaps are and what to fix first."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take and what does it cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is free and takes about 5 minutes: 10 multiple-choice questions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What do I get at the end?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your score out of 30, your readiness stage, your strongest and weakest areas, and one practical first step with a ready-to-use AI prompt. A copy comes to your inbox."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who is it for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Business owners and leaders, from solo businesses to teams of 250."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is an AI readiness audit the same thing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The two terms mean the same thing. What matters is who carries it out and what you get at the end."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if my score is low?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A low score is useful. It shows what to fix before you spend money on AI, which is far cheaper than fixing it afterwards."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens to my details?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "They are used to send your results, and IntegroAI may contact you to talk them through. See our privacy policy."
+          }
+        }
+      ]
     }
   ]
 }
@@ -504,8 +619,7 @@ a{color:inherit}
   <div class="hero on-dark">
     <div class="wrap">
       <div class="hero-copy">
-        <p class="pill"><i aria-hidden="true"></i>AI Readiness Assessment</p>
-        <h1 id="welcome-title">Is your business<br><em>ready for AI?</em></h1>
+        <h1 id="welcome-title" class="h1-wrap"><span class="pill"><i aria-hidden="true"></i>Free AI Readiness Assessment</span><span class="visually-hidden">: </span><span class="h1-main">Is your business<br><em>ready for AI?</em></span></h1>
         <p class="hero-sub">Operational clarity before AI investment.</p>
         <p class="hero-body">Find where manual effort, fragmented workflows and unclear ownership are holding back your AI readiness. Answer 10 questions and see where the gaps are before you invest.</p>
         <button type="button" class="btn-amber" onclick="startAssessment()">
@@ -551,6 +665,53 @@ a{color:inherit}
     </div>
   </div>
 
+
+  <div class="info">
+    <div class="wrap"><div class="info-inner">
+      <h2 class="info-h">Find out how ready your business is for AI and what to focus on before you spend money on new tools.</h2>
+      <p class="info-p">The IntegroAI AI Readiness Assessment is free for business owners and leaders. Answer 10 questions in about 5 minutes to get your score, see where your business stands and get one practical first step.</p>
+      <h2 class="faq-h">Questions business owners ask</h2>
+      <div class="faq">
+        <div class="faq-item"><h3>What is an AI readiness assessment?</h3><p>A short check of whether your business is ready to get value from AI, before you choose tools or commit budget. It shows where the gaps are and what to fix first.</p></div>
+        <div class="faq-item"><h3>How long does it take and what does it cost?</h3><p>It is free and takes about 5 minutes: 10 multiple-choice questions.</p></div>
+        <div class="faq-item"><h3>What do I get at the end?</h3><p>Your score out of 30, your readiness stage, your strongest and weakest areas, and one practical first step with a ready-to-use AI prompt. A copy comes to your inbox.</p></div>
+        <div class="faq-item"><h3>Who is it for?</h3><p>Business owners and leaders, from solo businesses to teams of 250.</p></div>
+        <div class="faq-item"><h3>Is an AI readiness audit the same thing?</h3><p>Yes. The two terms mean the same thing. What matters is who carries it out and what you get at the end.</p></div>
+        <div class="faq-item"><h3>What if my score is low?</h3><p>A low score is useful. It shows what to fix before you spend money on AI, which is far cheaper than fixing it afterwards.</p></div>
+        <div class="faq-item"><h3>What happens to my details?</h3><p>They are used to send your results, and IntegroAI may contact you to talk them through. See our <a href="https://integroai.tech/privacy-policy">privacy policy</a>.</p></div>
+      </div>
+      <div class="related">
+        <p class="lbl">Related</p>
+        <a href="https://integroai.tech/blog/what-is-an-ai-readiness-assessment">What is an AI Readiness Assessment?</a>
+        <a href="https://integroai.tech/ai-time-audit-small-business">Free Time Audit for Small Businesses</a>
+        <a href="https://integroai.tech/work-with-me">Work With Me</a>
+      </div>
+      <div class="info-cta">
+        <button type="button" class="btn-amber" onclick="startAssessment()">
+          Get My AI Readiness Score
+          <svg class="arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SCREEN 1b: BUSINESS SIZE (tailors wording only, not scoring)
+     ============================================================ -->
+<section id="s-size" class="screen screen-pad" aria-labelledby="size-title">
+  <div class="wrap">
+    <div class="card panel">
+      <p class="eyebrow">Before we start</p>
+      <h2 class="q-title" id="size-title" tabindex="-1" style="margin-top:10px">Which best describes you?</h2>
+      <p class="q-hint">This tailors the wording of your questions and results.</p>
+      <div class="size-grid">
+        <button type="button" class="a-card" onclick="pickSize('solo')"><span class="a-main">Just me</span><span class="a-sub">I run the business on my own</span></button>
+        <button type="button" class="a-card" onclick="pickSize('small')"><span class="a-main">A small team</span><span class="a-sub">2 to 20 people</span></button>
+        <button type="button" class="a-card" onclick="pickSize('growing')"><span class="a-main">A growing business</span><span class="a-sub">21 to 250 people</span></button>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ============================================================
@@ -608,24 +769,13 @@ a{color:inherit}
       <div class="form-2">
         <div class="fld"><label for="f-company">Company name *</label><input type="text" id="f-company" placeholder="Your Company Ltd" autocomplete="organization"></div>
         <div class="fld">
-          <label for="f-phone">Phone <span class="opt">(optional, UK)</span></label>
+          <label for="f-phone">Phone <span class="opt">(optional)</span></label>
           <input type="tel" id="f-phone" placeholder="07700 900000" autocomplete="tel" aria-describedby="phone-inline-err">
           <span class="inline-err" id="phone-inline-err"></span>
         </div>
       </div>
 
-      <div class="form-2">
-        <div class="fld">
-          <label for="f-size">Organisation size *</label>
-          <select id="f-size">
-            <option value="">Select size...</option>
-            <option>Solo / micro business (1–5 people)</option>
-            <option>Small team (6–20 people)</option>
-            <option>Growing SME (21–100 people)</option>
-            <option>Larger SME (101–250 people)</option>
-          </select>
-        </div>
-        <div class="fld">
+      <div class="fld">
           <label for="f-industry">Industry / business type *</label>
           <select id="f-industry">
             <option value="">Select industry...</option>
@@ -642,7 +792,6 @@ a{color:inherit}
             <option>Other</option>
           </select>
         </div>
-      </div>
       <div class="fld">
         <label for="f-motivation">Why are you exploring AI right now? *</label>
         <select id="f-motivation" onchange="toggleMotivationOther(this.value)">
@@ -720,8 +869,9 @@ a{color:inherit}
         <p class="eyebrow">Your AI Readiness Score</p>
         <p class="big-score"><b id="r-score">0</b><span>/30</span></p>
         <p class="tier-pill" id="r-tier"></p>
+        <p class="strip-verdict" id="r-verdict"></p>
         <p class="strip-calc">Based on 10 questions across 5 AI readiness dimensions. Maximum score: 30. This self-assessment indicates readiness foundations; it does not confirm that a particular AI solution is suitable.</p>
-        <h1 class="strip-name" id="r-name" tabindex="-1"></h1>
+        <h2 class="strip-name" id="r-name" tabindex="-1"></h2>
         <p class="eyebrow strip-stage">Your AI readiness stage</p>
         <div class="legend" id="tier-legend" aria-label="The four readiness stages">
           <div class="lg-cell" id="tl-0"><span class="lg-name">Not Yet Ready</span><span class="lg-range">0 – 9</span></div>
@@ -743,16 +893,32 @@ a{color:inherit}
             <p class="lbl">Recommended Next Step</p>
             <p class="focus-p" id="r-opp" style="color:var(--navy);font-weight:500"></p>
           </div>
-          <div class="flag-box" id="r-flags" hidden>
-            <p class="lbl">Important to address</p>
-            <ul id="r-flag-list"></ul>
-          </div>
         </div>
       </div>
 
       <div class="card r-panel">
         <p class="lbl">Score by dimension <span style="font-weight:500;letter-spacing:.04em;text-transform:none">(2 questions × max 3 pts = max 6 per dimension)</span></p>
         <div id="dim-bars" style="margin-top:8px"></div>
+        <div id="r-flags" hidden>
+          <p class="visually-hidden">Important to address</p>
+          <ul class="warn-list" id="r-flag-list"></ul>
+        </div>
+      </div>
+
+      <div class="card r-panel move" id="r-move">
+        <p class="lbl move-lbl" id="mv-lbl"></p>
+        <h3 class="move-h" id="mv-h"></h3>
+        <p class="move-p" id="mv-p"></p>
+        <dl class="move-rows">
+          <div><dt>Who leads it</dt><dd id="mv-who"></dd></div>
+          <div><dt>You'll know it worked when</dt><dd id="mv-done"></dd></div>
+        </dl>
+        <div class="prompt-box">
+          <p class="lbl">Your prompt: copy it into any AI assistant</p>
+          <p class="prompt-txt" id="mv-prompt"></p>
+          <button type="button" class="btn-amber" id="mv-copy" onclick="copyPrompt()">Copy this prompt</button>
+          <p class="prompt-note" id="mv-guard"></p>
+        </div>
       </div>
 
       <div class="cta on-dark">
@@ -761,7 +927,7 @@ a{color:inherit}
         <ul class="cta-bullets" id="cta-bullets-list"></ul>
         <div class="cta-btns">
           <!-- CALENDLY_LINK -->
-          <a href="https://calendly.com/integroai-tech/30min" class="btn-amber" target="_blank" rel="noopener noreferrer">
+          <a href="https://calendly.com/integroai-tech/30min" class="btn-amber" target="_blank" rel="noopener noreferrer" onclick="track('discovery_call_click')">
             Book Your AI Readiness Discovery Call
             <svg class="arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
@@ -783,6 +949,10 @@ a{color:inherit}
             <button type="button" class="btn-amber" id="msg-send" onclick="sendMessage()">Send message</button>
             <button type="button" class="btn-text" onclick="toggleMsgForm()">Cancel</button>
           </div>
+          <details class="msg-what">
+            <summary>What goes with your message</summary>
+            <p>Your score, stage, weakest area and the details you entered, so we can reply with context. Sending a message commits you to nothing.</p>
+          </details>
         </div>
       </div>
 
@@ -853,19 +1023,20 @@ function emailType(e){return isBusinessEmail(e)?'Business':'Personal'}
 var EMAIL_FAKE_MSG='Please enter an email address you can receive your results at.';
 
 /* UK phone numbers only. Blank is fine: the field is optional. */
+/* Phone is optional. UK numbers are checked strictly; other countries need
+   their country code (+ or 00) and 7 to 15 digits. */
+var PHONE_MSG='Please enter a valid phone number. Outside the UK, start with your country code, for example +353.';
 function validatePhone(p){
   if(!p) return '';
   var d=p.replace(/[\s\-\(\)\.]/g,'');
   if(d.startsWith('+44')){
     var local=d.slice(3);
-    if(local.startsWith('0')||!/^\d{10}$/.test(local)) return 'Please enter a valid UK phone number.';
-    return '';
+    return (local.startsWith('0')||!/^\d{10}$/.test(local))?'Please enter a valid UK phone number.':'';
   }
-  if(d.startsWith('0')){
-    if(!/^\d{11}$/.test(d)) return 'Please enter a valid UK phone number.';
-    return '';
-  }
-  return 'Please enter a valid UK phone number.';
+  if(d.startsWith('+')) return /^\+\d{7,15}$/.test(d)?'':PHONE_MSG;
+  if(d.startsWith('00')) return /^00\d{7,15}$/.test(d)?'':PHONE_MSG;
+  if(d.startsWith('0')) return /^0\d{10}$/.test(d)?'':'Please enter a valid UK phone number.';
+  return PHONE_MSG;
 }
 
 /* ── QUESTIONS ───────────────────────────────────────────────────────────────
@@ -1053,6 +1224,69 @@ var FLAG_RULES = [
   {q:8, max:1, text:'There are no shared rules for using AI safely. Agree what information can be entered into AI and what a person must check before an output is used.'}
 ];
 
+/* ANALYTICS EVENTS: only reach Google Analytics if the visitor accepted
+   cookies (Tag Manager is not loaded otherwise). No personal details. */
+function track(ev,params){
+  try{window.dataLayer=window.dataLayer||[];var o={event:ev};if(params)for(var k in params)o[k]=params[k];window.dataLayer.push(o)}catch(e){}
+}
+
+/* BUSINESS SIZE: chosen on the first screen; tailors wording only */
+var SIZE_LABELS={solo:'Just me',small:'Small team (2–20 people)',growing:'Growing business (21–250 people)'};
+var sizeKey=null;
+var INTRO_BY_SIZE={
+  solo:'Choose the answer that best reflects your business today. Answer for yourself.',
+  small:'Choose the answer that best reflects your business today. Include the people involved in delivering your services.',
+  growing:'Choose the answer that best reflects your business today. Include the people involved in delivering your services.'
+};
+
+/* VERDICT LINE under the stage in the score strip */
+var VERDICTS={
+  'Not Yet Ready':'The foundations come first. AI can wait.',
+  'Early Explorer':'Some pieces are in place. They\'re not joined up yet.',
+  'Focused Experimenter':'You\'re close. A few targeted fixes stand between you and a pilot.',
+  'Ready to Pilot':'You\'re ready to test one thing properly.'
+};
+
+/* YOUR FIRST MOVE: one card per dimension, shown for the weakest one */
+var WHO_LEADS={
+  solo:'You',
+  small:'One named person, with an hour a week set aside',
+  growing:'A named owner who can make decisions'
+};
+var MOVES=[
+  {h:'Pick one problem and put a number on it.',
+   p:'Choose the task that costs most time or causes most mistakes, and write down how long it takes today. That number is how you will judge any AI tool.',
+   done:'you can say in one sentence what you want AI to fix, and by how much.',
+   prompt:'I run a [type of business] with [number] people. These tasks take most of our time: [list]. Help me choose ONE to improve first. For each, ask me how often it happens, how long it takes and what goes wrong, then recommend one and explain why. Do not recommend any software. If you need more information, ask me questions first.',
+   guard:'The last two sentences stop it jumping to tools before the problem is clear.'},
+  {h:'Name one owner and protect their time.',
+   p:'Decide who leads one small trial, and give them a fixed slot each week. Progress stalls when AI is everyone\'s job and nobody\'s priority.',
+   done:'one person can tell you what has been tried this month and what happened.',
+   prompt:'Help me plan a 4-week trial of AI on one task: [task]. The person leading it has [hours] a week. Give me a week-by-week plan with one goal per week and what to record. Keep it realistic for a small business. Ask me what tools we already use before suggesting any, and do not suggest paid tools before week 3.',
+   guard:'The last sentence keeps the trial cheap and built on what you already have.'},
+  {h:'Write down how one job really gets done.',
+   p:'List every step, who does it and where it goes wrong. Much of the fix shows up here, before any AI.',
+   done:'someone new could follow your steps without asking you.',
+   prompt:'Here is how we do [task], in my own words: [describe it, messy is fine]. Turn this into numbered steps. Mark each step as manual, repeated or judgement, and highlight handoffs and places things get missed. Do not invent steps I have not described. If something is unclear, list your questions instead of guessing.',
+   guard:'The last two sentences stop it making up a tidier process than the one you really have.'},
+  {h:'Find where information gets typed twice.',
+   p:'Follow one client from first contact to invoice, and note every time the same details are retyped. That is where errors and lost time hide.',
+   done:'you have a short list of copy-and-paste points, ranked by how often they happen.',
+   prompt:'We use these tools: [list]. A new client moves through them like this: [describe]. List every point where the same information is typed in more than once, ranked by likely time lost. Do not recommend new software yet. Ask me questions if you need to understand how a tool is used.',
+   guard:'The last two sentences keep the focus on your process, not on buying something.'},
+  {h:'Agree three simple rules for using AI.',
+   p:'Agree what must never go into AI, what a person must check, and who to ask when unsure. One page is enough.',
+   done:'everyone who uses AI can repeat the three rules.',
+   prompt:'Draft a one-page AI use policy for a [type] business with [number] people. Cover only: what must never be entered into AI tools, what a person must check before any AI output is used or sent, and who to ask when unsure. Use plain English. Do not claim it meets any law or regulation. Flag anything I should check with an adviser.',
+   guard:'The last two sentences stop it inventing legal claims.'}
+];
+function copyPrompt(){
+  var txt=document.getElementById('mv-prompt').textContent,btn=document.getElementById('mv-copy');
+  function ok(){btn.textContent='Copied';showToast('Prompt copied. Paste it into any AI assistant.');track('prompt_copied');setTimeout(function(){btn.textContent='Copy this prompt'},2500)}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(ok,fallback)}else{fallback()}
+  function fallback(){var t=document.createElement('textarea');t.value=txt;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy');ok()}catch(e){showToast('Select the prompt text to copy it.')}document.body.removeChild(t)}
+}
+
 /* STATE */
 var curQ=0, picks=new Array(QS.length).fill(null), contact={};
 
@@ -1067,7 +1301,12 @@ function showToast(msg){var t=document.getElementById('toast');t.textContent=msg
 window.addEventListener('scroll',function(){document.getElementById('site-header').classList.toggle('scrolled',window.scrollY>20)},{passive:true});
 
 /* WELCOME */
-function startAssessment(){curQ=0;picks=new Array(QS.length).fill(null);show('s-question');renderQ(true)}
+function startAssessment(){show('s-size','size-title');track('assessment_start')}
+function pickSize(k){
+  sizeKey=k;curQ=0;picks=new Array(QS.length).fill(null);
+  show('s-question');renderQ(true);
+  track('assessment_size',{business_size:SIZE_LABELS[k]});
+}
 
 /* QUESTION RENDER */
 var TICK_SVG='<svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6.2l2.6 2.6L10 3.4" stroke="#041B2B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
@@ -1080,7 +1319,8 @@ function renderQ(moveFocus){
   document.getElementById('q-title').textContent=q.title;
   document.getElementById('q-hint').textContent=q.hint;
   document.getElementById('q-intro').hidden=curQ!==0;
-  document.getElementById('btn-back').style.visibility=curQ===0?'hidden':'visible';
+  if(sizeKey) document.getElementById('q-intro').textContent=INTRO_BY_SIZE[sizeKey];
+  document.getElementById('btn-back').style.visibility='visible';
   document.getElementById('next-lbl').textContent=isLast?'See my score':'Next question';
   document.getElementById('btn-next').disabled=picks[curQ]===null;
   var grid=document.getElementById('q-grid');grid.innerHTML='';
@@ -1106,9 +1346,9 @@ function pickA(i){
 function nextQ(){
   if(picks[curQ]===null)return;
   if(curQ<QS.length-1){curQ++;renderQ(true);window.scrollTo(0,0)}
-  else{show('s-contact','c-title')}
+  else{show('s-contact','c-title');track('assessment_complete')}
 }
-function prevQ(){if(curQ>0){curQ--;renderQ(true);window.scrollTo(0,0)}}
+function prevQ(){if(curQ>0){curQ--;renderQ(true);window.scrollTo(0,0)}else{show('s-size','size-title')}}
 
 /* MOTIVATION "OTHER" */
 function toggleMotivationOther(val){
@@ -1142,13 +1382,13 @@ function formError(msg){var e=document.getElementById('form-err');e.textContent=
 function val(id){return document.getElementById(id).value.trim()}
 function submitContact(){
   var first=val('f-first'),last=val('f-last'),email=val('f-email'),company=val('f-company'),phone=val('f-phone');
-  var size=val('f-size'),industry=val('f-industry'),motivate=val('f-motivation'),role=val('f-role'),timeline=val('f-timeline'),situation=val('f-situation');
+  var size=SIZE_LABELS[sizeKey]||'',industry=val('f-industry'),motivate=val('f-motivation'),role=val('f-role'),timeline=val('f-timeline'),situation=val('f-situation');
   var consent=document.getElementById('gdpr-cb').checked;
   if(!first||!last||!email||!company) return formError('Please fill in your name, email and company name.');
   if(!isValidEmail(email)) return formError('Please enter a valid email address.');
   if(isFakeEmail(email)) return formError(EMAIL_FAKE_MSG);
   var phoneErr=validatePhone(phone); if(phoneErr) return formError(phoneErr);
-  if(!size||!industry||!motivate) return formError('Please complete all required fields.');
+  if(!industry||!motivate) return formError('Please complete all required fields.');
   if(!role||!timeline||!situation) return formError('Please answer all three questions in the Business context section.');
   if(motivate==='Other'){
     var other=val('f-motivation-other');
@@ -1184,6 +1424,11 @@ function getTier(t){
   return 'Ready to Pilot';
 }
 var TIERS=['Not Yet Ready','Early Explorer','Focused Experimenter','Ready to Pilot'];
+function getWeakestIdx(dims){
+  var mi=0;
+  dims.forEach(function(v,i){if((v/DIM_MAX[i])<(dims[mi]/DIM_MAX[mi]))mi=i});
+  return mi;
+}
 function getWeakest(dims){
   var mi=0;
   dims.forEach(function(v,i){if((v/DIM_MAX[i])<(dims[mi]/DIM_MAX[mi]))mi=i});
@@ -1351,7 +1596,7 @@ function sendMessage(){
   btn.disabled=true;btn.textContent='Sending...';errEl.style.display='none';
   function done(ok){
     btn.disabled=false;btn.textContent='Send message';
-    if(ok){okEl.textContent='Message sent. We will be in touch shortly.';okEl.style.display='block';ta.value='';
+    if(ok){track('message_sent');okEl.textContent='Message sent. We will be in touch shortly.';okEl.style.display='block';ta.value='';
       setTimeout(function(){document.getElementById('msg-panel').style.display='none';okEl.style.display='none'},4000)}
     else{errEl.textContent='Something went wrong. Please email info@integroai.tech directly.';errEl.style.display='block'}
   }
@@ -1446,9 +1691,18 @@ function buildResults(){
   document.getElementById('r-cta-p').textContent=getCtaSub(tier);
   document.getElementById('r-opp').textContent=diag.opp;
   document.getElementById('radar-summary').textContent=buildSummaryLine(sc.dims);
+  document.getElementById('r-verdict').textContent=VERDICTS[tier]||'';
   var flags=getFlags(sc.raw),fb=document.getElementById('r-flags');
   fb.hidden=!flags.length;
-  document.getElementById('r-flag-list').innerHTML=flags.map(function(f){return '<li>'+f+'</li>'}).join('');
+  document.getElementById('r-flag-list').innerHTML=flags.map(function(f){return '<li><span class="warn-i" aria-hidden="true">!</span><span>'+f+'</span></li>'}).join('');
+  var wi=getWeakestIdx(sc.dims),mv=MOVES[wi];
+  document.getElementById('mv-lbl').textContent='Your first move · '+DIM_NAMES[wi];
+  document.getElementById('mv-h').textContent=mv.h;
+  document.getElementById('mv-p').textContent=mv.p;
+  document.getElementById('mv-who').textContent=WHO_LEADS[sizeKey]||WHO_LEADS.small;
+  document.getElementById('mv-done').textContent=mv.done;
+  document.getElementById('mv-prompt').textContent=mv.prompt;
+  document.getElementById('mv-guard').textContent=mv.guard;
   document.getElementById('cta-bullets-list').innerHTML=getCtaBullets(tier).map(function(b){
     return '<li><span class="tick">'+TICK_SVG+'</span><span>'+b+'</span></li>';
   }).join('');
@@ -1456,6 +1710,7 @@ function buildResults(){
   drawRadar(sc.dims);
   renderDimBars(sc.dims);
   show('s-results','r-name');
+  track('lead_submitted',{readiness_stage:tier,readiness_score:sc.total,business_size:SIZE_LABELS[sizeKey]||''});
   if(IS_LIVE){
     sendToFormspree(sc.total,tier,sc.dims);
     sendToSheets(sc.total,tier,diag.diag);
