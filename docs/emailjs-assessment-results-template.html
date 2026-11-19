@@ -22,7 +22,7 @@
     {{next_opportunity}}
     {{company}} {{phone}} {{org_size}} {{industry}} {{motivation}}
     {{decision_role}} {{timeline}} {{situation}}
-    {{flags}}  (list of watch-outs, or "None")
+    {{{flags_block}}}  (the "Important to address" box as HTML, or empty)
   Same build rules as v1: inline styles only, no @media queries, no CSS
   classes, single column, 480px max. Logo is the PNG hosted on the site.
 -->
@@ -139,19 +139,10 @@
           </td>
         </tr>
 
-        <!-- Important to address (flags) -->
-        <tr>
-          <td style="padding:0 20px 24px;">
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FEF3F2;border:1px solid #FECDCA;border-radius:12px;">
-              <tr>
-                <td style="padding:16px 18px;">
-                  <p style="margin:0 0 8px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#B42318;">Important to address</p>
-                  <p style="margin:0;font-size:14px;color:#041B2B;line-height:1.7;word-wrap:break-word;">{{flags}}</p>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
+        <!-- Important to address (flags): filled in by the page only when there are
+             warnings, so the box is left out entirely when there are none.
+             Three brackets so the ready-made HTML is not escaped. -->
+        {{{flags_block}}}
 
         <!-- Your details -->
         <tr>
