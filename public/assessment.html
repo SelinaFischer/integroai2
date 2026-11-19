@@ -1239,7 +1239,7 @@ var sizeKey=null;
 var INTRO_BY_SIZE={
   solo:'Choose the answer that best reflects your business today. Answer for yourself.',
   small:'Choose the answer that best reflects your business today. Include the people involved in delivering your services.',
-  growing:'Choose the answer that best reflects your business today. Include the people involved in delivering your services.'
+  growing:'Choose the answer that best reflects your business today. Include the teams involved in delivering your services.'
 };
 
 /* VERDICT LINE under the stage in the score strip */
@@ -1313,8 +1313,56 @@ function pickSize(k){
 
 /* QUESTION RENDER */
 var TICK_SVG='<svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6.2l2.6 2.6L10 3.4" stroke="#041B2B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+/* SOLO WORDING: shown only to "Just me". Same order and points as QS;
+   only the words change, so every score stays comparable. Teams (small and
+   growing) see QS unchanged. */
+var QS_SOLO={
+  2:{title:'Can you make the decisions and get any outside support needed to run a small AI trial?',
+     hint:'Think about decisions, approvals and any outside help you might need.',
+     opts:[
+       {t:'Yes, fully',s:'I can make the decisions and know where to get any support I need.'},
+       {t:'Decisions, but support unclear',s:'I can make the decisions, but I am not sure where to get support if I need it.'},
+       {t:'Possibly',s:'I could lead it, but have not decided to take it on.'},
+       {t:'Not yet',s:'I have not thought about what a trial would need from me.'}]},
+  4:{hint:'Think about the steps, tools and exceptions involved in onboarding, quoting, scheduling or delivering your service.',
+     opts:{2:{s:'Some steps are clear, but much depends on my memory or workarounds.'}}},
+  7:{opts:{2:{s:'Information is scattered or conflicting, and I often have to double-check it.'},
+           3:{s:'Important information is often missing or held only in my head.'}}},
+  8:{opts:[
+       {t:'Written and followed',s:'I have written rules for handling information and checking outputs, and I follow them.'},
+       {t:'Agreed but informal',s:'I have clear expectations covering these areas, but they are not written down.'},
+       {t:'Case by case',s:'I decide case by case, without set rules.'},
+       {t:'Not considered yet',s:'I have not set rules for using AI.'}]},
+  9:{title:'How prepared are you to use AI for everyday tasks?',
+     opts:[
+       {t:'Practical skills in place',s:'I can apply these skills to relevant tasks.'},
+       {t:'Some skills in place',s:'I have some practical experience but need guidance to use AI reliably.'},
+       {t:'Beginner',s:'I have little practical experience and would need introductory support.'},
+       {t:'Not assessed yet',s:'I do not yet know what skills or support I would need.'}]}
+};
+var FLAG_SOLO={
+  2:'You have not yet committed to leading an AI trial yourself. Without that, progress is likely to stall.',
+  8:'You have no set rules for using AI safely. Decide what information can be entered into AI and what you must check before an output is used.'
+};
+var STEP_SOLO={
+  2:'Decide to lead one small AI trial yourself, and note where you might need outside help.',
+  4:'Map one recurring job step by step, including common exceptions, and check it against a real example.',
+  7:'Pick one type of information you often have to look up, such as pricing or templates, and decide where the current version lives.',
+  8:'Set simple rules for what information you put into AI tools and what you check before anything is used or sent.'
+};
+function getQ(i){
+  var base=QS[i],o=sizeKey==='solo'&&QS_SOLO[i];
+  if(!o) return base;
+  return {
+    sec:base.sec,title:o.title||base.title,hint:o.hint||base.hint,
+    opts:base.opts.map(function(b,j){
+      var x=o.opts&&o.opts[j];
+      return {t:(x&&x.t)||b.t,s:(x&&x.s)||b.s,v:b.v};
+    })
+  };
+}
 function renderQ(moveFocus){
-  var q=QS[curQ],tot=QS.length,pct=Math.round(((curQ+1)/tot)*100),isLast=curQ===tot-1;
+  var q=getQ(curQ),tot=QS.length,pct=Math.round(((curQ+1)/tot)*100),isLast=curQ===tot-1;
   document.getElementById('q-sec').textContent=q.sec;
   document.getElementById('q-num').textContent='Question '+(curQ+1)+' of '+tot;
   document.getElementById('q-prog').style.width=pct+'%';
@@ -1418,7 +1466,7 @@ function calcScores(){
   return{dims:dims,total:dims.reduce(function(a,b){return a+b},0),raw:raw};
 }
 function getFlags(raw){
-  return FLAG_RULES.filter(function(f){return raw[f.q]<=f.max}).map(function(f){return f.text});
+  return FLAG_RULES.filter(function(f){return raw[f.q]<=f.max}).map(function(f){return (sizeKey==='solo'&&FLAG_SOLO[f.q])||f.text});
 }
 /* Ready to Pilot also needs the basics for a safe trial: an agreed owner
    (Q3 at least 2), time and resources available (Q4 = 3) and at least
@@ -1461,13 +1509,15 @@ var STEPS=[
 ];
 var STEP_ALL_STRONG='Choose one small, clearly scoped test and agree how you will measure success before you start.';
 function getNextStep(raw,total){
-  if(total>=25){var g=pilotGap(raw);if(g>=0)return STEPS[g];}
-  if(raw[8]<=1) return STEPS[8];
-  if(raw[2]===0) return STEPS[2];
-  if(raw[3]===0) return STEPS[3];
+  var st=function(i){return (sizeKey==='solo'&&STEP_SOLO[i])||STEPS[i]};
+  if(total>=25){var g=pilotGap(raw);if(g>=0)return st(g);}
+  if(raw[8]<=1) return st(8);
+  if(raw[2]===0) return st(2);
+  if(raw[3]===0) return st(3);
   var mi=0;raw.forEach(function(v,i){if(v<raw[mi])mi=i});
-  return raw[mi]>=3?STEP_ALL_STRONG:STEPS[mi];
+  return raw[mi]>=3?STEP_ALL_STRONG:st(mi);
 }
+
 function weakestTied(dims){
   var r=dims.map(function(v,i){return v/DIM_MAX[i]}),m=Math.min.apply(null,r);
   return r.filter(function(x){return x===m}).length>1;
@@ -1499,7 +1549,7 @@ function getDiag(tier,dims,raw,total){
       opp:'Sharpening your position in '+w+' would increase your confidence and reduce your deployment risk. An AI Readiness Discovery Call would help you move from exploring to investing with a clear, prioritised plan.'
     },
     'Ready to Pilot':{
-      diag:'Your answers show strong foundations, including an agreed owner, time for a trial and rules for safe use. Your answers suggest you may be ready to test one clearly scoped improvement. Validate the workflow, information and safeguards before starting a pilot. The primary risk at this stage is selecting the wrong starting point or underinvesting in implementation planning.',
+      diag:'Your answers show strong foundations, including clear ownership, time for a trial and rules for safe use. Your answers suggest you may be ready to test one clearly scoped improvement. Validate the workflow, information and safeguards before starting a pilot. The primary risk at this stage is selecting the wrong starting point or underinvesting in implementation planning.',
       opp:'An AI & Operations Diagnostic would validate your priorities in '+w+' and produce a deployment plan that protects the investment you are ready to make, with agreed measures for business value and customer experience.'
     }
   };
