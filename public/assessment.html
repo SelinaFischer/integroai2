@@ -1710,14 +1710,66 @@ function sendMessage(){
   }).then(function(r){return r.json()}).then(function(d){done(!!d.ok)}).catch(function(){done(false)});
 }
 
+/* LEAD RATING (for Selina only, never shown to the prospect).
+   Buying signals from the details form: who decides, how soon, and whether
+   there is a real problem. Readiness score is not part of it: a low score
+   can still be a hot lead. Watch-outs cap the rating at Warm. */
+var ROLE_PTS={'I make the final decision':2,'I influence the decision':1,'I am researching on behalf of the decision maker':1,'I am exploring personally':0};
+var TIME_PTS={'Within 1 month':2,'Within 3 months':2,'Within 6 months':1,'No clear timeline yet':0};
+var SIT_PTS={'We have a specific operational problem to solve':2,'We want to reduce manual effort or duplicated work':2,'We are exploring AI but unsure where it fits':1,'We are mainly looking for tool ideas':0};
+function leadRating(){
+  var p=(ROLE_PTS[contact.role]||0)+(TIME_PTS[contact.timeline]||0)+(SIT_PTS[contact.situation]||0);
+  var why=[],watch=[];
+  if(contact.role==='I make the final decision')why.push('decision maker');
+  else if(contact.role==='I influence the decision')why.push('influences the decision');
+  if(TIME_PTS[contact.timeline]===2)why.push(contact.timeline.toLowerCase());
+  if(SIT_PTS[contact.situation]===2)why.push(contact.situation==='We have a specific operational problem to solve'?'specific problem to solve':'wants to cut manual work');
+  if(contact.situation==='We are mainly looking for tool ideas')watch.push('mainly wants tool ideas');
+  if(contact.role==='I am exploring personally')watch.push('exploring personally, not deciding');
+  if(contact.timeline==='No clear timeline yet')watch.push('no timeline');
+  var r=p>=5?'Hot':p>=3?'Warm':'Cool';
+  if(r==='Hot'&&watch.length)r='Warm';
+  var txt=r+(why.length?': '+why.join(', '):'')+(watch.length?'. Watch: '+watch.join(', '):'');
+  return {rating:r,summary:txt};
+}
+
+/* CALL PREP: 3 questions for the discovery call, from the lowest-scoring
+   answers (ties go to the earliest question). For Selina only. */
+var CALL_QS=[
+  'If AI fixed one thing in the business this year, what would it be, and how would you measure it?',
+  'Which parts of your service do customers value most, and which would you never hand to AI?',
+  'Who would own a small AI trial, and who signs off decisions or spending?',
+  'How much time and budget could you realistically give a first trial?',
+  'Walk me through one recurring job from start to finish. Where does it usually go wrong?',
+  'Which problem costs you the most time each week, and how do you know?',
+  'Where do you find yourselves typing the same details into more than one tool?',
+  'When someone needs the latest pricing or template, where do they go, and is it always right?',
+  'What do people currently know about what can and cannot go into AI tools?',
+  'Who is already using AI day to day, and how confident are they checking the results?'
+];
+var CALL_QS_SOLO={
+  2:'What support would you need to run a small AI trial yourself?',
+  6:'Where do you find yourself typing the same details into more than one tool?',
+  7:'When you need the latest pricing or template, where do you go, and is it always right?',
+  8:'What rules do you follow about what can and cannot go into AI tools?',
+  9:'How are you using AI day to day, and how confident are you checking the results?'
+};
+function callPrep(raw){
+  var idx=raw.map(function(v,i){return i}).sort(function(a,b){return raw[a]-raw[b]||a-b}).slice(0,3);
+  return idx.map(function(i,n){return (n+1)+'. '+((sizeKey==='solo'&&CALL_QS_SOLO[i])||CALL_QS[i])}).join('\n');
+}
+
 /* SENDS */
 function sendToFormspree(score,tier,dims){
+  var lr=leadRating();
   fetch('https://formspree.io/f/'+FORMSPREE_ID,{
     method:'POST',
     headers:{'Accept':'application/json','Content-Type':'application/json'},
     body:JSON.stringify({
       email:contact.email,_replyto:contact.email,email_type:emailType(contact.email),
-      _subject:'AI Readiness Lead: '+contact.firstName+' '+contact.lastName+': '+tier+' ('+score+'/30)',
+      _subject:'['+lr.rating+'] AI Readiness Lead: '+contact.firstName+' '+contact.lastName+': '+tier+' ('+score+'/30)',
+      lead_rating:lr.summary,
+      call_prep_questions:callPrep(calcScores().raw),
       first_name:contact.firstName,last_name:contact.lastName,phone:contact.phone||'',
       company:contact.company||'',org_size:contact.size||'',industry:contact.industry||'',
       motivation:contact.motivation||'',decision_role:contact.role||'',timeline:contact.timeline||'',
@@ -1728,6 +1780,7 @@ function sendToFormspree(score,tier,dims){
   }).then(function(r){return r.json()}).then(function(d){if(d.ok)showToast('Results on their way to '+contact.email)}).catch(function(e){console.error('Formspree:',e)});
 }
 function sendToSheets(score,tier,diag){
+  var lr=leadRating();
   fetch('https://hook.eu1.make.com/qpcrejwodo9m6567lf62fshft94xcxgy',{
     method:'POST',
     headers:{'Content-Type':'application/json'},
@@ -1739,7 +1792,8 @@ function sendToSheets(score,tier,diag){
       decisionRole:contact.role||'',timeline:contact.timeline||'',
       situation:contact.situation||'',
       score:String(score),tier:tier,diagnosis:diag,
-      flags:getFlags(calcScores().raw).join(' | ')||'None'
+      flags:getFlags(calcScores().raw).join(' | ')||'None',
+      leadRating:lr.rating,leadRatingReason:lr.summary
     })
   }).catch(function(e){console.error('Sheets webhook:',e)});
 }
