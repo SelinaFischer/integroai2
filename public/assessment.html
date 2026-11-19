@@ -885,7 +885,7 @@ a{color:inherit}
           <p class="radar-summary" id="radar-summary"></p>
         </div>
         <div class="card r-panel">
-          <p class="lbl">Your Diagnosis</p>
+          <p class="lbl">What your results mean</p>
           <p class="diag-p" id="r-diag"></p>
           <div class="focus-box">
             <p class="lbl">Your recommended next step</p>
@@ -1524,6 +1524,38 @@ function getNextStep(raw,total){
   var i=getNextStepIdx(raw,total);
   return i<0?STEP_ALL_STRONG:((sizeKey==='solo'&&STEP_SOLO[i])||STEPS[i]);
 }
+/* WHAT YOUR RESULTS MEAN: strongest area (only if it scores 5 or 6), then
+   why the recommended next step comes first, then the stage paragraph. */
+var STRONG_LINES=[
+  'You know what you want to improve and how to choose where to start.',
+  'You have someone to lead a trial and time and resources to run it.',
+  'You understand how your core work runs and where it costs you.',
+  'Your information is easy to find and moves reliably between tools.',
+  'You have rules for using AI safely and people ready to use it.'
+];
+var STRONG_SOLO={1:'You can make the decisions and have time to run a trial.',4:'You have rules for using AI safely and the skills to use it.'};
+var WHY_FIRST=[
+  'Without a clear target, it is hard to tell whether any AI tool is worth paying for.',
+  'Automating the wrong task can save time but cost you the personal touch customers value.',
+  'Trials without a named owner tend to stall before they show results.',
+  'Without time set aside, a trial gets squeezed out by day-to-day work.',
+  'AI speeds up whatever process it is given, including the gaps in it.',
+  'Knowing what a problem costs is how you will judge whether a fix worked.',
+  'Retyped details are where errors and wasted time usually hide.',
+  'AI is only as reliable as the information you give it.',
+  'Before testing AI on business tasks, you need clear rules for what you share and how you check the results.',
+  'A little practice on a low-risk task builds the confidence to use AI well.'
+];
+var WHY_SOLO={2:'A trial needs you to commit to it, or it gets pushed aside.'};
+var WHY_ALL_STRONG='Your foundations are in place, so the priority is choosing the right first test.';
+function resultsMeaning(dims,raw,total){
+  var mx=Math.max.apply(null,dims),si=dims.indexOf(mx);
+  var even=dims.every(function(v){return v===mx});
+  var strong=mx>=5?(even?'Every area scores strongly.':((sizeKey==='solo'&&STRONG_SOLO[si])||STRONG_LINES[si])):'No single area stands out yet.';
+  var ni=getNextStepIdx(raw,total);
+  var why=ni<0?WHY_ALL_STRONG:((sizeKey==='solo'&&WHY_SOLO[ni])||WHY_FIRST[ni]);
+  return strong+' '+why;
+}
 /* Warnings shown to the prospect, minus the one already given as the next step */
 function getProspectFlags(raw,total){
   var skip=getNextStepIdx(raw,total);
@@ -1566,7 +1598,7 @@ function getDiag(tier,dims,raw,total){
     }
   };
   var out=c[tier];
-  if(raw) out={diag:out.diag,opp:getNextStep(raw,total)};
+  if(raw) out={diag:resultsMeaning(dims,raw,total)+' '+out.diag,opp:getNextStep(raw,total)};
   return out;
 }
 function getCtaSub(tier){
